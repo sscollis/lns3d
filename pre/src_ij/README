@@ -1,0 +1,5 @@
+6-4-97
+
+This is the pre-processor for LNS calculations.  Takes an arbitrary grid
+file as input and generates the metrics using a finite difference scheme
+or B-splines.

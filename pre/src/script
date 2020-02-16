@@ -1,0 +1,34 @@
+#
+#QSUB -eo				# stderr -> stdout
+#QSUB -o script.out			# stdout -> log file
+#QSUB -r pre	 			# name of request
+#QSUB -s /bin/csh			# use C-shell
+#QSUB -lT 300				# cpu time limit
+#QSUB -lM 20Mw				# memory required
+#
+onintr intr_handler			# just in case interrupted
+#
+# Setup some variables and flags
+#
+set echo
+setenv NCPUS 1
+#
+# Get ready for the run
+#
+cd $CSF/lns/pre
+#
+# set up job accounting, run the job and print statistics
+#
+pre < input.dat
+#
+# exit the script
+#
+exit (0)
+#
+# Interupt handler
+#
+intr_handler:
+echo "received interrupt, exit."
+#
+# end of script
+#
