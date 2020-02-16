@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+lns3d
+pre
+
+#
+Makefile
