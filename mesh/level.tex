@@ -1,0 +1,47 @@
+\magnification=\magstep1
+\def\IMSL{{\tt IMSL}}
+\def\today{\ifcase\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space\number\day, \number\year}
+
+\centerline{\bf Code notes for {\tt level.f}}
+\medskip
+\centerline{S. Scott Collis}
+\smallskip
+\centerline{\today}
+\bigskip
+
+{\tt level.f} does a least-squares B-spline fit using fifth order B-splines
+(fourth order polynomials) and builds a body-fitted mesh with algebraic
+mapping functions in $s$ and $n$.  This code was developed to generate meshes
+for Howard Kanner's airfoil, but other geometries can also be used.
+
+First, the arc-length, $s$, along the surface is estimated using piecewise
+linear interpolation and this estimate is used as the absissca for the
+B-spline interpolation.  I use the \IMSL\ routine {\tt BSVLS} to compute the
+optimal knot sequence individually for both $x$ and $y$ on the boundary.
+Then, the \IMSL\ routine {\tt CONFT}, which performs a least-squares B-spline
+with linear constraints, is called to determine a smooth B-spline interpolant
+which enforces symmetry at the leading edge.  I have found from
+experimentation that $k=5$, $n=13$ yields a reasonable approximation to
+Horward's rough points.  A slightly worse fit is given by $k=5$, $n=10$,
+however the normal vectors (i.e. the curvature) are a little better behaved.
+If need be, I think that one could use these values for a better conditioned
+curve, but I'll start with the $n=13$ value first.
+
+The smoothed B-spline and knot sequence are saved in the file {\tt bs.dat}.
+The arclength along the B-spline is computed using RK4 integration and by
+using the routine {\tt BSDER} to compute the derivative of the B-spline
+representation.  Various tangent and normal mapping functions are available by
+setting command line arguments.  To see a complete list of available options,
+type {\tt level -h}.  Given the B-spline representation, level sets are
+computed using the derivative of the B-spline to determine the surface normal
+vector.  Finally, there is the option of performing an elliptic grid smoothing
+and the final grid is saved in {\tt Plot3d} format.
+
+\bye
+
+
+
+
