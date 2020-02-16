@@ -30,6 +30,8 @@ OBJS = wdata.o  error.o
 MODS = const.o stencil.o
 OBJECTS = pre.o grad.o grad2.o 
 
+all: $(NAME)
+
 $(NAME): $(OBJS) $(MODS) $(OBJECTS)
 	 $(COMP) $(OFLAGS) $(MODS) $(OBJS) $(OBJECTS) $(LIB)
 
