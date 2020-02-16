@@ -1,0 +1,13 @@
+#!/usr/sbin/perl
+#
+#.... Switch indicies in block, banded matrix solvers
+#
+while( $l = <STDIN> ) {
+    $l =~ s/mat\((.+?),(.+?),(.+?),(.+?),(.+?)\)/mat\($1,$2,$3,$4,iv\)/g;
+    $l =~ s/rhs\((.+?),(.+?),(.+?)\)/rhs\($1,$2,iv\)/g;
+    $l =~ s/per\((.+?),(.+?),(.+?),(.+?)\)/per\($1,$2,$3,iv\)/g;
+    $l =~ s/per2\((.+?),(.+?),(.+?),(.+?)\)/per2\($1,$2,$3,iv\)/g;
+    $l =~ s/fact\((.+?)\)/fact\(iv\)/g;
+    $l =~ s/mult\((.+?)\)/mult\(iv\)/g;
+    print( $l );
+}
