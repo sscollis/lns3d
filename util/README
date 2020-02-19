@@ -60,3 +60,5 @@ grad2           yes             Take second derivative of field in space
 wdata           n/a             Write binary Plot3d solution file
 wgrid           n/a             Write binary Plot3d grid file
 
+Similar to the lns3d mesh generators, there are minor dependencies on
+commercial math libraries that the user will need to supply to successfully build
