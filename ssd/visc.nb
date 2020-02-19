@@ -1,0 +1,139 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2408,         84]*)
+(*NotebookOutlinePosition[      3046,        107]*)
+(*  CellTagsIndexPosition[      3002,        103]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Sutherlands Law", "Title"],
+
+Cell["S. Collis", "Subtitle"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\[Mu]\  = \ \(t\^\(3\/2\)\) \(1 + s\)\/\(t + s\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\((1 + s)\)\ t\^\(3/2\)\)\/\(s + t\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Simplify[D[\[Mu], t]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(\((1 + s)\)\ \@t\ \((3\ s + t)\)\)\/\(2\ \((s + t)\)\^2\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Simplify[D[\[Mu], {t, 2}]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(\((1 + s)\)\ \((3\ s\^2 - 6\ s\ t - t\^2)\)\)\/\(4\ \@t\ 
+        \((s + t)\)\^3\)\)], "Output"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{121, Automatic}, {Automatic, 147}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 32, 0, 107, "Title"],
+Cell[1766, 53, 29, 0, 64, "Subtitle"],
+
+Cell[CellGroupData[{
+Cell[1820, 57, 81, 1, 46, "Input"],
+Cell[1904, 60, 72, 1, 50, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2013, 66, 54, 1, 29, "Input"],
+Cell[2070, 69, 93, 1, 54, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2200, 75, 59, 1, 29, "Input"],
+Cell[2262, 78, 118, 2, 58, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

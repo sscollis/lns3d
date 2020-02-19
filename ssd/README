@@ -1,0 +1,7 @@
+8-28-96
+
+LNS3D: 3D unsteady compressible, linearized Navier--Stokes code 
+
+To compile on Unix systems type:  make
+
+This is the original CRAY SSD version using JI ordering.
