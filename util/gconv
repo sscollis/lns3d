@@ -1,0 +1,4 @@
+#!/bin/csh -f
+foreach file ($argv)
+  conv.sgi -g $file
+end

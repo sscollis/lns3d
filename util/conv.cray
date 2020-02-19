@@ -1,0 +1,7 @@
+#!/bin/csh -f
+foreach file ($argv)
+echo "Converting " $file
+/usr/unsupported/bin/wkconv $file .tmp
+rcp .tmp germanicus.mems.rice.edu:/disk1/collis/scratch/$file 
+/bin/rm .tmp
+end
