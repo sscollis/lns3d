@@ -2,8 +2,12 @@
 
 LNS3D compressible linearized Navier-Stokes Solver
 
-Sun Feb 16 08:32:08 MST 2020
-
-Added to GitHub
+=======================================================================
+src     Contains the primary source for lns3d flow solver
+pre     Preprocessor that makes consistent metrics from a grid file
+util    Various utilities for preparing and analyzing lns3d runs
+mesh    Mesh generators for specific types of geometries
+=======================================================================
 
 S. Scott Collis
+Sun Feb 16 08:32:08 MST 2020
