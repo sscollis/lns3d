@@ -28,6 +28,8 @@ GRAD_JI = grad_ji.o  grad2_ji.o
 
 BSLIB = bslib1.o bslib2.o
 
+NRLIB = rtsafe.o
+
 ALL = conv.sgi lpost spost npost lpost3d subwave csubwave mkamp \
 mkini mkdist mkdist3d mkmean genmesh initial nconvert getevec \
 mkvortex ij2ji ji2ij mkmean_ji lpost3d_ji mkdist3d_ji mkdist_ji \
@@ -41,11 +43,11 @@ conv.sgi: const.o conv.sgi.o wgrid.o wdata.o $(GRAD)
 lpost: const.o lpost.o  $(GRAD_JI)
 	$(COMP) $(FFLAGS) lpost.o const.o $(GRAD_JI) -o lpost
 
-spost: const.o spost.o $(GRAD_JI) filter.o $(BSLIB)
-	$(COMP) spost.o $(GRAD_JI) filter.o const.o $(LIB) $(BSLIB) -o spost
+spost: const.o spost.o $(GRAD_JI) filter.o $(BSLIB) $(NRLIB)
+	$(COMP) spost.o $(GRAD_JI) filter.o const.o $(LIB) $(BSLIB) $(NRLIB) -o spost
 
-npost: const.o npost.o $(GRAD) filter.o error.o $(BSLIB)
-	$(COMP) $(FFLAGS) npost.o $(GRAD) $(BSLIB)\
+npost: const.o npost.o $(GRAD) filter.o error.o $(BSLIB) $(NRLIB)
+	$(COMP) $(FFLAGS) npost.o $(GRAD) $(BSLIB) $(NRLIB) \
         filter.o const.o error.o $(LIB) -o npost
 
 npost_ji: const.o npost_ji.o $(GRAD_JI) filter.o
