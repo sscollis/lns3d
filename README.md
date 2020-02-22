@@ -20,13 +20,16 @@ on a baseflow to increase the fidelity of the solution.
 ## Building
 
 To build you need to link (and possibly edit) the most appropriate `*.mak`
-file 
+file.  For example, using GCC Gfortran on Mac OS X (Darwin), one would use
 
+    cd src
     ln -s gcc.mak Makefile
     
 And then
 
     make clean && make
+    
+The executable is `lns3d`.
 
 ## Index
 
