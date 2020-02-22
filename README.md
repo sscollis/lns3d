@@ -17,6 +17,17 @@ LNS3D can also solve both linear and nonlinear 2.5d-3c problems depending on the
 problem setup but the code is specifically designed to solve for perturbations
 on a baseflow to increase the fidelity of the solution.
 
+## Building
+
+To build you need to link (and possibly edit) the most appropriate `*.mak`
+file 
+
+    ln -s gcc.mak Makefile
+    
+And then
+
+    make clean && make
+
 ## Index
 
 Directory  |  Description
