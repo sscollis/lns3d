@@ -1,6 +1,8 @@
 # LNS3D compressible Navier-Stokes Solver
 
+<p align=center>
 ![Vortex](https://github.com/sscollis/lns3d/blob/master/docs/vortex-quarter.gif)
+<br><b>Compressible vortex rebound from a solid wall</b></p>
 
 ## Background
 
