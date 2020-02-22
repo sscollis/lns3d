@@ -1,4 +1,6 @@
-# LNS3D compressible linearized Navier-Stokes Solver
+# LNS3D compressible Navier-Stokes Solver
+
+![Vortex](https://github.com/sscollis/lns3d/blob/master/docs/vortex.gif)
 
 ## Background
 
@@ -8,6 +10,8 @@ and 2 dimensions (x,y).  This is sometimes refered to as 2d-3c.
 LNS3d uses a fourth-order finite-difference method and is generally designed 
 to resolve highly sensitive flow phenomena such as aero-acoustics, receptivity
 and linear instability.
+
+LNS3D can also solve nonlinear 2d-3c problems with the proper setup.
 
 ## Index
 
