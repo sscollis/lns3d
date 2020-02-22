@@ -1,6 +1,6 @@
 # LNS3D compressible Navier-Stokes Solver
 
-![Vortex](https://github.com/sscollis/lns3d/blob/master/docs/vortex.gif)
+![Vortex](https://github.com/sscollis/lns3d/blob/master/docs/vortex-quarter.gif)
 
 ## Background
 
