@@ -7,13 +7,13 @@
 ## Background
 
 Solves the compressible Navier-Stokes equations with 3-components (u,v,w)
-and 2 dimensions (x,y).  This is sometimes refered to as 2d-3c.
+and 2.5 dimensions (x,y,z) were the solution must be a single Fourier mode.
 
 LNS3d uses a fourth-order finite-difference method and is generally designed 
 to resolve highly sensitive flow phenomena such as aero-acoustics, receptivity
 and linear instability.
 
-LNS3D can also solve both linear and nonlinear 2d-3c problems depending on the 
+LNS3D can also solve both linear and nonlinear 2.5d-3c problems depending on the 
 problem setup but the code is specifically designed to solve for perturbations
 on a baseflow to increase the fidelity of the solution.
 
