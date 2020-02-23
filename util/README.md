@@ -43,9 +43,8 @@ Scripts     |   ndof,i,j   |    Comment
 ------------|--------------|--------------------------------------------
 conv        |   N/A        |    Runs conv.sgi for multiple fields
 gconv       |   N/A        |    Runs conv.sgi -g for multiple grids
-ppost       |   N/A        |    Runs npost and preplot to convert and LNS
-            |              |    field file to a tecplot.plt file
-movie_lns3d |   N/A        |    Tecplot macro for LNS3D movies  
+ppost       |   N/A        |    Runs npost and preplot to convert and LNS field file to a tecplot.plt file
+movie_lns3d |   N/A        |    Tecplot macro for LNS3D movies
 movie_cns2d |   N/A        |    Tecplot macro for CNS2D movies
 
 
