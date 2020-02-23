@@ -14,15 +14,12 @@ YES      | fully IJ throughout
 
 Executable  |   ndof,i,j   |  Comment 
 ------------|--------------|--------------------------------------------
-conv.sgi    |    n/a       |  Convert Plot3D format from SGI double  
-                              fortrani unformated to single binary
+conv.sgi    |    n/a       |  Convert Plot3D format from SGI double fortran unformated to single binary
 csubwave    |    NO        |  Subtract off a wave from a complex field
 dirp3d      |    n/a       |  Convert HDIR field to Plot3d format
 genmesh     |    yes       |  Make simple rectangular mesh
 initial     |    NO        |  Make simple initial conditions for LNS
-inter       |    NO        |  B-spline interpolation of a LNS field 
-                              from one mesh to another in computational
-                              space.
+inter       |    NO        |  B-spline interpolation of a LNS field from one mesh to another in computational space.
 lpost       |    NO        |  LNS post processor for linear calculations
 lpost3d     |    yes       |  LNS post processor for complex calculations
 mkamp       |    NO        |  Determine amplitude of forced acoustic wave
@@ -30,13 +27,10 @@ mkdist      |    IO        |  LNS disturbance initial condition for 2d flows
 mkdist3d    |    yes       |  LNS disturvance initial condition for 3d flows
 mkini       |    yes       |  LNS initial condition for 2d flows
 mkmean      |    IO        |  Make simple mean flows for LNS
-mkpot       |    NO        |  Extract potential boundary values from
-                              an LNS restart file
+mkpot       |    NO        |  Extract potential boundary values from an LNS restart file
 mkvortex    |    yes       |  Make a compressible Oseen vortex IC
 nconvert    |    NO        |  Put an eigenfunction on a grid
-npost       |    yes       |  LNS post processor for nonlinear calculations
-                              This utility can also switch indices on metrics
-                              and convert from/to conservative variables
+npost       |    yes       |  LNS post processor for nonlinear calculations. This utility can also switch indices on metrics and convert from/to conservative variables
 p3dlns3d    |    NO        |  Convert a Plot3d file into LNS field
 r4tor8      |    n/a       |  Convert a r*8 Plot3d grid file to r*4
 spost       |    NO        |  LNS post processor for swept, nonlinear, calcs
