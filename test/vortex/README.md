@@ -1,6 +1,11 @@
 # Vortex Rebound
 
+## Background
+
 This is a pair of compressible vortices that rebound off a wall.
+At Re=200, Ma=0.5 and Pr=1.
+
+## How to run
 
 The script `run.sh` shows the typical workflow and assumes that
 the solver `lns3d` and utilities are located in their standard
@@ -19,6 +24,19 @@ extention and the q-files to have a `q` extension.
 
 `mkgif.sh` uses Imagemagik::convert to created an animated gif
 of the `jpeg` files output from a Paraview animation.
+
+`cleanup` is a script that returns the directory to its original
+condition, ready to be run again.
+
+## Input files
+
+Input file     |   Description
+---------------|------------------------------------------------------------
+`lns3d.inp`    | Main input for LNS3d solver
+`mesh.inp`     | Input for genmesh in `lns3d/utils`
+`vort.inp`     | Input for `mkvortex` in `lns3d/utils' creating vortex pair
+
+---
 
 S. Scott Collis\
 Sun Feb 23 08:02:03 MST 2020
