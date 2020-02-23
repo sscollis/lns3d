@@ -1,4 +1,5 @@
 #!/bin/csh -f
 foreach file ($argv)
   env GFORTRAN_CONVERT_UNIT='swap' ./npost -D5 $file > /dev/null
+#  ./npost $file > /dev/null
 end

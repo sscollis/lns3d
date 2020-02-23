@@ -1,0 +1,4 @@
+/bin/rm output.* *.pot *.dat *.res
+/bin/rm state.* *.ij
+/bin/rm *.jpeg *.gif
+/bin/rm *.q *.xyz
