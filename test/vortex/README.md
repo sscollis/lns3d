@@ -4,7 +4,7 @@
 
 This is a pair of compressible vortices that rebound off a wall.
 At `Re=200`, `Ma=0.5` and `Pr=1`, where `Re` is the Reynolds number,
-`Ma` is the Mach number, and `Pr` is the Pradtl number.  This uses 
+`Ma` is the Mach number, and `Pr` is the Prandtl number.  This uses 
 the nonlinear analysis mode for `lns3d`.
 
 ## How to run
