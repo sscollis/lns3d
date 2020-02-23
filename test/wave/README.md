@@ -17,3 +17,7 @@ Input file   |  Description
 `mean.inp`   |  Input to `mkmean for mean.dat
 `dist.inp`   |  Input for `mkdist` for disturbance initial condition
 `mesh.inp`   |  `genmesh` input for grid and metrics
+
+To run paraview on Mac, use the following:
+
+    env LNS3D_DIR=`pwd`/../.. open /Applications/ParaView.app --args --script=`pwd`/wave.py
