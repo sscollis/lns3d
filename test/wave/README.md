@@ -21,3 +21,7 @@ Input file   |  Description
 To run paraview on Mac, use the following:
 
     env LNS3D_DIR=`pwd`/../.. open /Applications/ParaView.app --args --script=`pwd`/wave.py
+
+or the script, which does this same thing
+
+    ./plot.sh
