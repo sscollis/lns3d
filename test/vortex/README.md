@@ -6,6 +6,10 @@ The script `run.sh` shows the typical workflow and assumes that
 the solver `lns3d` and utilities are located in their standard
 locations relative to this directory.
 
+To execute this example, simply type:
+
+    ./run.sh
+
 `mpost` runs the `lns3d` nonlinear analysis post-processor `npost` 
 on all `output.R.*` files to create `output.q.*` files in Plot3d
 format.
