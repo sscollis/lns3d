@@ -1,4 +1,6 @@
-/bin/rm output.* *.pot *.dat *.res
-/bin/rm state.* *.ij
-/bin/rm *.jpeg *.gif
-/bin/rm *.q *.xyz
+#!/bin/bash
+/bin/rm -f output.* *.pot *.dat *.res && \
+/bin/rm -f state.* *.ij && \
+/bin/rm -f *.jpeg *.gif && \
+/bin/rm -f *.q *.xyz
+exit
