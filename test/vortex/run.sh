@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# Use default base directory if not 
+# already set
+#
 LNS3D_DIR="${LNS3D_DIR:=../..}"
 echo LNS3D base directory = $LNS3D_DIR
 $LNS3D_DIR/util/genmesh < mesh.inp && \
