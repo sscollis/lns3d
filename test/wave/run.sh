@@ -2,7 +2,7 @@
 #
 # Default input is explicit
 #
-INP="${1:-exp.inp}"
+INP="${1:-rk4.inp}"
 LNS3D_DIR="${LNS3D_DIR:=../..}"
 echo LNS3D base directory = $LNS3D_DIR
 echo "  Using input file $INP"
