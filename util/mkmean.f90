@@ -3,7 +3,8 @@
 !
 !  MKMEAN:  Make a mean file for the linearized Navier-Stokes solver
 !
-!  Revised:  3-15-01  Changed to IJ output format
+!  Revised:  3-15-01  Changed to IJ on input and output format, still JI
+!                     internally
 !
 !=============================================================================!
         use const

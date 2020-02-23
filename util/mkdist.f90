@@ -7,7 +7,7 @@
 !   Author:   S. Scott Collis
 !
 !   Revised:  2-03-97
-!             3-15-01  Changed output to IJ order
+!             3-15-01  Changed input and output to IJ order, still JI internal
 !
 !=============================================================================!
         use const
@@ -66,7 +66,7 @@
 
         v = zero
 
-        write(*,"('[Z]ero disturbance, [G]aussian pulse, [S]pike, [W]ave ==> ',$)")
+        write(*,"('[Z]ero, [G]aussian pulse, [S]pike, [W]ave ==> ',$)")
         read(*,"(a1)") ans
 
         if (ans.eq.'G' .or. ans.eq.'g') then

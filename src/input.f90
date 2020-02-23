@@ -130,6 +130,7 @@
 !       1 = implicit (first-order backward Euler)
 !       2 = implicit (second-order two-step backward)
 !       3 = implicit (second-order mid-point rule)
+!       4 = eigen-analysis
 !
 !.... iLHS   = order of LHS (0 = second-order, 1 = fourth-order)
 !.... niter  = number of implicit iterations
