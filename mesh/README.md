@@ -1,4 +1,4 @@
-# LNS Grid tools
+## LNS Grid tools
 
 The following grid generators all function however, they use the old JI 
 metric format so you have to use the -ms flag on updated codes.
