@@ -1,9 +1,12 @@
 !=============================================================================!
         program mkdist3d
 !
-!  Make an initial condition for the 3-D linearized Navier-Stokes solver
+!       Make an initial condition for the 3-D linearized Navier-Stokes solver
 !
-!  Revised: 3-15-2001  Changed to IJ format
+!       Revised: 3-15-2001  Changed to IJ format
+!       Revised: 2-25-2020  Added new wave and Gaussian pulse
+!
+!       Note that the new disturbances are not fully debugged yet...
 !
 !=============================================================================!
         use const
@@ -28,11 +31,12 @@
 
 !.... variables for the acoustic pulse
 
-        complex :: c1, c2, c3, c4, rho, u1, u2, u3, t, p, rhom, tm, cm
+        complex :: c1, c2, c3, c4, rho, u1, u2, u3, t, p
+        real    :: rhom, tm, cm, sigma, x0
         integer :: i, j, k
 
-        character*80 :: line, code='Initial$'
-        character*1 ans
+        character(80) :: line, code='Initial$'
+        character(1) :: ans
 !=============================================================================!
 
 !.... read in the grid file
@@ -64,10 +68,91 @@
 
         v = zero
 
-        write(*,"('[Z]ero disturbance, [W]ave, [S]pike ==> ',$)")
+        write(*,"('[Z]ero disturbance, [G]aussian pulse, [W]ave, [O]ld wave, [S]pike ==> ',$)")
         read(*,"(a1)") ans
 
-        if (ans.eq.'W' .or. ans.eq.'w') then
+        if (ans.eq.'g' .or. ans.eq.'G') then
+          write(*,"('Enter sigma, x0 ==> ',$)")
+          read(*,*) sigma, x0
+          do j = 1, ny
+            do i = 1, nx
+              rhom = vm(1,i,j)
+              tm   = vm(5,i,j)
+              cm   = sqrt( tm ) / Ma
+
+              c1 = zero
+              c2 = zero
+              c3 = exp(-pt5 * ((x(i,j) - x0)/sigma)**2)
+              c4 = zero
+
+              rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2
+              u1  = ( c3 - c4 ) * pt5 / ( rhom * cm )
+              u2  = c2 / ( rhom * cm )
+              u3  = zero 
+              p   = ( c3 + c4 ) * pt5
+              t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
+
+              v(1,i,j) = rho
+              v(2,i,j) = u1
+              v(3,i,j) = u2
+              v(4,i,j) = u3
+              v(5,i,j) = t
+            end do
+!           write(11,10) x(1,i), v(1,i,1), v(1,i,2), v(1,i,3), v(1,i,5)
+          end do
+        else if (ans.eq.'O' .or. ans.eq.'o') then
+          write(*,"('Enter Lx, Ly, Lz ==> ',$)")
+          read(*,*) Lx, Ly, Lz
+
+          if (Lx.eq.zero) then
+            kx = zero
+          else
+            kx = two * pi / Lx
+          end if
+
+          if (Ly.eq.zero) then
+            ky = zero
+          else
+            ky = two * pi / Ly
+          end if
+
+          if (Lz.eq.zero) then
+            kz = zero
+          else
+            kz = two * pi / Lz
+          end if
+
+          kk = sqrt( ky**2 + kz**2 )
+          do j = 1, ny
+            do i = 1, nx
+              rhom = vm(1,i,j)
+              tm   = vm(5,i,j)
+              cm   = sqrt( tm ) / Ma
+
+              c1 = zero
+              c2 = zero
+              c3 = cos( kx * x(i,j) ) * cos( ky * y(i,j) ) - &
+                   sin( kx * x(i,j) ) * sin( ky * y(i,j) ) + &
+                   im * ( cos( kx * x(i,j) ) * sin( ky * y(i,j) ) + &
+                          sin( kx * x(i,j) ) * cos( ky * y(i,j) ) )
+              c4 =  zero
+
+              rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2
+              u1  = c2 / ( rhom * cm )
+              u2  = ky / kk * ( c3 - c4 ) * pt5 / ( rhom * cm )
+              u3  = kz / kk * ( c3 - c4 ) * pt5 / ( rhom * cm )
+              p   = ( c3 + c4 ) * pt5
+              t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
+
+              v(1,i,j) = rho
+              v(2,i,j) = u1
+              v(3,i,j) = u2
+              v(4,i,j) = u3
+              v(5,i,j) = t
+            end do
+!           write(11,10) x(1,i), v(1,i,1), v(1,i,2), v(1,i,3), v(1,i,5)
+          end do
+        else if (ans.eq.'W' .or. ans.eq.'w') then
           write(*,"('Enter Lx, Ly, Lz ==> ',$)")
           read(*,*) Lx, Ly, Lz
 
@@ -99,11 +184,14 @@
               
               c1 = zero
               c2 = zero
-!!$           c3 = cos( kx * x(i,j) ) * cos( ky * y(i,j) ) - &
-!!$                sin( kx * x(i,j) ) * sin( ky * y(i,j) ) + &
-!!$                im * ( cos( kx * x(i,j) ) * sin( ky * y(i,j) ) + &
-!!$                          sin( kx * x(i,j) ) * cos( ky * y(i,j) ) )
+#if 1
+              c3 = cos( kx * x(i,j) ) * cos( ky * y(i,j) ) - &
+                   sin( kx * x(i,j) ) * sin( ky * y(i,j) ) + &
+                   im * ( cos( kx * x(i,j) ) * sin( ky * y(i,j) ) + &
+                          sin( kx * x(i,j) ) * cos( ky * y(i,j) ) )
+#else
               c3 = cos( kx * x(i,j) )
+#endif
               c4 =  zero
 
               rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2

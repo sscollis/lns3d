@@ -61,7 +61,7 @@ end module lpost3d
 
         integer :: i, j, k, idof
 
-        character*80 file, temp
+        character(80) file, temp
         integer :: iloc, iend
 #ifndef __GFORTRAN__    
         integer, external :: iargc
@@ -99,7 +99,7 @@ end module lpost3d
         integer, parameter :: mfile = 5
         integer :: body=0, emax=0
         integer :: narg, iarg, nfile=0, ifile(mfile)
-        character*80 :: arg
+        character(80) :: arg
         logical :: oreal=.true.
 !=============================================================================!
 !.... parse the argument list
@@ -435,6 +435,7 @@ end module lpost3d
         read(*,*) nz
         write(*,"('Enter Lz, Nkz (periodic extension) ==> ',$)")
         read(*,*) Lz, Nkz
+
         if (Lz.eq.zero) then
           kz = zero
         else
@@ -474,7 +475,7 @@ end module lpost3d
         end if
 
         write(*,*) 'Writing 3D output file'
-        open(unit=10, file='out3d.dat', form='unformatted', status='unknown')
+        open(unit=10, file='out3d.q', form='unformatted', status='unknown')
         write(10) nx, ny, nz
         write(10) Ma, Pr, Re, time
         write(10) u
@@ -495,7 +496,7 @@ end module lpost3d
         end do
 
         write(*,*) 'Writing 3D grid file'
-        open(unit=10,file='grid3d.dat',form='unformatted',status='unknown')
+        open(unit=10,file='grid3d.xyz',form='unformatted',status='unknown')
         write(10) nx, ny, nz
         write(10) xyz
         close(10)
