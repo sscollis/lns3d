@@ -53,5 +53,5 @@ workflows and capabilities of `lns3d` that can both help assess that
 your build are working correctly and show new users how to setup and
 run problems.
 
-S. Scott Collis
+S. Scott Collis\
 Wed Feb 26 06:32:22 MST 2020
