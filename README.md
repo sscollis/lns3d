@@ -31,12 +31,27 @@ And then
     
 The executable is `lns3d`.
 
-## Index
+## Auxiliary Tools
+
+The following tables describes the supporting tools for `lns3d` that are
+required for complete end-to-end workflows and analysis.
 
 Directory  |  Description
 -----------|-----------------------------------------------------------
-src        |  Primary source for lns3d flow solver
-ssd        |  Original Cray SSD enabled source for lns3d flow solver
-pre        |  Preprocessor that makes consistent metrics from a grid file
-util       |  Various utilities for preparing and analyzing lns3d runs
-mesh       |  Mesh generators for specific types of geometries
+`src`      |  Primary source for lns3d flow solver
+`ssd`      |  Original Cray SSD enabled source for lns3d flow solver
+`pre`      |  Preprocessor that makes consistent metrics from a grid file
+`util`     |  Various utilities for preparing and analyzing lns3d runs
+`mesh`     |  Mesh generators for specific types of geometries
+`test`     |  Simple tests and examples of `lns3d` and tools
+
+Each of these tool directories contains a separate `README` file that
+describes how to build and use them.  
+
+Finally, the `test` directory contines several examples demonstrating
+workflows and capabilities of `lns3d` that can both help assess that 
+your build are working correctly and show new users how to setup and
+run problems.
+
+S. Scott Collis
+Wed Feb 26 06:32:22 MST 2020
