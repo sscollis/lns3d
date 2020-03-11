@@ -7,6 +7,7 @@ c
 c  Author:   S. Scott Collis
 c
 c  Revised:  9-6-96
+c  Revised:  3-11-2020
 c
 c=============================================================================c
 c       implicit double precision (a-h,o-z)
@@ -71,7 +72,65 @@ c.... fourth order biased difference ( 1 x 2 3 4 5 )
         parameter ( gb3 =  1.500000000000000000000E+00 )
         parameter ( gb4 = -5.000000000000000000000E-01 )
         parameter ( gb5 =  8.333333333333333333333E-02 )
+
+        integer narg, iarg
+        character(80) arg
+
+        logical metric_ji
+        integer xflag, yflag
 c=============================================================================c
+        metric_ji = .false.
+        xflag = 1
+        yflag = 1
+c
+c.... parse the argument list
+c
+        narg = iargc()
+        do iarg = 1, narg
+          call getarg(iarg,arg)
+          select case (arg(1:3))
+          case ('-ms')
+            metric_ji = .true.
+          case ('-ji')
+            metric_ji = .true.
+          case ('-x1')           ! exponential (default)
+            xflag = 1
+c         case ('-x2')           ! hyperbolic tangent
+c           xflag = 2
+          case ('-x3')           ! Mahesh in xi
+            xflag = 3
+c         case  ('-x4')          ! Mahesh in s
+c           xflag = 4
+          case ('-y1')           ! exponential (default)
+            yflag = 1
+          case ('-y2')           ! hyperbolic tangent
+            yflag = 2
+c         case ('-y3')           ! Mahesh
+c           yflag = 3
+          case ('-h')
+            write(*,"('-----------------------------------------------')")
+            write(*,"('Usage:  mse [options] ')")
+            write(*,"('-----------------------------------------------')")
+            write(*,"('   -h:  this help')")
+            write(*,"('-----------------------------------------------')")
+            write(*,"('  -ms:  write metrics in ji format')")
+            write(*,"('  -ji:  write metrics in ji format')")
+            write(*,"('  -x1:  exponential stretching in x (default)')")
+c           write(*,"('  -x2:  hyperbolic tangent map in x')")
+            write(*,"('  -x3:  Mahesh''s mapping in x')")
+c           write(*,"('  -x4:  Mahesh''s mapping in s')")
+            write(*,"('  -y1:  exponential stretching in y (default)')")
+            write(*,"('  -y2:  hyperbolic tangent map in y')")
+c           write(*,"('  -y3:  Mahesh''s mapping in y')")
+            write(*,"('-----------------------------------------------')")
+            call exit(0)
+          case default
+            write(*,"('Argument ',i2,' ignored.')") iarg
+          end select
+        end do
+c
+c.... keyboard input
+c
         write(*,"('Enter AR (often 6) ==> ',$)")
         read(*,*) AR
         xmin = zero
@@ -93,10 +152,12 @@ c
         if (nx.gt.mx) stop 'nx > mx'
         dxi = one / real(nx-1)
         ds  = (smax-smin) / real(nx-1)
+
+        write(*,*) 'Smax = ',smax,', xloc(smax) = ',xloc(xmin,smax)
 c
 c.... exponential map in the streamwise direction
 c
-        if (.false.) then
+        if (xflag.eq.1) then
           write(*,"('Enter dsmin ==> ',$)") 
           read(*,*) dsmin
           sx = calcs( smin, smax, dsmin, dxi )
@@ -119,7 +180,7 @@ c
 c
 c.... Mahesh mapping, personal communication (6-5-96)
 c
-        if (.true.) then
+        if (xflag.eq.3) then
           write(*,"('Enter dsmin, b, sc ==> ',$)") 
           read(*,*) dsmin, b, sc
           cm = ( two * b * tanh(b*sc) + (nx-1)*dsmin/smax * 
@@ -246,9 +307,9 @@ c
 
         end if
         
-        call NR_SPLINE(zz,  s1,npts,1.0d31,1.0d31,  s2)
-        call NR_SPLINE(zz, ds1,npts,1.0d31,1.0d31, ds2)
-        call NR_SPLINE(zz,dss1,npts,1.0d31,1.0d31,dss2)
+        call NR_SPLINE(zz,  s1,npts,1.0d11,1.0d11,  s2)
+        call NR_SPLINE(zz, ds1,npts,1.0d11,1.0d11, ds2)
+        call NR_SPLINE(zz,dss1,npts,1.0d11,1.0d11,dss2)
 c
 c.... arbitrary mapping function or uniform mesh
 c
@@ -277,6 +338,8 @@ c           call NR_SPLINT(zz,s1,s2,npts, xi(i), ss(i), dss(i), d2ss(i))
           end do
         end if
 c
+c=============================================================================
+c
 c.... discretize in the body normal direction
 c
         if (ny.gt.my) stop 'ny > my'
@@ -286,7 +349,7 @@ c
 c
 c.... exponential map in the wall normal direction
 c
-        if (.true.) then
+        if (yflag.eq.1) then
           write(*,"('Enter drmin ==> ',$)") 
           read(*,*) drmin
           sr = calcs( rmin, rmax, drmin, deta )
@@ -309,7 +372,7 @@ c
 c
 c.... Hyperbolic tangent stretching
 c
-        if (.false.) then
+        if (yflag.eq.2) then
         rd1 = 0.0005d0                  ! set for R=2400 MSE, r=50
         rd2 = 5.0d0
         dd  = 5.36966703089523d0        
@@ -379,6 +442,14 @@ c
           xold = xl
         end do
         write(*,*) 'Making the mesh'
+c
+c... Quick diagnostic
+c
+#ifdef MSE_DEBUG
+        do i = 2, nx
+          write(*,*) xb(i-1), xb(i), arc(xb(i-1),xb(i)), ss(i), arc(0.0,xb(i))
+        end do
+#endif
 c
 c.... Make the mesh
 c
@@ -845,22 +916,42 @@ c
      &              (((real(rn22(i,j)), i=1,nx), j=1,ny), k = 1, nz),
      &              (((real(rjac(i,j)), i=1,nx), j=1,ny), k = 1, nz)
           close(10)
+
+          if (metric_ji) then
 c
 c.... write out the metric file (Note the order of i and j are reversed)
 c
-          open (unit=10, file='metric.dat', form='unformatted', 
-     &          status='unknown')
-          write(10) (( real( rm1(i,j)), j=1,ny), i=1,nx),
-     &              (( real( rm2(i,j)), j=1,ny), i=1,nx),
-     &              (( real( rn1(i,j)), j=1,ny), i=1,nx),
-     &              (( real( rn2(i,j)), j=1,ny), i=1,nx),
-     &              (( real(rm11(i,j)), j=1,ny), i=1,nx),
-     &              (( real(rm12(i,j)), j=1,ny), i=1,nx),
-     &              (( real(rm22(i,j)), j=1,ny), i=1,nx),
-     &              (( real(rn11(i,j)), j=1,ny), i=1,nx),
-     &              (( real(rn12(i,j)), j=1,ny), i=1,nx),
-     &              (( real(rn22(i,j)), j=1,ny), i=1,nx)
-          close(10)
+            open (unit=10, file='metric.dat', form='unformatted',
+     &            status='unknown')
+            write(10) (( real( rm1(i,j)), j=1,ny), i=1,nx),
+     &                (( real( rm2(i,j)), j=1,ny), i=1,nx),
+     &                (( real( rn1(i,j)), j=1,ny), i=1,nx),
+     &                (( real( rn2(i,j)), j=1,ny), i=1,nx),
+     &                (( real(rm11(i,j)), j=1,ny), i=1,nx),
+     &                (( real(rm12(i,j)), j=1,ny), i=1,nx),
+     &                (( real(rm22(i,j)), j=1,ny), i=1,nx),
+     &                (( real(rn11(i,j)), j=1,ny), i=1,nx),
+     &                (( real(rn12(i,j)), j=1,ny), i=1,nx),
+     &                (( real(rn22(i,j)), j=1,ny), i=1,nx)
+            close(10)
+          else
+c
+c.... write out the metric file in IJ ordering
+c
+            open (unit=10, file='metric.dat', form='unformatted',
+     &            status='unknown')
+            write(10) (( real( rm1(i,j)), i=1,nx), j=1,ny),
+     &                (( real( rm2(i,j)), i=1,nx), j=1,ny),
+     &                (( real( rn1(i,j)), i=1,nx), j=1,ny),
+     &                (( real( rn2(i,j)), i=1,nx), j=1,ny),
+     &                (( real(rm11(i,j)), i=1,nx), j=1,ny),
+     &                (( real(rm12(i,j)), i=1,nx), j=1,ny),
+     &                (( real(rm22(i,j)), i=1,nx), j=1,ny),
+     &                (( real(rn11(i,j)), i=1,nx), j=1,ny),
+     &                (( real(rn12(i,j)), i=1,nx), j=1,ny),
+     &                (( real(rn22(i,j)), i=1,nx), j=1,ny)
+            close(10)
+          end if
         end if
 
         stop      
@@ -889,8 +980,8 @@ c=============================================================================c
         dxmin = dxmin1
         ds = ds1
         
-c       calcs = rtflsp(funcs, 1.01d0, 1.02d0, 1.0d-14)
-        calcs = zbrent(funcs, 1.0001d0, 1.5d0, 1.0d-14)
+c       calcs = rtflsp(funcs, 1.01e0, 1.02e0, 1.0e-11)
+        calcs = zbrent(funcs, 1.0001e0, 1.5e0, 1.0e-11)
 
         return
         end
@@ -935,9 +1026,9 @@ c=============================================================================c
         darc = ds
         x1   = x
 
-c       xloc = rtsec(func,x1,xmax,1.0d-13)
-        xloc = rtflsp(func,x1,x1+two*ds,1.0d-14)
-c       xloc = zbrent(func,x1,x1+two*ds,1.0d-14)
+c       xloc = rtsec(func,x1,xmax,1.0e-11)
+        xloc = rtflsp(func,x1,x1+two*ds,1.0e-11)
+c       xloc = zbrent(func,x1,x1+two*ds,1.0e-11)
 
         return
         end 
@@ -961,6 +1052,9 @@ c=============================================================================c
 c       implicit double precision (a-h,o-z)
         parameter (zero=0.0d0, pt5=0.5d0, one=1.0d0, two=2.0d0)
 
+        parameter EPS = 1.0e-10
+        parameter HMIN = 1.0e-8
+
         external derivs1, derivs2, RKQCR
 
         common /stuff/ AR, rm, rn, xmin, xmax
@@ -983,24 +1077,22 @@ c=============================================================================c
         if (x1 .le. xtmp) then
            y1 = ( one - ( one - x1/AR )**rm )**(one/rn)
            if (x2 .le. xtmp) then
-              y2 = ( one - ( one - x2/AR )**rm )**(one/rn)
+             y2 = ( one - ( one - x2/AR )**rm )**(one/rn)
            else
-              y2 = ( one - ( one - xtmp/AR )**rm )**(one/rn)
+             y2 = ( one - ( one - xtmp/AR )**rm )**(one/rn)
            end if
-
-           call ODEINTR(s,1,y1,y2,1.0d-13,(y2-y1)*pt5,
-     &                  1.d-14,nok,nbad,derivs2,RKQCR)
-
+           call ODEINTR(s,1,y1,y2,EPS,(y2-y1)*pt5,
+     &                  HMIN,nok,nbad,derivs2,RKQCR)
+c          write(*,*) "1: NOK = ", nok, ', NBAD = ', nbad
            if (x2 .gt. xtmp) then
-              call ODEINTR(s,1,xtmp,x2,1.0d-13,(x2-x1)*pt5,
-     &                     1.d-14,nok,nbad,derivs1,RKQCR)
+             call ODEINTR(s,1,xtmp,x2,EPS,(x2-xtmp)*pt5,
+     &                    HMIN,nok,nbad,derivs1,RKQCR)
+c            write(*,*) "2: NOK = ", nok, ', NBAD = ', nbad
            end if
-
         else
-
-           call ODEINTR(s,1,x1,x2,1.0d-13,(x2-x1)*pt5,
-     &                  1.d-14,nok,nbad,derivs1,RKQCR)
-
+           call ODEINTR(s,1,x1,x2,EPS,(x2-x1)*pt5,
+     &                  HMIN,nok,nbad,derivs1,RKQCR)
+c          write(*,*) "3: NOK = ", nok, ', NBAD = ', nbad
         end if
 
         arc = s
