@@ -1,0 +1,71 @@
+#! /bin/csh -f 
+# Name the versions of a file, within a given range.
+# Assuming the version number is just tacked on as an extension.
+#	verlist BASE RANGE FULL
+# RANGE may be a number, or 2 numbers separated by a colon (:).
+# A positive number stands for that version number.  A non-positive
+# number stands for the highest-numbered version plus that number.
+# Eg, 0 stands for the highest numbered version.
+#
+# FULL = 1 outputs full filenames
+# FULL = 0 outputs only version numbers
+
+set self = verlist
+set botch = 0
+alias warning 'echo $self\: "***WARNING***" \!*; set botch=1'
+set noglob
+
+# get command line arguments
+set file = $1; shift
+if ( $#argv > 2 ) then
+    warning EXCESS ARGUMENTS -- IGNORED
+endif
+set range = (`echo $1 | tr ':' ' '`)
+set full = $2
+
+# put range in normal form
+if ( $#range > 2 ) then
+    warning ILL-FORMED RANGE IN $x
+    exit $botch
+endif
+if ( $#range < 1 ) \
+    set range = (1 0)
+if ( $#range == 1 ) \
+    set range = ($range $range)
+
+# get full list of versions
+unset noglob
+set l = (/dev/[n]ull $file.[0-9]*)
+set noglob
+shift l
+if ( $#l <= 0 ) then
+    # warning NO VERSIONS PRESENT OF $x
+    exit $botch
+endif
+
+# put in numeric order (stripped of basename)
+set l = (`echo ${l:ge} | tr ' ' '\12' | sort -n`)
+
+# handle non-positive numbers
+if ( $range[1] <= 0 ) \
+    @ range[1] = $l[$#l] + $range[1]
+if ( $range[2] <= 0 ) \
+    @ range[2] = $l[$#l] + $range[2]
+
+# build output list
+set i = ()
+foreach x ($l)
+  if ( $full == 1) then
+    if ( $range[1] <= $x && $x <= $range[2] ) \
+	set i = ($i $file.$x)
+  else
+    if ( $range[1] <= $x && $x <= $range[2] ) \
+	set i = ($i $x)
+  endif
+end
+
+# finally echo the output list
+echo $i
+
+unset noglob
+exit $botch

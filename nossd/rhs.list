@@ -1,0 +1,23 @@
+Parallelization Log for Subprogram rhs_
+
+   20: PARALLEL (Auto) __mpdo_rhs_1
+
+   26: PARALLEL (Auto) __mpdo_rhs_2
+
+   32: PARALLEL (Auto) __mpdo_rhs_3
+
+   38: PARALLEL (Auto) __mpdo_rhs_4
+
+   47: PARALLEL (Auto) __mpdo_rhs_5
+
+   66: PARALLEL (Auto) __mpdo_rhs_6
+
+   67: PARALLEL (Auto) __mpdo_rhs_7
+
+   68: PARALLEL (Auto) __mpdo_rhs_8
+
+   69: PARALLEL (Auto) __mpdo_rhs_9
+
+   70: PARALLEL (Auto) __mpdo_rhs_10
+
+

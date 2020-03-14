@@ -1,0 +1,173 @@
+Parallelization Log for Subprogram grad_
+
+   84: PARALLEL (Auto) __mpdo_grad_1
+   84: Not Parallel
+         Loop is contained within a parallel construct.
+
+   91: PARALLEL (Auto) __mpdo_grad_2
+   91: Not Parallel
+         Loop is contained within a parallel construct.
+
+   98: PARALLEL (Auto) __mpdo_grad_3
+   98: Not Parallel
+         Loop is contained within a parallel construct.
+
+  105: PARALLEL (Auto) __mpdo_grad_4
+  105: Not Parallel
+         Loop is contained within a parallel construct.
+
+  112: PARALLEL (Auto) __mpdo_grad_5
+  112: Not Parallel
+         Loop is contained within a parallel construct.
+
+  119: PARALLEL (Auto) __mpdo_grad_6
+  119: Not Parallel
+         Loop is contained within a parallel construct.
+
+  119: PARALLEL (Auto) __mpdo_grad_7
+  119: Not Parallel
+         Loop is contained within a parallel construct.
+
+  124: PARALLEL (Auto) __mpdo_grad_8
+  124: Not Parallel
+         Loop is contained within a parallel construct.
+
+  138: PARALLEL (Auto) __mpdo_grad_9
+  138: Not Parallel
+         Loop is contained within a parallel construct.
+
+  151: PARALLEL (Auto) __mpdo_grad_10
+  151: Not Parallel
+         Loop is contained within a parallel construct.
+
+  156: PARALLEL (Auto) __mpdo_grad_11
+  156: Not Parallel
+         Loop is contained within a parallel construct.
+
+  161: PARALLEL (Auto) __mpdo_grad_12
+  161: Not Parallel
+         Loop is contained within a parallel construct.
+
+  167: PARALLEL (Auto) __mpdo_grad_13
+  167: Not Parallel
+         Loop is contained within a parallel construct.
+
+  178: PARALLEL (Auto) __mpdo_grad_14
+
+  185: Not Parallel
+         Loop is contained within a parallel construct.
+
+  192: Not Parallel
+         Loop is contained within a parallel construct.
+
+  199: Not Parallel
+         Loop is contained within a parallel construct.
+
+  209: PARALLEL (Auto) __mpdo_grad_15
+
+  216: Not Parallel
+         Loop is contained within a parallel construct.
+
+  223: Not Parallel
+         Loop is contained within a parallel construct.
+
+  230: Not Parallel
+         Loop is contained within a parallel construct.
+
+  241: PARALLEL (Auto) __mpdo_grad_16
+  241: Not Parallel
+         Loop is contained within a parallel construct.
+  241: Not Parallel
+         Loop is contained within a parallel construct.
+
+  254: PARALLEL (Auto) __mpdo_grad_17
+  254: Not Parallel
+         Loop is contained within a parallel construct.
+
+  261: PARALLEL (Auto) __mpdo_grad_18
+  261: Not Parallel
+         Loop is contained within a parallel construct.
+
+  268: PARALLEL (Auto) __mpdo_grad_19
+  268: Not Parallel
+         Loop is contained within a parallel construct.
+
+  275: PARALLEL (Auto) __mpdo_grad_20
+  275: Not Parallel
+         Loop is contained within a parallel construct.
+
+  282: PARALLEL (Auto) __mpdo_grad_21
+  282: Not Parallel
+         Loop is contained within a parallel construct.
+
+  289: PARALLEL (Auto) __mpdo_grad_22
+  289: Not Parallel
+         Loop is contained within a parallel construct.
+
+  289: PARALLEL (Auto) __mpdo_grad_23
+  289: Not Parallel
+         Loop is contained within a parallel construct.
+
+  293: PARALLEL (Auto) __mpdo_grad_24
+  293: Not Parallel
+         Loop is contained within a parallel construct.
+
+  299: PARALLEL (Auto) __mpdo_grad_25
+  299: Not Parallel
+         Loop is contained within a parallel construct.
+
+  305: PARALLEL (Auto) __mpdo_grad_26
+  305: Not Parallel
+         Loop is contained within a parallel construct.
+
+  310: PARALLEL (Auto) __mpdo_grad_27
+  310: Not Parallel
+         Loop is contained within a parallel construct.
+
+  315: PARALLEL (Auto) __mpdo_grad_28
+  315: Not Parallel
+         Loop is contained within a parallel construct.
+
+  321: PARALLEL (Auto) __mpdo_grad_29
+  321: Not Parallel
+         Loop is contained within a parallel construct.
+
+  331: PARALLEL (Auto) __mpdo_grad_30
+  331: Not Parallel
+         Loop is contained within a parallel construct.
+  331: Not Parallel
+         Loop is contained within a parallel construct.
+
+  341: PARALLEL (Auto) __mpdo_grad_31
+  341: Not Parallel
+         Loop is contained within a parallel construct.
+
+  348: PARALLEL (Auto) __mpdo_grad_32
+  348: Not Parallel
+         Loop is contained within a parallel construct.
+
+  355: PARALLEL (Auto) __mpdo_grad_33
+  355: Not Parallel
+         Loop is contained within a parallel construct.
+
+  362: PARALLEL (Auto) __mpdo_grad_34
+  362: Not Parallel
+         Loop is contained within a parallel construct.
+
+  369: PARALLEL (Auto) __mpdo_grad_35
+  369: Not Parallel
+         Loop is contained within a parallel construct.
+
+  376: PARALLEL (Auto) __mpdo_grad_36
+  376: Not Parallel
+         Loop is contained within a parallel construct.
+
+  383: PARALLEL (Auto) __mpdo_grad_37
+  383: Not Parallel
+         Loop is contained within a parallel construct.
+
+  390: PARALLEL (Auto) __mpdo_grad_38
+  390: Not Parallel
+         Loop is contained within a parallel construct.
+
+

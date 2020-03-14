@@ -1,0 +1,16 @@
+8-28-96
+
+LNS3D: 3D unsteady compressible, linearized Navier--Stokes code 
+
+To compile on Unix systems type:  make
+
+6-25-98
+
+I have brought this up-to-date (almost) with the SSD version on the Cray C90.
+Routines that have not been fully updated will generate an error upon entry.
+
+These include:
+
+impdrv3d.f90
+
+7-24-98:  Changed module names stuff -> global

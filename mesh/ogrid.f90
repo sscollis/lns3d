@@ -26,11 +26,49 @@
         integer :: nmax
         real :: eps
 
-        real, external :: foil
+        real, external :: sharp_foil
+        real, external :: rounded_foil
 
         character(80) :: name
-!=============================================================================c
 
+        integer :: narg, iarg
+        character(128) arg
+        logical :: airfoil=.false.
+        logical :: rounded=.true.
+!=============================================================================c
+ 
+!.... parse the argument list
+ 
+        narg = iargc()
+        do iarg = 1, narg
+          call getarg(iarg,arg)
+          select case (arg(1:2))
+          case ('-a')
+            airfoil = .true.
+            rounded = .true.
+          case ('-s')
+            airfoil = .true.
+            rounded = .false.
+          case ('-c')
+            airfoil = .false.
+          case ('-h')
+            write(*,"('-----------------------------------------------')")
+            write(*,"('Usage:  ogrid [options]                        ')")
+            write(*,"('-----------------------------------------------')")
+            write(*,"('   -h:  this help                              ')")
+            write(*,"('-----------------------------------------------')")
+            write(*,"('   -a:  use rounded TE airfoil geometry        ')")
+            write(*,"('   -s:  use sharp TE airfoil geometry        ')")
+            write(*,"('   -c:  use circle geometry (default)          ')")
+            write(*,"('-----------------------------------------------')")
+            call exit(0)
+          case default
+            write(*,"('Argument ',i2,' ignored.')") iarg
+          end select
+        end do
+ 
+!.... get the maximum indices in ij directions
+ 
         write(*,"('Enter im, jm ==> ',$)")
         read(*,*) im, jm
 
@@ -40,28 +78,35 @@
 
         dx = one / real(im - 1)
         dtheta = two * pi / real(im-1)
-#ifdef USE_FOIL
-        name = "foil.xyz"
-        write(*,*) "Building mesh for an airfoil"
-        do i = 1, im
-!         theta = pi - real(i-1) * dtheta
-          theta = -real(i-1) * dtheta
-!         x(i,1) = real(i-1) * dx
-          x(i,1) = ( cos( theta ) + one) * pt5
-          y(i,1) = foil( x(i,1), 0.1 )
-          if (theta .gt. -pi) y(i,1) = -y(i,1)
-          write (10,*) x(i,1), y(i,1), theta
-        end do
+        if (airfoil) then
+          name = "foil.xyz"
+          write(*,*) "Building mesh for an airfoil"
+          do i = 1, im
+#if 0
+            theta = pi - real(i-1) * dtheta
+            x(i,1) = real(i-1) * dx
 #else
-        name = "circ.xyz"
-        write(*,*) "Building mesh for a circular cylinder"
-        do i = 1, im
-          theta = - real(i-1) * dtheta
-          x(i,1) = ( cos( theta ) + one) * pt5
-          y(i,1) = ( sin( theta ) ) * pt5
-          write (10,*) x(i,1), y(i,1), theta
-        end do
+            theta = -real(i-1) * dtheta
+            x(i,1) = ( cos( theta ) + one) * pt5
 #endif
+            if (rounded) then
+              y(i,1) = rounded_foil( x(i,1), 0.1 )
+            else
+              y(i,1) = sharp_foil( x(i,1), 0.1 )
+            endif
+            if (theta .gt. -pi) y(i,1) = -y(i,1)
+            write (10,*) x(i,1), y(i,1), theta
+          end do
+        else
+          name = "circ.xyz"
+          write(*,*) "Building mesh for a circular cylinder"
+          do i = 1, im
+            theta = - real(i-1) * dtheta
+            x(i,1) = ( cos( theta ) + one) * pt5
+            y(i,1) = ( sin( theta ) ) * pt5
+            write (10,*) x(i,1), y(i,1), theta
+          end do
+        end if
 
 !.... make the mesh along the top circle
 
@@ -105,14 +150,43 @@
         end 
 
 !=============================================================================c
-        function foil(x,t)
+        function rounded_foil(x,t)
 !=============================================================================c
         implicit none
-
         real foil, x, t
+        real r, x0, y0, y, term, xp
+        real :: rounded_foil
+        real, external :: sharp_foil
+!=============================================================================c
+        r  = 0.00255       ! SSC: hand tuned
+        x0 = 1.0 - r
+        y0 = 0.0
+        xp = x/(1.0+0.02)  ! SSC:  hand tuned
+        foil = sharp_foil(xp,t)
+        if (x.ge.x0) then
+          term = r**2 - (x-x0)**2
+          if (term.le.0) then
+            y = 0.0
+          else
+            y = sqrt(term) + y0
+          end if
+          write (*,*) x, y, foil 
+          if (y.lt.foil) foil = y
+        end if 
+        rounded_foil = foil
+        return
+        end
+
+!=============================================================================c
+        function sharp_foil(x,t)
+!=============================================================================c
+        implicit none
+        real foil, x, t
+        real sharp_foil
 !=============================================================================c
         foil = t/0.2 * ( 0.2969 * sqrt(x) - 0.1281 * x - 0.3516 * x**2 + &
                0.2843 * x**3 - 0.1015 * x**4 )
+        sharp_foil = foil
         return
         end
 
