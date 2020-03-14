@@ -1,44 +1,44 @@
 c------------------------------------------------------------------------
-c	subroutine scfft( )
+c       subroutine scfft( )
 c
-c	return
-c	end
+c       return
+c       end
 c------------------------------------------------------------------------
-	subroutine ccfft( )
+        subroutine ccfft( )
 c 
-	write(*,*) 'Call to ccfft'
-	stop
-	end
+        write(*,*) 'Call to ccfft'
+        stop
+        end
 c------------------------------------------------------------------------
-c	subroutine exit( i )
+c       subroutine exit( i )
 c
 c.... A simple hack to mimic the tremain routine on the Cray
 c
 c        stop
-c	
-c	return
-c	end
+c       
+c       return
+c       end
 c------------------------------------------------------------------------
-	subroutine tremain( rtime )
+        subroutine tremain( rtime )
 c
 c.... A simple hack to mimic the tremain routine on the Cray
 c
         rtime = 1.0e10
-c	
-	return
-	end
+c       
+        return
+        end
 c------------------------------------------------------------------------
-c	function ishell( command )
+c       function ishell( command )
 c
 c.... A simple hack to mimic the ishell routine on the Cray
 c
-c	integer ishell
-c	character*256 command
-	
-c	ishell = 1
-	
-c	return
-c	end
+c       integer ishell
+c       character*256 command
+        
+c       ishell = 1
+        
+c       return
+c       end
 c------------------------------------------------------------------------
 c      REAL  FUNCTION SECOND( )
 *
@@ -73,70 +73,70 @@ c     RETURN
 *
 c     END
 c------------------------------------------------------------------------
-c	subroutine flush(iunit)
+c       subroutine flush(iunit)
 c
 c.... A simple hack to mimic the flush routine on the Cray
 c
-c	integer iunit
-c	
-c	return
-c	end
+c       integer iunit
+c       
+c       return
+c       end
 c------------------------------------------------------------------------
-	subroutine scfft(i1,i2,r1,r2,r3,r4,r5,i3)
+        subroutine scfft(i1,i2,r1,r2,r3,r4,r5,i3)
 c
 c.... A simple hack to mimic the FFT routine on the Cray
 c
-	write (*,*) 'SCFFT not supported on SGI machines...'
+        write (*,*) 'SCFFT not supported on SGI machines...'
         call exit(1)
-	ierr = 0
-	
-	return
-	end
+        ierr = 0
+        
+        return
+        end
 c------------------------------------------------------------------------
 c
 c.... SSD rooutines on the Iris
 c
 c------------------------------------------------------------------------
-	subroutine opendr( iunit, index, length, it, ierr )
-	
-	write (*,*) 'SSD not supported on SGI machines...'
-	call exit(1)
-	
-	return
-	end
+        subroutine opendr( iunit, index, length, it, ierr )
+        
+        write (*,*) 'SSD not supported on SGI machines...'
+        call exit(1)
+        
+        return
+        end
 c------------------------------------------------------------------------
-	subroutine readdr( iunit, ubuff, n, irec, ierr )
-	
-	ierr = 0
-	
-	return
-	end
+        subroutine readdr( iunit, ubuff, n, irec, ierr )
+        
+        ierr = 0
+        
+        return
+        end
 c------------------------------------------------------------------------
-	subroutine writdr( iunit, ubuff, n, irec, irflag, is, ierr )
-	
-	ierr = 0
-	
-	return
-	end
+        subroutine writdr( iunit, ubuff, n, irec, irflag, is, ierr )
+        
+        ierr = 0
+        
+        return
+        end
 c------------------------------------------------------------------------
-	subroutine waitdr( iunit, is, ierr )
-	
-	ierr = 0
-	
-	return
-	end
+        subroutine waitdr( iunit, is, ierr )
+        
+        ierr = 0
+        
+        return
+        end
 c------------------------------------------------------------------------
-	subroutine asyncdr( iunit, ierr )
-	
-	ierr = 0
-	
-	return
-	end
+        subroutine asyncdr( iunit, ierr )
+        
+        ierr = 0
+        
+        return
+        end
 c------------------------------------------------------------------------
-	subroutine closdr( iunit, ierr )
-	
-	close(99)
-	
-	return
-	end
+        subroutine closdr( iunit, ierr )
+        
+        close(99)
+        
+        return
+        end
 c------------------------------------------------------------------------
