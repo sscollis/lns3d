@@ -19,7 +19,7 @@
 !  
 !  Author:  Scott Collis
 !
-!  Revised: 7-25-96     
+!  Revised: 7-25-96     Original version
 !           11-14-99    Switched indices
 !           11-22-99    Added periodicity and symmetry flags
 !           02-16-00    Changed file name convention
@@ -64,7 +64,7 @@
 
         integer :: i, j, k, idof, itmp
 
-        character*80 file, temp, base, base1, base2, fname, fname1, fname2
+        character(80) file, temp, base, base1, base2, fname, fname1, fname2
         integer :: iloc, iend, imin, imax, inc, iver
 #ifndef __GFORTRAN__    
         integer, external :: iargc
@@ -104,7 +104,7 @@
         integer :: type=0
         integer, parameter :: mfile = 5
         integer :: narg, iarg, nfile=0, ifile(mfile)
-        character*80 :: arg
+        character(80) :: arg
         
 !.... potential flow stuff and boundary layer stuff
 
@@ -150,15 +150,15 @@
               inviscid = .true.
 !           case ('-D ')                ! compute a second Plot3d file
 !             select case (arg(1:3))
-              case ('-D1')      ! 2nd derivative in x
+              case ('-D1')              ! 2nd derivative in x
                 type = 1
-              case ('-D2')      ! 2nd derivative in y
+              case ('-D2')              ! 2nd derivative in y
                 type = 2
-              case ('-D3')      ! xy derivative
+              case ('-D3')              ! xy derivative
                 type = 3
-              case ('-D4')      ! c, Mx, My, M, entropy
+              case ('-D4')              ! c, Mx, My, M, entropy
                 type = 4
-              case ('-D5')      ! dilitation, vorticity, etc
+              case ('-D5')              ! dilitation, vorticity, etc
                 type = 5
 !             case default
 !               type = 1
@@ -623,6 +623,10 @@
 !.... extract profiles at user supplied locations
 
         if (profile) then
+
+        write(*,"('E R R O R:  profile extraction not updated yet...')")
+        call exit(1)
+
         write(*,"('Enter the x-stations for profiles [min,max,inc] ==> ',$)")
         read(*,*) imin, imax, inc
         base  = 'profile'
@@ -668,14 +672,14 @@
 !         do j = 1, ny-1
 !           if ( uss(j+1) .lt. uss(j) ) goto 700        ! rough estimate
 !         end do
-! 700     edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-14 )
+! 700     edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
 
 !.... 0.999 point in W_c
 
           do j = 1, ny-1
             if ( v(4,i,j) .gt. 0.999*tan(alpha) ) goto 700  ! rough estimate
           end do
- 700      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-14 )
+ 700      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
 
           rhoe = BSDER( 0, edge, kord, knot, ny, bs(:,1) )
           ue   = BSDER( 0, edge, kord, knot, ny, bs(:,2) )
@@ -1062,6 +1066,9 @@
 !=============================================================================
         if (thick) then
         
+        write(*,"('E R R O R:  thickness computation not updated yet...')")
+        call exit(1)
+        
 !.... Setup the B-spline interpolation
 
         write(*,"(/,'Boundary layer thickness calculation . . .')")
@@ -1114,21 +1121,21 @@
 !         do j = 1, ny-1
 !           if ( uss(j+1) .lt. uss(j) ) goto 70         ! rough estimate
 !         end do
-! 70      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-14 )
+! 70      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
 
 !.... 0.999 point in W_c
 
           do j = 1, ny-1
             if ( v(4,i,j) .gt. 0.999*tan(alpha) ) goto 70  ! rough estimate
           end do
-  70      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-14 )
+  70      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
 
 !.... 0.999 point in T
 
 !         do j = 1, ny-1
 !           if ( v(5,i,j) .lt. 0.999 ) goto 70  ! rough estimate
 !         end do
-! 70      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-14 )
+! 70      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
 
           rhoe = BSDER( 0, edge, kord, knot, ny, bs(:,1) )
           ue   = BSDER( 0, edge, kord, knot, ny, bs(:,2) )
@@ -1198,7 +1205,7 @@
             call exit(1)
           end if
           jmax = j
-          wmloc = RTSAFE( fwmax, ynn(j-1), ynn(j+2), 1.0e-14 )
+          wmloc = RTSAFE( fwmax, ynn(j-1), ynn(j+2), 1.0e-8 )
           wmax  = BSDER( 0, wmloc, kord, knot, ny, bs(:,4) )
 
 !.... find the inflection point in the crossflow profile
@@ -1213,7 +1220,7 @@
             write(*,*) 'Could not find crossflow inflection point at i = ', i
             call exit(1)
           end if
-          wiloc = RTSAFE( fwinf, ynn(j-1), ynn(j+2), 1.0e-14 )
+          wiloc = RTSAFE( fwinf, ynn(j-1), ynn(j+2), 1.0e-8 )
           uinf  = BSDER( 0, wiloc, kord, knot, ny, bs(:,2) )
           winf  = BSDER( 0, wiloc, kord, knot, ny, bs(:,4) )
           epsi  = atan2( winf, uinf ) * 180.0 / pi
@@ -1448,7 +1455,7 @@
 !.... put a version number on the filename
 !
 !=============================================================================!
-      character*80 base, fname
+      character(80) base, fname
 
       length = index(base,' ')
       fname = base
