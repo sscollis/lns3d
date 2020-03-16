@@ -45,6 +45,7 @@ Directory  |  Description
 `util`     |  Various utilities for preparing and analyzing lns3d runs
 `mesh`     |  Mesh generators for specific types of geometries
 `test`     |  Simple tests and examples of `lns3d` and tools
+`docs`     |  Documentation information 
 
 Each of these tool directories contains a separate `README` file that
 describes how to build and use them.  
@@ -57,4 +58,4 @@ run problems.
 ---
 
 S. Scott Collis\
-Wed Feb 26 06:32:22 MST 2020
+Mon Mar 16 07:11:37 MDT 2020
