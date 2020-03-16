@@ -10,7 +10,16 @@
         real :: rhoe, ue, ve, we, te, pe, phie
         real :: alpha, Ma, gamma
 
+        enum, bind(C)
+          enumerator :: Edge_Uc = 1
+          enumerator :: Edge_Wc
+          enumerator :: Edge_T
+        end enum
+
+        integer :: edgeType = Edge_Uc
+
         end module bspline
+
 !============================================================================!
         program npost 
 !  
@@ -23,6 +32,7 @@
 !           11-14-99    Switched indices
 !           11-22-99    Added periodicity and symmetry flags
 !           02-16-00    Changed file name convention
+!           03-14-2020  Need to update profile and thickness
 !============================================================================!
         use bspline
         use const
@@ -186,6 +196,12 @@
             case ('-ji')
               metric_ji = .true.
               v_ji = .true.
+            case ('-Uc')
+              edgeType = Edge_Uc
+            case ('-Wc')
+              edgeType = Edge_Wc
+            case ('-T')
+              edgeType = Edge_T
             case ('-h')
               write(*,"('-----------------------------------------------')")
               write(*,"('Usage:  npost [options] [file1] [file2] [file3]')")
@@ -213,6 +229,10 @@
               write(*,"('  -vs:  read restart assuming ji format')")
               write(*,"('  -ji:  read all assuming ji format')")
               write(*,"('-----------------------------------------------')")
+              write(*,"('  -Uc:  Edge based on Uc (default)')")
+              write(*,"('  -Wc:  Edge based on Wc')")
+              write(*,"('   -T:  Edge based on T')")
+              write(*,"('-----------------------------------------------')")
               write(*,"('  -D1:  output xx derivative')")
               write(*,"('  -D2:  output yy derivative')")
               write(*,"('  -D3:  output xy derivative')")
@@ -225,6 +245,7 @@
             end select
           end if
         end do
+
 
 !$omp parallel
 !$      if (omp_get_thread_num() == 0) then
@@ -625,7 +646,7 @@
         if (profile) then
 
         write(*,"('E R R O R:  profile extraction not updated yet...')")
-        call exit(1)
+!       call exit(1)
 
         write(*,"('Enter the x-stations for profiles [min,max,inc] ==> ',$)")
         read(*,*) imin, imax, inc
@@ -659,26 +680,35 @@
           end do
           
           call BSNAK( ny, ynn, kord, knot)
-          call BSINT( ny, ynn, v(:,i,1), kord, knot, bs(:,1) )
+          call BSINT( ny, ynn, v(1,i,:), kord, knot, bs(:,1) )
           call BSINT( ny, ynn,      uss, kord, knot, bs(:,2) )
           call BSINT( ny, ynn,      unn, kord, knot, bs(:,3) )
-          call BSINT( ny, ynn, v(:,i,4), kord, knot, bs(:,4) )
-          call BSINT( ny, ynn, v(:,i,5), kord, knot, bs(:,5) )
+          call BSINT( ny, ynn, v(4,i,:), kord, knot, bs(:,4) )
+          call BSINT( ny, ynn, v(5,i,:), kord, knot, bs(:,5) )
 
 !.... compute the boundary layer edge location (two ways)
 
+          if (edgeType.eq.Edge_Uc) then
+
 !.... Maximum in U_c
 
-!         do j = 1, ny-1
-!           if ( uss(j+1) .lt. uss(j) ) goto 700        ! rough estimate
-!         end do
-! 700     edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
+           do j = 1, ny-1
+             if ( uss(j+1) .lt. uss(j) ) goto 700        ! rough estimate
+           end do
+
+          else if (edgeType.eq.Edge_Wc) then
 
 !.... 0.999 point in W_c
 
-          do j = 1, ny-1
-            if ( v(4,i,j) .gt. 0.999*tan(alpha) ) goto 700  ! rough estimate
-          end do
+            do j = 1, ny-1
+              if ( v(4,i,j) .gt. 0.999*tan(alpha) ) goto 700  ! rough estimate
+            end do
+
+          else
+            write(*,*) "Unsupported edge type = ", edgeType
+            call exit(1)
+          endif
+          
  700      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
 
           rhoe = BSDER( 0, edge, kord, knot, ny, bs(:,1) )
@@ -688,6 +718,7 @@
           te   = BSDER( 0, edge, kord, knot, ny, bs(:,5) )
           pe   = rhoe * te / (gamma * Ma**2)
           write(*,"(8(1pe13.6,1x))") x(i,1), edge, rhoe, ue, ve, we, te
+          write(39,"(8(1pe13.6,1x))") x(i,1), edge, rhoe, ue, ve, we, te
           alp = atan2( we, ue )
           umag = sqrt(ue**2+we**2)
 
@@ -1065,9 +1096,13 @@
 !
 !=============================================================================
         if (thick) then
-        
+
         write(*,"('E R R O R:  thickness computation not updated yet...')")
-        call exit(1)
+!       call exit(1)
+        
+!.... Echo the edge type
+
+        write(*,*) "Computing BL edge using type = ", edgeType 
         
 !.... Setup the B-spline interpolation
 
@@ -1101,41 +1136,55 @@
           arc = zero
           do j = 1, ny
             ynn(j) = arc
-            if (j.ne.ny) arc = arc + sqrt( (x(i,j+i)-x(i,j))**2 + &
-                                           (y(i,j+i)-y(i,j))**2 )
+            if (j.ne.ny) arc = arc + sqrt( (x(i,j+1)-x(i,j))**2 + &
+                                           (y(i,j+1)-y(i,j))**2 )
             uss(j) = bn2 * v(2,i,j) - bn1 * v(3,i,j)
             unn(j) = bn1 * v(2,i,j) + bn2 * v(3,i,j)
           end do
           
           call BSNAK( ny, ynn, kord, knot)
-          call BSINT( ny, ynn, v(:,i,1), kord, knot, bs(:,1) )
+          call BSINT( ny, ynn, v(1,i,:), kord, knot, bs(:,1) )
           call BSINT( ny, ynn,      uss, kord, knot, bs(:,2) )
           call BSINT( ny, ynn,      unn, kord, knot, bs(:,3) )
-          call BSINT( ny, ynn, v(:,i,4), kord, knot, bs(:,4) )
-          call BSINT( ny, ynn, v(:,i,5), kord, knot, bs(:,5) )
+          call BSINT( ny, ynn, v(4,i,:), kord, knot, bs(:,4) )
+          call BSINT( ny, ynn, v(5,i,:), kord, knot, bs(:,5) )
 
 !.... compute the boundary layer edge location (three ways)
 
+          if (edgeType.eq.Edge_Uc) then
+        
 !.... Maximum in U_c
 
-!         do j = 1, ny-1
-!           if ( uss(j+1) .lt. uss(j) ) goto 70         ! rough estimate
-!         end do
-! 70      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
+            do j = 1, ny-1
+              if ( uss(j+1) .lt. uss(j) ) goto 70         ! rough estimate
+            end do
+
+          else if (edgeType.eq.Edge_Wc) then
 
 !.... 0.999 point in W_c
 
-          do j = 1, ny-1
-            if ( v(4,i,j) .gt. 0.999*tan(alpha) ) goto 70  ! rough estimate
-          end do
-  70      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
+            do j = 1, ny-1
+              if ( v(4,i,j) .gt. 0.999*tan(alpha) ) goto 70  ! rough estimate
+            end do
 
 !.... 0.999 point in T
 
-!         do j = 1, ny-1
-!           if ( v(5,i,j) .lt. 0.999 ) goto 70  ! rough estimate
-!         end do
-! 70      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
+          else if (edgeType.eq.Edge_T) then
+
+            do j = 1, ny-1
+              write(*,*) i, j, v(5,i,j) 
+              if ( v(5,i,j) .lt. 0.999*v(5,i,1) ) goto 70  ! rough estimate
+            end do
+
+          else
+
+            write (*,*) "Illegal value of edgeType = ", edgeType
+            call exit(1)
+
+          endif 
+
+ 70       write(*,*) j, ynn(j-1), ynn(j+2), alpha
+          edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
 
           rhoe = BSDER( 0, edge, kord, knot, ny, bs(:,1) )
           ue   = BSDER( 0, edge, kord, knot, ny, bs(:,2) )
@@ -1143,13 +1192,13 @@
           we   = BSDER( 0, edge, kord, knot, ny, bs(:,4) )
           te   = BSDER( 0, edge, kord, knot, ny, bs(:,5) )
           uel(i) = ue
-          pe   = rhoe * te / (gamma * Ma**2)
-          pinf = one/(gamma*Ma**2)
-          p0   = (one + pt5*gamma1*Ma**2)**(gamma/gamma1)
-!         Cp   = (pe/pinf - one)/(p0 - one)               ! Cp (comp)
-          Cp   = two*( pe - pinf )
-          alp  = atan2( we, ue )
-          phie = (alp - alpha) * 180.0 / pi
+          pe     = rhoe * te / (gamma * Ma**2)
+          pinf   = one/(gamma*Ma**2)
+          p0     = (one + pt5*gamma1*Ma**2)**(gamma/gamma1)
+!         Cp     = (pe/pinf - one)/(p0 - one)               ! Cp (comp)
+          Cp     = two*( pe - pinf )
+          alp    = atan2( we, ue )
+          phie   = (alp - alpha) * 180.0 / pi
 
           write(*,"(9(1pe13.6,1x))")  s(i),edge,rhoe,ue,ve,we,te,pe,phie
           write(11,"(9(1pe13.6,1x))") s(i),edge,rhoe,ue,ve,we,te,pe,phie
@@ -1197,6 +1246,7 @@
 
 !.... determine the location of maximum crossflow
 
+          if (alpha.ne.0) then
           do j = 1, ny-1
             if ( abs(wss(j+1)) .lt. abs(wss(j)) ) goto 75
           end do
@@ -1224,6 +1274,8 @@
           uinf  = BSDER( 0, wiloc, kord, knot, ny, bs(:,2) )
           winf  = BSDER( 0, wiloc, kord, knot, ny, bs(:,4) )
           epsi  = atan2( winf, uinf ) * 180.0 / pi
+
+          endif
           
 !.... output the results
 
@@ -1399,21 +1451,32 @@
         real :: x, f, g, d
 !=============================================================================!
 
+       if (edgeType.eq.Edge_Uc) then
+
 !.... maximum in U_c
 
-!       f = BSDER( 0, x, kord, knot, ns, bs(:,2) )
-!       g = BSDER( 1, x, kord, knot, ns, bs(:,2) )
-!       d = BSDER( 2, x, kord, knot, ns, bs(:,2) )
+         f = BSDER( 0, x, kord, knot, ns, bs(:,2) )
+         g = BSDER( 1, x, kord, knot, ns, bs(:,2) )
+         d = BSDER( 2, x, kord, knot, ns, bs(:,2) )
+
+       else if (edgeType.eq.Edge_Wc) then
 
 !.... Delta 0.999 in W_c
 
-        g = BSDER( 0, x, kord, knot, ns, bs(:,4) ) - 0.999*tan(alpha)
-        d = BSDER( 1, x, kord, knot, ns, bs(:,4) )
+          g = BSDER( 0, x, kord, knot, ns, bs(:,4) ) - 0.999*tan(alpha)
+          d = BSDER( 1, x, kord, knot, ns, bs(:,4) )
+
+        else if (edgeType.eq.Edge_T) then
 
 !.... Delta 0.999 in T
         
-!       g = BSDER( 0, x, kord, knot, ns, bs(:,5) ) - 0.999
-!       d = BSDER( 1, x, kord, knot, ns, bs(:,5) )
+          g = BSDER( 0, x, kord, knot, ns, bs(:,5) ) - 0.999
+          d = BSDER( 1, x, kord, knot, ns, bs(:,5) )
+
+        else
+          write(*,*) "Illegal value of edgeType"
+          call exit(1)
+        endif
 
         return
         end 
