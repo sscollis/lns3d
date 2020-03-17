@@ -109,7 +109,7 @@
         logical :: profile=.false., thick=.false., debug=.false.
         logical :: swept=.false., cons=.false., lfilter=.false.
         logical :: plot3d=.true., lst=.false., inviscid=.false.
-        logical :: readcons=.false.
+        logical :: readcons=.false., write_ij=.false.
         logical :: metric_ji=.false., v_ji=.false.
         integer :: type=0
         integer, parameter :: mfile = 5
@@ -202,12 +202,14 @@
               edgeType = Edge_Wc
             case ('-T')
               edgeType = Edge_T
+            case ('-ws')
+              write_ij = .true.
             case ('-h')
-              write(*,"('-----------------------------------------------')")
+              write(*,"('--------------------------------------------------')")
               write(*,"('Usage:  npost [options] [file1] [file2] [file3]')")
-              write(*,"('-----------------------------------------------')")
+              write(*,"('--------------------------------------------------')")
               write(*,"('   -h:  this help')")
-              write(*,"('-----------------------------------------------')")
+              write(*,"('--------------------------------------------------')")
               write(*,"('   -p:  output velocity profiles')")
               write(*,"('   -l:  output LST restart file and quit')")
               write(*,"('   -t:  compute BL thickness')")
@@ -228,17 +230,18 @@
               write(*,"('  -ms:  read metrics assuming ji format')")
               write(*,"('  -vs:  read restart assuming ji format')")
               write(*,"('  -ji:  read all assuming ji format')")
-              write(*,"('-----------------------------------------------')")
-              write(*,"('  -Uc:  Edge based on Uc (default)')")
-              write(*,"('  -Wc:  Edge based on Wc')")
-              write(*,"('   -T:  Edge based on T')")
-              write(*,"('-----------------------------------------------')")
+              write(*,"('  -ws:  Write restart, metric in IJ format')")
+              write(*,"('--------------------------------------------------')")
+              write(*,"('  -Uc:  Boundary layer edge based on U_c (default)')")
+              write(*,"('  -Wc:  Boundary layer edge based on W_c')")
+              write(*,"('   -T:  Boundary layer edge based on T_999')")
+              write(*,"('--------------------------------------------------')")
               write(*,"('  -D1:  output xx derivative')")
               write(*,"('  -D2:  output yy derivative')")
               write(*,"('  -D3:  output xy derivative')")
               write(*,"('  -D4:  output c, Mx, My, M, entropy')")
               write(*,"('  -D5:  vorticity; dilitation; p,x; p,y; E')")
-              write(*,"('-----------------------------------------------')")
+              write(*,"('--------------------------------------------------')")
               call exit(0)
             case default
               write(*,"('Argument ',i2,' ignored.')") iarg
@@ -246,6 +249,7 @@
           end if
         end do
 
+!.... output OpenMP information
 
 !$omp parallel
 !$      if (omp_get_thread_num() == 0) then
@@ -285,10 +289,12 @@
         if (v_ji) then
           read(10) (((v(idof,i,j), j=1,ny), i=1,nx), idof=1,ndof)
           close(10)
-          open(unit=10,file='restart.ij',form='unformatted',status='unknown')
-          write(10) lstep, time, nx, ny, nz, ndof, Re, Ma, Pr, gamma, cv
-          write(10) v
-          close(10)
+          if (write_ij) then
+            open(unit=10,file='restart.ij',form='unformatted',status='unknown')
+            write(10) lstep, time, nx, ny, nz, ndof, Re, Ma, Pr, gamma, cv
+            write(10) v
+            close(10)
+          end if
         else
           read(10) v
           close(10)
@@ -423,9 +429,11 @@
                    ((n12(i,j), j=1,ny),i=1,nx), &
                    ((n22(i,j), j=1,ny),i=1,nx)
           close(10)
-          open (unit=10,file='metric.ij',form='unformatted', status='unknown')
-          write(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
-          close(10)
+          if (write_ij) then
+            open (unit=10,file='metric.ij',form='unformatted', status='unknown')
+            write(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
+            close(10)
+          endif
         else
           open (unit=10,file='metric.dat',form='unformatted', status='old')
           read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
@@ -1183,7 +1191,7 @@
 
           endif 
 
- 70       write(*,*) j, ynn(j-1), ynn(j+2), alpha
+ 70       continue ! write(*,*) j, ynn(j-1), ynn(j+2), alpha
           edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
 
           rhoe = BSDER( 0, edge, kord, knot, ny, bs(:,1) )
