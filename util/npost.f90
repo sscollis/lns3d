@@ -1143,10 +1143,18 @@
 !.... compute the boundary layer parameters
 
         open(10,file='delta.dat',status='unknown')
-        open(12,file='delta2.dat',status='unknown')
         open(11,file='edge.dat',status='unknown')
+        open(12,file='delta2.dat',status='unknown')
         open(13,file='stat.dat',status='unknown')
         open(14,file='bl3d.dat',status='unknown')
+
+!.... Write out file headers 
+
+        write(10,"('# ',a)") "s(i), delta, theta, H, wmax, ReL, L, Ma1, c1, Cp, delta/L, "// &
+                             "theta/L, wmloc, wiloc, uinf, winf, epsi, edge*wmax*Re, rk"
+        write(11,"('# ',a)") "s(i), edge, rhoe, ue, ve, we, te, pe, phie"
+        write(12,"('# ',a)") "s(i), delta, theta, wmax, U1, Te, phie, Ma1, edge*wmax*Re"
+        write(13,"('# ',a)") "s(i), delta, alp"
 
         do i = 1, nx
           delta = zero
