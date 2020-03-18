@@ -953,6 +953,7 @@
 !....   10      t
 
         open(unit=10, file='wall.dat', form='formatted', status='unknown')
+        write(10,"('# ',a)") "x, s, \omega_z, -Cp, dp/ds, du_s/dn, dt/dn, us, un, T"
         do i = 1, nx
           m1l = n1(i,1) / sqrt( n1(i,1)**2 + n2(i,1)**2 )
           m2l = n2(i,1) / sqrt( n1(i,1)**2 + n2(i,1)**2 )
