@@ -669,6 +669,7 @@
         open(39,file="pedge.dat")
         allocate ( knot(ns+kord), bs(ns,ndof), ynn(ny), uss(ny), unn(ny) )
         open(11,file='loc.dat')
+        write(11,"('# ',a)") "i, s(i), x(i,1)"
         do i = imin, imax, inc
           if (i.gt.0 .and. i.le.nx) then
           call makename(base,i,fname)
