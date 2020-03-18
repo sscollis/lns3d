@@ -1361,7 +1361,7 @@
 !....   Beta_H = 2 m / (m + 1)
 
         open(10,file='betah.dat')
-        write(10,"('# ',a)") "s(i), betah = (Hartree pressure gradient parameter"
+        write(10,"('# ',a)") "s(i), betah = Hartree pressure gradient parameter"
         do i = 1, nx
           if (i .eq. 1) then
             beta2 = s(2) * (uel(3)-uel(1)) / (s(3)-s(1)) / uel(2)
