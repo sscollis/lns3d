@@ -88,7 +88,7 @@
         integer :: optx=-1, opty=-1
         logical :: xper=.false., yper=.false.
         logical :: lsym=.false., rsym=.false., bsym=.false., tsym=.false.
-        logical :: carp=.false.
+        logical :: carp=.false., read_kord=.false.
 
 !.... variables for thickness calculation
 
@@ -204,6 +204,8 @@
               edgeType = Edge_T
             case ('-ws')
               write_ij = .true.
+            case ('-ko')
+              read_kord = .true.
             case ('-h')
               write(*,"('--------------------------------------------------')")
               write(*,"('Usage:  npost [options] [file1] [file2] [file3]')")
@@ -232,6 +234,7 @@
               write(*,"('  -ji:  read all assuming ji format')")
               write(*,"('  -ws:  Write restart, metric in IJ format')")
               write(*,"('--------------------------------------------------')")
+              write(*,"('  -ko:  Read korder from keyboard for spline')")
               write(*,"('  -Uc:  Boundary layer edge based on U_c (default)')")
               write(*,"('  -Wc:  Boundary layer edge based on W_c')")
               write(*,"('   -T:  Boundary layer edge based on T_999')")
@@ -654,6 +657,8 @@
 
         if (profile) then
 
+        write(*,"(/,'Extract profiles at supplied locations . . .')")
+        write(*,"('W A R N I N G:  only valid on a body-fitted mesh!')")
         write(*,"('Enter the x-stations for profiles [min,max,inc] ==> ',$)")
         read(*,*) imin, imax, inc
         base  = 'profile'
@@ -661,6 +666,7 @@
         base2 = 'second'
         kord = 5
         ns = ny
+        open(39,file="pedge.dat")
         allocate ( knot(ns+kord), bs(ns,ndof), ynn(ny), uss(ny), unn(ny) )
         open(11,file='loc.dat')
         do i = imin, imax, inc
@@ -732,7 +738,9 @@
           we   = BSDER( 0, edge, kord, knot, ny, bs(:,4) )
           te   = BSDER( 0, edge, kord, knot, ny, bs(:,5) )
           pe   = rhoe * te / (gamma * Ma**2)
+#ifdef NPOST_DEBUG
           write(*,"(8(1pe13.6,1x))") x(i,1), edge, rhoe, ue, ve, we, te
+#endif
           write(39,"(8(1pe13.6,1x))") x(i,1), edge, rhoe, ue, ve, we, te
           alp = atan2( we, ue )
           umag = sqrt(ue**2+we**2)
@@ -775,6 +783,7 @@
         end if            ! imin.ne.0
         end do
         close(11)
+        close(39)
         deallocate ( knot, bs, ynn, uss, unn )
         end if            ! profile
 
@@ -1114,17 +1123,18 @@
         
 !.... Echo the edge type
 
+        write(*,"(/,'Boundary layer thickness calculation . . .')")
         write(*,"('Computing BL edge using type = ',i1)") edgeType 
-        
+        write(*,"('W A R N I N G:  only valid on a body-fitted mesh!')")
+
 !.... Setup the B-spline interpolation
 
-        write(*,"(/,'Boundary layer thickness calculation . . .')")
-        write(*,"(/,'W A R N I N G:  only valid on a body-fitted mesh!')")
-
         kord = 5
-!       write(*,"('Enter korder (0 = terminate) ==> ',$)")
-!       read(*,*) kord
-!       if (kord.eq.0) call exit(0)
+        if (read_kord) then
+          write(*,"('Enter korder (0 = terminate) ==> ',$)")
+          read(*,*) kord
+          if (kord.eq.0) call exit(0)
+        end if
 
         ns = ny
         allocate ( knot(ny+kord), bs(ny,ndof), ynn(ny), &
