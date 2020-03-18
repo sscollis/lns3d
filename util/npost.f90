@@ -342,6 +342,7 @@
           write(*,*) 'Grid and data file dimensions do not match'
           call exit(1)
         end if
+        write(*,"('Read grid.dat with dimensions (',i4,',',i4,',',i4,')')") nx, ny, ny
         read(10) (((x(i,j), i = 1, nx), j = 1, ny), k = 1, nz), &
                  (((y(i,j), i = 1, nx), j = 1, ny), k = 1, nz), &
                  (((   tmp, i = 1, nx), j = 1, ny), k = 1, nz)
@@ -653,20 +654,17 @@
 
         if (profile) then
 
-        write(*,"('E R R O R:  profile extraction not updated yet...')")
-!       call exit(1)
-
         write(*,"('Enter the x-stations for profiles [min,max,inc] ==> ',$)")
         read(*,*) imin, imax, inc
         base  = 'profile'
         base1 = 'first'
         base2 = 'second'
-        if (imin.ne.0) then
         kord = 5
         ns = ny
         allocate ( knot(ns+kord), bs(ns,ndof), ynn(ny), uss(ny), unn(ny) )
         open(11,file='loc.dat')
         do i = imin, imax, inc
+          if (i.gt.0 .and. i.le.nx) then
           call makename(base,i,fname)
           call makename(base1,i,fname1)
           call makename(base2,i,fname2)
@@ -701,7 +699,7 @@
 !.... Maximum in U_c
 
            do j = 1, ny-1
-             if ( uss(j+1) .lt. uss(j) ) goto 700        ! rough estimate
+             if ( uss(j+1) .lt. uss(j) ) goto 700             ! rough estimate
            end do
 
           else if (edgeType.eq.Edge_Wc) then
@@ -710,6 +708,15 @@
 
             do j = 1, ny-1
               if ( v(4,i,j) .gt. 0.999*tan(alpha) ) goto 700  ! rough estimate
+            end do
+
+!.... 0.999 point in T
+
+          else if (edgeType.eq.Edge_T) then
+
+            do j = 1, ny-1
+              write(*,*) i, j, v(5,i,j)
+              if ( v(5,i,j) .lt. 0.999*v(5,i,1) ) goto 700  ! rough estimate
             end do
 
           else
@@ -765,11 +772,11 @@
           close(10)
           close(12)
           close(13)
+        end if            ! imin.ne.0
         end do
         close(11)
         deallocate ( knot, bs, ynn, uss, unn )
-        end if
-        end if
+        end if            ! profile
 
 !============================================================================!
 
@@ -819,7 +826,7 @@
                             k = 1, nz), idof = 1, ndof)
         close(10,err=1010)
 
-        end if
+        end if  ! plot3d
         
 !============================================================================!
 
@@ -1104,13 +1111,10 @@
 !
 !=============================================================================
         if (thick) then
-
-        write(*,"('E R R O R:  thickness computation not updated yet...')")
-!       call exit(1)
         
 !.... Echo the edge type
 
-        write(*,*) "Computing BL edge using type = ", edgeType 
+        write(*,"('Computing BL edge using type = ',i1)") edgeType 
         
 !.... Setup the B-spline interpolation
 
@@ -1180,7 +1184,6 @@
           else if (edgeType.eq.Edge_T) then
 
             do j = 1, ny-1
-              write(*,*) i, j, v(5,i,j) 
               if ( v(5,i,j) .lt. 0.999*v(5,i,1) ) goto 70  ! rough estimate
             end do
 
@@ -1191,8 +1194,15 @@
 
           endif 
 
- 70       continue ! write(*,*) j, ynn(j-1), ynn(j+2), alpha
-          edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
+  70      continue
+#ifdef NPOST_DEBUG
+          write(*,*) j, ynn(j-1), ynn(j+2), alpha
+#endif
+          if (j.ne.ny) then
+            edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
+          else
+            edge = 0.0
+          endif
 
           rhoe = BSDER( 0, edge, kord, knot, ny, bs(:,1) )
           ue   = BSDER( 0, edge, kord, knot, ny, bs(:,2) )
@@ -1207,8 +1217,9 @@
           Cp     = two*( pe - pinf )
           alp    = atan2( we, ue )
           phie   = (alp - alpha) * 180.0 / pi
-
+#ifdef NPOST_DEBUG
           write(*,"(9(1pe13.6,1x))")  s(i),edge,rhoe,ue,ve,we,te,pe,phie
+#endif
           write(11,"(9(1pe13.6,1x))") s(i),edge,rhoe,ue,ve,we,te,pe,phie
 
 !....     output a file for bl3d (Cartesian coordinates)
