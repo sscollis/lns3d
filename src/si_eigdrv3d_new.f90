@@ -17,7 +17,7 @@ SUBROUTINE eigdrv3d()
     REAL, ALLOCATABLE :: rwork(:), rd(:,:)
     REAL :: dznrm2, dlapy2, sor
     EXTERNAL dznrm2, zaxpy, dlapy2
-    character*80 :: code='EigDrv3D$'
+    character(80) :: code='EigDrv3D$'
 
     complex, allocatable :: v(:,:,:), vold(:,:,:), v2old(:,:,:), r(:,:,:)
     complex, allocatable :: matx(:,:,:,:,:)
@@ -28,8 +28,11 @@ SUBROUTINE eigdrv3d()
     complex, allocatable :: bmat(:,:,:,:)
     integer, allocatable :: ipiv(:,:,:), info(:,:)
 
+    complex, pointer :: vt(:,:,:), rt(:,:,:)
+    integer :: ns, ne
+
     integer :: ier, i1, i2
-    complex :: dummy
+    complex, pointer :: dummy(:,:,:)
     real :: resnrm, resnrm1, resold=1.0e10, fact, ifact, resmax, resnod
     integer :: ixrmax, iyrmax
 
@@ -112,10 +115,23 @@ SUBROUTINE eigdrv3d()
 
 !....  Regular mode:  A x = y
 
+! SSC 200704:  added pointers to remove mismatch
+#if 1
+             ns = myZnaupd%ipntr(1)
+             ne = myZnaupd%ipntr(1)+myZnaupd%n
+             vt(1:ndof,1:nx,1:ny) => myZnaupd%workd(ns:ne)
+             ns = myZnaupd%ipntr(2)
+             ne = myZnaupd%ipntr(2)+myZnaupd%n
+             rt(1:ndof,1:nx,1:ny) => myZnaupd%workd(ns:ne)
+
+             CALL lrhs3d(vt, rt, vm, x, y)
+             CALL rhsbc3d(rt, vt, vm)
+#else
              CALL lrhs3d(myZnaupd%workd(myZnaupd%ipntr(1)), &
                          myZnaupd%workd(myZnaupd%ipntr(2)), vm, x, y)
              CALL rhsbc3d( myZnaupd%workd(myZnaupd%ipntr(2)), &
                            myZnaupd%workd(myZnaupd%ipntr(1)), vm )
+#endif
 
            else if (myZnaupd%iparam(7) == 3) then ! shift and invert mode
              
@@ -149,11 +165,11 @@ SUBROUTINE eigdrv3d()
 
 !.... Set the initial condition (zero seems best)
 
-!!$             do i = 1, myZnaupd%n
-!!$               i1 = myZnaupd%ipntr(1) + (i-1)
-!!$               i2 = myZnaupd%ipntr(2) + (i-1)
-!!$               v(i,1,1) = myZnaupd%workd(i1)
-!!$             end do
+!!$          do i = 1, myZnaupd%n
+!!$            i1 = myZnaupd%ipntr(1) + (i-1)
+!!$            i2 = myZnaupd%ipntr(2) + (i-1)
+!!$            v(i,1,1) = myZnaupd%workd(i1)
+!!$          end do
 
              !$omp parallel do private(i,idof)
              do j = 1, ny
@@ -489,7 +505,7 @@ SUBROUTINE eigdrv3d()
              do i = 1, myZnaupd%n
                i1 = myZnaupd%ipntr(1) + (i-1)
                i2 = myZnaupd%ipntr(2) + (i-1)
-               r(i,1,1) =  myZnaupd%workd(i1)
+               r(i,1,1) = myZnaupd%workd(i1)
              end do
        
              j = 1
@@ -552,8 +568,9 @@ SUBROUTINE eigdrv3d()
              PRINT *, ' '
            ELSE
            DO 20 j = 1, myZnaupd%iparam(5)
-
-             CALL lrhs3d(myZnaupd%v(1,j), r, vm, x, y)
+! SSC 200704:  added pointer to fixe mismatched ranks
+             vt(1:ndof,1:nx,1:ny) => myZnaupd%v(:,j)
+             CALL lrhs3d(vt, r, vm, x, y)
              CALL eigBC3d(r, myZnaupd%v(1,j), vm )
 
              CALL zaxpy(myZnaupd%n, -myZneupd%d(j),   & 

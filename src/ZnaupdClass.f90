@@ -84,17 +84,17 @@ myZnaupd%iparam(7) = mode
 myZnaupd%lworkl =  3*(myZnaupd%ncv)**2+5*(myZnaupd%ncv)
 
 ALLOCATE( myZnaupd%resid(myZnaupd%n),                       &
-     myZnaupd%V(myZnaupd%n,myZnaupd%ncv),              &
-     myZnaupd%workd(3*myZnaupd%n),                     &
-     myZnaupd%workl(3*myZnaupd%ncv**2+5*myZnaupd%ncv), &
-     myZnaupd%rwork(myZnaupd%ncv) )
+          myZnaupd%V(myZnaupd%n,myZnaupd%ncv),              &
+          myZnaupd%workd(3*myZnaupd%n),                     &
+          myZnaupd%workl(3*myZnaupd%ncv**2+5*myZnaupd%ncv), &
+          myZnaupd%rwork(myZnaupd%ncv) )
 
 END SUBROUTINE StandardZnaupdSetup
 
 SUBROUTINE CallZnaupd(myZnaupd)
 IMPLICIT NONE
 TYPE(ZnaupdIO), INTENT(INOUT) :: myZnaupd 
-CALL znaupd (myZnaupd%ido, myZnaupd%bmat, myZnaupd%n, myZnaupd%which,&
+CALL znaupd (myZnaupd%ido, myZnaupd%bmat, myZnaupd%n, myZnaupd%which, &
      myZnaupd%nev, myZnaupd%tol, myZnaupd%resid, myZnaupd%ncv,        &
      myZnaupd%v, myZnaupd%ldv, myZnaupd%iparam, myZnaupd%ipntr,       &
      myZnaupd%workd, myZnaupd%workl, myZnaupd%lworkl,                 &

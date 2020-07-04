@@ -1,15 +1,14 @@
-
 MODULE ZneupdClass 
   use ZnaupdClass
   TYPE :: ZneupdIO
-    LOGICAL :: rvec                               ! Compute Ritz?
-    CHARACTER :: howmny*1                         ! Specifies the form of the basis 
-    LOGICAL, POINTER, DIMENSION(:) :: select      ! dimension ncv  
-    COMPLEX, POINTER, DIMENSION(:) :: D           ! NEV+1 
-    COMPLEX, POINTER, DIMENSION(:,:) :: Z         ! N by NEV array
-    INTEGER :: LDZ                                ! leading dimension of Z
+    LOGICAL :: rvec                           ! Compute Ritz?
+    CHARACTER :: howmny*1                     ! Specifies the form of the basis 
+    LOGICAL, POINTER, DIMENSION(:) :: select  ! dimension ncv  
+    COMPLEX, POINTER, DIMENSION(:) :: D       ! NEV+1 
+    COMPLEX, POINTER, DIMENSION(:,:) :: Z     ! N by NEV array
+    INTEGER :: LDZ                            ! leading dimension of Z
     COMPLEX :: sigma         
-    COMPLEX, POINTER, DIMENSION(:) :: workev      ! 2*NCV 
+    COMPLEX, POINTER, DIMENSION(:) :: workev  ! 2*NCV 
   END TYPE ZneupdIO 
 
 CONTAINS
@@ -45,12 +44,13 @@ CONTAINS
    IMPLICIT NONE
        TYPE(ZnaupdIO), INTENT(INOUT) :: myZnaupd 
        TYPE(ZneupdIO), INTENT(INOUT) :: myZneupd
-         CALL zneupd ( myZneupd%rvec, myZneupd%howmny, myZneupd%select, myZneupd%D, &
-             myZnaupd%v, myZnaupd%ldv, myZneupd%sigma, myZneupd%workev,             &
-             myZnaupd%bmat, myZnaupd%n, myZnaupd%which, myZnaupd%nev,               &
-             myZnaupd%tol, myZnaupd%resid, myZnaupd%ncv, myZnaupd%v, myZnaupd%ldv,  &
-             myZnaupd%iparam, myZnaupd%ipntr, myZnaupd%workd, myZnaupd%workl,       &  
-             myZnaupd%lworkl, myZnaupd%rwork, myZnaupd%info)
+         CALL zneupd ( myZneupd%rvec, myZneupd%howmny, myZneupd%select,   &
+              myZneupd%D, myZnaupd%v, myZnaupd%ldv, myZneupd%sigma,       &
+              myZneupd%workev, myZnaupd%bmat, myZnaupd%n, myZnaupd%which, & 
+              myZnaupd%nev, myZnaupd%tol, myZnaupd%resid, myZnaupd%ncv,   &
+              myZnaupd%v, myZnaupd%ldv, myZnaupd%iparam, myZnaupd%ipntr,  &
+              myZnaupd%workd, myZnaupd%workl, myZnaupd%lworkl,            &
+              myZnaupd%rwork, myZnaupd%info)
   END SUBROUTINE CallZneupd
 
 END MODULE  ZneupdClass

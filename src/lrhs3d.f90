@@ -25,7 +25,7 @@
         real :: a, d, kk
         complex :: c3
 
-        character*80 :: name, code='lrhs3D$'
+        character(80) :: name, code='lrhs3D$'
 !=============================================================================!
 
 !.... compute first derivatives

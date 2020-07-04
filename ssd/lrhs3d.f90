@@ -25,7 +25,7 @@
         real :: a, d, kk
         complex :: c3(ny*nx)
 
-        character*80 name
+        character(80) name
         integer :: lrec, ier, istat
 !=============================================================================!
 
