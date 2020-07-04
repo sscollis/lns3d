@@ -212,7 +212,7 @@
             
               lrec = 2*ny*nx*ndof*ndof
               do irec = 1, 5
-                call readdr(MATRIX, mat(1,irec), lrec, 9+irec, ier)
+                call readdr(MATRIX, mat(1,irec), lrec, 9+irec, -1, 0, ier)
                 call waitdr(MATRIX, istat, ier)
               end do
               
@@ -263,7 +263,7 @@
             
               lrec = 2*ny*nx*ndof*ndof
               do irec = 1, 5
-                call readdr(MATRIX, mat(1,irec), lrec, 18+irec, ier)
+                call readdr(MATRIX, mat(1,irec), lrec, 18+irec, -1, 0, ier)
                 call waitdr(MATRIX, istat, ier)
               end do
 

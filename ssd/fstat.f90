@@ -28,7 +28,9 @@
         if (ifft .eq. 0) then
            write(*,*) 'Initializing FFT table...'
            allocate( table(100+4*(nx-1)) )
-           call SCFFT(0, nx-1, 1.0/float(nx-1), dum, dum, table, work, 0)
+           ! SSC 20200704:  changed dummy arguments to match signature
+           !call SCFFT(0, nx-1, 1.0/float(nx-1), dum, dum, table, work, 0)
+           call SCFFT(0, nx-1, 1.0/float(nx-1), vl(j,:,1), rt, table, work, 0)
            open(unit=35, file='stat.dat', form='formatted', &
                 status='unknown', position='append')
            ifft = 1

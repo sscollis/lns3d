@@ -107,7 +107,7 @@ c------------------------------------------------------------------------
         return
         end
 c------------------------------------------------------------------------
-        subroutine readdr( iunit, ubuff, n, irec, ierr )
+        subroutine readdr( iunit, ubuff, n, irec, irflag, is, ierr )
         
         ierr = 0
         
