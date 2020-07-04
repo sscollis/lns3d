@@ -13,7 +13,7 @@ ARPACK = -L/usr/local/lib -larpack
 COMP   = gfortran
 FC     = gfortran
 F77    = gfortran
-CC     = gcc-9
+CC     = gcc-10
 #
 # Define the Fortran 90 suffix
 #

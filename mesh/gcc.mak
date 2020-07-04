@@ -12,7 +12,7 @@ F90FLAGS = -cpp -freal-4-real-8 -fdefault-real-8 -Wno-align-commons $(DEFINES) $
 OFLAGS = $(DEBUG)
 COMP   = gfortran 
 F77    = gfortran
-CC     = gcc-9
+CC     = gcc-10
 LIB    = 
 #
 #  Define Fortran 90 suffix
