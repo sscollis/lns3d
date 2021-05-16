@@ -16,7 +16,7 @@ OFLAGS   = $(DEBUG) -o $(NAME)
 LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas -L/usr/local/lib -larpack
 COMP_F90 = gfortran
 COMP_F77 = gfortran
-COMP_CC  = gcc-10
+COMP_CC  = gcc-11
 #
 #  Define Fortran 90 suffix
 #
