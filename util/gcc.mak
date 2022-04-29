@@ -10,10 +10,11 @@ FFLAGS = -cpp -fdefault-real-8 -freal-4-real-8 $(DEBUG)
 OFLAGS = $(DEBUG) -o $(NAME)
 LIB    = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 ARPACK = -L/usr/local/lib -larpack
+SLATEC = -L$(HOME)/local/slatec/lib -lslatec
 COMP   = gfortran
 FC     = gfortran
 F77    = gfortran
-CC     = gcc-10
+CC     = gcc-11
 #
 # Define the Fortran 90 suffix
 #
@@ -28,12 +29,18 @@ GRAD_JI = grad_ji.o  grad2_ji.o
 
 BSLIB = bslib1.o bslib2.o
 
-NRLIB = rtsafe.o
+ifdef USE_NR
+  NRLIB = rtsafe.o
+endif
 
-ALL = conv.sgi lpost spost npost lpost3d subwave csubwave mkamp \
+ALL = conv.sgi lpost subwave csubwave mkamp \
 mkini mkdist mkdist3d mkmean genmesh initial nconvert getevec \
-mkvortex ij2ji ji2ij mkmean_ji lpost3d_ji mkdist3d_ji mkdist_ji \
-r4tor8 dirp3d stat p3dlns3d unipot
+mkvortex ij2ji ji2ij mkmean_ji mkdist3d_ji mkdist_ji \
+r4tor8 dirp3d p3dlns3d unipot
+
+ifdef USE_NR
+  ALL += spost npost lpost3d lpost3d_ji stat
+endif
 
 all: $(ALL) 
 
@@ -53,11 +60,11 @@ npost: const.o npost.o $(GRAD) filter.o error.o $(BSLIB) $(NRLIB)
 npost_ji: const.o npost_ji.o $(GRAD_JI) filter.o
 	$(COMP) npost_ji.o $(GRAD_JI) filter.o const.o $(LIB) -o npost_ji
 
-lpost3d: const.o fmax.o cfilter.o rtsafe.o lpost3d.o $(BSLIB)
-	$(COMP) lpost3d.o cfilter.o fmax.o rtsafe.o const.o $(LIB) $(BSLIB) -o lpost3d
+lpost3d: const.o fmax.o cfilter.o $(NRLIB) lpost3d.o $(BSLIB)
+	$(COMP) lpost3d.o cfilter.o fmax.o $(NRLIB) const.o $(LIB) $(BSLIB) -o lpost3d
 
-lpost3d_ji: const.o fmax.o cfilter.o rtsafe.o lpost3d_ji.o $(BSLIB)
-	$(COMP) lpost3d_ji.o cfilter.o fmax.o rtsafe.o const.o $(LIB) $(BSLIB) -o lpost3d_ji
+lpost3d_ji: const.o fmax.o cfilter.o $(NRLIB) lpost3d_ji.o $(BSLIB)
+	$(COMP) lpost3d_ji.o cfilter.o fmax.o $(NRLIB) const.o $(LIB) $(BSLIB) -o lpost3d_ji
 
 subwave: const.o subwave.o 
 	$(COMP) subwave.o const.o -o subwave
@@ -95,8 +102,8 @@ inter: const.o inter.o $(BSLIB)
 genmesh: const.o genmesh.o 
 	$(COMP) $(FFLAGS) genmesh.o const.o -o genmesh
 
-stat: const.o stat.o rtsafe.o $(BSLIB) 
-	$(COMP) stat.o const.o rtsafe.o $(LIB) $(BSLIB) -o stat 
+stat: const.o stat.o $(NRLIB) $(BSLIB) 
+	$(COMP) stat.o const.o $(NRLIB) $(LIB) $(BSLIB) -o stat 
 
 initial: const.o initial.o 
 	$(COMP) initial.o const.o -o initial
@@ -105,12 +112,11 @@ nconvert: const.o nconvert.o
 	$(COMP) nconvert.o const.o -o nconvert
 
 mkvortex: const.o mkvortex.o 
-	$(COMP) $(FFLAGS) mkvortex.o const.o \
-		$(HOME)/lib/libslatec.a $(LIB) -o mkvortex
+	$(COMP) $(FFLAGS) mkvortex.o const.o $(SLATEC) $(LIB) -o mkvortex
 
 mkvortex_v2: const.o mkvortex_v2.o 
 	$(COMP) $(FFLAGS) mkvortex_v2.o const.o \
-		$(HOME)/lib/libslatec.a $(LIB) -o mkvortex_v2
+		$(SLATEC) $(LIB) -o mkvortex_v2
 
 getevec: getevec.o
 	$(COMP) $(FFLAGS) getevec.o $(ARPACK) -o getevec

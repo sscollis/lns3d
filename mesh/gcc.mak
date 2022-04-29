@@ -12,7 +12,7 @@ F90FLAGS = -cpp -freal-4-real-8 -fdefault-real-8 -Wno-align-commons $(DEFINES) $
 OFLAGS = $(DEBUG)
 COMP   = gfortran 
 F77    = gfortran
-CC     = gcc-10
+CC     = gcc-11
 LIB    = 
 #
 #  Define Fortran 90 suffix
@@ -27,13 +27,18 @@ BSLIB = bslib1.o bslib2.o
 # Numerical Recipese routines cannot be shared since they are commercial
 # licenced you will need a valid license for these to use.
 #
-NRLIB = nr.o
-NRSPLINE = nr_spline.o
+ifdef USE_NR
+  NRLIB = nr.o
+  NRSPLINE = nr_spline.o
+endif
 
 MODS = stencil.o
 
-ALL = ogrid pc confpc level cyl circ interpc cinterpc mse testpc pcurve \
-			reverse cyl_org msecurve
+ALL = ogrid cyl circ reverse cyl_org 
+
+ifdef USE_NR
+  ALL += mse msecurve confpc interpc cinterpc pc testpc pcurve level 
+endif
 
 all: $(ALL)
 
