@@ -1,0 +1,57 @@
+
+
+
+Synopsis.
+
+This package contains some files which allow the compilation of Slatec library
+on Linux. It has been tested on RH 6.x on x86. Probably it works on other
+systems. The software packages required to compile and use the library are:
+egcs
+egcs-g77
+lapack
+
+
+
+Installation.
+
+Download slatec_src.tgz from netlib (www.netlib.org) and open the archive on
+a directory of your choice. In the same directory open this archive, then type
+make; make install
+This will compile and install the library (both static and dynamic) in
+/usr/local/lib and the man pages in /usr/local/man/man1. Change the makefile
+to change the installation directories. The makedoc.sed script builds the
+man pages from the initial comment of the sources.
+Note that you must be root to use the above directories and that /usr/local/lib
+must be listed in /etc/ld.so.conf .
+A program linked with slatec needs also to be linked with lapack, because the
+routines [sd]lamch are used in [dr]1mach.
+
+
+
+Author.
+
+Giuseppe Borzi'
+e-mail: etana@tiscalinet.it
+http://web.tiscalinet.it/gborzi
+fax: +39 1782235968
+Assistant Professor at the Univ. of Messina - Italia
+
+
+
+License.
+
+General Public License. Slatec is 'Freely distributable' as they say.
+
+
+
+Filelist.
+
+d1mach.f ( modified by including calls to dlamch )
+dynamic/makefile ( makefile for dynamic library )
+i1mach.f ( with lines for IBM PC uncommented )
+makedoc.sed ( builds man pages )
+makefile
+r1mach.f ( modified by including calls to slamch )
+readme ( this file )
+static/makefile ( makefile for static library )
+
