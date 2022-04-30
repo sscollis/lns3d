@@ -10,7 +10,7 @@ FFLAGS = -cpp -fdefault-real-8 -freal-4-real-8 $(DEBUG)
 OFLAGS = $(DEBUG) -o $(NAME)
 LIB    = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 ARPACK = -L/usr/local/lib -larpack
-SLATEC = -L$(HOME)/local/slatec/lib -lslatec
+SLATEC = -L../slatec/lib -lslatec
 FC     = gfortran
 F77    = gfortran
 CC     = gcc-11
@@ -32,7 +32,7 @@ ifdef USE_NR
   NRLIB = rtsafe.o
 endif
 
-ALL = conv.sgi lpost subwave csubwave mkamp mkini mkdist mkdist3d mkmean \
+ALL = conv-sgi lpost subwave csubwave mkamp mkini mkdist mkdist3d mkmean \
 genmesh initial nconvert getevec mkvortex ij2ji ji2ij mkmean_ji mkdist3d_ji \
 mkdist_ji r4tor8 dirp3d p3dlns3d unipot
 
@@ -45,7 +45,7 @@ all: $(ALL)
 conv.sgi: const.o conv.sgi.o wgrid.o wdata.o $(GRAD)
 	$(FC) $(FFLAGS) conv.sgi.o const.o wgrid.o wdata.o -o conv.sgi
 
-lpost: const.o lpost.o  $(GRAD_JI)
+lpost: const.o lpost.o $(GRAD_JI)
 	$(FC) $(FFLAGS) lpost.o const.o $(GRAD_JI) -o lpost
 
 spost: const.o spost.o $(GRAD_JI) filter.o $(BSLIB) $(NRLIB)
@@ -113,7 +113,8 @@ nconvert: const.o nconvert.o
 	$(FC) nconvert.o const.o -o nconvert
 
 mkvortex: const.o mkvortex.o 
-	$(FC) $(FFLAGS) mkvortex.o const.o $(SLATEC) $(LIB) -o mkvortex
+	$(FC) $(FFLAGS) mkvortex.o const.o $(SLATEC) -Xlinker -rpath -Xlinker ../slatec/lib \
+	$(LIB) -o mkvortex
 
 mkvortex_v2: const.o mkvortex_v2.o 
 	$(FC) $(FFLAGS) mkvortex_v2.o const.o $(SLATEC) $(LIB) -o mkvortex_v2
