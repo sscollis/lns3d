@@ -42,8 +42,8 @@ endif
 
 all: $(ALL) 
 
-conv.sgi: const.o conv.sgi.o wgrid.o wdata.o $(GRAD)
-	$(FC) $(FFLAGS) conv.sgi.o const.o wgrid.o wdata.o -o conv.sgi
+conv-sgi: const.o conv-sgi.o wgrid.o wdata.o $(GRAD)
+	$(FC) $(FFLAGS) conv-sgi.o const.o wgrid.o wdata.o -o conv-sgi
 
 lpost: const.o lpost.o $(GRAD_JI)
 	$(FC) $(FFLAGS) lpost.o const.o $(GRAD_JI) -o lpost

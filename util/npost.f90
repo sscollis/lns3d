@@ -111,6 +111,8 @@
         logical :: plot3d=.true., lst=.false., inviscid=.false.
         logical :: readcons=.false., write_ij=.false.
         logical :: metric_ji=.false., v_ji=.false.
+        logical :: plot3d_norm=.true.
+        real    :: p3dnorm
         integer :: type=0
         integer, parameter :: mfile = 5
         integer :: narg, iarg, nfile=0, ifile(mfile)
@@ -206,6 +208,8 @@
               write_ij = .true.
             case ('-ko')
               read_kord = .true.
+            case ('-np')
+              plot3d_norm = .false.
             case ('-h')
               write(*,"('--------------------------------------------------')")
               write(*,"('Usage:  npost [options] [file1] [file2] [file3]')")
@@ -233,6 +237,7 @@
               write(*,"('  -vs:  read restart assuming ji format')")
               write(*,"('  -ji:  read all assuming ji format')")
               write(*,"('  -ws:  Write restart, metric in IJ format')")
+              write(*,"('  -np:  No Plot3d Mach normalization')")
               write(*,"('--------------------------------------------------')")
               write(*,"('  -ko:  Read korder from keyboard for spline')")
               write(*,"('  -Uc:  Boundary layer edge based on U_c (default)')")
@@ -547,13 +552,22 @@
 !.... use either primitive variables or 
 !.... conservative variables in Plot3d normalization
 
+        if ((.not. plot3d_norm) .and. (.not. cons)) then
+          write(*,*) "WARNING: Turned off Plot3d normalization but ", &
+                     "not outputing Conservation variables...?"
+        endif
+        if (plot3d_norm) then
+          p3dnorm = Ma
+        else
+          p3dnorm = one
+        endif
         if (cons) then
           q(1,:,:) = v(1,:,:)                                   ! rho
-          q(2,:,:) = v(1,:,:) * v(2,:,:) * Ma                   ! rho u
-          q(3,:,:) = v(1,:,:) * v(3,:,:) * Ma                   ! rho v
-          q(4,:,:) = v(1,:,:) * v(4,:,:) * Ma                   ! rho w
-          q(5,:,:) = v(1,:,:) * ( one / gamma1 / gamma * v(5,:,:) + pt5 * &
-                     Ma**2 * (v(2,:,:)**2+v(3,:,:)**2+v(4,:,:)**2) ) ! total E
+          q(2,:,:) = v(1,:,:) * v(2,:,:) * p3dnorm              ! rho u
+          q(3,:,:) = v(1,:,:) * v(3,:,:) * p3dnorm              ! rho v
+          q(4,:,:) = v(1,:,:) * v(4,:,:) * p3dnorm              ! rho w
+          q(5,:,:) = p3dnorm * v(1,:,:) * ( one / gamma1 / (gamma*Ma**2) * &
+            v(5,:,:) + pt5 * (v(2,:,:)**2+v(3,:,:)**2+v(4,:,:)**2) ) ! total E
         else
           q(1,:,:) = v(1,:,:)                                   ! rho
           q(2,:,:) = v(2,:,:)                                   ! u-velocity
