@@ -6,7 +6,8 @@
 #  Revised: 4/30/2022 
 #==============================================================================
 DEBUG  = -O2 -fopenmp
-FFLAGS = -cpp -fdefault-real-8 -freal-4-real-8 $(DEBUG)
+#FFLAGS = -cpp -fdefault-real-8 -freal-4-real-8 $(DEBUG)
+FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEBUG)
 OFLAGS = $(DEBUG) -o $(NAME)
 LIB    = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 ARPACK = -L/usr/local/lib -larpack
