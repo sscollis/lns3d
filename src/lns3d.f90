@@ -45,7 +45,7 @@
 !$omp parallel
 !$      if (omp_get_thread_num() == 0) then
 !$        write(*,*) 'Running on ',omp_get_num_threads(),' processor(s)'
-!$        write(*,*) 'There are ',omp_get_num_procs(),' processor(s) available'
+!$        write(*,*) 'There are  ',omp_get_num_procs(),' processor(s) available'
 !$      end if
 !$omp end parallel
 
