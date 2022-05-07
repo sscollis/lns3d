@@ -97,9 +97,14 @@
         
         real, allocatable :: ynn(:), uss(:), unn(:), wss(:), uel(:)
 
+#ifdef USE_NR
         real, external :: rtsafe
+#else
+        real, external :: zeroin
+#endif
         real, external :: dfun, thfun, thfunz
         external :: fedge, fwmax, fwinf
+        external :: f_edge, f_wmax, f_winf
 
         real    :: wmax, wmloc, w1, w2, wiloc, uinf, winf, epsi
         integer :: jmax, ierr
@@ -262,7 +267,7 @@
 !$omp parallel
 !$      if (omp_get_thread_num() == 0) then
 !$        write(*,*) 'Running on ',omp_get_num_threads(),' processor(s)'
-!$        write(*,*) 'There are ',omp_get_num_procs(),' processor(s) available'
+!$        write(*,*) 'There are  ',omp_get_num_procs(),' processor(s) available'
 !$      end if
 !$omp end parallel
 
@@ -746,13 +751,17 @@
             call exit(1)
           endif
           
- 700      edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
+#ifdef USE_NR
+ 700      edge = rtsafe( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
+#else
+ 700      edge = zeroin( ynn(j-1), ynn(j+2), fedge, 1.0e-8 )
+#endif
 
-          rhoe = BSDER( 0, edge, kord, knot, ny, bs(:,1) )
-          ue   = BSDER( 0, edge, kord, knot, ny, bs(:,2) )
-          ve   = BSDER( 0, edge, kord, knot, ny, bs(:,3) )
-          we   = BSDER( 0, edge, kord, knot, ny, bs(:,4) )
-          te   = BSDER( 0, edge, kord, knot, ny, bs(:,5) )
+          rhoe = bsder( 0, edge, kord, knot, ny, bs(:,1) )
+          ue   = bsder( 0, edge, kord, knot, ny, bs(:,2) )
+          ve   = bsder( 0, edge, kord, knot, ny, bs(:,3) )
+          we   = bsder( 0, edge, kord, knot, ny, bs(:,4) )
+          te   = bsder( 0, edge, kord, knot, ny, bs(:,5) )
           pe   = rhoe * te / (gamma * Ma**2)
 #ifdef NPOST_DEBUG
           write(*,"(8(1pe13.6,1x))") x(i,1), edge, rhoe, ue, ve, we, te
@@ -1053,8 +1062,8 @@
           bn1 = n1(i,1) / sqrt( n1(i,1)**2 + n2(i,1)**2 )
           bn2 = n2(i,1) / sqrt( n1(i,1)**2 + n2(i,1)**2 )
 
-          cur = sqrt( BSDER( 2, s(i), kord, knot, ns, bs(:,1) )**2 + &
-                      BSDER( 2, s(i), kord, knot, ns, bs(:,2) )**2 )
+          cur = sqrt( bsder( 2, s(i), kord, knot, ns, bs(:,1) )**2 + &
+                      bsder( 2, s(i), kord, knot, ns, bs(:,2) )**2 )
 
           c1   = sqrt( v(5,i,1) ) / Ma
           ue   = v(2,i,1)
@@ -1099,10 +1108,10 @@
 !.... more accurate Bspline method 
 
           if (i.eq.1) then
-            betah = (s(i)+1.0e-6)*BSDER(1,s(i)+1.0e-6,kord,knot,ns,bs(:,3)) / &
-                    BSDER(0,s(i)+1.0e-6,kord,knot,ns,bs(:,3))
+            betah = (s(i)+1.0e-6)*bsder(1,s(i)+1.0e-6,kord,knot,ns,bs(:,3)) / &
+                    bsder(0,s(i)+1.0e-6,kord,knot,ns,bs(:,3))
           else
-            betah = s(i) * BSDER(1,s(i),kord,knot,ns,bs(:,3)) / uss(i)
+            betah = s(i) * bsder(1,s(i),kord,knot,ns,bs(:,3)) / uss(i)
           end if
 
 !.... pot.dat
@@ -1234,16 +1243,20 @@
           write(*,*) j, ynn(j-1), ynn(j+2), alpha
 #endif
           if (j.ne.ny) then
-            edge = RTSAFE( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
+#ifdef USE_NR
+            edge = rtsafe( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
+#else
+            edge = zeroin( ynn(j-1), ynn(j+2), fedge, 1.0e-8 )
+#endif
           else
             edge = 0.0
           endif
 
-          rhoe = BSDER( 0, edge, kord, knot, ny, bs(:,1) )
-          ue   = BSDER( 0, edge, kord, knot, ny, bs(:,2) )
-          ve   = BSDER( 0, edge, kord, knot, ny, bs(:,3) )
-          we   = BSDER( 0, edge, kord, knot, ny, bs(:,4) )
-          te   = BSDER( 0, edge, kord, knot, ny, bs(:,5) )
+          rhoe = bsder( 0, edge, kord, knot, ny, bs(:,1) )
+          ue   = bsder( 0, edge, kord, knot, ny, bs(:,2) )
+          ve   = bsder( 0, edge, kord, knot, ny, bs(:,3) )
+          we   = bsder( 0, edge, kord, knot, ny, bs(:,4) )
+          te   = bsder( 0, edge, kord, knot, ny, bs(:,5) )
           uel(i) = ue
           pe     = rhoe * te / (gamma * Ma**2)
           pinf   = one/(gamma*Ma**2)
@@ -1309,14 +1322,18 @@
             call exit(1)
           end if
           jmax = j
-          wmloc = RTSAFE( fwmax, ynn(j-1), ynn(j+2), 1.0e-8 )
-          wmax  = BSDER( 0, wmloc, kord, knot, ny, bs(:,4) )
+#ifdef USE_NR
+          wmloc = rtsafe( fwmax, ynn(j-1), ynn(j+2), 1.0e-8 )
+#else
+          wmloc = zeroin( ynn(j-1), ynn(j+2), fwmax, 1.0e-8 )
+#endif
+          wmax  = bsder( 0, wmloc, kord, knot, ny, bs(:,4) )
 
 !.... find the inflection point in the crossflow profile
 
           do j = jmax, ny-1
-            w1 = BSDER( 2,   ynn(j), kord, knot, ny, bs(:,4) )
-            w2 = BSDER( 2, ynn(j+1), kord, knot, ny, bs(:,4) )
+            w1 = bsder( 2,   ynn(j), kord, knot, ny, bs(:,4) )
+            w2 = bsder( 2, ynn(j+1), kord, knot, ny, bs(:,4) )
             if ( (w1.gt.zero .and. w2.lt.zero) .or. &
                  (w2.gt.zero .and. w1.lt.zero) ) goto 80
           end do
@@ -1324,9 +1341,13 @@
             write(*,*) 'Could not find crossflow inflection point at i = ', i
             call exit(1)
           end if
-          wiloc = RTSAFE( fwinf, ynn(j-1), ynn(j+2), 1.0e-8 )
-          uinf  = BSDER( 0, wiloc, kord, knot, ny, bs(:,2) )
-          winf  = BSDER( 0, wiloc, kord, knot, ny, bs(:,4) )
+#ifdef USE_NR
+          wiloc = rtsafe( fwinf, ynn(j-1), ynn(j+2), 1.0e-8 )
+#else
+          wiloc = zeroin( ynn(j-1), ynn(j+2), fwinf, 1.0e-8 )
+#endif
+          uinf  = bsder( 0, wiloc, kord, knot, ny, bs(:,2) )
+          winf  = bsder( 0, wiloc, kord, knot, ny, bs(:,4) )
           epsi  = atan2( winf, uinf ) * 180.0 / pi
 
           endif
@@ -1357,11 +1378,11 @@
 
           if(.false.) then
             do j = 1, ny
-              rho = BSDER( 0, ynn(j), kord, knot, ny, bs(:,1) )
-              us  = BSDER( 0, ynn(j), kord, knot, ny, bs(:,2) )
-              un  = BSDER( 0, ynn(j), kord, knot, ny, bs(:,3) )
-              u3  = BSDER( 0, ynn(j), kord, knot, ny, bs(:,4) )
-              t   = BSDER( 0, ynn(j), kord, knot, ny, bs(:,5) )
+              rho = bsder( 0, ynn(j), kord, knot, ny, bs(:,1) )
+              us  = bsder( 0, ynn(j), kord, knot, ny, bs(:,2) )
+              un  = bsder( 0, ynn(j), kord, knot, ny, bs(:,3) )
+              u3  = bsder( 0, ynn(j), kord, knot, ny, bs(:,4) )
+              t   = bsder( 0, ynn(j), kord, knot, ny, bs(:,5) )
               write(*,"(8(1pe13.6,1x))") ynn(j), rho, us, un, u3, t
             end do
           end if
@@ -1454,8 +1475,8 @@
 
         real :: x, dfun, rho, u
 !=============================================================================!
-        rho = BSDER( 0, x, kord, knot, ns, bs(:,1) )
-        u   = BSDER( 0, x, kord, knot, ns, bs(:,2) )
+        rho = bsder( 0, x, kord, knot, ns, bs(:,1) )
+        u   = bsder( 0, x, kord, knot, ns, bs(:,2) )
 
         dfun = 1.0 - rho * u / (rhoe * ue)
         
@@ -1471,8 +1492,8 @@
 
         real :: x, thfun, rho, u
 !=============================================================================!
-        rho = BSDER( 0, x, kord, knot, ns, bs(:,1) )
-        u   = BSDER( 0, x, kord, knot, ns, bs(:,2) )
+        rho = bsder( 0, x, kord, knot, ns, bs(:,1) )
+        u   = bsder( 0, x, kord, knot, ns, bs(:,2) )
 
         thfun = rho * u / (rhoe * ue) * ( 1.0 - u / ue )
         
@@ -1488,13 +1509,20 @@
 
         real :: x, thfun, rho, w
 !=============================================================================!
-        rho = BSDER( 0, x, kord, knot, ns, bs(:,1) )
-        w   = BSDER( 0, x, kord, knot, ns, bs(:,4) )
+        rho = bsder( 0, x, kord, knot, ns, bs(:,1) )
+        w   = bsder( 0, x, kord, knot, ns, bs(:,4) )
 
         thfunz = rho * w / (rhoe * we) * ( 1.0 - w / we )
         
         return
         end 
+!=============================================================================!
+        function f_edge(x)
+        real :: x, f, d
+        call fedge(x, f, d)
+        f_edge = f
+        return
+        end
 !=============================================================================!
         subroutine fedge( x, g, d )
 !
@@ -1510,23 +1538,23 @@
 
 !.... maximum in U_c
 
-         f = BSDER( 0, x, kord, knot, ns, bs(:,2) )
-         g = BSDER( 1, x, kord, knot, ns, bs(:,2) )
-         d = BSDER( 2, x, kord, knot, ns, bs(:,2) )
+         f = bsder( 0, x, kord, knot, ns, bs(:,2) )
+         g = bsder( 1, x, kord, knot, ns, bs(:,2) )
+         d = bsder( 2, x, kord, knot, ns, bs(:,2) )
 
        else if (edgeType.eq.Edge_Wc) then
 
 !.... Delta 0.999 in W_c
 
-          g = BSDER( 0, x, kord, knot, ns, bs(:,4) ) - 0.999*tan(alpha)
-          d = BSDER( 1, x, kord, knot, ns, bs(:,4) )
+          g = bsder( 0, x, kord, knot, ns, bs(:,4) ) - 0.999*tan(alpha)
+          d = bsder( 1, x, kord, knot, ns, bs(:,4) )
 
         else if (edgeType.eq.Edge_T) then
 
 !.... Delta 0.999 in T
         
-          g = BSDER( 0, x, kord, knot, ns, bs(:,5) ) - 0.999
-          d = BSDER( 1, x, kord, knot, ns, bs(:,5) )
+          g = bsder( 0, x, kord, knot, ns, bs(:,5) ) - 0.999
+          d = bsder( 1, x, kord, knot, ns, bs(:,5) )
 
         else
           write(*,*) "Illegal value of edgeType"
@@ -1535,6 +1563,13 @@
 
         return
         end 
+!=============================================================================!
+        function f_wmax(x)
+        real :: x, f, d
+        call fwmax(x, f, d)
+        f_wmax = f
+        return
+        end
 !=============================================================================!
         subroutine fwmax( x, g, d )
 !
@@ -1545,12 +1580,19 @@
 
         real :: x, f, g, d
 !=============================================================================!
-        f = BSDER( 0, x, kord, knot, ns, bs(:,4) )
-        g = BSDER( 1, x, kord, knot, ns, bs(:,4) )
-        d = BSDER( 2, x, kord, knot, ns, bs(:,4) )
+        f = bsder( 0, x, kord, knot, ns, bs(:,4) )
+        g = bsder( 1, x, kord, knot, ns, bs(:,4) )
+        d = bsder( 2, x, kord, knot, ns, bs(:,4) )
 
         return
         end 
+!=============================================================================!
+        function f_winf(x)
+        real :: x, f, d
+        call fwinf(x, f, d)
+        f_inf = f
+        return
+        end
 !=============================================================================!
         subroutine fwinf( x, g, d )
 !
@@ -1561,9 +1603,9 @@
 
         real :: x, f, g, d
 !=============================================================================!
-        f = BSDER( 1, x, kord, knot, ns, bs(:,4) )
-        g = BSDER( 2, x, kord, knot, ns, bs(:,4) )
-        d = BSDER( 3, x, kord, knot, ns, bs(:,4) )
+        f = bsder( 1, x, kord, knot, ns, bs(:,4) )
+        g = bsder( 2, x, kord, knot, ns, bs(:,4) )
+        d = bsder( 3, x, kord, knot, ns, bs(:,4) )
 
         return
         end 

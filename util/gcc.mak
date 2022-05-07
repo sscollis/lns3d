@@ -29,16 +29,14 @@ GRAD_JI = grad_ji.o  grad2_ji.o
 BSLIB = bslib1.o bslib2.o
 
 ifdef USE_NR
-  NRLIB = rtsafe.o
+  MATHLIB = rtsafe.o
+else
+  MATHLIB = zeroin.o d1mach.o
 endif
 
 ALL = conv-sgi lpost subwave csubwave mkamp mkini mkdist mkdist3d mkmean \
 genmesh initial nconvert getevec mkvortex ij2ji ji2ij mkmean_ji mkdist3d_ji \
-mkdist_ji r4tor8 dirp3d p3dlns3d unipot
-
-ifdef USE_NR
-  ALL += spost npost lpost3d lpost3d_ji stat
-endif
+mkdist_ji r4tor8 dirp3d p3dlns3d unipot npost spost lpost3d lpost3d_ji stat
 
 all: $(ALL) 
 
@@ -52,19 +50,19 @@ spost: const.o spost.o $(GRAD_JI) filter.o $(BSLIB) $(NRLIB)
 	$(FC) spost.o $(GRAD_JI) filter.o const.o $(LIB) $(BSLIB) $(NRLIB) \
 	-o spost
 
-npost: const.o npost.o $(GRAD) filter.o error.o $(BSLIB) $(NRLIB)
-	$(FC) $(FFLAGS) npost.o $(GRAD) $(BSLIB) $(NRLIB) \
+npost: const.o npost.o $(GRAD) filter.o error.o $(BSLIB) $(MATHLIB)
+	$(FC) $(FFLAGS) npost.o $(GRAD) $(BSLIB) $(MATHLIB) \
 	filter.o const.o error.o $(LIB) -o npost
 
 npost_ji: const.o npost_ji.o $(GRAD_JI) filter.o
 	$(FC) npost_ji.o $(GRAD_JI) filter.o const.o $(LIB) -o npost_ji
 
-lpost3d: const.o fmax.o cfilter.o $(NRLIB) lpost3d.o $(BSLIB)
-	$(FC) lpost3d.o cfilter.o fmax.o $(NRLIB) const.o $(LIB) $(BSLIB) \
+lpost3d: const.o fmax.o cfilter.o $(MATHLIB) lpost3d.o $(BSLIB)
+	$(FC) lpost3d.o cfilter.o fmax.o $(MATHLIB) const.o $(LIB) $(BSLIB) \
 	-o lpost3d
 
-lpost3d_ji: const.o fmax.o cfilter.o $(NRLIB) lpost3d_ji.o $(BSLIB)
-	$(FC) lpost3d_ji.o cfilter.o fmax.o $(NRLIB) const.o $(LIB) $(BSLIB) \
+lpost3d_ji: const.o fmax.o cfilter.o $(MATHLIB) lpost3d_ji.o $(BSLIB)
+	$(FC) lpost3d_ji.o cfilter.o fmax.o $(MATHLIB) const.o $(LIB) $(BSLIB) \
 	-o lpost3d_ji
 
 subwave: const.o subwave.o 
