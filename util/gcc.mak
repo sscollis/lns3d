@@ -30,7 +30,7 @@ GRAD_JI = grad_ji.o  grad2_ji.o
 BSLIB = bslib1.o bslib2.o
 
 ifdef USE_NR
-  MATHLIB = rtsafe.o
+  MATHLIB = nr_rtsafe.o
 else
   MATHLIB = zeroin.o d1mach.o
 endif

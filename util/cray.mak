@@ -33,9 +33,9 @@ npost2: const.o npost2.o $(GRAD) filter.o
 	$(COMP) npost2.o $(GRAD) filter.o const.o $(LIB) -o npost2
 #	$(COMP) npost2.o $(GRAD) filter.o const.o -limsl -o npost2
 
-lpost3d: const.o fmax.o rtsafe.o lpost3d.o cfilter.o 
-#	$(COMP) lpost3d.o cfilter.o fmax.o rtsafe.o const.o -limsl -o lpost3d
-	$(COMP) lpost3d.o cfilter.o fmax.o rtsafe.o const.o $(LIB) -o lpost3d
+lpost3d: const.o fmax.o nr_rtsafe.o lpost3d.o cfilter.o 
+#	$(COMP) lpost3d.o cfilter.o fmax.o nr_rtsafe.o const.o -limsl -o lpost3d
+	$(COMP) lpost3d.o cfilter.o fmax.o nr_rtsafe.o const.o $(LIB) -o lpost3d
 
 subwave: const.o subwave.o
 	$(COMP) subwave.o const.o -o subwave
@@ -63,9 +63,9 @@ inter: const.o inter.o
 genmesh: const.o genmesh.o
 	$(COMP) genmesh.o const.o -o genmesh
 
-stat: const.o stat.o rtsafe.o
-#	$(COMP) stat.o const.o rtsafe.o -limsl -o stat 
-	$(COMP) stat.o const.o rtsafe.o $(LIB) -o stat 
+stat: const.o stat.o nr_rtsafe.o
+#	$(COMP) stat.o const.o nr_rtsafe.o -limsl -o stat 
+	$(COMP) stat.o const.o nr_rtsafe.o $(LIB) -o stat 
 
 initial: const.o initial.o
 	$(COMP) initial.o const.o -o initial

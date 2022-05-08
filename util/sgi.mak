@@ -36,8 +36,8 @@ npost: const.o npost.o $(GRAD) filter.o error.o
 npost_ji: const.o npost_ji.o $(GRAD_JI) filter.o
 	$(COMP) npost_ji.o $(GRAD_JI) filter.o const.o $(LIB) -o npost_ji
 
-lpost3d: const.o fmax.o cfilter.o rtsafe.o lpost3d.o 
-	$(COMP) lpost3d.o cfilter.o fmax.o rtsafe.o const.o $(LIB) -o lpost3d
+lpost3d: const.o fmax.o cfilter.o nr_rtsafe.o lpost3d.o 
+	$(COMP) lpost3d.o cfilter.o fmax.o nr_rtsafe.o const.o $(LIB) -o lpost3d
 
 subwave: const.o subwave.o 
 	$(COMP) subwave.o const.o -o subwave
@@ -66,8 +66,8 @@ inter: const.o inter.o
 genmesh: const.o genmesh.o 
 	$(COMP) $(FFLAGS) genmesh.o const.o -o genmesh
 
-stat: const.o stat.o rtsafe.o 
-	$(COMP) stat.o const.o rtsafe.o $(LIB) -o stat 
+stat: const.o stat.o nr_rtsafe.o 
+	$(COMP) stat.o const.o nr_rtsafe.o $(LIB) -o stat 
 
 initial: const.o initial.o 
 	$(COMP) initial.o const.o -o initial

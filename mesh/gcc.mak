@@ -28,7 +28,7 @@ BSLIB = bslib1.o bslib2.o
 # licenced you will need a valid license for these to use.
 #
 ifdef USE_NR
-  NRLIB = nr.o
+  NRLIB = nr_odeint.o
   NRSPLINE = nr_spline.o
 endif
 
