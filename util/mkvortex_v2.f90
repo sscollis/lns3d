@@ -47,7 +47,7 @@
 
         real, external :: f
 !=============================================================================!
-        write(*,"(/,'MkVortex',/)") 
+        write(*,"(/,'MkVortex v2',/)") 
         write(*,*) 'WARNING:  Indices are I,J'
         write(*,"('(P)rimitive or (C)onservative ==> ',$)")
         read (*,*) ans

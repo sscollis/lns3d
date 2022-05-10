@@ -35,7 +35,7 @@
 
         real, external :: f
 !=============================================================================!
-        write(*,"(/,'MkVortex',/)") 
+        write(*,"(/,'MkVortex v1',/)") 
         write(*,"('Enter Re, Ma, Pr ==> ',$)")
         read (*,*) Re, Ma, Pr
         write(*,"('Enter x0, y0, L, Circ ==> ',$)")
@@ -184,7 +184,7 @@
         implicit none
         
         integer loc
-        character*80 name, msg
+        character(*) name, msg
 
         loc = index(name,'$')-1
         write(*,"(/,'=====================================================')")

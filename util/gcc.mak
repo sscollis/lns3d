@@ -44,7 +44,7 @@ MATHLIB = zeroin.o d1mach.o
 ALL = conv-sgi lpost subwave csubwave mkamp mkini mkdist mkdist3d mkmean \
 genmesh initial nconvert getevec mkvortex ij2ji ji2ij mkmean_ji mkdist3d_ji \
 mkdist_ji r4tor8 dirp3d p3dlns3d unipot npost spost lpost3d lpost3d_ji stat \
-mkvortex_v2
+mkvortex_v1 mkvortex_v2
 
 all: $(ALL) 
 
@@ -122,8 +122,13 @@ mkvortex: const.o mkvortex.o
 	$(FC) $(OFLAGS) mkvortex.o const.o $(SLATEC) -Xlinker \
         -rpath -Xlinker ../slatec/lib $(LIB) -o mkvortex
 
+mkvortex_v1: const.o mkvortex_v1.o 
+	$(FC) $(OFLAGS) mkvortex_v1.o const.o $(SLATEC) -Xlinker \
+        -rpath -Xlinker ../slatec/lib $(LIB) -o mkvortex_v1
+
 mkvortex_v2: const.o mkvortex_v2.o 
-	$(FC) $(OFLAGS) mkvortex_v2.o const.o $(SLATEC) $(LIB) -o mkvortex_v2
+	$(FC) $(OFLAGS) mkvortex_v2.o const.o $(SLATEC) -Xlinker \
+        -rpath -Xlinker ../slatec/lib $(LIB) -o mkvortex_v2
 
 getevec: getevec.o
 	$(FC) $(OFLAGS) getevec.o $(ARPACK) -o getevec
