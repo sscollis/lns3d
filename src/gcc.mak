@@ -8,8 +8,7 @@
 #
 #=============================================================================
 NAME     = lns3d 
-#DEBUG    = -g 
-DEBUG    = -O2 -fopenmp
+DEBUG    = -O2 -fopenmp -g
 F77FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -ffixed-line-length-120 \
 -std=legacy -c $(DEBUG)
 F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -c $(DEBUG)

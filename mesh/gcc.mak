@@ -6,11 +6,12 @@
 #  Revised: 2-9-2020 
 #==============================================================================
 DEBUG  = -O2
-FFLAGS   = -cpp -freal-4-real-8 -fdefault-real-8 -std=legacy -ffixed-line-length-120 \
-					 -Wno-align-commons $(DEFINES) $(DEBUG)
-F90FLAGS = -cpp -freal-4-real-8 -fdefault-real-8 -Wno-align-commons $(DEFINES) $(DEBUG)
+FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -std=legacy -ffixed-line-length-120 \
+-Wno-align-commons $(DEFINES) $(DEBUG)
+F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -Wno-align-commons \
+$(DEFINES) $(DEBUG)
 OFLAGS = $(DEBUG)
-COMP   = gfortran 
+FC     = gfortran 
 F77    = gfortran
 CC     = gcc-11
 LIB    = 
@@ -28,7 +29,10 @@ BSLIB = bslib1.o bslib2.o
 # licenced you will need a valid license for these to use.
 #
 ifdef USE_NR
-  LIBNR = -L$(LIBNR_DIR) -lnr 
+  ifeq ($(LIBNR_DIR),)
+    LIBNR_DIR = $(HOME)/git/NR-utilities
+  endif
+  LIB += -L$(LIBNR_DIR) -lnr 
 endif
 
 MODS = stencil.o
@@ -42,43 +46,43 @@ endif
 all: $(ALL)
 
 ogrid: ogrid.o
-	$(COMP) $(OFLAGS) -o ogrid ogrid.o
+	$(FC) $(OFLAGS) -o ogrid ogrid.o
 
 mse: mse.o
-	$(COMP) $(OFLAGS) $(LIBNR) -o mse mse.o
+	$(FC) $(OFLAGS) $(LIB) -o mse mse.o
 
 msecurve: msecurve.o
-	$(COMP) $(OFLAGS) $(LIBNR) -o msecurve msecurve.o
+	$(FC) $(OFLAGS) $(LIB) -o msecurve msecurve.o
 
 confpc: wgrid.o  wdata.o  confpc.o
-	$(COMP) $(OFLAGS) $(LIBNR) -o confpc wgrid.o wdata.o confpc.o 
+	$(FC) $(OFLAGS) $(LIB) -o confpc wgrid.o wdata.o confpc.o 
 
 interpc: interpc.o calcd.o grad.o $(BSLIB)
-	$(COMP) $(OFLAGS) -o interpc interpc.o calcd.o grad.o $(LIBNR) $(BSLIB) $(LIB)
+	$(FC) $(OFLAGS) -o interpc interpc.o calcd.o grad.o $(BSLIB) $(LIB)
 
 cinterpc: cinterpc.o calcd.o grad.o $(BSLIB)
-	$(COMP) $(OFLAGS) -o cinterpc cinterpc.o calcd.o grad.o $(LIBNR) $(BSLIB) $(LIB) 
+	$(FC) $(OFLAGS) -o cinterpc cinterpc.o calcd.o grad.o $(BSLIB) $(LIB) 
 
 pc: pc.o wdata.o wgrid.o
-	$(COMP) $(OFLAGS) $(LIBNR) -o pc pc.o wdata.o wgrid.o
+	$(FC) $(OFLAGS) -o pc pc.o wdata.o wgrid.o $(LIB)
 
 testpc: testpc.o
-	$(COMP) $(OFLAGS) $(LIBNR) -o testpc testpc.o
+	$(FC) $(OFLAGS) $(LIB) -o testpc testpc.o
 
 pcurve: pcurve.o
-	$(COMP) $(OFLAGS) $(LIBNR) -o pcurve pcurve.o
+	$(FC) $(OFLAGS) $(LIB) -o pcurve pcurve.o
 
 level: level.o splcrv.o crvdist.o wgrid.o wdata.o elliptic.o conformal.o $(BSLIB)
-	$(COMP) $(OFLAGS) -o level level.o splcrv.o crvdist.o wgrid.o wdata.o \
-		elliptic.o conformal.o $(LIB) $(BSLIB) $(LIBNR)
+	$(FC) $(OFLAGS) -o level level.o splcrv.o crvdist.o wgrid.o wdata.o \
+		elliptic.o conformal.o $(LIB) $(BSLIB)
 
 grad.o: stencil.o
 
 cyl: cyl.o
-	$(COMP) $(OFLAGS) -o cyl cyl.o
+	$(FC) $(OFLAGS) -o cyl cyl.o
 
 circ: circ.o
-	$(COMP) $(OFLAGS) -o circ circ.o
+	$(FC) $(OFLAGS) -o circ circ.o
 
 $(MODS):
 
@@ -95,4 +99,4 @@ clean:
 	$(F77) $(FFLAGS) -o $* $*.f
 
 .f90.o:
-	$(COMP) $(F90FLAGS) -c $*.f90 
+	$(FC) $(F90FLAGS) -c $*.f90 

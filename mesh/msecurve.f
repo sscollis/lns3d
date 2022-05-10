@@ -16,7 +16,7 @@ c=============================================================================c
 
         parameter (mx=5000)
         dimension eta(mx), s(mx), ds1(mx), dss1(mx)
-        common /path/ eta, s
+        common /NR_RUNGE_PATH/ eta, s
 
         common /xloc/ s1
         
@@ -94,7 +94,7 @@ c=============================================================================c
           call exit(1)
         endif
         
-        call RUNGE( s(1), 1, eta1, eta2, nx-1, derivs )
+        call NR_RUNGE( s(1), 1, eta1, eta2, nx-1, derivs )
 c
 c.... compute the derivative of the mapping function and spline it
 c
@@ -169,7 +169,7 @@ c=============================================================================c
 
         parameter (mx=5000)
         dimension eta(mx), s(mx)
-        common /path/ eta, s
+        common /NR_RUNGE_PATH/ eta, s
 
         common /stuff/ AR, rm, rn, xmin, c1, c2, dsmin, xmax, smax, nx
         
@@ -182,7 +182,7 @@ c=============================================================================c
         c2 = (1.0 / dsmax) / real(nx-1)
         c1 = (1.0 / dsmin) / real(nx-1) - c2
         
-        call RUNGE( s(1), 1, eta1, eta2, nx-1, derivs )
+        call NR_RUNGE( s(1), 1, eta1, eta2, nx-1, derivs )
         
         func2 = smax - s(nx)
          

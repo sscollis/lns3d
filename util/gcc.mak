@@ -6,8 +6,8 @@
 #  Revised: 4/30/2022 
 #==============================================================================
 DEBUG  = -O2 -fopenmp
-#FFLAGS = -cpp -fdefault-real-8 -freal-4-real-8 $(DEBUG)
-FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEBUG)
+FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -std=legacy \
+         -ffixed-line-length-120 $(DEBUG)
 OFLAGS = $(DEBUG) -o $(NAME)
 LIB    = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 ARPACK = -L/usr/local/lib -larpack
@@ -32,7 +32,10 @@ BSLIB = bslib1.o bslib2.o
 # Optionally use Numerical-Recipes (commercial licensed)
 #
 ifdef USE_NR
-  LIBNR = -L$(LIBNR_DIR) -lnr 
+  ifeq ($(LIBNR_DIR),)
+    LIBNR_DIR = $(HOME)/git/NR-utilities
+  endif
+  LIB += -L$(LIBNR_DIR) -lnr 
 endif
 
 MATHLIB = zeroin.o d1mach.o
@@ -49,12 +52,12 @@ conv-sgi: const.o conv-sgi.o wgrid.o wdata.o $(GRAD)
 lpost: const.o lpost.o $(GRAD_JI)
 	$(FC) $(FFLAGS) lpost.o const.o $(GRAD_JI) -o lpost
 
-spost: const.o spost.o $(GRAD_JI) filter.o $(BSLIB) $(NRLIB)
-	$(FC) spost.o $(GRAD_JI) filter.o const.o $(LIB) $(BSLIB) $(NRLIB) \
+spost: const.o spost.o $(GRAD_JI) filter.o $(BSLIB)
+	$(FC) spost.o $(GRAD_JI) filter.o const.o $(LIB) $(BSLIB) \
 	-o spost
 
 npost: const.o npost.o $(GRAD) filter.o error.o $(BSLIB) $(MATHLIB)
-	$(FC) $(FFLAGS) npost.o $(GRAD) $(BSLIB) $(MATHLIB) $(LIBNR) \
+	$(FC) $(FFLAGS) npost.o $(GRAD) $(BSLIB) $(MATHLIB) \
 	filter.o const.o error.o $(LIB) -o npost
 
 npost_ji: const.o npost_ji.o $(GRAD_JI) filter.o
@@ -62,11 +65,11 @@ npost_ji: const.o npost_ji.o $(GRAD_JI) filter.o
 
 lpost3d: const.o fmax.o cfilter.o $(MATHLIB) lpost3d.o $(BSLIB)
 	$(FC) lpost3d.o cfilter.o fmax.o $(MATHLIB) const.o $(LIB) $(BSLIB) \
-	$(LIBNR) -o lpost3d
+	-o lpost3d
 
 lpost3d_ji: const.o fmax.o cfilter.o $(MATHLIB) lpost3d_ji.o $(BSLIB)
 	$(FC) lpost3d_ji.o cfilter.o fmax.o $(MATHLIB) const.o $(LIB) $(BSLIB) \
-	$(LIBNR) -o lpost3d_ji
+	-o lpost3d_ji
 
 subwave: const.o subwave.o 
 	$(FC) subwave.o const.o -o subwave
@@ -104,8 +107,8 @@ inter: const.o inter.o $(BSLIB)
 genmesh: const.o genmesh.o 
 	$(FC) $(FFLAGS) genmesh.o const.o -o genmesh
 
-stat: const.o stat.o $(NRLIB) $(BSLIB) 
-	$(FC) stat.o const.o $(NRLIB) $(LIB) $(BSLIB) -o stat 
+stat: const.o stat.o $(BSLIB) 
+	$(FC) stat.o const.o $(LIB) $(BSLIB) -o stat 
 
 initial: const.o initial.o 
 	$(FC) initial.o const.o -o initial
@@ -137,10 +140,10 @@ clean:
 	$(FC) $(FFLAGS) -o $* $*.f90 
 
 .f.o:
-	$(F77) $(FFLAGS) -std=legacy -ffixed-line-length-120 -c $*.f
+	$(F77) $(FFLAGS) -c $*.f
 
 .f:
-	$(F77) $(FFLAGS) -std=legacy -ffixed-line-length-120 -o $* $*.f
+	$(F77) $(FFLAGS) -o $* $*.f
 
 .c.o:
 	$(CC) $(DEBUG) -c $*.c
