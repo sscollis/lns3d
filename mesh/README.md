@@ -34,9 +34,12 @@ them with equivalents.
 To use the commercial (Numerical Recipes) code, build using:
 
     ln -s gcc.mak Makefile
-    env USE_NR=1 make all
+    env USE_NR=1 LIBNR_DIR=$HOME/git/NR-utilities make all
 
-that requires that you have two additional source files (not 
+where `LIBNR_DIR` points to the directory where you have `libnr.a` containing
+Numerical-Recipes routines.
+
+This requires that you have two additional source files (not 
 distributed here) `nr_odeint.f` and `nr_spline.f`. Both would be
 easy to replace with public domain software and this is 
 encouraged as a future update.

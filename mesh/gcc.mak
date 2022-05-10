@@ -28,8 +28,7 @@ BSLIB = bslib1.o bslib2.o
 # licenced you will need a valid license for these to use.
 #
 ifdef USE_NR
-  NRLIB = nr_odeint.o
-  NRSPLINE = nr_spline.o
+  LIBNR = -L$(LIBNR_DIR) -lnr 
 endif
 
 MODS = stencil.o
@@ -45,33 +44,33 @@ all: $(ALL)
 ogrid: ogrid.o
 	$(COMP) $(OFLAGS) -o ogrid ogrid.o
 
-mse: mse.o $(NRLIB) $(NRSPLINE)
-	$(COMP) $(OFLAGS) $(NRLIB) $(NRSPLINE) -o mse mse.o
+mse: mse.o
+	$(COMP) $(OFLAGS) $(LIBNR) -o mse mse.o
 
-msecurve: msecurve.o $(NRLIB)
-	$(COMP) $(OFLAGS) $(NRLIB) -o msecurve msecurve.o
+msecurve: msecurve.o
+	$(COMP) $(OFLAGS) $(LIBNR) -o msecurve msecurve.o
 
-confpc: wgrid.o  wdata.o  confpc.o $(NRLIB)
-	$(COMP) $(OFLAGS) $(NRLIB) -o confpc wgrid.o wdata.o confpc.o 
+confpc: wgrid.o  wdata.o  confpc.o
+	$(COMP) $(OFLAGS) $(LIBNR) -o confpc wgrid.o wdata.o confpc.o 
 
-interpc: interpc.o calcd.o grad.o $(BSLIB) $(NRLIB) $(NRSPLINE)
-	$(COMP) $(OFLAGS) -o interpc interpc.o calcd.o grad.o $(NRLIB) $(NRSPLINE) $(BSLIB) $(LIB)
+interpc: interpc.o calcd.o grad.o $(BSLIB)
+	$(COMP) $(OFLAGS) -o interpc interpc.o calcd.o grad.o $(LIBNR) $(BSLIB) $(LIB)
 
-cinterpc: cinterpc.o calcd.o grad.o $(BSLIB) $(NRLIB) $(NRSPLINE) 
-	$(COMP) $(OFLAGS) -o cinterpc cinterpc.o calcd.o grad.o $(NRLIB) $(NRSPLINE) $(BSLIB) $(LIB) 
+cinterpc: cinterpc.o calcd.o grad.o $(BSLIB)
+	$(COMP) $(OFLAGS) -o cinterpc cinterpc.o calcd.o grad.o $(LIBNR) $(BSLIB) $(LIB) 
 
-pc: pc.o wdata.o wgrid.o $(NRLIB)
-	$(COMP) $(OFLAGS) $(NRLIB) -o pc pc.o wdata.o wgrid.o
+pc: pc.o wdata.o wgrid.o
+	$(COMP) $(OFLAGS) $(LIBNR) -o pc pc.o wdata.o wgrid.o
 
-testpc: testpc.o $(NRLIB)
-	$(COMP) $(OFLAGS) $(NRLIB) -o testpc testpc.o
+testpc: testpc.o
+	$(COMP) $(OFLAGS) $(LIBNR) -o testpc testpc.o
 
-pcurve: pcurve.o $(NRLIB)
-	$(COMP) $(OFLAGS) $(NRLIB) -o pcurve pcurve.o
+pcurve: pcurve.o
+	$(COMP) $(OFLAGS) $(LIBNR) -o pcurve pcurve.o
 
-level: level.o splcrv.o crvdist.o wgrid.o wdata.o elliptic.o conformal.o $(BSLIB) $(NRLIB)
+level: level.o splcrv.o crvdist.o wgrid.o wdata.o elliptic.o conformal.o $(BSLIB)
 	$(COMP) $(OFLAGS) -o level level.o splcrv.o crvdist.o wgrid.o wdata.o \
-		elliptic.o conformal.o $(LIB) $(BSLIB) $(NRLIB) 
+		elliptic.o conformal.o $(LIB) $(BSLIB) $(LIBNR)
 
 grad.o: stencil.o
 

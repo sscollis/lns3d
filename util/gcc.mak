@@ -28,12 +28,14 @@ GRAD = grad.o  grad2.o
 GRAD_JI = grad_ji.o  grad2_ji.o
 
 BSLIB = bslib1.o bslib2.o
-
+#
+# Optionally use Numerical-Recipes (commercial licensed)
+#
 ifdef USE_NR
-  MATHLIB = nr_rtsafe.o
-else
-  MATHLIB = zeroin.o d1mach.o
+  LIBNR = -L$(LIBNR_DIR) -lnr 
 endif
+
+MATHLIB = zeroin.o d1mach.o
 
 ALL = conv-sgi lpost subwave csubwave mkamp mkini mkdist mkdist3d mkmean \
 genmesh initial nconvert getevec mkvortex ij2ji ji2ij mkmean_ji mkdist3d_ji \
@@ -52,7 +54,7 @@ spost: const.o spost.o $(GRAD_JI) filter.o $(BSLIB) $(NRLIB)
 	-o spost
 
 npost: const.o npost.o $(GRAD) filter.o error.o $(BSLIB) $(MATHLIB)
-	$(FC) $(FFLAGS) npost.o $(GRAD) $(BSLIB) $(MATHLIB) \
+	$(FC) $(FFLAGS) npost.o $(GRAD) $(BSLIB) $(MATHLIB) $(LIBNR) \
 	filter.o const.o error.o $(LIB) -o npost
 
 npost_ji: const.o npost_ji.o $(GRAD_JI) filter.o
@@ -60,11 +62,11 @@ npost_ji: const.o npost_ji.o $(GRAD_JI) filter.o
 
 lpost3d: const.o fmax.o cfilter.o $(MATHLIB) lpost3d.o $(BSLIB)
 	$(FC) lpost3d.o cfilter.o fmax.o $(MATHLIB) const.o $(LIB) $(BSLIB) \
-	-o lpost3d
+	$(LIBNR) -o lpost3d
 
 lpost3d_ji: const.o fmax.o cfilter.o $(MATHLIB) lpost3d_ji.o $(BSLIB)
 	$(FC) lpost3d_ji.o cfilter.o fmax.o $(MATHLIB) const.o $(LIB) $(BSLIB) \
-	-o lpost3d_ji
+	$(LIBNR) -o lpost3d_ji
 
 subwave: const.o subwave.o 
 	$(FC) subwave.o const.o -o subwave

@@ -6,6 +6,10 @@ Note that with few exceptions, it is assumed that these codes are compiled
 using the -r8 (or equivalent) option in the compiler to cast all reals to
 doubles.  This is supported in the SGI makefile (sgi.mak)
 
+## Building
+
+
+
 Notation | Description
 ---------|---------------------------------------------------------------
 IO       | input/output has switch to IJ but internal is still JI
