@@ -43,7 +43,7 @@
 
         real :: xi, x0, y0, r, alpha = 1.2564312086261696770
         real :: rho, t, p, v_theta, v_r, theta, fact
-        real :: x0_1, x0_2, y0_1, y0_2, amp_1, amp_2, amp, r1, r2, r
+        real :: x0_1, x0_2, y0_1, y0_2, amp_1, amp_2, amp, r1, r2
 
         real, external :: f
 !=============================================================================!
@@ -96,8 +96,8 @@
 
         if (amp.ne.zero) then
 
-        !$omp parallel do private(i,r,theta,a_inf,rho_inf,v_theta,v_r, p, &
-        !$omp&                     rho, t )
+        !$omp parallel do private(i,r,theta,v_theta,v_r, p, &
+        !$omp&                    rho, t )
         do j = 1, ny
           do i = 1, nx
             r = sqrt( (x(i,j)-x0)**2 + (y(i,j)-y0)**2 )/r1
@@ -138,8 +138,7 @@
 
         if (amp.ne.zero) then
 
-        !$omp parallel do private(i,r,theta,a_inf,rho_inf,v_theta,v_r,p, &
-        !$omp&                     rho, t )
+        !$omp parallel do private(i,r,theta,v_theta,v_r,p,rho,t)
         do j = 1, ny
           do i = 1, nx
             r = sqrt( (x(i,j)-x0)**2 + (y(i,j)-y0)**2 )/r2

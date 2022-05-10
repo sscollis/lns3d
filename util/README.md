@@ -1,14 +1,12 @@
 # LNS utilities
 
-This directory contains the utility programs that support LNS.
+This directory contains the utility programs that support LNS3d and CNS2d
 
 Note that with few exceptions, it is assumed that these codes are compiled 
 using the -r8 (or equivalent) option in the compiler to cast all reals to
 doubles.  This is supported in the SGI makefile (sgi.mak)
 
 ## Building
-
-
 
 Notation | Description
 ---------|---------------------------------------------------------------

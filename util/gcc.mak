@@ -8,7 +8,8 @@
 DEBUG  = -O2 -fopenmp
 FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -std=legacy \
          -ffixed-line-length-120 $(DEBUG)
-OFLAGS = $(DEBUG) -o $(NAME)
+F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEBUG)
+OFLAGS = $(DEBUG)
 LIB    = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 ARPACK = -L/usr/local/lib -larpack
 SLATEC = -L../slatec/lib -lslatec
@@ -42,22 +43,23 @@ MATHLIB = zeroin.o d1mach.o
 
 ALL = conv-sgi lpost subwave csubwave mkamp mkini mkdist mkdist3d mkmean \
 genmesh initial nconvert getevec mkvortex ij2ji ji2ij mkmean_ji mkdist3d_ji \
-mkdist_ji r4tor8 dirp3d p3dlns3d unipot npost spost lpost3d lpost3d_ji stat
+mkdist_ji r4tor8 dirp3d p3dlns3d unipot npost spost lpost3d lpost3d_ji stat \
+mkvortex_v2
 
 all: $(ALL) 
 
 conv-sgi: const.o conv-sgi.o wgrid.o wdata.o $(GRAD)
-	$(FC) $(FFLAGS) conv-sgi.o const.o wgrid.o wdata.o -o conv-sgi
+	$(FC) $(OFLAGS) conv-sgi.o const.o wgrid.o wdata.o -o conv-sgi
 
 lpost: const.o lpost.o $(GRAD_JI)
-	$(FC) $(FFLAGS) lpost.o const.o $(GRAD_JI) -o lpost
+	$(FC) $(OFLAGS) lpost.o const.o $(GRAD_JI) -o lpost
 
 spost: const.o spost.o $(GRAD_JI) filter.o $(BSLIB)
 	$(FC) spost.o $(GRAD_JI) filter.o const.o $(LIB) $(BSLIB) \
 	-o spost
 
 npost: const.o npost.o $(GRAD) filter.o error.o $(BSLIB) $(MATHLIB)
-	$(FC) $(FFLAGS) npost.o $(GRAD) $(BSLIB) $(MATHLIB) \
+	$(FC) $(OFLAGS) npost.o $(GRAD) $(BSLIB) $(MATHLIB) \
 	filter.o const.o error.o $(LIB) -o npost
 
 npost_ji: const.o npost_ji.o $(GRAD_JI) filter.o
@@ -75,7 +77,7 @@ subwave: const.o subwave.o
 	$(FC) subwave.o const.o -o subwave
 
 csubwave: const.o csubwave.o  
-	$(FC) $(FFLAGS) csubwave.o const.o -o csubwave
+	$(FC) $(OFLAGS) csubwave.o const.o -o csubwave
 
 mkamp: const.o mkamp.o  
 	$(FC) mkamp.o const.o -o mkamp 
@@ -84,28 +86,28 @@ mkini: const.o mkini.o
 	$(FC) mkini.o const.o -o mkini
 
 mkdist: const.o mkdist.o 
-	$(FC) $(FFLAGS) mkdist.o const.o -o mkdist
+	$(FC) $(OFLAGS) mkdist.o const.o -o mkdist
 
 mkdist_ji: const.o mkdist_ji.o 
-	$(FC) $(FFLAGS) mkdist_ji.o const.o -o mkdist_ji
+	$(FC) $(OFLAGS) mkdist_ji.o const.o -o mkdist_ji
 
 mkdist3d: const.o mkdist3d.o 
-	$(FC) $(FFLAGS) mkdist3d.o const.o -o mkdist3d
+	$(FC) $(OFLAGS) mkdist3d.o const.o -o mkdist3d
 
 mkdist3d_ji: const.o mkdist3d_ji.o 
-	$(FC) $(FFLAGS) mkdist3d_ji.o const.o -o mkdist3d_ji
+	$(FC) $(OFLAGS) mkdist3d_ji.o const.o -o mkdist3d_ji
 
 mkmean: const.o mkmean.o spline.o  
-	$(FC) $(FFLAGS) mkmean.o spline.o const.o -o mkmean
+	$(FC) $(OFLAGS) mkmean.o spline.o const.o -o mkmean
 
 mkmean_ji: const.o mkmean_ji.o spline.o  
-	$(FC) $(FFLAGS) mkmean_ji.o spline.o const.o -o mkmean_ji
+	$(FC) $(OFLAGS) mkmean_ji.o spline.o const.o -o mkmean_ji
 
 inter: const.o inter.o $(BSLIB)
 	$(FC) inter.o const.o $(LIB) $(BSLIB) -o inter
 
 genmesh: const.o genmesh.o 
-	$(FC) $(FFLAGS) genmesh.o const.o -o genmesh
+	$(FC) $(OFLAGS) genmesh.o const.o -o genmesh
 
 stat: const.o stat.o $(BSLIB) 
 	$(FC) stat.o const.o $(LIB) $(BSLIB) -o stat 
@@ -117,14 +119,14 @@ nconvert: const.o nconvert.o
 	$(FC) nconvert.o const.o -o nconvert
 
 mkvortex: const.o mkvortex.o 
-	$(FC) $(FFLAGS) mkvortex.o const.o $(SLATEC) -Xlinker -rpath -Xlinker ../slatec/lib \
-	$(LIB) -o mkvortex
+	$(FC) $(OFLAGS) mkvortex.o const.o $(SLATEC) -Xlinker \
+        -rpath -Xlinker ../slatec/lib $(LIB) -o mkvortex
 
 mkvortex_v2: const.o mkvortex_v2.o 
-	$(FC) $(FFLAGS) mkvortex_v2.o const.o $(SLATEC) $(LIB) -o mkvortex_v2
+	$(FC) $(OFLAGS) mkvortex_v2.o const.o $(SLATEC) $(LIB) -o mkvortex_v2
 
 getevec: getevec.o
-	$(FC) $(FFLAGS) getevec.o $(ARPACK) -o getevec
+	$(FC) $(OFLAGS) getevec.o $(ARPACK) -o getevec
 
 $(GRAD): stencil.o
 
@@ -134,10 +136,10 @@ clean:
 	$(RM) *.o *.mod $(ALL)
 
 .f90.o:
-	$(FC) $(FFLAGS) -c $*.f90 
+	$(FC) $(F90FLAGS) -c $*.f90 
 
 .f90:
-	$(FC) $(FFLAGS) -o $* $*.f90 
+	$(FC) $(F90FLAGS) -o $* $*.f90 
 
 .f.o:
 	$(F77) $(FFLAGS) -c $*.f
