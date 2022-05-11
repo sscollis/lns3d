@@ -17,6 +17,8 @@ Lz = 1
 
 Ma = 1, Re = 0, Pr = 1
 
+Zero mean flow.
+
 Input      | Description
 -----------|-------------------------------
 `ic.inp`   | mkdist3d input 3d oblique wave
