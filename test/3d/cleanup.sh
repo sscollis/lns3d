@@ -2,5 +2,6 @@
 \rm -f output.* && \
 \rm -f *.plt && \
 \rm -f fort.* && \
-\rm -r *.dat 
+\rm -f *.dat && \
+\rm -f grid.xyz
 exit $?
