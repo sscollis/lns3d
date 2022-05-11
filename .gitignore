@@ -33,7 +33,5 @@
 *.app
 lns3d
 pre
-
 #
-Makefile
 .DS_Store
