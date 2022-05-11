@@ -1,4 +1,4 @@
-Inviscid oblique acoustic wave on a square, periodic box.
+## Inviscid oblique acoustic wave on a square, periodic box.
 
 # Mesh
 
