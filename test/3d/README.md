@@ -1,5 +1,9 @@
 ## Inviscid oblique acoustic wave on a square, periodic box.
 
+<p align=center>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/3d/3d.png>
+<br>Oblique acoustic wave.</p>
+
 # Mesh
 
 Nx = 64
