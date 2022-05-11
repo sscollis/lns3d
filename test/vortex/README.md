@@ -41,4 +41,3 @@ Input file     |   Description
 ---
 
 S. Scott Collis\
-Sun Feb 23 08:02:03 MST 2020

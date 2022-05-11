@@ -58,4 +58,3 @@ run problems.
 ---
 
 S. Scott Collis\
-Mon Mar 16 07:11:37 MDT 2020

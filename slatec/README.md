@@ -7,4 +7,3 @@ To build on MacOS
     make install
 
 S. Scott Collis\
-Sat Apr 30 14:02:03 MDT 2022
