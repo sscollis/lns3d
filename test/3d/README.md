@@ -2,7 +2,7 @@
 
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/3d/3d.png>
-<br>Oblique acoustic wave.</p>
+<br>Oblique acoustic wave, contours of density.</p>
 
 # Mesh
 
