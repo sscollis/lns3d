@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# Execute git commands in a list of directories
+#
+# Note:  make sure to use single quotes 'command command' for multi word
+# commands
+#
 if [ $# -lt 2 ];
 then
   echo Usage: $0 command dirs 
