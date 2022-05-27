@@ -31,7 +31,8 @@
 
 !.... variables for the acoustic pulse
 
-        real    :: c1, c2, c3, c4, rho, u1, u2, u3, t, p, rhom, tm, cm, eps
+        real    :: c1, c2, c3, c4, rho, u1, u2, u3, t, p, rhom, tm, cm,&
+                   eps
         real    :: s0, sigma
         integer :: i, j, k, idof
 

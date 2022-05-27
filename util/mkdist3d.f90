@@ -247,7 +247,8 @@
         
 !.... write the restart file
 
-        open(unit=10,file='output.R.0',form='unformatted',status='unknown')
+        open(unit=10,file='output.R.0',form='unformatted', &
+             status='unknown')
         write(10,err=300) 0, zero, nx, ny, nz, ndof, &
                           Re, Ma, Pr, gamma, cv
         write(10,err=300) v
@@ -261,23 +262,23 @@
         
         end
         
-!=============================================================================!
+!======================================================================!
         subroutine error(name,msg)
 !  
 !       Generic error handler 
 !  
-!=============================================================================!
+!======================================================================!
         implicit none
         
         integer loc
         character(*) name, msg
 
         loc = index(name,'$')-1
-        write(*,"(/,'*****************************************************')")
+        write(*,"(/,'***********************************************')")
         write(*,"('Error in --> ',a)") name(1:loc)
         loc = index(msg,'$')-1
         write(*,"('-----------> ',a)") msg(1:loc)
-        write(*,"('*****************************************************',/)")
+        write(*,"('***********************************************',/)")
         
         call exit(1)
         

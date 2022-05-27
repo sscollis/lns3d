@@ -27,8 +27,8 @@
         real :: tmp
 
         integer i, j, k
-        character*80 line
-        character*1 ans
+        character(80) line
+        character(1) ans
         logical :: conservative = .false.
         
 !.... variables for the Oseen Vortex
@@ -64,7 +64,8 @@
 !.... allocate the storage area for the field
 
         allocate (v(ndof,nx,ny), STAT=ier)
-        if (ier .ne. 0) call error('MkVortex$','Insufficient Memory for v$')
+        if (ier .ne. 0) &
+          call error('MkVortex$','Insufficient Memory for v$')
 
         !$omp parallel do private(i)
         do j = 1, ny
@@ -96,7 +97,7 @@
               v_r = zero
               p = fact
             else
-              v_theta = amp * ( one - exp( -alpha * r**2 ) ) / ( r * xi )
+              v_theta = amp * ( one - exp( -alpha * r**2 ) )/( r * xi )
               v_r = zero
               p = fact * ( one - (gamma-one) * Ma**2 / &
                   (xi*r)**2 * f(alpha * r**2 ) )**(gamma/(gamma-one))
@@ -215,10 +216,10 @@
         
         end
 
-!=============================================================================!
+!======================================================================!
         real function f(x)
 !
-!=============================================================================!
+!======================================================================!
         implicit none
 
         real*8, external :: dEi
@@ -233,23 +234,23 @@
         return
         end function f
 
-!=============================================================================!
+!======================================================================!
         subroutine error(name,msg)
 !  
 !       Generic error handler 
 !  
-!=============================================================================!
+!======================================================================!
         implicit none
         
         integer loc
         character(*) name, msg
 
         loc = index(name,'$')-1
-        write(*,"(/,'=====================================================')")
+        write(*,"(/,'===============================================')")
         write(*,"('Error in --> ',a)") name(1:loc)
         loc = index(msg,'$')-1
         write(*,"('-----------> ',a)") msg(1:loc)
-        write(*,"('=====================================================',/)")
+        write(*,"('===============================================',/)")
         
         call exit(1)
         
