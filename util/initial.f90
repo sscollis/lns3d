@@ -29,8 +29,8 @@
         complex :: c1, c2, c3, c4, rho, u1, u2, u3, t, p, rhom, tm, cm
         integer :: i, j, k
 
-        character*80 :: line, code='Initial$'
-        character*1 ans
+        character(80) :: line, code='Initial$'
+        character(1) ans
 !=============================================================================!
 
 !.... read in the grid file

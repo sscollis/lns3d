@@ -41,24 +41,24 @@ subwave     |    NO        |  Remove a forcing wave from LNS field
 ij2ji       |    N/A       |  Read LNS field in IJ and write in JI
 ji2ij       |    N/A       |  Read LNS field in JI and write in IJ
 
-Scripts     |   ndof,i,j   |    Comment 
+Scripts     |   ndof,i,j   |  Comment 
 ------------|--------------|--------------------------------------------
-conv        |   N/A        |    Runs conv.sgi for multiple fields
-gconv       |   N/A        |    Runs conv.sgi -g for multiple grids
-ppost       |   N/A        |    Runs npost and preplot to convert and LNS field file to a tecplot.plt file
-movie_lns3d |   N/A        |    Tecplot macro for LNS3D movies
-movie_cns2d |   N/A        |    Tecplot macro for CNS2D movies
+conv        |   N/A        |  Runs conv.sgi for multiple fields
+gconv       |   N/A        |  Runs conv.sgi -g for multiple grids
+ppost       |   N/A        |  Runs npost and preplot to convert and LNS field file to a tecplot.plt file
+movie_lns3d |   N/A        |  Tecplot macro for LNS3D movies
+movie_cns2d |   N/A        |  Tecplot macro for CNS2D movies
 
 
-Subroutines |   ndof,i,j   |    Comment 
+Subroutines |   ndof,i,j   |  Comment 
 ------------|--------------|--------------------------------------------
-cfilter     |   N/A        |    Filter a complex field in one direction
-error       |   N/A        |    General error handler
-filter      |   N/A        |    Filter a real field in one direction
-grad        |   YES        |    Take spatial gradient of a field
-grad2       |   YES        |    Take second derivative of field in space
-wdata       |   N/A        |    Write binary Plot3d solution file
-wgrid       |   N/A        |    Write binary Plot3d grid file
+cfilter     |   N/A        |  Filter a complex field in one direction
+error       |   N/A        |  General error handler
+filter      |   N/A        |  Filter a real field in one direction
+grad        |   YES        |  Take spatial gradient of a field
+grad2       |   YES        |  Take second derivative of field in space
+wdata       |   N/A        |  Write binary Plot3d solution file
+wgrid       |   N/A        |  Write binary Plot3d grid file
 
 Similar to the lns3d mesh generators, there are minor dependencies on
 commercial math libraries that the user will need to supply to successfully build

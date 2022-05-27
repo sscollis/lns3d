@@ -8,7 +8,7 @@
 
       real, allocatable :: v(:,:,:)
 
-      character*80 :: fname
+      character(80) :: fname
 !-----------------------------------------------------------------------
 
       write(*,"(/,'Enter Plot3d data filename ==> ',$)")

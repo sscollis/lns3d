@@ -9,7 +9,7 @@
       real, allocatable :: v(:,:,:), x(:), y(:), cur(:)
       real, allocatable :: bx(:), by(:), bn1(:), bn2(:)
 
-      character*80 :: fname
+      character(80) :: fname
 !-----------------------------------------------------------------------
 
       write(*,"(/,'Enter DIRST data filename ==> ',$)")

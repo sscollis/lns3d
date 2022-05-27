@@ -35,8 +35,8 @@
         real    :: s0, sigma
         integer :: i, j, k, idof
 
-        character*80 line
-        character*1 ans
+        character(80) line
+        character(1) ans
 !=============================================================================!
 
 !.... read in the grid file
@@ -62,7 +62,8 @@
 !.... allocate the storage area for the field
 
         allocate (v(ny,nx,ndof), STAT=ier)
-        if (ier .ne. 0) call error('makeini$','Insufficient Memory for v$')
+        if (ier .ne. 0) &
+          call error('makeini$','Insufficient Memory for v$')
 
         v = zero
 

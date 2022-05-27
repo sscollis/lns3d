@@ -23,8 +23,8 @@
         real :: tmp, fact
 
         integer i, j, k, node, ians
-        character*80 line
-        character*1 ans
+        character(80) line
+        character(1) ans
         integer conserve
         
 !.... variables for the acoustic pulse
@@ -55,7 +55,8 @@
 !.... allocate the storage area for the field
 
         allocate (v(ndof,nx,ny), STAT=ier)
-        if (ier .ne. 0) call error('makeini$','Insufficient Memory for v$')
+        if (ier .ne. 0) &
+          call error('makeini$','Insufficient Memory for v$')
 
         write(*,"('[E]NSA file, [N]o flow, [U]niform flow, ',&
        &          '[G]aussian pulse ==> ',$)")
@@ -146,7 +147,8 @@
               v(3,i,j) = v(3,i,j) * v(1,i,j)
               v(4,i,j) = v(4,i,j) * v(1,i,j) 
               v(5,i,j) = v(1,i,j) * v(5,i,j) * fact / (gamma-one) +  &
-                         pt5 * ( v(2,i,j)**2 + v(3,i,j)**2 + v(4,i,j)**2) / &
+                         pt5 * ( v(2,i,j)**2 + v(3,i,j)**2 + &
+                                 v(4,i,j)**2) / &
                          v(1,i,j)
             end do
           end do
@@ -154,7 +156,8 @@
 
 !.... write the restart file
 
-        open(unit=10, file='output.R.0', form='unformatted', status='unknown')
+        open(unit=10, file='output.R.0', form='unformatted', &
+             status='unknown')
         write(10,err=1000) lstep, time, nx, ny, nz, ndof, &
                            Re, Ma, Pr, gamma, cv
         write(10,err=1000) v
@@ -179,11 +182,11 @@
         character(*) name, msg
 
         loc = index(name,'$')-1
-        write(*,"(/,'=====================================================')")
+        write(*,"(/,'===============================================')")
         write(*,"('Error in --> ',a)") name(1:loc)
         loc = index(msg,'$')-1
         write(*,"('-----------> ',a)") msg(1:loc)
-        write(*,"('=====================================================',/)")
+        write(*,"('===============================================',/)")
         
         call exit(1)
         

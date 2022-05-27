@@ -28,8 +28,8 @@
 
 !.... metrics
 
-        real, allocatable :: m1(:,:),  m2(:,:),  n1(:,:),  n2(:,:),     &
-                             m11(:,:), m12(:,:), m22(:,:),              &
+        real, allocatable :: m1(:,:),  m2(:,:),  n1(:,:),  n2(:,:),   &
+                             m11(:,:), m12(:,:), m22(:,:),            &
                              n11(:,:), n12(:,:), n22(:,:)
         real :: m1l, m2l, bn1, bn2
 
@@ -41,7 +41,7 @@
         integer :: i, j, k, idof, itmp
         integer :: nx2, ny2, nz2
 
-        character*80 file 
+        character(80) file 
         
         integer :: optx=-1, opty=-1
         logical :: xper=.false., yper=.false.
@@ -93,7 +93,8 @@
 
 !.... read in the metric file
 
-        open (unit=10,file='metric.dat',form='unformatted', status='old')
+        open (unit=10,file='metric.dat',form='unformatted', &
+              status='old')
         read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
         close(10)
         
@@ -258,7 +259,7 @@
         end module stencil
 
 !=============================================================================!
-        subroutine grad( ndof, nx, ny, v, g1v, g2v, dx, dy, optx, opty, &
+        subroutine grad( ndof, nx, ny, v, g1v, g2v, dx, dy, optx, opty,&
                          xper, yper, lsym, rsym, bsym, tsym)
 !
 !  Take the gradient of a 2-D field.

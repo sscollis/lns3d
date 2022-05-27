@@ -19,7 +19,7 @@
       integer :: nxm, nym, nzm, ndofm
       integer :: i, j, k, idof, ix
 
-      character*80 file, temp
+      character(80) file, temp
       integer :: iloc, iend
 
       integer, external :: iargc

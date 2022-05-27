@@ -27,7 +27,8 @@
         real, allocatable :: g1v(:,:,:), g2v(:,:,:)
         real, allocatable :: g11v(:,:,:), g12v(:,:,:), g22v(:,:,:)
         
-        real, allocatable :: g1vl(:), g2vl(:), g11vl(:), g12vl(:), g22vl(:)
+        real, allocatable :: g1vl(:), g2vl(:), g11vl(:), g12vl(:), &
+                             g22vl(:)
 
 !.... mesh
 
@@ -36,19 +37,20 @@
 
 !.... metrics
 
-        real, allocatable :: m1(:,:),  m2(:,:),  n1(:,:),  n2(:,:),     &
-                             m11(:,:), m12(:,:), m22(:,:),              &
+        real, allocatable :: m1(:,:),  m2(:,:),  n1(:,:),  n2(:,:),   &
+                             m11(:,:), m12(:,:), m22(:,:),            &
                              n11(:,:), n12(:,:), n22(:,:)
         real :: m1l, m2l, bn1, bn2
 
 !.... parameters
 
-        real    :: Ma, Re, Pr, gamma, cv, Rgas, time, gamma1, vinf, alpha
+        real    :: Ma, Re, Pr, gamma, cv, Rgas, time, gamma1, vinf, &
+                   alpha
         integer :: lstep, nx, nz, ndof
 
         integer :: i, j, k, idof, itmp
 
-        character*80 file, temp, base, fname
+        character(80) file, temp, base, fname
         integer :: iloc, iend, imin, imax, inc, iver
 #ifndef __GFORTRAN__    
         integer, external :: iargc
@@ -76,14 +78,17 @@
           file = temp
         else
           file = 'output.R.1'
-          write (*,"('Enter file name [',a,']? ',$)") file(1:index(file,' '))
+          write (*,"('Enter file name [',a,']? ',$)") &
+            file(1:index(file,' '))
           read (*,"(a80)") temp
           if (temp(1:1) .ne. ' ') file = temp
         end if
  10     open(unit=10, file=file, form='unformatted', status='old', err=20)
         goto 30
- 20     write (*,"('>> Error opening [',a,'] ',/)") file(1:index(file,' '))
-        write (*,"('Enter file name [',a,']? ',$)") file(1:index(file,' '))
+ 20     write (*,"('>> Error opening [',a,'] ',/)") &
+          file(1:index(file,' '))
+        write (*,"('Enter file name [',a,']? ',$)") &
+          file(1:index(file,' '))
         read (*,"(a80)") temp
         if (temp(1:1) .ne. ' ') file = temp
         goto 10
@@ -154,7 +159,8 @@
           call filter( ny, nx, v(:,:,3) )
           call filter( ny, nx, v(:,:,4) )
           call filter( ny, nx, v(:,:,5) )
-          open(unit=10,file='filter.dat',form='unformatted',status='unknown')
+          open(unit=10,file='filter.dat',form='unformatted', &
+               status='unknown')
           write(10) lstep, time, nx, ny, nz, ndof, &
                     Re, Ma, Pr, gamma, cv
           write(10) v
@@ -169,7 +175,8 @@
 
 !.... read in the metric file
 
-        open (unit=10,file='metric.dat',form='unformatted', status='old')
+        open (unit=10,file='metric.dat',form='unformatted', &
+              status='old')
         read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
         close(10)
         
@@ -246,7 +253,7 @@
           q(:,:,2) = v(:,:,1) * v(:,:,2) * Ma
           q(:,:,3) = v(:,:,1) * v(:,:,3) * Ma
           q(:,:,4) = v(:,:,1) * v(:,:,4) * Ma
-          q(:,:,5) = v(:,:,1) * ( one / gamma1 / gamma * v(:,:,5) + pt5 * &
+          q(:,:,5) = v(:,:,1) * ( one/gamma1/gamma * v(:,:,5) + pt5 * &
                      Ma**2 * (v(:,:,2)**2+v(:,:,3)**2+v(:,:,4)**2) )  
         end if
 
@@ -265,7 +272,8 @@
 
         i = 1
         do j = 1, ny
-          write(11,"(7(1pe16.9,1x))") x(j,i), v(j,i,1), v(j,i,2), v(j,i,3), &
+          write(11,"(7(1pe16.9,1x))") x(j,i), v(j,i,1), v(j,i,2), &
+                                      v(j,i,3), &
                                       v(j,i,4), v(j,i,5), p(j,i)
         end do
 
@@ -278,16 +286,18 @@
           m1l = n1(j,i) / sqrt( n1(j,i)**2 + n2(j,i)**2 )
           m2l = n2(j,i) / sqrt( n1(j,i)**2 + n2(j,i)**2 )
           un  = v(j,i,2) * m1l + v(j,i,3) * m2l 
-          write(12,"(8(1pe16.9,1x))") x(j,i), y(j,i), v(j,i,1), v(j,i,2), &
-                                      v(j,i,3), v(j,i,4), v(j,i,5), p(j,i)
+          write(12,"(8(1pe16.9,1x))") &
+            x(j,i), y(j,i), v(j,i,1), v(j,i,2), &
+            v(j,i,3), v(j,i,4), v(j,i,5), p(j,i)
         end do
 
 !.... write out quantities along the outflow boundnary
 
         i = nx
         do j = 1, ny
-          write(13,"(7(1pe16.9,1x))") y(j,i), v(j,i,1), v(j,i,2), v(j,i,3), &
-                                      v(j,i,4), v(j,i,5), p(j,i)
+          write(13,"(7(1pe16.9,1x))") &
+            y(j,i), v(j,i,1), v(j,i,2), v(j,i,3), &
+            v(j,i,4), v(j,i,5), p(j,i)
         end do
 
 !.... write out quantities along the 1 node in from the outflow boundnary
