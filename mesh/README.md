@@ -45,3 +45,4 @@ easy to replace with public domain software and this is
 encouraged as a future update.
 
 S. Scott Collis\
+sscollis@gmail.com
