@@ -1,0 +1,11 @@
+0		! mattype (0 = constant Mu, 1 = Sutherland)
+0.3 1000 1	! Ma, Re, Pr
+64 1.0 0.0 	! Ny, Yi, Ymax (Ymax not used for spectral code)
+1		! Compute eigenfunctions (1/0)
+1		! Internal derivatives (1/0)
+0 0 0 0		! BC: top, wall, wallt, curve
+1		! 1 = Temporal, 2 = Spatial, 3 = FD_temporal, 4 = FD_spatial
+0.308620690, 0	! alpha_r, alpha_i
+0 0		! beta_r, beta_i
+0		! Profile index
+0		! x-station (Only used if curve <> 1)
