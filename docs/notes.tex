@@ -1,0 +1,100 @@
+%========================================================================
+%
+%  LNS3D Notes
+%
+%  S. Collis
+%
+%  3-14-2001
+%========================================================================
+\documentclass[12pt]{article}
+\usepackage{mathtime}
+\usepackage{fullpage}
+\usepackage{cite}
+\usepackage{xspace}
+\usepackage{amsbsy}
+\usepackage{subeqn}
+\newif\ifCUPmtlplainloaded
+\usepackage{upmath}
+\input{nepsf}
+%\input{macros}
+
+\begin{document}
+
+\title{Notes on LNS3D}
+\author{S. Scott Collis}
+\maketitle
+
+\section*{03-14-2001}
+
+\begin{enumerate}
+
+\item Implemented extrapolation of $\rho$ in the nonlinear solver at the wall
+for both explicit and implicit time-advancement ({\tt wall=3}).  It works fine
+in both solvers but it is much better than continuity at the wall when using
+the explicit solver.  In the implicit solver, the convergence is not quite as
+rapid when using extrapolation, especially in the first iteration.
+
+\item I also put the ({\tt wall=3}) condition in the second-order LHS.
+
+\item The explicit solver is stable for $CFL<=2.0$ when using $4^{th}$ order
+spatial differences.  The $6^{th}$ order requires $CFL<=1.5$.
+
+\item Right now I have $\epsilon_e=0.125$ which is rather high.  I will try
+reducing it to $0.0125$.
+
+\item I found an error in {\tt genmtrx.f90}.  Basically I wasn't putting the
+$D$ matrix into $\hat D$ thereby leaving $\hat D$ either zero or undefined!
+This may be what was causing Nawaf's difficulties.  It wouldn't make the
+nonlinear code incorrect, although it would affect convergence.  It would,
+however, make the linear code incorrect!
+
+\item The Reimann boundary conditions on the LHS are not supported for the
+$s^{nd}$ order LHS right now -- I need to change the call to Reimann LHS to
+reflect the change in the data structure at the boundary.  No, this wasn't it.
+Instead I need to pass local values of rho, ub, vb, etc. on the boundary which
+come from the potential solution.  Now it appears to be working correctly.
+
+\item Switched back to the 3d test and still something is wrong...  There is a
+big change from the IC to the first time-step.
+
+\end{enumerate}
+
+\section*{03-19-2001}
+
+\begin{enumerate}
+
+\item The implicit solver saturates at the wall corners on the vortex pair
+test case since both the Reimann and wall boundary conditions are applied
+here!
+
+\item Added Lele--Poinsot to genmtrx (nonlinear) and nrk for wall=4.  Need
+to revised the linearized LHS.
+
+\item Tried out the L\&P BC on the viscous vortex rebound problem and it works
+well.
+
+\end{enumerate}
+
+\section*{03-21-2001}
+
+\begin{enumerate}
+
+\item Worked on AR-Pack eigenvalue solver.  Got the shift and invert to work
+the the acoustic wave model problem using the approximate factorization
+iterative solver.
+
+\item Approximate factorization seems to be very slow.
+
+\item I put in a point Jacobi iteration and it doesn't converge!
+
+\end{enumerate}
+
+\section*{03-21-2001}
+
+\begin{enumerate}
+
+\item Updated comments in si\_eigdrv3d.f90.
+
+\end{enumerate}
+
+\end{document}
