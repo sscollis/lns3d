@@ -1,0 +1,24 @@
+1.0				! Mach number
+0				! MatType
+0.0				! Re number
+0.0, 0.0			! Pref, Tref
+1.0				! Pr number
+1.015625e10 1.0 		! Delt, CFL
+10				! nstep
+-1 -1				! optx, opty
+.true. .true.			! xper, yper
+1, 4				! itout, ntout
+1				! ires (0 = off)
+0				! ispg (0 = off) 
+1				! linear
+1, 1, 1, 0			! impl, iLHS, niter, loctime
+-1, -1, 0, 0, -1		! BC: top, wall, left, right, wallt 
+0.0, 0				! eps_e (0 = off), ibuff
+0.0, 0.0			! omega, X0
+0				! idamp (0 = off)
+0.0, 3, 0.8, 1.0		! As, Ns, xs, xt (Outflow sponge)
+0.0, 4, 0.8, 1.0		! As, Ns, xs, xt (Inflow sponge)
+-1				! extrap (-1 = off)
+0.0				! alpha (sweep angle)
+.false. .false. .false.		! tflag, fflag, sflag
+0.0				! Lz (0 = 2d)
