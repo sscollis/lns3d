@@ -1,0 +1,40 @@
+ 
+ R U N   P A R A M E T E R S
+ 
+ Mach    =  1.
+ Re      =  1000.
+ Pr      =  1.
+ Tref    =  0.E+0
+ Delt    =  2.
+ CFL     =  10000000000.
+ niter   =  1
+ nstep   =  25
+ optx    =  0
+ opty    =  0
+ xper    =  T
+ yper    =  T
+ ispg    =  0
+ linear  =  0
+ ires    =  1
+ impl    =  0
+ loctime =  0
+ wall    =  -1
+ eps_e   =  0.E+0
+ ibuff   =  0
+ omega   =  0.E+0
+ x0      =  0.E+0
+ idamp   =  0
+ top     =  -1
+ wall    =  -1
+ left    =  -1
+ right   =  -1
+ wallt   =  -1
+ As      =  10.
+ Ns      =  4
+ xs      =  0.80000000000000004
+ xt      =  1.
+ Extrap  =  -1
+ Alpha   =  0.E+0
+ Lz      =  0.E+0
+ kz      =  0.E+0
+ 
