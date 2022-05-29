@@ -16,12 +16,13 @@ jobs:
     
     - name: setup
       run: ls /usr/local
+      
+    - name: check
       run: ls /usr/local/opt
       
     - name: configure
       #run: ./configure
       run: cd src && ln -s gcc.mak Makefile
-      
       
     - name: Install dependencies
       run: cd src && make COMP_CC=gcc
