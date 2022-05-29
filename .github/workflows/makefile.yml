@@ -20,6 +20,9 @@ jobs:
     - name: check
       run: ls /usr/local/lib
       
+    - name: install
+      run: brew install openblas
+      
     - name: configure
       #run: ./configure
       run: cd src && ln -s gcc.mak Makefile
