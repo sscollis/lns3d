@@ -106,7 +106,20 @@
 !.... read in the metric file
 
         open (unit=10,file='metric.dat',form='unformatted', status='old')
-        read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
+        if (switch_ij) then
+          read(10) (( m1(j,i), i=1,nx),j=1,ny), &
+                   (( m2(j,i), i=1,nx),j=1,ny), &
+                   (( n1(j,i), i=1,nx),j=1,ny), &
+                   (( n2(j,i), i=1,nx),j=1,ny), &
+                   ((m11(j,i), i=1,nx),j=1,ny), &
+                   ((m12(j,i), i=1,nx),j=1,ny), &
+                   ((m22(j,i), i=1,nx),j=1,ny), &
+                   ((n11(j,i), i=1,nx),j=1,ny), &
+                   ((n12(j,i), i=1,nx),j=1,ny), &
+                   ((n22(j,i), i=1,nx),j=1,ny)
+        else
+          read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
+        endif
         close(10)
         
 !.... compute the wall-normals
