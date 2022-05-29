@@ -24,13 +24,13 @@ jobs:
       run: ls /usr/local/bin
       
     - name: check 
-      run: ls /usr/local
+      run: ls /usr/local/sbin
       
     - name: check
-      run: ls /usr/bin
+      run: ls /usr
       
-    - name: check
-      run: ls /usr/local/opt
+    #- name: check
+    #  run: ls /usr/local/opt
       
     #- name: csh
     #  run: ls /bin && ls /usr/bin
