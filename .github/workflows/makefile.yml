@@ -1,0 +1,39 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: setup
+      run: ls /usr/local
+      
+    - name: check
+      run: ls /usr/local/lib
+      
+    - name: install
+      run: brew install openblas arpack
+      
+    - name: build utils
+      run: cd util && ln -s gcc.mak Makefile && make
+      
+    - name: configure and build
+      run: cd src && ln -s gcc.mak Makefile
+      
+    - name: Install dependencies
+      run: cd src && make COMP_CC=gcc
+      
+    - name: Run test
+      run: cd test/wave && ./run.sh
+      
+    #- name: Run distcheck
+      #run: make distcheck
