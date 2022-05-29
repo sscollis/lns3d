@@ -39,7 +39,7 @@ jobs:
       run: export PATH=$PATH:`pwd`/util && echo $PATH
       
     - name: Run test
-      run: cd test/wave && echo $PATH && env PATH=../../util:$PATH ./run.sh
+      run: cd test/wave && echo $PATH && && env PATH=../../util:$PATH which verlist && env PATH=../../util:$PATH ./run.sh
       
     #- name: Run distcheck
       #run: make distcheck
