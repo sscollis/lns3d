@@ -23,15 +23,17 @@ jobs:
     - name: install
       run: brew install openblas arpack
       
-    - name: configure
-      #run: ./configure
+    - name: build utils
+      run: cd util && ln -s gcc.mak Makefile && make
+      
+    - name: configure and build
       run: cd src && ln -s gcc.mak Makefile
       
     - name: Install dependencies
       run: cd src && make COMP_CC=gcc
       
-    #- name: Run check
-      #run: make check
+    - name: Run test
+      run: cd test/wave && ./run.sh
       
     #- name: Run distcheck
       #run: make distcheck
