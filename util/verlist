@@ -1,4 +1,4 @@
-#!/bin/tcsh -f 
+#!/usr/local/bin/tcsh -f 
 ##!/bin/csh -f 
 # Name the versions of a file, within a given range.
 # Assuming the version number is just tacked on as an extension.
