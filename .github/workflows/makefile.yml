@@ -21,7 +21,7 @@ jobs:
       run: ls /usr/local/lib
       
     - name: csh
-      run: which csh
+      run: ls /bin && ls /usr/bin
       
     - name: verlist
       run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
