@@ -49,7 +49,7 @@ int igetver_( char *base, char *suf )
   char *ptr;
   int iver=0;
   
-  sprintf(command,"verlist %s.%s 0 0\n", _fcdtocp(base), _fcdtocp(suf) );
+  sprintf(command,"/home/runner/work/lns3d/lns3d/util/verlist %s.%s 0 0\n", _fcdtocp(base), _fcdtocp(suf) );
   printf("Calling command = %s\n",command);
   istr = popen(command,"r");
   ptr = fgets(line,256,istr);
