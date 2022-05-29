@@ -21,7 +21,7 @@ jobs:
       run: ls /usr/local/lib
       
     - name: install
-      run: brew install openblas
+      run: brew install openblas arpack
       
     - name: configure
       #run: ./configure
