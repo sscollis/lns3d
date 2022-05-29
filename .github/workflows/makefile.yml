@@ -20,7 +20,7 @@ jobs:
       
       
     - name: Install dependencies
-      run: cd src && make
+      run: cd src && make CC=gcc CXX=g++
       
     #- name: Run check
       #run: make check
