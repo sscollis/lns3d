@@ -24,7 +24,7 @@ jobs:
       run: ls /bin && ls /usr/bin
       
     - name: install csh
-      run: brew install csh
+      run: brew install tcsh
       
     - name: verlist
       run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
