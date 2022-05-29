@@ -28,6 +28,9 @@
       integer :: i, j, k, m, idof
       integer :: nx, ny, nz, n, ndof=5
       character(80) :: efun
+
+      logical :: switch_ij = .true.
+
 !=============================================================================!
       write(*,"('Interpolates an eigenfunction from a Chebyshev grid')")
       write(*,"('  to an arbitrary grid in file grid.dat')")
@@ -205,7 +208,11 @@
       open(unit=10,file='output.R.0',form='unformatted',status='unknown')
       write(10) 0, zero, nx, ny, nz, ndof, &
                 Re, Ma, Pr, gamma, cv
-      write(10) v
+      if (switch_ij) then
+        write(10) (((v(j,i,idof), idof=1,ndof), i=1,nx), j=1,ny)
+      else
+        write(10) v
+      endif
       close(10)
 
       stop
