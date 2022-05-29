@@ -26,14 +26,17 @@ jobs:
     - name: build slatec
       run: cd slatec/src && make && make install
       
-    - name: build utils
+    - name: build util
       run: cd util && ln -s gcc.mak Makefile && make
       
-    - name: configure and build
+    - name: configure LNS3d
       run: cd src && ln -s gcc.mak Makefile
       
-    - name: Install dependencies
+    - name: build LNS3d
       run: cd src && make COMP_CC=gcc
+      
+    - name: set path
+      run: export PATH=$PATH:`pwd`/util
       
     - name: Run test
       run: cd test/wave && ./run.sh
