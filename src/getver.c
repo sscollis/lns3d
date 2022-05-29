@@ -50,6 +50,7 @@ int igetver_( char *base, char *suf )
   int iver=0;
   
   sprintf(command,"verlist %s.%s 0 0\n", _fcdtocp(base), _fcdtocp(suf) );
+  printf("Calling command = %s\n",command);
   istr = popen(command,"r");
   ptr = fgets(line,256,istr);
   if (ptr == NULL) 
