@@ -18,7 +18,7 @@ jobs:
       run: ls /usr/local
       
     - name: check
-      run: ls /usr/local/opt
+      run: ls /usr/local/lib
       
     - name: configure
       #run: ./configure
