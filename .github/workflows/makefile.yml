@@ -21,13 +21,13 @@ jobs:
       run: brew install tcsh
       
     - name: check tcsh
-      run: ls /usr/local/bin
+      run: ls /usr/local/opt
       
-    - name: check 
-      run: ls /usr/local/sbin
+    #- name: check 
+    #  run: ls /usr/local/sbin
       
-    - name: check
-      run: ls /usr
+    #- name: check
+    #  run: ls /usr
       
     #- name: check
     #  run: ls /usr/local/opt
