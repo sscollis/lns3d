@@ -22,8 +22,8 @@ jobs:
     - name: Install dependencies
       run: cd src && make
       
-    - name: Run check
+    #- name: Run check
       #run: make check
       
-    - name: Run distcheck
+    #- name: Run distcheck
       #run: make distcheck
