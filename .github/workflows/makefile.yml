@@ -17,14 +17,14 @@ jobs:
     - name: setup
       run: ls /usr/local
       
-    - name: check
-      run: ls /usr/local/lib
-      
-    - name: csh
-      run: ls /bin && ls /usr/bin
-      
-    - name: install csh
+   - name: install csh
       run: brew install tcsh
+      
+    - name: check tcsh
+      run: ls /usr/local/bin
+      
+    #- name: csh
+    #  run: ls /bin && ls /usr/bin
       
     - name: verlist
       run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
