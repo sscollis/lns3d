@@ -23,6 +23,9 @@ jobs:
     - name: install
       run: brew install openblas arpack
       
+    - name: build slatec
+      run: cd slatec/src && make && make install
+      
     - name: build utils
       run: cd util && ln -s gcc.mak Makefile && make
       
