@@ -1,4 +1,5 @@
 #!/bin/bash
-\rm output.[Rq].*
+\rm output.[Rqh].*
 \rm fort.*
+\rm grid.xyz
 exit 0
