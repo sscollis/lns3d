@@ -21,7 +21,7 @@
                            n11(:,:), n12(:,:), n22(:,:)
 
       real, allocatable :: bn1(:), bn2(:)
-        
+
       complex :: alpha, amp
       real    :: tmp, Lmap, eta, th, alphar, alphai, ampr, ampi, x0, r
       real    :: Ma, Re, Pr, gamma=1.4, cv=716.5
@@ -42,12 +42,13 @@
       open (unit=10,file=efun,status='old')
       i = 1
  10   continue
-         read(10,*,end=20) tmp
-         i = i + 1
-         goto 10
+        read(10,*,end=20) tmp
+        i = i + 1
+        goto 10
  20   continue
       close (10)
       n = i - 1
+      write(*,*) "Read n = ", n, " points in ", efun
 
 !.... read the eigenfunction for real
 
@@ -64,9 +65,78 @@
 
 !.... compute the complex Chebyshev transform
 
-      do j = 1, ndof
-         call CHEBYSHEV( q(1,j), n-1, 1 )
+      do idof = 1, ndof
+         call CHEBYSHEV( q(1,idof), n-1, 1 )
       end do
+
+#if 0
+      do idof = 1, ndof
+        call CHEBYSHEV( q(1,idof), n-1, -1)
+      end do
+      do i = 1, n
+        write(11,*) yc(i), &
+        real(q(i,1)), aimag(q(i,1)), &
+        real(q(i,2)), aimag(q(i,2)), &
+        real(q(i,3)), aimag(q(i,3)), &
+        real(q(i,4)), aimag(q(i,4)), &
+        real(q(i,5)), aimag(q(i,5))
+      end do
+#endif
+
+#if 0
+    i = 1
+    allocate( q2(n,ndof) )
+    q2 = zero
+    do j = 1, n
+      do idof = 1, ndof
+        th = float(j-1)*acos(-1.0)/float(n-1)
+        eta = cos(th)
+        do m = 0, n-1
+          q2(j,idof) = q2(j,idof) + q(m+1,idof) * COS(float(m)*th)
+        end do
+      end do
+      write(12,*) yc(j), 1.0 * (1.0 - eta) / (1.0 + eta), th, eta, acos(eta)
+      write(11,*) yc(j), &
+      real(q2(j,1)), aimag(q2(j,1)), &
+      real(q2(j,2)), aimag(q2(j,2)), &
+      real(q2(j,3)), aimag(q2(j,3)), &
+      real(q2(j,4)), aimag(q2(j,4)), &
+      real(q2(j,5)), aimag(q2(j,5))
+    end do
+    stop
+#endif
+
+#if 0
+
+!yc = (1.0 + eta) / (1.0 - eta)
+!yc - yc eta = 1 + eta
+!-eta (1 + yc) = 1 - yc
+!eta = (yc - 1) / (1 + yc)
+
+    i = 0
+    allocate( q2(n,ndof) )
+    q2 = zero
+    do j = 1, n
+      do idof = 1, ndof
+        !th = float(j-1)*acos(-1.0)/float(n-1)
+        !eta = cos(th)
+!       eta = (yc(j) - 1.0) / (1.0 + yc(j))
+        eta = -1.0 * (yc(j) - 1.0) / (1.0 + yc(j))
+        th = acos(eta)
+        do m = 0, n-1
+          q2(j,idof) = q2(j,idof) + q(m+1,idof) * COS(float(m)*th)
+        end do
+      end do
+      write(12,*) yc(j), 1.0 * (1.0 + eta) / (1.0 - eta), th, eta, acos(eta)
+      write(11,*) yc(j), &
+      real(q2(j,1)), aimag(q2(j,1)), &
+      real(q2(j,2)), aimag(q2(j,2)), &
+      real(q2(j,3)), aimag(q2(j,3)), &
+      real(q2(j,4)), aimag(q2(j,4)), &
+      real(q2(j,5)), aimag(q2(j,5))
+    end do
+    stop
+#endif
 
 !.... read the grid file
 
@@ -83,7 +153,7 @@
         s = x(1,:)
         open(unit=10,file='body.dat',form='formatted',status='old',err=100)
         do i = 1, nx
-           read(10,*) tmp, s(i)
+          read(10,*) tmp, s(i)
         end do
         close(10)
         goto 101
@@ -121,13 +191,14 @@
           read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
         endif
         close(10)
-        
+
 !.... compute the wall-normals
 
         allocate( bn1(nx), bn2(nx) )
         do i = 1, nx
           bn1(i) = n1(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
-          bn2(i) = n2(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )    
+          bn2(i) = n2(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
+          write(*,*) i, bn1(i), bn2(i), s(i)
         end do
 
 !.... write out the Chebyshev interpolant onto the new mesh
@@ -135,13 +206,20 @@
       write (*,"('Enter Yi ==> ',$)")
       read (*,*) Lmap                   ! called Lmap herein
 
+!... Compute inverse mapping
+! eta = (r - Lmap) / (r + Lmap)
+! (r + Lmap) eta = (r - Lmap)
+! r eta + eta Lmap = r - Lmap
+! r (eta - 1) = -(eta Lmap) - Lmap = -Lmap (eta + 1)
+! r = -Lmap (eta + 1)/(eta - 1) = Lmap (1+eta) / (1-eta)
+
       i = 1
       allocate( q2(ny,ndof) )
       q2 = zero
       do j = 1, ny
         r = sqrt( (x(j,i)-x(1,i))**2 + (y(j,i)-y(1,i))**2 )
         do idof = 1, ndof
-          eta = (r - Lmap) / (r + Lmap)
+          eta = -1.0 * (r - Lmap) / (r + Lmap)
 !         eta = (y(j,1) - Lmap) / (y(j,1) + Lmap)
           th  = acos(eta)
           do m = 0, n-1
@@ -152,6 +230,7 @@
         u2 = -bn1(i) * q2(j,2) + bn2(i) * q2(j,3)
         q2(j,2) = u1
         q2(j,3) = u2
+        write(*,*) r, eta
       end do
 
 !.... make the inflow profile
@@ -160,6 +239,7 @@
       i = 1
       r = 0
       do j = 1, ny
+        write(*,*) x(j,i), y(j,i), r
         write(33,50) r, real(q2(j,1)), aimag(q2(j,1)), &
                         real(q2(j,2)), aimag(q2(j,2)), &
                         real(q2(j,3)), aimag(q2(j,3)), &
@@ -168,20 +248,20 @@
 50      format(11(1pe20.13,1x))
         if (j.ne.ny) r = r + sqrt((x(j+1,i)-x(j,i))**2 + (y(j+1,i)-y(j,i))**2)
       end do
-      
+
 !.... write out on a mesh
 
-      write(*,"('Enter Alpha_r, Alpha_i ==> ',$)") 
+      write(*,"('Enter Alpha_r, Alpha_i ==> ',$)")
       read(*,*) alphar, alphai
       alpha = cmplx(alphar,alphai)
 
       write(*,"('Enter amp_r, amp_i ==> ',$)")
       read(*,*) ampr,ampi
       amp = cmplx(ampr,ampi)
-      
+
       write(*,"('Enter s0 ==> ',$)")
       read(*,*) x0
-      
+
       allocate( v(ny,nx,ndof) )
 
 !      do idof = 1, ndof
@@ -197,7 +277,7 @@
         r  = zero
         do j = 1, ny
           do idof = 1, ndof
-            eta = (r - Lmap) / (r + Lmap)
+            eta = -1.0 * (r - Lmap) / (r + Lmap)
             th  = acos(eta)
             do m = 0, n-1
               q2(j,idof) = q2(j,idof) + q(m+1,idof) * COS(float(m)*th)
@@ -230,7 +310,7 @@
 
       stop
       end
-            
+
 !=============================================================================!
       subroutine CHEBYSHEV (Y, N, ISIGN)
 !=============================================================================!
@@ -280,7 +360,7 @@
         end do
         YY(0) = YY(0)/2.D0
         YY(N) = YY(N)/2.D0
-      else 
+      else
         DO I = 0, N
           YY(I) = 0.0D0
           DO M = 0, N
@@ -288,6 +368,6 @@
           END DO
         END DO
       end if
-      
+
       RETURN
       END
