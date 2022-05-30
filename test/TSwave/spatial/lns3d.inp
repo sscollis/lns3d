@@ -1,0 +1,24 @@
+0.3                             ! Mach number
+0                               ! Viscosity law
+1000.0                          ! Re number
+1 1                             ! Pref, Tref
+1.0                             ! Pr number
+0.01 2.0                        ! Delt, CFL
+10000                           ! nstep
+-1 -1                           ! optx, opty
+.false. .false.                 ! xper, yper
+1, 50                           ! itout, ntout
+0                               ! ires (0 = off)
+1                               ! ispg (0 = off) 
+2                               ! linear
+0, 1, 2, 0                      ! impl, iLHS, niter, loctime
+0, 0, 4, 0, 0                   ! BC: top, wall, left, right, wallt 
+0.0,  0                         ! eps_e (0 = off), ibuff
+0.08, 0.0                       ! omega, X0
+0                               ! idamp (0 = off)
+2.0, 3, 0.8, 1.0                ! As, Ns, xs, xt (Outflow sponge)
+0.0, 3, 0.8, 1.0                ! As, Ns, xs, xt (Inflow sponge)
+-1                              ! extrap (-1 = off)
+0.0                             ! alpha (sweep angle [deg.])
+.false. .false. .false.         ! tflag, fflag, sflag
+0.0                             ! Lz (0 = 2d)
