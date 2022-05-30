@@ -1,8 +1,8 @@
         module sponge
-        
+
         real    :: As, xs, xt
         integer :: Ns
-        
+
         real    :: As2, xs2, xt2
         integer :: Ns2
 
@@ -10,23 +10,23 @@
 
         real, allocatable :: vic(:,:,:)
         !$sgi distribute vic(*,*,block)
-        
+
         complex, allocatable :: cvic(:,:,:)
         !$sgi distribute cvic(*,*,block)
-        
+
         end module sponge
 
 !=============================================================================!
         subroutine init_sponge
-!  
-!  Computes the sponge term 
-!  
+!
+!  Computes the sponge term
+!
 !  Revised: 12-15-00   Switched to i,j indices [SSC]
 !=============================================================================!
         use global
         use sponge
         implicit none
-        
+
         integer :: i, j, ier
         real :: rr
 
@@ -47,7 +47,7 @@
         real, parameter    :: xd = 15.0
         integer, parameter :: nd = 4
 
-        character*80 :: code='init_sponge$'
+        character(80) :: code='init_sponge$'
 
 !=============================================================================!
 !                       C U R R E N T   S P O N G E
@@ -67,6 +67,27 @@
           end do
         end do
 
+#if 1
+
+!.... Sponge on outflow (right) boundary
+
+        !$omp parallel do private(i,j)
+        do j = 1, ny
+          do i = 1, nx
+            if ( xi(i) .ge. xs ) then
+              spg(i,j) = As * ((xi(i)-xs)/(xt-xs))**Ns
+            end if
+          end do
+        end do
+        j = 1
+        open(9,file='sponge.dat')
+        do i = 1, nx
+          write(9,"(3(1pe13.6,1x))") x(i,j), xi(i), spg(i,j)
+        end do
+        close(9)
+
+#else
+
 !.... Sponge near top boundary
 
         !$omp parallel do private(i,j)
@@ -83,6 +104,8 @@
           write(9,"(3(1pe13.6,1x))") x(i,j), eta(j), spg(i,j)
         end do
         close(9)
+
+#endif
 
         return
 
@@ -103,37 +126,37 @@
 
 !.... general sponge
 
+        !$omp parallel do private(i,j)
+        do j = 1, ny                 ! outflow sponge
+          do i = 1, nx
+            if ( xi(i) .ge. xs ) then
+              spg(i,j) = As * ((xi(i)-xs)/(xt-xs))**Ns
+            end if
+          end do
+        end do
+        j = 1
+        open(9,file='sponge.dat')
+        do i = 1, nx
+          write(9,"(3(1pe13.6,1x))") x(i,j), xi(i), spg(i,j)
+        end do
+        close(9)
+
+        if (ispg.ge.2) then          ! inflow sponge
           !$omp parallel do private(i,j)
-          do j = 1, ny                 ! outflow sponge
+          do j = 1, ny
             do i = 1, nx
-              if ( xi(i) .ge. xs ) then
-                spg(i,j) = As * ((xi(i)-xs)/(xt-xs))**Ns
+              if ( eta(j) .ge. xs2 ) then
+                spg2(i,j) = As2 * ((eta(j)-xs2)/(xt2-xs2))**Ns2
               end if
             end do
           end do
-          j = 1
-          open(9,file='sponge.dat')
-          do i = 1, ny
-            write(9,"(3(1pe13.6,1x))") x(i,j), xi(i), spg(i,j)
+          i = 1
+          open(9,file='sponge2.dat')
+          do j = 1, ny
+            write(9,"(3(1pe13.6,1x))") x(i,j), eta(j), spg2(i,j)
           end do
           close(9)
-
-          if (ispg.ge.2) then          ! inflow sponge
-            !$omp parallel do private(i,j)
-            do j = 1, ny
-              do i = 1, nx
-                if ( eta(j) .ge. xs2 ) then
-                  spg2(i,j) = As2 * ((eta(j)-xs2)/(xt2-xs2))**Ns2
-                end if
-              end do
-            end do
-            i = 1
-            open(9,file='sponge2.dat')
-            do j = 1, ny
-              write(9,"(3(1pe13.6,1x))") x(i,j), eta(j), spg2(i,j)
-            end do
-            close(9)
-          end if
+        end if
 
 !.... WARNING:  The indicies need switching [SSC]
 
@@ -240,7 +263,7 @@
               end if
             end do
           end do
-            
+
         end if
 
 !.... sponge for the MSE problem  (This is what I last used)
@@ -327,7 +350,7 @@
         end do
 
         end if
-        
+
         if (.false.) then
 
 !.... Adams (CTR)
@@ -377,7 +400,7 @@
         use global
         use sponge
         implicit none
-        
+
         real :: rl(ndof,nx,ny), vl(ndof,nx,ny), spgl(nx,ny)
         !$sgi distribute rl(*,*,block), vl(*,*,block), spgl(*,block)
 
@@ -416,7 +439,7 @@
         use global
         use sponge
         implicit none
-        
+
         complex :: rl(ndof,nx,ny), vl(ndof,nx,ny)
         real    :: spgl(nx,ny), spg2l(nx,ny)
         integer :: i, j
@@ -454,6 +477,6 @@
                         ( vl(:,i,j) - cvic(:,i,j) )
           end do
         end do
-        
+
         return
         end

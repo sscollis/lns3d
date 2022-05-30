@@ -130,7 +130,7 @@
 
 !.... file info
 
-          character*80 :: base, filen
+          character(80) :: base, filen
           integer, parameter :: lfile=80
           integer :: iver = 0, itout, ntout
           

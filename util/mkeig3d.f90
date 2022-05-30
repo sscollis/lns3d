@@ -248,6 +248,7 @@
 50      format(11(1pe20.13,1x))
         if (j.ne.ny) r = r + sqrt((x(j+1,i)-x(j,i))**2 + (y(j+1,i)-y(j,i))**2)
       end do
+      close(33)
 
 !.... write out on a mesh
 
@@ -293,6 +294,21 @@
           if (j.ne.ny) r = r + sqrt((x(j+1,i)-x(j,i))**2+(y(j+1,i)-y(j,i))**2)
         end do
       end do
+
+#if 1
+      open(unit=33,file='efunction.dat',status='unknown')
+      i = 1
+      r = 0
+      do j = 1, ny
+        write(33,50) r, real(v(j,i,1)), aimag(v(j,i,1)), &
+                        real(v(j,i,2)), aimag(v(j,i,2)), &
+                        real(v(j,i,3)), aimag(v(j,i,3)), &
+                        real(v(j,i,4)), aimag(v(j,i,4)), &
+                        real(v(j,i,5)), aimag(v(j,i,5))
+        if (j.ne.ny) r = r + sqrt((x(j+1,i)-x(j,i))**2 + (y(j+1,i)-y(j,i))**2)
+      end do
+      close(33)
+#endif
 
 !.... write the restart file
 

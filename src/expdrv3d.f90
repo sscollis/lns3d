@@ -15,7 +15,7 @@
         integer, external :: igetver
         
         integer :: i, j, idof, ier
-        character*80 :: name, code='ExpDrv3D$'
+        character(80) :: name, code='ExpDrv3D$'
         real :: rtime, told
         
         complex, allocatable :: v(:,:,:), vold(:,:,:), vint(:,:,:)

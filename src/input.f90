@@ -8,7 +8,7 @@
         implicit none
         
         real :: Lz, Uref
-        character*80 :: code='Input$'
+        character(80) :: code='Input$'
 !=============================================================================!
 
         Ma = 0.3
@@ -375,4 +375,3 @@
 
         return
         end
-

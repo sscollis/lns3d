@@ -222,21 +222,41 @@
           u3  = cmplx(  wr(1:ny),   wi(1:ny))
           t   = cmplx(  tr(1:ny),   ti(1:ny))
 
-!         p   = ( rhom * t + tm * rho ) / (gamma * Ma**2)
+#if 0
+
+!.... SSC: turned this on for spatial TS wave case 5/30/22
+
+          p   = ( rhom * t + tm * rho ) / (gamma * Ma**2)
                                   
-!         c1  = -cm**2 * rho + p                        ! entropy
-!         c2  =  rhom * cm * u2                         ! vorticity
-!         c3  =  rhom * cm * u1 + p                     ! right acoustic
-!         c4  =  0                                      ! left acoustic
+          c1  = -cm**2 * rho + p                        ! entropy
+          c2  =  rhom * cm * u2                         ! vorticity
+          c3  =  rhom * cm * u1 + p                     ! right acoustic
+
+#if 1
+
+!.... compute outgoing characteristics
+!.... SSC: try not setting left acoustic to zero
+
+          rho = vl(1,1,:)
+          u1  = vl(2,1,:)
+          u2  = vl(3,1,:)
+          u3  = vl(4,1,:)
+          t   = vl(5,1,:)
+          p   = one/(gamma * Ma**2) * ( rhom * t + tm * rho )
+
+          c4  =  -rhom * cm * u1 + p                    ! left acoustic
+#else
+          c4  =  0                                      ! left acoustic
+#endif
 
 !.... update the boundary values
 
-!         rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2
-!         u1  = ( c3 - c4 ) * pt5 / ( rhom * cm )
-!         u2  = c2 / ( rhom * cm )
-!         p   = ( c3 + c4 ) * pt5
-!         t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
-
+          rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2
+          u1  = ( c3 - c4 ) * pt5 / ( rhom * cm )
+          u2  = c2 / ( rhom * cm )
+          p   = ( c3 + c4 ) * pt5
+          t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
+#endif
           vl(1,1,:) = rho
           vl(2,1,:) = u1
           vl(3,1,:) = u2
@@ -293,11 +313,11 @@
 
 !.... compute incomming characteristics (eigenfunctions)
 
-          rho = cmplx(rhor(:), rhoi(:)) * exp(im * ac * x(:,nx))
-          u1  = cmplx(  ur(:),   ui(:)) * exp(im * ac * x(:,nx))
-          u2  = cmplx(  vr(:),   vi(:)) * exp(im * ac * x(:,nx))
-          u3  = cmplx(  wr(:),   wi(:)) * exp(im * ac * x(:,nx))
-          t   = cmplx(  tr(:),   ti(:)) * exp(im * ac * x(:,nx))
+          rho = cmplx(rhor(:), rhoi(:)) * exp(im * ac * x(nx,:))
+          u1  = cmplx(  ur(:),   ui(:)) * exp(im * ac * x(nx,:))
+          u2  = cmplx(  vr(:),   vi(:)) * exp(im * ac * x(nx,:))
+          u3  = cmplx(  wr(:),   wi(:)) * exp(im * ac * x(nx,:))
+          t   = cmplx(  tr(:),   ti(:)) * exp(im * ac * x(nx,:))
 
           vl(1,nx,:) = rho
           vl(2,nx,:) = u1

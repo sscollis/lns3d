@@ -9,7 +9,7 @@
 
         integer :: i, j, k, ier, mem = 0
         real    :: tmp
-        character*80 name
+        character(80) name
 !-----------------------------------------------------------------------------
 
 !.... read in the grid
