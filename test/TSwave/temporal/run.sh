@@ -12,6 +12,7 @@ tail -n +2 csecond.dat > second.0
 # Make the mesh
 #
 $LNS3D_DIR/util/genmesh < genmesh.inp
+\ln -fs grid.dat grid.xyz
 #
 # Make mean flow from FSC profile
 #
