@@ -406,9 +406,7 @@
 !.... left boundary
 
           if (left.eq.0 .or. left.eq.4 .or. left.eq.5) then
-
             !write(*,*) "lhsbc1f3d:  left.eq.4"
-
             mat(:,:,:,1,:) = zero
             mat(3,1,1,1,:) = one
             mat(3,2,2,1,:) = one

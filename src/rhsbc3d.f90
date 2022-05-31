@@ -28,7 +28,7 @@
 
         real :: a, d, kk
 
-!!=============================================================================!
+!=============================================================================!
 !       L I N E A R   B O U N D A R Y   C O N D I T I O N S
 !=============================================================================!
         if (yper) then
@@ -184,7 +184,15 @@
           u2  = cmplx(  vr(1:ny),   vi(1:ny))
           u3  = cmplx(  wr(1:ny),   wi(1:ny))
           t   = cmplx(  tr(1:ny),   ti(1:ny))
-
+#ifdef USE_TRANSIENT_EIGENFUNCTION
+          if (omega.eq.0) then
+            rho = rho * exp(-im*lomega*time)
+            u1  =  u1 * exp(-im*lomega*time)
+            u2  =  u2 * exp(-im*lomega*time)
+            u3  =  u3 * exp(-im*lomega*time)
+            t   =   t * exp(-im*lomega*time)
+          endif
+#endif
           rl(1,1,:) = -(vl(1,1,:) - rho)
           rl(2,1,:) = -(vl(2,1,:) -  u1)
           rl(3,1,:) = -(vl(3,1,:) -  u2)

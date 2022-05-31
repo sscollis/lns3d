@@ -28,7 +28,6 @@
 !.... forcing parameters
 
         real :: a, d, kk
-        complex :: ac
 
 !=============================================================================!
 !       L I N E A R   B O U N D A R Y   C O N D I T I O N S
@@ -223,6 +222,15 @@
           u2  = cmplx(  vr(1:ny),   vi(1:ny))
           u3  = cmplx(  wr(1:ny),   wi(1:ny))
           t   = cmplx(  tr(1:ny),   ti(1:ny))
+#ifdef USE_TRANSIENT_EIGENFUNCTION 
+          if (omega.eq.0) then
+            rho = rho * exp(-im*lomega*time)
+            u1  =  u1 * exp(-im*lomega*time)
+            u2  =  u2 * exp(-im*lomega*time)
+            u3  =  u3 * exp(-im*lomega*time)
+            t   =   t * exp(-im*lomega*time)
+          endif
+#endif
 #if 0
 
 !.... SSC: turned this on for spatial TS wave case 5/30/22
@@ -309,18 +317,18 @@
 
 !.... SSC: this is currently hardwired for the Ch.4 thesis spatial TS wave
 
-          ac = (2.2804739410500E-001,-6.5163146761218E-003)
+!         ac = (2.2804739410500E-001,-6.5163146761218E-003)
 !         ac = (-2.8831962908130E-001,-1.3854663671636E-002)
 
           allocate( rho(ny), u1(ny), u2(ny), u3(ny), t(ny), p(ny) )
 
 !.... compute incomming characteristics (eigenfunctions)
 
-          rho = cmplx(rhor(:), rhoi(:)) * exp(im * ac * x(nx,:))
-          u1  = cmplx(  ur(:),   ui(:)) * exp(im * ac * x(nx,:))
-          u2  = cmplx(  vr(:),   vi(:)) * exp(im * ac * x(nx,:))
-          u3  = cmplx(  wr(:),   wi(:)) * exp(im * ac * x(nx,:))
-          t   = cmplx(  tr(:),   ti(:)) * exp(im * ac * x(nx,:))
+          rho = cmplx(rhor(:), rhoi(:)) * exp(im * lalpha * x(nx,:))
+          u1  = cmplx(  ur(:),   ui(:)) * exp(im * lalpha * x(nx,:))
+          u2  = cmplx(  vr(:),   vi(:)) * exp(im * lalpha * x(nx,:))
+          u3  = cmplx(  wr(:),   wi(:)) * exp(im * lalpha * x(nx,:))
+          t   = cmplx(  tr(:),   ti(:)) * exp(im * lalpha * x(nx,:))
 
           vl(1,nx,:) = rho
           vl(2,nx,:) = u1

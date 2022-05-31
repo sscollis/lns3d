@@ -106,6 +106,22 @@
 
 !.... inflow disturbances
 
+#if 0
+          ! Try out F90 types
+          type inflow_type
+            character(40) :: filename="inflow.dat"
+            logical :: echo=.false.
+            complex :: omega=0, alpha=0, beta=0
+            !namelist /input/ filename, omega, alpha, beta, echo 
+          end type
+          type (inflow_type) :: infl
+          namelist /inpt/ filename, echo, 
+#endif
+          character(40) :: inflow_file="inflow.dat"
+          logical :: inflow_echo=.false.
+          complex :: lomega, lalpha, lbeta
+          namelist /inflow/ inflow_file, lomega, lalpha, lbeta, inflow_echo
+
           real, allocatable :: rhor(:), rhoi(:), ur(:), ui(:)
           real, allocatable :: vr(:), vi(:), wr(:), wi(:), tr(:), ti(:)
 

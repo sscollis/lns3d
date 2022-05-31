@@ -457,7 +457,7 @@
 
 !.... SSC: hardwired for Thesis, Ch.4 TS spatial case
 
-        complex, parameter :: ac=(2.2804739410500E-001,-6.5163146761218E-003)
+!       complex, parameter :: ac=(2.2804739410500E-001,-6.5163146761218E-003)
 !       complex, parameter :: ac=(-2.8831962908130E-001,-1.3854663671636E-002)
 
         real :: rtmp
@@ -465,7 +465,7 @@
 !=============================================================================!
         if (ic_start .eq. 0) then
           write(*,*) "Allocating eigenfunction sponge..."
-          write(*,*) "With alpha = ", ac
+          write(*,*) "  with alpha = ", lalpha 
           allocate( cvic(ndof,nx,ny) )
           ic_start = 1
 #if 0
@@ -478,14 +478,29 @@
           !$omp parallel do private(i)
           do j = 1, ny
             do i = 1, nx
-              cvic(1,i,j) = cmplx(rhor(j), rhoi(j)) * exp(im * ac * x(i,j))
-              cvic(2,i,j) = cmplx(  ur(j),   ui(j)) * exp(im * ac * x(i,j))
-              cvic(3,i,j) = cmplx(  vr(j),   vi(j)) * exp(im * ac * x(i,j))
-              cvic(4,i,j) = cmplx(  wr(j),   wi(j)) * exp(im * ac * x(i,j))
-              cvic(5,i,j) = cmplx(  tr(j),   ti(j)) * exp(im * ac * x(i,j))
+              cvic(1,i,j) = cmplx(rhor(j), rhoi(j)) * exp(im*lalpha*x(i,j))
+              cvic(2,i,j) = cmplx(  ur(j),   ui(j)) * exp(im*lalpha*x(i,j))
+              cvic(3,i,j) = cmplx(  vr(j),   vi(j)) * exp(im*lalpha*x(i,j))
+              cvic(4,i,j) = cmplx(  wr(j),   wi(j)) * exp(im*lalpha*x(i,j))
+              cvic(5,i,j) = cmplx(  tr(j),   ti(j)) * exp(im*lalpha*x(i,j))
             end do
           end do
         end if
+
+#ifdef USE_TRANSIENT_EIGENFUNCTION
+        if (omega.eq.0) then
+          !$omp parallel do private(i)
+          do j = 1, ny
+            do i = 1, nx
+              cvic(1,i,j) = cmplx(rhor(j), rhoi(j)) * exp(im*lalpha*x(i,j))*exp(-im*lomega*time)
+              cvic(2,i,j) = cmplx(  ur(j),   ui(j)) * exp(im*lalpha*x(i,j))*exp(-im*lomega*time)
+              cvic(3,i,j) = cmplx(  vr(j),   vi(j)) * exp(im*lalpha*x(i,j))*exp(-im*lomega*time)
+              cvic(4,i,j) = cmplx(  wr(j),   wi(j)) * exp(im*lalpha*x(i,j))*exp(-im*lomega*time)
+              cvic(5,i,j) = cmplx(  tr(j),   ti(j)) * exp(im*lalpha*x(i,j))*exp(-im*lomega*time)
+            end do
+          end do
+        end if
+#endif
 
         !$omp parallel do private(i)
         do j = 1, ny

@@ -69,7 +69,7 @@
          call CHEBYSHEV( q(1,idof), n-1, 1 )
       end do
 
-#if 1
+#if 0
       do idof = 1, ndof
         call CHEBYSHEV( q(1,idof), n-1, -1)
       end do
