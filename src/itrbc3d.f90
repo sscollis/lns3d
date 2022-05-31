@@ -223,7 +223,6 @@
           u2  = cmplx(  vr(1:ny),   vi(1:ny))
           u3  = cmplx(  wr(1:ny),   wi(1:ny))
           t   = cmplx(  tr(1:ny),   ti(1:ny))
-
 #if 0
 
 !.... SSC: turned this on for spatial TS wave case 5/30/22
