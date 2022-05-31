@@ -3,7 +3,9 @@
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/TSwave/spatial//v.png>
 <br>Compressible spatially growing Tollmein-Schlichting wave, contours 
-of vertical velocity.</p>
+of vertical velocity.  This particular image is taken using the default
+input file `lns3d.inp` which runs a frequency-domain case with outflow 
+sponge to zero disturbance.</p>
 
 ## Spatial TS results
 
