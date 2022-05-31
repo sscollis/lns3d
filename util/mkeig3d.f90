@@ -69,7 +69,7 @@
          call CHEBYSHEV( q(1,idof), n-1, 1 )
       end do
 
-#if 0
+#if 1
       do idof = 1, ndof
         call CHEBYSHEV( q(1,idof), n-1, -1)
       end do
@@ -84,58 +84,56 @@
 #endif
 
 #if 0
-    i = 1
-    allocate( q2(n,ndof) )
-    q2 = zero
-    do j = 1, n
-      do idof = 1, ndof
-        th = float(j-1)*acos(-1.0)/float(n-1)
-        eta = cos(th)
-        do m = 0, n-1
-          q2(j,idof) = q2(j,idof) + q(m+1,idof) * COS(float(m)*th)
+      i = 1
+      allocate( q2(n,ndof) )
+      q2 = zero
+      do j = 1, n
+        do idof = 1, ndof
+          th = float(j-1)*acos(-1.0)/float(n-1)
+          eta = cos(th)
+          do m = 0, n-1
+            q2(j,idof) = q2(j,idof) + q(m+1,idof) * COS(float(m)*th)
+          end do
         end do
+        write(12,*) yc(j), 1.0 * (1.0 - eta) / (1.0 + eta), th, eta, acos(eta)
+        write(11,*) yc(j), &
+        real(q2(j,1)), aimag(q2(j,1)), &
+        real(q2(j,2)), aimag(q2(j,2)), &
+        real(q2(j,3)), aimag(q2(j,3)), &
+        real(q2(j,4)), aimag(q2(j,4)), &
+        real(q2(j,5)), aimag(q2(j,5))
       end do
-      write(12,*) yc(j), 1.0 * (1.0 - eta) / (1.0 + eta), th, eta, acos(eta)
-      write(11,*) yc(j), &
-      real(q2(j,1)), aimag(q2(j,1)), &
-      real(q2(j,2)), aimag(q2(j,2)), &
-      real(q2(j,3)), aimag(q2(j,3)), &
-      real(q2(j,4)), aimag(q2(j,4)), &
-      real(q2(j,5)), aimag(q2(j,5))
-    end do
-    stop
+      stop
 #endif
 
 #if 0
-
-!yc = (1.0 + eta) / (1.0 - eta)
-!yc - yc eta = 1 + eta
-!-eta (1 + yc) = 1 - yc
-!eta = (yc - 1) / (1 + yc)
-
-    i = 0
-    allocate( q2(n,ndof) )
-    q2 = zero
-    do j = 1, n
-      do idof = 1, ndof
-        !th = float(j-1)*acos(-1.0)/float(n-1)
-        !eta = cos(th)
-!       eta = (yc(j) - 1.0) / (1.0 + yc(j))
-        eta = -1.0 * (yc(j) - 1.0) / (1.0 + yc(j))
-        th = acos(eta)
-        do m = 0, n-1
-          q2(j,idof) = q2(j,idof) + q(m+1,idof) * COS(float(m)*th)
+!     yc = (1.0 + eta) / (1.0 - eta)
+!     yc - yc eta = 1 + eta
+!     -eta (1 + yc) = 1 - yc
+!     eta = (yc - 1) / (1 + yc)
+      i = 0
+      allocate( q2(n,ndof) )
+      q2 = zero
+      do j = 1, n
+        do idof = 1, ndof
+          !th = float(j-1)*acos(-1.0)/float(n-1)
+          !eta = cos(th)
+          !eta = (yc(j) - 1.0) / (1.0 + yc(j))
+          eta = -1.0 * (yc(j) - 1.0) / (1.0 + yc(j))
+          th = acos(eta)
+          do m = 0, n-1
+            q2(j,idof) = q2(j,idof) + q(m+1,idof) * COS(float(m)*th)
+          end do
         end do
+        write(12,*) yc(j), 1.0 * (1.0 + eta) / (1.0 - eta), th, eta, acos(eta)
+        write(11,*) yc(j), &
+          real(q2(j,1)), aimag(q2(j,1)), &
+          real(q2(j,2)), aimag(q2(j,2)), &
+          real(q2(j,3)), aimag(q2(j,3)), &
+          real(q2(j,4)), aimag(q2(j,4)), &
+          real(q2(j,5)), aimag(q2(j,5))
       end do
-      write(12,*) yc(j), 1.0 * (1.0 + eta) / (1.0 - eta), th, eta, acos(eta)
-      write(11,*) yc(j), &
-      real(q2(j,1)), aimag(q2(j,1)), &
-      real(q2(j,2)), aimag(q2(j,2)), &
-      real(q2(j,3)), aimag(q2(j,3)), &
-      real(q2(j,4)), aimag(q2(j,4)), &
-      real(q2(j,5)), aimag(q2(j,5))
-    end do
-    stop
+      stop
 #endif
 
 !.... read the grid file
@@ -150,69 +148,68 @@
 
 !.... read in the body discription file
 
-        s = x(1,:)
-        open(unit=10,file='body.dat',form='formatted',status='old',err=100)
-        do i = 1, nx
-          read(10,*) tmp, s(i)
-        end do
-        close(10)
-        goto 101
- 100    continue
+      s = x(1,:)
+      open(unit=10,file='body.dat',form='formatted',status='old',err=100)
+      do i = 1, nx
+        read(10,*) tmp, s(i)
+      end do
+      close(10)
+      goto 101
+ 100  continue
 
 !.... if no body file is found, assume that its a parabolic cylinder
 
-        write(*,*) 'WARNING:  assumming a parabolic cylinder'
-        s(:) = Sqrt(x(1,:) + two*x(1,:)**2)/Sqrt(two) + &
-               Log(one + four*x(1,:) + two**(onept5)*Sqrt(x(1,:) + &
-               two*x(1,:)**2)) / four
- 101    continue
+      write(*,*) 'WARNING:  assumming a parabolic cylinder'
+      s(:) = Sqrt(x(1,:) + two*x(1,:)**2)/Sqrt(two) + &
+             Log(one + four*x(1,:) + two**(onept5)*Sqrt(x(1,:) + &
+             two*x(1,:)**2)) / four
+ 101  continue
 
 !.... allocate storage for metrics
 
-        allocate (m1(ny,nx),  m2(ny,nx),  n1(ny,nx),  n2(ny,nx), &
-                  m11(ny,nx), m12(ny,nx), m22(ny,nx),            &
-                  n11(ny,nx), n12(ny,nx), n22(ny,nx) )
+      allocate (m1(ny,nx),  m2(ny,nx),  n1(ny,nx),  n2(ny,nx), &
+                m11(ny,nx), m12(ny,nx), m22(ny,nx),            &
+                n11(ny,nx), n12(ny,nx), n22(ny,nx) )
 
 !.... read in the metric file
 
-        open (unit=10,file='metric.dat',form='unformatted', status='old')
-        if (switch_ij) then
-          read(10) (( m1(j,i), i=1,nx),j=1,ny), &
-                   (( m2(j,i), i=1,nx),j=1,ny), &
-                   (( n1(j,i), i=1,nx),j=1,ny), &
-                   (( n2(j,i), i=1,nx),j=1,ny), &
-                   ((m11(j,i), i=1,nx),j=1,ny), &
-                   ((m12(j,i), i=1,nx),j=1,ny), &
-                   ((m22(j,i), i=1,nx),j=1,ny), &
-                   ((n11(j,i), i=1,nx),j=1,ny), &
-                   ((n12(j,i), i=1,nx),j=1,ny), &
-                   ((n22(j,i), i=1,nx),j=1,ny)
-        else
-          read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
-        endif
-        close(10)
+      open (unit=10,file='metric.dat',form='unformatted', status='old')
+      if (switch_ij) then
+        read(10) (( m1(j,i), i=1,nx),j=1,ny), &
+                 (( m2(j,i), i=1,nx),j=1,ny), &
+                 (( n1(j,i), i=1,nx),j=1,ny), &
+                 (( n2(j,i), i=1,nx),j=1,ny), &
+                 ((m11(j,i), i=1,nx),j=1,ny), &
+                 ((m12(j,i), i=1,nx),j=1,ny), &
+                 ((m22(j,i), i=1,nx),j=1,ny), &
+                 ((n11(j,i), i=1,nx),j=1,ny), &
+                 ((n12(j,i), i=1,nx),j=1,ny), &
+                 ((n22(j,i), i=1,nx),j=1,ny)
+      else
+        read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
+      endif
+      close(10)
 
 !.... compute the wall-normals
 
-        allocate( bn1(nx), bn2(nx) )
-        do i = 1, nx
-          bn1(i) = n1(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
-          bn2(i) = n2(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
-          write(*,*) i, bn1(i), bn2(i), s(i)
-        end do
+      allocate( bn1(nx), bn2(nx) )
+      do i = 1, nx
+        bn1(i) = n1(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
+        bn2(i) = n2(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
+        !write(*,*) i, bn1(i), bn2(i), s(i)
+      end do
 
 !.... write out the Chebyshev interpolant onto the new mesh
 
       write (*,"('Enter Yi ==> ',$)")
       read (*,*) Lmap                   ! called Lmap herein
 
-!... Compute inverse mapping
-! eta = (r - Lmap) / (r + Lmap)
-! (r + Lmap) eta = (r - Lmap)
-! r eta + eta Lmap = r - Lmap
-! r (eta - 1) = -(eta Lmap) - Lmap = -Lmap (eta + 1)
-! r = -Lmap (eta + 1)/(eta - 1) = Lmap (1+eta) / (1-eta)
-
+!.... Compute inverse mapping
+!     eta = (r - Lmap) / (r + Lmap)
+!     (r + Lmap) eta = (r - Lmap)
+!     r eta + eta Lmap = r - Lmap
+!     r (eta - 1) = -(eta Lmap) - Lmap = -Lmap (eta + 1)
+!     r = -Lmap (eta + 1)/(eta - 1) = Lmap (1+eta) / (1-eta)
       i = 1
       allocate( q2(ny,ndof) )
       q2 = zero
@@ -230,7 +227,7 @@
         u2 = -bn1(i) * q2(j,2) + bn2(i) * q2(j,3)
         q2(j,2) = u1
         q2(j,3) = u2
-        write(*,*) r, eta
+        !write(*,*) r, eta
       end do
 
 !.... make the inflow profile
@@ -239,7 +236,7 @@
       i = 1
       r = 0
       do j = 1, ny
-        write(*,*) x(j,i), y(j,i), r
+        !write(*,*) x(j,i), y(j,i), r
         write(33,50) r, real(q2(j,1)), aimag(q2(j,1)), &
                         real(q2(j,2)), aimag(q2(j,2)), &
                         real(q2(j,3)), aimag(q2(j,3)), &
@@ -295,7 +292,7 @@
         end do
       end do
 
-#if 1
+#if 0
       open(unit=33,file='efunction.dat',status='unknown')
       i = 1
       r = 0
