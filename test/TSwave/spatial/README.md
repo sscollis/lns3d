@@ -1,7 +1,9 @@
 # Spatial case
 
-Note that this only works with explicit frequency domain method -- need to
-fix.
+<p align=center>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/TSwave/spatial//v.png>
+<br>Compressible spatially growing Tollmein-Schlichting wave, contours 
+of vertical velocity.</p>
 
 ## Spatial TS results
 
