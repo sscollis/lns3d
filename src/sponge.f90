@@ -107,6 +107,17 @@
 
 #endif
 
+        if (ispg .ge. 2) then
+          allocate( spg2(nx,ny), STAT=ier)
+          if (ier .ne. 0) call error(code,'Insufficient Memory for spg2$')
+          !$omp parallel do private(i,j)
+          do j = 1, ny
+            do i = 1, nx
+              spg2(i,j) = zero
+            end do
+          end do
+        end if
+
         return
 
 !=============================================================================!
@@ -444,6 +455,8 @@
         real    :: spgl(nx,ny), spg2l(nx,ny)
         integer :: i, j
 
+!.... SSC: hardwired for Thesis, Ch.4 TS spatial case
+
         complex, parameter :: ac=(2.2804739410500E-001,-6.5163146761218E-003)
 !       complex, parameter :: ac=(-2.8831962908130E-001,-1.3854663671636E-002)
 
@@ -474,7 +487,7 @@
         do j = 1, ny
           do i = 1, nx
             rl(:,i,j) = rl(:,i,j) + (spgl(i,j) + spg2l(i,j)) * &
-                        ( vl(:,i,j) - cvic(:,i,j) )
+                                    ( vl(:,i,j) - cvic(:,i,j) )
           end do
         end do
 

@@ -92,10 +92,12 @@
                     STAT=ier)
           if (ier .ne. 0) call error(code, 'Insufficient Memory for per$')
         end if
+
 #ifdef USE_CPENTA1BC 
+        mem = mem + ndof*ny*nx + 5*ndof*ndof*ny*nx
         allocate ( lr(ndof,ny,nx), lmatx(5,ndof,ndof,ny,nx) )
 #endif
-!       write(*,"(' ImpDrv3D allocated ===> ',1pe13.6,' words')") float(mem)
+        write(*,"(' ImpDrv3D allocated ===> ',1pe13.6,' words')") float(mem)
 !=============================================================================!
 
 !.... issue a warning if Ny is even

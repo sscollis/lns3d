@@ -307,6 +307,8 @@
 
         else if (right.eq.4) then
 
+!.... SSC: this is currently hardwired for the Ch.4 thesis spatial TS wave
+
           ac = (2.2804739410500E-001,-6.5163146761218E-003)
 !         ac = (-2.8831962908130E-001,-1.3854663671636E-002)
 
