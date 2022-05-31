@@ -206,6 +206,8 @@
         
         else if (left.eq.4) then        ! eigenfunction inflow disturbance
 
+          !write(*,*) "itrbc3d:  left.eq.4"
+
           allocate( rhom(ny), tm(ny), cm(ny) )
           allocate( c1(ny), c2(ny), c3(ny), c4(ny) )
           allocate( rho(ny), u1(ny), u2(ny), u3(ny), t(ny), p(ny) )

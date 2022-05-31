@@ -164,6 +164,8 @@
           rl(:,1,:) = zero
 
         else if (left.eq.4) then        ! eigenfunction inflow
+
+          !write(*,*) "rhsbc3d:  left.eq.4"
         
 #if 0
           rl(:,1,:) = zero
