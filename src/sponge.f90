@@ -464,13 +464,17 @@
         integer :: itmp
 !=============================================================================!
         if (ic_start .eq. 0) then
+          write(*,*) "Allocating eigenfunction sponge..."
+          write(*,*) "With alpha = ", ac
           allocate( cvic(ndof,nx,ny) )
           ic_start = 1
-!         open(10,file='output.R.0',form='unformatted',status='old')
-!         read(10) itmp, rtmp, itmp, itmp, itmp, itmp, &
-!                  rtmp, rtmp, rtmp, rtmp, rtmp
-!         read(10) vic
-!         close(10)
+#if 0
+          open(10,file='output.R.0',form='unformatted',status='old')
+          read(10) itmp, rtmp, itmp, itmp, itmp, itmp, &
+                   rtmp, rtmp, rtmp, rtmp, rtmp
+          read(10) vic
+          close(10)
+#endif
           !$omp parallel do private(i)
           do j = 1, ny
             do i = 1, nx

@@ -17,5 +17,17 @@ k_x = 2.2804739411185E-001  -6.5163146952733E-003  (yi=1.0, 96)
 
 The eigenfunction from `stab` is located in `efun.pro`
 
+## Notes
+
+1. The basic test is in the frequency domain with $\omega=0.08$
+2. The domain is $10\lambda_{ts}$ long and the sponge is $2\lambda_{ts}$
+3. As in the thesis, the initial run uses a sponge to zero disturbanced `ispg = 1`
+4. You can also sponge to the eigenfunction using `ispg = 4`
+5. The right BC can either be zero distrubance `right = 0` or the eigenfunction `right = 4`
+6. The left BC is the prescripbed eigenfunction `left = 4`
+7. You can try various combination of explicit and implicit methods
+8. You can also try the time unsteady solver however the inflow disturbanced don't appear
+   to be correct for that case?
+
 S. Scott Collis\
 sscollis@gmail.com
