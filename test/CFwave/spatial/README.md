@@ -3,8 +3,9 @@
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/CFwave/spatial/v.png>
 <br>Compressible spatially growing stationary crossflow vortex, contours 
-of vertical velocity.  In this case, I use a sponge on the outflow of length $2\lambda_x$ 
-and force the crossflow eigenfunction on the inflow (left) boundary.</p>
+of vertical velocity.  In this case, I use a sponge on the outflow of length twice 
+the CF vortex streamwise wavelength and force the crossflow eigenfunction on the 
+inflow (left) boundary.</p>
 
 ## Problem Setup
 
