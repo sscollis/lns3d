@@ -1,5 +1,7 @@
 &inflow
+inflow_file = 'inflow.dat'
 lomega      = (0.0, 0.0)
 lalpha      = (-2.8831962907615E-001,-1.3854663677328E-002)
 lbeta       = (0.35, 0.0)
+inflow_echo = .true.
 /
