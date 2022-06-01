@@ -1,0 +1,6 @@
+efun.pro                    	! Eigenfunction file
+1				! Yi
+-2.8831962907615E-001 -1.3854663677328E-002	! alpha_r, alpha_i
+1 0				! amp_r, amp_i
+0				! s0
+400 0.3 1			! Re, Ma, Pr
