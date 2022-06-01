@@ -11,7 +11,7 @@
 0                               ! ires (0 = off)
 0                               ! ispg (0 = off) 
 2                               ! linear
-2, 1, 1, 0                      ! impl, iLHS, niter, loctime
+2, 1, 2, 0                      ! impl, iLHS, niter, loctime
 0, 0, -1, -1, 0                 ! BC: top, wall, left, right, wallt 
 0.0,  0                         ! eps_e (0 = off), ibuff
 0.0, -0.0                       ! omega, X0

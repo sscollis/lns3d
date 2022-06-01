@@ -1,8 +1,8 @@
-# Temporal Tollmein-Schlichting Wave
+# Temporal Crossflow Vortex 
 
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/CFwave/temporal/v.png>
-<br>Compressible temporally growing Tollmein-Schlichting wave, contours 
+<br>Compressible temporally growing stationary crossflow vortex, contours 
 of vertical velocity.</p>
 
 ## Problem Setup
@@ -20,8 +20,8 @@ Alpha = (-2.8743645100000E-001, 0.0000000000000E+000)
 Beta  = ( 3.5000000000000E-001, 0.0000000000000E+000)
 ```
 
-The wavelength in the streamwise direction is $\lambda_x = 21.85938938962055$ and in the
-crossflow direction $\lambda_z = 17.95195802051310$
+The wavelength in the streamwise direction is $\lambda_x = 21.85938938962055$ 
+and in the crossflow direction $\lambda_z = 17.95195802051310$
 
 S. Scott Collis\
 sscollis@gmail.com 
