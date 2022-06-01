@@ -1,7 +1,7 @@
 # Spatial Crossflow Vortex 
 
 <p align=center>
-<img src=https://github.com/sscollis/lns3d/blob/master/test/CFwave/temporal/v.png>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/CFwave/spatial/v.png>
 <br>Compressible temporally growing stationary crossflow vortex, contours 
 of vertical velocity.</p>
 
