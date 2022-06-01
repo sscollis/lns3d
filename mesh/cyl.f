@@ -160,7 +160,7 @@ c
 c
 c.... Uniform spacing
 c
-        if (.false.) then
+        if (.true.) then
           do j = 1, ny
             eta(j)  = real(j-1) * deta
             rr(j)   = rmin + real(j-1) * dr
@@ -221,7 +221,7 @@ c
 c
 c.... Maheshs mapping, personal communication (6-5-96)
 c
-        if (.true.) then
+        if (.false.) then
           write(*,"('Enter drmin, b, rc ==> ',$)") 
           read(*,*) drmin, b, rc
           cm = ( two * b * tanh(b*rc) + (ny-1)*drmin/rmax * 
