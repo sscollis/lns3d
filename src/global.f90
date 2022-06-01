@@ -28,7 +28,8 @@
           real    :: Ma, Re, Pr
           real    :: rhoref, Pref, Tref, muref
           
-          real    :: alpha, beta, omega, eps_e, x0
+          !real    :: alpha, beta, omega, eps_e, x0
+          real    :: theta, beta, omega, eps_e, x0
           integer :: ires, linear, impl, loctime, iLHS
 
           logical :: tflag = .false.    ! time traces

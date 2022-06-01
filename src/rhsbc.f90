@@ -214,7 +214,7 @@
 
           if (wallt.eq.0) then
             rl(ndof,:,1) = vl(ndof,:,1) - ( one + pt5 * gamma1 * Ma**2 * &
-                           (one + tan(alpha)**2) * sqrt(Pr) )
+                           (one + tan(theta)**2) * sqrt(Pr) )
           end if
 
 !.... adiabatic boundary condition

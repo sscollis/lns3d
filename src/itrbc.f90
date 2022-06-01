@@ -635,7 +635,7 @@
 
           if (wallt.eq.0) then
             vl(ndof,:,1) = one + pt5 * gamma1 * Ma**2 * &
-                           (one + tan(alpha)**2) * sqrt(Pr)
+                           (one + tan(theta)**2) * sqrt(Pr)
           end if
 
 !.... adiabatic temperature ( dT/deta = 0 )

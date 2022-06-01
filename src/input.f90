@@ -286,8 +286,10 @@
 !.... Sweep angle
 
 !       write(*,"(/,'Enter alpha (deg.) ==> ',$)")
-        read(*,*) alpha
-        alpha = alpha * pi / 180.0
+        !read(*,*) alpha
+        !alpha = alpha * pi / 180.0
+!       write(*,"(/,'Enter theta (deg.) ==> ',$)")
+        read(*,*) theta 
 
 !.... traces and statistics
 
@@ -344,7 +346,8 @@
         write (10,*) 'xs      = ',xs
         write (10,*) 'xt      = ',xt
         write (10,*) 'Extrap  = ',extrap
-        write (10,*) 'Alpha   = ',alpha
+        !write (10,*) 'Alpha   = ',alpha
+        write (10,*) 'Theta   = ',theta
         write (10,*) 'Lz      = ',Lz
         write (10,*) 'kz      = ',kz
         write (10,*)
