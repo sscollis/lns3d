@@ -1,0 +1,10 @@
+0.3  400.0					! M_e, Re_delta1
+45.0						! Lambda_e (deg.)
+1.0     					! Beta_e
+1, 1, 1						! T0, Tw, muw
+1.2385480277606E+00  5.7111548449910E-01        ! f'', g'
+1						! delta/L
+
+Notes:
+1. This is the CF case from Ch.4 of Collis PhD thesis
+2. 

@@ -46,11 +46,15 @@ int igetver_( char *base, char *suf )
 {
   FILE *istr;
   char command[256], line[256];
+  char *ptr;
   int iver=0;
   
   sprintf(command,"verlist %s.%s 0 0\n", _fcdtocp(base), _fcdtocp(suf) );
+  //printf("Calling command = %s\n",command);
   istr = popen(command,"r");
-  fgets(line,256,istr);
+  ptr = fgets(line,256,istr);
+  //if (ptr == NULL) 
+  //  printf("ERROR: NULL returned from fgets() in igetver\n");
   pclose(istr);
   sscanf(line,"%d",&iver);
   if ( strlen(line) < 1 ) iver = 0;

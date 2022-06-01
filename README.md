@@ -57,4 +57,5 @@ run problems.
 
 ---
 
-S. Scott Collis
+S. Scott Collis\
+sscollis@gmail.com

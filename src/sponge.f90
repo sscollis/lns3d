@@ -1,8 +1,8 @@
         module sponge
-        
+
         real    :: As, xs, xt
         integer :: Ns
-        
+
         real    :: As2, xs2, xt2
         integer :: Ns2
 
@@ -10,23 +10,23 @@
 
         real, allocatable :: vic(:,:,:)
         !$sgi distribute vic(*,*,block)
-        
+
         complex, allocatable :: cvic(:,:,:)
         !$sgi distribute cvic(*,*,block)
-        
+
         end module sponge
 
 !=============================================================================!
         subroutine init_sponge
-!  
-!  Computes the sponge term 
-!  
+!
+!  Computes the sponge term
+!
 !  Revised: 12-15-00   Switched to i,j indices [SSC]
 !=============================================================================!
         use global
         use sponge
         implicit none
-        
+
         integer :: i, j, ier
         real :: rr
 
@@ -47,7 +47,7 @@
         real, parameter    :: xd = 15.0
         integer, parameter :: nd = 4
 
-        character*80 :: code='init_sponge$'
+        character(80) :: code='init_sponge$'
 
 !=============================================================================!
 !                       C U R R E N T   S P O N G E
@@ -67,6 +67,27 @@
           end do
         end do
 
+#if 1
+
+!.... Sponge on outflow (right) boundary
+
+        !$omp parallel do private(i,j)
+        do j = 1, ny
+          do i = 1, nx
+            if ( xi(i) .ge. xs ) then
+              spg(i,j) = As * ((xi(i)-xs)/(xt-xs))**Ns
+            end if
+          end do
+        end do
+        j = 1
+        open(9,file='sponge.dat')
+        do i = 1, nx
+          write(9,"(3(1pe13.6,1x))") x(i,j), xi(i), spg(i,j)
+        end do
+        close(9)
+
+#else
+
 !.... Sponge near top boundary
 
         !$omp parallel do private(i,j)
@@ -83,6 +104,19 @@
           write(9,"(3(1pe13.6,1x))") x(i,j), eta(j), spg(i,j)
         end do
         close(9)
+
+#endif
+
+        if (ispg .ge. 2) then
+          allocate( spg2(nx,ny), STAT=ier)
+          if (ier .ne. 0) call error(code,'Insufficient Memory for spg2$')
+          !$omp parallel do private(i,j)
+          do j = 1, ny
+            do i = 1, nx
+              spg2(i,j) = zero
+            end do
+          end do
+        end if
 
         return
 
@@ -103,37 +137,37 @@
 
 !.... general sponge
 
+        !$omp parallel do private(i,j)
+        do j = 1, ny                 ! outflow sponge
+          do i = 1, nx
+            if ( xi(i) .ge. xs ) then
+              spg(i,j) = As * ((xi(i)-xs)/(xt-xs))**Ns
+            end if
+          end do
+        end do
+        j = 1
+        open(9,file='sponge.dat')
+        do i = 1, nx
+          write(9,"(3(1pe13.6,1x))") x(i,j), xi(i), spg(i,j)
+        end do
+        close(9)
+
+        if (ispg.ge.2) then          ! inflow sponge
           !$omp parallel do private(i,j)
-          do j = 1, ny                 ! outflow sponge
+          do j = 1, ny
             do i = 1, nx
-              if ( xi(i) .ge. xs ) then
-                spg(i,j) = As * ((xi(i)-xs)/(xt-xs))**Ns
+              if ( eta(j) .ge. xs2 ) then
+                spg2(i,j) = As2 * ((eta(j)-xs2)/(xt2-xs2))**Ns2
               end if
             end do
           end do
-          j = 1
-          open(9,file='sponge.dat')
-          do i = 1, ny
-            write(9,"(3(1pe13.6,1x))") x(i,j), xi(i), spg(i,j)
+          i = 1
+          open(9,file='sponge2.dat')
+          do j = 1, ny
+            write(9,"(3(1pe13.6,1x))") x(i,j), eta(j), spg2(i,j)
           end do
           close(9)
-
-          if (ispg.ge.2) then          ! inflow sponge
-            !$omp parallel do private(i,j)
-            do j = 1, ny
-              do i = 1, nx
-                if ( eta(j) .ge. xs2 ) then
-                  spg2(i,j) = As2 * ((eta(j)-xs2)/(xt2-xs2))**Ns2
-                end if
-              end do
-            end do
-            i = 1
-            open(9,file='sponge2.dat')
-            do j = 1, ny
-              write(9,"(3(1pe13.6,1x))") x(i,j), eta(j), spg2(i,j)
-            end do
-            close(9)
-          end if
+        end if
 
 !.... WARNING:  The indicies need switching [SSC]
 
@@ -240,7 +274,7 @@
               end if
             end do
           end do
-            
+
         end if
 
 !.... sponge for the MSE problem  (This is what I last used)
@@ -327,7 +361,7 @@
         end do
 
         end if
-        
+
         if (.false.) then
 
 !.... Adams (CTR)
@@ -377,7 +411,7 @@
         use global
         use sponge
         implicit none
-        
+
         real :: rl(ndof,nx,ny), vl(ndof,nx,ny), spgl(nx,ny)
         !$sgi distribute rl(*,*,block), vl(*,*,block), spgl(*,block)
 
@@ -416,44 +450,65 @@
         use global
         use sponge
         implicit none
-        
+
         complex :: rl(ndof,nx,ny), vl(ndof,nx,ny)
         real    :: spgl(nx,ny), spg2l(nx,ny)
         integer :: i, j
 
-        complex, parameter :: ac=(2.2804739410500E-001,-6.5163146761218E-003)
+!.... SSC: hardwired for Thesis, Ch.4 TS spatial case
+
+!       complex, parameter :: ac=(2.2804739410500E-001,-6.5163146761218E-003)
 !       complex, parameter :: ac=(-2.8831962908130E-001,-1.3854663671636E-002)
 
         real :: rtmp
         integer :: itmp
 !=============================================================================!
         if (ic_start .eq. 0) then
+          write(*,*) "Allocating eigenfunction sponge..."
+          write(*,*) "  with alpha = ", lalpha 
           allocate( cvic(ndof,nx,ny) )
           ic_start = 1
-!         open(10,file='output.R.0',form='unformatted',status='old')
-!         read(10) itmp, rtmp, itmp, itmp, itmp, itmp, &
-!                  rtmp, rtmp, rtmp, rtmp, rtmp
-!         read(10) vic
-!         close(10)
+#if 0
+          open(10,file='output.R.0',form='unformatted',status='old')
+          read(10) itmp, rtmp, itmp, itmp, itmp, itmp, &
+                   rtmp, rtmp, rtmp, rtmp, rtmp
+          read(10) vic
+          close(10)
+#endif
           !$omp parallel do private(i)
           do j = 1, ny
             do i = 1, nx
-              cvic(1,i,j) = cmplx(rhor(j), rhoi(j)) * exp(im * ac * x(i,j))
-              cvic(2,i,j) = cmplx(  ur(j),   ui(j)) * exp(im * ac * x(i,j))
-              cvic(3,i,j) = cmplx(  vr(j),   vi(j)) * exp(im * ac * x(i,j))
-              cvic(4,i,j) = cmplx(  wr(j),   wi(j)) * exp(im * ac * x(i,j))
-              cvic(5,i,j) = cmplx(  tr(j),   ti(j)) * exp(im * ac * x(i,j))
+              cvic(1,i,j) = cmplx(rhor(j), rhoi(j)) * exp(im*lalpha*x(i,j))
+              cvic(2,i,j) = cmplx(  ur(j),   ui(j)) * exp(im*lalpha*x(i,j))
+              cvic(3,i,j) = cmplx(  vr(j),   vi(j)) * exp(im*lalpha*x(i,j))
+              cvic(4,i,j) = cmplx(  wr(j),   wi(j)) * exp(im*lalpha*x(i,j))
+              cvic(5,i,j) = cmplx(  tr(j),   ti(j)) * exp(im*lalpha*x(i,j))
             end do
           end do
         end if
+
+#ifdef USE_TRANSIENT_EIGENFUNCTION
+        if (omega.eq.0) then
+          !$omp parallel do private(i)
+          do j = 1, ny
+            do i = 1, nx
+              cvic(1,i,j) = cmplx(rhor(j), rhoi(j)) * exp(im*lalpha*x(i,j))*exp(-im*lomega*time)
+              cvic(2,i,j) = cmplx(  ur(j),   ui(j)) * exp(im*lalpha*x(i,j))*exp(-im*lomega*time)
+              cvic(3,i,j) = cmplx(  vr(j),   vi(j)) * exp(im*lalpha*x(i,j))*exp(-im*lomega*time)
+              cvic(4,i,j) = cmplx(  wr(j),   wi(j)) * exp(im*lalpha*x(i,j))*exp(-im*lomega*time)
+              cvic(5,i,j) = cmplx(  tr(j),   ti(j)) * exp(im*lalpha*x(i,j))*exp(-im*lomega*time)
+            end do
+          end do
+        end if
+#endif
 
         !$omp parallel do private(i)
         do j = 1, ny
           do i = 1, nx
             rl(:,i,j) = rl(:,i,j) + (spgl(i,j) + spg2l(i,j)) * &
-                        ( vl(:,i,j) - cvic(:,i,j) )
+                                    ( vl(:,i,j) - cvic(:,i,j) )
           end do
         end do
-        
+
         return
         end

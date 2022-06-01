@@ -28,9 +28,19 @@
         integer :: ier, mem = 0
         integer, external :: igetver
         real, external :: second
-        character*80 :: name, code='ImpDrv3D$'
+        character(80) :: name, code='ImpDrv3D$'
         
         logical :: lfilter = .false.
+
+!.... There is a bug in cpenta2bc that I haven't been able to fix yet. So
+!.... Use temporary storage and swap the \xi-direction matrix to use cpenta1bc
+!.... This is wasteful of memory and slow, but gives the correct answer until
+!.... cpenta2bc is fixed.
+#define USE_CPENTA1BC
+
+#ifdef USE_CPENTA1BC
+        complex, allocatable :: lr(:,:,:), lmatx(:,:,:,:,:)
+#endif
 !=============================================================================!
 
 !.... allocate local time step
@@ -82,8 +92,12 @@
                     STAT=ier)
           if (ier .ne. 0) call error(code, 'Insufficient Memory for per$')
         end if
-        
-!       write(*,"(' ImpDrv3D allocated ===> ',1pe13.6,' words')") float(mem)
+
+#ifdef USE_CPENTA1BC 
+        mem = mem + ndof*ny*nx + 5*ndof*ndof*ny*nx
+        allocate ( lr(ndof,ny,nx), lmatx(5,ndof,ndof,ny,nx) )
+#endif
+        write(*,"(' ImpDrv3D allocated ===> ',1pe13.6,' words')") float(mem)
 !=============================================================================!
 
 !.... issue a warning if Ny is even
@@ -180,7 +194,7 @@
 
             if ( impl.eq.3 ) then
               call lrhs3D( pt5*(v+vold), r, vm, x, y)
-              call rbe( r, v, vold, dtl )
+              call rbe3D( r, v, vold, dtl )
               alfa = pt5
             end if
             
@@ -211,6 +225,7 @@
 
 !.... form the LHS for the xi direction
             
+#ifndef USE_CPENTA1BC
             if ( (iter.eq.1 .and. istep.eq.1) .or. &
                  (iter.eq.1 .and. lstep.eq.1 .and. impl.eq.2) ) then
 
@@ -229,11 +244,70 @@
             else
               call cpenta2bc( nx, ny, ndof, matx, r, 1 )
             end if
+#else
+            if ( (iter.eq.1 .and. istep.eq.1) .or. &
+                 (iter.eq.1 .and. lstep.eq.1 .and. impl.eq.2) ) then
+
+              call lhs1f3D( matx, Ah, Dh, Dhi, Vh11, ABhi, dtl, v )
+
+              if (xper) then
+                call cpenta2p( nx, ny, ndof, matx, r, perx, per2x, 0)
+              else
+                !$doacross local(i,idof)
+                !$omp parallel do private(i,idof)
+                do j = 1, ny
+                  do i = 1, nx
+                    do idof = 1, ndof
+                      lr(idof,j,i) = r(idof,i,j)
+                      do jdof = 1, ndof
+                        lmatx(:,idof,jdof,j,i) = matx(:,idof,jdof,i,j)
+                      enddo
+                    end do
+                  end do
+                end do
+                call cpenta1bc( ny, nx, ndof, lmatx, lr, 0 )
+                !$doacross local(i,idof)
+                !$omp parallel do private(i,idof)
+                do j = 1, ny
+                  do i = 1, nx
+                    do idof = 1, ndof
+                      r(idof,i,j) = lr(idof,j,i)
+                    end do
+                  end do
+                end do
+              end if
+
+            end if  ! if iter
+
+            if (xper) then
+              call cpenta2p( nx, ny, ndof, matx, r, perx, per2x, 1)
+            else
+              !$doacross local(i,idof)
+              !$omp parallel do private(i,idof)
+              do j = 1, ny
+                do i = 1, nx
+                  do idof = 1, ndof
+                    lr(idof,j,i) = r(idof,i,j)
+                  end do
+                end do
+              end do
+              call cpenta1bc( ny, nx, ndof, lmatx, lr, 1)
+              !$doacross local(i,idof)
+              !$omp parallel do private(i,idof)
+              do j = 1, ny
+                do i = 1, nx
+                  do idof = 1, ndof
+                    r(idof,i,j) = lr(idof,j,i)
+                  end do
+                end do
+              end do
+            end if
+#endif
 
 !.... form the LHS for the eta direction
 
             if ((iter.eq.1 .and. istep.eq.1) .or. &
-                 (iter.eq.1 .and. lstep.eq.1 .and. impl.eq.2)) then
+                (iter.eq.1 .and. lstep.eq.1 .and. impl.eq.2)) then
 
               call lhs2f3D( maty, Bh, Dh, Dhi, Vh22, ABhi, dtl, v )
 

@@ -7,3 +7,4 @@ To build on MacOS
     make install
 
 S. Scott Collis\
+sscollis@gmail.com

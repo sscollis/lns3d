@@ -1,0 +1,116 @@
+&RUN_PARAMETERS
+ TITLE  = 		'Acoustic Wave Test'
+ VERSION =		'1.0'
+ DTMAX  = 		1.0	
+ CFLMAX = 		1.0e10	
+ NSTEP  = 	        50
+ ITOUT  = 		1
+ NTOUT  = 		25
+ OPTX   = 	 	-1
+ OPTY   = 	  	-1
+ CARP   = 		T
+/
+
+&RK_PARAMETERS
+ RK_SCHEME =  		0
+ HAGER =                F
+/
+
+&IO_PARAMETERS
+ BASE   = 		'output'                                        
+/
+
+&GEOMETRY_PROPERTIES
+ AOA     = 		0.0
+ SWEEP   = 		0.0
+ XPER    = 		T
+ YPER    = 		T
+ GENERAL = 		F
+/
+
+&ADJOINT_PROPERTIES
+  DISCRETE =            F 
+  STORE_ADJOINT =       F
+  FD_EPS =              2.e-4
+/
+
+&CONTROL_STEP
+ NOUTER =		1
+ NPREDICT =	        40 
+ NADVANCE =	        40 
+ NSTORE =		1
+/
+
+&OPT_CONTROL
+ CTRL_TYPE =            000 
+ GRADIENT_CHECK = 	.false.
+ GRADIENT = 	        5	
+ MAX_ITER =	        5 
+ MAX_SUB_ITER =         10	
+ TOL_J =	        1.0d-6
+ TOL_ALPHA = 		0.03
+ ALPHA = 		0.0025
+ JS =                   10 
+ LINE_SEARCH =          0
+ restart     =          .false.
+ type_scal = 		1
+/ initial_ctrl_vel =     0 
+/ initial_ctrl_temp=     0
+/ time_width       =     20 
+/ peak_factor      =     50.0
+/ poly_order       =     12 
+/ deriv_order      =     8 
+/
+
+&MATERIAL_PROPERTIES
+ MA     = 		1.0
+ RE     = 	        1000.0	
+ PR     = 	        1.0	
+ GAMMA  = 		1.40
+ MATTYP = 		0
+/
+
+&SUTHERLANDS
+ MU0  = 		1.715336725523065e-05
+ T0   = 		273.0
+ S0   = 		110.4
+ RGAS = 		286.9
+ PREF = 		1013.3
+ TREF = 		290.15
+/
+
+&BOUNDARY_CONDITIONS
+ TOP    =               0 
+ WALL   =  		0
+ WALLT  =  	        1 	
+ LEFT   =  	        0  	
+ RIGHT  =  	        0 	
+ EXTRAP = 		-1
+/
+
+&SPONGE_PARAMETERS  
+ ISPG = 		0
+ AS   = 		10.0
+ NS   = 		4
+ XS   = 		0.80
+ XT   = 		1.0
+ AS2  = 		2.0
+ NS2  = 		4
+ XS2  = 		0.80
+ XT2  = 		1.0
+/
+
+&SMOOTHER_PARAMETERS
+ ORDER = 	        0	
+ TYPE  = 	        0	
+ EPS   = 	        0.125	
+/
+
+&DAMPER_PARAMETERS
+ DAMPER_TYPE = 		0 
+/
+
+&scaling_properties   
+ type_scal  =          3 
+/
+

@@ -355,7 +355,7 @@
           write(*,*) 'Grid and data file dimensions do not match'
           call exit(1)
         end if
-        write(*,"('Read grid.dat with dimensions (',i4,',',i4,',',i4,')')") nx, ny, ny
+        write(*,"('Read grid.dat with dimensions (',i4,',',i4,',',i4,')')") nx, ny, nz
         read(10) (((x(i,j), i = 1, nx), j = 1, ny), k = 1, nz), &
                  (((y(i,j), i = 1, nx), j = 1, ny), k = 1, nz), &
                  (((   tmp, i = 1, nx), j = 1, ny), k = 1, nz)

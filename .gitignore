@@ -27,7 +27,7 @@
 *.lib
 
 # Executables
-*.1
+#*.1
 *.exe
 *.out
 *.app
@@ -35,3 +35,4 @@ lns3d
 pre
 #
 .DS_Store
+Makefile

@@ -15,7 +15,7 @@ OFLAGS   = -fdefault-real-8 $(DEBUG) -o $(NAME)
 LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 COMP     = gfortran
 F77      = gfortran
-CC       = gcc-10
+CC       = gcc-11
 #
 #  Define Fortran 90 suffix
 #

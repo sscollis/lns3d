@@ -36,7 +36,7 @@
         use local3d
         implicit none
 
-        character*80 :: code='lns3D$'
+        character(80) :: code='lns3D$'
 
 !$      integer, external :: omp_get_num_threads, omp_get_thread_num
 !$      integer, external :: omp_get_num_procs

@@ -14,8 +14,10 @@
         
         complex :: mat(5,ndof,ndof,nx,ny)
         real    :: Bh(ndof,ndof,nx,ny), Dh(ndof,ndof,nx,ny)
-        real    :: Dhi(ndof,ndof,nx,ny), Bhi(ny,nx,6)
-        real    :: spgl(ny,nx), spg2l(ny,nx), Vh(6,nx,ny)
+        real    :: Dhi(ndof,ndof,nx,ny), Bhi(6,nx,ny)
+       !real    :: Dhi(ndof,ndof,nx,ny), Bhi(ny,nx,6)
+       !real    :: spgl(ny,nx), spg2l(ny,nx), Vh(6,nx,ny)
+        real    :: spgl(nx,ny), spg2l(nx,ny), Vh(6,nx,ny)
         real    :: dtl(nx,ny)
         logical :: calcd
 
@@ -26,6 +28,7 @@
         
         integer :: iv, j, idof, jdof
 !=======================================================================================================!
+
         rcalcd = zero
         if (calcd) rcalcd = one
 
@@ -67,30 +70,30 @@
         c4 = im * alfa * gc4 * detainv
         c5 = im * alfa * gc5 * detainv
 
-        mat(3,2,4,iv,j) = mat(3,2,4,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(3,3,4,iv,j) = mat(3,3,4,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(3,4,2,iv,j) = mat(3,4,2,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(3,4,3,iv,j) = mat(3,4,3,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(3,2,4,iv,j) = mat(3,2,4,iv,j) - c1 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(3,3,4,iv,j) = mat(3,3,4,iv,j) - c1 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(3,4,2,iv,j) = mat(3,4,2,iv,j) - c1 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(3,4,3,iv,j) = mat(3,4,3,iv,j) - c1 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(4,2,4,iv,j) = mat(4,2,4,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(4,3,4,iv,j) = mat(4,3,4,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(4,4,2,iv,j) = mat(4,4,2,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(4,4,3,iv,j) = mat(4,4,3,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(4,2,4,iv,j) = mat(4,2,4,iv,j) - c2 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(4,3,4,iv,j) = mat(4,3,4,iv,j) - c2 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(4,4,2,iv,j) = mat(4,4,2,iv,j) - c2 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(4,4,3,iv,j) = mat(4,4,3,iv,j) - c2 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(5,2,4,iv,j) = mat(5,2,4,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(5,3,4,iv,j) = mat(5,3,4,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(5,4,2,iv,j) = mat(5,4,2,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(5,4,3,iv,j) = mat(5,4,3,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(5,2,4,iv,j) = mat(5,2,4,iv,j) - c3 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(5,3,4,iv,j) = mat(5,3,4,iv,j) - c3 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(5,4,2,iv,j) = mat(5,4,2,iv,j) - c3 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(5,4,3,iv,j) = mat(5,4,3,iv,j) - c3 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(1,2,4,iv,j) = mat(1,2,4,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(1,3,4,iv,j) = mat(1,3,4,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(1,4,2,iv,j) = mat(1,4,2,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(1,4,3,iv,j) = mat(1,4,3,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(1,2,4,iv,j) = mat(1,2,4,iv,j) - c4 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(1,3,4,iv,j) = mat(1,3,4,iv,j) - c4 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(1,4,2,iv,j) = mat(1,4,2,iv,j) - c4 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(1,4,3,iv,j) = mat(1,4,3,iv,j) - c4 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(2,2,4,iv,j) = mat(2,2,4,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(2,3,4,iv,j) = mat(2,3,4,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(2,4,2,iv,j) = mat(2,4,2,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(2,4,3,iv,j) = mat(2,4,3,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(2,2,4,iv,j) = mat(2,2,4,iv,j) - c5 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(2,3,4,iv,j) = mat(2,3,4,iv,j) - c5 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(2,4,2,iv,j) = mat(2,4,2,iv,j) - c5 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(2,4,3,iv,j) = mat(2,4,3,iv,j) - c5 * dtl(iv,j) * Bhi(4,iv,j)
           
 !.... \hat{V}_{\eta\eta} term
 
@@ -146,7 +149,7 @@
 !.... sponge term
 
         if (.not. calcd) then
-
+#if 0
         if (ispg .eq. 1) then
         
             mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
@@ -164,7 +167,25 @@
             mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
         
         end if
+#else
+        if (ispg .eq. 1) then
+    
+            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
 
+        else if (ispg .ge. 2) then
+    
+            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+    
+        end if
+#endif
         end if
 !=======================================================================================================!
 !.... use higher-order tangent on first node off the body
@@ -197,30 +218,30 @@
         c4 = im * alfa * gb4 * detainv
         c5 = im * alfa * gb5 * detainv
 
-        mat(2,2,4,iv,j) = mat(2,2,4,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(2,3,4,iv,j) = mat(2,3,4,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(2,4,2,iv,j) = mat(2,4,2,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(2,4,3,iv,j) = mat(2,4,3,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(2,2,4,iv,j) = mat(2,2,4,iv,j) - c1 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(2,3,4,iv,j) = mat(2,3,4,iv,j) - c1 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(2,4,2,iv,j) = mat(2,4,2,iv,j) - c1 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(2,4,3,iv,j) = mat(2,4,3,iv,j) - c1 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(3,2,4,iv,j) = mat(3,2,4,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(3,3,4,iv,j) = mat(3,3,4,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(3,4,2,iv,j) = mat(3,4,2,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(3,4,3,iv,j) = mat(3,4,3,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(3,2,4,iv,j) = mat(3,2,4,iv,j) - c2 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(3,3,4,iv,j) = mat(3,3,4,iv,j) - c2 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(3,4,2,iv,j) = mat(3,4,2,iv,j) - c2 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(3,4,3,iv,j) = mat(3,4,3,iv,j) - c2 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(4,2,4,iv,j) = mat(4,2,4,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(4,3,4,iv,j) = mat(4,3,4,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(4,4,2,iv,j) = mat(4,4,2,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(4,4,3,iv,j) = mat(4,4,3,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(4,2,4,iv,j) = mat(4,2,4,iv,j) - c3 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(4,3,4,iv,j) = mat(4,3,4,iv,j) - c3 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(4,4,2,iv,j) = mat(4,4,2,iv,j) - c3 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(4,4,3,iv,j) = mat(4,4,3,iv,j) - c3 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(5,2,4,iv,j) = mat(5,2,4,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(5,3,4,iv,j) = mat(5,3,4,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(5,4,2,iv,j) = mat(5,4,2,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(5,4,3,iv,j) = mat(5,4,3,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(5,2,4,iv,j) = mat(5,2,4,iv,j) - c4 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(5,3,4,iv,j) = mat(5,3,4,iv,j) - c4 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(5,4,2,iv,j) = mat(5,4,2,iv,j) - c4 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(5,4,3,iv,j) = mat(5,4,3,iv,j) - c4 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(1,2,4,iv,j) = mat(1,2,4,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(1,3,4,iv,j) = mat(1,3,4,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(1,4,2,iv,j) = mat(1,4,2,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(1,4,3,iv,j) = mat(1,4,3,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(1,2,4,iv,j) = mat(1,2,4,iv,j) - c5 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(1,3,4,iv,j) = mat(1,3,4,iv,j) - c5 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(1,4,2,iv,j) = mat(1,4,2,iv,j) - c5 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(1,4,3,iv,j) = mat(1,4,3,iv,j) - c5 * dtl(iv,j) * Bhi(4,iv,j)
           
 !.... \hat{V}_{\eta\eta} term
 
@@ -301,6 +322,7 @@
 
         if (.not. calcd) then
         
+#if 0
         if (ispg .eq. 1) then
         
             mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
@@ -318,7 +340,25 @@
             mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
                 
         end if
+#else
+        if (ispg .eq. 1) then
 
+            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+
+        else if (ispg .ge. 2) then
+
+            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+
+        end if
+#endif
         end if
 !=======================================================================================================!
 !.... use higher-order tangent on first node off the far-field boundary
@@ -351,30 +391,30 @@
         c4 = -im * alfa * gb4 * detainv
         c5 = -im * alfa * gb5 * detainv
 
-        mat(5,2,4,iv,j) = mat(5,2,4,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(5,3,4,iv,j) = mat(5,3,4,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(5,4,2,iv,j) = mat(5,4,2,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(5,4,3,iv,j) = mat(5,4,3,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(5,2,4,iv,j) = mat(5,2,4,iv,j) - c5 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(5,3,4,iv,j) = mat(5,3,4,iv,j) - c5 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(5,4,2,iv,j) = mat(5,4,2,iv,j) - c5 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(5,4,3,iv,j) = mat(5,4,3,iv,j) - c5 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(1,2,4,iv,j) = mat(1,2,4,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(1,3,4,iv,j) = mat(1,3,4,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(1,4,2,iv,j) = mat(1,4,2,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(1,4,3,iv,j) = mat(1,4,3,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(1,2,4,iv,j) = mat(1,2,4,iv,j) - c4 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(1,3,4,iv,j) = mat(1,3,4,iv,j) - c4 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(1,4,2,iv,j) = mat(1,4,2,iv,j) - c4 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(1,4,3,iv,j) = mat(1,4,3,iv,j) - c4 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(2,2,4,iv,j) = mat(2,2,4,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(2,3,4,iv,j) = mat(2,3,4,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(2,4,2,iv,j) = mat(2,4,2,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(2,4,3,iv,j) = mat(2,4,3,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(2,2,4,iv,j) = mat(2,2,4,iv,j) - c3 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(2,3,4,iv,j) = mat(2,3,4,iv,j) - c3 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(2,4,2,iv,j) = mat(2,4,2,iv,j) - c3 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(2,4,3,iv,j) = mat(2,4,3,iv,j) - c3 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(3,2,4,iv,j) = mat(3,2,4,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(3,3,4,iv,j) = mat(3,3,4,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(3,4,2,iv,j) = mat(3,4,2,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(3,4,3,iv,j) = mat(3,4,3,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(3,2,4,iv,j) = mat(3,2,4,iv,j) - c2 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(3,3,4,iv,j) = mat(3,3,4,iv,j) - c2 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(3,4,2,iv,j) = mat(3,4,2,iv,j) - c2 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(3,4,3,iv,j) = mat(3,4,3,iv,j) - c2 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(4,2,4,iv,j) = mat(4,2,4,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(4,3,4,iv,j) = mat(4,3,4,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(4,4,2,iv,j) = mat(4,4,2,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(4,4,3,iv,j) = mat(4,4,3,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(4,2,4,iv,j) = mat(4,2,4,iv,j) - c1 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(4,3,4,iv,j) = mat(4,3,4,iv,j) - c1 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(4,4,2,iv,j) = mat(4,4,2,iv,j) - c1 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(4,4,3,iv,j) = mat(4,4,3,iv,j) - c1 * dtl(iv,j) * Bhi(4,iv,j)
           
 !.... \hat{V}_{\eta\eta} term
 
@@ -454,7 +494,7 @@
 !.... sponge term
 
         if (.not. calcd) then
-
+#if 0
         if (ispg .eq. 1) then
 
             mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
@@ -472,7 +512,25 @@
             mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
 
         end if
+#else
+        if (ispg .eq. 1) then
 
+            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+
+        else if (ispg .ge. 2) then
+
+            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+
+        end if
+#endif
         end if
 !=======================================================================================================!
 !.... use higher-order tangent on the far-field boundary
@@ -505,30 +563,30 @@
         c4 = -im * alfa * gc4 * detainv
         c5 = -im * alfa * gc5 * detainv
 
-        mat(4,2,4,iv,j) = mat(4,2,4,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(4,3,4,iv,j) = mat(4,3,4,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(4,4,2,iv,j) = mat(4,4,2,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(4,4,3,iv,j) = mat(4,4,3,iv,j) - c5 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(4,2,4,iv,j) = mat(4,2,4,iv,j) - c5 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(4,3,4,iv,j) = mat(4,3,4,iv,j) - c5 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(4,4,2,iv,j) = mat(4,4,2,iv,j) - c5 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(4,4,3,iv,j) = mat(4,4,3,iv,j) - c5 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(5,2,4,iv,j) = mat(5,2,4,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(5,3,4,iv,j) = mat(5,3,4,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(5,4,2,iv,j) = mat(5,4,2,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(5,4,3,iv,j) = mat(5,4,3,iv,j) - c4 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(5,2,4,iv,j) = mat(5,2,4,iv,j) - c4 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(5,3,4,iv,j) = mat(5,3,4,iv,j) - c4 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(5,4,2,iv,j) = mat(5,4,2,iv,j) - c4 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(5,4,3,iv,j) = mat(5,4,3,iv,j) - c4 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(1,2,4,iv,j) = mat(1,2,4,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(1,3,4,iv,j) = mat(1,3,4,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(1,4,2,iv,j) = mat(1,4,2,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(1,4,3,iv,j) = mat(1,4,3,iv,j) - c3 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(1,2,4,iv,j) = mat(1,2,4,iv,j) - c3 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(1,3,4,iv,j) = mat(1,3,4,iv,j) - c3 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(1,4,2,iv,j) = mat(1,4,2,iv,j) - c3 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(1,4,3,iv,j) = mat(1,4,3,iv,j) - c3 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(2,2,4,iv,j) = mat(2,2,4,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(2,3,4,iv,j) = mat(2,3,4,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(2,4,2,iv,j) = mat(2,4,2,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(2,4,3,iv,j) = mat(2,4,3,iv,j) - c2 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(2,2,4,iv,j) = mat(2,2,4,iv,j) - c2 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(2,3,4,iv,j) = mat(2,3,4,iv,j) - c2 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(2,4,2,iv,j) = mat(2,4,2,iv,j) - c2 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(2,4,3,iv,j) = mat(2,4,3,iv,j) - c2 * dtl(iv,j) * Bhi(4,iv,j)
 
-        mat(3,2,4,iv,j) = mat(3,2,4,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(3,3,4,iv,j) = mat(3,3,4,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,4)
-        mat(3,4,2,iv,j) = mat(3,4,2,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,3)
-        mat(3,4,3,iv,j) = mat(3,4,3,iv,j) - c1 * dtl(iv,j) * Bhi(j,iv,4)
+        mat(3,2,4,iv,j) = mat(3,2,4,iv,j) - c1 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(3,3,4,iv,j) = mat(3,3,4,iv,j) - c1 * dtl(iv,j) * Bhi(4,iv,j)
+        mat(3,4,2,iv,j) = mat(3,4,2,iv,j) - c1 * dtl(iv,j) * Bhi(3,iv,j)
+        mat(3,4,3,iv,j) = mat(3,4,3,iv,j) - c1 * dtl(iv,j) * Bhi(4,iv,j)
           
 !.... \hat{V}_{\eta\eta} term
 
@@ -584,7 +642,7 @@
 !.... sponge term
 
         if (.not. calcd) then
-
+#if 0
         if (ispg .eq. 1) then
         
             mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
@@ -602,7 +660,25 @@
             mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
                 
         end if
-
+#else
+        if (ispg .eq. 1) then
+    
+            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
+    
+        else if (ispg .ge. 2) then
+    
+            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
+    
+        end if
+#endif
         end if
 
         end do

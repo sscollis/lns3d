@@ -44,7 +44,7 @@
         real    :: vl(ndof,nx,ny), rl(ndof,nx,ny), kzl
 !=============================================================================!
         integer ier, i, j, idof
-        character*80 :: name, code='genmtrx$'
+        character(80) :: name, code='genmtrx$'
         real :: fact
 
         integer :: lrec, istat

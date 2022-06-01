@@ -28,7 +28,6 @@
 !.... forcing parameters
 
         real :: a, d, kk
-        complex :: ac
 
 !=============================================================================!
 !       L I N E A R   B O U N D A R Y   C O N D I T I O N S
@@ -206,6 +205,8 @@
         
         else if (left.eq.4) then        ! eigenfunction inflow disturbance
 
+          !write(*,*) "itrbc3d:  left.eq.4"
+
           allocate( rhom(ny), tm(ny), cm(ny) )
           allocate( c1(ny), c2(ny), c3(ny), c4(ny) )
           allocate( rho(ny), u1(ny), u2(ny), u3(ny), t(ny), p(ny) )
@@ -221,22 +222,50 @@
           u2  = cmplx(  vr(1:ny),   vi(1:ny))
           u3  = cmplx(  wr(1:ny),   wi(1:ny))
           t   = cmplx(  tr(1:ny),   ti(1:ny))
+#ifdef USE_TRANSIENT_EIGENFUNCTION 
+          if (omega.eq.0) then
+            rho = rho * exp(-im*lomega*time)
+            u1  =  u1 * exp(-im*lomega*time)
+            u2  =  u2 * exp(-im*lomega*time)
+            u3  =  u3 * exp(-im*lomega*time)
+            t   =   t * exp(-im*lomega*time)
+          endif
+#endif
+#if 0
 
-!         p   = ( rhom * t + tm * rho ) / (gamma * Ma**2)
+!.... SSC: turned this on for spatial TS wave case 5/30/22
+
+          p   = ( rhom * t + tm * rho ) / (gamma * Ma**2)
                                   
-!         c1  = -cm**2 * rho + p                        ! entropy
-!         c2  =  rhom * cm * u2                         ! vorticity
-!         c3  =  rhom * cm * u1 + p                     ! right acoustic
-!         c4  =  0                                      ! left acoustic
+          c1  = -cm**2 * rho + p                        ! entropy
+          c2  =  rhom * cm * u2                         ! vorticity
+          c3  =  rhom * cm * u1 + p                     ! right acoustic
+
+#if 1
+
+!.... compute outgoing characteristics
+!.... SSC: try not setting left acoustic to zero
+
+          rho = vl(1,1,:)
+          u1  = vl(2,1,:)
+          u2  = vl(3,1,:)
+          u3  = vl(4,1,:)
+          t   = vl(5,1,:)
+          p   = one/(gamma * Ma**2) * ( rhom * t + tm * rho )
+
+          c4  =  -rhom * cm * u1 + p                    ! left acoustic
+#else
+          c4  =  0                                      ! left acoustic
+#endif
 
 !.... update the boundary values
 
-!         rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2
-!         u1  = ( c3 - c4 ) * pt5 / ( rhom * cm )
-!         u2  = c2 / ( rhom * cm )
-!         p   = ( c3 + c4 ) * pt5
-!         t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
-
+          rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2
+          u1  = ( c3 - c4 ) * pt5 / ( rhom * cm )
+          u2  = c2 / ( rhom * cm )
+          p   = ( c3 + c4 ) * pt5
+          t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
+#endif
           vl(1,1,:) = rho
           vl(2,1,:) = u1
           vl(3,1,:) = u2
@@ -286,18 +315,20 @@
 
         else if (right.eq.4) then
 
-          ac = (2.2804739410500E-001,-6.5163146761218E-003)
+!.... SSC: this is currently hardwired for the Ch.4 thesis spatial TS wave
+
+!         ac = (2.2804739410500E-001,-6.5163146761218E-003)
 !         ac = (-2.8831962908130E-001,-1.3854663671636E-002)
 
           allocate( rho(ny), u1(ny), u2(ny), u3(ny), t(ny), p(ny) )
 
 !.... compute incomming characteristics (eigenfunctions)
 
-          rho = cmplx(rhor(:), rhoi(:)) * exp(im * ac * x(:,nx))
-          u1  = cmplx(  ur(:),   ui(:)) * exp(im * ac * x(:,nx))
-          u2  = cmplx(  vr(:),   vi(:)) * exp(im * ac * x(:,nx))
-          u3  = cmplx(  wr(:),   wi(:)) * exp(im * ac * x(:,nx))
-          t   = cmplx(  tr(:),   ti(:)) * exp(im * ac * x(:,nx))
+          rho = cmplx(rhor(:), rhoi(:)) * exp(im * lalpha * x(nx,:))
+          u1  = cmplx(  ur(:),   ui(:)) * exp(im * lalpha * x(nx,:))
+          u2  = cmplx(  vr(:),   vi(:)) * exp(im * lalpha * x(nx,:))
+          u3  = cmplx(  wr(:),   wi(:)) * exp(im * lalpha * x(nx,:))
+          t   = cmplx(  tr(:),   ti(:)) * exp(im * lalpha * x(nx,:))
 
           vl(1,nx,:) = rho
           vl(2,nx,:) = u1

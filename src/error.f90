@@ -7,7 +7,7 @@
         implicit none
         
         integer loc
-        character*80 name, msg
+        character(80) name, msg
 
         loc = index(name,'$')-1
         write(*,"(/,'*****************************************************')")
@@ -29,7 +29,7 @@
         implicit none
         
         integer loc
-        character*80 name, msg
+        character(80) name, msg
 
         loc = index(name,'$')-1
         write(*,"(/,'*****************************************************')")
