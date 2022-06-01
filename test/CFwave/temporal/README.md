@@ -8,7 +8,7 @@ of vertical velocity.</p>
 ## Problem Setup
 
 From Collis, PhD Thesis, $\S4.2.1$, sweep angle $\theta=45^\circ$, 
-Hartree parameter $\beta_h = 1$ $M = 0.3$, $Re = 400$, $Pr = 1$ 
+Hartree parameter $\beta_h = 1$, $M = 0.3$, $Re = 400$, $Pr = 1$ 
 with $T_w = T_0$. We use a stationary crossflow mode with $k_x = -0.287436451$
 and $k_z = 0.35$ with LST yeilding $\omega_{lst} = 0.006533585 \iota$ which 
 means the temporal growth rate is $\sigma = 0.006533585$
