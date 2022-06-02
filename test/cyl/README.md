@@ -2,6 +2,14 @@
 
 This is from Collis PhD Thesis, Ch. 4.
 
+## Run
+
+To run, simply use the script (checking the paths to various executables).
+
+```bash
+./run.sh
+```
+
 ## Notes:
 1. You need to take multiple passes of the implicit solver as the splitting
    error creates an instability at the leading edge
@@ -12,6 +20,8 @@ This is from Collis PhD Thesis, Ch. 4.
    difference scheme.  I have upped the resolution to $n_x=512$, $n_y=256$ and
    with the backward Euler scheme with 3 iterations, this appears to be
    stable.  This is alot of iterations...
+4. Now trying with just one iteration.  This holds on for 4000 steps
+   but it is possible that the instability could arise.
 
 S. Scott Collis\
 sscollis@gmail.com
