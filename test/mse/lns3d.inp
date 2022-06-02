@@ -19,6 +19,6 @@
 10.0, 4, 0.80, 1.0              ! As, Ns, xs, xt (Outflow sponge)
 2.0, 4, 0.80, 1.0               ! As, Ns, xs, xt (Inflow sponge)
 -1                              ! extrap (-1 = off)
-0.0                             ! alpha (sweep angle)
+0.0                             ! theta (sweep angle)
 .false. .false. .false.         ! tflag, fflag, sflag
 0                               ! Lz (0 = 2d)
