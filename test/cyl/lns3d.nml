@@ -1,0 +1,9 @@
+&extras
+is = 1
+ie = 512 
+js = 1
+je = 256 
+echo = .true.
+updateLHS = .false.
+useCalcd = .false.
+/
