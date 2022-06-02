@@ -2,6 +2,11 @@
 
 This is from Collis PhD Thesis, Ch. 4.
 
+<p align=center>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/cyl/v.png>
+<br>Acoustic wave scattered off a circular cylinder, contours of vertical 
+velocity.</p>
+
 ## Run
 
 To run, simply use the script (checking the paths to various executables).
