@@ -14,7 +14,7 @@
         
         complex :: mat(5,ndof,ndof,nx,ny)
         real    :: Ah(ndof,ndof,nx,ny), Dh(ndof,ndof,nx,ny)
-        real    :: Dhi(ndof,ndof,nx,ny), Ahi(ny,nx,6)
+        real    :: Dhi(ndof,ndof,nx,ny), Ahi(6,ny,nx)
         real    :: spgl(nx,ny), spg2l(nx,ny), Vh(6,nx,ny), dtl(nx,ny)
         logical :: calcd
         integer :: side
