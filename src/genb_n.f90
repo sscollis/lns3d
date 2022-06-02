@@ -27,6 +27,8 @@
         real :: gunn, gusn, guns, guss
 !=======================================================================================================!
 
+       call error("genB_n$","Lele Poinsot BC's not updated to ij ordering$")
+
 !.... compute some extra stuff needed for Lele's BC's
 
         pinf = one / (gamma * Ma**2)    ! pressure at infinity

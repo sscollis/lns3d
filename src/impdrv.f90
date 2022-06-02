@@ -23,7 +23,7 @@
         integer :: ier, mem = 0
         integer, external :: igetver
         real*4, external :: second
-        character*80 :: name, code='ImpDrv$'
+        character(80) :: name, code='ImpDrv$'
 !=============================================================================!
 
 !.... allocate the storage area for the disturbance field

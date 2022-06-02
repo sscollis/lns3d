@@ -491,6 +491,12 @@ loop_i: do i = 1, nx
         A(5,4) = -four * fact2 * mu * S(3,1)
         A(5,5) = u1 - fact1 * (g1con + dcon * gt(1))
 
+        if (linear.eq.0.and.(left.eq.1.or.right.eq.1.or.top.eq.1.or.wall.eq.4)) &
+          call error("genmtrx$","Nonlinear Lele Poinsot BC's not implemented$")
+
+        if (linear.eq.1.and.(left.eq.2.or.left.eq.6.or.right.eq.6.or.wall.eq.4)) &
+          call error("genmtrx$","Linear Lele Poinsot BC's not implemented$")
+
 !==========================================================================!
 !.... compute the B matrix
 !==========================================================================!
@@ -542,6 +548,12 @@ loop_i: do i = 1, nx
                   four * fact2 * mu * S(2,2)
         B(5,4) = -four * fact2 * mu * S(3,2)
         B(5,5) =  u2 - fact1 * (g2con + dcon * gt(2))
+
+        if (linear.eq.0.and.(left.eq.1.or.right.eq.1.or.top.eq.1.or.wall.eq.4)) &
+          call error("genmtrx$","Nonlinear Lele Poinsot BC's not implemented$")
+
+        if (linear.eq.1.and.(left.eq.2.or.left.eq.6.or.right.eq.6.or.wall.eq.4)) &
+          call error("genmtrx$","Linear Lele Poinsot BC's not implemented$")
 
 !==========================================================================!
 !.... compute the Vij matrix in compact form
