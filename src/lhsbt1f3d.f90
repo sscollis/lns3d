@@ -14,8 +14,6 @@
         
         complex :: mat(5,ndof,ndof,nx,ny)
         real    :: Ah(ndof,ndof,nx,ny), Dh(ndof,ndof,nx,ny)
-       !real    :: Dhi(ndof,ndof,nx,ny), Ahi(ny,nx,6)
-       !real    :: spgl(ny,nx), spg2l(ny,nx), Vh(6,nx,ny)
         real    :: Dhi(ndof,ndof,nx,ny), Ahi(6,nx,ny)
         real    :: spgl(nx,ny), spg2l(nx,ny), Vh(6,nx,ny)
         real    :: dtl(nx,ny)
@@ -156,25 +154,7 @@
 !.... sponge term
 
         if (.not. calcd) then
-#if 0
-        if (ispg .eq. 1) then
-        
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
 
-        else if (ispg .ge. 2) then
-        
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-        
-        end if
-#else
         if (ispg .eq. 1) then
     
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
@@ -192,7 +172,6 @@
             mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
     
         end if
-#endif
 
         end if
 !=======================================================================================================!
@@ -329,25 +308,7 @@
 !.... sponge term
 
         if (.not. calcd) then
-#if 0
-        if (ispg .eq. 1) then
-        
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
 
-        else if (ispg .ge. 2) then
-        
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-        
-        end if
-#else
         if (ispg .eq. 1) then
     
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
@@ -365,7 +326,6 @@
             mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
 
         end if
-#endif
 
         end if
 
@@ -515,25 +475,7 @@
 !.... sponge term
 
         if (.not. calcd) then
-#if 0
-        if (ispg .eq. 1) then
-        
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
 
-        else if (ispg .ge. 2) then
-        
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-        
-        end if
-#else
         if (ispg .eq. 1) then
     
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
@@ -551,7 +493,6 @@
             mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
 
         end if
-#endif
 
         end if
 !=======================================================================================================!
@@ -664,25 +605,7 @@
 !.... sponge term
 
         if (.not. calcd) then
-#if 0
-        if (ispg .eq. 1) then
-        
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
 
-        else if (ispg .ge. 2) then
-        
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-        
-        end if
-#else
         if (ispg .eq. 1) then
     
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
@@ -700,7 +623,6 @@
             mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
 
         end if
-#endif
 
         end if
 

@@ -109,13 +109,32 @@
 
         if (ispg .ge. 2) then
           allocate( spg2(nx,ny), STAT=ier)
-          if (ier .ne. 0) call error(code,'Insufficient Memory for spg2$')
+          if (ier .ne. 0) then
+            call error(code,'Insufficient Memory for spg2$')
+          endif
           !$omp parallel do private(i,j)
           do j = 1, ny
             do i = 1, nx
               spg2(i,j) = zero
             end do
           end do
+
+!.... sponge for the cylinder scattering problem (Mahesh sponge)
+
+          if (ispg .eq. 3) then
+            do i = 1, nx
+              do j = 1, ny
+                rr = sqrt( x(i,j)**2 + y(i,j)**2 )
+                if ( rr .gt. xs2 .and. rr .lt. xt2 ) then
+                  spg2(i,j) = As2 * ((rr-xs2)/(xt2-xs2))**Ns2
+                else
+                  spg2(i,j) = zero
+                end if
+              end do
+            end do
+
+          end if
+
         end if
 
         return

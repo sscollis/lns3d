@@ -258,7 +258,8 @@
 
           kk = omega / (cm+um)
           a  = omega**2 * d / (cm+um)**3
-          c3 = exp( -a * (xl(i,j) - x0) ) * exp( im * kk * xl(i,j) )
+          c3 = exp( im * kk * xl(i,j) )
+!         c3 = exp( -a * (xl(i,j) - x0) ) * exp( im * kk * xl(i,j) )
 !         c3 = wamp(i) * exp( im * kk * xl(i,j) )
 
           rl(1,i,j) = rl(1,i,j) + spg2(i,j) * ( vl(1,i,j) - &
@@ -277,8 +278,6 @@
         end do loop_j
 
         if (ispg .eq. 4) then              
-          !call error(code,'ispg = 4 is not working$')
-          !write(*,*) "Calling cspg_it(...)"
           call cspg_it( rl, vl, spg, spg2 )
         end if
     

@@ -135,8 +135,9 @@
           do i = 1, nx
             kk = omega / (cm(i)+um(i))
             a  = omega**2 * d / (cm(i)+um(i))**3
-            c3(i) = exp( -a * (x(ny,i) - x0) ) * exp( im * kk * x(ny,i) )
-!           c3(i) = wamp(i) * exp( im * kk * x(ny,i) )
+            c3(i) = exp( im * kk * x(i,ny) )
+            ! c3(i) = exp( -a * (x(i,ny) - x0) ) * exp( im * kk * x(i,ny) )
+            ! c3(i) = wamp(i) * exp( im * kk * x(ny,i) )
           end do
 
           rl(1,:,ny) = -(vl(1,:,ny) - pt5 * c3 / cm**2)

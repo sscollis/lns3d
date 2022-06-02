@@ -15,7 +15,7 @@
         complex :: mat(5,ndof,ndof,nx,ny)
         real    :: Ah(ndof,ndof,nx,ny), Dh(ndof,ndof,nx,ny)
         real    :: Dhi(ndof,ndof,nx,ny), Ahi(ny,nx,6)
-        real    :: spgl(ny,nx), spg2l(ny,nx), Vh(6,nx,ny), dtl(nx,ny)
+        real    :: spgl(nx,ny), spg2l(nx,ny), Vh(6,nx,ny), dtl(nx,ny)
         logical :: calcd
         integer :: side
 
@@ -75,20 +75,20 @@
         c4 = im * alfa * ga3 * dxiinv
         c5 = im * alfa * ga4 * dxiinv
 
-        mat(3,2,4,i,iv) = mat(3,2,4,i,iv) - c3 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(3,3,4,i,iv) = mat(3,3,4,i,iv) - c3 * dtl(i,iv) * Ahi(iv,i,2)
-        mat(3,4,2,i,iv) = mat(3,4,2,i,iv) - c3 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(3,4,3,i,iv) = mat(3,4,3,i,iv) - c3 * dtl(i,iv) * Ahi(iv,i,2)
+        mat(3,2,4,i,iv) = mat(3,2,4,i,iv) - c3 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(3,3,4,i,iv) = mat(3,3,4,i,iv) - c3 * dtl(i,iv) * Ahi(2,i,iv)
+        mat(3,4,2,i,iv) = mat(3,4,2,i,iv) - c3 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(3,4,3,i,iv) = mat(3,4,3,i,iv) - c3 * dtl(i,iv) * Ahi(2,i,iv)
 
-        mat(4,2,4,i,iv) = mat(4,2,4,i,iv) - (c4+c2) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(4,3,4,i,iv) = mat(4,3,4,i,iv) - (c4+c2) * dtl(i,iv) * Ahi(iv,i,2)
-        mat(4,4,2,i,iv) = mat(4,4,2,i,iv) - (c4+c2) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(4,4,3,i,iv) = mat(4,4,3,i,iv) - (c4-c2) * dtl(i,iv) * Ahi(iv,i,2)
+        mat(4,2,4,i,iv) = mat(4,2,4,i,iv) - (c4+c2) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(4,3,4,i,iv) = mat(4,3,4,i,iv) - (c4+c2) * dtl(i,iv) * Ahi(2,i,iv)
+        mat(4,4,2,i,iv) = mat(4,4,2,i,iv) - (c4+c2) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(4,4,3,i,iv) = mat(4,4,3,i,iv) - (c4-c2) * dtl(i,iv) * Ahi(2,i,iv)
 
-        mat(5,2,4,i,iv) = mat(5,2,4,i,iv) - (c5+c1) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(5,3,4,i,iv) = mat(5,3,4,i,iv) - (c5+c1) * dtl(i,iv) * Ahi(iv,i,2)
-        mat(5,4,2,i,iv) = mat(5,4,2,i,iv) - (c5+c1) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(5,4,3,i,iv) = mat(5,4,3,i,iv) - (c5-c1) * dtl(i,iv) * Ahi(iv,i,2)
+        mat(5,2,4,i,iv) = mat(5,2,4,i,iv) - (c5+c1) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(5,3,4,i,iv) = mat(5,3,4,i,iv) - (c5+c1) * dtl(i,iv) * Ahi(2,i,iv)
+        mat(5,4,2,i,iv) = mat(5,4,2,i,iv) - (c5+c1) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(5,4,3,i,iv) = mat(5,4,3,i,iv) - (c5-c1) * dtl(i,iv) * Ahi(2,i,iv)
           
 !.... \hat{V}_{\xi\xi} term
 
@@ -157,19 +157,19 @@
 
         if (ispg .eq. 1) then
         
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
+            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
 
         else if (ispg .ge. 2) then
         
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
+            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
         
         end if
 
@@ -210,25 +210,25 @@
         c4 = im * alfa * ga3 * dxiinv
         c5 = im * alfa * ga4 * dxiinv
 
-        mat(2,2,4,i,iv) = mat(2,2,4,i,iv) - c2 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(2,3,4,i,iv) = mat(2,3,4,i,iv) - c2 * dtl(i,iv) * Ahi(iv,i,2)
-        mat(2,4,2,i,iv) = mat(2,4,2,i,iv) - c2 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(2,4,3,i,iv) = mat(2,4,3,i,iv) - c2 * dtl(i,iv) * Ahi(iv,i,2)
+        mat(2,2,4,i,iv) = mat(2,2,4,i,iv) - c2 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(2,3,4,i,iv) = mat(2,3,4,i,iv) - c2 * dtl(i,iv) * Ahi(2,i,iv)
+        mat(2,4,2,i,iv) = mat(2,4,2,i,iv) - c2 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(2,4,3,i,iv) = mat(2,4,3,i,iv) - c2 * dtl(i,iv) * Ahi(2,i,iv)
 
-        mat(3,2,4,i,iv) = mat(3,2,4,i,iv) - (c3+c1) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(3,3,4,i,iv) = mat(3,3,4,i,iv) - (c3+c1) * dtl(i,iv) * Ahi(iv,i,2)
-        mat(3,4,2,i,iv) = mat(3,4,2,i,iv) - (c3+c1) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(3,4,3,i,iv) = mat(3,4,3,i,iv) - (c3-c1) * dtl(i,iv) * Ahi(iv,i,2)
+        mat(3,2,4,i,iv) = mat(3,2,4,i,iv) - (c3+c1) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(3,3,4,i,iv) = mat(3,3,4,i,iv) - (c3+c1) * dtl(i,iv) * Ahi(2,i,iv)
+        mat(3,4,2,i,iv) = mat(3,4,2,i,iv) - (c3+c1) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(3,4,3,i,iv) = mat(3,4,3,i,iv) - (c3-c1) * dtl(i,iv) * Ahi(2,i,iv)
 
-        mat(4,2,4,i,iv) = mat(4,2,4,i,iv) - c4 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(4,3,4,i,iv) = mat(4,3,4,i,iv) - c4 * dtl(i,iv) * Ahi(iv,i,2)
-        mat(4,4,2,i,iv) = mat(4,4,2,i,iv) - c4 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(4,4,3,i,iv) = mat(4,4,3,i,iv) - c4 * dtl(i,iv) * Ahi(iv,i,2)
+        mat(4,2,4,i,iv) = mat(4,2,4,i,iv) - c4 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(4,3,4,i,iv) = mat(4,3,4,i,iv) - c4 * dtl(i,iv) * Ahi(2,i,iv)
+        mat(4,4,2,i,iv) = mat(4,4,2,i,iv) - c4 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(4,4,3,i,iv) = mat(4,4,3,i,iv) - c4 * dtl(i,iv) * Ahi(2,i,iv)
 
-        mat(5,2,4,i,iv) = mat(5,2,4,i,iv) - c5 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(5,3,4,i,iv) = mat(5,3,4,i,iv) - c5 * dtl(i,iv) * Ahi(iv,i,2)
-        mat(5,4,2,i,iv) = mat(5,4,2,i,iv) - c5 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(5,4,3,i,iv) = mat(5,4,3,i,iv) - c5 * dtl(i,iv) * Ahi(iv,i,2)
+        mat(5,2,4,i,iv) = mat(5,2,4,i,iv) - c5 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(5,3,4,i,iv) = mat(5,3,4,i,iv) - c5 * dtl(i,iv) * Ahi(2,i,iv)
+        mat(5,4,2,i,iv) = mat(5,4,2,i,iv) - c5 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(5,4,3,i,iv) = mat(5,4,3,i,iv) - c5 * dtl(i,iv) * Ahi(2,i,iv)
           
 !.... \hat{V}_{\xi\xi} term
 
@@ -310,19 +310,19 @@
 
         if (ispg .eq. 1) then
         
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
+            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
 
         else if (ispg .ge. 2) then
         
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
+            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
         
         end if
 
@@ -370,25 +370,25 @@
         c4 = im * alfa * ga3 * dxiinv
         c5 = im * alfa * ga4 * dxiinv
 
-        mat(1,2,4,i,iv) = mat(1,2,4,i,iv) - c1 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(1,3,4,i,iv) = mat(1,3,4,i,iv) - c1 * dtl(i,iv) * Ahi(iv,i,2)
-        mat(1,4,2,i,iv) = mat(1,4,2,i,iv) - c1 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(1,4,3,i,iv) = mat(1,4,3,i,iv) - c1 * dtl(i,iv) * Ahi(iv,i,2)
+        mat(1,2,4,i,iv) = mat(1,2,4,i,iv) - c1 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(1,3,4,i,iv) = mat(1,3,4,i,iv) - c1 * dtl(i,iv) * Ahi(2,i,iv)
+        mat(1,4,2,i,iv) = mat(1,4,2,i,iv) - c1 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(1,4,3,i,iv) = mat(1,4,3,i,iv) - c1 * dtl(i,iv) * Ahi(2,i,iv)
 
-        mat(2,2,4,i,iv) = mat(2,2,4,i,iv) - c2 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(2,3,4,i,iv) = mat(2,3,4,i,iv) - c2 * dtl(i,iv) * Ahi(iv,i,2)
-        mat(2,4,2,i,iv) = mat(2,4,2,i,iv) - c2 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(2,4,3,i,iv) = mat(2,4,3,i,iv) - c2 * dtl(i,iv) * Ahi(iv,i,2)
+        mat(2,2,4,i,iv) = mat(2,2,4,i,iv) - c2 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(2,3,4,i,iv) = mat(2,3,4,i,iv) - c2 * dtl(i,iv) * Ahi(2,i,iv)
+        mat(2,4,2,i,iv) = mat(2,4,2,i,iv) - c2 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(2,4,3,i,iv) = mat(2,4,3,i,iv) - c2 * dtl(i,iv) * Ahi(2,i,iv)
 
-        mat(3,2,4,i,iv) = mat(3,2,4,i,iv) - (c3+c5) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(3,3,4,i,iv) = mat(3,3,4,i,iv) - (c3+c5) * dtl(i,iv) * Ahi(iv,i,2)
-        mat(3,4,2,i,iv) = mat(3,4,2,i,iv) - (c3+c5) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(3,4,3,i,iv) = mat(3,4,3,i,iv) - (c3-c5) * dtl(i,iv) * Ahi(iv,i,2)
+        mat(3,2,4,i,iv) = mat(3,2,4,i,iv) - (c3+c5) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(3,3,4,i,iv) = mat(3,3,4,i,iv) - (c3+c5) * dtl(i,iv) * Ahi(2,i,iv)
+        mat(3,4,2,i,iv) = mat(3,4,2,i,iv) - (c3+c5) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(3,4,3,i,iv) = mat(3,4,3,i,iv) - (c3-c5) * dtl(i,iv) * Ahi(2,i,iv)
 
-        mat(4,2,4,i,iv) = mat(4,2,4,i,iv) - c4 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(4,3,4,i,iv) = mat(4,3,4,i,iv) - c4 * dtl(i,iv) * Ahi(iv,i,2)
-        mat(4,4,2,i,iv) = mat(4,4,2,i,iv) - c4 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(4,4,3,i,iv) = mat(4,4,3,i,iv) - c4 * dtl(i,iv) * Ahi(iv,i,2)
+        mat(4,2,4,i,iv) = mat(4,2,4,i,iv) - c4 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(4,3,4,i,iv) = mat(4,3,4,i,iv) - c4 * dtl(i,iv) * Ahi(2,i,iv)
+        mat(4,4,2,i,iv) = mat(4,4,2,i,iv) - c4 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(4,4,3,i,iv) = mat(4,4,3,i,iv) - c4 * dtl(i,iv) * Ahi(2,i,iv)
 
 !.... \hat{V}_{\xi\xi} term
 
@@ -470,19 +470,19 @@
 
         if (ispg .eq. 1) then
         
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
+            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
 
         else if (ispg .ge. 2) then
         
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
+            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
         
         end if
 
@@ -523,20 +523,20 @@
         c4 = im * alfa * ga3 * dxiinv
         c5 = im * alfa * ga4 * dxiinv
 
-        mat(1,2,4,i,iv) = mat(1,2,4,i,iv) - (c1+c5) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(1,3,4,i,iv) = mat(1,3,4,i,iv) - (c1+c5) * dtl(i,iv) * Ahi(iv,i,2)
-        mat(1,4,2,i,iv) = mat(1,4,2,i,iv) - (c1+c5) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(1,4,3,i,iv) = mat(1,4,3,i,iv) - (c1-c5) * dtl(i,iv) * Ahi(iv,i,2)
+        mat(1,2,4,i,iv) = mat(1,2,4,i,iv) - (c1+c5) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(1,3,4,i,iv) = mat(1,3,4,i,iv) - (c1+c5) * dtl(i,iv) * Ahi(2,i,iv)
+        mat(1,4,2,i,iv) = mat(1,4,2,i,iv) - (c1+c5) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(1,4,3,i,iv) = mat(1,4,3,i,iv) - (c1-c5) * dtl(i,iv) * Ahi(2,i,iv)
           
-        mat(2,2,4,i,iv) = mat(2,2,4,i,iv) - (c2+c4) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(2,3,4,i,iv) = mat(2,3,4,i,iv) - (c2+c4) * dtl(i,iv) * Ahi(iv,i,2)
-        mat(2,4,2,i,iv) = mat(2,4,2,i,iv) - (c2+c4) * dtl(i,iv) * Ahi(iv,i,1)
-        mat(2,4,3,i,iv) = mat(2,4,3,i,iv) - (c2-c4) * dtl(i,iv) * Ahi(iv,i,2)
+        mat(2,2,4,i,iv) = mat(2,2,4,i,iv) - (c2+c4) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(2,3,4,i,iv) = mat(2,3,4,i,iv) - (c2+c4) * dtl(i,iv) * Ahi(2,i,iv)
+        mat(2,4,2,i,iv) = mat(2,4,2,i,iv) - (c2+c4) * dtl(i,iv) * Ahi(1,i,iv)
+        mat(2,4,3,i,iv) = mat(2,4,3,i,iv) - (c2-c4) * dtl(i,iv) * Ahi(2,i,iv)
 
-        mat(3,2,4,i,iv) = mat(3,2,4,i,iv) - c3 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(3,3,4,i,iv) = mat(3,3,4,i,iv) - c3 * dtl(i,iv) * Ahi(iv,i,2)
-        mat(3,4,2,i,iv) = mat(3,4,2,i,iv) - c3 * dtl(i,iv) * Ahi(iv,i,1)
-        mat(3,4,3,i,iv) = mat(3,4,3,i,iv) - c3 * dtl(i,iv) * Ahi(iv,i,2)
+        mat(3,2,4,i,iv) = mat(3,2,4,i,iv) - c3 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(3,3,4,i,iv) = mat(3,3,4,i,iv) - c3 * dtl(i,iv) * Ahi(2,i,iv)
+        mat(3,4,2,i,iv) = mat(3,4,2,i,iv) - c3 * dtl(i,iv) * Ahi(1,i,iv)
+        mat(3,4,3,i,iv) = mat(3,4,3,i,iv) - c3 * dtl(i,iv) * Ahi(2,i,iv)
 
 !.... \hat{V}_{\xi\xi} term
 
@@ -605,19 +605,19 @@
 
         if (ispg .eq. 1) then
         
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(iv,i)
+            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
+            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
 
         else if (ispg .ge. 2) then
         
-            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
-            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(iv,i) + spg2l(iv,i))
+            mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,3,3,i,iv) = mat(3,3,3,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
+            mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
         
         end if
 

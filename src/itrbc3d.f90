@@ -122,8 +122,8 @@
 
         else    ! inviscid:  zero the wall-normal velocity
 
-          ub(is:ie) = bnb(is:ie,2) * vl(2,is:ie,1) - bnb(is:ie,1) * vl(3,is:ie,1)
-!         vb(is:ie) = bnb(is:ie,1) * vl(2,is:ie,1) + bnb(is:ie,2) * vl(3,is:ie,1)
+          ub(is:ie) = bnb(is:ie,2)*vl(2,is:ie,1) - bnb(is:ie,1)*vl(3,is:ie,1)
+!         vb(is:ie) = bnb(is:ie,1)*vl(2,is:ie,1) + bnb(is:ie,2)*vl(3,is:ie,1)
           vb(is:ie) = zero
           
           vl(2,is:ie,1) =  bnb(is:ie,2) * ub(is:ie) + bnb(is:ie,1) * vb(is:ie)
@@ -169,15 +169,17 @@
           do i = 1, nx
             kk = omega / (cm(i)+um(i))
             a  = omega**2 * d / (cm(i)+um(i))**3
-            c3(i) = exp( -a * (x(ny,i) - x0) ) * exp( im * kk * x(ny,i) )
-!           c3(i) = wamp(i) * exp( im * kk * x(ny,i) )
+            ! the first term is a viscous damping correction
+            !c3(i) = exp(-a * (x(i,ny) - x0)) * exp(im * kk * x(i,ny))
+            c3(i) = exp(im * kk * x(i,ny))
+            !c3(i) = wamp(i) * exp( im * kk * x(i,ny) )
           end do
 
           vl(1,:,ny) = pt5 * c3 / cm**2
           vl(2,:,ny) = c3 * pt5 / ( rhom * cm )
           vl(3,:,ny) = zero
           vl(4,:,ny) = zero
-          vl(5,:,ny) = (gamma*Ma**2 * c3 * pt5 - tm * pt5 * c3 / cm**2) / rhom
+          vl(5,:,ny) = (gamma*Ma**2*c3*pt5 - tm*pt5*c3/cm**2)/rhom
 
           deallocate( rhom, tm, cm, um, c3 )
 

@@ -15,8 +15,6 @@
         complex :: mat(5,ndof,ndof,nx,ny)
         real    :: Bh(ndof,ndof,nx,ny), Dh(ndof,ndof,nx,ny)
         real    :: Dhi(ndof,ndof,nx,ny), Bhi(6,nx,ny)
-       !real    :: Dhi(ndof,ndof,nx,ny), Bhi(ny,nx,6)
-       !real    :: spgl(ny,nx), spg2l(ny,nx), Vh(6,nx,ny)
         real    :: spgl(nx,ny), spg2l(nx,ny), Vh(6,nx,ny)
         real    :: dtl(nx,ny)
         logical :: calcd
@@ -149,25 +147,7 @@
 !.... sponge term
 
         if (.not. calcd) then
-#if 0
-        if (ispg .eq. 1) then
-        
-            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
 
-        else if (ispg .ge. 2) then
-        
-            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-        
-        end if
-#else
         if (ispg .eq. 1) then
     
             mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
@@ -185,7 +165,7 @@
             mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
     
         end if
-#endif
+
         end if
 !=======================================================================================================!
 !.... use higher-order tangent on first node off the body
@@ -322,25 +302,6 @@
 
         if (.not. calcd) then
         
-#if 0
-        if (ispg .eq. 1) then
-        
-            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-                
-        else if (ispg .ge. 2) then
-        
-            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-                
-        end if
-#else
         if (ispg .eq. 1) then
 
             mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
@@ -358,7 +319,7 @@
             mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
 
         end if
-#endif
+
         end if
 !=======================================================================================================!
 !.... use higher-order tangent on first node off the far-field boundary
@@ -494,25 +455,7 @@
 !.... sponge term
 
         if (.not. calcd) then
-#if 0
-        if (ispg .eq. 1) then
 
-            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-
-        else if (ispg .ge. 2) then
-
-            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-
-        end if
-#else
         if (ispg .eq. 1) then
 
             mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
@@ -530,7 +473,7 @@
             mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
 
         end if
-#endif
+
         end if
 !=======================================================================================================!
 !.... use higher-order tangent on the far-field boundary
@@ -642,25 +585,7 @@
 !.... sponge term
 
         if (.not. calcd) then
-#if 0
-        if (ispg .eq. 1) then
-        
-            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * spgl(j,iv)
-      
-        else if (ispg .ge. 2) then
-        
-            mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,2,2,iv,j) = mat(3,2,2,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,3,3,iv,j) = mat(3,3,3,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,4,4,iv,j) = mat(3,4,4,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-            mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(j,iv) + spg2l(j,iv))
-                
-        end if
-#else
+
         if (ispg .eq. 1) then
     
             mat(3,1,1,iv,j) = mat(3,1,1,iv,j) + alfa * dtl(iv,j) * spgl(iv,j)
@@ -678,7 +603,7 @@
             mat(3,5,5,iv,j) = mat(3,5,5,iv,j) + alfa * dtl(iv,j) * (spgl(iv,j) + spg2l(iv,j))
     
         end if
-#endif
+
         end if
 
         end do
