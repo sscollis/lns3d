@@ -31,6 +31,8 @@
           !real    :: alpha, beta, omega, eps_e, x0
           real    :: theta, beta, omega, eps_e, x0
           integer :: ires, linear, impl, loctime, iLHS
+          logical :: updateLHS = .false.
+          logical :: useCalcd = .false.
 
           logical :: tflag = .false.    ! time traces
           logical :: fflag = .false.    ! temporal statistics

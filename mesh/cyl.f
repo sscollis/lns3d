@@ -22,7 +22,7 @@ c       implicit double precision (a-h,o-z)
      &             onept5=1.5d0,  two=2.0d0,  twopt5=2.5d0, 
      &             three=3.0d0)
 
-        parameter (mx=1024,my=255)
+        parameter (mx=1024,my=1024)
         
         dimension xb(mx), yb(mx)
         dimension bn1(mx), bn2(mx)

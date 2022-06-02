@@ -245,8 +245,9 @@
               call cpenta2bc( nx, ny, ndof, matx, r, 1 )
             end if
 #else
-            if ( (iter.eq.1 .and. istep.eq.1) .or. &
+            if ( updateLHS .or. (iter.eq.1 .and. istep.eq.1) .or. &
                  (iter.eq.1 .and. lstep.eq.1 .and. impl.eq.2) ) then
+                 !(impl.eq.2) ) then
 
               call lhs1f3D( matx, Ah, Dh, Dhi, Vh11, ABhi, dtl, v )
 
@@ -306,8 +307,9 @@
 
 !.... form the LHS for the eta direction
 
-            if ((iter.eq.1 .and. istep.eq.1) .or. &
+            if ( updateLHS .or. (iter.eq.1 .and. istep.eq.1) .or. &
                 (iter.eq.1 .and. lstep.eq.1 .and. impl.eq.2)) then
+                !(impl.eq.2)) then
 
               call lhs2f3D( maty, Bh, Dh, Dhi, Vh22, ABhi, dtl, v )
 

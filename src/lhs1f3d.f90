@@ -24,12 +24,17 @@
         integer :: i, j, idof, jdof
         logical :: calcd
 !=============================================================================!
-!       if ( mod(real(istep-1+iter),two) .eq. zero ) then
+        if ( useCalcd ) then
+          if ( mod(real(istep-1+iter),two) .eq. zero ) then
+            calcd = .true.
+          else
+           calcd = .false.
+          end if
+          write(88,*) 'lhs1f3D: ',istep, iter, calcd
+          !write(*,*) 'lhs1f3D: ',istep, iter, calcd
+        else
           calcd = .true.
-!       else
-!         calcd = .false.
-!       end if
-!       write(88,*) 'lhs1f3D: ',istep, iter, calcd
+        endif
         
 !.... fourth-order stencil
 

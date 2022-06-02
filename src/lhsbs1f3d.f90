@@ -36,8 +36,6 @@
 
         if (side .eq. 1) then
 
-          !write(*,*) js, je
-
         !$omp parallel do private (i,idof,jdof,a1,a2,a3,a4,a5,c1,c2,c3,c4,c5,isign)
         do iv = js, je
 !=======================================================================================================!
@@ -328,7 +326,7 @@
 
         end if
 
-        end do
+        end do    ! do iv
 
         else if (side .eq. 2) then
 
@@ -623,7 +621,7 @@
 
         end if
 
-        end do
+        end do         ! do iv
 
         end if         ! side  
 

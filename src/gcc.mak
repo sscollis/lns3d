@@ -12,7 +12,9 @@ DEBUG    = -O2 -fopenmp -g
 #
 # Activates unstead inflow BC's and sponge for linearied 3d runs
 #
-DEFINES  ="-DUSE_TRANSIENT_EIGENFUNCTION"
+DEFINES = 
+DEFINES += -DUSE_TRANSIENT_EIGENFUNCTION
+DEFINES += $(ADDONS)
 F77FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -ffixed-line-length-120 \
 -std=legacy $(DEFINES) -c $(DEBUG)
 F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEFINES) -c $(DEBUG)

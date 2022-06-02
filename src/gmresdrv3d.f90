@@ -184,7 +184,7 @@
 
             if ( impl.eq.3 ) then
               call lrhs3D( pt5*(v+vold), r, vm, x, y)
-              call rbe( r, v, vold, dtl )
+              call rbe3D( r, v, vold, dtl )
               alfa = pt5
             end if
             
