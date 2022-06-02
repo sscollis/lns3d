@@ -55,9 +55,10 @@
         
         else            ! inviscid:  rotate to body normal coordinates
         
-            call warning('lhsbc1f3d$','Inviscid BCs need to have is:ie$')
+            !call warning('lhsbc1f3d$','Inviscid BCs need to have is:ie$')
 
             i = 1
+            if (i.ge.is.and.i.le.ie) then
 
             matl(1,1) = mat(3,1,2,i,1) * bnb(i,2) - mat(3,1,3,i,1) * bnb(i,1)
             matl(1,2) = mat(3,1,2,i,1) * bnb(i,1) + mat(3,1,3,i,1) * bnb(i,2)
@@ -120,9 +121,10 @@
             matl(5,1) = mat(2,5,2,i,1) * bnb(i+4,2) - mat(2,5,3,i,1) * bnb(i+4,1)
             matl(5,2) = mat(2,5,2,i,1) * bnb(i+4,1) + mat(2,5,3,i,1) * bnb(i+4,2)
             mat(2,:,2:3,i,1) = matl
+            endif
 
             i = 2
-
+            if (i.ge.is.and.i.le.ie) then
             matl(1,1) = mat(2,1,2,i,1) * bnb(i-1,2) - mat(2,1,3,i,1) * bnb(i-1,1)
             matl(1,2) = mat(2,1,2,i,1) * bnb(i-1,1) + mat(2,1,3,i,1) * bnb(i-1,2)
             matl(2,1) = mat(2,2,2,i,1) * bnb(i-1,2) - mat(2,2,3,i,1) * bnb(i-1,1)
@@ -182,8 +184,10 @@
             matl(5,1) = mat(1,5,2,i,1) * bnb(i+3,2) - mat(1,5,3,i,1) * bnb(i+3,1)
             matl(5,2) = mat(1,5,2,i,1) * bnb(i+3,1) + mat(1,5,3,i,1) * bnb(i+3,2)
             mat(1,:,2:3,i,1) = matl
+            endif
 
-          do i = 3, nx-2
+            !do i = 3, nx-2
+            do i = max(3,is), min(nx-2,ie)
             matl(1,1) = mat(1,1,2,i,1) * bnb(i-2,2) - mat(1,1,3,i,1) * bnb(i-2,1)
             matl(1,2) = mat(1,1,2,i,1) * bnb(i-2,1) + mat(1,1,3,i,1) * bnb(i-2,2)
             matl(2,1) = mat(1,2,2,i,1) * bnb(i-2,2) - mat(1,2,3,i,1) * bnb(i-2,1)
@@ -247,6 +251,7 @@
             end do
 
             i = nx - 1
+            if (i.ge.is.and.i.le.ie) then
 
             matl(1,1) = mat(5,1,2,i,1) * bnb(i-3,2) - mat(5,1,3,i,1) * bnb(i-3,1)
             matl(1,2) = mat(5,1,2,i,1) * bnb(i-3,1) + mat(5,1,3,i,1) * bnb(i-3,2)
@@ -307,9 +312,10 @@
             matl(5,1) = mat(4,5,2,i,1) * bnb(i+1,2) - mat(4,5,3,i,1) * bnb(i+1,1)
             matl(5,2) = mat(4,5,2,i,1) * bnb(i+1,1) + mat(4,5,3,i,1) * bnb(i+1,2)
             mat(4,:,2:3,i,1) = matl
+            endif
 
             i = nx
-
+            if(i.ge.is.and.i.le.ie) then
             matl(1,1) = mat(4,1,2,i,1) * bnb(i-4,2) - mat(4,1,3,i,1) * bnb(i-4,1)
             matl(1,2) = mat(4,1,2,i,1) * bnb(i-4,1) + mat(4,1,3,i,1) * bnb(i-4,2)
             matl(2,1) = mat(4,2,2,i,1) * bnb(i-4,2) - mat(4,2,3,i,1) * bnb(i-4,1)
@@ -369,10 +375,12 @@
             matl(5,1) = mat(3,5,2,i,1) * bnb(i,2) - mat(3,5,3,i,1) * bnb(i,1)
             matl(5,2) = mat(3,5,2,i,1) * bnb(i,1) + mat(3,5,3,i,1) * bnb(i,2)
             mat(3,:,2:3,i,1) = matl
-            
+            endif 
+ 
 !.... now rotate the equations to the normal direction
 
-            do i = 1, nx
+            !do i = 1, nx
+            do i = is, ie 
               mat(:,2,:,i,1) = bnb(i,2) * mat(:,2,:,i,1) - &
                                bnb(i,1) * mat(:,3,:,i,1)
               mat(:,3,:,i,1) = bnb(i,1) * mat(:,2,:,i,1) + &
@@ -381,8 +389,8 @@
 
 !.... constrain the normal velocity to be zero
 
-            mat(:,3,:,:,1) = zero
-            mat(3,3,3,:,1) = one
+            mat(:,3,:,is:ie,1) = zero
+            mat(3,3,3,is:ie,1) = one
 
         end if          ! Navier
         

@@ -74,9 +74,10 @@
 
         else            ! inviscid:  rotate to body normal coordinates
         
-          call warning('lhsbc2f3d$','Inviscid BCs need to have is:ie$')
+          !call warning('lhsbc2f3d$','Inviscid BCs need to have is:ie$')
 
-          do i = 1, nx
+          !do i = 1, nx
+          do i = is, ie 
             matl(1,1) = mat(3,1,2,i,1) * bnb(i,2) - mat(3,1,3,i,1) * bnb(i,1)
             matl(1,2) = mat(3,1,2,i,1) * bnb(i,1) + mat(3,1,3,i,1) * bnb(i,2)
             matl(2,1) = mat(3,2,2,i,1) * bnb(i,2) - mat(3,2,3,i,1) * bnb(i,1)
@@ -147,8 +148,6 @@
 !.... Left boundary
 
           if (left.eq.0 .or. left.eq.4 .or. left.eq.5) then
-
-            !write(*,*) "lhsbc2f3d:  left.eq.4"
 
             mat(:,:,:,1,:) = zero
             mat(3,1,1,1,:) = one

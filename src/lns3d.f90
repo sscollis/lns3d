@@ -38,6 +38,9 @@
 
         character(80) :: code='lns3D$'
 
+        logical :: echo = .false.
+        namelist /bc/ is, ie, js, je, echo
+
 !$      integer, external :: omp_get_num_threads, omp_get_thread_num
 !$      integer, external :: omp_get_num_procs
 !=============================================================================!
@@ -63,6 +66,14 @@
 
         is = 1; ie = nx
         js = 1; je = ny
+
+        open(10,file='bc.nml',status='old',err=100)
+        read(10,bc)
+        close(10)
+  100   continue
+        if (echo) then
+          write(*,bc)
+        end if 
 
 !.... generate the mean flow
 

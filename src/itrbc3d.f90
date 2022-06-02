@@ -364,7 +364,9 @@
 
           deallocate( rhom, tm, cm, um, c3 )
 
-        else if (right .eq. 9) then      ! extrapolation 
+        else if (right.eq.7) then        ! symmetry boundary
+
+        else if (right.eq.9) then      ! extrapolation 
 
           vl(:,nx,:) = exp( two * log(vl(:,nx-1,:)) - log(vl(:,nx-2,:)) )
 
