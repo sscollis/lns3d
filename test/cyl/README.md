@@ -10,8 +10,8 @@ This is from Collis PhD Thesis, Ch. 4.
    of the symetry BC with the wall BC at $i=1$,$j=1$.
 3. Ultimately the issue is one of resolution and the use of a centered
    difference scheme.  I have upped the resolution to $n_x=512$, $n_y=256$ and
-   with the 2nd order backward scheme with 3 iterations, this appears to be
-   stable.
+   with the backward Euler scheme with 3 iterations, this appears to be
+   stable.  This is alot of iterations...
 
 S. Scott Collis\
 sscollis@gmail.com
