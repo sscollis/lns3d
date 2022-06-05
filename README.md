@@ -58,4 +58,5 @@ run problems.
 ---
 
 S. Scott Collis\
+flow.physics.simulation@gmail.com\
 sscollis@gmail.com
