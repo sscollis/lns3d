@@ -818,6 +818,8 @@
           
 !.... Zero'th order extrapolation in the viscous layer
 
+          write(*,*) "nbl = ", nbl
+
           if (extrap.eq.0) then
             mat(:,:,:,nx,1:nbl) = zero
             

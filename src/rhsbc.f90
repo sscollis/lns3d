@@ -150,9 +150,9 @@
         else if (right.eq.1) then
 
           rl(1,nx,nbl+1:ny) = vl(1,nx,nbl+1:ny) - &
-                  (gamma * Ma * vml(1,nx,nbl+1:ny) * &
-                  sqrt(vml(5,nx,nbl+1:ny)) * vl(2,nx,nbl+1:ny) - &
-                  vml(1,nx,nbl+1:ny) * vl(5,nx,nbl+1:ny)) /vml(5,nx,nbl+1:ny)
+            (gamma * Ma * vml(1,nx,nbl+1:ny) * &
+            sqrt(vml(5,nx,nbl+1:ny)) * vl(2,nx,nbl+1:ny) - &
+            vml(1,nx,nbl+1:ny) * vl(5,nx,nbl+1:ny)) /vml(5,nx,nbl+1:ny)
 
 !         rl(:,nx,1:nbl) = vl(:,nx,1:nbl) - vl(:,nx-1,1:nbl)
 
@@ -338,8 +338,8 @@
 
           else if (extrap.eq.2) then
             rl(:,1,1:nbl) = vl(:,1,1:nbl) - &
-                            ( three * vl(:,2,1:nbl) - three * vl(:,3,1:nbl) + &
-                              vl(:,4,1:nbl) )
+                     ( three * vl(:,2,1:nbl) - three * vl(:,3,1:nbl) + &
+                       vl(:,4,1:nbl) )
           end if
           
         end if
@@ -374,7 +374,7 @@
 
         else if (extrap.eq.1) then
           rl(:,nx,1:nbl) = vl(:,nx,1:nbl) - &
-                          ( two * vl(:,nx-1,1:nbl) - vl(:,nx-2,1:nbl) )
+                         ( two * vl(:,nx-1,1:nbl) - vl(:,nx-2,1:nbl) )
         end if
         
         if (right.eq.8) then            ! hold initial condition

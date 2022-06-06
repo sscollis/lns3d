@@ -23,7 +23,7 @@
         integer :: ier, mem = 0
         integer, external :: igetver
         real*4, external :: second
-        character*80 :: name, code='ImpDrv$'
+        character(80) :: name, code='ImpDrv$'
 !=============================================================================!
 
 !.... allocate the storage area for the disturbance field
@@ -63,7 +63,9 @@
         if (impl.eq.2) then
           mem = mem + ny*nx*ndof
           allocate (v2old(ndof,nx,ny), STAT=ier)
-          if (ier .ne. 0) call error(code, 'Insufficient Memory for v2old$')
+          if (ier .ne. 0) then
+            call error(code, 'Insufficient Memory for v2old$')
+          endif
           !$omp parallel do private(i,idof)
           do j = 1, ny
             do i = 1, nx
@@ -78,7 +80,9 @@
 
         mem = mem + ny*nx*ndof*5
         allocate (mat(5,ndof,ndof,nx,ny), STAT=ier)
-        if (ier .ne. 0) call error(code,'Insufficient Memory for mat$')
+        if (ier .ne. 0) then
+          call error(code,'Insufficient Memory for mat$')
+        endif
         !$omp parallel do private(i,idof,jdof)
         do j = 1, ny
           do i = 1, nx

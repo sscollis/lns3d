@@ -45,7 +45,7 @@
 !=============================================================================!
         implicit none
         integer :: i, j, idof, ier
-        character*80 :: code='mLocal2$'
+        character(80) :: code='mLocal2$'
 !=============================================================================!
         allocate( g1v(ndof,nx,ny), g2v(ndof,nx,ny), g11v(ndof,nx,ny), &
                   g12v(ndof,nx,ny), g22v(ndof,nx,ny), STAT=ier)
