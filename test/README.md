@@ -17,4 +17,4 @@ TSwave         |  Tollmein-Schlichting wave (temporal and spatial) from Collis P
 CFwave         |  Crossflow vortex (temporal and spatial) from Collis PhD, Ch. 4
 
 S. Scott Collis\
-sscollis@gmail.com
+flow.physics.simulation@gmail.com

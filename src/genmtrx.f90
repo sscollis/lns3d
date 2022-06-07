@@ -61,6 +61,8 @@
         real :: d1, d2, d3, d4, d5, gtn, gts
 !=============================================================================!
 
+        !write(*,*) "In genmtrx"
+
 !.... Compute first derivatives of field in the mapped space
 
         call grad(ndof, nx, ny, vl, g1v, g2v, dxi, deta, optx, opty, &
@@ -267,7 +269,7 @@ loop_i: do i = 1, nx
         end if
         
         if (linear.eq.1 .and. wall.eq.10) &
-             call genbump( g1v, g2v, g11v, g12v, g22v )
+          call genbump( g1v, g2v, g11v, g12v, g22v )
 
 !==========================================================================!
 !                       N O N L I N E A R   R H S
@@ -304,6 +306,14 @@ loop_i: do i = 1, nx
 
 !.... try Poinsot & Lele boundary conditions
 
+#ifdef USE_LELE_POINSET
+!
+!.... SSC:  all private variables will need to be passed!!!
+!
+        !write(*,*) "call rhs_l"
+        call rhs_l( rl(:,i,j), vl(:,i,j), i, j )
+#else
+        !write(*,*) "local Lele & Poinset"
         if (wall == 4 .and. j == 1) then    
 
           fact1 = one / (gamma * Ma**2)
@@ -415,6 +425,7 @@ loop_i: do i = 1, nx
                     ( pt5 * (gu(3,2) + gu(2,3)) )**2 +          &
                     ( pt5 * (two * gu(3,3)) )**2 ) )
         end if
+#endif
 
 !.... standard sponge
 
@@ -491,11 +502,20 @@ loop_i: do i = 1, nx
         A(5,4) = -four * fact2 * mu * S(3,1)
         A(5,5) = u1 - fact1 * (g1con + dcon * gt(1))
 
-        if (linear.eq.0.and.(left.eq.1.or.right.eq.1.or.top.eq.1.or.wall.eq.4)) &
-          call error("genmtrx$","Nonlinear Lele Poinsot BC's not implemented$")
 
-        if (linear.eq.1.and.(left.eq.2.or.left.eq.6.or.right.eq.6.or.wall.eq.4)) &
+!.... Correct for Lele & Poinset BC's
+
+#ifdef USE_LELE_POINSET
+        if (linear.eq.0) call genA_n( A, vl(:,i,j), i, j )
+        if (linear.eq.1) call genA_l( A, vl(:,i,j), i, j )
+#else
+        if (linear.eq.0.and.(left.eq.1.or.right.eq.1.or.top.eq.1.or.&
+            wall.eq.4)) &
+          call error("genmtrx$","Nonlinear Lele Poinsot BC's not implemented$")
+        if (linear.eq.1.and.(left.eq.2.or.left.eq.6.or.right.eq.6.or.&
+            wall.eq.4)) &
           call error("genmtrx$","Linear Lele Poinsot BC's not implemented$")
+#endif
 
 !==========================================================================!
 !.... compute the B matrix
@@ -549,11 +569,19 @@ loop_i: do i = 1, nx
         B(5,4) = -four * fact2 * mu * S(3,2)
         B(5,5) =  u2 - fact1 * (g2con + dcon * gt(2))
 
-        if (linear.eq.0.and.(left.eq.1.or.right.eq.1.or.top.eq.1.or.wall.eq.4)) &
-          call error("genmtrx$","Nonlinear Lele Poinsot BC's not implemented$")
+!.... Correct for Lele & Poinset BC's
 
-        if (linear.eq.1.and.(left.eq.2.or.left.eq.6.or.right.eq.6.or.wall.eq.4)) &
+#ifdef USE_LELE_POINSET
+        if (linear.eq.0) call genB_n( A, vl(:,i,j), i, j )
+        if (linear.eq.1) call genB_l( A, vl(:,i,j), i, j )
+#else
+        if (linear.eq.0.and.(left.eq.1.or.right.eq.1.or.top.eq.1.or.&
+            wall.eq.4)) &
+          call error("genmtrx$","Nonlinear Lele Poinsot BC's not implemented$")
+        if (linear.eq.1.and.(left.eq.2.or.left.eq.6.or.right.eq.6.or.&
+            wall.eq.4)) &
           call error("genmtrx$","Linear Lele Poinsot BC's not implemented$")
+#endif
 
 !==========================================================================!
 !.... compute the Vij matrix in compact form
@@ -958,11 +986,13 @@ loop_i: do i = 1, nx
 
 !.... put in imaginary omega term for shift and invert
 
-!!$          Dh(1,1,i,j) = Dh(1,1,i,j) + omega_r
-!!$          Dh(2,2,i,j) = Dh(2,2,i,j) + omega_r
-!!$          Dh(3,3,i,j) = Dh(3,3,i,j) + omega_r
-!!$          Dh(4,4,i,j) = Dh(4,4,i,j) + omega_r
-!!$          Dh(5,5,i,j) = Dh(5,5,i,j) + omega_r
+#ifdef USE_SHIFT_AND_INVERT
+          Dh(1,1,i,j) = Dh(1,1,i,j) + omega_r
+          Dh(2,2,i,j) = Dh(2,2,i,j) + omega_r
+          Dh(3,3,i,j) = Dh(3,3,i,j) + omega_r
+          Dh(4,4,i,j) = Dh(4,4,i,j) + omega_r
+          Dh(5,5,i,j) = Dh(5,5,i,j) + omega_r
+#endif
 
         end if
 

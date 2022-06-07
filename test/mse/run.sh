@@ -18,5 +18,5 @@ mv output.q npot.q.0
 #
 cp lns.dat output.R.0 && \
 time $LNS3D_DIR/src/lns3d < lns3d.inp | tee lns3d.log && \
-./mpost output.R.*
+./mpost.sh output.R.*
 exit $? 
