@@ -346,7 +346,6 @@
         write (10,*) 'xs      = ',xs
         write (10,*) 'xt      = ',xt
         write (10,*) 'Extrap  = ',extrap
-        !write (10,*) 'Alpha   = ',alpha
         write (10,*) 'Theta   = ',theta
         write (10,*) 'Lz      = ',Lz
         write (10,*) 'kz      = ',kz

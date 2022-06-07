@@ -818,8 +818,6 @@
           
 !.... Zero'th order extrapolation in the viscous layer
 
-          write(*,*) "nbl = ", nbl
-
           if (extrap.eq.0) then
             mat(:,:,:,nx,1:nbl) = zero
             
@@ -858,6 +856,33 @@
             mat(1,3,3,nx,1:nbl) = -one
             mat(1,4,4,nx,1:nbl) = -one
             mat(1,5,5,nx,1:nbl) = -one
+          end if                ! extrapolation type
+
+!.... Second-order extrapolation in the viscous layer
+
+          if (extrap.eq.2) then
+
+            call error("itrbc1f$","extrap.eq.2 not supported$")
+
+            mat(:,:,:,nx,1:nbl) = zero
+
+            mat(3,1,1,nx,1:nbl) = -one
+            mat(3,2,2,nx,1:nbl) = -one
+            mat(3,3,3,nx,1:nbl) = -one
+            mat(3,4,4,nx,1:nbl) = -one
+            mat(3,5,5,nx,1:nbl) = -one
+
+            mat(2,1,1,nx,1:nbl) = three 
+            mat(2,2,2,nx,1:nbl) = three 
+            mat(2,3,3,nx,1:nbl) = three 
+            mat(2,4,4,nx,1:nbl) = three 
+            mat(2,5,5,nx,1:nbl) = three 
+
+            mat(1,1,1,nx,1:nbl) = -three
+            mat(1,2,2,nx,1:nbl) = -three
+            mat(1,3,3,nx,1:nbl) = -three
+            mat(1,4,4,nx,1:nbl) = -three
+            mat(1,5,5,nx,1:nbl) = -three
           end if                ! extrapolation type
 
 !.... hold the IC
