@@ -4,7 +4,7 @@
 0.0, 0.0                        ! Pref, Tref
 1.0                             ! Pr number
 1 10.0                          ! Delt, CFL
-5000                            ! nstep
+10000                           ! nstep
 -1 -1                           ! optx, opty
 .false. .false.                 ! xper, yper
 1, 100                          ! itout, ntout
@@ -30,5 +30,6 @@
 !    b) extrap = 0  zeroth order extrapolation from j=1:nbl
 !    c) extrap = 1  first-order extrapolation from j=1:nbl 
 !    d) extrap = 2  second-order extrapolation from j=1:nbl (only 1st order LHS)
-! 3) Using Reimann on outflow with 1st-order extrapolation in BL seems to work well
-! 4) Switch to one iteration 
+! 3) Reimann on outflow with 1st-order extrapolation in BL seems to work well
+! 4) Switch to one iteration (works fine)
+! 5) Turn off smoother (esp_e = 0.0) --> blows up!
