@@ -808,7 +808,7 @@
             if (vl(2,nx-1,jbl) .gt. 0.99 ) exit
             !if ((vl(5,nx-1,jbl)-vl(5,nx-1,1))/(one-vl(5,nx-1,1)).gt.0.99) exit
           end do
-          if (iter.eq.1.and.output_nbl) write(90,*) istep, jbl, nbl 
+          if (iter.eq.1.and.output_nbl) write(90,*) istep, lstep, jbl, nbl 
           nbl = jbl
         end if
         if (nbl.gt.ny) call error("itrbc$","nbl > ny$")
