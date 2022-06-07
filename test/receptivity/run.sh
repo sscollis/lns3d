@@ -19,4 +19,8 @@ mv output.q npot.q.0
 cp lns.dat output.R.0 && \
 time $LNS3D_DIR/src/lns3d < lns3d.inp | tee lns3d.log && \
 ./mpost.sh output.R.*
+#
+# now take LNS3d output and make mean flow
+#
+cp output.R.150 mean.dat
 exit $? 
