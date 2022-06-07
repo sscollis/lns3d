@@ -1,0 +1,5 @@
+&extras
+echo = .true.
+update_nbl = .false.
+nbl = 32 
+/

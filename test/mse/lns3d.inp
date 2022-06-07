@@ -8,19 +8,27 @@
 -1 -1                           ! optx, opty
 .false. .false.                 ! xper, yper
 1, 100                          ! itout, ntout
-1                               ! ires (0 = off)
+0                               ! ires (0 = off)
 0                               ! ispg (0 = off) 
 0                               ! linear
-1, 1, 2, 0                      ! impl, iLHS, niter, loctime
+1, 1, 1, 0                      ! impl, iLHS, niter, loctime
 0, 0, 2, 0, 1                   ! BC: top, wall, left, right, wallt
 0.01, 0                         ! eps_e (0 = off), ibuff
 0.0, 0.0                        ! omega, X0
 0                               ! idamp (0 = off)
 10.0, 4, 0.80, 1.0              ! As, Ns, xs, xt (Outflow sponge)
 2.0, 4, 0.80, 1.0               ! As, Ns, xs, xt (Inflow sponge)
--1                              ! extrap (-1 = off)
+1                               ! extrap (-1 = off)
 0.0                             ! theta (sweep angle)
 .false. .false. .false.         ! tflag, fflag, sflag
 0                               ! Lz (0 = 2d)
 
-! should use right = 1 BC
+! Notes:
+! 1) should use right = 1 BC Lele & Poinset but currently not implemented
+! 2) need to check idamp and extrap
+!    a) idamp doesn't appear to be used but I updated damper.f90
+!    b) extrap = 0  zeroth order extrapolation from j=1:nbl
+!    c) extrap = 1  first-order extrapolation from j=1:nbl 
+!    d) extrap = 2  second-order extrapolation from j=1:nbl (only 1st order LHS)
+! 3) Using Reimann on outflow with 1st-order extrapolation in BL seems to work well
+! 4) Switch to one iteration 
