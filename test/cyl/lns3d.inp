@@ -17,7 +17,7 @@
 2.5132741228718345, 0.0         ! omega, X0
 0                               ! idamp (0 = off)
 0.0, 3, 0.8, 1.0                ! As, Ns, xs, xt (Outflow sponge)
-10.0, 3, 8.5, 13.5              ! As, Ns, xs, xt (Inflow sponge)
+10.0, 3, 0.6296, 1.0            ! As, Ns, xs, xt (Inflow sponge)
 -1                              ! extrap (-1 = off)
 0.0                             ! theta (sweep angle [deg.])
 .false. .false. .false.         ! tflag, fflag, sflag
