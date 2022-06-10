@@ -20,7 +20,7 @@
 
         real :: ub(nx), vb(nx)
 
-        integer :: i, j, ij
+        integer :: i, j, ij, jbl
 
 !.... forcing parameters
 
@@ -300,7 +300,7 @@
 !.... set the boundary-layer edge
 
 !         nbl = 40              ! set for the Stokes layer for omega=0.8
-          nbl = 1               ! set for the viscous layer on small grid
+!         nbl = 1               ! set for the viscous layer on small grid
 
           vl(1,1,nbl+1:ny) = (gamma * Ma**2 * rhom(nbl+1:ny) * &
                               cm(nbl+1:ny) * u1(nbl+1:ny) - &
@@ -799,18 +799,19 @@
           vl(3,nx,:) = zero
         end if
         
-        if (.false.) then
-
 !.... find the boundary-layer edge (using delta_99 right now)
 !.... It is wise to keep nbl fixed, since every change sets up a transient.
-
-!       do nbl = 1, ny
-!         if (vl(2,nx-1,nbl) .gt. 0.99 ) exit
-!         if ((vl(5,nx-1,nbl)-vl(5,nx-1,1))/(one-vl(5,nx-1,1)) .gt. 0.99 ) exit
-!       end do
 !       nbl = 70                ! for ny = 128
-        nbl = 35                ! for ny = 63
-!       if (iter.eq.1) write(90,*) istep, nbl 
+!       nbl = 35                ! for ny = 63
+        if (update_nbl) then
+          do jbl = 1, ny
+            if (vl(2,nx-1,jbl) .gt. 0.99 ) exit
+            !if ((vl(5,nx-1,jbl)-vl(5,nx-1,1))/(one-vl(5,nx-1,1)).gt.0.99) exit
+          end do
+          if (iter.eq.1.and.output_nbl) write(90,*) istep, lstep, jbl, nbl 
+          nbl = jbl
+        end if
+        if (nbl.gt.ny) call error("itrbc$","nbl > ny$")
 
 !.... zeroth order extrapolation in the viscous layers
 
@@ -818,17 +819,21 @@
           do j = 1, nbl
             vl(:,nx,j) = vl(:,nx-1,j)
           end do
-        end if
         
 !.... first-order extrapolation in the viscous layers
 
-        if (extrap.eq.1) then
+        else if (extrap.eq.1) then
           do j = 1, nbl
             vl(:,nx,j) = two * vl(:,nx-1,j) - vl(:,nx-2,j)
           end do
-        end if
 
-        end if
+!.... second-order extrapolation in the viscous layers
+
+        else if (extrap.eq.2) then
+          do j = 1, nbl
+            vl(:,nx,j) = three*vl(:,nx-1,j) - three*vl(:,nx-2,j) + vl(:,nx-3,j)
+          end do
+        end if                  ! extrapolation type
 
         end if                  ! xper
 

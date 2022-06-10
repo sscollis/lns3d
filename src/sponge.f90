@@ -122,6 +122,8 @@
 !.... sponge for the cylinder scattering problem (Mahesh sponge)
 
           if (ispg .eq. 3) then
+#if 0
+            !$omp parallel do private(i,j)
             do i = 1, nx
               do j = 1, ny
                 rr = sqrt( x(i,j)**2 + y(i,j)**2 )
@@ -132,7 +134,18 @@
                 end if
               end do
             end do
-
+#else
+            !$omp parallel do private(i,j)
+            do j = 1, ny
+              do i = 1, nx
+                if ( eta(j) .ge. xs2 .and. eta(j) .lt. xt2 ) then
+                  spg2(i,j) = As2 * ((eta(j)-xs2)/(xt2-xs2))**Ns2
+                else
+                  spg2(i,j) = zero
+                end if
+              end do
+            end do
+#endif
           end if
 
         end if

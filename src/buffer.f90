@@ -25,7 +25,7 @@
         real    :: xis, xit, etas, etat
 
         integer :: ier
-        character*80 :: code='init_buffer$'
+        character(80) :: code='init_buffer$'
 !=============================================================================!
         if (eps_e .eq. zero) return
 

@@ -68,7 +68,8 @@
 
 !.... problem dimensions
           
-          integer :: ny = 1, nx = 1, nz = 1, nsd = 3, ndof = 5, nbl
+          integer :: ny=1, nx=1, nz=1, nsd=3, ndof=5, nbl=0
+          logical :: update_nbl=.false., output_nbl=.true.
           real    :: xmin, xmax, ymin, ymax, zmin, zmax
           real    :: yi
 

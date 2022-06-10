@@ -366,15 +366,18 @@
         end if          ! Ma
 
 !.... Zero'th order extrapolation in the viscous layers
-
         if (extrap.eq.0) then
           rl(:,nx,1:nbl) = vl(:,nx,1:nbl) - vl(:,nx-1,1:nbl)
           
 !.... First-order extrapolation in the viscous layers
-
         else if (extrap.eq.1) then
           rl(:,nx,1:nbl) = vl(:,nx,1:nbl) - &
-                         ( two * vl(:,nx-1,1:nbl) - vl(:,nx-2,1:nbl) )
+            ( two * vl(:,nx-1,1:nbl) - vl(:,nx-2,1:nbl) )
+
+!.... Second-order extrapolation in the viscous layers
+        else if (extrap.eq.2) then
+          rl(:,nx,1:nbl) = vl(:,nx,1:nbl) - &
+            ( three*vl(:,nx-1,1:nbl) - three*vl(:,nx-2,1:nbl) + vl(:,nx-3,1:nbl) )
         end if
         
         if (right.eq.8) then            ! hold initial condition

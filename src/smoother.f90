@@ -7,7 +7,7 @@
 !             Page:  450, 495
 !
 !       Note this routine can also do sixth-order and second-order smoothers
-!       but that are currently disabled.
+!       but they are currently disabled.
 !
 !       Written: 6-9-95
 !
@@ -397,4 +397,3 @@
                                 
         return
         end
-

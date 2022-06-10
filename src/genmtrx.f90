@@ -502,11 +502,19 @@ loop_i: do i = 1, nx
         A(5,4) = -four * fact2 * mu * S(3,1)
         A(5,5) = u1 - fact1 * (g1con + dcon * gt(1))
 
+
 !.... Correct for Lele & Poinset BC's
 
 #ifdef USE_LELE_POINSET
         if (linear.eq.0) call genA_n( A, vl(:,i,j), i, j )
         if (linear.eq.1) call genA_l( A, vl(:,i,j), i, j )
+#else
+        if (linear.eq.0.and.(left.eq.1.or.right.eq.1.or.top.eq.1.or.&
+            wall.eq.4)) &
+          call error("genmtrx$","Nonlinear Lele Poinsot BC's not implemented$")
+        if (linear.eq.1.and.(left.eq.2.or.left.eq.6.or.right.eq.6.or.&
+            wall.eq.4)) &
+          call error("genmtrx$","Linear Lele Poinsot BC's not implemented$")
 #endif
 
 !==========================================================================!
@@ -566,6 +574,13 @@ loop_i: do i = 1, nx
 #ifdef USE_LELE_POINSET
         if (linear.eq.0) call genB_n( A, vl(:,i,j), i, j )
         if (linear.eq.1) call genB_l( A, vl(:,i,j), i, j )
+#else
+        if (linear.eq.0.and.(left.eq.1.or.right.eq.1.or.top.eq.1.or.&
+            wall.eq.4)) &
+          call error("genmtrx$","Nonlinear Lele Poinsot BC's not implemented$")
+        if (linear.eq.1.and.(left.eq.2.or.left.eq.6.or.right.eq.6.or.&
+            wall.eq.4)) &
+          call error("genmtrx$","Linear Lele Poinsot BC's not implemented$")
 #endif
 
 !==========================================================================!
@@ -971,11 +986,13 @@ loop_i: do i = 1, nx
 
 !.... put in imaginary omega term for shift and invert
 
-!!$       Dh(1,1,i,j) = Dh(1,1,i,j) + omega_r
-!!$       Dh(2,2,i,j) = Dh(2,2,i,j) + omega_r
-!!$       Dh(3,3,i,j) = Dh(3,3,i,j) + omega_r
-!!$       Dh(4,4,i,j) = Dh(4,4,i,j) + omega_r
-!!$       Dh(5,5,i,j) = Dh(5,5,i,j) + omega_r
+#ifdef USE_SHIFT_AND_INVERT
+          Dh(1,1,i,j) = Dh(1,1,i,j) + omega_r
+          Dh(2,2,i,j) = Dh(2,2,i,j) + omega_r
+          Dh(3,3,i,j) = Dh(3,3,i,j) + omega_r
+          Dh(4,4,i,j) = Dh(4,4,i,j) + omega_r
+          Dh(5,5,i,j) = Dh(5,5,i,j) + omega_r
+#endif
 
         end if
 

@@ -39,7 +39,8 @@
         character(80) :: code='lns3D$'
 
         logical :: echo = .false.
-        namelist /extras/ is, ie, js, je, echo, updateLHS, useCalcd
+        namelist /extras/ is, ie, js, je, echo, updateLHS, useCalcd, &
+                          update_nbl, nbl, output_nbl
 
 !$      integer, external :: omp_get_num_threads, omp_get_thread_num
 !$      integer, external :: omp_get_num_procs
