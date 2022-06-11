@@ -50,4 +50,4 @@ then use Paraview to visualize the `q` files.
 <br>Contours of the imaginary component of vertical velocity.</p>
 
 S. Scott Collis\
-low.physics.simulation@gmail.com
+flow.physics.simulation@gmail.com
