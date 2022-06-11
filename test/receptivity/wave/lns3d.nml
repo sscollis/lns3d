@@ -1,0 +1,5 @@
+&extras
+echo = .true.
+compSpg = .false.
+compSpg2 = .true.
+/
