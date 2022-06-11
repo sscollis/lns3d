@@ -3,4 +3,7 @@ echo = .true.
 update_nbl = .true.
 output_nbl = .true.
 nbl = 32 
+useAmp = .true.
+compSpg = .false.
+compSpg2 = .true.
 /

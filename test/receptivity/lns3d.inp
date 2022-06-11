@@ -3,8 +3,8 @@
 2400                            ! Re number
 0.0, 0.0                        ! Pref, Tref
 1.0                             ! Pr number
-1 10.0                          ! Delt, CFL
-15000                           ! nstep
+1 100.0                         ! Delt, CFL
+1500                            ! nstep
 -1 -1                           ! optx, opty
 .false. .false.                 ! xper, yper
 1, 100                          ! itout, ntout
