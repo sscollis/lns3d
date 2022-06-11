@@ -1,6 +1,6 @@
 # Acoustic Receptivity
 
-This does acoustic receptivity for a modified super-ellipse following
+This is an acoustic receptivity setup for a modified super-ellipse following
 Collis PhD thesis, Ch. 4.
 
 There are two ways to compute the solution, time-domain and frequency-domain.
@@ -50,4 +50,4 @@ then use Paraview to visualize the `q` files.
 <br>Contours of the imaginary component of vertical velocity.</p>
 
 S. Scott Collis\
-sscollis@gmail.com
+low.physics.simulation@gmail.com
