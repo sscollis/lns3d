@@ -21,6 +21,7 @@ cp lns.dat output.R.0 && \
 #
 # Compute the mean solution
 #
-time $LNS3D_DIR/src/lns3d mean.nml < mean.inp | tee mean.log && \
-./mpost.sh output.R.*
+#time $LNS3D_DIR/src/lns3d mean.nml < mean.inp | tee mean.log && \
+#./mpost.sh output.R.*
+\cp -f mean.R.0 mean.dat
 exit $?
