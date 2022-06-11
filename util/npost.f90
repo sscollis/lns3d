@@ -74,7 +74,8 @@
 
         integer :: i, j, k, idof, itmp
 
-        character(80) file, temp, base, base1, base2, fname, fname1, fname2
+        character(80) file, temp, base, base1, base2, &
+                      fname, fname1, fname2
         integer :: iloc, iend, imin, imax, inc, iver
 #ifndef __GFORTRAN__    
         integer, external :: iargc
@@ -92,7 +93,8 @@
 
 !.... variables for thickness calculation
 
-        real :: rho, u1, u2, u3, t, delta, theta, us, un, ws, edge, errest
+        real :: rho, u1, u2, u3, t, delta, theta, us, un, ws, &
+                edge, errest
         real :: H0, Hinf, thetaz
         
         real, allocatable :: ynn(:), uss(:), unn(:), wss(:), uel(:)
@@ -678,7 +680,8 @@
 
         write(*,"(/,'Extract profiles at supplied locations . . .')")
         write(*,"('W A R N I N G:  only valid on a body-fitted mesh!')")
-        write(*,"('Enter the x-stations for profiles [min,max,inc] ==> ',$)")
+        write(*,&
+          "('Enter the x-stations for profiles [min,max,inc] ==> ',$)")
         read(*,*) imin, imax, inc
         base  = 'profile'
         base1 = 'first'
@@ -686,7 +689,8 @@
         kord = 5
         ns = ny
         open(39,file="pedge.dat")
-        allocate ( knot(ns+kord), bs(ns,ndof), ynn(ny), uss(ny), unn(ny) )
+        allocate ( knot(ns+kord), bs(ns,ndof), ynn(ny), uss(ny), &
+                   unn(ny) )
         open(11,file='loc.dat')
         write(11,"('# ',a)") "i, s(i), x(i,1)"
         write(39,"('# ',a)") "x(i,1), edge, rhoe, ue, ve, we, te"
@@ -697,7 +701,8 @@
           call makename(base2,i,fname2)
           iloc = index(fname,' ')
           write(*,110) s(i), x(i,1), fname(1:iloc)
- 110      format('Saving profile at s, x_b = ',2(1pe20.13,1x),'in file: ',a)
+ 110      format('Saving profile at s, x_b = ',2(1pe20.13,1x),&
+                 'in file: ',a)
           write(11,"(i4,1x,2(1pe13.6,1x))") i, s(i), x(i,1)
 
           bn1 = n1(i,1) / sqrt( n1(i,1)**2 + n2(i,1)**2 )
@@ -774,8 +779,8 @@
           open(12,file=fname1)
           open(13,file=fname2)
           do j = 1, ny
-            write(10,"(9(1pe17.9e3,1x))") ynn(j), v(1,i,j), uss(j), unn(j), &
-               v(4,i,j), v(5,i,j), p(i,j), &
+            write(10,"(9(1pe17.9e3,1x))") ynn(j), v(1,i,j), uss(j), &
+               unn(j), v(4,i,j), v(5,i,j), p(i,j), &
                (cos(alp) * uss(j) + sin(alp) * v(4,i,j)), &
                (-sin(alp) * uss(j) + cos(alp) * v(4,i,j))
             write(12,"(9(1pe17.9e3,1x))") ynn(j),      &
@@ -1176,13 +1181,18 @@
 
 !.... Write out file headers 
 
-        write(10,"('# ',a)") "s(i), delta, theta, H, wmax, ReL, L, Ma1, c1, Cp, delta/L, "// &
-                             "theta/L, wmloc, wiloc, uinf, winf, epsi, edge*wmax*Re, rk"
-        write(11,"('# ',a)") "s(i), edge, rhoe, ue, ve, we, te, pe, phie"
-        write(12,"('# ',a)") "s(i), delta, theta, wmax, U1, Te, phie, Ma1, edge*wmax*Re"
+        write(10,"('# ',a)") "s(i), delta, theta, H, wmax, ReL, L, "//&
+                             "Ma1, c1, Cp, delta/L, "// &
+                             "theta/L, wmloc, wiloc, uinf, winf, "//&
+                             "epsi, edge*wmax*Re, rk"
+        write(11,"('# ',a)") "s(i), edge, rhoe, ue, ve, we, te, pe,"//&
+                             " phie"
+        write(12,"('# ',a)") "s(i), delta, theta, wmax, U1, Te, "//&
+                             "phie, Ma1, edge*wmax*Re"
         write(13,"('# ',a)") "s(i), delta, alp"
 
-        do i = 1, nx
+        !do i = 1, nx
+        do i = 2, nx
           delta = zero
           theta = zero
 
@@ -1240,7 +1250,7 @@
 
   70      continue
 #ifdef NPOST_DEBUG
-          write(*,*) j, ynn(j-1), ynn(j+2), alpha
+          write(*,*) i, j, ynn(j-1), ynn(j+2), alpha
 #endif
           if (j.ne.ny) then
 #ifdef USE_NR
@@ -1266,7 +1276,7 @@
           alp    = atan2( we, ue )
           phie   = (alp - alpha) * 180.0 / pi
 #ifdef NPOST_DEBUG
-          write(*,"(9(1pe13.6,1x))")  s(i),edge,rhoe,ue,ve,we,te,pe,phie
+          !write(*,"(9(1pe13.6,1x))")  s(i),edge,rhoe,ue,ve,we,te,pe,phie
 #endif
           write(11,"(9(1pe13.6,1x))") s(i),edge,rhoe,ue,ve,we,te,pe,phie
 
@@ -1295,9 +1305,9 @@
 
 !.... Integrate to get the boundary layer integral thicknesses
 
-          call QDAG(  dfun, zero, edge, 1.0e-8, 1.0e-8, 2,  delta, errest)
-          call QDAG( thfun, zero, edge, 1.0e-8, 1.0e-8, 2,  theta, errest)
-!         call QDAG(thfunz, zero, edge, 1.0e-8, 1.0e-8, 2, thetaz, errest)
+          call QDAG(  dfun, zero, edge, 1.0e-8, 1.0e-8, 2,delta,errest)
+          call QDAG( thfun, zero, edge, 1.0e-8, 1.0e-8, 2,theta,errest)
+!         call QDAG(thfunz, zero, edge, 1.0e-8, 1.0e-8, 2,thetaz,errest)
 
 !.... Boundary layer statistics
 
@@ -1338,7 +1348,8 @@
                  (w2.gt.zero .and. w1.lt.zero) ) goto 80
           end do
  80       if (j.eq.ny) then
-            write(*,*) 'Could not find crossflow inflection point at i = ', i
+            write(*,*) 'Could not find crossflow inflection point at'//&
+                       ' i = ', i
             call exit(1)
           end if
 #ifdef USE_NR
@@ -1360,8 +1371,8 @@
 
           write(10,"(20(1pe13.6,1x))") s(i), delta, theta, H, wmax, &
                                        ReL, L, Ma1, c1, Cp, &
-                                       delta/L, theta/L, wmloc, wiloc, uinf, &
-                                       winf, epsi, edge*wmax*Re, rk
+                                       delta/L, theta/L, wmloc, wiloc, &
+                                       uinf,winf,epsi,edge*wmax*Re,rk
 
 !.... delta2.dat
 
@@ -1396,7 +1407,8 @@
 !....   Beta_H = 2 m / (m + 1)
 
         open(10,file='betah.dat')
-        write(10,"('# ',a)") "s(i), betah = Hartree pressure gradient parameter"
+        write(10,"('# ',a)") "s(i), betah = Hartree pressure "//&
+             "gradient parameter"
         do i = 1, nx
           if (i .eq. 1) then
             beta2 = s(2) * (uel(3)-uel(1)) / (s(3)-s(1)) / uel(2)
@@ -1405,7 +1417,7 @@
           else if (i .eq. nx) then
             betah = s(i) * (uel(i)-uel(i-1)) / (s(i)-s(i-1)) / uel(i)
           else
-            betah = s(i) * (uel(i+1)-uel(i-1)) / (s(i+1)-s(i-1)) / uel(i)
+            betah = s(i) * (uel(i+1)-uel(i-1)) /(s(i+1)-s(i-1))/uel(i)
           end if
           betah = two * betah / (betah + one)
           write(10,"(20(1pe13.6,1x))") s(i), betah
@@ -1429,8 +1441,8 @@
           q(2,:,:) = v(1,:,:) * v(2,:,:) * Ma
           q(3,:,:) = v(1,:,:) * v(3,:,:) * Ma
           q(4,:,:) = v(1,:,:) * v(4,:,:) * Ma
-          q(5,:,:) = v(1,:,:) * ( one / gamma1 / gamma * v(5,:,:) + pt5 * &
-                     Ma**2 * (v(2,:,:)**2+v(3,:,:)**2+v(4,:,:)**2) )  
+          q(5,:,:) = v(1,:,:) * ( one / gamma1 / gamma * v(5,:,:) &
+                   + pt5*Ma**2*(v(2,:,:)**2+v(3,:,:)**2+v(4,:,:)**2))  
 
           write(*,"('Enter nz, Lz ==> ',$)")
           read(*,*) nz, Lz

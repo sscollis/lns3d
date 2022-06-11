@@ -70,6 +70,7 @@ end module lpost3d
 
         integer :: itmp
         real :: tmp, arc, amp
+        complex :: p
         
         real :: b, beta, Lz, kz
 
@@ -95,7 +96,8 @@ end module lpost3d
 
         logical :: threed=.false., debug=.false., rotate=.false.
         logical :: sub=.false., growth=.false., lfilter=.false.
-        logical :: add=.false., ltime=.false., switch_ij
+        logical :: add=.false., ltime=.false., switch_ij=.false.
+        logical :: calcp=.false.
         integer, parameter :: mfile = 5
         integer :: body=0, emax=0
         integer :: narg, iarg, nfile=0, ifile(mfile)
@@ -142,6 +144,8 @@ end module lpost3d
               body = 2
             case ('-ij')
               switch_ij = .true.
+            case('-cp')
+              calcp = .true.
             case ('-h ')
               write(*,"('-----------------------------------------------')")
               write(*,"('Usage:  lpost3d [options] [file1]')")
@@ -159,6 +163,7 @@ end module lpost3d
               write(*,"('    -f:  filter the field')")
               write(*,"('    -p:  assume a parabolic cylinder')")
               write(*,"('    -c:  assume a circular cylinder')")
+              write(*,"('   -cp:  calculate pressure in 4th slot')")
               write(*,"('   -ij:  read metric and restart in ij format')")
               write(*,"('-----------------------------------------------')")
               call exit(0)
@@ -334,13 +339,26 @@ end module lpost3d
         q(:,:,1) = v(:,:,1)
         q(:,:,2) = v(:,:,2)
         q(:,:,3) = v(:,:,3)
-!!$     if (threed) then
+        if (threed) then
           q(:,:,4) = v(:,:,4)
-!!$     else                                                   ! pressure
-!!$       q(:,:,4) = ( v(:,:,1) * vm(:,:,5) + &
-!!$                   vm(:,:,1) *  v(:,:,5) ) / (gamma * Ma**2)
-!!$     end if
+        else if (calcp) then                        ! pressure
+          q(:,:,4) = ( v(:,:,1) * vm(:,:,5) + &
+                      vm(:,:,1) *  v(:,:,5) ) / (gamma * Ma**2)
+        else
+          q(:,:,4) = v(:,:,4)
+        end if
         q(:,:,5) = v(:,:,5)
+
+!.... amp.dat file
+
+        j = 1
+        open(unit=98,file='amp.dat')
+        do i = 1, nx
+          p = ( v(j,i,1) * vm(j,i,5) + &
+               vm(j,i,1) *  v(j,i,5) ) / (gamma * Ma**2)
+          write(98,*) x(j,i), abs(2.0*p)
+        end do
+        close(98)
 
 !.... rotate to the conformal coordinate system
 
@@ -414,7 +432,6 @@ end module lpost3d
         write(10) Ma, Pr, Re, time
         write(10) u
         close(10)
-
         deallocate( u )
 
 !.... write out the magnitude into a separate (real) LNS file 
@@ -480,11 +497,9 @@ end module lpost3d
         write(10) Ma, Pr, Re, time
         write(10) u
         close(10)
-        
         deallocate( u)
 
         allocate( xyz(nx,ny,nz,3) )
-
         do k = 1, nz
           do i = 1, nx
             do j = 1, ny
@@ -500,7 +515,6 @@ end module lpost3d
         write(10) nx, ny, nz
         write(10) xyz
         close(10)
-
         deallocate( xyz )
 
         end if

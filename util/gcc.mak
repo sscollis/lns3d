@@ -7,8 +7,8 @@
 #==============================================================================
 DEBUG  = -O2 -fopenmp
 FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -std=legacy \
-         -ffixed-line-length-120 $(DEBUG)
-F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEBUG)
+         -ffixed-line-length-120 $(DEFINES) $(DEBUG)
+F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEBUG) $(DEFINES)
 OFLAGS = $(DEBUG)
 LIB    = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 ARPACK = -L/usr/local/lib -larpack
