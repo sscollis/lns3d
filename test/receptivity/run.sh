@@ -18,6 +18,9 @@ mv output.q npot.q.0
 # Make the potential flow the initial condition for LNS3
 #
 cp lns.dat output.R.0 && \
-time $LNS3D_DIR/src/lns3d < lns3d.inp | tee lns3d.log && \
+#
+# Compute the mean solution
+#
+time $LNS3D_DIR/src/lns3d mean.nml < mean.inp | tee mean.log && \
 ./mpost.sh output.R.*
-exit $? 
+exit $?

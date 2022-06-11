@@ -1,9 +1,7 @@
 &extras
 echo = .true.
-update_nbl = .true.
-output_nbl = .true.
-nbl = 32 
 useAmp = .true.
+amp_file = "amp.top"
 compSpg = .false.
 compSpg2 = .true.
 /
