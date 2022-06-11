@@ -84,10 +84,10 @@
           do i = 1, nx
             if ( abs(bnb(i,2)) .ge. abs(bnb(i,1)) ) then
               rl(2,i,1) = bnb(i,2) * rl(2,i,1) - bnb(i,1) * rl(3,i,1)
-              rl(3,i,1) = -( bnb(i,1) * vl(2,i,1) + bnb(i,2) * vl(3,i,1) )
+              rl(3,i,1) = -(bnb(i,1) * vl(2,i,1) + bnb(i,2) * vl(3,i,1))
             else
               rl(3,i,1) = bnb(i,2) * rl(2,i,1) - bnb(i,1) * rl(3,i,1)
-              rl(2,i,1) = -( bnb(i,1) * vl(2,i,1) + bnb(i,2) * vl(3,i,1) )
+              rl(2,i,1) = -(bnb(i,1) * vl(2,i,1) + bnb(i,2) * vl(3,i,1))
             end if
           end do
 
@@ -167,6 +167,10 @@
             rl(4,:,ny) = (vl(4,:,ny) - u3)
             rl(6,:,ny) = (vl(5,:,ny) - t)
 
+!  r = vold - v - delt * r
+!  r = vold - v - delt * (vold/delt - two*v(1)/delt + rho/delt)
+!  r = v - rho
+
             deallocate( rhom ,tm, cm, um, rho, u1, &
                         u2, u3, t, p, c1, c2,      &
                         c3, c4, m1l, m2l, dl, ul   )
@@ -191,7 +195,8 @@
           rl(1,1,nbl+1:ny) = vl(1,1,nbl+1:ny) - &
                   (gamma * Ma * vml(1,1,nbl+1:ny) * &
                   sqrt(vml(5,1,nbl+1:ny)) * vl(2,1,nbl+1:ny) - &
-                  vml(1,1,nbl+1:ny) * vl(5,1,nbl+1:ny)) / vml(5,1,nbl+1:ny)
+                  vml(1,1,nbl+1:ny) * vl(5,1,nbl+1:ny)) / &
+                  vml(5,1,nbl+1:ny)
 
 !         rl(:,1,1:nbl) = vl(:,1,1:nbl) - vl(:,2,1:nbl)
 
@@ -300,8 +305,8 @@
 !.... isothermal wall
 
           if (wallt.eq.0) then
-            rl(ndof,:,1) = vl(ndof,:,1) - ( one + pt5 * gamma1 * Ma**2 * &
-                           (one + tan(theta)**2) * sqrt(Pr) )
+            rl(ndof,:,1) = vl(ndof,:,1) - ( one + pt5 * gamma1 * Ma**2 &
+                         * (one + tan(theta)**2) * sqrt(Pr) )
           end if
 
 !.... adiabatic boundary condition
@@ -343,9 +348,9 @@
         else    ! Ma
 
           if (top.eq.0) then
-            call ReimannRHS( nx, vl(:,:,ny), vl(:,:,ny-1), vl(:,:,ny-2), &
-                             bnt, x(:,ny), y(:,ny), rl(:,:,ny), &
-                             rhobt, ubt, vbt, wbt, tbt, pbt, cbt )
+            call ReimannRHS(nx, vl(:,:,ny), vl(:,:,ny-1), vl(:,:,ny-2),&
+                            bnt, x(:,ny), y(:,ny), rl(:,:,ny), &
+                            rhobt, ubt, vbt, wbt, tbt, pbt, cbt )
           end if
         
         end if                  ! Ma
@@ -439,9 +444,9 @@
 !.... First-order Riemann
 
           if (right.eq.0) then
-            call ReimannRHS( ny, vl(:,nx,:), vl(:,nx-1,:), vl(:,nx-2,:), &
-                             bnr, x(nx,:), y(nx,:), rl(:,nx,:), &
-                             rhobr, ubr, vbr, wbr, tbr, pbr, cbr )
+            call ReimannRHS(ny, vl(:,nx,:), vl(:,nx-1,:), vl(:,nx-2,:),&
+                            bnr, x(nx,:), y(nx,:), rl(:,nx,:), &
+                            rhobr, ubr, vbr, wbr, tbr, pbr, cbr )
           end if
 
 !.... Symmetry boundary
@@ -464,7 +469,8 @@
 !.... Second-order extrapolation in the viscous layers
         else if (extrap.eq.2) then
           rl(:,nx,1:nbl) = vl(:,nx,1:nbl) - &
-            ( three*vl(:,nx-1,1:nbl) - three*vl(:,nx-2,1:nbl) + vl(:,nx-3,1:nbl) )
+            ( three*vl(:,nx-1,1:nbl) - three*vl(:,nx-2,1:nbl) + &
+              vl(:,nx-3,1:nbl) )
         end if
         
         if (right.eq.8) then            ! hold initial condition
