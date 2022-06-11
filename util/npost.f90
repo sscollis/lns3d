@@ -57,8 +57,8 @@
 
 !.... metrics
 
-        real, allocatable :: m1(:,:),  m2(:,:),  n1(:,:),  n2(:,:),     &
-                             m11(:,:), m12(:,:), m22(:,:),              &
+        real, allocatable :: m1(:,:),  m2(:,:),  n1(:,:),  n2(:,:), &
+                             m11(:,:), m12(:,:), m22(:,:),          &
                              n11(:,:), n12(:,:), n22(:,:)
         !$sgi distribute m1(*,block), m2(*,block), 
         !$sgi distribute m11(*,block), m12(*,block), m22(*,block)
@@ -74,7 +74,7 @@
 
         integer :: i, j, k, idof, itmp
 
-        character(80) file, temp, base, base1, base2, &
+        character(80) filename, temp, base, base1, base2, &
                       fname, fname1, fname2
         integer :: iloc, iend, imin, imax, inc, iver
 #ifndef __GFORTRAN__    
@@ -143,7 +143,7 @@
           if (arg(1:1) .ne. '-') then
             nfile = nfile + 1
             if (nfile .gt. mfile) then
-              write(*,*) '>> Error in argument list, too many file names'
+              write(*,*) '>> Error in arguments, too many file names'
               call exit(1)
             end if
             ifile(nfile) = iarg
@@ -277,19 +277,23 @@
 
         if ( nfile .gt. 0 ) then
           call getarg(ifile(1),temp)
-          file = temp
+          filename = temp
         else
-          file = 'output.res'
-          write (*,"('Enter file name [',a,']? ',$)") file(1:index(file,' '))
+          filename = 'output.res'
+          write (*,"('Enter file name [',a,']? ',$)") &
+            filename(1:index(filename,' '))
           read (*,"(a80)") temp
-          if (temp(1:1) .ne. ' ') file = temp
+          if (temp(1:1) .ne. ' ') filename = temp
         end if
- 10     open(unit=10, file=file, form='unformatted', status='old', err=20)
+ 10     open(unit=10, file=filename, form='unformatted', &
+             status='old', err=20)
         goto 30
- 20     write (*,"('>> Error opening [',a,'] ',/)") file(1:index(file,' '))
-        write (*,"('Enter file name [',a,']? ',$)") file(1:index(file,' '))
+ 20     write (*,"('>> Error opening [',a,'] ',/)") &
+          filename(1:index(filename,' '))
+        write (*,"('Enter file name [',a,']? ',$)") &
+          filename(1:index(filename,' '))
         read (*,"(a80)") temp
-        if (temp(1:1) .ne. ' ') file = temp
+        if (temp(1:1) .ne. ' ') filename = temp
         goto 10
  30     continue
         
@@ -305,7 +309,8 @@
           read(10) (((v(idof,i,j), j=1,ny), i=1,nx), idof=1,ndof)
           close(10)
           if (write_ij) then
-            open(unit=10,file='restart.ij',form='unformatted',status='unknown')
+            open(unit=10,file='restart.ij',form='unformatted',&
+                 status='unknown')
             write(10) lstep, time, nx, ny, nz, ndof, Re, Ma, Pr, gamma, cv
             write(10) v
             close(10)
@@ -314,7 +319,8 @@
           read(10) v
           close(10)
         end if
-        write(*,"('Read flow field for ',a)") file(1:index(file,' '))
+        write(*,"('Read flow field for ',a)") &
+          filename(1:index(filename,' '))
         write(*,"('  Time = ',1pe10.3,'  step = ',i6)") time, lstep
 
 !.... Convert to Primitive if required
@@ -823,39 +829,41 @@
 
         if (plot3d) then
         
-        iloc = index(file,'.R.')
-        if (iloc.eq.0) iloc = index(file,'.r.')
-        iend = index(file,' ')-1
+        iloc = index(filename,'.R.')
+        if (iloc.eq.0) iloc = index(filename,'.r.')
+        iend = index(filename,' ')-1
         if (iloc .ne. 0) then
-          temp = file(1:iloc)//'q'//file(iloc+2:iend)
+          temp = filename(1:iloc)//'q'//filename(iloc+2:iend)
         else 
-          iloc = index(file,'.res')
+          iloc = index(filename,'.res')
           if (iloc .ne. 0) then
-            temp = file(1:iloc)//'dat'
+            temp = filename(1:iloc)//'dat'
           else
-            temp = file(1:iend)//'.q'
+            temp = filename(1:iend)//'.q'
           end if
         end if
 
         if ( nfile .eq. 0 ) then
-          file = temp
+          filename = temp
           write (*,"(/,'Enter PLOT3D file name [',a,']? ',$)")  &
-                  file(1:index(file,' '))
+            filename(1:index(filename,' '))
           read (*,"(a80)") temp
-          if (temp(1:1) .ne. ' ') file = temp
+          if (temp(1:1) .ne. ' ') filename = temp
         else if ( nfile .eq. 1 ) then
-          file = temp
+          filename = temp
         else if ( nfile .eq. 2 ) then
           call getarg(ifile(2),temp)
-          file = temp
+          filename = temp
         end if
- 40     open(unit=10, file=file, form='unformatted', status='unknown', err=50)
+ 40     open(unit=10, file=filename, form='unformatted', &
+             status='unknown', err=50)
         goto 60
- 50     write (*,"('>> Error opening [',a,'] ',/)") file(1:index(file,' '))
+ 50     write (*,"('>> Error opening [',a,'] ',/)") &
+          filename(1:index(filename,' '))
         write (*,"(/,'Enter PLOT3D file name [',a,']? ',$)") &
-              file(1:index(file,' '))
+          filename(1:index(filename,' '))
         read (*,"(a80)") temp
-        if (temp(1:1) .ne. ' ') file = temp
+        if (temp(1:1) .ne. ' ') filename = temp
         goto 40
  60     continue
               
@@ -921,38 +929,40 @@
         
 !.... write out a supplemental plot3d file
 
-        iloc = index(file,'.q.')
-        iend = index(file,' ')-1
+        iloc = index(filename,'.q.')
+        iend = index(filename,' ')-1
         if (iloc .ne. 0) then
-          temp = file(1:iloc)//'d'//file(iloc+2:iend)
+          temp = filename(1:iloc)//'d'//filename(iloc+2:iend)
         else
-          iloc = index(file,'.dat')
+          iloc = index(filename,'.dat')
           if (iloc .ne. 0) then
-            temp = file(1:iloc)//'d.dat'
+            temp = filename(1:iloc)//'d.dat'
           else
-            temp = file(1:iend)//'.d'
+            temp = filename(1:iend)//'.d'
           end if
         end if
 
         if ( nfile .eq. 0 ) then
-          file = temp
+          filename = temp
           write (*,"(/,'Enter PLOT3D file name [',a,']? ',$)")  &
-                  file(1:index(file,' '))
+                  filename(1:index(filename,' '))
           read (*,"(a80)") temp
-          if (temp(1:1) .ne. ' ') file = temp
+          if (temp(1:1) .ne. ' ') filename = temp
         else if ( nfile .eq. 1 .or. nfile .eq. 2) then
-          file = temp
+          filename = temp
         else if ( nfile .eq. 3 ) then
           call getarg(ifile(3),temp)
-          file = temp
+          filename = temp
         end if
- 400    open(unit=10, file=file, form='unformatted', status='unknown', err=500)
+ 400    open(unit=10, file=filename, form='unformatted', &
+             status='unknown', err=500)
         goto 600
- 500    write (*,"('>> Error opening [',a,'] ',/)") file(1:index(file,' '))
+ 500    write (*,"('>> Error opening [',a,'] ',/)") &
+          filename(1:index(filename,' '))
         write (*,"(/,'Enter PLOT3D file name [',a,']? ',$)") &
-              file(1:index(file,' '))
+          filename(1:index(filename,' '))
         read (*,"(a80)") temp
-        if (temp(1:1) .ne. ' ') file = temp
+        if (temp(1:1) .ne. ' ') filename = temp
         goto 400
  600    continue
               
@@ -1622,7 +1632,7 @@
         return
         end 
 !=============================================================================!
-    subroutine makename(base,iver,fname)
+      subroutine makename(base,iver,fname)
 !
 !.... put a version number on the filename
 !

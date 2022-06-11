@@ -40,8 +40,12 @@
 
         logical :: echo = .false.
         namelist /extras/ is, ie, js, je, echo, updateLHS, useCalcd, &
-                          update_nbl, nbl, output_nbl, useAmp, amp_file, &
-                          compSpg, compSpg2
+                          update_nbl, nbl, output_nbl, useAmp, &
+                          amp_file, compSpg, compSpg2
+        integer, parameter :: mfile=1
+        integer :: narg, iarg, nfile=0, jfile(mfile)
+        character(80) :: filename, temp, arg
+        logical :: nlist=.false.
 
 !$      integer, external :: omp_get_num_threads, omp_get_thread_num
 !$      integer, external :: omp_get_num_procs
@@ -69,13 +73,47 @@
         is = 1; ie = nx
         js = 1; je = ny
 
-        open(10,file='lns3d.nml',status='old',err=100)
-        read(10,extras)
-        close(10)
-  100   continue
-        if (echo) then
-          write(*,extras)
-        end if 
+!.... Read filename from arguments
+
+        narg = iargc()
+        do iarg = 1, narg
+          call getarg(iarg,arg)
+          if (arg(1:1) .ne. '-') then
+            nfile = nfile + 1
+            if (nfile .gt. mfile) then
+              write(*,*) '>> Error in argument list, too many files'
+              call exit(1)
+            end if
+            jfile(nfile) = iarg
+          endif
+        end do
+        if (nfile.gt.0) then
+          call getarg(jfile(1),temp)
+          filename = temp
+          inquire(file=filename,exist=nlist)
+          if (.not.nlist) then
+            write(*,*) "Namelist file ", &
+              filename(1:index(filename,' ')),"does not exist"
+            filename = 'lns3d.nml'
+          endif
+        else
+          filename = 'lns3d.nml'
+        endif
+        write(*,*) "Reading namelist input from ", &
+          filename(1:index(filename,' '))
+        inquire(file=filename,exist=nlist)
+        if (nlist) then  
+          open(10,file=filename,status='old',err=100)
+          read(10,extras)
+          close(10)
+  100     continue
+          if (echo) then
+            write(*,extras)
+          end if 
+        else
+          write(*,*) "Namelist ",filename(1:index(filename,' ')),&
+                     "does not exist, using defaults"
+        endif
 
 !.... generate the mean flow
 
