@@ -2,9 +2,10 @@
 #
 # Use default base directory if not already set
 #
-LNS3D_DIR="${LNS3D_DIR:=../..}"
-NPOT_DIR="${NPOT_DIR:=../../../npot}"
+LNS3D_DIR="${LNS3D_DIR:=$HOME/git/lns3d}"
+NPOT_DIR="${NPOT_DIR:=$HOME/git/npot}"
 echo LNS3D base directory = $LNS3D_DIR
+echo NPOT base directory = $NPOT_DIR
 $LNS3D_DIR/mesh/mse -y2 < mse.inp | tee mse.log && \
 ln -f -s grid.dat grid.xyz && \
 $NPOT_DIR/src/npot < npot.inp | tee npot.log && \
