@@ -23,7 +23,7 @@
         real :: cm, c3, um
         real :: a, d, kk
 
-        character*80 :: name, code='rk$'
+        character(80) :: name, code='rk$'
 
         real, external :: ramp
 !=============================================================================!
@@ -175,7 +175,7 @@
 
 !.... Sponge term
 
-        if (ispg .eq. 1) then
+        if (ispg.eq.1) then
 
 !.... standard sponge
 
@@ -185,7 +185,7 @@
           rl(4,i,j) = rl(4,i,j) - spg(i,j) * vl(4,i,j)
           rl(5,i,j) = rl(5,i,j) - spg(i,j) * vl(5,i,j)
         
-        else if (ispg .eq. 2) then
+        else if (ispg.gt.4) then
 
           rl(1,i,j) = rl(1,i,j) - (spg(i,j) + spg2(i,j)) * vl(1,i,j)
           rl(2,i,j) = rl(2,i,j) - (spg(i,j) + spg2(i,j)) * vl(2,i,j)
@@ -193,7 +193,7 @@
           rl(4,i,j) = rl(4,i,j) - (spg(i,j) + spg2(i,j)) * vl(4,i,j)
           rl(5,i,j) = rl(5,i,j) - (spg(i,j) + spg2(i,j)) * vl(5,i,j)
 
-        else if (ispg .eq. 3) then
+        else if (ispg.eq.2.or.ispg.eq.3) then
 
 !.... first do the outflow sponge
 

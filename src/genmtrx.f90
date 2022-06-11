@@ -429,11 +429,11 @@ loop_i: do i = 1, nx
 
 !.... standard sponge
 
-        if (ispg .gt. 0) then
-          if (ispg .eq. 1) then
+        if (ispg.gt.0) then
+          if (ispg.eq.1) then
             call error(code,'ispg .eq. 1 is not working$')
             call spg_it(rl,vl,spg)
-          else if (ispg .eq. 2) then
+          else if (ispg.eq.2) then
               rl(1,i,j) = rl(1,i,j) + (spg(i,j)+spg2(i,j)) * (vl(1,i,j) - one)
               rl(2,i,j) = rl(2,i,j) + (spg(i,j)+spg2(i,j)) * (vl(2,i,j))
               rl(3,i,j) = rl(3,i,j) + (spg(i,j)+spg2(i,j)) * (vl(3,i,j))

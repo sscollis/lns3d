@@ -155,7 +155,7 @@
 
         if (.not. calcd) then
 
-        if (ispg .eq. 1) then
+        if (ispg.eq.1) then
     
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
             mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
@@ -163,7 +163,7 @@
             mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
             mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
 
-        else if (ispg .ge. 2) then
+        else if (ispg.ge.2) then
     
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
             mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
@@ -309,7 +309,7 @@
 
         if (.not. calcd) then
 
-        if (ispg .eq. 1) then
+        if (ispg.eq.1) then
     
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
             mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
@@ -317,7 +317,7 @@
             mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
             mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
 
-        else if (ispg .ge. 2) then
+        else if (ispg.ge.2) then
    
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
             mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
@@ -476,7 +476,7 @@
 
         if (.not. calcd) then
 
-        if (ispg .eq. 1) then
+        if (ispg.eq.1) then
     
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
             mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
@@ -484,7 +484,7 @@
             mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
             mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
 
-        else if (ispg .ge. 2) then
+        else if (ispg.ge.2) then
    
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
             mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
@@ -606,7 +606,7 @@
 
         if (.not. calcd) then
 
-        if (ispg .eq. 1) then
+        if (ispg.eq.1) then
     
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
             mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
@@ -614,7 +614,7 @@
             mat(3,4,4,i,iv) = mat(3,4,4,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
             mat(3,5,5,i,iv) = mat(3,5,5,i,iv) + alfa * dtl(i,iv) * spgl(i,iv)
 
-        else if (ispg .ge. 2) then
+        else if (ispg.ge.2) then
    
             mat(3,1,1,i,iv) = mat(3,1,1,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))
             mat(3,2,2,i,iv) = mat(3,2,2,i,iv) + alfa * dtl(i,iv) * (spgl(i,iv) + spg2l(i,iv))

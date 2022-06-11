@@ -219,7 +219,7 @@
 
 !.... Sponge term
 
-        if (ispg .eq. 1) then           !.... standard sponge
+        if (ispg.eq.1) then           !.... standard sponge
  
           !write(*,*) "lrhs3d standard sponge"
 
@@ -229,7 +229,7 @@
           rl(4,i,j) = rl(4,i,j) + spg(i,j) * vl(4,i,j)
           rl(5,i,j) = rl(5,i,j) + spg(i,j) * vl(5,i,j)
         
-        else if (ispg .eq. 2) then              
+        else if (ispg.gt.4) then              
 
           !write(*,*) "lrhs3d double sponge"
         
@@ -239,7 +239,7 @@
           rl(4,i,j) = rl(4,i,j) + (spg(i,j) + spg2(i,j)) * vl(4,i,j)
           rl(5,i,j) = rl(5,i,j) + (spg(i,j) + spg2(i,j)) * vl(5,i,j)
 
-        else if (ispg .eq. 3) then
+        else if (ispg.eq.2.or.ispg.eq.3) then
 
 !.... the outflow sponge
 
@@ -258,9 +258,16 @@
 
           kk = omega / (cm+um)
           a  = omega**2 * d / (cm+um)**3
-          c3 = exp( im * kk * xl(i,j) )
+!         c3 = exp( im * kk * xl(i,j) )
 !         c3 = exp( -a * (xl(i,j) - x0) ) * exp( im * kk * xl(i,j) )
 !         c3 = wamp(i) * exp( im * kk * xl(i,j) )
+          if (ispg.eq.3) then
+            c3 = wamp(i) * exp( -a * (xl(i,j) - x0) ) * &
+                           exp( im * kk * xl(i,j) )
+          else
+            c3 = exp( -a * (xl(i,j) - x0) ) * &
+                 exp( im * kk * xl(i,j) )
+          endif
 
           rl(1,i,j) = rl(1,i,j) + spg2(i,j) * ( vl(1,i,j) - &
                       pt5 * c3 / cm**2 )
@@ -277,13 +284,13 @@
         end do loop_i
         end do loop_j
 
-        if (ispg .eq. 4) then              
+        if (ispg.eq.4) then              
           call cspg_it( rl, vl, spg, spg2 )
         end if
     
 !.... explicit smoother
 
-        if (eps_e .ne. zero) call smoother3D( rl, vl )
+        if (eps_e.ne.zero) call smoother3D( rl, vl )
 
         return
         end

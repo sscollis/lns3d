@@ -67,47 +67,37 @@
           end do
         end do
 
-#if 1
-
 !.... Sponge on outflow (right) boundary
 
-        !$omp parallel do private(i,j)
-        do j = 1, ny
-          do i = 1, nx
-            if ( xi(i) .ge. xs ) then
-              spg(i,j) = As * ((xi(i)-xs)/(xt-xs))**Ns
-            end if
+        if (compSpg) then
+          !$omp parallel do private(i,j)
+          do j = 1, ny
+            do i = 1, nx
+              if ( xi(i) .ge. xs ) then
+                spg(i,j) = As * ((xi(i)-xs)/(xt-xs))**Ns
+              end if
+            end do
           end do
-        end do
+        else
+          !$omp parallel do private(i,j)
+          do j = 1, ny
+            do i = 1, nx
+              if ( x(i,j) .ge. xs ) then
+                spg(i,j) = As * ((x(i,j)-xs)/(xt-xs))**Ns
+              end if
+            end do
+          end do
+        endif
         j = 1
         open(9,file='sponge.dat')
         do i = 1, nx
-          write(9,"(3(1pe13.6,1x))") x(i,j), xi(i), spg(i,j)
+          write(9,"(4(1pe13.6,1x))") x(i,j), y(i,j), xi(i), spg(i,j)
         end do
         close(9)
 
-#else
+!.... initialized the second sponge
 
-!.... Sponge near top boundary
-
-        !$omp parallel do private(i,j)
-        do j = 1, ny
-          do i = 1, nx
-            if ( eta(j) .ge. xs ) then
-              spg(i,j) = As * ((eta(j)-xs)/(xt-xs))**Ns
-            end if
-          end do
-        end do
-        i = 1
-        open(9,file='sponge.dat')
-        do j = 1, ny
-          write(9,"(3(1pe13.6,1x))") x(i,j), eta(j), spg(i,j)
-        end do
-        close(9)
-
-#endif
-
-        if (ispg .ge. 2) then
+        if (ispg.ge.2) then
           allocate( spg2(nx,ny), STAT=ier)
           if (ier .ne. 0) then
             call error(code,'Insufficient Memory for spg2$')
@@ -119,33 +109,68 @@
             end do
           end do
 
+          if (ispg.eq.2) then   ! sponge on left side
+            if (compSpg2) then
+              !$omp parallel do private(i,j)
+              do j = 1, ny
+                do i = 1, nx
+                  if ( xi(i) .le. xs2 ) then
+                    spg2(i,j) = As2 * ((xi(i)-xs2)/(xt2-xs2))**Ns2
+                  end if
+                end do
+              end do
+            else
+              !$omp parallel do private(i,j)
+              do j = 1, ny
+                do i = 1, nx
+                  if ( x(i,j) .le. xs2 ) then
+                    spg2(i,j) = As2 * ((x(i,j)-xs2)/(xt2-xs2))**Ns2
+                  end if
+                end do
+              end do
+            endif
+            j = 1
+            open(9,file='sponge2.dat')
+            do i = 1, nx
+              write(9,"(4(1pe13.6,1x))") x(i,j), y(i,j), xi(i), spg2(i,j)
+            end do
+            close(9)
+          end if
+
 !.... sponge for the cylinder scattering problem (Mahesh sponge)
 
-          if (ispg .eq. 3) then
-#if 0
-            !$omp parallel do private(i,j)
-            do i = 1, nx
+          if (ispg.eq.3) then
+            if (compSpg2) then
+              !$omp parallel do private(i,j)
               do j = 1, ny
-                rr = sqrt( x(i,j)**2 + y(i,j)**2 )
-                if ( rr .gt. xs2 .and. rr .lt. xt2 ) then
-                  spg2(i,j) = As2 * ((rr-xs2)/(xt2-xs2))**Ns2
-                else
-                  spg2(i,j) = zero
-                end if
+                do i = 1, nx
+                  if ( eta(j) .ge. xs2 .and. eta(j) .le. xt2 ) then
+                    spg2(i,j) = As2 * ((eta(j)-xs2)/(xt2-xs2))**Ns2
+                  else
+                    spg2(i,j) = zero
+                  end if
+                end do
               end do
-            end do
-#else
-            !$omp parallel do private(i,j)
-            do j = 1, ny
+            else
+              !$omp parallel do private(i,j)
               do i = 1, nx
-                if ( eta(j) .ge. xs2 .and. eta(j) .lt. xt2 ) then
-                  spg2(i,j) = As2 * ((eta(j)-xs2)/(xt2-xs2))**Ns2
-                else
-                  spg2(i,j) = zero
-                end if
+                do j = 1, ny
+                  rr = sqrt( x(i,j)**2 + y(i,j)**2 )
+                  if ( rr .ge. xs2 .and. rr .le. xt2 ) then
+                    spg2(i,j) = As2 * ((rr-xs2)/(xt2-xs2))**Ns2
+                  else
+                    spg2(i,j) = zero
+                  end if
+                end do
               end do
+            endif
+            i = 1
+            open(9,file='sponge2.dat')
+            do j = 1, ny
+              write(9,"(4(1pe13.6,1x))") x(i,j), y(i,j), eta(j), spg2(i,j)
             end do
-#endif
+            close(9)
+
           end if
 
         end if
@@ -156,7 +181,7 @@
 !                    L I B R A R Y   O F   S P O N G E S
 !=============================================================================!
 
-        if (ispg .ge. 2) then
+        if (ispg.ge.2) then
           allocate( spg2(nx,ny), STAT=ier)
         end if
 
@@ -465,7 +490,8 @@
         !$omp parallel do private(i)
         do j = 1, ny
           do i = 1, nx
-            rl(:,i,j) = rl(:,i,j) + spgl(i,j) * ( vl(:,i,j) - vic(:,i,j) )
+            rl(:,i,j) = rl(:,i,j) + spgl(i,j) * &
+                        ( vl(:,i,j) - vic(:,i,j) )
           end do
         end do
 
