@@ -5,7 +5,7 @@
 LNS3D_DIR="${LNS3D_DIR:=../..}"
 NPOT_DIR="${NPOT_DIR:=../../../npot}"
 echo LNS3D base directory = $LNS3D_DIR
-$LNS3D_DIR/mesh/mse < mse.inp | tee mse.log && \
+$LNS3D_DIR/mesh/mse -y2 < mse.inp | tee mse.log && \
 ln -f -s grid.dat grid.xyz && \
 $NPOT_DIR/src/npot < npot.inp | tee npot.log && \
 #
