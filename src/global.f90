@@ -28,8 +28,11 @@
           real    :: Ma, Re, Pr
           real    :: rhoref, Pref, Tref, muref
           
-          real    :: alpha, beta, omega, eps_e, x0
+          !real    :: alpha, beta, omega, eps_e, x0
+          real    :: theta, beta, omega, eps_e, x0
           integer :: ires, linear, impl, loctime, iLHS
+          logical :: updateLHS = .false.
+          logical :: useCalcd = .false.
 
           logical :: tflag = .false.    ! time traces
           logical :: fflag = .false.    ! temporal statistics
@@ -65,7 +68,8 @@
 
 !.... problem dimensions
           
-          integer :: ny = 1, nx = 1, nz = 1, nsd = 3, ndof = 5, nbl
+          integer :: ny=1, nx=1, nz=1, nsd=3, ndof=5, nbl=0
+          logical :: update_nbl=.false., output_nbl=.true.
           real    :: xmin, xmax, ymin, ymax, zmin, zmax
           real    :: yi
 
@@ -106,17 +110,36 @@
 
 !.... inflow disturbances
 
+#if 0
+          ! Try out F90 types
+          type inflow_type
+            character(40) :: filename="inflow.dat"
+            logical :: echo=.false.
+            complex :: omega=0, alpha=0, beta=0
+            !namelist /input/ filename, omega, alpha, beta, echo 
+          end type
+          type (inflow_type) :: infl
+          namelist /inpt/ filename, echo, 
+#endif
+          character(40) :: inflow_file="inflow.dat"
+          logical :: inflow_echo=.false.
+          complex :: lomega, lalpha, lbeta
+          namelist /inflow/ inflow_file, lomega, lalpha, lbeta, inflow_echo
+
           real, allocatable :: rhor(:), rhoi(:), ur(:), ui(:)
           real, allocatable :: vr(:), vi(:), wr(:), wi(:), tr(:), ti(:)
 
 !.... sponge variables
 
           integer :: ispg       
+          logical :: compSpg = .true., compSpg2 = .true.
           real, allocatable :: spg(:,:)
           real, allocatable :: spg2(:,:)
 
 !.... the boundary forcing amplitude (should be complex stupid)
 
+          logical :: useAmp = .false.
+          character(40) :: amp_file="amp.dat"
           real, allocatable :: wamp(:)
           
 !.... damping function
@@ -130,7 +153,7 @@
 
 !.... file info
 
-          character*80 :: base, filen
+          character(80) :: base, filen
           integer, parameter :: lfile=80
           integer :: iver = 0, itout, ntout
           

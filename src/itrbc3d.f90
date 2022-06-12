@@ -28,7 +28,6 @@
 !.... forcing parameters
 
         real :: a, d, kk
-        complex :: ac
 
 !=============================================================================!
 !       L I N E A R   B O U N D A R Y   C O N D I T I O N S
@@ -123,8 +122,8 @@
 
         else    ! inviscid:  zero the wall-normal velocity
 
-          ub(is:ie) = bnb(is:ie,2) * vl(2,is:ie,1) - bnb(is:ie,1) * vl(3,is:ie,1)
-!         vb(is:ie) = bnb(is:ie,1) * vl(2,is:ie,1) + bnb(is:ie,2) * vl(3,is:ie,1)
+          ub(is:ie) = bnb(is:ie,2)*vl(2,is:ie,1) - bnb(is:ie,1)*vl(3,is:ie,1)
+!         vb(is:ie) = bnb(is:ie,1)*vl(2,is:ie,1) + bnb(is:ie,2)*vl(3,is:ie,1)
           vb(is:ie) = zero
           
           vl(2,is:ie,1) =  bnb(is:ie,2) * ub(is:ie) + bnb(is:ie,1) * vb(is:ie)
@@ -147,14 +146,22 @@
 
 !.... allocate room for the boundary amplitude
 
-!         if (istep.eq.0) then
-!           allocate( wamp(nx) )
-!           open(66,file='amp.dat',form='formatted',status='unknown')
-!           do i = 1, nx
-!             read(66,*) tmp, wamp(i)
-!           end do
-!           close(66)
-!         end if
+        if (useAmp) then
+          if (istep.eq.0) then
+            write(*,*) "Reading ",amp_file
+            allocate( wamp(nx) )
+            open(66,file=amp_file,form='formatted',status='unknown')
+            do i = 1, nx
+              read(66,*) tmp, wamp(i)
+            end do
+            close(66)
+          end if
+        else
+          if (istep.eq.0) then
+            allocate( wamp(nx) )
+            wamp = one
+          endif
+        endif
         
 !.... compute the characteristic amplitudes on the top boundary
           
@@ -170,15 +177,18 @@
           do i = 1, nx
             kk = omega / (cm(i)+um(i))
             a  = omega**2 * d / (cm(i)+um(i))**3
-            c3(i) = exp( -a * (x(ny,i) - x0) ) * exp( im * kk * x(ny,i) )
-!           c3(i) = wamp(i) * exp( im * kk * x(ny,i) )
+            ! the first term is a viscous damping correction
+            !c3(i) = exp(-a * (x(i,ny) - x0)) * exp(im * kk * x(i,ny))
+            c3(i) = wamp(i) * exp(-a * (x(i,ny) - x0)) * exp(im * kk * x(i,ny))
+            !c3(i) = exp(im * kk * x(i,ny))
+            !c3(i) = wamp(i) * exp( im * kk * x(i,ny) )
           end do
 
           vl(1,:,ny) = pt5 * c3 / cm**2
           vl(2,:,ny) = c3 * pt5 / ( rhom * cm )
           vl(3,:,ny) = zero
           vl(4,:,ny) = zero
-          vl(5,:,ny) = (gamma*Ma**2 * c3 * pt5 - tm * pt5 * c3 / cm**2) / rhom
+          vl(5,:,ny) = (gamma*Ma**2*c3*pt5 - tm*pt5*c3/cm**2)/rhom
 
           deallocate( rhom, tm, cm, um, c3 )
 
@@ -203,8 +213,40 @@
           vl(3,1,:) = zero
           vl(4,1,:) = zero
           vl(5,1,:) = zero
+
+!.... force an incomming acoustic wave
+
+        else if (left.eq.1) then
+
+!.... compute the characteristic amplitudes on the left boundary
+
+          allocate( rhom(ny), tm(ny), cm(ny), um(ny), c3(ny) )
+
+          rhom = vml(1,1,:)
+          tm   = vml(5,1,:)
+          cm   = sqrt( tm ) / Ma
+          um   = vml(2,1,:)
+
+          d  = pt5 * ( onept33 + gamma1 / Pr ) / Re
+
+          do j = 1, ny 
+            kk = omega / (cm(j)+um(j))
+            a  = omega**2 * d / (cm(j)+um(j))**3 ! viscous damping
+            c3(j) = exp(-a * (x(1,j) - x0)) * exp(im * kk * x(1,j))
+            !c3(j) = exp(im * kk * x(1,j))
+          end do
+
+          vl(1,1,:) = pt5 * c3 / cm**2
+          vl(2,1,:) = c3 * pt5 / ( rhom * cm )
+          vl(3,1,:) = zero
+          vl(4,1,:) = zero
+          vl(5,1,:) = (gamma*Ma**2*c3*pt5 - tm*pt5*c3/cm**2)/rhom
+
+          deallocate( rhom, tm, cm, um, c3 )
         
         else if (left.eq.4) then        ! eigenfunction inflow disturbance
+
+          !write(*,*) "itrbc3d:  left.eq.4"
 
           allocate( rhom(ny), tm(ny), cm(ny) )
           allocate( c1(ny), c2(ny), c3(ny), c4(ny) )
@@ -221,22 +263,50 @@
           u2  = cmplx(  vr(1:ny),   vi(1:ny))
           u3  = cmplx(  wr(1:ny),   wi(1:ny))
           t   = cmplx(  tr(1:ny),   ti(1:ny))
+#ifdef USE_TRANSIENT_EIGENFUNCTION 
+          if (omega.eq.0) then
+            rho = rho * exp(-im*lomega*time)
+            u1  =  u1 * exp(-im*lomega*time)
+            u2  =  u2 * exp(-im*lomega*time)
+            u3  =  u3 * exp(-im*lomega*time)
+            t   =   t * exp(-im*lomega*time)
+          endif
+#endif
+#if 0
 
-!         p   = ( rhom * t + tm * rho ) / (gamma * Ma**2)
+!.... SSC: turned this on for spatial TS wave case 5/30/22
+
+          p   = ( rhom * t + tm * rho ) / (gamma * Ma**2)
                                   
-!         c1  = -cm**2 * rho + p                        ! entropy
-!         c2  =  rhom * cm * u2                         ! vorticity
-!         c3  =  rhom * cm * u1 + p                     ! right acoustic
-!         c4  =  0                                      ! left acoustic
+          c1  = -cm**2 * rho + p                        ! entropy
+          c2  =  rhom * cm * u2                         ! vorticity
+          c3  =  rhom * cm * u1 + p                     ! right acoustic
+
+#if 1
+
+!.... compute outgoing characteristics
+!.... SSC: try not setting left acoustic to zero
+
+          rho = vl(1,1,:)
+          u1  = vl(2,1,:)
+          u2  = vl(3,1,:)
+          u3  = vl(4,1,:)
+          t   = vl(5,1,:)
+          p   = one/(gamma * Ma**2) * ( rhom * t + tm * rho )
+
+          c4  =  -rhom * cm * u1 + p                    ! left acoustic
+#else
+          c4  =  0                                      ! left acoustic
+#endif
 
 !.... update the boundary values
 
-!         rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2
-!         u1  = ( c3 - c4 ) * pt5 / ( rhom * cm )
-!         u2  = c2 / ( rhom * cm )
-!         p   = ( c3 + c4 ) * pt5
-!         t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
-
+          rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2
+          u1  = ( c3 - c4 ) * pt5 / ( rhom * cm )
+          u2  = c2 / ( rhom * cm )
+          p   = ( c3 + c4 ) * pt5
+          t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
+#endif
           vl(1,1,:) = rho
           vl(2,1,:) = u1
           vl(3,1,:) = u2
@@ -286,18 +356,20 @@
 
         else if (right.eq.4) then
 
-          ac = (2.2804739410500E-001,-6.5163146761218E-003)
+!.... SSC: this is currently hardwired for the Ch.4 thesis spatial TS wave
+
+!         ac = (2.2804739410500E-001,-6.5163146761218E-003)
 !         ac = (-2.8831962908130E-001,-1.3854663671636E-002)
 
           allocate( rho(ny), u1(ny), u2(ny), u3(ny), t(ny), p(ny) )
 
 !.... compute incomming characteristics (eigenfunctions)
 
-          rho = cmplx(rhor(:), rhoi(:)) * exp(im * ac * x(:,nx))
-          u1  = cmplx(  ur(:),   ui(:)) * exp(im * ac * x(:,nx))
-          u2  = cmplx(  vr(:),   vi(:)) * exp(im * ac * x(:,nx))
-          u3  = cmplx(  wr(:),   wi(:)) * exp(im * ac * x(:,nx))
-          t   = cmplx(  tr(:),   ti(:)) * exp(im * ac * x(:,nx))
+          rho = cmplx(rhor(:), rhoi(:)) * exp(im * lalpha * x(nx,:))
+          u1  = cmplx(  ur(:),   ui(:)) * exp(im * lalpha * x(nx,:))
+          u2  = cmplx(  vr(:),   vi(:)) * exp(im * lalpha * x(nx,:))
+          u3  = cmplx(  wr(:),   wi(:)) * exp(im * lalpha * x(nx,:))
+          t   = cmplx(  tr(:),   ti(:)) * exp(im * lalpha * x(nx,:))
 
           vl(1,nx,:) = rho
           vl(2,nx,:) = u1
@@ -331,7 +403,9 @@
 
           deallocate( rhom, tm, cm, um, c3 )
 
-        else if (right .eq. 9) then      ! extrapolation 
+        else if (right.eq.7) then      ! symmetry boundary
+
+        else if (right.eq.9) then      ! extrapolation 
 
           vl(:,nx,:) = exp( two * log(vl(:,nx-1,:)) - log(vl(:,nx-2,:)) )
 

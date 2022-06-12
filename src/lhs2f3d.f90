@@ -24,12 +24,17 @@
         integer :: i, j, idof, jdof
         logical :: calcd
 !=============================================================================!
-!       if (.true. .and. mod(real(istep-1+iter),two) .eq. zero ) then
+        if (useCalcd) then
+          if (mod(real(istep-1+iter),two) .eq. zero ) then
+            calcd = .false.
+          else
+            calcd = .true.
+          end if
+          write(88,*) 'lhs2f3D: ',istep, iter, calcd
+          !write(*,*) 'lhs2f3D: ',istep, iter, calcd
+        else
           calcd = .false.
-!       else
-!         calcd = .true.
-!       end if
-!       write(88,*) 'lhs2f3D: ',istep, iter, calcd
+        endif 
 
 !.... fourth-order stencil
 
@@ -201,7 +206,7 @@
 
         if (.not. calcd) then
 
-        if (ispg .eq. 1) then
+        if (ispg.eq.1) then
         
           mat(3,1,1,i,j) = mat(3,1,1,i,j) + alfa * dtl(i,j) * spg(i,j)
           mat(3,2,2,i,j) = mat(3,2,2,i,j) + alfa * dtl(i,j) * spg(i,j)
@@ -209,7 +214,7 @@
           mat(3,4,4,i,j) = mat(3,4,4,i,j) + alfa * dtl(i,j) * spg(i,j)
           mat(3,5,5,i,j) = mat(3,5,5,i,j) + alfa * dtl(i,j) * spg(i,j)
         
-        else if (ispg .ge. 2) then
+        else if (ispg.ge.2) then
         
           mat(3,1,1,i,j) = mat(3,1,1,i,j) + alfa*dtl(i,j)*(spg(i,j)+spg2(i,j))
           mat(3,2,2,i,j) = mat(3,2,2,i,j) + alfa*dtl(i,j)*(spg(i,j)+spg2(i,j))

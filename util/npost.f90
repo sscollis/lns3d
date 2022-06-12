@@ -57,8 +57,8 @@
 
 !.... metrics
 
-        real, allocatable :: m1(:,:),  m2(:,:),  n1(:,:),  n2(:,:),     &
-                             m11(:,:), m12(:,:), m22(:,:),              &
+        real, allocatable :: m1(:,:),  m2(:,:),  n1(:,:),  n2(:,:), &
+                             m11(:,:), m12(:,:), m22(:,:),          &
                              n11(:,:), n12(:,:), n22(:,:)
         !$sgi distribute m1(*,block), m2(*,block), 
         !$sgi distribute m11(*,block), m12(*,block), m22(*,block)
@@ -74,7 +74,8 @@
 
         integer :: i, j, k, idof, itmp
 
-        character(80) file, temp, base, base1, base2, fname, fname1, fname2
+        character(80) filename, temp, base, base1, base2, &
+                      fname, fname1, fname2
         integer :: iloc, iend, imin, imax, inc, iver
 #ifndef __GFORTRAN__    
         integer, external :: iargc
@@ -92,7 +93,8 @@
 
 !.... variables for thickness calculation
 
-        real :: rho, u1, u2, u3, t, delta, theta, us, un, ws, edge, errest
+        real :: rho, u1, u2, u3, t, delta, theta, us, un, ws, &
+                edge, errest
         real :: H0, Hinf, thetaz
         
         real, allocatable :: ynn(:), uss(:), unn(:), wss(:), uel(:)
@@ -141,7 +143,7 @@
           if (arg(1:1) .ne. '-') then
             nfile = nfile + 1
             if (nfile .gt. mfile) then
-              write(*,*) '>> Error in argument list, too many file names'
+              write(*,*) '>> Error in arguments, too many file names'
               call exit(1)
             end if
             ifile(nfile) = iarg
@@ -275,19 +277,23 @@
 
         if ( nfile .gt. 0 ) then
           call getarg(ifile(1),temp)
-          file = temp
+          filename = temp
         else
-          file = 'output.res'
-          write (*,"('Enter file name [',a,']? ',$)") file(1:index(file,' '))
+          filename = 'output.res'
+          write (*,"('Enter file name [',a,']? ',$)") &
+            filename(1:index(filename,' '))
           read (*,"(a80)") temp
-          if (temp(1:1) .ne. ' ') file = temp
+          if (temp(1:1) .ne. ' ') filename = temp
         end if
- 10     open(unit=10, file=file, form='unformatted', status='old', err=20)
+ 10     open(unit=10, file=filename, form='unformatted', &
+             status='old', err=20)
         goto 30
- 20     write (*,"('>> Error opening [',a,'] ',/)") file(1:index(file,' '))
-        write (*,"('Enter file name [',a,']? ',$)") file(1:index(file,' '))
+ 20     write (*,"('>> Error opening [',a,'] ',/)") &
+          filename(1:index(filename,' '))
+        write (*,"('Enter file name [',a,']? ',$)") &
+          filename(1:index(filename,' '))
         read (*,"(a80)") temp
-        if (temp(1:1) .ne. ' ') file = temp
+        if (temp(1:1) .ne. ' ') filename = temp
         goto 10
  30     continue
         
@@ -303,7 +309,8 @@
           read(10) (((v(idof,i,j), j=1,ny), i=1,nx), idof=1,ndof)
           close(10)
           if (write_ij) then
-            open(unit=10,file='restart.ij',form='unformatted',status='unknown')
+            open(unit=10,file='restart.ij',form='unformatted',&
+                 status='unknown')
             write(10) lstep, time, nx, ny, nz, ndof, Re, Ma, Pr, gamma, cv
             write(10) v
             close(10)
@@ -312,7 +319,8 @@
           read(10) v
           close(10)
         end if
-        write(*,"('Read flow field for ',a)") file(1:index(file,' '))
+        write(*,"('Read flow field for ',a)") &
+          filename(1:index(filename,' '))
         write(*,"('  Time = ',1pe10.3,'  step = ',i6)") time, lstep
 
 !.... Convert to Primitive if required
@@ -678,7 +686,8 @@
 
         write(*,"(/,'Extract profiles at supplied locations . . .')")
         write(*,"('W A R N I N G:  only valid on a body-fitted mesh!')")
-        write(*,"('Enter the x-stations for profiles [min,max,inc] ==> ',$)")
+        write(*,&
+          "('Enter the x-stations for profiles [min,max,inc] ==> ',$)")
         read(*,*) imin, imax, inc
         base  = 'profile'
         base1 = 'first'
@@ -686,7 +695,8 @@
         kord = 5
         ns = ny
         open(39,file="pedge.dat")
-        allocate ( knot(ns+kord), bs(ns,ndof), ynn(ny), uss(ny), unn(ny) )
+        allocate ( knot(ns+kord), bs(ns,ndof), ynn(ny), uss(ny), &
+                   unn(ny) )
         open(11,file='loc.dat')
         write(11,"('# ',a)") "i, s(i), x(i,1)"
         write(39,"('# ',a)") "x(i,1), edge, rhoe, ue, ve, we, te"
@@ -697,7 +707,8 @@
           call makename(base2,i,fname2)
           iloc = index(fname,' ')
           write(*,110) s(i), x(i,1), fname(1:iloc)
- 110      format('Saving profile at s, x_b = ',2(1pe20.13,1x),'in file: ',a)
+ 110      format('Saving profile at s, x_b = ',2(1pe20.13,1x),&
+                 'in file: ',a)
           write(11,"(i4,1x,2(1pe13.6,1x))") i, s(i), x(i,1)
 
           bn1 = n1(i,1) / sqrt( n1(i,1)**2 + n2(i,1)**2 )
@@ -774,8 +785,8 @@
           open(12,file=fname1)
           open(13,file=fname2)
           do j = 1, ny
-            write(10,"(9(1pe17.9e3,1x))") ynn(j), v(1,i,j), uss(j), unn(j), &
-               v(4,i,j), v(5,i,j), p(i,j), &
+            write(10,"(9(1pe17.9e3,1x))") ynn(j), v(1,i,j), uss(j), &
+               unn(j), v(4,i,j), v(5,i,j), p(i,j), &
                (cos(alp) * uss(j) + sin(alp) * v(4,i,j)), &
                (-sin(alp) * uss(j) + cos(alp) * v(4,i,j))
             write(12,"(9(1pe17.9e3,1x))") ynn(j),      &
@@ -818,39 +829,41 @@
 
         if (plot3d) then
         
-        iloc = index(file,'.R.')
-        if (iloc.eq.0) iloc = index(file,'.r.')
-        iend = index(file,' ')-1
+        iloc = index(filename,'.R.')
+        if (iloc.eq.0) iloc = index(filename,'.r.')
+        iend = index(filename,' ')-1
         if (iloc .ne. 0) then
-          temp = file(1:iloc)//'q'//file(iloc+2:iend)
+          temp = filename(1:iloc)//'q'//filename(iloc+2:iend)
         else 
-          iloc = index(file,'.res')
+          iloc = index(filename,'.res')
           if (iloc .ne. 0) then
-            temp = file(1:iloc)//'dat'
+            temp = filename(1:iloc)//'dat'
           else
-            temp = file(1:iend)//'.q'
+            temp = filename(1:iend)//'.q'
           end if
         end if
 
         if ( nfile .eq. 0 ) then
-          file = temp
+          filename = temp
           write (*,"(/,'Enter PLOT3D file name [',a,']? ',$)")  &
-                  file(1:index(file,' '))
+            filename(1:index(filename,' '))
           read (*,"(a80)") temp
-          if (temp(1:1) .ne. ' ') file = temp
+          if (temp(1:1) .ne. ' ') filename = temp
         else if ( nfile .eq. 1 ) then
-          file = temp
+          filename = temp
         else if ( nfile .eq. 2 ) then
           call getarg(ifile(2),temp)
-          file = temp
+          filename = temp
         end if
- 40     open(unit=10, file=file, form='unformatted', status='unknown', err=50)
+ 40     open(unit=10, file=filename, form='unformatted', &
+             status='unknown', err=50)
         goto 60
- 50     write (*,"('>> Error opening [',a,'] ',/)") file(1:index(file,' '))
+ 50     write (*,"('>> Error opening [',a,'] ',/)") &
+          filename(1:index(filename,' '))
         write (*,"(/,'Enter PLOT3D file name [',a,']? ',$)") &
-              file(1:index(file,' '))
+          filename(1:index(filename,' '))
         read (*,"(a80)") temp
-        if (temp(1:1) .ne. ' ') file = temp
+        if (temp(1:1) .ne. ' ') filename = temp
         goto 40
  60     continue
               
@@ -916,38 +929,40 @@
         
 !.... write out a supplemental plot3d file
 
-        iloc = index(file,'.q.')
-        iend = index(file,' ')-1
+        iloc = index(filename,'.q.')
+        iend = index(filename,' ')-1
         if (iloc .ne. 0) then
-          temp = file(1:iloc)//'d'//file(iloc+2:iend)
+          temp = filename(1:iloc)//'d'//filename(iloc+2:iend)
         else
-          iloc = index(file,'.dat')
+          iloc = index(filename,'.dat')
           if (iloc .ne. 0) then
-            temp = file(1:iloc)//'d.dat'
+            temp = filename(1:iloc)//'d.dat'
           else
-            temp = file(1:iend)//'.d'
+            temp = filename(1:iend)//'.d'
           end if
         end if
 
         if ( nfile .eq. 0 ) then
-          file = temp
+          filename = temp
           write (*,"(/,'Enter PLOT3D file name [',a,']? ',$)")  &
-                  file(1:index(file,' '))
+                  filename(1:index(filename,' '))
           read (*,"(a80)") temp
-          if (temp(1:1) .ne. ' ') file = temp
+          if (temp(1:1) .ne. ' ') filename = temp
         else if ( nfile .eq. 1 .or. nfile .eq. 2) then
-          file = temp
+          filename = temp
         else if ( nfile .eq. 3 ) then
           call getarg(ifile(3),temp)
-          file = temp
+          filename = temp
         end if
- 400    open(unit=10, file=file, form='unformatted', status='unknown', err=500)
+ 400    open(unit=10, file=filename, form='unformatted', &
+             status='unknown', err=500)
         goto 600
- 500    write (*,"('>> Error opening [',a,'] ',/)") file(1:index(file,' '))
+ 500    write (*,"('>> Error opening [',a,'] ',/)") &
+          filename(1:index(filename,' '))
         write (*,"(/,'Enter PLOT3D file name [',a,']? ',$)") &
-              file(1:index(file,' '))
+          filename(1:index(filename,' '))
         read (*,"(a80)") temp
-        if (temp(1:1) .ne. ' ') file = temp
+        if (temp(1:1) .ne. ' ') filename = temp
         goto 400
  600    continue
               
@@ -1176,13 +1191,18 @@
 
 !.... Write out file headers 
 
-        write(10,"('# ',a)") "s(i), delta, theta, H, wmax, ReL, L, Ma1, c1, Cp, delta/L, "// &
-                             "theta/L, wmloc, wiloc, uinf, winf, epsi, edge*wmax*Re, rk"
-        write(11,"('# ',a)") "s(i), edge, rhoe, ue, ve, we, te, pe, phie"
-        write(12,"('# ',a)") "s(i), delta, theta, wmax, U1, Te, phie, Ma1, edge*wmax*Re"
+        write(10,"('# ',a)") "s(i), delta, theta, H, wmax, ReL, L, "//&
+                             "Ma1, c1, Cp, delta/L, "// &
+                             "theta/L, wmloc, wiloc, uinf, winf, "//&
+                             "epsi, edge*wmax*Re, rk"
+        write(11,"('# ',a)") "s(i), edge, rhoe, ue, ve, we, te, pe,"//&
+                             " phie"
+        write(12,"('# ',a)") "s(i), delta, theta, wmax, U1, Te, "//&
+                             "phie, Ma1, edge*wmax*Re"
         write(13,"('# ',a)") "s(i), delta, alp"
 
-        do i = 1, nx
+        !do i = 1, nx
+        do i = 2, nx
           delta = zero
           theta = zero
 
@@ -1240,7 +1260,7 @@
 
   70      continue
 #ifdef NPOST_DEBUG
-          write(*,*) j, ynn(j-1), ynn(j+2), alpha
+          write(*,*) i, j, ynn(j-1), ynn(j+2), alpha
 #endif
           if (j.ne.ny) then
 #ifdef USE_NR
@@ -1266,7 +1286,7 @@
           alp    = atan2( we, ue )
           phie   = (alp - alpha) * 180.0 / pi
 #ifdef NPOST_DEBUG
-          write(*,"(9(1pe13.6,1x))")  s(i),edge,rhoe,ue,ve,we,te,pe,phie
+          !write(*,"(9(1pe13.6,1x))")  s(i),edge,rhoe,ue,ve,we,te,pe,phie
 #endif
           write(11,"(9(1pe13.6,1x))") s(i),edge,rhoe,ue,ve,we,te,pe,phie
 
@@ -1295,9 +1315,9 @@
 
 !.... Integrate to get the boundary layer integral thicknesses
 
-          call QDAG(  dfun, zero, edge, 1.0e-8, 1.0e-8, 2,  delta, errest)
-          call QDAG( thfun, zero, edge, 1.0e-8, 1.0e-8, 2,  theta, errest)
-!         call QDAG(thfunz, zero, edge, 1.0e-8, 1.0e-8, 2, thetaz, errest)
+          call QDAG(  dfun, zero, edge, 1.0e-8, 1.0e-8, 2,delta,errest)
+          call QDAG( thfun, zero, edge, 1.0e-8, 1.0e-8, 2,theta,errest)
+!         call QDAG(thfunz, zero, edge, 1.0e-8, 1.0e-8, 2,thetaz,errest)
 
 !.... Boundary layer statistics
 
@@ -1338,7 +1358,8 @@
                  (w2.gt.zero .and. w1.lt.zero) ) goto 80
           end do
  80       if (j.eq.ny) then
-            write(*,*) 'Could not find crossflow inflection point at i = ', i
+            write(*,*) 'Could not find crossflow inflection point at'//&
+                       ' i = ', i
             call exit(1)
           end if
 #ifdef USE_NR
@@ -1360,8 +1381,8 @@
 
           write(10,"(20(1pe13.6,1x))") s(i), delta, theta, H, wmax, &
                                        ReL, L, Ma1, c1, Cp, &
-                                       delta/L, theta/L, wmloc, wiloc, uinf, &
-                                       winf, epsi, edge*wmax*Re, rk
+                                       delta/L, theta/L, wmloc, wiloc, &
+                                       uinf,winf,epsi,edge*wmax*Re,rk
 
 !.... delta2.dat
 
@@ -1396,7 +1417,8 @@
 !....   Beta_H = 2 m / (m + 1)
 
         open(10,file='betah.dat')
-        write(10,"('# ',a)") "s(i), betah = Hartree pressure gradient parameter"
+        write(10,"('# ',a)") "s(i), betah = Hartree pressure "//&
+             "gradient parameter"
         do i = 1, nx
           if (i .eq. 1) then
             beta2 = s(2) * (uel(3)-uel(1)) / (s(3)-s(1)) / uel(2)
@@ -1405,7 +1427,7 @@
           else if (i .eq. nx) then
             betah = s(i) * (uel(i)-uel(i-1)) / (s(i)-s(i-1)) / uel(i)
           else
-            betah = s(i) * (uel(i+1)-uel(i-1)) / (s(i+1)-s(i-1)) / uel(i)
+            betah = s(i) * (uel(i+1)-uel(i-1)) /(s(i+1)-s(i-1))/uel(i)
           end if
           betah = two * betah / (betah + one)
           write(10,"(20(1pe13.6,1x))") s(i), betah
@@ -1429,8 +1451,8 @@
           q(2,:,:) = v(1,:,:) * v(2,:,:) * Ma
           q(3,:,:) = v(1,:,:) * v(3,:,:) * Ma
           q(4,:,:) = v(1,:,:) * v(4,:,:) * Ma
-          q(5,:,:) = v(1,:,:) * ( one / gamma1 / gamma * v(5,:,:) + pt5 * &
-                     Ma**2 * (v(2,:,:)**2+v(3,:,:)**2+v(4,:,:)**2) )  
+          q(5,:,:) = v(1,:,:) * ( one / gamma1 / gamma * v(5,:,:) &
+                   + pt5*Ma**2*(v(2,:,:)**2+v(3,:,:)**2+v(4,:,:)**2))  
 
           write(*,"('Enter nz, Lz ==> ',$)")
           read(*,*) nz, Lz
@@ -1610,7 +1632,7 @@
         return
         end 
 !=============================================================================!
-    subroutine makename(base,iver,fname)
+      subroutine makename(base,iver,fname)
 !
 !.... put a version number on the filename
 !

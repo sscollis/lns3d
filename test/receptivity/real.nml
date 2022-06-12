@@ -1,0 +1,7 @@
+&extras
+echo = .true.
+useAmp = .true.
+amp_file = 'amp.top'
+compSpg = .false.
+compSpg2 = .true.
+/

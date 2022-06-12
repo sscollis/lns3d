@@ -36,11 +36,15 @@
 
 !.... zero freestrean disturbance or Riemann boundary
 
-          if (top.eq.0) rl(:,:,ny) = zero
+          if (top.eq.0) then
+
+            rl(:,:,ny) = zero
         
           else            ! Inviscid
 
             rl(3,:,1) = zero         ! assume a flat plate
+ 
+          endif
 
           end if          ! Navier
 

@@ -13,6 +13,16 @@
         
         real, allocatable :: p(:), pnorm(:)
 
+
+        real, allocatable :: & 
+          rhom(:), um(:), tm(:), cm(:), m1l(:), &
+          m2l(:), dl(:), ul(:), rho(:), u1(:), &
+          u2(:), u3(:), t(:), c1(:), c2(:), c3(:), c4(:)
+
+        real :: a, d, kk
+
+        real, external :: ramp
+
         integer :: i, j
 !=============================================================================!
 !       L I N E A R   B O U N D A R Y   C O N D I T I O N S
@@ -74,10 +84,10 @@
           do i = 1, nx
             if ( abs(bnb(i,2)) .ge. abs(bnb(i,1)) ) then
               rl(2,i,1) = bnb(i,2) * rl(2,i,1) - bnb(i,1) * rl(3,i,1)
-              rl(3,i,1) = -( bnb(i,1) * vl(2,i,1) + bnb(i,2) * vl(3,i,1) )
+              rl(3,i,1) = -(bnb(i,1) * vl(2,i,1) + bnb(i,2) * vl(3,i,1))
             else
               rl(3,i,1) = bnb(i,2) * rl(2,i,1) - bnb(i,1) * rl(3,i,1)
-              rl(2,i,1) = -( bnb(i,1) * vl(2,i,1) + bnb(i,2) * vl(3,i,1) )
+              rl(2,i,1) = -(bnb(i,1) * vl(2,i,1) + bnb(i,2) * vl(3,i,1))
             end if
           end do
 
@@ -89,9 +99,84 @@
 !.... freestream zero disturbance boundary conditions
 
           if (top.eq.0) then
+
             rl(:,:,ny) = zero
+
+          else if (top.eq.1) then
+#if 0
+            rl(:,:,ny) = zero
+#else
+            allocate( rhom(nx), um(nx), tm(nx), cm(nx), m1l(nx), &
+                      m2l(nx), dl(nx), ul(nx), rho(nx), u1(nx), &
+                      u2(nx), u3(nx), t(nx), p(nx), c1(nx), c2(nx), &
+                      c3(nx), c4(nx) )
+                     
+!.... compute the characteristic amplitudes on the top boundary
+
+            rhom = vml(1,:,ny)
+            um   = vml(2,:,ny)
+            tm   = vml(5,:,ny)
+            cm   = one / Ma * sqrt( tm )
+
+!.... get the metrics along this boundary
+
+            j = ny
+            do i = 1, nx
+              m1l(i)  = n1(i,j)
+              m2l(i)  = n2(i,j)
+            end do
+
+            dl = sqrt( m1l**2 + m2l**2)
+            ul = vml(2,:,ny) * m1l + vml(3,:,ny) * m2l
+
+            rho = vl(1,:,ny)
+            u1  = vl(2,:,ny)
+            u2  = vl(3,:,ny)
+            u3  = vl(4,:,ny)
+            t   = vl(5,:,ny)
+            p   = one/(gamma * Ma**2) * ( rhom * t + tm * rho )
+
+            c1  = zero                                    ! entropy
+            c2  = zero                                    ! vorticity
+
+!.... sin wave (accounting for viscosity)
+
+            d = one / Re * pt5 / one * ( onept33 + gamma1 / Pr )
+            do i = 1, nx
+              kk = omega / (cm(i)+um(i))
+              a  = omega**2 * d / (cm(i)+um(i))**3
+              c3(i) = ramp((kk*(x0-x(i,ny)) + omega*time)/(two*pi)) * &
+                      wamp(i) * cos( kk * x(i,ny) - omega * time ) * &
+                      exp( -a * (x(i,ny) - x0) )
+            end do
+
+            c4  = zero                                    ! left acoustic
+
+            rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2
+            u1  = ( c3 - c4 ) * pt5 / ( rhom * cm )
+            u2  = c2 / ( rhom * cm )
+            u3  = zero
+            p   = ( c3 + c4 ) * pt5
+            t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
+
+!.... apply the boundary condition
+
+            rl(1,:,ny) = (vl(1,:,ny) - rho)
+            rl(2,:,ny) = (vl(2,:,ny) - u1)
+            rl(3,:,ny) = (vl(3,:,ny) - u2)
+            rl(4,:,ny) = (vl(4,:,ny) - u3)
+            rl(6,:,ny) = (vl(5,:,ny) - t)
+
+!  r = vold - v - delt * r
+!  r = vold - v - delt * (vold/delt - two*v(1)/delt + rho/delt)
+!  r = v - rho
+
+            deallocate( rhom ,tm, cm, um, rho, u1, &
+                        u2, u3, t, p, c1, c2,      &
+                        c3, c4, m1l, m2l, dl, ul   )
+#endif
           end if
-        
+
         end if                  ! yper
 
         if (xper) then
@@ -110,7 +195,8 @@
           rl(1,1,nbl+1:ny) = vl(1,1,nbl+1:ny) - &
                   (gamma * Ma * vml(1,1,nbl+1:ny) * &
                   sqrt(vml(5,1,nbl+1:ny)) * vl(2,1,nbl+1:ny) - &
-                  vml(1,1,nbl+1:ny) * vl(5,1,nbl+1:ny)) / vml(5,1,nbl+1:ny)
+                  vml(1,1,nbl+1:ny) * vl(5,1,nbl+1:ny)) / &
+                  vml(5,1,nbl+1:ny)
 
 !         rl(:,1,1:nbl) = vl(:,1,1:nbl) - vl(:,2,1:nbl)
 
@@ -136,8 +222,14 @@
                         gc5 * vl(5,5,j)
           end do
 
+        else if (left.ge.3.and.left.le.6) then           
+ 
+          rl(:,1,:) = zero
+
         else if (left.eq.7) then           ! symmetry boundary
+
           rl(3,1,:) = zero
+
         end if
 
 !=============================================================================!
@@ -150,9 +242,9 @@
         else if (right.eq.1) then
 
           rl(1,nx,nbl+1:ny) = vl(1,nx,nbl+1:ny) - &
-                  (gamma * Ma * vml(1,nx,nbl+1:ny) * &
-                  sqrt(vml(5,nx,nbl+1:ny)) * vl(2,nx,nbl+1:ny) - &
-                  vml(1,nx,nbl+1:ny) * vl(5,nx,nbl+1:ny)) /vml(5,nx,nbl+1:ny)
+            (gamma * Ma * vml(1,nx,nbl+1:ny) * &
+            sqrt(vml(5,nx,nbl+1:ny)) * vl(2,nx,nbl+1:ny) - &
+            vml(1,nx,nbl+1:ny) * vl(5,nx,nbl+1:ny)) /vml(5,nx,nbl+1:ny)
 
 !         rl(:,nx,1:nbl) = vl(:,nx,1:nbl) - vl(:,nx-1,1:nbl)
 
@@ -213,8 +305,8 @@
 !.... isothermal wall
 
           if (wallt.eq.0) then
-            rl(ndof,:,1) = vl(ndof,:,1) - ( one + pt5 * gamma1 * Ma**2 * &
-                           (one + tan(alpha)**2) * sqrt(Pr) )
+            rl(ndof,:,1) = vl(ndof,:,1) - ( one + pt5 * gamma1 * Ma**2 &
+                         * (one + tan(theta)**2) * sqrt(Pr) )
           end if
 
 !.... adiabatic boundary condition
@@ -256,9 +348,9 @@
         else    ! Ma
 
           if (top.eq.0) then
-            call ReimannRHS( nx, vl(:,:,ny), vl(:,:,ny-1), vl(:,:,ny-2), &
-                             bnt, x(:,ny), y(:,ny), rl(:,:,ny), &
-                             rhobt, ubt, vbt, wbt, tbt, pbt, cbt )
+            call ReimannRHS(nx, vl(:,:,ny), vl(:,:,ny-1), vl(:,:,ny-2),&
+                            bnt, x(:,ny), y(:,ny), rl(:,:,ny), &
+                            rhobt, ubt, vbt, wbt, tbt, pbt, cbt )
           end if
         
         end if                  ! Ma
@@ -338,8 +430,8 @@
 
           else if (extrap.eq.2) then
             rl(:,1,1:nbl) = vl(:,1,1:nbl) - &
-                            ( three * vl(:,2,1:nbl) - three * vl(:,3,1:nbl) + &
-                              vl(:,4,1:nbl) )
+                     ( three * vl(:,2,1:nbl) - three * vl(:,3,1:nbl) + &
+                       vl(:,4,1:nbl) )
           end if
           
         end if
@@ -352,9 +444,9 @@
 !.... First-order Riemann
 
           if (right.eq.0) then
-            call ReimannRHS( ny, vl(:,nx,:), vl(:,nx-1,:), vl(:,nx-2,:), &
-                             bnr, x(nx,:), y(nx,:), rl(:,nx,:), &
-                             rhobr, ubr, vbr, wbr, tbr, pbr, cbr )
+            call ReimannRHS(ny, vl(:,nx,:), vl(:,nx-1,:), vl(:,nx-2,:),&
+                            bnr, x(nx,:), y(nx,:), rl(:,nx,:), &
+                            rhobr, ubr, vbr, wbr, tbr, pbr, cbr )
           end if
 
 !.... Symmetry boundary
@@ -366,15 +458,19 @@
         end if          ! Ma
 
 !.... Zero'th order extrapolation in the viscous layers
-
         if (extrap.eq.0) then
           rl(:,nx,1:nbl) = vl(:,nx,1:nbl) - vl(:,nx-1,1:nbl)
           
 !.... First-order extrapolation in the viscous layers
-
         else if (extrap.eq.1) then
           rl(:,nx,1:nbl) = vl(:,nx,1:nbl) - &
-                          ( two * vl(:,nx-1,1:nbl) - vl(:,nx-2,1:nbl) )
+            ( two * vl(:,nx-1,1:nbl) - vl(:,nx-2,1:nbl) )
+
+!.... Second-order extrapolation in the viscous layers
+        else if (extrap.eq.2) then
+          rl(:,nx,1:nbl) = vl(:,nx,1:nbl) - &
+            ( three*vl(:,nx-1,1:nbl) - three*vl(:,nx-2,1:nbl) + &
+              vl(:,nx-3,1:nbl) )
         end if
         
         if (right.eq.8) then            ! hold initial condition

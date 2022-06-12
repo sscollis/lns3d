@@ -30,19 +30,24 @@
         allocate ( tr(ny) )
         allocate ( ti(ny) )
 
-        write (*,*) 'Reading eigenfunctions for Ny = ', ny
-
-        open(unit=ifile,file='inflow.dat',form='formatted',status='unknown')
-
+        open(unit=100,file='inflow.nml')
+        read(100,inflow)
+        if (inflow_echo) then
+          write(*,inflow)
+        endif
+        close(100)
+        write (*,*) 'Reading inflow profile from ',inflow_file
+        write (*,*) '  with Ny = ', ny
+        open(unit=ifile,file=inflow_file,form='formatted',status='unknown')
         do j = 1, ny 
           read(ifile,*) dummy,rhor(j),rhoi(j),ur(j),ui(j),  &
                         vr(j),vi(j),wr(j),wi(j),tr(j),ti(j)
-!         write(*,10) dummy,rhor(j),rhoi(j),ur(j),ui(j),    &
-!                       vr(j),vi(j),wr(j),wi(j),tr(j),ti(j)
+          if (inflow_echo) then
+            write(*,10) dummy,rhor(j),rhoi(j),ur(j),ui(j),    &
+                        vr(j),vi(j),wr(j),wi(j),tr(j),ti(j)
+          endif 
         end do
-        
         close(ifile)
-        
         write(*,"(' GenDist allocated ===> ',1pe13.6,' words')") float(mem)
 
         return

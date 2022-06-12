@@ -66,10 +66,10 @@
         
 !.... standard sponge
 
-        if (ispg .gt. 0) then
-          if (ispg .eq. 1) then
+        if (ispg.gt.0) then
+          if (ispg.eq.1) then
             call spg_it(rl,vl,spg)
-          else if (ispg .eq. 2) then
+          else if (ispg.eq.2) then
             !$doacross local(ij)
             do ij = 1, nx*ny
               rl(1,ij) = rl(1,ij) + (spg(ij) + spg2(ij)) * ( vl(1,ij) - one )
@@ -85,7 +85,7 @@
 
 !.... explicit smoother
 
-!       if (eps_e .ne. zero) call smoother( rl, vl )
+!       if (eps_e.ne.zero) call smoother( rl, vl )
         
         return
         end

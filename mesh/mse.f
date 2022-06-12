@@ -373,6 +373,10 @@ c
 c.... Hyperbolic tangent stretching
 c
         if (yflag.eq.2) then
+
+        write(*,*) "Using hyperbolic tangent mapping in y-direction"
+        write(*,*) "NOTE:  Parameters hardwired for MSE at R=2400"
+
         rd1 = 0.0005d0                  ! set for R=2400 MSE, r=50
         rd2 = 5.0d0
         dd  = 5.36966703089523d0        

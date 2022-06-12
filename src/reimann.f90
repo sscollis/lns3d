@@ -92,7 +92,7 @@
 !!$               (-bn(i,1)**2 - bn(i,2)**2)
 !!$          v_in(3) = (-bn(i,2) * vn_in + bn(i,1) * vt_in) / &
 !!$               (-bn(i,1)**2 - bn(i,2)**2)
-!!$          v_in(4) = tan(alpha)
+!!$          v_in(4) = tan(theta)
 !!$          v_in(5) = ( Ma * gamma1 / four * ( R2(i) - R1(i) ) )**2
 !!$          
 !!$          rho_out = vint(1,i)
@@ -130,7 +130,7 @@
               (-bn(i,1)**2 - bn(i,2)**2)
             vl(3,i) = (-bn(i,2) * vn(i) + bn(i,1) * vt(i)) / &
               (-bn(i,1)**2 - bn(i,2)**2)
-            vl(4,i) = tan(alpha)
+            vl(4,i) = tan(theta)
             vl(5,i) = ( Ma * gamma1 / four * ( R2(i) - R1(i) ) )**2
 
           else                                  ! outflow
@@ -213,7 +213,7 @@
               (-bn(i,1)**2 - bn(i,2)**2)
             rl(3,i) = vl(3,i) - (-bn(i,2) * vn(i) + bn(i,1) * vt(i)) / &
               (-bn(i,1)**2 - bn(i,2)**2)
-            rl(4,i) = vl(4,i) - tan(alpha)
+            rl(4,i) = vl(4,i) - tan(theta)
             rl(5,i) = vl(5,i) - ( Ma * gamma1 / four * ( R2(i) - R1(i) ) )**2
 
           else                                  ! outflow

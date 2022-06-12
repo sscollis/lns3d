@@ -43,7 +43,7 @@
 
         integer :: i, j, k, idof
 
-        character*80 file, temp
+        character(80) file, temp
         integer :: iloc, iend
 #ifndef __GFORTRAN__    
         integer, external :: iargc
@@ -66,7 +66,9 @@
         logical :: sub=.false., deriv=.false.
         integer, parameter :: mfile = 5
         integer :: narg, iarg, nfile=0, ifile(mfile)
-        character*80 :: arg
+        character(80) :: arg
+
+        logical :: switch_ij = .true.
 !=============================================================================!
 !.... parse the argument list
 
@@ -128,7 +130,11 @@
           call exit(1)
         end if
         allocate( v(ny,nx,ndof) )
-        read(10) v
+        if (switch_ij) then
+          read(10) (((v(j,i,k), k=1,ndof), i=1,nx), j=1,ny)
+        else
+          read(10) v
+        endif
         close(10)
         write(*,"('Read disturbance field for ',a)") file(1:index(file,' '))
         write(*,"('  Time = ',1pe10.3,'  step = ',i6)") time, lstep
@@ -173,7 +179,11 @@
           call exit(1)
         end if
         allocate( vm(ny,nx,ndof) )
-        read(10) vm
+        if (switch_ij) then
+          read(10) (((vm(j,i,k), k=1,ndof), i=1,nx), j=1,ny)
+        else
+          read(10) vm
+        endif
         close(10)
 
 !.... allocate storage for metrics
@@ -185,7 +195,21 @@
 !.... read in the metric file
 
         open (unit=10,file='metric.dat',form='unformatted', status='old')
-        read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
+        if (switch_ij) then
+          read(10) &
+            (( m1(j,i), i=1,nx), j=1,ny), &
+            (( m2(j,i), i=1,nx), j=1,ny), &
+            (( n1(j,i), i=1,nx), j=1,ny), &
+            (( n2(j,i), i=1,nx), j=1,ny), &
+            ((m11(j,i), i=1,nx), j=1,ny), &
+            ((m12(j,i), i=1,nx), j=1,ny), &
+            ((m22(j,i), i=1,nx), j=1,ny), &
+            ((n11(j,i), i=1,nx), j=1,ny), &
+            ((n12(j,i), i=1,nx), j=1,ny), &
+            ((n22(j,i), i=1,nx), j=1,ny)
+        else
+          read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
+        endif
         close(10)
 
 !.... compute the wall normals
@@ -449,4 +473,3 @@
         call exit(1)
 
         end
-

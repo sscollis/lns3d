@@ -24,7 +24,7 @@
         implicit none
         
         integer :: i, j, idof, ier
-        character*80 :: code='mLocal3D$'
+        character(80) :: code='mLocal3D$'
 !=============================================================================!
         allocate( c1v(ndof,nx,ny),  c2v(ndof,nx,ny),            &
                   c11v(ndof,nx,ny), c12v(ndof,nx,ny),           &

@@ -20,7 +20,7 @@
 
         real :: ub(nx), vb(nx)
 
-        integer :: i, j, ij
+        integer :: i, j, ij, jbl
 
 !.... forcing parameters
 
@@ -121,14 +121,22 @@
 
 !.... allocate room for the boundary amplitude
 
-!         if (istep.eq.0) then
-!           allocate( wamp(nx) )
-!           open(66,file='amp.dat',form='formatted',status='unknown')
-!           do i = 1, nx
-!             read(66,*) tmp, wamp(i)
-!           end do
-!           close(66)
-!         end if
+          if (useAmp) then
+            if (istep.eq.0) then
+              write(*,*) "Read ",amp_file
+              allocate( wamp(nx) )
+              open(66,file=amp_file,form='formatted',status='unknown')
+              do i = 1, nx
+                read(66,*) tmp, wamp(i)
+              end do
+              close(66)
+            end if
+          else
+            if (istep.eq.0) then
+              allocate( wamp(nx) )
+              wamp = one
+            end if
+          endif
         
 !.... compute the characteristic amplitudes on the top boundary
           
@@ -141,7 +149,6 @@
 
           j = ny
           do i = 1, nx
-            ij = j + (i-1) * ny
             m1l(i)  = n1(i,j)
             m2l(i)  = n2(i,j)
           end do          
@@ -155,7 +162,9 @@
           u3  = vl(4,:,ny)
           t   = vl(5,:,ny)
           p   = one/(gamma * Ma**2) * ( rhom * t + tm * rho )
-          
+
+#if 0          
+
 !.... subtract off the forcing wave
 
           if (.true.) then
@@ -170,11 +179,11 @@
             do i = 1, nx
               kk = omega / (cm(i)+um(i))
               a  = omega**2 * d / (cm(i)+um(i))**3
-              c3(i) = ramp( (kk*(x0-x(ny,i)) + omega * time)/(two*pi) ) * &
-                      cos( kk * x(ny,i) - omega * time ) * &
-                      exp( -a * (x(ny,i) - x0) )
-!             c3(i) = ramp( (kk*(x0-x(ny,i)) + omega * time)/(two*pi) ) * &
-!                     wamp(i) * cos( kk * x(ny,i) - omega * time )
+              c3(i) = ramp((kk*(x0-x(i,ny)) + omega*time)/(two*pi)) * &
+                      wamp(i) * cos( kk * x(i,ny) - omega * time ) * &
+                      exp( -a * (x(i,ny) - x0) )
+!             c3(i) = ramp((kk*(x0-x(i,ny)) + omega*time)/(two*pi)) * &
+!                     wamp(i) * cos( kk * x(i,ny) - omega * time )
             end do
 
             c4  = zero
@@ -225,11 +234,11 @@
             do i = 1, nx
               kk = omega / (cm(i)+um(i))
               a  = omega**2 * d / (cm(i)+um(i))**3
-              c3(i) = ramp( (kk*(x0-x(ny,i)) + omega * time)/(two*pi) ) * &
-                      cos( kk * x(ny,i) - omega * time ) * &
-                      exp( -a * (x(ny,i) - x0) )
-!             c3(i) = ramp( (kk*(x0-x(ny,i)) + omega * time)/(two*pi) ) * &
-!                     wamp(i) * cos( kk * x(ny,i) - omega * time )
+              c3(i) = ramp((kk*(x0-x(i,ny)) + omega*time)/(two*pi)) * &
+                      wamp(i) * cos( kk * x(i,ny) - omega * time ) * &
+                      exp( -a * (x(i,ny) - x0) )
+!             c3(i) = ramp((kk*(x0-x(i,ny)) + omega*time)/(two*pi)) * &
+!                     wamp(i) * cos( kk * x(i,ny) - omega * time )
             end do
             
             c4  = zero
@@ -241,6 +250,32 @@
             t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
 
           end if
+#else
+            c1  = zero                                    ! entropy
+            c2  = zero                                    ! vorticity
+
+!.... sin wave (accounting for viscosity)
+
+            d = one / Re * pt5 / one * ( onept33 + gamma1 / Pr )
+
+            do i = 1, nx
+              kk = omega / (cm(i)+um(i))
+              a  = omega**2 * d / (cm(i)+um(i))**3
+              c3(i) = ramp((kk*(x0-x(i,ny)) + omega*time)/(two*pi)) * &
+                      wamp(i) * cos( kk * x(i,ny) - omega * time ) * &
+                      exp( -a * (x(i,ny) - x0) )
+            end do
+
+!           c4  = -rhom * cm * u1 + p                     ! left acoustic
+            c4  = zero                                    ! left acoustic
+
+            rho = ( -c1 + pt5 * ( c3 + c4 ) ) / cm**2
+            u1  = ( c3 - c4 ) * pt5 / ( rhom * cm )
+            u2  = c2 / ( rhom * cm )
+            u3  = zero
+            p   = ( c3 + c4 ) * pt5
+            t   = ( gamma * Ma**2 * p - tm * rho ) / rhom
+#endif
           
 !.... apply the boundary condition
 
@@ -300,11 +335,11 @@
 !.... set the boundary-layer edge
 
 !         nbl = 40              ! set for the Stokes layer for omega=0.8
-          nbl = 1               ! set for the viscous layer on small grid
+!         nbl = 1               ! set for the viscous layer on small grid
 
           vl(1,1,nbl+1:ny) = (gamma * Ma**2 * rhom(nbl+1:ny) * &
                               cm(nbl+1:ny) * u1(nbl+1:ny) - &
-                              rhom(nbl+1:ny) * t(nbl+1:ny)) / tm(nbl+1:ny)
+                              rhom(nbl+1:ny) * t(nbl+1:ny))/tm(nbl+1:ny)
 
 !.... zeroth-order extrapolation in the viscous layer
 
@@ -463,14 +498,14 @@
           c1  = zero                                    ! entropy
           c2  = zero                                    ! vorticity
 
+          d = one / Re * pt5 / one * ( onept33 + gamma1 / Pr )
+
           do j = 1, ny
             kk = omega / (cm(j)+um(j))
             a  = omega**2 * d / (cm(j)+um(j))**3
-
-            c3  = ramp( (kk*(x0-x(j,1)) + omega * time) / (two*pi) ) * &
-                  cos( kk * x(j,1) - omega * time )
-
-!           c3  = cos( kk * x(:,1) - omega * time )
+            c3(j) = ramp( (kk*(x0-x(1,j)) + omega * time)/(two*pi) ) * &
+                    cos( kk * x(1,j) - omega * time )
+!           c3(j) = cos( kk * x(1,j) - omega * time )
           end do
 
           c4  = -rhom * cm * u1 + p                     ! left acoustic
@@ -486,8 +521,11 @@
           vl(3,1,:) = u2
           vl(4,1,:) = u3
           vl(5,1,:) = t
+
         else if (left.eq.7) then           ! symmetry boundary
+
           vl(3,1,:) = zero
+
         end if
 !=============================================================================!
 !       R i g h t   B o u n d a r y
@@ -635,7 +673,7 @@
 
           if (wallt.eq.0) then
             vl(ndof,:,1) = one + pt5 * gamma1 * Ma**2 * &
-                           (one + tan(alpha)**2) * sqrt(Pr)
+                           (one + tan(theta)**2) * sqrt(Pr)
           end if
 
 !.... adiabatic temperature ( dT/deta = 0 )
@@ -799,18 +837,19 @@
           vl(3,nx,:) = zero
         end if
         
-        if (.false.) then
-
 !.... find the boundary-layer edge (using delta_99 right now)
 !.... It is wise to keep nbl fixed, since every change sets up a transient.
-
-!       do nbl = 1, ny
-!         if (vl(2,nx-1,nbl) .gt. 0.99 ) exit
-!         if ((vl(5,nx-1,nbl)-vl(5,nx-1,1))/(one-vl(5,nx-1,1)) .gt. 0.99 ) exit
-!       end do
 !       nbl = 70                ! for ny = 128
-        nbl = 35                ! for ny = 63
-!       if (iter.eq.1) write(90,*) istep, nbl 
+!       nbl = 35                ! for ny = 63
+        if (update_nbl) then
+          do jbl = 1, ny
+            if (vl(2,nx-1,jbl) .gt. 0.99 ) exit
+            !if ((vl(5,nx-1,jbl)-vl(5,nx-1,1))/(one-vl(5,nx-1,1)).gt.0.99) exit
+          end do
+          if (iter.eq.1.and.output_nbl) write(90,*) istep, lstep, jbl, nbl 
+          nbl = jbl
+        end if
+        if (nbl.gt.ny) call error("itrbc$","nbl > ny$")
 
 !.... zeroth order extrapolation in the viscous layers
 
@@ -818,17 +857,21 @@
           do j = 1, nbl
             vl(:,nx,j) = vl(:,nx-1,j)
           end do
-        end if
         
 !.... first-order extrapolation in the viscous layers
 
-        if (extrap.eq.1) then
+        else if (extrap.eq.1) then
           do j = 1, nbl
             vl(:,nx,j) = two * vl(:,nx-1,j) - vl(:,nx-2,j)
           end do
-        end if
 
-        end if
+!.... second-order extrapolation in the viscous layers
+
+        else if (extrap.eq.2) then
+          do j = 1, nbl
+            vl(:,nx,j) = three*vl(:,nx-1,j) - three*vl(:,nx-2,j) + vl(:,nx-3,j)
+          end do
+        end if                  ! extrapolation type
 
         end if                  ! xper
 

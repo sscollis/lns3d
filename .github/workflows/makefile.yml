@@ -1,0 +1,63 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: setup
+      run: ls /usr/local
+      
+    - name: install csh
+      run: brew install tcsh
+      
+    - name: check tcsh
+      run: ls /home/linuxbrew/.linuxbrew/bin
+      
+    #- name: check 
+    #  run: ls /usr/local/sbin
+      
+    #- name: check
+    #  run: ls /usr
+      
+    #- name: check
+    #  run: ls /usr/local/opt
+      
+    #- name: csh
+    #  run: ls /bin && ls /usr/bin
+      
+    - name: verlist
+      run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
+      
+    - name: install
+      run: brew install openblas arpack
+      
+    - name: build slatec
+      run: cd slatec/src && make && make install
+      
+    - name: build util
+      run: cd util && ln -s gcc.mak Makefile && make
+      
+    - name: configure LNS3d
+      run: cd src && ln -s gcc.mak Makefile
+      
+    - name: build LNS3d
+      run: cd src && make COMP_CC=gcc
+      
+    - name: set path
+      run: export PATH=$PATH:`pwd`/util && echo $PATH
+      
+    - name: Run test
+      run: cd test/wave && env PATH=/home/runner/work/lns3d/lns3d/util:$PATH ./run.sh
+      
+    #- name: Run distcheck
+      #run: make distcheck

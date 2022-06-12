@@ -22,7 +22,7 @@ c       implicit double precision (a-h,o-z)
      &             onept5=1.5d0,  two=2.0d0,  twopt5=2.5d0, 
      &             three=3.0d0)
 
-        parameter (mx=1024,my=255)
+        parameter (mx=1024,my=1024)
         
         dimension xb(mx), yb(mx)
         dimension bn1(mx), bn2(mx)
@@ -160,7 +160,7 @@ c
 c
 c.... Uniform spacing
 c
-        if (.false.) then
+        if (.true.) then
           do j = 1, ny
             eta(j)  = real(j-1) * deta
             rr(j)   = rmin + real(j-1) * dr
@@ -221,7 +221,7 @@ c
 c
 c.... Maheshs mapping, personal communication (6-5-96)
 c
-        if (.true.) then
+        if (.false.) then
           write(*,"('Enter drmin, b, rc ==> ',$)") 
           read(*,*) drmin, b, rc
           cm = ( two * b * tanh(b*rc) + (ny-1)*drmin/rmax * 

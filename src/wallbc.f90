@@ -1,3 +1,6 @@
+!
+!   NOT FIXED for IJ ordering
+!
 !=============================================================================!
         subroutine wallbc(vl, rhow, pnorm) 
 !=============================================================================!
@@ -37,6 +40,10 @@
         real :: bn1(nx), bn2(nx)
 !=============================================================================!
 
+#if 1       
+        write(*,*) "Need to fix wall.f90"
+#else
+
 !.... Compute first derivatives of field in the mapped space
 
         call wgrad(ndof, nx, ny, vl, g1v, g2v, dxi, deta, optx, opty, &
@@ -50,8 +57,6 @@
 !.... enforce adiabatic wall BC on the field
 
         if (wallt.eq.1 .or. wallt.eq.2) g2v(:,ndof) = zero
-
-#if 0
 
 !.... transform the gradients to physical space
 
@@ -211,8 +216,6 @@
                         gc5 * vl(5,i,1) ) / gc1
           end if
         end do
-#else
-        write(*,*) "Need to fix wall.f90"
 #endif
         return
         end

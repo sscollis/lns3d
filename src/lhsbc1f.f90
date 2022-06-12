@@ -88,7 +88,7 @@
 
 !.... freestream zero disturbance boundary condition
 
-        if (top.eq.0) then
+        if (top.eq.0.or.top.eq.1) then
           mat(:,:,:,:,ny) = zero
           mat(3,1,1,:,ny) = one
           mat(3,2,2,:,ny) = one
@@ -105,7 +105,7 @@
 
 !.... left boundary
 
-          if (left.eq.0) then           ! zero disturbance
+          if (left.eq.0.or.left.eq.4) then ! zero disturbance
 
             mat(:,:,:,1,:) = zero
             mat(3,1,1,1,:) = one
@@ -856,6 +856,33 @@
             mat(1,3,3,nx,1:nbl) = -one
             mat(1,4,4,nx,1:nbl) = -one
             mat(1,5,5,nx,1:nbl) = -one
+          end if                ! extrapolation type
+
+!.... Second-order extrapolation in the viscous layer
+
+          if (extrap.eq.2) then
+
+            call error("itrbc1f$","extrap.eq.2 not supported$")
+
+            mat(:,:,:,nx,1:nbl) = zero
+
+            mat(3,1,1,nx,1:nbl) = -one
+            mat(3,2,2,nx,1:nbl) = -one
+            mat(3,3,3,nx,1:nbl) = -one
+            mat(3,4,4,nx,1:nbl) = -one
+            mat(3,5,5,nx,1:nbl) = -one
+
+            mat(2,1,1,nx,1:nbl) = three 
+            mat(2,2,2,nx,1:nbl) = three 
+            mat(2,3,3,nx,1:nbl) = three 
+            mat(2,4,4,nx,1:nbl) = three 
+            mat(2,5,5,nx,1:nbl) = three 
+
+            mat(1,1,1,nx,1:nbl) = -three
+            mat(1,2,2,nx,1:nbl) = -three
+            mat(1,3,3,nx,1:nbl) = -three
+            mat(1,4,4,nx,1:nbl) = -three
+            mat(1,5,5,nx,1:nbl) = -three
           end if                ! extrapolation type
 
 !.... hold the IC

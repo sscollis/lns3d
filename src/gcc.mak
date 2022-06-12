@@ -9,9 +9,15 @@
 #=============================================================================
 NAME     = lns3d 
 DEBUG    = -O2 -fopenmp -g
+#
+# Activates unstead inflow BC's and sponge for linearied 3d runs
+#
+DEFINES = 
+DEFINES += -DUSE_TRANSIENT_EIGENFUNCTION
+DEFINES += $(ADDONS)
 F77FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -ffixed-line-length-120 \
--std=legacy -c $(DEBUG)
-F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -c $(DEBUG)
+-std=legacy $(DEFINES) -c $(DEBUG)
+F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEFINES) -c $(DEBUG)
 OFLAGS   = $(DEBUG) -o $(NAME)
 LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas -L/usr/local/lib -larpack
 COMP_F90 = gfortran
@@ -44,7 +50,8 @@ rhsbc3d.o cpenta1p.o cpenta2p.o cpenta1bc.o cpenta2bc.o init.o		\
 lhs1f3d.o lhsbt1f3d.o lhsbt2f3d.o lhsbc1f3d.o lhsbc2f3d.o lhsbs1f3d.o	\
 expdrv3d.o rk3d.o rkbc3d.o lhs2f3d.o fstat3d.o potential.o genbump.o	\
 smoother3d.o misc.o rhs_l.o rpenta1p.o rpenta2p.o rpenta1bc.o rpenta2bc.o \
-ZnaupdClass.o ZneupdClass.o si_eigdrv3d_new.o eigbc3d.o lwallbc.o wallbc.o
+ZnaupdClass.o ZneupdClass.o si_eigdrv3d_new.o eigbc3d.o lwallbc.o wallbc.o \
+gena_n.o genb_n.o gena_l.o genb_l.o
 #adi.o
 #la_eigdrv3d.o
 

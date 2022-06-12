@@ -389,10 +389,10 @@ loop_i: do i = 1, nx
         
 !.... standard sponge
 
-        if (ispg .gt. 0) then
-          if (ispg .eq. 1) then
+        if (ispg.gt.0) then
+          if (ispg.eq.1) then
             call spg_it(rl,vl,spg)
-          else if (ispg .eq. 2) then
+          else if (ispg.eq.2) then
             !$doacross local(i)
             !$omp parallel do private(i)
             do j = 1, ny
@@ -416,7 +416,7 @@ loop_i: do i = 1, nx
 
 !.... explicit smoother
 
-        if (eps_e .ne. zero) call smoother( rl, vl )
+        if (eps_e.ne.zero) call smoother( rl, vl )
 
 !       write(*,*) 'RHS ',second()-cpul
         cpul = second()

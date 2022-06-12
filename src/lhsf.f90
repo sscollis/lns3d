@@ -296,7 +296,7 @@ loop_i: do i = 1, nx
 
 !.... sponge
 
-        if (ispg .eq. 1) then
+        if (ispg.eq.1) then
         
           mat(3,1,1,i,j) = mat(3,1,1,i,j) + alfa * dtl(i,j) * spg(i,j)
           mat(3,2,2,i,j) = mat(3,2,2,i,j) + alfa * dtl(i,j) * spg(i,j)
@@ -304,7 +304,7 @@ loop_i: do i = 1, nx
           mat(3,4,4,i,j) = mat(3,4,4,i,j) + alfa * dtl(i,j) * spg(i,j)
           mat(3,5,5,i,j) = mat(3,5,5,i,j) + alfa * dtl(i,j) * spg(i,j)
         
-        else if (ispg .ge. 2) then
+        else if (ispg.ge.2) then
         
           mat(3,1,1,i,j) = mat(3,1,1,i,j) + alfa * dtl(i,j) * ( spg(i,j) + spg2(i,j) )
           mat(3,2,2,i,j) = mat(3,2,2,i,j) + alfa * dtl(i,j) * ( spg(i,j) + spg2(i,j) )

@@ -396,6 +396,40 @@
             bc(14,5,5,1:nbl) = -one
           end if                ! extrapolation type
 
+
+!.... second-order extrapolation in the viscous layer
+          
+          if (extrap.eq.2) then
+
+            mat(:,:,:,nx,1:nbl) = zero
+            bc(12:14,:,:,1:nbl) = zero
+
+            mat(2,1,1,nx,1:nbl) = -one
+            mat(2,2,2,nx,1:nbl) = -one
+            mat(2,3,3,nx,1:nbl) = -one
+            mat(2,4,4,nx,1:nbl) = -one
+            mat(2,5,5,nx,1:nbl) = -one
+
+            mat(1,1,1,nx,1:nbl) = three
+            mat(1,2,2,nx,1:nbl) = three
+            mat(1,3,3,nx,1:nbl) = three
+            mat(1,4,4,nx,1:nbl) = three
+            mat(1,5,5,nx,1:nbl) = three
+
+            bc(14,1,1,1:nbl) = -three
+            bc(14,2,2,1:nbl) = -three
+            bc(14,3,3,1:nbl) = -three
+            bc(14,4,4,1:nbl) = -three
+            bc(14,5,5,1:nbl) = -three
+
+            bc(13,1,1,1:nbl) = one
+            bc(13,2,2,1:nbl) = one
+            bc(13,3,3,1:nbl) = one
+            bc(13,4,4,1:nbl) = one
+            bc(13,5,5,1:nbl) = one
+
+          end if                ! extrapolation type
+
 !.... hold the IC
 
           if (right.eq.8) then

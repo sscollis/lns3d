@@ -6,6 +6,9 @@ INP="${1:-rk4.inp}"
 LNS3D_DIR="${LNS3D_DIR:=../..}"
 echo LNS3D base directory = $LNS3D_DIR
 echo "  Using input file $INP"
+#export PATH=$LNS3D_DIR/util:$PATH
+echo $PATH
+which verlist
 $LNS3D_DIR/util/genmesh < mesh.inp && \
 ln -f -s grid.dat grid.xyz && \
 $LNS3D_DIR/util/mkmean < mean.inp && \

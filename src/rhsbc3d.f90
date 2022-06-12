@@ -17,7 +17,8 @@
         real :: tmp
         
         real, allocatable :: rhom(:), cm(:), tm(:), um(:)
-        complex, allocatable :: c3(:)
+        complex, allocatable :: c1(:), c2(:), c3(:), c4(:)
+        complex, allocatable :: rho(:), u1(:), u2(:), u3(:), t(:), p(:)
         
         complex :: ub(nx)
         
@@ -27,7 +28,7 @@
 
         real :: a, d, kk
 
-!!=============================================================================!
+!=============================================================================!
 !       L I N E A R   B O U N D A R Y   C O N D I T I O N S
 !=============================================================================!
         if (yper) then
@@ -134,8 +135,10 @@
           do i = 1, nx
             kk = omega / (cm(i)+um(i))
             a  = omega**2 * d / (cm(i)+um(i))**3
-            c3(i) = exp( -a * (x(ny,i) - x0) ) * exp( im * kk * x(ny,i) )
-!           c3(i) = wamp(i) * exp( im * kk * x(ny,i) )
+            ! c3(i) = exp( im * kk * x(i,ny) )
+            ! c3(i) = exp( -a * (x(i,ny) - x0) ) * exp( im * kk * x(i,ny) )
+            ! c3(i) = wamp(i) * exp( im * kk * x(ny,i) )
+            c3(i) = wamp(i) * exp( -a * (x(i,ny) - x0) ) * exp( im * kk * x(i,ny) )
           end do
 
           rl(1,:,ny) = -(vl(1,:,ny) - pt5 * c3 / cm**2)
@@ -162,9 +165,77 @@
 
           rl(:,1,:) = zero
 
+        else if (left.eq.1) then
+
+!.... compute the characteristic amplitudes on the left boundary
+
+          allocate( rhom(ny), tm(ny), cm(ny), um(ny), c3(ny) )
+
+          rhom = vml(1,1,:)
+          tm   = vml(5,1,:)
+          cm   = sqrt( tm ) / Ma
+          um   = vml(2,1,:)
+
+          d  = pt5 * ( onept33 + gamma1 / Pr ) / Re
+
+          do j = 1, ny
+            kk = omega / (cm(j)+um(j))
+            a  = omega**2 * d / (cm(j)+um(j))**3
+            ! c3(j) = exp( im * kk * x(i,ny) )
+            ! c3(j) = exp( -a * (x(i,ny) - x0) ) * exp( im * kk * x(i,ny) )
+            ! c3(j) = wamp(i) * exp( im * kk * x(ny,i) )
+            c3(j) = exp( -a * (x(1,j) - x0) ) * exp( im * kk * x(1,j) )
+          end do
+
+          rl(1,1,:) = -(vl(1,1,:) - pt5 * c3 / cm**2)
+          rl(2,1,:) = -(vl(2,1,:) - c3 * pt5 / ( rhom * cm ))
+          rl(3,1,:) = -(vl(3,1,:) - zero)
+          rl(4,1,:) = -(vl(4,1,:) - zero)
+          rl(5,1,:) = -(vl(5,1,:) - (gamma*Ma**2 * c3 * pt5 - &
+                                     tm * pt5 * c3 / cm**2) / rhom)
+
+          deallocate( rhom, tm, cm, um, c3 )
+
         else if (left.eq.4) then        ! eigenfunction inflow
-        
+
+          !write(*,*) "rhsbc3d:  left.eq.4"
+#if 0
           rl(:,1,:) = zero
+#else
+          allocate( rhom(ny), tm(ny), cm(ny) )
+          allocate( c1(ny), c2(ny), c3(ny), c4(ny) )
+          allocate( rho(ny), u1(ny), u2(ny), u3(ny), t(ny), p(ny) )
+
+          rhom = vml(1,1,:)
+          tm   = vml(5,1,:)
+          cm   = one / Ma * sqrt( tm )
+
+!.... compute incomming characteristics (eigenfunctions)
+
+          rho = cmplx(rhor(1:ny), rhoi(1:ny))
+          u1  = cmplx(  ur(1:ny),   ui(1:ny))
+          u2  = cmplx(  vr(1:ny),   vi(1:ny))
+          u3  = cmplx(  wr(1:ny),   wi(1:ny))
+          t   = cmplx(  tr(1:ny),   ti(1:ny))
+#ifdef USE_TRANSIENT_EIGENFUNCTION
+          if (omega.eq.0) then
+            rho = rho * exp(-im*lomega*time)
+            u1  =  u1 * exp(-im*lomega*time)
+            u2  =  u2 * exp(-im*lomega*time)
+            u3  =  u3 * exp(-im*lomega*time)
+            t   =   t * exp(-im*lomega*time)
+          endif
+#endif
+          rl(1,1,:) = -(vl(1,1,:) - rho)
+          rl(2,1,:) = -(vl(2,1,:) -  u1)
+          rl(3,1,:) = -(vl(3,1,:) -  u2)
+          rl(4,1,:) = -(vl(4,1,:) -  u3)
+          rl(5,1,:) = -(vl(5,1,:) -   t)
+
+          deallocate( rhom, tm, cm )
+          deallocate( c1, c2, c3, c4 )
+          deallocate( rho, u1, u2, u3, t, p )
+#endif
         
         else if (left.eq.5) then        ! acoustic wave inflow
           
@@ -246,4 +317,3 @@
                         
         return
         end
-

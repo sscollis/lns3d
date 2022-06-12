@@ -3,9 +3,7 @@
 Mach 0.4, Re=240 viscous mean flow past a modified super ellipse using
 a conformal mesh. 
 
-
-Note that there is a visible upstream running acoustic wave still in the
-field during this time-integration.
+Note that this uses the 4th order explict smoother with $\eps_e = 0.01$
 
 S. Scott Collis\
 sscollis@gmail.com
