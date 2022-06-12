@@ -105,8 +105,8 @@
         
         real :: b, rbeta, u, v, t, rho, p, c, alpha
 
-        character*1 ans
-        character*80 name
+        character(1) ans
+        character(80) name
 
         real :: result, errest, dummy
         integer :: np, nel
@@ -116,7 +116,7 @@
 
         write(*,"('Use [M]ean flow profile,         [N]o flow, ', / , &
                 & '    [U]nit flow,                 [P]otential flow,' , / , &
-                & '    [C]urved mesn flow profile   ==> ',$)")
+                & '    [C]urved mean flow profile   ==> ',$)")
         read(*,"(a1)") ans
         
 !.... input from file
