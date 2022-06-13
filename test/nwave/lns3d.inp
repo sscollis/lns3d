@@ -3,11 +3,11 @@
 1000.0				! Re number
 0.0, 0.0			! Pref, Tref
 1.0				! Pr number
-2.0 1.0e10			! Delt, CFL
-25				! nstep
+1.0 10  			! Delt, CFL
+500				! nstep
 0 0				! optx, opty
 .true. .true.			! xper, yper
-1, 25				! itout, ntout
+1, 50				! itout, ntout
 1				! ires (0 = off)
 0				! ispg (0 = off) 
 0				! linear
