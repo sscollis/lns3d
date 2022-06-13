@@ -12,5 +12,15 @@ lns3d
 cns2d_prim
 cns2d_cons
 ```
+## LNS3D
+
+```bash
+./run_lns3d.sh
+```
+
+## CNS2D
+
+TODO:  Add run scripts for CNS2D
+
 S. Scott Collis\
 flow.physics.simulation@gmail.com
