@@ -25,3 +25,6 @@ To run paraview on Mac, use the following:
 or the script, which does this same thing
 
     ./plot.sh
+
+S. Scott Collis\
+flow.physics.simulation@gmail.com
