@@ -70,11 +70,12 @@ $LNS3D_DIR/src/lns3d complex.nml < complex.inp
 ```
 then use Paraview to visualize the `q` files.  Note that the `lpost3d.sh` script
 outputs the imaginary component of the solution in the PLOT3D file.  Modify
-the script to output the real solution or a solution as a particular time.
+the script to output the real-part solution or a real solution at a particular time.
+So see all the options that `lpost3d` supports run using `lpost3d -h`.
 
 Note that the imaginary component (shown below) matches the time-domain solution (above)
-quite closely suggesting that they coorespond to solutons a nominally similar times
-(really phases of the solution).
+quite closely suggesting that they coorespond to solutons at nominally similar times
+(really nominarlly similar phases of the solution).
 
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/receptivity/cmplx-v.png>
