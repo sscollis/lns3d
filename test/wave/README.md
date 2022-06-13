@@ -1,27 +1,13 @@
-# Planar acoustic wave
+# Auxilary planar acoustic wave
 
-This is a simple one-dimensional acoustic wave test using the
-2d linear solver.
+This run is an auxilary run of a planar acoustic wave on a uniform mean
+flow with $U_\infty = 1$ and $Ma = 1$, $Pr = 1$.  Periodic BC's are used
+in the $y$-direction with an inflow and outflow sponge used on the left
+and right boundaries, respectfully.   The inflow sponge enforces a right-running
+acoustic wave and the outflow sponge damps all disturbances.
 
-    ./cleanup && ./run.sh file.inp
+The primary output of the run is the wave amplitude `amp.dat` that is then
+used as `amp.top` for the receptivity run.
 
-where `file.inp` is the lns3d input file that you with to use.
-If no input file is given, `rk4.inp` is used.
-
-Input file   |  Description
--------------|------------------------------------
-`beuler.inp` |  implicit 1st order backward Euler
-`mid.inp`    |  implicit 2nd order midpoint rule
-`rk4.inp`    |  explicit 4th order Runge-Kutta
-`multi.inp`  |  implicit 2nd order 2-step backward
-`mean.inp`   |  Input to `mkmean for mean.dat
-`dist.inp`   |  Input for `mkdist` for disturbance initial condition
-`mesh.inp`   |  `genmesh` input for grid and metrics
-
-To run paraview on Mac, use the following:
-
-    env LNS3D_DIR=`pwd`/../.. open /Applications/ParaView.app --args --script=`pwd`/wave.py
-
-or the script, which does this same thing
-
-    ./plot.sh
+S. Scott Collis\
+flow.physics.simulation@gmail.com
