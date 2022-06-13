@@ -37,7 +37,7 @@ disturbances at that point).
 Notes:
   1. We could have used a nonreflecting BC on the right (`right=1`)
   2. One could also try the Giles nonreflecting BC on the right
-     `right=3`
+     (`right=3`)
   3. These are left as exercises for others to try.
 
 The following two sections show d
