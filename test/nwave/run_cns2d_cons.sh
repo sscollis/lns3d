@@ -4,7 +4,14 @@
 #
 \ln -fs grid.dat grid.xyz
 export GFORTRAN_CONVERT_UNIT='swap'
-cp ic_cons.dat output.res
+../../util/mkini << EOF
+1000 1 1
+1
+g
+1e-5 250 25
+EOF
+\mv output.R.0 output.res
+#cp ic_cons.dat output.res
 ../../../cns2d/src/cns2d cns2d_cons.inp | tee cns2d_cons.log
 #./mpost.sh output.R.*
 exit 0
