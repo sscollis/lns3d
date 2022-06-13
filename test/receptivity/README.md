@@ -78,16 +78,17 @@ then use Paraview to visualize the `q` files.  Note that `LNS3D` is
 run specifying both the regular input file `complex.inp` and the auxilary 
 namelist input file `complex.nml`.
 
-Also note that the `lpost3d.sh` script outputs the imaginary component of the solution 
-in the PLOT3D file by executing `lpost3d -i -ij` with the `-i` option.  The `-ij` 
-option makes sure that all I/O uses IJ ordering (not the old JI ordering used on 
-Crays).   If you want to output the real-part solution or a real solution remove the
-`-i` option or use the `-t` option to output the solution at a particular time.  
+Also note that the `lpost3d.sh` script outputs the imaginary component 
+of the solution in the PLOT3D file by executing `lpost3d -i -ij` with 
+the `-i` option.  The `-ij` option makes sure that all I/O uses IJ ordering 
+(not the old JI ordering used on Crays).   If you want to output the 
+real-part solution or a real solution remove the `-i` option or use the 
+`-t` option to output the solution at a particular time.  
 To see all the options that `lpost3d` supports run using `lpost3d -h`. 
 
-Note that the imaginary component (shown below) matches the time-domain solution (above)
-quite closely suggesting that they coorespond to solutons at nominally similar times
-(really nominarlly similar phases of the solution).
+Note that the imaginary component (shown below) matches the time-domain 
+solution (above) quite closely indicating that they coorespond to solutons 
+at nominally similar times (really nominarlly similar phases of the solution).
 
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/receptivity/cmplx-v.png>
