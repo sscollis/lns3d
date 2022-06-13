@@ -15,14 +15,14 @@
         
         integer, external :: igetver
         
-        integer :: ier, i, j, idof
-        character*80 :: name, code='ImpDrv$'
+        integer :: ier, i, j, idof, mem = 0
+        character(80) :: name, code='ImpDrv$'
         real :: rtime, told
 
         real*4 :: cpul
         real*4, external :: second
-        
-!       real, allocatable :: v(:,:,:), vold(:,:,:)
+
+#ifdef USE_STACK        
         real :: v(ndof,nx,ny), vold(ndof,nx,ny)
         !$sgi distribute v(*,*,block), vold(*,*,block)
         real :: vint(ndof,nx,ny)
@@ -33,6 +33,13 @@
         !$sgi distribute r3(*,*,block), r4(*,*,block)
         real :: dtl(nx,ny)
         !$sgi distribute dtl(*,block)
+#else
+        real, allocatable :: v(:,:,:), vold(:,:,:)
+        real, allocatable :: vint(:,:,:)
+        real, allocatable :: r1(:,:,:), r2(:,:,:)
+        real, allocatable :: r3(:,:,:), r4(:,:,:)
+        real, allocatable :: dtl(:,:)
+#endif
 !=============================================================================!
         istep = 0
 
@@ -40,8 +47,18 @@
 
 !.... allocate the storage area for the disturbance field
 
-!!$     allocate (v(ndof,nx,ny), vold(ndof,nx,ny), STAT=ier)
-!!$     if (ier .ne. 0) call error(code,'Insufficient Memory for v$')
+        mem = mem + 7*ndof*nx*ny + nx*ny
+        allocate (v(ndof,nx,ny), vold(ndof,nx,ny), STAT=ier)
+        if (ier .ne. 0) call error(code,'Insufficient Memory for v$')
+        allocate (vint(ndof,nx,ny), STAT=ier)
+        if (ier .ne. 0) call error(code,'Insufficient Memory for vint$')
+        allocate (r1(ndof,nx,ny), r2(ndof,nx,ny), STAT=ier)
+        if (ier .ne. 0) call error(code,'Insufficient Memory for r1$')
+        allocate (r3(ndof,nx,ny), r4(ndof,nx,ny), STAT=ier)
+        if (ier .ne. 0) call error(code,'Insufficient Memory for r3$')
+        allocate (dtl(nx,ny), STAT=ier)
+        if (ier .ne. 0) call error(code,'Insufficient Memory for dtl$')
+        write(*,"(' ExpDrv allocated: ',1pe13.6,' words')") float(mem)
 
 !.... initialize for 1st touch allocation on SGI
 
@@ -105,7 +122,7 @@
               end do
             end do
           end do
-!         write(*,*) 'Predictor ',second() - cpul
+          !write(*,*) 'Predictor ',second() - cpul
           cpul = second()
           
 !.... --------------------> multi-corrector phase <--------------------
@@ -128,7 +145,7 @@
           else
             call nrk(vint, r1, dtl)
           end if
-!          write(*,*) 'Stage 1 ',second() - cpul
+          !write(*,*) 'Stage 1 ',second() - cpul
           cpul = second()
 
           iter = 2
@@ -148,7 +165,7 @@
           else
             call nrk(vint, r2, dtl)
           end if
-!          write(*,*) 'Stage 2 ',second() - cpul
+          !write(*,*) 'Stage 2 ',second() - cpul
           cpul = second()
           
           iter = 3
@@ -167,7 +184,7 @@
           else
             call nrk(vint, r3, dtl)
           end if
-!          write(*,*) 'Stage 3 ',second() - cpul
+          !write(*,*) 'Stage 3 ',second() - cpul
           cpul = second()
           
           iter = 4
@@ -186,10 +203,9 @@
             call rk(vint, r4, vm, x, y, dtl)
           else
             call nrk(vint, r4, dtl)
-!            write(*,*) 'Stage 4 (nrk) ',second() - cpul
             cpul = second()
           end if
-!         write(*,*) 'Stage 4 ',second() - cpul
+          !write(*,*) 'Stage 4 ',second() - cpul
 !         cpul = second()
             
           !$doacross local(i,idof)

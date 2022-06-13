@@ -270,7 +270,8 @@ loop_i: do i = 1, nx
 
 !.... correct boundaries using Lele & Poinsot BC's
 
-        call rhs_l(rl,vl)
+        !write(*,*) "call rhs_l"
+        !call rhs_l(rl,vl)
         
 !.... standard sponge
 
@@ -301,6 +302,7 @@ loop_i: do i = 1, nx
 
 !.... explicit smoother
 
+        !write(*,*) "call smoother"
         if (eps_e.ne.zero) call smoother( rl, vl )
 
 !       write(*,*) 'RHS ',second()-cpul

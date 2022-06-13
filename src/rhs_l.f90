@@ -74,6 +74,8 @@
         if ( ( (i.eq.1 .and. left.eq.1) .or. &
                (i.eq.nx .and. right.eq.1) ) .and. j.gt.2 ) then
 
+           call error("rhs_l$","rhs_l not currently updated$")
+
 !.... get the metrics along this boundary
 
             if (i .eq. 1) then
@@ -314,6 +316,8 @@
 
         if (top.eq.1 .and. j.eq.ny) then
 
+           call error("rhs_l$","rhs_l not currently updated$")
+
 !.... get the metrics along this boundary
 
             bn1 = n1(i,j) / sqrt( n1(i,j)**2 + n2(i,j)**2 )
@@ -517,6 +521,8 @@
 
         if (wall.eq.4 .and. j.eq.1) then
         
+           call error("rhs_l$","rhs_l not currently updated$")
+
 !.... compute the wall normal pressure gradient using the momentum equations
 
           call wallbc(vl,wrho,pnorm)
