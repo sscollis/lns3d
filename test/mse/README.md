@@ -7,5 +7,10 @@ conformal mesh.
 Note that this uses the 4th order explict smoother with 
 $\epsilon_e = 0.01$
 
+<p align=center>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/mse/u-velocity.png>
+<br>Compressible mean flow for a modified super-elipse.  Contours of
+streamwise velocity at Mach=0.4 and Re=240.</p>
+
 S. Scott Collis\
 sscollis@gmail.com
