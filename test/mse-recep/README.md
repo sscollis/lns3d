@@ -62,7 +62,7 @@ run specifying both the regular input file `real.inp` and the auxilary
 namelist input file `real.nml`.
 
 <p align=center>
-<img src=https://github.com/sscollis/lns3d/blob/master/test/receptivity/real-v.png>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/mse-recep/real-v.png>
 <br>Contours of vertical velocity at t=161.9</p>
 
 ### Frequency-Domain Solution
@@ -92,7 +92,7 @@ solution (above) quite closely indicating that they coorespond to solutons
 at nominally similar times (really nominarlly similar phases of the solution).
 
 <p align=center>
-<img src=https://github.com/sscollis/lns3d/blob/master/test/receptivity/cmplx-v.png>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/mse-recep/cmplx-v.png>
 <br>Contours of the imaginary component of vertical velocity.</p>
 
 S. Scott Collis\
