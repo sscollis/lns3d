@@ -11,4 +11,4 @@ The base input file is `lns3d.inp` but `imp.inp` uses the 2-step second order
 time advancement.
 
 S. Scott Collis\
-sscollis@gmail.com
+flow.physics.simulation@gmail.com
