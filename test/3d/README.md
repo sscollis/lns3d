@@ -27,3 +27,6 @@ Input      | Description
 `cfl.inp`  | LNS3d input implicit
 `grid.inp` | genmesh input file
 `mean.inp` | mkmesh input file
+
+S. Scott Collis\
+flow.physics.simulation@gmail.com
