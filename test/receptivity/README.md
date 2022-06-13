@@ -40,7 +40,11 @@ Notes:
      (`right=3`)
   3. These are left as exercises for others to try.
 
-The following two sections show d
+As described in the Collis thesis (Section 4.4 p. 72), an auxilary
+simulation is performed to compute the wave amplitude to enforce
+on the top boundary consistent with the outflow sponge.  This is done
+in the subdirectory `wave` and the `amp.top` file is the wave
+amplitude which is specified in the namelist input file.
 
 ### Time-Domain Solution
 
@@ -52,7 +56,9 @@ cp real.R.0 output.R.0
 $LNS3D_DIR/src/lns3d real.nml < real.inp
 ./lpost.sh output.R.*
 ```
-then use Paraview to visualize the `q` files.
+then use Paraview to visualize the `q` files.  Note that `LNS3D` is 
+run specifying both the regular input file `real.inp` and the auxilary 
+namelist input file `real.nml`.
 
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/receptivity/real-v.png>
@@ -68,10 +74,16 @@ cp complex.R.0 output.R.0
 $LNS3D_DIR/src/lns3d complex.nml < complex.inp
 ./lpost3d.sh output.R.*
 ```
-then use Paraview to visualize the `q` files.  Note that the `lpost3d.sh` script
-outputs the imaginary component of the solution in the PLOT3D file.  Modify
-the script to output the real-part solution or a real solution at a particular time.
-So see all the options that `lpost3d` supports run using `lpost3d -h`.
+then use Paraview to visualize the `q` files.  Note that `LNS3D` is 
+run specifying both the regular input file `complex.inp` and the auxilary 
+namelist input file `complex.nml`.
+
+Also note that the `lpost3d.sh` script outputs the imaginary component of the solution 
+in the PLOT3D file by executing `lpost3d -i -ij` with the `-i` option.  The `-ij` 
+option makes sure that all I/O uses IJ ordering (not the old JI ordering used on 
+Crays).   If you want to output the real-part solution or a real solution remove the
+`-i` option or use the `-t` option to output the solution at a particular time.  
+To see all the options that `lpost3d` supports run using `lpost3d -h`. 
 
 Note that the imaginary component (shown below) matches the time-domain solution (above)
 quite closely suggesting that they coorespond to solutons at nominally similar times
