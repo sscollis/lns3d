@@ -9,8 +9,9 @@ disturbances. To run use:
 ```bash
 ./cleanup && ./run.sh file.inp
 ```
-The primary output of the run is the wave amplitude `amp.dat` that is then
-used as `amp.top` for the receptivity run.
+The primary output of the run is the wave amplitude `amp.dat` that 
+is then used as `amp.top` for the receptivity run in the parent 
+directory.
 
 S. Scott Collis\
 flow.physics.simulation@gmail.com
