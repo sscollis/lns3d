@@ -1,10 +1,11 @@
-# Acoustic Receptivity
+# Acoustic Receptivity on a MSE
 
-This is an acoustic receptivity setup for a modified super-ellipse following
-Collis PhD thesis, Ch. 4.
+This is an acoustic receptivity setup for a modified super-ellipse (MSE)
+following Collis PhD thesis, Section 4.4.
 
-There are two ways to compute the solution, time-domain and frequency-domain.
-Either way, one first needs to compute the potential and mean-flow solutions.
+There are two ways to compute the solution, time-domain and 
+frequency-domain. Either way, one first needs to compute the potential 
+and mean-flow solutions.
 
 ## Potential and Mean
 
