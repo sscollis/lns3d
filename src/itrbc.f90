@@ -558,7 +558,8 @@
           
           vl(1,nx,nbl+1:ny) = (gamma * Ma**2 * rhom(nbl+1:ny) * &
                                cm(nbl+1:ny) * u1(nbl+1:ny) - &
-                               rhom(nbl+1:ny) * t(nbl+1:ny)) / tm(nbl+1:ny)
+                               rhom(nbl+1:ny) * t(nbl+1:ny)) / &
+                               tm(nbl+1:ny)
 
 !.... zeroth-order extrapolation in the viscous layer
 
