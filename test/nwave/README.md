@@ -11,6 +11,5 @@ lns3d
 cns2d_prim
 cns2d_cons
 ```
-
 S. Scott Collis\
-scollis@gmail.com
+flow.physics.simulation@gmail.com
