@@ -13,4 +13,4 @@ $\epsilon_e = 0.01$
 streamwise velocity at Mach=0.4 and Re=240.</p>
 
 S. Scott Collis\
-sscollis@gmail.com
+flow.physics.simulaton@gmail.com
