@@ -13,7 +13,7 @@ Code       | Description
 `mse`      | modified super-ellipse mesh
 `circ`     | write out x, y for a circle
 `cinterpc` | interpolates from one mesh to another with same mapping
-`interpc`  | interpolates from one mesh to another
+`interpc`  | interpolates from one mesh to another with same mapping
 
 ## Building
 
@@ -45,4 +45,4 @@ easy to replace with public domain software and this is
 encouraged as a future update.
 
 S. Scott Collis\
-sscollis@gmail.com
+flow.physics.simulation@gmail.com
