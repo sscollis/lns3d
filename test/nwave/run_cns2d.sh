@@ -4,8 +4,8 @@
 #
 \ln -fs grid.dat grid.xyz
 export GFORTRAN_CONVERT_UNIT='swap'
-\rm output.[Rrqh].*
-cp ic_lns3d.dat output.R.0
-../../src/lns3d < lns3d.inp | tee lns3d.log
-./mpost.sh output.R.*
+\rm -f output.[Rrqh].*
+cp ic_prim.dat output.res
+../../../cns2d/src/cns2d cns2d_prim.inp | tee cns2d_prim.log
+./mpost.sh output.r.*
 exit 0
