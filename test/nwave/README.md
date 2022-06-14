@@ -6,21 +6,21 @@ Guassian right-running acoustic pulse positioned at $x = 250$
 with $\sigma = 25$ and $amp=1.0e-5$.  It makes a useful test of the 
 nonlinear solver.
 
-I have verified that this works with the following nonlinear solvers:
-```bash
-lns3d
-cns2d_prim
-cns2d_cons
-```
 ## LNS3D
-
+To run execut the script
 ```bash
 ./run_lns3d.sh
 ```
-
+and visualize the resulting `q`-files with Paraview.
 ## CNS2D
+To run execut the script
+```bash
+./run_cns2d.sh
+```
+and visualize the resulting `q`-files with Paraview.
 
-TODO:  Add run scripts for CNS2D
+Note that `cns2d` is currently not publically distributed so that you may
+now have access to this code.
 
 S. Scott Collis\
 flow.physics.simulation@gmail.com
