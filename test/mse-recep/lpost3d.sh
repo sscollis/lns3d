@@ -4,10 +4,10 @@
 #
 LNS3D_DIR=${LNS3D_DIR:=$HOME/git/lns3d}
 usage() {
-  echo "Usage: lpost3d.sh [-i] [-r] [-f] [-t] [-ij] [-ji] [-h] [-v] filename(s)"
+  echo "Usage: lpost3d.sh [-i] [-r] [-f] [-t value] [-ij] [-ji] [-h] [-v] filename(s)"
   echo "  -i              output imaginary component"
   echo "  -r              output real component"
-  echo "  -t              output at a specified time"
+  echo "  -t #            output at a specified time = #"
   echo "  -ij             use IJ ordering on input/output"
   echo "  -ji             use JI ordering on input/output"
   echo "  -f              filter the field before output"
@@ -28,7 +28,7 @@ fi
 #
 # Use GNU getopt
 #
-PARSED_ARGUMENTS=$(getopt -a -o hirftv --long ij,ji,help,verbose -- "$@")
+PARSED_ARGUMENTS=$(getopt -a -o hirft:v --long ij,ji,help,verbose -- "$@")
 VALID_ARGUMENTS=$?
 if [ "$VALID_ARGUMENTS" != "0" ]; then
   usage
@@ -43,30 +43,36 @@ eval set -- "$PARSED_ARGUMENTS"
 while :
 do
   case "$1" in
-    -h | --help)  usage         ; shift ;; 
-    -i)           COMPLEX="-i"  ; shift ;;
-    -r)           COMPLEX=""    ; shift ;;
-    --ij)         SWITCH="-ij"  ; shift ;;
-    --ji)         SWITCH=""     ; shift ;;
-    -f)           FILTER="-f"   ; shift ;;
-    -t)           TIME="-t"     ; shift ;;
-    -v | --verbose) VERBOSE=1   ; shift ;;
+    -h | --help)    usage         ; shift ;; 
+    -i)             COMPLEX="-i"  ; shift ;;
+    -r)             COMPLEX=""    ; shift ;;
+    --ij)           SWITCH="-ij"  ; shift ;;
+    --ji)           SWITCH=""     ; shift ;;
+    -f)             FILTER="-f"   ; shift ;;
+    -t)             TIME="-t"; VALUE="$2" ; shift 2 ;;
+    -v | --verbose) VERBOSE=1     ; shift ;;
     # -- means the end of the arguments; drop this and break out of loop
     --) shift; break ;;
     *) echo "Unexpected option: $1 - this should not happen."
        usage ;;
    esac
 done
-#echo "COMPLEX     : $COMPLEX"
-#echo "SWITCH      : $SWITCH"
-#echo "Remaining parameters are: $@"
+if [ "$VERBOSE" == 1 ]; then
+  echo "COMPLEX     : $COMPLEX"
+  echo "SWITCH      : $SWITCH"
+  echo "FILTER      : $FILTER"
+  echo "TIME #      : $TIME $VALUE"
+  echo "Remaining parameters are: $@"
+fi
 for file in $@
 do
   echo "Processing file $file"
   if [ "$VERBOSE" == 1 ]; then
-    echo "Running: $LNS3D_DIR/util/lpost3d $COMPLEX $SWITCH $FILTER "\
-         "$TIME $file >> lpost3d.log"
+    echo "Command: $LNS3D_DIR/util/lpost3d $COMPLEX $SWITCH $FILTER $TIME"\
+         "$file >> lpost3d.log << EOF $VALUE EOF"
   fi
-  $LNS3D_DIR/util/lpost3d $COMPLEX $SWITCH $FILTER $TIME $file >> lpost3d.log 
+  $LNS3D_DIR/util/lpost3d $COMPLEX $SWITCH $FILTER $TIME $file >> lpost3d.log <<EOF
+$VALUE
+EOF
 done
 exit 0
