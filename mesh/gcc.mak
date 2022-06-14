@@ -6,8 +6,9 @@
 #  Revised: 2-9-2020 
 #==============================================================================
 DEBUG  = -O2
-FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -std=legacy -ffixed-line-length-120 \
--Wno-align-commons $(DEFINES) $(DEBUG)
+DEFINES += -DUSE_BSLIB
+FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -std=legacy \
+-ffixed-line-length-120 -Wno-align-commons $(DEFINES) $(DEBUG)
 F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -Wno-align-commons \
 $(DEFINES) $(DEBUG)
 OFLAGS = $(DEBUG)

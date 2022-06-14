@@ -21,7 +21,6 @@
          knot(i) = x(1)
          knot(nx+i) = x(nx)
       end do
-
       if (mod(korder,2).eq.0) then
          do i = korder+1, nx
             knot(i) = x(i-korder/2)
@@ -37,30 +36,75 @@
       end
 
       subroutine BSINT( nx, x, u, korder, knot, bs )
-
       implicit none
-
       integer :: nx, korder
       real :: x(nx), u(nx), knot(nx+korder), bs(nx) 
-
       real :: work(nx*(2*korder-1)), work2(2*korder)
       integer :: iflag
-      
+#if 1 
       call BINTK( x, u, knot, nx, korder, bs, work, work2 )
+#else
+      call splint( x, u, knot, nx, korder, work, bs, iflag )
+      if (iflag.ne.1) then
+        write(*,*) 'Error in BSINT'
+        stop
+      end if
+#endif
+      return
+      end
 
-!      call splint( x, u, knot, nx, korder, work, bs, iflag )
-!      if (iflag.ne.1) then
-!              write(*,*) 'Error in BSINT'
-!              stop
-!      end if
+      subroutine BS2IN( nx, x, ny, y, u, ldu, kxord, kyord, xknot, yknot, bs )
+      implicit none
+      integer :: nx, ny, kxord, kyord, ldu
+      real :: x(nx), y(ny), u(nx,ny), xknot(nx+kxord), yknot(ny+kyord), &
+              bs(nx,ny), ts(nx,ny)
+      real :: xwork(nx*(2*kxord-1)), xwork2(2*kxord)
+      real :: ywork(nx*(2*kyord-1)), ywork2(2*kyord)
+      integer :: iflag, i, j 
+#if 0
+      do j = 1, ny
+        call BINTK( x, u(:,j), xknot, nx, kxord, ts(:,j), xwork, xwork2 )
+      end do
+      do i = 1, nx
+        call BINTK( y, ts(i,:), yknot, ny, kyord, bs(i,:), ywork, ywork2 )
+      end do
+#else
+      do i = 1, nx
+        call BINTK( y, u(i,:), yknot, ny, kyord, ts(i,:), ywork, ywork2 )
+      end do
+      do j = 1, ny
+        call BINTK( x, ts(:,j), xknot, nx, kxord, bs(:,j), xwork, xwork2 )
+      end do
+#endif
+      return
+      end
 
+      real function BS2DR( ider, jder, x, y, kxord, kyord, xknot, yknot, &
+                           nx, ny, bs )
+      implicit none
+      integer :: ider, jder, kxord, kyord, nx, ny
+      real :: x, y, xknot(nx+kxord), yknot(ny+kyord), bs(nx,ny)
+      real, external :: BVALU
+      real :: xwork(3*kxord), ywork(3*kyord)
+      integer :: inbv=1, i, j
+#if 0
+      real :: tmp(nx)
+      do i = 1, nx
+        tmp(i) = BVALU( yknot, bs(i,:), ny, kyord, jder, y, inbv, ywork )
+      end do
+      BS2DR = BVALU( xknot, tmp, nx, kxord, ider, x, inbv, xwork )
+#else
+      real :: tmp(nx)
+      do j = 1, ny
+        tmp(j) = BVALU( xknot, bs(:,j), nx, kxord, ider, x, inbv, xwork )
+      end do
+      BS2DR = BVALU( yknot, tmp, ny, kyord, jder, y, inbv, ywork )
+#endif
       return
       end
 
       real function BSDER( ider, x, korder, knot, nx, bs )
-
       implicit none
-
       integer :: ider, korder, nx
       real :: x, knot(nx+korder), bs(nx)
       real, external :: bvalue, BVALU
@@ -69,15 +113,11 @@
 
       BSDER = BVALU( knot, bs, nx, korder, ider, x, inbv, work)
 
-!     BSDER = bvalue( knot, bs, nx, korder, x, ider )
-
       return
       end
 
       real function BSVAL( x, korder, knot, nx, bs )
-
       implicit none
-
       integer :: ider=1, korder, nx
       real :: x, knot(nx+korder), bs(nx)
       real, external :: bvalue, BVALU
@@ -85,16 +125,13 @@
       integer :: inbv=1
 
       BSVAL = BVALU( knot, bs, nx, korder, ider, x, inbv, work)
-
-!     BSVAL = bvalue( knot, bs, nx, korder, x, ider )
+!     BSVAL = BVALUE( knot, bs, nx, korder, x, ider )
 
       return
       end
 
       real function BSITG( x1, x2, korder, knot, nx, bs )
-
       implicit none
-
       integer :: korder, nx
       real :: x1, x2, knot(nx+korder), bs(nx)
       real :: work(3*korder)
@@ -106,9 +143,7 @@
       end
 
       subroutine QDAG( fun, x1, x2, err1, err2, idum, val, errest)
-
       implicit none
-
       external fun
       real :: x1, x2, err1, err2, errest, val
       integer :: idum, ierr

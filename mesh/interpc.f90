@@ -23,6 +23,10 @@
 !  using B-Spline basis function with the order set by the user.
 !  Since this routine works in computational space, you cannot
 !  change the mapping function between meshes.
+!  
+!  \todo Update bslib2 interface to support 2d B-spline routines
+!
+!  Revised:  6/14/2022
 !
 !=============================================================================!
         use constants
@@ -67,7 +71,7 @@
         real :: rmax, rd1, rd2, dd, ximin, ximax
         real :: sx, sy, dxmin, dymin, c1, c2
         real, external :: calcdd, calcs
-#ifdef USE_IMSL
+#if defined(USE_IMSL) || defined(USE_BSLIB)
         real, external :: BS2DR
         external :: BS2IN
 #endif        
@@ -354,7 +358,7 @@
 
         call BSNAK( nx1, xi1,  kxord, xknot)
         call BSNAK( ny1, eta1, kyord, yknot)
-#ifdef USE_IMSL
+#if defined(USE_IMSL) || defined(USE_BSLIB)
         do idof = 1, ndof
           call BS2IN( ny1, eta1, nx1, xi1, v1(:,:,idof), ny1, kyord, &
                       kxord, yknot, xknot, bsv(:,:,idof))
@@ -401,7 +405,7 @@
             if ( s .le. (one + 1.0e-8) ) then
               if (s .gt. one) s = one
               if (n .gt. one) n = one
-#ifdef USE_IMSL
+#if defined(USE_IMSL) || defined(USE_BSLIB)
               v2(j,i,1) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
                                  xknot, ny1, nx1, bsv(:,:,1) )
               v2(j,i,2) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &

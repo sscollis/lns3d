@@ -165,7 +165,8 @@ c
             c1 = (log( sx * dxmin / ds) - c2) / ds
             do i = 1, nx
               ss(i)   = dble(i-1) * ds
-              xi(i)   = ximin + one / c1 * ( exp(c1 * ss(i) + c2) - exp(c2) ) 
+              xi(i)   = ximin + one / c1 * ( exp(c1 * ss(i) + c2) - 
+     &                  exp(c2) ) 
               dss(i)  = exp(c1 * ss(i) + c2)
               d2ss(i) = c1 * exp(c1 * ss(i) + c2)
             end do
@@ -222,10 +223,12 @@ c
      &         ( one - (nx-1)*dsmin/smax )
           do i = 1, nx
             ss(i)   = dble(i-1) * ds
-            xi(i)   = ximin + smax*( cm * ss(i) + log( cosh(b*(ss(i)-sc)) /
+            xi(i)   = ximin + smax*( cm * ss(i) + 
+     &                log( cosh(b*(ss(i)-sc)) /
      &                cosh(b*(ss(i)+sc)) ) ) / 
      &                (cm + log( cosh(b*(one-sc)) / cosh(b*(one+sc)) ) )
-            dss(i)  = smax*(cm + b*tanh(b*(ss(i)-sc)) - b*tanh(b*(ss(i)+sc)))/
+            dss(i)  = smax*(cm + b*tanh(b*(ss(i)-sc)) - 
+     &                b*tanh(b*(ss(i)+sc)))/
      &                (cm + log( cosh(b*(one-sc)) / cosh(b*(one+sc)) ) )
             d2ss(i) = smax*(-b**2*(tanh(b*(ss(i)-sc)))**2 + 
      &                b**2*(tanh(b*(ss(i)+sc)))**2)/
@@ -378,7 +381,8 @@ c
             eta(j)  = rmax*( cm * rr(j) + log( cosh(b*(rr(j)-rc)) /
      &                cosh(b*(rr(j)+rc)) ) ) / 
      &                (cm + log( cosh(b*(one-rc)) / cosh(b*(one+rc)) ) )
-            drr(j)  = rmax*(cm + b*tanh(b*(rr(j)-rc)) - b*tanh(b*(rr(j)+rc))) /
+            drr(j)  = rmax*(cm + b*tanh(b*(rr(j)-rc)) - 
+     &                b*tanh(b*(rr(j)+rc))) /
      &                (cm + log( cosh(b*(one-rc)) / cosh(b*(one+rc)) ) )
             d2rr(j) = rmax*(-b**2*(tanh(b*(rr(j)-rc)))**2 + 
      &                b**2*(tanh(b*(rr(j)+rc)))**2)/
@@ -460,33 +464,41 @@ c
             d2ydr2  = zero
             
             d2xdxi2 = d2xds2 * dsdxi**2 + dxds * d2sdxi2 + 
-     &                d2xdsdr * drdxi * dsdxi + d2xdsdr * drdxi * dsdxi +
+     &                d2xdsdr * drdxi * dsdxi + 
+     &                d2xdsdr * drdxi * dsdxi +
      &                d2xdr2 * drdxi**2 + dxdr * d2rdxi2
      
             d2xdxideta = d2xds2 * dsdeta * dsdxi + dxds * d2sdxideta + 
-     &                   d2xdsdr * drdeta * dsdxi + d2xdsdr * drdxi * dsdeta +
+     &                   d2xdsdr * drdeta * dsdxi + 
+     &                   d2xdsdr * drdxi * dsdeta +
      &                   d2xdr2 * drdeta * drdxi + dxdr * d2rdxideta
 
             d2xdeta2 = d2xds2 * dsdeta**2 + dxds * d2sdeta2 + 
-     &                 d2xdsdr * drdeta * dsdeta + d2xdsdr * drdeta * dsdeta +
+     &                 d2xdsdr * drdeta * dsdeta + 
+     &                 d2xdsdr * drdeta * dsdeta +
      &                 d2xdr2 * drdeta**2 + dxdr * d2rdeta2
 
             d2ydxi2 = d2yds2 * dsdxi**2 + dyds * d2sdxi2 + 
-     &                d2ydsdr * drdxi * dsdxi + d2ydsdr * drdxi * dsdxi +
+     &                d2ydsdr * drdxi * dsdxi + 
+     &                d2ydsdr * drdxi * dsdxi +
      &                d2ydr2 * drdxi**2 + dydr * d2rdxi2
             
             d2ydxideta = d2yds2 * dsdeta * dsdxi + dyds * d2sdxideta + 
-     &                   d2ydsdr * drdeta * dsdxi + d2ydsdr * drdxi * dsdeta +
+     &                   d2ydsdr * drdeta * dsdxi + 
+     &                   d2ydsdr * drdxi * dsdeta +
      &                   d2ydr2 * drdeta * drdxi + dydr * d2rdxideta
 
             d2ydeta2 = d2yds2 * dsdeta**2 + dyds * d2sdeta2 + 
-     &                 d2ydsdr * drdeta * dsdeta + d2ydsdr * drdeta * dsdeta +
+     &                 d2ydsdr * drdeta * dsdeta + 
+     &                 d2ydsdr * drdeta * dsdeta +
      &                 d2ydr2 * drdeta**2 + dydr * d2rdeta2
 
-            drjacdxi = -(d2xdxi2*dydeta + dxdxi*d2ydxideta - d2xdxideta*dydxi -
+            drjacdxi = -(d2xdxi2*dydeta + dxdxi*d2ydxideta - 
+     &                   d2xdxideta*dydxi -
      &                   dxdeta*d2ydxi2) * rjac(i,j)**2
      
-            drjacdeta = -(d2xdxideta*dydeta + dxdxi*d2ydeta2 - d2xdeta2*dydxi -
+            drjacdeta = -(d2xdxideta*dydeta + dxdxi*d2ydeta2 - 
+     &                    d2xdeta2*dydxi -
      &                    dxdeta*d2ydxideta) * rjac(i,j)**2
      
             rm11(i,j) = drjacdxi * dydeta * rm1(i,j) +
@@ -594,7 +606,8 @@ c
      &         0.5 * log( abs( yl + sqrt(1.0 + yl**2)))
           bn1 = rn1(i,j) / sqrt( rn1(i,j)**2 + rn2(i,j)**2 )
           bn2 = rn2(i,j) / sqrt( rn1(i,j)**2 + rn2(i,j)**2 )
-          write(9,"(1(i5,1x),5(1pe20.13,1x))") i, sl, x(i,j), yl, bn1, bn2
+          write(9,"(1(i5,1x),5(1pe20.13,1x))") i, sl, x(i,j), yl, 
+     &                                         bn1, bn2
         end do
         close(9)
 c
