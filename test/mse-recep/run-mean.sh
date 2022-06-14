@@ -24,5 +24,5 @@ cp lns.dat output.R.0 && \
 \cp -f mean.R.0 output.R.0
 time $LNS3D_DIR/src/lns3d mean.nml < mean.inp | tee mean.log && \
 ./npost.sh output.R.*
-\cp -f output.R.1500 mean.dat
+\cp -f output.R.15 mean.dat
 exit $?

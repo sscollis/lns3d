@@ -4,7 +4,7 @@
 0.0, 0.0                        ! Pref, Tref
 1.0                             ! Pr number
 0.001 2000.0                    ! Delt, CFL
-5000                            ! nstep
+1000                            ! nstep
 -1 -1                           ! optx, opty
 .false. .false.                 ! xper, yper
 1, 100                          ! itout, ntout
