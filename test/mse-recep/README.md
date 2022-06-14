@@ -11,7 +11,7 @@ and mean-flow solutions.
 
 The basic problem setup is done using
 ```bash
-./run.sh
+./run-mean.sh
 ```
 which makes the mesh, computes the potential solution and then copies the
 `mean.R.0` file to `mean.dat`.  Note that the command to compute the mean
@@ -53,9 +53,15 @@ The time domain solution can be computed from a zero-disturbance initial
 condition `$LNS3D_DIR/util/mkdist` but I have precomputed a solution that
 is fully-developed and you can start from that using
 ```bash
+cp mean.R.0 mean.dat
+\rm -f output.[Rqh].*
 cp real.R.0 output.R.0
 $LNS3D_DIR/src/lns3d real.nml < real.inp
 ./lpost.sh output.R.*
+```
+or use the provided script
+```bash
+./run-real.sh
 ```
 then use Paraview to visualize the `q` files.  Note that `LNS3D` is 
 run specifying both the regular input file `real.inp` and the auxilary 
@@ -71,9 +77,15 @@ The frequency domain solution can be computed from a zero-disturbance initial
 condition `$LNS3D_DIR/util/mkdist3d` but I have precomputed a solution that
 is in the steady-state and you can start from that using
 ```bash
+cp mean.R.0 mean.dat
+\rm -f output.[Rqh].*
 cp complex.R.0 output.R.0
 $LNS3D_DIR/src/lns3d complex.nml < complex.inp
 ./lpost3d.sh output.R.*
+```
+or use the provided script
+```base
+./run-cmplx.sh
 ```
 then use Paraview to visualize the `q` files.  Note that `LNS3D` is 
 run specifying both the regular input file `complex.inp` and the auxilary 
