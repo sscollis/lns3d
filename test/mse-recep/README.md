@@ -80,12 +80,13 @@ run specifying both the regular input file `complex.inp` and the auxilary
 namelist input file `complex.nml`.
 
 Also note that the `lpost3d.sh` script outputs the imaginary component 
-of the solution in the PLOT3D file by executing `lpost3d -i -ij` with 
+of the solution in the PLOT3D file by executing `lpost3d.sh -i -ij` with 
 the `-i` option.  The `-ij` option makes sure that all I/O uses IJ ordering 
 (not the old JI ordering used on Crays).   If you want to output the 
-real-part solution or a real solution remove the `-i` option or use the 
-`-t` option to output the solution at a particular time.  
-To see all the options that `lpost3d` supports run using `lpost3d -h`. 
+real-part solution or a real solution remove the `-i` option (use '-r' in
+lpost3d.sh) or use the `-t` option to output the solution at a particular 
+time.  To see all the options that `lpost3d.sh` supports run using 
+`lpost3d.sh -h`. 
 
 Note that the imaginary component (shown below) matches the time-domain 
 solution (above) quite closely indicating that they coorespond to solutons 
