@@ -19,9 +19,10 @@ mv output.q npot.q.0
 #
 cp lns.dat output.R.0 && \
 #
-# Compute the mean solution
+# Polish the mean solution
 #
-#time $LNS3D_DIR/src/lns3d mean.nml < mean.inp | tee mean.log && \
-#./mpost.sh output.R.*
-\cp -f mean.R.0 mean.dat
+\cp -f mean.R.0 output.R.0
+time $LNS3D_DIR/src/lns3d mean.nml < mean.inp | tee mean.log && \
+./npost.sh output.R.*
+\cp -f output.R.1500 mean.dat
 exit $?
