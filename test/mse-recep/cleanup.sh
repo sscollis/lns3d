@@ -25,5 +25,6 @@ restart.dat \
 sponge.dat \
 sponge2.dat \
 stat.dat \
+wall.dat \
 top.dat
 exit $?
