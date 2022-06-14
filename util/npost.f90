@@ -106,7 +106,7 @@
 #endif
         real, external :: dfun, thfun, thfunz
         external :: fedge, fwmax, fwinf
-        external :: f_edge, f_wmax, f_winf
+        real, external :: f_edge, f_wmax, f_winf
 
         real    :: wmax, wmloc, w1, w2, wiloc, uinf, winf, epsi
         integer :: jmax, ierr
@@ -722,7 +722,7 @@
             uss(j) = bn2 * v(2,i,j) - bn1 * v(3,i,j)
             unn(j) = bn1 * v(2,i,j) + bn2 * v(3,i,j)
           end do
-          
+         
           call BSNAK( ny, ynn, kord, knot)
           call BSINT( ny, ynn, v(1,i,:), kord, knot, bs(:,1) )
           call BSINT( ny, ynn,      uss, kord, knot, bs(:,2) )
@@ -765,9 +765,8 @@
 #ifdef USE_NR
  700      edge = rtsafe( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
 #else
- 700      edge = zeroin( ynn(j-1), ynn(j+2), fedge, 1.0e-8 )
+ 700      edge = zeroin( ynn(j-1), ynn(j+2), f_edge, 1.0e-8 )
 #endif
-
           rhoe = bsder( 0, edge, kord, knot, ny, bs(:,1) )
           ue   = bsder( 0, edge, kord, knot, ny, bs(:,2) )
           ve   = bsder( 0, edge, kord, knot, ny, bs(:,3) )
@@ -1266,7 +1265,8 @@
 #ifdef USE_NR
             edge = rtsafe( fedge, ynn(j-1), ynn(j+2), 1.0e-8 )
 #else
-            edge = zeroin( ynn(j-1), ynn(j+2), fedge, 1.0e-8 )
+            write(*,*) i, j, f_edge(ynn(j-1)), f_edge(ynn(j+2))
+            edge = zeroin( ynn(j-1), ynn(j+2), f_edge, 1.0e-8 )
 #endif
           else
             edge = 0.0
@@ -1548,7 +1548,7 @@
 !=============================================================================!
         subroutine fedge( x, g, d )
 !
-!       Function to find the boundary layer edge
+!       find the boundary layer edge
 !
 !=============================================================================!
         use bspline

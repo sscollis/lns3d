@@ -37,6 +37,7 @@ ifdef USE_NR
     LIBNR_DIR = $(HOME)/git/NR-utilities
   endif
   LIB += -L$(LIBNR_DIR) -lnr 
+  DEFINES += "-DUSE_NR"
 endif
 
 MATHLIB = zeroin.o d1mach.o

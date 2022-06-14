@@ -20,5 +20,4 @@ cp lns.dat output.R.0 && \
 time $LNS3D_DIR/src/lns3d < lns3d.inp | tee lns3d.log && \
 ./mpost.sh output.R.*
 \cp output.R.100 mean.keep
-
 exit $? 
