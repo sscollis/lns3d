@@ -49,7 +49,7 @@
 
 !.... stuff for file I/O
 
-        character*80 :: name, filen
+        character(80) :: name, filen
 
 !.... local vars
 
@@ -69,6 +69,7 @@
         real, external :: calcdd, calcs
 #ifdef USE_IMSL
         real, external :: BS2DR
+        external :: BS2IN
 #endif        
         real :: x, y, xi, eta, s, r, n
 
@@ -77,7 +78,7 @@
 !.... argument parameters
 
         integer :: iarg, narg
-        character*80 :: arg
+        character(80) :: arg
         integer :: yflag=1, xflag=0
         logical :: plot3d = .false., pot=.false.
 #ifndef __GFORTRAN__
@@ -355,8 +356,8 @@
         call BSNAK( ny1, eta1, kyord, yknot)
 #ifdef USE_IMSL
         do idof = 1, ndof
-          call BS2IN( ny1, eta1, nx1, xi1, v1(:,:,idof), ny1, kyord, kxord, &
-                      yknot, xknot, bsv(:,:,idof))
+          call BS2IN( ny1, eta1, nx1, xi1, v1(:,:,idof), ny1, kyord, &
+                      kxord, yknot, xknot, bsv(:,:,idof))
         end do
         write(*,*) 'B-spline complete...begin interpolating'
 #else
@@ -385,8 +386,10 @@
             s   = ( xi - ximin ) / ( ximax - ximin )
             r   = pt5 * ( eta**2 - one )
             
-            if (xflag.ne.0) call NR_SPLINT( xx, ss, s2, npts, xi, s, tmp, tmp )
-            if (yflag.ne.0) call NR_SPLINT( rr, nn, n2, npts,  r, n, tmp, tmp )
+            if (xflag.ne.0) &
+              call NR_SPLINT( xx, ss, s2, npts, xi, s, tmp, tmp )
+            if (yflag.ne.0) &
+              call NR_SPLINT( rr, nn, n2, npts,  r, n, tmp, tmp )
 
 !.... make sure that the computational coordinates are in range
 
@@ -399,16 +402,16 @@
               if (s .gt. one) s = one
               if (n .gt. one) n = one
 #ifdef USE_IMSL
-              v2(j,i,1) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, xknot, &
-                                  ny1, nx1, bsv(:,:,1) )
-              v2(j,i,2) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, xknot, &
-                                  ny1, nx1, bsv(:,:,2) )
-              v2(j,i,3) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, xknot, &
-                                  ny1, nx1, bsv(:,:,3) )
-              v2(j,i,4) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, xknot, &
-                                  ny1, nx1, bsv(:,:,4) )
-              v2(j,i,5) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, xknot, &
-                                  ny1, nx1, bsv(:,:,5) )
+              v2(j,i,1) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
+                                 xknot, ny1, nx1, bsv(:,:,1) )
+              v2(j,i,2) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
+                                 xknot, ny1, nx1, bsv(:,:,2) )
+              v2(j,i,3) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
+                                 xknot, ny1, nx1, bsv(:,:,3) )
+              v2(j,i,4) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
+                                 xknot, ny1, nx1, bsv(:,:,4) )
+              v2(j,i,5) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
+                                 xknot, ny1, nx1, bsv(:,:,5) )
 #else
               write(*,*) 'Must use IMSL'
               stop 1

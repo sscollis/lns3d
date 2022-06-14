@@ -53,7 +53,7 @@ c
 c.... argument parameters
 
         integer iarg, narg
-        character*80  arg
+        character(80)  arg
         integer yflag, xflag
         logical plot3d, debug
 #ifndef __GFORTRAN__

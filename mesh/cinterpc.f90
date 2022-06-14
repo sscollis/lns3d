@@ -51,7 +51,7 @@
 
 !.... stuff for file I/O
 
-        character*80 :: name, filen
+        character(80) :: name, filen
 
 !.... local vars
 
@@ -79,7 +79,7 @@
 !.... argument parameters
 
         integer :: iarg, narg
-        character*80 :: arg
+        character(80) :: arg
         integer :: yflag=1, xflag=0
 #ifndef __GFORTRAN__
         integer, external :: iargc
@@ -387,23 +387,23 @@
 #ifdef USE_IMSL
               v2(j,i,1) = cmplx(BS2DR( 0, 0, n, s, kyord, kxord,  &
                                 yknot, xknot, ny1, nx1, bsv(:,:,1) ), &
-                          BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot, &
+                          BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot,&
                                 ny1, nx1, bsi(:,:,1) ) )
               v2(j,i,2) = cmplx(BS2DR( 0, 0, n, s, kyord, kxord, &
                                 yknot, xknot, ny1, nx1, bsv(:,:,2) ), &
-                          BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot, &
+                          BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot,&
                                 ny1, nx1, bsi(:,:,2) ) )
               v2(j,i,3) = cmplx(BS2DR( 0, 0, n, s, kyord, kxord, &
                                 yknot, xknot, ny1, nx1, bsv(:,:,3) ), &
-                          BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot, &
+                          BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot,&
                                 ny1, nx1, bsi(:,:,3) ) )
               v2(j,i,4) = cmplx(BS2DR( 0, 0, n, s, kyord, kxord, &
                                 yknot, xknot, ny1, nx1, bsv(:,:,4) ), &
-                          BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot, &
+                          BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot,&
                                 ny1, nx1, bsi(:,:,4) ) )
               v2(j,i,5) = cmplx(BS2DR( 0, 0, n, s, kyord, kxord, &
                                 yknot, xknot, ny1, nx1, bsv(:,:,5) ), &
-                          BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot, &
+                          BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot,&
                                 ny1, nx1, bsi(:,:,5) ) )
 #else
               write(*,*) 'Must use IMSL currently'
