@@ -79,6 +79,22 @@
       return
       end
 
+      subroutine BS2GD( ider, jder, nx, x, ny, y, kxord, kyord, xknot, &
+                        yknot, nx1, ny1, bs, v, ldv )
+      implicit none
+      integer :: ider, jder, kxord, kyord, nx, ny, nx1, ny1, ldv, i, j
+      real :: x(nx), y(ny), v(nx,ny)
+      real :: xknot(nx1+kxord), yknot(ny1+kyord), bs(nx1,ny1)
+      real :: BS2DR
+      do j=1,ny
+        do i=1,nx
+          v(i,j) = BS2DR(ider, jder, x(i), y(j), kxord, kyord, xknot, &
+                         yknot, nx1, ny1, bs)
+         end do
+      end do
+      return
+      end subroutine BS2GD
+
       real function BS2DR( ider, jder, x, y, kxord, kyord, xknot, yknot, &
                            nx, ny, bs )
       implicit none
