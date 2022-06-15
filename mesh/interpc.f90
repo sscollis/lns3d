@@ -17,13 +17,14 @@
 
         end module constants
 !=============================================================================!
-        program inter
+        program interPC
 !
 !  This program interpolates from one computational mesh to another
 !  using B-Spline basis function with the order set by the user.
 !
 !  This requires that you specify the analytical mapping functions in xi,eta
-!  for the original mesh.
+!  for the original mesh and is setup to use the mappings for the Parabolic
+!  Cylinder.
 !  
 !  Revised:  6/14/2022
 !
@@ -319,15 +320,15 @@
           read(*,*) dymin
           dnn = one / dble(npts-1)
           sy = calcs( rmax, dymin, deta1 )
-          write(*,*) 'Sy = ', sy
+          !write(*,*) 'Sy = ', sy
           c2 = log( dymin / deta1 )
           c1 = (log( sy*dymin / deta1) - c2) / deta1
           do j = 1, npts
             nn(j) = dble(j-1) * dnn
             rr(j) = one / c1 * ( exp(c1 * nn(j) + c2) - exp(c2) ) 
-            write(*,*) j, c1, nn(j), rr(j)
+            !write(*,*) j, c1, nn(j), rr(j)
           end do
-          write(*,*) 'Calling NR_SPLINE'
+          !write(*,*) 'Calling NR_SPLINE'
           call NR_SPLINE( rr, nn, npts, 1.0e31, 1.0e31, n2)
         else if (yflag.eq.2) then
           rd1  = 0.00028                ! set for R=1000 PCYL, r=500
@@ -370,19 +371,19 @@
 
         allocate (xknot(nx1+kxord), yknot(ny1+kyord), bsv(ny1,nx1,ndof))
 
-        write(*,*) "Starting B-splines"
+        !write(*,*) "Starting B-splines"
         call BSNAK( nx1, xi1,  kxord, xknot)
         call BSNAK( ny1, eta1, kyord, yknot)
 #if defined(USE_IMSL) || defined(USE_BSLIB)
         do idof = 1, ndof
-          write(*,*) idof
+          !write(*,*) idof
           call BS2IN( ny1, eta1, nx1, xi1, v1(:,:,idof), ny1, kyord, &
                       kxord, yknot, xknot, bsv(:,:,idof))
         end do
-        write(*,*) 'B-spline complete...begin interpolating'
+        !write(*,*) 'B-spline complete...begin interpolating'
 #else
-        write(*,*) 'Must use IMSL'
-        stop 1
+        write(*,*) 'Must use IMSL or BSLIB'
+        call exit(1)
 #endif
         if(xy1(1,1,1) .le. zero) then
           ximin = zero
@@ -394,7 +395,7 @@
 !.... now interpolate to the new mesh
         
         do i = 1, nx2
-          write(*,"('i = ',i4)") i
+          !write(*,"('i = ',i4)") i
           do j = 1, ny2
             x   = xy2(j,i,1)
             y   = xy2(j,i,2)
@@ -433,8 +434,8 @@
               v2(j,i,5) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
                                  xknot, ny1, nx1, bsv(:,:,5) )
 #else
-              write(*,*) 'Must use IMSL'
-              stop 1
+              write(*,*) 'Must use IMSL or BSLIB'
+              call exit(1)
 #endif
             else
               write(*,"(2(i4,1x),4(1pe13.6,1x))") i,j,x,y,s,r
@@ -519,7 +520,7 @@
         end if
         
         stop
-        end 
+        end program interPC
 
 !=============================================================================!
         function arc(xi)

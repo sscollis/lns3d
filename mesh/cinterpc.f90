@@ -17,15 +17,14 @@
 
         end module constants
 !=============================================================================!
-        program cinter
+        program cinterPC
 !
 !  This program interpolates from one computational mesh to another
 !  using B-Spline basis function with the order set by the user.
-!  Since this routine works in computational space, you cannot
-!  change the mapping function between meshes.
-!  
-!  \todo Update bslib2 interface to support 2d B-spline routines
 !
+!   This uses analytic mappings and their inverse and assumes the Parabolic
+!  Cylinder geometry.
+!  
 !  Revised:  6/14/2022
 !
 !=============================================================================!
@@ -85,6 +84,7 @@
         integer :: iarg, narg
         character(80) :: arg
         integer :: yflag=1, xflag=0
+        logical :: useIJ=.true.
 #ifndef __GFORTRAN__
         integer, external :: iargc
 #endif
@@ -118,6 +118,15 @@
             case default                ! uniform
               xflag = 0
             end select
+          case ('-i')
+            select case (arg(1:3))
+            case ('-ij')
+              useIJ = .true.            ! use IJ format (default)
+            case ('-ji')
+              useIJ = .false.           ! use JI format
+            case default
+              write(*,"('Argument ',i2,' ignored.')") iarg
+             end select
           case ('-h')
             write(*,"('Usage:  interpc [options]')")
             write(*,"('   -h:  this help')")
@@ -129,6 +138,9 @@
             write(*,"('  -y1:  exponential stretching in y')")
             write(*,"('  -y2:  hyperbolic tangent stretching in y')")
             write(*,"('  -y3:  Mahesh''s mapping in y')")
+            write(*,"('------------------------------------------')")
+            write(*,"('  -ij:  Solution in IJ format (default)   ')")
+            write(*,"('  -ji:  Solution in JI format')")
             write(*,"('------------------------------------------')")
             call exit(0)
           case default
@@ -182,7 +194,11 @@
         open(unit=10, file=filen, form='unformatted', status='old',err=201)
         read(10) lstep, time, nx1, ny1, nz1, ndof, &
                  Re, Ma, Pr, gamma, cv
-        read(10) v1
+        if (useIJ) then
+          read(10,err=201) (((v1(j,i,idof), idof=1,ndof), i=1,nx1), j=1,ny1)
+        else
+          read(10,err=201) v1
+        endif
         close(10)
 
 !.... read the second grid file
@@ -307,7 +323,6 @@
           rd1  = 0.00028                ! set for R=1000 PCYL, r=500
           rd2  = 5.5
           dd   = calcdd(rd1,rd2)
-          
           dnn = one / real(npts-1)
           do j = 1, npts
             nn(j) = real(j-1) * dnn
@@ -324,7 +339,6 @@
           cm = ( two * b * tanh(b*rc) + (ny1-1)*drmin/rmax * &
                  log( cosh(b*(one-rc)) / cosh(b*(one+rc)) ) ) / &
                ( one - (ny1-1)*drmin/rmax )
-          
           dnn = one / real(npts-1)
           do j = 1, npts
             nn(j) = real(j-1) * dnn
@@ -354,16 +368,16 @@
           call BS2IN( ny1, eta1, nx1, xi1, aimag(v1(:,:,idof)), ny1, &
                       kyord, kxord, yknot, xknot, bsi(:,:,idof))
         end do
-        write(*,*) 'B-spline complete...begin interpolating'
+        !write(*,*) 'B-spline complete...begin interpolating'
 #else
-        write(*,*) 'Must use IMSL currently'
-        stop 1
+        write(*,*) 'Must use IMSL or BSLIB'
+        call exit(1) 
 #endif        
 
 !.... now interpolate to the new mesh
         
         do i = 1, nx2
-          write(*,"('i = ',i4)") i
+          !write(*,"('i = ',i4)") i
           do j = 1, ny2
             x   = xy2(j,i,1)
             y   = xy2(j,i,2)
@@ -410,8 +424,8 @@
                           BS2DR(0, 0, n, s, kyord, kxord, yknot, xknot,&
                                 ny1, nx1, bsi(:,:,5) ) )
 #else
-              write(*,*) 'Must use IMSL currently'
-              stop 1
+              write(*,*) 'Must use IMSL or BSLIB'
+              call exit(1) 
 #endif        
             else
               v2(j,i,:) = zero
@@ -430,11 +444,15 @@
         open(unit=10, file=filen, form='unformatted', status='unknown')
         write(10) 0, 0, nx2, ny2, nz2, ndof, &
                   Re, Ma, Pr, gamma, cv
-        write(10) v2
+        if (useIJ) then
+          write(10) (((v2(j,i,idof), idof=1,ndof), i=1,nx2), j=1,ny2)
+        else
+          write(10) v2
+        endif
         close(10)
 
         stop
-        end 
+        end program cinterPC
 
 !=============================================================================!
         function arc(xi)
