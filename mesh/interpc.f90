@@ -21,11 +21,10 @@
 !
 !  This program interpolates from one computational mesh to another
 !  using B-Spline basis function with the order set by the user.
-!  Since this routine works in computational space, you cannot
-!  change the mapping function between meshes.
-!  
-!  \todo Update bslib2 interface to support 2d B-spline routines
 !
+!  This requires that you specify the analytical mapping functions in xi,eta
+!  for the original mesh.
+!  
 !  Revised:  6/14/2022
 !
 !=============================================================================!
@@ -84,7 +83,7 @@
         integer :: iarg, narg
         character(80) :: arg
         integer :: yflag=1, xflag=0
-        logical :: plot3d = .false., pot=.false.
+        logical :: plot3d = .false., pot=.false., useIJ=.true.
 #ifndef __GFORTRAN__
         integer, external :: iargc
 #endif
@@ -118,6 +117,15 @@
             case default                ! uniform
               xflag = 0
             end select
+          case ('-i')
+            select case (arg(1:3))
+            case ('-ij')
+              useIJ = .true.            ! use IJ format (default)
+            case ('-ji')
+              useIJ = .false.           ! use JI format
+            case default
+              write(*,"('Argument ',i2,' ignored.')") iarg
+             end select
           case ('-o')                   ! Output a Plot3d file
             plot3d = .true.
           case ('-p')                   ! generate potential BC data
@@ -137,6 +145,8 @@
             write(*,"('------------------------------------------')")
             write(*,"('   -o:  Output a Plot3d file')")
             write(*,"('   -p:  Generate potential info')")
+            write(*,"('  -ij:  Solution in IJ format (default)   ')")
+            write(*,"('  -ji:  Solution in JI format')")
             write(*,"('------------------------------------------')")
             call exit(0)
           case default
@@ -192,7 +202,11 @@
         open(unit=10, file=filen, form='unformatted', status='old', err=201)
         read(10,err=201) lstep, time, nx1, ny1, nz1, ndof, &
                          Re, Ma, Pr, gamma, cv
-        read(10,err=201) v1
+        if (useIJ) then
+          read(10,err=201) (((v1(j,i,idof), idof=1,ndof), i=1,nx1), j=1,ny1)
+        else
+          read(10,err=201) v1
+        endif
         close(10)
 
 !.... read the second grid file
@@ -311,13 +325,14 @@
           do j = 1, npts
             nn(j) = dble(j-1) * dnn
             rr(j) = one / c1 * ( exp(c1 * nn(j) + c2) - exp(c2) ) 
+            write(*,*) j, c1, nn(j), rr(j)
           end do
+          write(*,*) 'Calling NR_SPLINE'
           call NR_SPLINE( rr, nn, npts, 1.0e31, 1.0e31, n2)
         else if (yflag.eq.2) then
           rd1  = 0.00028                ! set for R=1000 PCYL, r=500
           rd2  = 5.5
           dd   = calcdd(rd1,rd2)
-          
           dnn = one / dble(npts-1)
           do j = 1, npts
             nn(j) = dble(j-1) * dnn
@@ -334,7 +349,6 @@
           cm = ( two * b * tanh(b*rc) + (ny1-1)*drmin/rmax * &
                  log( cosh(b*(one-rc)) / cosh(b*(one+rc)) ) ) / &
                ( one - (ny1-1)*drmin/rmax )
-          
           dnn = one / dble(npts-1)
           do j = 1, npts
             nn(j) = dble(j-1) * dnn
@@ -356,10 +370,12 @@
 
         allocate (xknot(nx1+kxord), yknot(ny1+kyord), bsv(ny1,nx1,ndof))
 
+        write(*,*) "Starting B-splines"
         call BSNAK( nx1, xi1,  kxord, xknot)
         call BSNAK( ny1, eta1, kyord, yknot)
 #if defined(USE_IMSL) || defined(USE_BSLIB)
         do idof = 1, ndof
+          write(*,*) idof
           call BS2IN( ny1, eta1, nx1, xi1, v1(:,:,idof), ny1, kyord, &
                       kxord, yknot, xknot, bsv(:,:,idof))
         end do
@@ -438,12 +454,16 @@
                     filen(1:index(filen,' '))
         read (*,"(a)") name
         if (name(1:1) .ne. ' ') filen = name
-
         open(unit=10, file=filen, form='unformatted', status='unknown')
-        write(10) 0, 0, nx2, ny2, nz2, ndof, &
+        write(10) lstep, time, nx2, ny2, nz2, ndof, &
                   Re, Ma, Pr, gamma, cv
-        write(10) v2
+        if (useIJ) then
+          write(10) (((v2(j,i,idof), idof=1,ndof), i=1,nx2), j=1,ny2)
+        else
+          write(10) v2
+        endif
         close(10)
+        write(*,*) "Finished writing data file"
 
         if (pot) then
 
@@ -485,12 +505,16 @@
           open(10, file='int.dat', form='unformatted', status='unknown')
           write(10) nx2, ny2, nz2
           write(10) Ma, Pr, Re, time
-          write(10) ((((v2(j,i,idof), i = 1, nx2), j = 1, ny2),  &
-                      k = 1, nz2), idof = 1, 3), &
-                    (((       p(j,i), i = 1, nx2), j = 1, ny2),  &
-                      k = 1, nz2), &
-                    (((     g1p(j,i), i = 1, nx2), j = 1, ny2),  &
-                      k = 1, nz2)
+          if (pot) then
+            write(10) ((((v2(j,i,idof), i = 1, nx2), j = 1, ny2),  &
+                                        k = 1, nz2), idof = 1, 3), &
+                      (((       p(j,i), i = 1, nx2), j = 1, ny2),  &
+                                        k = 1, nz2), &
+                      (((     g1p(j,i), i = 1, nx2), j = 1, ny2),  &
+                                        k = 1, nz2)
+          else
+            write(10) ((((v2(j,i,idof),i=1,nx2),j=1,ny2),k=1,nz2),idof=1,5)
+          endif
           close(10)
         end if
         

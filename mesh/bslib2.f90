@@ -59,7 +59,7 @@
       real :: x(nx), y(ny), u(nx,ny), xknot(nx+kxord), yknot(ny+kyord), &
               bs(nx,ny), ts(nx,ny)
       real :: xwork(nx*(2*kxord-1)), xwork2(2*kxord)
-      real :: ywork(nx*(2*kyord-1)), ywork2(2*kyord)
+      real :: ywork(ny*(2*kyord-1)), ywork2(2*kyord)
       integer :: iflag, i, j 
 #if 0
       do j = 1, ny
@@ -94,7 +94,7 @@
       end do
       BS2DR = BVALU( xknot, tmp, nx, kxord, ider, x, inbv, xwork )
 #else
-      real :: tmp(nx)
+      real :: tmp(ny)
       do j = 1, ny
         tmp(j) = BVALU( xknot, bs(:,j), nx, kxord, ider, x, inbv, xwork )
       end do
