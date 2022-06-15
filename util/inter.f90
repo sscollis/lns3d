@@ -6,6 +6,8 @@
 !  Since this routine works in computational space, you cannot
 !  change the mapping function between meshes.
 !
+!  Revised: 6/15/22
+!
 !=============================================================================!
         use const
         implicit none
@@ -30,13 +32,14 @@
 
 !.... stuff for file I/O
 
-        character*80 :: name, filen
+        character(80) :: name, filen
 
 !.... local vars
 
         real :: Re, Ma, Pr, gamma, cv
         integer :: i, j, k, idof, ndof=5, lstep
         real :: tmp, time
+        logical, parameter :: useIJ=.true.
 !=============================================================================!
 
 !.... read the first grid file
@@ -78,7 +81,7 @@
 !.... read in the first data file
 
         filen = 'output.dat'
-        write (*,"('Enter data filename to interpolate from [',a,']? ',$)") &
+ 201    write (*,"('Enter data filename to interpolate from [',a,']? ',$)") &
                     filen(1:index(filen,' '))
         read (*,"(a)") name
         if (name(1:1) .ne. ' ') filen = name
@@ -87,7 +90,11 @@
         open(unit=10, file=filen, form='unformatted', status='old')
         read(10) lstep, time, nx1, ny1, nz1, ndof, &
                  Re, Ma, Pr, gamma, cv
-        read(10) v1
+        if (useIJ) then
+          read(10,err=201) (((v1(j,i,idof), idof=1,ndof), i=1,nx1), j=1,ny1)
+        else
+          read(10,err=201) v1
+        endif
         close(10)
 
 !.... read the second grid file
@@ -161,7 +168,11 @@
         open(unit=10, file=filen, form='unformatted', status='new')
         write(10) 0, 0, nx2, ny2, nz2, ndof, &
                   Re, Ma, Pr, gamma, cv
-        write(10) v2
+        if (useIJ) then
+          write(10) (((v2(j,i,idof), idof=1,ndof), i=1,nx2), j=1,ny2)
+        else
+          write(10) v2
+        endif
         close(10)
 
-        end 
+        end program inter
