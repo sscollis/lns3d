@@ -53,7 +53,7 @@
  JS =                   10 
  LINE_SEARCH =          0
  restart     =          .false.
- type_scal = 		1
+/ type_scal = 		1
 / initial_ctrl_vel =     0 
 / initial_ctrl_temp=     0
 / time_width       =     20 

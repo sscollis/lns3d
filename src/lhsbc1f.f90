@@ -88,7 +88,7 @@
 
 !.... freestream zero disturbance boundary condition
 
-        if (top.eq.0) then
+        if (top.eq.0.or.top.eq.1) then
           mat(:,:,:,:,ny) = zero
           mat(3,1,1,:,ny) = one
           mat(3,2,2,:,ny) = one
@@ -105,7 +105,7 @@
 
 !.... left boundary
 
-          if (left.eq.0) then           ! zero disturbance
+          if (left.eq.0.or.left.eq.4) then ! zero disturbance
 
             mat(:,:,:,1,:) = zero
             mat(3,1,1,1,:) = one

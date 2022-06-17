@@ -1,8 +1,8 @@
 !=============================================================================!
         program mkdist
 !
-! Make a disturbance file for the linearized Navier-Stokes solver.
-! This version is specialized to real, 2D flows.
+!   Make a disturbance file for the linearized Navier-Stokes solver.
+!   This version is specialized to real, 2D flows.
 !
 !   Author:   S. Scott Collis
 !

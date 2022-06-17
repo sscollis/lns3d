@@ -17,12 +17,16 @@
 
         end module constants
 !=============================================================================!
-        program inter
+        program interPC
 !
 !  This program interpolates from one computational mesh to another
 !  using B-Spline basis function with the order set by the user.
-!  Since this routine works in computational space, you cannot
-!  change the mapping function between meshes.
+!
+!  This requires that you specify the analytical mapping functions in xi,eta
+!  for the original mesh and is setup to use the mappings for the Parabolic
+!  Cylinder.
+!  
+!  Revised:  6/14/2022
 !
 !=============================================================================!
         use constants
@@ -49,7 +53,7 @@
 
 !.... stuff for file I/O
 
-        character*80 :: name, filen
+        character(80) :: name, filen
 
 !.... local vars
 
@@ -67,8 +71,9 @@
         real :: rmax, rd1, rd2, dd, ximin, ximax
         real :: sx, sy, dxmin, dymin, c1, c2
         real, external :: calcdd, calcs
-#ifdef USE_IMSL
+#if defined(USE_IMSL) || defined(USE_BSLIB)
         real, external :: BS2DR
+        external :: BS2IN
 #endif        
         real :: x, y, xi, eta, s, r, n
 
@@ -77,9 +82,9 @@
 !.... argument parameters
 
         integer :: iarg, narg
-        character*80 :: arg
+        character(80) :: arg
         integer :: yflag=1, xflag=0
-        logical :: plot3d = .false., pot=.false.
+        logical :: plot3d = .false., pot=.false., useIJ=.true.
 #ifndef __GFORTRAN__
         integer, external :: iargc
 #endif
@@ -113,6 +118,15 @@
             case default                ! uniform
               xflag = 0
             end select
+          case ('-i')
+            select case (arg(1:3))
+            case ('-ij')
+              useIJ = .true.            ! use IJ format (default)
+            case ('-ji')
+              useIJ = .false.           ! use JI format
+            case default
+              write(*,"('Argument ',i2,' ignored.')") iarg
+             end select
           case ('-o')                   ! Output a Plot3d file
             plot3d = .true.
           case ('-p')                   ! generate potential BC data
@@ -132,6 +146,8 @@
             write(*,"('------------------------------------------')")
             write(*,"('   -o:  Output a Plot3d file')")
             write(*,"('   -p:  Generate potential info')")
+            write(*,"('  -ij:  Solution in IJ format (default)   ')")
+            write(*,"('  -ji:  Solution in JI format')")
             write(*,"('------------------------------------------')")
             call exit(0)
           case default
@@ -187,7 +203,11 @@
         open(unit=10, file=filen, form='unformatted', status='old', err=201)
         read(10,err=201) lstep, time, nx1, ny1, nz1, ndof, &
                          Re, Ma, Pr, gamma, cv
-        read(10,err=201) v1
+        if (useIJ) then
+          read(10,err=201) (((v1(j,i,idof), idof=1,ndof), i=1,nx1), j=1,ny1)
+        else
+          read(10,err=201) v1
+        endif
         close(10)
 
 !.... read the second grid file
@@ -300,19 +320,20 @@
           read(*,*) dymin
           dnn = one / dble(npts-1)
           sy = calcs( rmax, dymin, deta1 )
-          write(*,*) 'Sy = ', sy
+          !write(*,*) 'Sy = ', sy
           c2 = log( dymin / deta1 )
           c1 = (log( sy*dymin / deta1) - c2) / deta1
           do j = 1, npts
             nn(j) = dble(j-1) * dnn
             rr(j) = one / c1 * ( exp(c1 * nn(j) + c2) - exp(c2) ) 
+            !write(*,*) j, c1, nn(j), rr(j)
           end do
+          !write(*,*) 'Calling NR_SPLINE'
           call NR_SPLINE( rr, nn, npts, 1.0e31, 1.0e31, n2)
         else if (yflag.eq.2) then
           rd1  = 0.00028                ! set for R=1000 PCYL, r=500
           rd2  = 5.5
           dd   = calcdd(rd1,rd2)
-          
           dnn = one / dble(npts-1)
           do j = 1, npts
             nn(j) = dble(j-1) * dnn
@@ -329,7 +350,6 @@
           cm = ( two * b * tanh(b*rc) + (ny1-1)*drmin/rmax * &
                  log( cosh(b*(one-rc)) / cosh(b*(one+rc)) ) ) / &
                ( one - (ny1-1)*drmin/rmax )
-          
           dnn = one / dble(npts-1)
           do j = 1, npts
             nn(j) = dble(j-1) * dnn
@@ -351,17 +371,19 @@
 
         allocate (xknot(nx1+kxord), yknot(ny1+kyord), bsv(ny1,nx1,ndof))
 
+        !write(*,*) "Starting B-splines"
         call BSNAK( nx1, xi1,  kxord, xknot)
         call BSNAK( ny1, eta1, kyord, yknot)
-#ifdef USE_IMSL
+#if defined(USE_IMSL) || defined(USE_BSLIB)
         do idof = 1, ndof
-          call BS2IN( ny1, eta1, nx1, xi1, v1(:,:,idof), ny1, kyord, kxord, &
-                      yknot, xknot, bsv(:,:,idof))
+          !write(*,*) idof
+          call BS2IN( ny1, eta1, nx1, xi1, v1(:,:,idof), ny1, kyord, &
+                      kxord, yknot, xknot, bsv(:,:,idof))
         end do
-        write(*,*) 'B-spline complete...begin interpolating'
+        !write(*,*) 'B-spline complete...begin interpolating'
 #else
-        write(*,*) 'Must use IMSL'
-        stop 1
+        write(*,*) 'Must use IMSL or BSLIB'
+        call exit(1)
 #endif
         if(xy1(1,1,1) .le. zero) then
           ximin = zero
@@ -373,7 +395,7 @@
 !.... now interpolate to the new mesh
         
         do i = 1, nx2
-          write(*,"('i = ',i4)") i
+          !write(*,"('i = ',i4)") i
           do j = 1, ny2
             x   = xy2(j,i,1)
             y   = xy2(j,i,2)
@@ -385,8 +407,10 @@
             s   = ( xi - ximin ) / ( ximax - ximin )
             r   = pt5 * ( eta**2 - one )
             
-            if (xflag.ne.0) call NR_SPLINT( xx, ss, s2, npts, xi, s, tmp, tmp )
-            if (yflag.ne.0) call NR_SPLINT( rr, nn, n2, npts,  r, n, tmp, tmp )
+            if (xflag.ne.0) &
+              call NR_SPLINT( xx, ss, s2, npts, xi, s, tmp, tmp )
+            if (yflag.ne.0) &
+              call NR_SPLINT( rr, nn, n2, npts,  r, n, tmp, tmp )
 
 !.... make sure that the computational coordinates are in range
 
@@ -398,20 +422,20 @@
             if ( s .le. (one + 1.0e-8) ) then
               if (s .gt. one) s = one
               if (n .gt. one) n = one
-#ifdef USE_IMSL
-              v2(j,i,1) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, xknot, &
-                                  ny1, nx1, bsv(:,:,1) )
-              v2(j,i,2) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, xknot, &
-                                  ny1, nx1, bsv(:,:,2) )
-              v2(j,i,3) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, xknot, &
-                                  ny1, nx1, bsv(:,:,3) )
-              v2(j,i,4) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, xknot, &
-                                  ny1, nx1, bsv(:,:,4) )
-              v2(j,i,5) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, xknot, &
-                                  ny1, nx1, bsv(:,:,5) )
+#if defined(USE_IMSL) || defined(USE_BSLIB)
+              v2(j,i,1) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
+                                 xknot, ny1, nx1, bsv(:,:,1) )
+              v2(j,i,2) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
+                                 xknot, ny1, nx1, bsv(:,:,2) )
+              v2(j,i,3) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
+                                 xknot, ny1, nx1, bsv(:,:,3) )
+              v2(j,i,4) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
+                                 xknot, ny1, nx1, bsv(:,:,4) )
+              v2(j,i,5) = BS2DR( 0, 0, n, s, kyord, kxord, yknot, &
+                                 xknot, ny1, nx1, bsv(:,:,5) )
 #else
-              write(*,*) 'Must use IMSL'
-              stop 1
+              write(*,*) 'Must use IMSL or BSLIB'
+              call exit(1)
 #endif
             else
               write(*,"(2(i4,1x),4(1pe13.6,1x))") i,j,x,y,s,r
@@ -431,12 +455,16 @@
                     filen(1:index(filen,' '))
         read (*,"(a)") name
         if (name(1:1) .ne. ' ') filen = name
-
         open(unit=10, file=filen, form='unformatted', status='unknown')
-        write(10) 0, 0, nx2, ny2, nz2, ndof, &
+        write(10) lstep, time, nx2, ny2, nz2, ndof, &
                   Re, Ma, Pr, gamma, cv
-        write(10) v2
+        if (useIJ) then
+          write(10) (((v2(j,i,idof), idof=1,ndof), i=1,nx2), j=1,ny2)
+        else
+          write(10) v2
+        endif
         close(10)
+        write(*,*) "Finished writing data file"
 
         if (pot) then
 
@@ -478,17 +506,21 @@
           open(10, file='int.dat', form='unformatted', status='unknown')
           write(10) nx2, ny2, nz2
           write(10) Ma, Pr, Re, time
-          write(10) ((((v2(j,i,idof), i = 1, nx2), j = 1, ny2),  &
-                      k = 1, nz2), idof = 1, 3), &
-                    (((       p(j,i), i = 1, nx2), j = 1, ny2),  &
-                      k = 1, nz2), &
-                    (((     g1p(j,i), i = 1, nx2), j = 1, ny2),  &
-                      k = 1, nz2)
+          if (pot) then
+            write(10) ((((v2(j,i,idof), i = 1, nx2), j = 1, ny2),  &
+                                        k = 1, nz2), idof = 1, 3), &
+                      (((       p(j,i), i = 1, nx2), j = 1, ny2),  &
+                                        k = 1, nz2), &
+                      (((     g1p(j,i), i = 1, nx2), j = 1, ny2),  &
+                                        k = 1, nz2)
+          else
+            write(10) ((((v2(j,i,idof),i=1,nx2),j=1,ny2),k=1,nz2),idof=1,5)
+          endif
           close(10)
         end if
         
         stop
-        end 
+        end program interPC
 
 !=============================================================================!
         function arc(xi)

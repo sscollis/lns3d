@@ -33,12 +33,12 @@ condition, ready to be run again.
 ## Input files
 
 Input file     |   Description
----------------|------------------------------------------------------------
+---------------|--------------------------------------------------------
 `lns3d.inp`    | Main input for LNS3d solver
 `mesh.inp`     | Input for genmesh in `lns3d/utils`
-`vort.inp`     | Input for `mkvortex` in `lns3d/utils` creating vortex pair
+`vort.inp`     | Input for `mkvortex` in `lns3d/utils` making vortex pair
 
 ---
 
 S. Scott Collis\
-sscollis@gmail.com
+flow.physics.simulation@gmail.com

@@ -135,9 +135,10 @@
           do i = 1, nx
             kk = omega / (cm(i)+um(i))
             a  = omega**2 * d / (cm(i)+um(i))**3
-            c3(i) = exp( im * kk * x(i,ny) )
+            ! c3(i) = exp( im * kk * x(i,ny) )
             ! c3(i) = exp( -a * (x(i,ny) - x0) ) * exp( im * kk * x(i,ny) )
             ! c3(i) = wamp(i) * exp( im * kk * x(ny,i) )
+            c3(i) = wamp(i) * exp( -a * (x(i,ny) - x0) ) * exp( im * kk * x(i,ny) )
           end do
 
           rl(1,:,ny) = -(vl(1,:,ny) - pt5 * c3 / cm**2)
@@ -163,6 +164,37 @@
         if (left.eq.0) then             ! zero disturbance
 
           rl(:,1,:) = zero
+
+        else if (left.eq.1) then
+
+!.... compute the characteristic amplitudes on the left boundary
+
+          allocate( rhom(ny), tm(ny), cm(ny), um(ny), c3(ny) )
+
+          rhom = vml(1,1,:)
+          tm   = vml(5,1,:)
+          cm   = sqrt( tm ) / Ma
+          um   = vml(2,1,:)
+
+          d  = pt5 * ( onept33 + gamma1 / Pr ) / Re
+
+          do j = 1, ny
+            kk = omega / (cm(j)+um(j))
+            a  = omega**2 * d / (cm(j)+um(j))**3
+            ! c3(j) = exp( im * kk * x(i,ny) )
+            ! c3(j) = exp( -a * (x(i,ny) - x0) ) * exp( im * kk * x(i,ny) )
+            ! c3(j) = wamp(i) * exp( im * kk * x(ny,i) )
+            c3(j) = exp( -a * (x(1,j) - x0) ) * exp( im * kk * x(1,j) )
+          end do
+
+          rl(1,1,:) = -(vl(1,1,:) - pt5 * c3 / cm**2)
+          rl(2,1,:) = -(vl(2,1,:) - c3 * pt5 / ( rhom * cm ))
+          rl(3,1,:) = -(vl(3,1,:) - zero)
+          rl(4,1,:) = -(vl(4,1,:) - zero)
+          rl(5,1,:) = -(vl(5,1,:) - (gamma*Ma**2 * c3 * pt5 - &
+                                     tm * pt5 * c3 / cm**2) / rhom)
+
+          deallocate( rhom, tm, cm, um, c3 )
 
         else if (left.eq.4) then        ! eigenfunction inflow
 

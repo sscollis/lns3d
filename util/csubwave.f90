@@ -16,7 +16,7 @@
       integer :: nxm, nym, nzm, ndofm
       integer :: i, j, k, idof, ix
 
-      character*80 file, temp
+      character(80) file, temp
       integer :: iloc, iend
 #ifndef __GFORTRAN__
       integer, external :: iargc
@@ -35,6 +35,8 @@
       integer :: itmp
 
       real :: kk, alpha, delta, x0, r, rho0, c0, omega, th, tl
+
+      logical :: switch_ij = .true.
 !=============================================================================!
 
 !.... read the disturbance file
@@ -44,14 +46,17 @@
         file = temp
       else
         file = 'output.R.1'
-        write (*,"('Enter file name [',a,']? ',$)") file(1:index(file,' '))
+        write (*,"('Enter file name [',a,']? ',$)") &
+          file(1:index(file,' '))
         read (*,"(a80)") temp
         if (temp(1:1) .ne. ' ') file = temp
       end if
 10    open(unit=10, file=file, form='unformatted', status='old', err=20)
       goto 30
-20    write (*,"('>> Error opening [',a,'] ',/)") file(1:index(file,' '))
-      write (*,"('Enter file name [',a,']? ',$)") file(1:index(file,' '))
+20    write (*,"('>> Error opening [',a,'] ',/)") &
+        file(1:index(file,' '))
+      write (*,"('Enter file name [',a,']? ',$)") &
+        file(1:index(file,' '))
       read (*,"(a80)") temp
       if (temp(1:1) .ne. ' ') file = temp
       goto 10
@@ -63,9 +68,14 @@
         call exit(1)
       end if
       allocate( v(ny,nx,ndof) )
-      read(10) v
+      if (switch_ij) then
+        read(10) (((v(j,i,k), k=1,ndof), i=1,nx), j=1,ny)
+      else
+        read(10) v
+      endif
       close(10)
-      write(*,"('Read disturbance field for ',a)") file(1:index(file,' '))
+      write(*,"('Read disturbance field for ',a)") &
+            file(1:index(file,' '))
       write(*,"('  Time = ',1pe10.3,'  step = ',i6)") time, lstep
 
 !.... read in the mean flow file
@@ -75,16 +85,20 @@
       read(10,err=1000) itmp, tmp, nxm, nym, nzm, ndofm, &
                         tmp, tmp, tmp, tmp, tmp
       if( nx.ne.nxm .or. ny.ne.nym .or. ndof.ne.ndofm) then
-        write(*,"('>> Error:  Mean and disturbance fields do not agree')")
+        write(*,"('>> Error:  Mean and disturbance fields dont agree')")
         call exit(1)
       end if
       allocate( vm(ny,nx,ndof) )
-      read(10,err=1000) vm
+      if (switch_ij) then
+        read(10,err=1000) (((vm(j,i,k), k=1,ndof), i=1,nx), j=1,ny)
+      else
+        read(10,err=1000) vm
+      endif
       close(10)
 
 !.... read in the grid file
 
-      open (unit=10, file='grid.dat', form='unformatted', status='unknown')
+      open (unit=10,file='grid.dat',form='unformatted',status='unknown')
       read(10) nx, ny, nz
       allocate (x(ny,nx), y(ny,nx))
       read(10) (((x(j,i), i = 1, nx), j = 1, ny), k = 1, nz), &
@@ -94,16 +108,16 @@
 
 !.... read in the forcing wave amplitude
 
-!      inquire( file='amp.dat', exist=lamp )
-!      if (lamp) then
-!        allocate( wamp(nx) )
-!        write(*,*) 'Reading amp.dat'
-!       open(66,file='amp.dat',form='formatted',status='unknown')
-!       do i = 1, nx
-!         read(66,*) tmp, wamp(i)
-!       end do
-!       close(66)
-!      end if
+      inquire( file='amp.dat', exist=lamp )
+      if (lamp) then
+        allocate( wamp(nx) )
+        write(*,*) 'Reading amp.dat'
+        open(66,file='amp.dat',form='formatted',status='unknown')
+        do i = 1, nx
+          read(66,*) tmp, wamp(i)
+        end do
+        close(66)
+      end if
       
 !.... compute the acoustic wave
 
@@ -124,11 +138,11 @@
       t   = v(:,:,5)
       p   = ( rhom * t + tm * rho ) / (gamma * Ma**2)
 
-!      if (.not. lamp) then
+      if (.not. lamp) then
         write(*,"('Correcting for Re = ',1pe13.6,', Pr ',1pe13.6)") Re, Pr
         rho0  = one
         delta = (one/Re) * pt5 / rho0 * ( onept33 + (gamma - one) / Pr )
-!      end if
+      end if
 
       x0 = x(ny,1)
       write(*,"('Origin, X0 = ',1pe13.6)") x0
@@ -142,12 +156,12 @@
           alpha   = kk**2 * delta / ( cm(j,i) + um(j,i) )
           c1(j,i) = zero
           c2(j,i) = zero
-!         if (lamp) then
-!           c3(j,i) = wamp(i)*( cos( kk * x(j,i) ) + im * sin( kk * x(j,i) ) )
-!         else
+          if (lamp) then
+            c3(j,i) = wamp(i)*( cos( kk * x(j,i) ) + im * sin( kk * x(j,i) ) )
+          else
             c3(j,i) = exp( -alpha * (x(j,i) - x0) ) * &
                       ( cos( kk * x(j,i) ) + im * sin( kk * x(j,i) ) )
-!         end if
+          end if
           c4(j,i) = zero
         end do
       end do
@@ -210,7 +224,8 @@
       end if
 40    open(unit=10, file=file, form='unformatted', status='unknown', err=50)
       goto 60
-50    write (*,"('>> Error opening [',a,'] ',/)") file(1:index(file,' '))
+50    write (*,"('>> Error opening [',a,'] ',/)") &
+        file(1:index(file,' '))
       write (*,"(/,'Enter PLOT3D file name [',a,']? ',$)") &
         file(1:index(file,' '))
       read (*,"(a80)") temp
@@ -223,20 +238,23 @@
 
       write(10,err=1010) nx, ny, nz
       write(10,err=1010) Ma, 0.0, Re, time
-      write(10,err=1010) (((( real(q(j,i,idof) * exp(-im*two*pi*time)), &
-                         i = 1, nx), j = 1, ny), k = 1, nz), idof = 1, ndof)
+      write(10,err=1010) ((((real(q(j,i,idof) * exp(-im*two*pi*time)), &
+                         i=1,nx), j=1,ny), k=1,nz), idof=1,ndof)
       close(10,err=1010)
 
 !.... write out a slice
 
       i = 1
       do j = 1, ny
-        write(10,"(6(1e13.6,1x))") x(j,i), abs(q(j,i,1)), abs(q(j,i,2)), &
-                                   abs(q(j,i,3)), abs(q(j,i,4)), abs(q(j,i,5))
-        write(11,"(6(1e13.6,1x))") x(j,i), real(q(j,i,1)), real(q(j,i,2)), &
+        write(10,"(6(1e13.6,1x))") x(j,i),abs(q(j,i,1)),abs(q(j,i,2)), &
+                                   abs(q(j,i,3)), abs(q(j,i,4)), &
+                                   abs(q(j,i,5))
+        write(11,"(6(1e13.6,1x))") x(j,i), real(q(j,i,1)), &
+                                   real(q(j,i,2)),&
                                    real(q(j,i,3)), real(q(j,i,4)), &
                                    real(q(j,i,5))
-        write(12,"(6(1e13.6,1x))") x(j,i), aimag(q(j,i,1)), aimag(q(j,i,2)), &
+        write(12,"(6(1e13.6,1x))") x(j,i), aimag(q(j,i,1)), &
+                                   aimag(q(j,i,2)), &
                                    aimag(q(j,i,3)), aimag(q(j,i,4)), &
                                    aimag(q(j,i,5))
       end do
@@ -265,10 +283,8 @@
       do i = 1, nx
         r = sqrt( x(j,i)**2 + y(j,i)**2 )
         th = atan2( y(j,i), x(j,i) )
-
 !       write(13,"(6(1e13.6,1x))") th, abs(q(j,i,1)), abs(q(j,i,2)), &
 !                                  abs(q(j,i,3)), abs(q(j,i,4)), abs(q(j,i,5))
-
         write(13,"(6(1e13.6,1x))") r*cos(th)*abs(q(j,i,4))**2, &
                                    r*sin(th)*abs(q(j,i,4))**2
       end do

@@ -3,9 +3,9 @@
  VERSION =		'1.0'
  DTMAX  = 		1.0	
  CFLMAX = 		1.0e10	
- NSTEP  = 	        50
+ NSTEP  = 	        500
  ITOUT  = 		1
- NTOUT  = 		25
+ NTOUT  = 		50
  OPTX   = 	 	-1
  OPTY   = 	  	-1
  CARP   = 		T

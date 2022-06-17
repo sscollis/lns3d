@@ -248,13 +248,13 @@
         
 !.... sponge
 
-        if (ispg .eq. 1) then
+        if (ispg.eq.1) then
           mat(2,1,1,i,j) = mat(2,1,1,i,j) + alfa * dtl(i,j) * spg(i,j)
           mat(2,2,2,i,j) = mat(2,2,2,i,j) + alfa * dtl(i,j) * spg(i,j)
           mat(2,3,3,i,j) = mat(2,3,3,i,j) + alfa * dtl(i,j) * spg(i,j)
           mat(2,4,4,i,j) = mat(2,4,4,i,j) + alfa * dtl(i,j) * spg(i,j)
           mat(2,5,5,i,j) = mat(2,5,5,i,j) + alfa * dtl(i,j) * spg(i,j)
-        else if (ispg .ge. 2) then
+        else if (ispg.ge.2) then
           mat(2,1,1,i,j) = mat(2,1,1,i,j) + alfa*dtl(i,j)*(spg(i,j)+spg2(i,j))
           mat(2,2,2,i,j) = mat(2,2,2,i,j) + alfa*dtl(i,j)*(spg(i,j)+spg2(i,j))
           mat(2,3,3,i,j) = mat(2,3,3,i,j) + alfa*dtl(i,j)*(spg(i,j)+spg2(i,j))

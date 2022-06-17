@@ -13,7 +13,8 @@
         use local2d
         implicit none
 !=============================================================================!
-        real, allocatable :: v(:,:,:), vold(:,:,:), v2old(:,:,:), r(:,:,:)
+        real, allocatable :: v(:,:,:), vold(:,:,:), v2old(:,:,:), &
+                             r(:,:,:)
         real, allocatable :: mat(:,:,:,:,:), bc(:,:,:,:)
         real, allocatable :: per(:,:,:,:,:), per2(:,:,:,:)
         real, allocatable :: dtl(:,:)
@@ -136,7 +137,7 @@
           end do
         end do
 
-!       write(*,"(' ImpDrv allocated ===> ',1pe13.6,' words')") float(mem)
+        write(*,"(' ImpDrv allocated: ',1pe13.6,' words')") float(mem)
 !=============================================================================!
 
 !.... issue a warning if Ny is even

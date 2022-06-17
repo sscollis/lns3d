@@ -7,8 +7,8 @@
 #==============================================================================
 DEBUG  = -O2 -fopenmp
 FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -std=legacy \
-         -ffixed-line-length-120 $(DEBUG)
-F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEBUG)
+         -ffixed-line-length-120 $(DEFINES) $(DEBUG)
+F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEBUG) $(DEFINES)
 OFLAGS = $(DEBUG)
 LIB    = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 ARPACK = -L/usr/local/lib -larpack
@@ -37,6 +37,7 @@ ifdef USE_NR
     LIBNR_DIR = $(HOME)/git/NR-utilities
   endif
   LIB += -L$(LIBNR_DIR) -lnr 
+  DEFINES += "-DUSE_NR"
 endif
 
 MATHLIB = zeroin.o d1mach.o
@@ -44,7 +45,7 @@ MATHLIB = zeroin.o d1mach.o
 ALL = conv-sgi lpost subwave csubwave mkamp mkini mkdist mkdist3d mkmean \
 genmesh initial nconvert getevec mkvortex ij2ji ji2ij mkmean_ji mkdist3d_ji \
 mkdist_ji r4tor8 dirp3d p3dlns3d unipot npost spost lpost3d lpost3d_ji stat \
-mkvortex_v1 mkvortex_v2 mkeig3d
+mkvortex_v1 mkvortex_v2 mkeig3d inter
 
 all: $(ALL) 
 

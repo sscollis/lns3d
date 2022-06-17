@@ -91,7 +91,7 @@
 
 !.... sponge
 
-          if (ispg .eq. 1) then
+          if (ispg.eq.1) then
         
             mat(3,1,1,iv,1) = mat(3,1,1,iv,1) + alfa * dtl(iv,1) * spgl(1,iv)
             mat(3,2,2,iv,1) = mat(3,2,2,iv,1) + alfa * dtl(iv,1) * spgl(1,iv)
@@ -99,7 +99,7 @@
             mat(3,4,4,iv,1) = mat(3,4,4,iv,1) + alfa * dtl(iv,1) * spgl(1,iv)
             mat(3,5,5,iv,1) = mat(3,5,5,iv,1) + alfa * dtl(iv,1) * spgl(1,iv)
 
-          else if (ispg .eq. 2) then
+          else if (ispg.eq.2) then
         
             mat(3,1,1,iv,1) = mat(3,1,1,iv,1) + alfa * dtl(iv,1) * (spgl(1,iv) + spg2l(1,iv))
             mat(3,2,2,iv,1) = mat(3,2,2,iv,1) + alfa * dtl(iv,1) * (spgl(1,iv) + spg2l(1,iv))
@@ -170,7 +170,7 @@
 
 !.... sponge
 
-          if (ispg .eq. 1) then
+          if (ispg.eq.1) then
           
             mat(3,1,1,iv,2) = mat(3,1,1,iv,2) + alfa * dtl(iv,2) * spgl(2,iv)
             mat(3,2,2,iv,2) = mat(3,2,2,iv,2) + alfa * dtl(iv,2) * spgl(2,iv)
@@ -178,7 +178,7 @@
             mat(3,4,4,iv,2) = mat(3,4,4,iv,2) + alfa * dtl(iv,2) * spgl(2,iv)
             mat(3,5,5,iv,2) = mat(3,5,5,iv,2) + alfa * dtl(iv,2) * spgl(2,iv)
             
-          else if (ispg .ge. 2) then
+          else if (ispg.ge.2) then
         
             mat(3,1,1,iv,2) = mat(3,1,1,iv,2) + alfa * dtl(iv,2) * (spgl(2,iv) + spg2l(2,iv))
             mat(3,2,2,iv,2) = mat(3,2,2,iv,2) + alfa * dtl(iv,2) * (spgl(2,iv) + spg2l(2,iv))
@@ -190,7 +190,7 @@
 
 !.... implicit damping term
 
-          if (eps_e .ne. zero) then
+          if (eps_e.ne.zero) then
 
             mat(2,1,1,iv,2) = mat(2,1,1,iv,2) + alfa * dtl(iv,2) * eps_e * buff(iv,2) * (-one)
             mat(2,2,2,iv,2) = mat(2,2,2,iv,2) + alfa * dtl(iv,2) * eps_e * buff(iv,2) * (-one)
@@ -273,7 +273,7 @@
 
 !.... sponge
 
-          if (ispg .eq. 1) then
+          if (ispg.eq.1) then
 
             mat(3,1,1,iv,ny-1) = mat(3,1,1,iv,ny-1) + alfa * dtl(iv,ny-1) * spgl(ny-1,iv)
             mat(3,2,2,iv,ny-1) = mat(3,2,2,iv,ny-1) + alfa * dtl(iv,ny-1) * spgl(ny-1,iv)
@@ -281,7 +281,7 @@
             mat(3,4,4,iv,ny-1) = mat(3,4,4,iv,ny-1) + alfa * dtl(iv,ny-1) * spgl(ny-1,iv)
             mat(3,5,5,iv,ny-1) = mat(3,5,5,iv,ny-1) + alfa * dtl(iv,ny-1) * spgl(ny-1,iv)
 
-          else if (ispg .eq. 2) then
+          else if (ispg.eq.2) then
 
             mat(3,1,1,iv,ny-1) = mat(3,1,1,iv,ny-1) + alfa * dtl(iv,ny-1) * (spgl(ny-1,iv) + spg2l(ny-1,iv))
             mat(3,2,2,iv,ny-1) = mat(3,2,2,iv,ny-1) + alfa * dtl(iv,ny-1) * (spgl(ny-1,iv) + spg2l(ny-1,iv))
@@ -293,7 +293,7 @@
 
 !.... implicit damping term
 
-          if (eps_e .ne. zero) then
+          if (eps_e.ne.zero) then
 
             mat(2,1,1,iv,ny-1) = mat(2,1,1,iv,ny-1) + alfa * dtl(iv,ny-1) * eps_e * buff(iv,ny-1) * (-one)
             mat(2,2,2,iv,ny-1) = mat(2,2,2,iv,ny-1) + alfa * dtl(iv,ny-1) * eps_e * buff(iv,ny-1) * (-one)
@@ -376,7 +376,7 @@
 
 !.... sponge
 
-          if (ispg .eq. 1) then
+          if (ispg.eq.1) then
         
             mat(3,1,1,iv,ny) = mat(3,1,1,iv,ny) + alfa * dtl(iv,ny) * spgl(ny,iv)
             mat(3,2,2,iv,ny) = mat(3,2,2,iv,ny) + alfa * dtl(iv,ny) * spgl(ny,iv)
@@ -384,7 +384,7 @@
             mat(3,4,4,iv,ny) = mat(3,4,4,iv,ny) + alfa * dtl(iv,ny) * spgl(ny,iv)
             mat(3,5,5,iv,ny) = mat(3,5,5,iv,ny) + alfa * dtl(iv,ny) * spgl(ny,iv)
       
-          else if (ispg .eq. 2) then
+          else if (ispg.eq.2) then
         
             mat(3,1,1,iv,ny) = mat(3,1,1,iv,ny) + alfa * dtl(iv,ny) * (spgl(ny,iv) + spg2l(ny,iv))
             mat(3,2,2,iv,ny) = mat(3,2,2,iv,ny) + alfa * dtl(iv,ny) * (spgl(ny,iv) + spg2l(ny,iv))

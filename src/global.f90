@@ -132,11 +132,14 @@
 !.... sponge variables
 
           integer :: ispg       
+          logical :: compSpg = .true., compSpg2 = .true.
           real, allocatable :: spg(:,:)
           real, allocatable :: spg2(:,:)
 
 !.... the boundary forcing amplitude (should be complex stupid)
 
+          logical :: useAmp = .false.
+          character(40) :: amp_file="amp.dat"
           real, allocatable :: wamp(:)
           
 !.... damping function

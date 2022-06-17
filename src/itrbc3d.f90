@@ -146,14 +146,22 @@
 
 !.... allocate room for the boundary amplitude
 
-!         if (istep.eq.0) then
-!           allocate( wamp(nx) )
-!           open(66,file='amp.dat',form='formatted',status='unknown')
-!           do i = 1, nx
-!             read(66,*) tmp, wamp(i)
-!           end do
-!           close(66)
-!         end if
+        if (useAmp) then
+          if (istep.eq.0) then
+            write(*,*) "Reading ",amp_file
+            allocate( wamp(nx) )
+            open(66,file=amp_file,form='formatted',status='unknown')
+            do i = 1, nx
+              read(66,*) tmp, wamp(i)
+            end do
+            close(66)
+          end if
+        else
+          if (istep.eq.0) then
+            allocate( wamp(nx) )
+            wamp = one
+          endif
+        endif
         
 !.... compute the characteristic amplitudes on the top boundary
           
@@ -171,7 +179,8 @@
             a  = omega**2 * d / (cm(i)+um(i))**3
             ! the first term is a viscous damping correction
             !c3(i) = exp(-a * (x(i,ny) - x0)) * exp(im * kk * x(i,ny))
-            c3(i) = exp(im * kk * x(i,ny))
+            c3(i) = wamp(i) * exp(-a * (x(i,ny) - x0)) * exp(im * kk * x(i,ny))
+            !c3(i) = exp(im * kk * x(i,ny))
             !c3(i) = wamp(i) * exp( im * kk * x(i,ny) )
           end do
 
@@ -204,6 +213,36 @@
           vl(3,1,:) = zero
           vl(4,1,:) = zero
           vl(5,1,:) = zero
+
+!.... force an incomming acoustic wave
+
+        else if (left.eq.1) then
+
+!.... compute the characteristic amplitudes on the left boundary
+
+          allocate( rhom(ny), tm(ny), cm(ny), um(ny), c3(ny) )
+
+          rhom = vml(1,1,:)
+          tm   = vml(5,1,:)
+          cm   = sqrt( tm ) / Ma
+          um   = vml(2,1,:)
+
+          d  = pt5 * ( onept33 + gamma1 / Pr ) / Re
+
+          do j = 1, ny 
+            kk = omega / (cm(j)+um(j))
+            a  = omega**2 * d / (cm(j)+um(j))**3 ! viscous damping
+            c3(j) = exp(-a * (x(1,j) - x0)) * exp(im * kk * x(1,j))
+            !c3(j) = exp(im * kk * x(1,j))
+          end do
+
+          vl(1,1,:) = pt5 * c3 / cm**2
+          vl(2,1,:) = c3 * pt5 / ( rhom * cm )
+          vl(3,1,:) = zero
+          vl(4,1,:) = zero
+          vl(5,1,:) = (gamma*Ma**2*c3*pt5 - tm*pt5*c3/cm**2)/rhom
+
+          deallocate( rhom, tm, cm, um, c3 )
         
         else if (left.eq.4) then        ! eigenfunction inflow disturbance
 
@@ -364,7 +403,7 @@
 
           deallocate( rhom, tm, cm, um, c3 )
 
-        else if (right.eq.7) then        ! symmetry boundary
+        else if (right.eq.7) then      ! symmetry boundary
 
         else if (right.eq.9) then      ! extrapolation 
 

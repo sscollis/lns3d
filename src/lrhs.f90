@@ -173,7 +173,7 @@
 
 !.... Sponge term
 
-        if (ispg .eq. 1) then
+        if (ispg.eq.1) then
 
 !.... standard sponge
 
@@ -183,7 +183,7 @@
           rl(4,i,j) = rl(4,i,j) + spg(i,j) * vl(4,i,j)
           rl(5,i,j) = rl(5,i,j) + spg(i,j) * vl(5,i,j)
         
-        else if (ispg .eq. 2) then
+        else if (ispg.gt.4) then
 
           rl(1,i,j) = rl(1,i,j) + (spg(i,j) + spg2(i,j)) * vl(1,i,j)
           rl(2,i,j) = rl(2,i,j) + (spg(i,j) + spg2(i,j)) * vl(2,i,j)
@@ -191,7 +191,7 @@
           rl(4,i,j) = rl(4,i,j) + (spg(i,j) + spg2(i,j)) * vl(4,i,j)
           rl(5,i,j) = rl(5,i,j) + (spg(i,j) + spg2(i,j)) * vl(5,i,j)
 
-        else if (ispg .eq. 3) then
+        else if (ispg.eq.2.or.ispg.eq.3) then
 
 !.... first do the outflow sponge
 
@@ -209,7 +209,7 @@
           kk = omega / (cm + um)
           a  = omega**2 * d / (cm + um)**3
           c3 = ramp( (kk*(x0-xl(i,j)) + omega * time)/(two*pi) ) * &
-               cos( kk * xl(i,j) - omega * time ) * &
+               wamp(i) * cos( kk * xl(i,j) - omega * time ) * &
                exp( -a * (xl(i,j) - x0) )
 !         c3 = ramp( (kk*(x0-xl(i,j)) + omega * time)/(two*pi) ) * &
 !              wamp(i) * cos( kk * xl(i,j) - omega * time )
@@ -231,7 +231,7 @@
 
 !.... explicit smoother
 
-        if (eps_e .ne. zero) call smoother( rl, vl )
+        if (eps_e.ne.zero) call smoother( rl, vl )
 
         return
         end
