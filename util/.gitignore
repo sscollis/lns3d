@@ -32,3 +32,4 @@ Makefile
 mkeig3d
 *.swp
 inter
+nr*.f
