@@ -108,11 +108,11 @@
 
 !.... read in the forcing wave amplitude
 
-      inquire( file='amp.dat', exist=lamp )
+      inquire( file='amp.top', exist=lamp )
       if (lamp) then
         allocate( wamp(nx) )
-        write(*,*) 'Reading amp.dat'
-        open(66,file='amp.dat',form='formatted',status='unknown')
+        write(*,*) 'Reading amp.top'
+        open(66,file='amp.top',form='formatted',status='unknown')
         do i = 1, nx
           read(66,*) tmp, wamp(i)
         end do
