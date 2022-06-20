@@ -26,7 +26,8 @@ c=============================================================================c
         logical IRIS, DIAG
         parameter (IRIS = .false.)
         
-        parameter (mx=1024,my=255)
+        parameter (mx=1024,my=1024)
+
 
         parameter (zero   = 0.0d0,  pt5 = 0.5d0,  one    = 1.0d0, 
      &             onept5 = 1.5d0,  two = 2.0d0,  twopt5 = 2.5d0, 
@@ -50,7 +51,7 @@ c=============================================================================c
         integer narg
         character(80) arg
         integer yflag, xflag
-        logical plot3d, debug
+        logical plot3d, debug, useIJ
 #ifndef __GFORTRAN__
         integer, external iargc
 #endif
@@ -60,6 +61,7 @@ c=============================================================================c
         xflag = 0
         plot3d = .false.
         debug = .false.
+        useIJ = .true.
 c
 c.... parse the argument list
 c
@@ -144,6 +146,7 @@ c
         etamax = sqrt(one + two * rLy)
         etamin = sqrt(one + two * qLy)
         deta = (etamax - etamin) / dble(ny-1)
+        write(*,*) 'Uniform deta = ', deta
         write(*,*) 'Uniform dy = ', pt5*((one+deta)**2-one)
         dr   = one / dble(ny-1)
         do j = 1, ny
@@ -630,63 +633,93 @@ c
 c
 c.... write out unformatted if on a CRAY
 c
+#ifdef USE_SNGL
           open(unit=10,file='grid.dat',form='unformatted')
           write(10) nx, ny, nz
           write(10) (((sngl(x(i,j)), i=1,nx), j=1,ny), k = 1, nz),
      &              (((sngl(y(i,j)), i=1,nx), j=1,ny), k = 1, nz),
      &              (((sngl(zero),   i=1,nx), j=1,ny), k = 1, nz)
           close(10)
+#else
+          open(unit=10,file='grid.dat',form='unformatted')
+          write(10) nx, ny, nz
+          write(10) (((x(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((y(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((zero,   i=1,nx), j=1,ny), k = 1, nz)
+          close(10)
+#endif
         
           if (debug) then
 
           open(unit=10,file='m1.dat',form='unformatted')
           write(10) nx, ny, nz
           write(10) 0.0, 0.0, 0.0, 0.0
-          write(10) (((sngl( rm1(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl( rn1(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl( rm2(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl( rn2(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl(rjac(i,j)), i=1,nx), j=1,ny), k = 1, nz)
+          write(10) (((rm1(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rn1(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rm2(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rn2(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rjac(i,j), i=1,nx), j=1,ny), k = 1, nz)
           close(10)
 
           open(unit=10,file='m11.dat',form='unformatted')
           write(10) nx, ny, nz
           write(10) 0.0, 0.0, 0.0, 0.0
-          write(10) (((sngl(rm11(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl(rm12(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl(rm21(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl(rm22(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl(rm1(i,j)*rn1(i,j)+rm2(i,j)*rn2(i,j)), 
+          write(10) (((rm11(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rm12(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rm21(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rm22(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rm1(i,j)*rn1(i,j)+rm2(i,j)*rn2(i,j), 
      &              i=1,nx), j=1,ny), k = 1, nz)
           close(10)
 
           open(unit=10,file='n11.dat',form='unformatted')
           write(10) nx, ny, nz
           write(10) 0.0, 0.0, 0.0, 0.0
-          write(10) (((sngl(rn11(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl(rn12(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl(rn21(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl(rn22(i,j)), i=1,nx), j=1,ny), k = 1, nz),
-     &              (((sngl(rjac(i,j)), i=1,nx), j=1,ny), k = 1, nz)
+          write(10) (((rn11(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rn12(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rn21(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rn22(i,j), i=1,nx), j=1,ny), k = 1, nz),
+     &              (((rjac(i,j), i=1,nx), j=1,ny), k = 1, nz)
           close(10)
           
           end if  ! debug
+
+          if (useIJ) then
+
+          open (unit=10, file='metric.dat', form='unformatted', 
+     &          status='unknown')
+          write(10) (( rm1(i,j), i=1,nx), j=1,ny),
+     &              (( rm2(i,j), i=1,nx), j=1,ny),
+     &              (( rn1(i,j), i=1,nx), j=1,ny),
+     &              (( rn2(i,j), i=1,nx), j=1,ny),
+     &              ((rm11(i,j), i=1,nx), j=1,ny),
+     &              ((rm12(i,j), i=1,nx), j=1,ny),
+     &              ((rm22(i,j), i=1,nx), j=1,ny),
+     &              ((rn11(i,j), i=1,nx), j=1,ny),
+     &              ((rn12(i,j), i=1,nx), j=1,ny),
+     &              ((rn22(i,j), i=1,nx), j=1,ny)
+          close(10)
+
+          else
 c
 c.... write out the metric file (Note the order of i and j are reversed)
 c
           open (unit=10, file='metric.dat', form='unformatted', 
      &          status='unknown')
-          write(10) (( sngl( rm1(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl( rm2(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl( rn1(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl( rn2(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rm11(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rm12(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rm22(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rn11(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rn12(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rn22(i,j)), j=1,ny), i=1,nx)
+          write(10) (( rm1(i,j), j=1,ny), i=1,nx),
+     &              (( rm2(i,j), j=1,ny), i=1,nx),
+     &              (( rn1(i,j), j=1,ny), i=1,nx),
+     &              (( rn2(i,j), j=1,ny), i=1,nx),
+     &              ((rm11(i,j), j=1,ny), i=1,nx),
+     &              ((rm12(i,j), j=1,ny), i=1,nx),
+     &              ((rm22(i,j), j=1,ny), i=1,nx),
+     &              ((rn11(i,j), j=1,ny), i=1,nx),
+     &              ((rn12(i,j), j=1,ny), i=1,nx),
+     &              ((rn22(i,j), j=1,ny), i=1,nx)
           close(10)
+   
+          endif
+
         end if
         
         stop
