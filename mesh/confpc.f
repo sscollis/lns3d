@@ -94,6 +94,8 @@ c
             plot3d = .true.
           else if (arg(1:2) .eq. '-d') then
             debug = .true.
+          else if (arg(1:3) .eq. '-ji') then
+            useIJ = .false.
           else if (arg(1:2) .eq. '-h') then
             write(*,"('Usage:  confpc [options]')")
             write(*,"('   -h:  this help')")
@@ -105,6 +107,7 @@ c
             write(*,"('  -y1:  exponential stretching in y')")
             write(*,"('  -y2:  hyperbolic tangent stretching in y')")
             write(*,"('  -y3:  Mahesh''s mapping in y')")
+            write(*,"('  -ji:  Output metrics in JI ordering')")
             call exit(0)
           else
             write(*,"('Argument ',i2,' ignored.')") iarg
