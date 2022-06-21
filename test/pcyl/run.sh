@@ -7,7 +7,7 @@ else
   shift
 fi
 echo "Running case $case with args $@"
-set -x
+#set -x
 ~/git/lns3d/mesh/confpc -x1 $@ < confpc.inp."$case"
 \ln -f -s grid.dat grid.xyz
 ~/git/npot/src/npot < npot.inp.0
@@ -19,4 +19,5 @@ set -x
 ~/git/npot/src/npot < npot.inp.1
 ~/git/lns3d/util/npost lns.dat
 cp wall.dat wall.dat."$case"
+cp lns.dat.q lns.q."$case"
 exit 0
