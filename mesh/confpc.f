@@ -249,10 +249,8 @@ c
           smax  = arc(ximax)
           write(*,"('smin, smax, ds uniform = ',3(1pe20.13,1x))") 
      &      smin, smax, (smax-smin)/real(nx-1)
-
           write(*,"('Enter dsmin, b, sc ==> ',$)") 
           read(*,*) dsmin, b, sc
-
           cm = ( two * b * tanh(b*sc) + (nx-1)*dsmin/(smax-smin) * 
      &           log( cosh(b*(one-sc)) / cosh(b*(one+sc)) ) ) /
      &         ( one - (nx-1)*dsmin/(smax-smin) )
