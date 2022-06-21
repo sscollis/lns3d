@@ -43,5 +43,7 @@ It turns out that the figure 5.3 in the thesis apparently is
 mislabled and actually is plotting $\partial p/\partial s$ versus
 $x$, not $s$ as shown.
 
+![Pressure gradient](https://github.com/sscollis/lns3d/blob/master/test/pcyl/dpds.png)
+
 S. Scott Collis\
 flow.physics.simulation@gmail.com
