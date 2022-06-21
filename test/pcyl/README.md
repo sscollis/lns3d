@@ -34,6 +34,11 @@ use
 gnuplot 
 plot "wall.dat.0" u 2:5 w l
 ```
+or use the command file
+```bash
+gnuplot
+load "dpds.com"
+```
 It turns out that the figure 5.3 in the thesis apparently is 
 mislabled and actually is plotting $\partial p/\partial s$ versus
 $x$, not $s$ as shown.
