@@ -6,7 +6,7 @@ else
   case=$1
   shift
 fi
-echo "Running case $case with args $@"
+echo "Running case $case with args: $@"
 #set -x
 ~/git/lns3d/mesh/confpc -x1 $@ < confpc.inp."$case"
 \ln -f -s grid.dat grid.xyz
