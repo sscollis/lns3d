@@ -45,5 +45,11 @@ $x$, not $s$ as shown.
 
 ![Pressure gradient](https://github.com/sscollis/lns3d/blob/master/test/pcyl/dpds.png)
 
+## Size of domain
+
+There is a slight difference between `Case 0` and `Case 1` but all cases after `1` 
+give nearly identical wall pressure gradients.   It would appear that with the
+improved BC's used here, a domain size of 10,000 is adequate.
+
 S. Scott Collis\
 flow.physics.simulation@gmail.com
