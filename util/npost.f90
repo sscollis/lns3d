@@ -338,7 +338,7 @@
             end do
           end do
 
-!.... write out a primative restart file
+!.... write out a primitive restart file
 
           open(10,file='primitive.dat',form='unformatted')
           write(10) lstep, time, nx, ny, nz, ndof, Re, Ma, Pr, gamma, cv
