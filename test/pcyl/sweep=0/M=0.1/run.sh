@@ -12,11 +12,10 @@ echo "Running case $case with args: $@"
 \ln -f -s grid.dat grid.xyz
 ~/git/npot/src/npot < npot.inp.0
 ~/git/npot/src/npot < npot.inp.1
-#~/git/npot/src/npot < npot.inp.2
-#~/git/npot/src/npot < npot.inp.3
-#~/git/npot/src/npot < npot.inp.3
-#~/git/npot/src/npot < npot.inp.2
-#~/git/npot/src/npot < npot.inp.1
+~/git/npot/src/npot < npot.inp.1
+~/git/npot/src/npot < npot.inp.1
+~/git/npot/src/npot < npot.inp.1
+~/git/npot/src/npot < npot.inp.1
 ~/git/lns3d/util/npost lns.dat
 cp wall.dat wall.dat."$case"
 cp lns.dat.q lns.q."$case"
