@@ -14,6 +14,7 @@ echo "Running case $case with args: $@"
 ~/git/npot/src/npot < npot.inp.1
 ~/git/npot/src/npot < npot.inp.2
 ~/git/npot/src/npot < npot.inp.3
+~/git/npot/src/npot < npot.inp.4
 ~/git/npot/src/npot < npot.inp.3
 ~/git/npot/src/npot < npot.inp.2
 ~/git/npot/src/npot < npot.inp.1
