@@ -1,0 +1,6 @@
+&extras
+echo = .true.
+update_nbl = .true.
+output_nbl = .true.
+nbl = 32 
+/
