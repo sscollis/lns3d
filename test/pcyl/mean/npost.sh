@@ -7,8 +7,6 @@ for file in $@
 do
   echo Processing $file
   #$LNS3D_DIR/util/npost -c -np $file >> npost.log <<EOF
-  $LNS3D_DIR/util/npost $file >> npost.log <<EOF
-35
-EOF
+  $LNS3D_DIR/util/npost $file >> npost.log
 done
 exit
