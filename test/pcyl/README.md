@@ -12,9 +12,9 @@ both the initial condition as well as the farfield BC's.
 
 To run the baseline case, use
 ```bash
-./run.sh 0
+./run.sh 1
 ```
-where `0` represented the base case input file to the mesh
+where `1` represented the base case input file to the mesh
 generator `confpc`.  
 
 The `run.sh` script actually runs `npot` several times, restarting
