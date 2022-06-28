@@ -4,10 +4,10 @@
 0.0, 0.0                        ! Pref, Tref
 1.0                             ! Pr number
 1 400.0                         ! Delt, CFL
-5000                            ! nstep
+20000                           ! nstep
 -1 -1                           ! optx, opty
 .false. .false.                 ! xper, yper
-1, 100                          ! itout, ntout
+1, 1000                         ! itout, ntout
 0                               ! ires (0 = off)
 0                               ! ispg (0 = off) 
 0                               ! linear

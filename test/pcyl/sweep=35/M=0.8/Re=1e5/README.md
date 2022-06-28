@@ -8,7 +8,20 @@ using `npot`.
 ## Mean boundary layer 
 
 This directory is for computing the mean boundary-layer flow
-given the potential flow solution. 
+given the potential flow solution at Re=1e5.
+
+## Running
+
+The initial setup and run is done using:
+```bash
+./run.sh 
+```
+Then, to go to convergence (which takes a while) is
+accomplished using 
+```bash
+./rerun.sh
+```
+with runs for 20,000 iterations.
 
 S. Scott Collis\
 flow.physics.simulation@gmail.com

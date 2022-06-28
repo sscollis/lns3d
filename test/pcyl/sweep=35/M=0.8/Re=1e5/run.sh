@@ -17,4 +17,8 @@
 #
 ~/git/lns3d/src/lns3d mean.nml < mean.inp
 #
+# Run to convergence
+#
+#~/git/lns3d/src/lns3d mean.nml < res.inp
+#
 exit 0
