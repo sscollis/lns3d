@@ -211,7 +211,7 @@ c
         end do
         end if
 c
-c.... Mahesh's mapping, personal communication (6-5-96)
+c.... Maheshs mapping, personal communication (6-5-96)
 c
         if (xflag.eq.3) then
           write(*,"('Enter dsmin, b, sc ==> ',$)") 
@@ -367,7 +367,7 @@ c
         end do
         end if
 c
-c.... Mahesh's mapping, personal communication (6-5-96)
+c.... Maheshs mapping, personal communication (6-5-96)
 c
         if (yflag.eq.3) then
           write(*,"('Enter drmin, b, rc ==> ',$)") 
