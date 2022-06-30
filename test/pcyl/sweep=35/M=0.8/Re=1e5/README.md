@@ -10,9 +10,9 @@ adiabatic wall temperature for a laminar flat-plate
 boundary-layer.
 
 $$ T_w = T_\infty \left[ 1 + \frac{r(\gamma - 1)}{2} 
-                        Ma_\infty^2 \right] $$
+         \mathsf{Ma}_\infty^2 \right] $$
 
-where $r = \sqrt{Pr}$.  Note that near the leading-edge,
+where $r = \sqrt{\mathsf{Pr}}$.  Note that near the leading-edge,
 $r = 1$ so that there will be heat transfer due to this
 BC.
 
