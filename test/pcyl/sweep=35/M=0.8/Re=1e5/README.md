@@ -12,7 +12,9 @@ boundary-layer.
 $$ T_w = T_\infty \left[ 1 + \frac{r(\gamma - 1)}{2} 
          \mathsf{Ma}_\infty^2 \right] $$
 
-where $r = \sqrt{\mathsf{Pr}}$.  Note that near the leading-edge,
+where $\gamma = \mathsf{c_p}/\mathsf{c_v}$ is the ratio
+of specific heats, taken here to be $\gamma = 1.4$ and
+$r = \sqrt{\mathsf{Pr}}$.  Note that near the leading-edge,
 $r = 1$ so that there will be heat transfer due to this
 BC.
 
