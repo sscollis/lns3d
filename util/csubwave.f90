@@ -61,17 +61,16 @@
       if (temp(1:1) .ne. ' ') file = temp
       goto 10
 30    continue
-
-      read(10) lstep, time, nx, ny, nz, ndof, Re, Ma, Pr, gamma, cv
+      read(10,err=1020) lstep, time, nx, ny, nz, ndof, Re, Ma, Pr, gamma, cv
       if (nz .ne. 1) then
         write(*,"(' Error:  nz <> 1 ')")
         call exit(1)
       end if
       allocate( v(ny,nx,ndof) )
       if (switch_ij) then
-        read(10) (((v(j,i,k), k=1,ndof), i=1,nx), j=1,ny)
+        read(10,err=1020) (((v(j,i,k), k=1,ndof), i=1,nx), j=1,ny)
       else
-        read(10) v
+        read(10,err=1020) v
       endif
       close(10)
       write(*,"('Read disturbance field for ',a)") &
@@ -316,6 +315,9 @@
       call exit(1)
 
 1010  write(*,"('>> Error writing PLOT3D file')")
+      call exit(1)
+
+1020  write(*,"('>> Error reading disturbance field')")
       call exit(1)
 
       end program csubwave

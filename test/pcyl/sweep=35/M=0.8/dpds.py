@@ -1,0 +1,23 @@
+#!env python
+import matplotlib.pyplot as plt
+import numpy as np
+wall = np.loadtxt("wall.dat.0")
+wall1 = np.loadtxt("wall.dat.1")
+wall2 = np.loadtxt("wall.dat.2")
+plt.title('Pressure gradient')
+plt.ylabel(r"$\partial p/\partial s$")
+plt.xlabel(r"$x$")
+plt.plot(wall[:,0],wall[:,4],'b-',label=r"$x \in [-1000,1000]$")
+plt.plot(wall1[:,0],wall1[:,4],'r-',label=r"$x \in [-10^4, 10^4]$")
+plt.plot(wall2[:,0],wall2[:,4],'g-',label=r"$x \in [-10^5, 10^5]$")
+#plt.xlabel(r"$s$")
+#plt.plot(wall[:,1],wall[:,4],'b-',label=r"$\partial p/\partial s$")
+plt.tick_params(axis='x',direction='in')
+plt.tick_params(axis='y',direction='in')
+#plt.xticks(np.arange(0,18,2))
+#plt.yticks(np.arange(-0.2,1.2,.2))
+plt.xscale("log")
+plt.axis([0.001, 5.0e2, -0.3, 0.1])
+plt.legend()
+plt.savefig("wall.png")
+plt.show(block=False)

@@ -8,7 +8,11 @@
         real, external :: bsder
 
         real :: rhoe, ue, ve, we, te, pe, phie
-        real :: alpha, Ma, gamma
+        real :: alpha=0.0, Ma, gamma
+
+        real :: angle=0.0
+        logical :: echo=.false., useSweep=.false.
+        namelist /sweep/ angle, echo
 
         enum, bind(C)
           enumerator :: Edge_Uc = 1
@@ -338,7 +342,7 @@
             end do
           end do
 
-!.... write out a primative restart file
+!.... write out a primitive restart file
 
           open(10,file='primitive.dat',form='unformatted')
           write(10) lstep, time, nx, ny, nz, ndof, Re, Ma, Pr, gamma, cv
@@ -349,9 +353,20 @@
 !.... if swept then input the sweep angle (wish this were automatic)
 
         if ( maxval(abs(v(4,:,:))) .gt. 1e-14 ) then
-          write(*,"('Enter sweep angle (deg) ==> ',$)")
-          read(*,*) alpha
-          alpha = alpha * pi / 180.0
+          inquire( file='sweep.nml', exist=useSweep )
+          if (useSweep) then
+            open(10,file='sweep.nml',status='old')
+            read(10,sweep)
+            alpha = angle * pi / 180.0
+            close(10)
+            if (echo) then
+              write(*,sweep)
+            end if
+          else
+            write(*,"('Enter sweep angle (deg) ==> ',$)")
+            read(*,*) angle 
+            alpha = angle * pi / 180.0
+          end if
         end if
         
 !.... read in the grid file
