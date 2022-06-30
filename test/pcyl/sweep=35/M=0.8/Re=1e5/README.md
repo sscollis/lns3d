@@ -1,9 +1,9 @@
 # Parabolic cylinder
 
-This is $\mathsf{Ma}=0.8,\, \mathsf{Pr}=1,\, \theta = 35^\circ$ 
+This is $\mathsf{Ma}=0.8\, \mathsf{Pr}=1\, \theta = 35^\circ$ 
 flow over a parabolic cylinder based on Collis' PhD Thesis, 
-Chapter 5.  This starts with the inviscid potential flow 
-computation using `npot`.
+Chapter 5 where $\theta$ is the sweep angle.  We start with 
+the inviscid potential flow computation using `npot`.
 
 Note that the wall is isothermal at the theoretical 
 adiabatic wall temperature for a laminar flat-plate
