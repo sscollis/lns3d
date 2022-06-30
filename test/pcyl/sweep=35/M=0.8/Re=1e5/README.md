@@ -1,6 +1,7 @@
 # Parabolic cylinder
 
-This $\mathsf{Ma}=0.8$ , $\mathsf{Pr}=1$ , $\theta=35^\circ$ 
+This $\mathsf{Ma}=0.8 $ , $ \mathsf{Pr}=1 $ , 
+$ \theta=35^\circ $ 
 flow over a parabolic cylinder based on Collis' PhD Thesis, 
 Chapter 5.  This starts with the inviscid potential flow 
 computation using `npot`.
