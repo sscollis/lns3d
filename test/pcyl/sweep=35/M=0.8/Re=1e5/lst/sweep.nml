@@ -1,0 +1,4 @@
+&sweep
+echo = .true.
+angle = 35.0 
+/

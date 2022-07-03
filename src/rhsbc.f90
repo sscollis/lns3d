@@ -302,7 +302,8 @@
                                      4.0*vl(1,:,4) -     vl(1,:,5) )
           end if
 
-!.... isothermal wall
+!.... isothermal wall:  this uses the recovery factor r=\sqrt(Pr) which
+!.... is valid for a flat-plate laminar boundary layer.  See itrbc.f90
 
           if (wallt.eq.0) then
             rl(ndof,:,1) = vl(ndof,:,1) - ( one + pt5 * gamma1 * Ma**2 &
