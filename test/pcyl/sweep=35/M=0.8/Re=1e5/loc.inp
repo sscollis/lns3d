@@ -12,7 +12,7 @@
 0                               ! ispg (0 = off) 
 0                               ! linear
 1, 1, 2, 1                      ! impl, iLHS, niter, loctime
-0, 0, 2, 0, 1                   ! BC: top, wall, left, right, wallt
+0, 0, 2, 0, 0                   ! BC: top, wall, left, right, wallt
 0.01, 0                         ! eps_e (0 = off), ibuff
 0.0, 0.0                        ! omega, X0
 0                               ! idamp (0 = off)

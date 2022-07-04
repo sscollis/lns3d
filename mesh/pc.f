@@ -27,7 +27,7 @@ c
         dimension zz(mpts), s1(mpts), s2(mpts), ds1(mpts), ds2(mpts),
      &            dss1(mpts), dss2(mpts)
 
-        parameter (mx=1024,my=127)
+        parameter (mx=1024,my=1024)
         
         dimension xb(mx), yb(mx), cur(mx)
         dimension bn1(mx), bn2(mx)
@@ -59,6 +59,7 @@ c.... argument parameters
 #ifndef __GFORTRAN__
         integer, external iargc
 #endif
+        logical, parameter :: metric_ji=.false.
 c=============================================================================c
         yflag = 1
         xflag = 0
@@ -223,7 +224,8 @@ c
 c.... exponential map in the wall normal direction
 c
         if (yflag.eq.1) then
-        deta2 = one / real(128-1)
+        !deta2 = one / real(128-1)
+        deta2 = one / real(ny-1)
         dymin = 5.0d-5
         sy = 1.088d0
         c2 = log( dymin / deta2 )
@@ -240,11 +242,9 @@ c
 c.... Hyperbolic tangent stretching
 c
         if (yflag.eq.2) then
-        
         rd1 = 0.00028d0                 ! set for R=1000 PCYL, r=500
         rd2 = 5.5d0
         dd  = 5.665549493763092d0       
-
         do j = 1, ny
           eta(j) = dble(j-1) * deta
           rr(j) =  rmax*(pt5 + one/Tanh(dd*pt5)*Tanh(dd*(-pt5 +
@@ -767,21 +767,29 @@ c
           
           end if
 c
-c.... write out the metric file (Note the order of i and j are reversed)
+c.... write out the metric file
 c
-          open (unit=10, file='metric.dat', form='unformatted', 
-     &          status='unknown')
-          write(10) (( sngl( rm1(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl( rm2(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl( rn1(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl( rn2(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rm11(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rm12(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rm22(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rn11(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rn12(i,j)), j=1,ny), i=1,nx),
-     &              (( sngl(rn22(i,j)), j=1,ny), i=1,nx)
-          close(10)
+          if (metric_ji) then
+            open (unit=10, file='metric.dat', form='unformatted', 
+     &            status='unknown')
+            write(10) (( sngl( rm1(i,j)), j=1,ny), i=1,nx),
+     &                (( sngl( rm2(i,j)), j=1,ny), i=1,nx),
+     &                (( sngl( rn1(i,j)), j=1,ny), i=1,nx),
+     &                (( sngl( rn2(i,j)), j=1,ny), i=1,nx),
+     &                (( sngl(rm11(i,j)), j=1,ny), i=1,nx),
+     &                (( sngl(rm12(i,j)), j=1,ny), i=1,nx),
+     &                (( sngl(rm22(i,j)), j=1,ny), i=1,nx),
+     &                (( sngl(rn11(i,j)), j=1,ny), i=1,nx),
+     &                (( sngl(rn12(i,j)), j=1,ny), i=1,nx),
+     &                (( sngl(rn22(i,j)), j=1,ny), i=1,nx)
+            close(10)
+          else
+            open (unit=10, file='metric.dat', form='unformatted',
+     &            status='unknown')
+            write(10) rm1, rm2, rn1, rn2, rm11, rm12, rm22,
+     &                rn11, rn12, rn22
+            close(10)
+          end if
         end if
 
         stop      
@@ -849,7 +857,6 @@ c=============================================================================c
 c=============================================================================c
         xi1 = sqrt(x1)
         xi2 = sqrt(x2)
-
 
         arc = sqrt(2.0)*0.5*xi2*sqrt(1.0+2.0*xi2**2) +
      &        0.5*log(sqrt(2.0)*xi2 + sqrt(1.0+2.0*xi2**2))
