@@ -59,5 +59,10 @@ after `1` give nearly identical wall pressure gradients.   It would appear
 that with the improved BC's used here, a domain size of 10,000 (`Case 1`)
 is adequate.
 
+## Next Step
+
+Now that we have the potential flow, we compute the viscous mean flow in
+the directory `Re=1e5`.
+
 S. Scott Collis\
 flow.physics.simulation@gmail.com
