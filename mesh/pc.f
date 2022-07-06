@@ -100,11 +100,13 @@ c
             write(*,"('Usage:  pc [options]')")
             write(*,"('   -h:  this help')")
             write(*,"('   -d:  debug output')")
+            write(*,"('  -x0:  uniform in x (default)')")
             write(*,"('  -x1:  exponential stretching in x')")
             write(*,"('  -x2:  hyperbolic tangent stretching in x')")
             write(*,"('  -x3:  Mahesh''s mapping in x')")
             write(*,"('  -x4:  Mahesh''s mapping in s')")
-            write(*,"('  -y1:  exponential stretching in y')")
+            write(*,"('  -y0:  uniform in y')")
+            write(*,"('  -y1:  exponential stretching in y (default)')")
             write(*,"('  -y2:  hyperbolic tangent stretching in y')")
             write(*,"('  -y3:  Mahesh''s mapping in y')")
             call exit(0)
@@ -223,6 +225,7 @@ c
 c.... exponential map in the wall normal direction
 c
         if (yflag.eq.1) then
+        write(*,*) 'WARNING:  using hardwired numbers for -y1'
         deta2 = one / real(128-1)
         dymin = 5.0d-5
         sy = 1.088d0
@@ -240,11 +243,10 @@ c
 c.... Hyperbolic tangent stretching
 c
         if (yflag.eq.2) then
-        
+        write(*,*) 'WARNING:  using hardwired numbers for -y2'
         rd1 = 0.00028d0                 ! set for R=1000 PCYL, r=500
         rd2 = 5.5d0
         dd  = 5.665549493763092d0       
-
         do j = 1, ny
           eta(j) = dble(j-1) * deta
           rr(j) =  rmax*(pt5 + one/Tanh(dd*pt5)*Tanh(dd*(-pt5 +

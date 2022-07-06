@@ -7,10 +7,10 @@ The inviscid solutions are organized first by sweep and
 then by Mach number. Under that, the the viscous solutions 
 are organized by Reynolds number.  Watch out as
 sometimes the Prandtl number is 1.0 and other times 0.7
-despending on the case we are comparing against.
+despending on the case that we are comparing against.
 
-Depending on the case, there may be linear stability theory
-and/or receptivity results.
+Depending on the case, there may also be a linear stability 
+theory (lst) and/or receptivity results (recp).
 
 In all cases, we attempt to have a `run.sh` script that 
 does setup and at least an initial execution of `lns3d`
