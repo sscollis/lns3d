@@ -669,8 +669,16 @@
           end if
 
 !.... isothermal wall:  set to adiabatic wall temperature where 
-!....                   the recovery factor is sqrt(Pr)
-!.... NOTE:  This is not correct for Pr .ne. 1
+!.... the recovery factor is r = \sqrt(Pr).  This means that
+!.... there will be non-zero heat transfer near the leading
+!.... edge and immediately downstream (e.g. on the parabolic
+!.... cylinder).
+!.... NOTE:  This is valid for a laminar boundary layer on a 
+!....        flat plate for 0.5 < Pr < 10.  Near a stagnation
+!....        point (i.e. the leading-edge), r = 1.  For a 
+!....        turbulent boundary layer, r = Pr^(1/3) for Pr
+!....        near 1.0. See: www.thermopedia.com/content/291/
+!....        and references therein.
 
           if (wallt.eq.0) then
             vl(ndof,:,1) = one + pt5 * gamma1 * Ma**2 * &

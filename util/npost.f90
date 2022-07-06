@@ -223,7 +223,7 @@
               plot3d_norm = .false.
             case ('-h')
               write(*,"('--------------------------------------------------')")
-              write(*,"('Usage:  npost [options] [file1] [file2] [file3]')")
+              write(*,"('Usage:  npost [options] [file1] [file2] [file3]   ')")
               write(*,"('--------------------------------------------------')")
               write(*,"('   -h:  this help')")
               write(*,"('--------------------------------------------------')")
@@ -378,7 +378,8 @@
           write(*,*) 'Grid and data file dimensions do not match'
           call exit(1)
         end if
-        write(*,"('Read grid.dat with dimensions (',i4,',',i4,',',i4,')')") nx, ny, nz
+        write(*,"('Read grid.dat with dimensions (',i4,',',i4,',',i4,')')") &
+          nx, ny, nz
         read(10) (((x(i,j), i = 1, nx), j = 1, ny), k = 1, nz), &
                  (((y(i,j), i = 1, nx), j = 1, ny), k = 1, nz), &
                  (((   tmp, i = 1, nx), j = 1, ny), k = 1, nz)
@@ -397,7 +398,7 @@
 
 !.... if no body file is found, assume that its a parabolic cylinder
 
-        write(*,*) ' WARNING:  assumming a parabolic cylinder'
+        write(*,*) 'WARNING:  no body.dat, assumming a parabolic cylinder!'
 
 !       if (x(1,1) .lt. zero) then
 !         x(1,1) = zero         ! quick fix for roundoff error at origin
@@ -447,7 +448,7 @@
         
 !.... allocate storage for metrics
 
-        allocate (m1(nx,ny),  m2(nx,ny),  n1(nx,ny),  n2(nx,ny), &
+        allocate ( m1(nx,ny),  m2(nx,ny),  n1(nx,ny),  n2(nx,ny), &
                   m11(nx,ny), m12(nx,ny), m22(nx,ny),            &
                   n11(nx,ny), n12(nx,ny), n22(nx,ny) )
 
@@ -455,10 +456,10 @@
 
         if (metric_ji) then
           open (unit=10,file='metric.dat',form='unformatted', status='old')
-          read(10) ((m1(i,j), j=1,ny),i=1,nx), &
-                   ((m2(i,j), j=1,ny),i=1,nx), &
-                   ((n1(i,j), j=1,ny),i=1,nx), &
-                   ((n2(i,j), j=1,ny),i=1,nx), &
+          read(10) (( m1(i,j), j=1,ny),i=1,nx), &
+                   (( m2(i,j), j=1,ny),i=1,nx), &
+                   (( n1(i,j), j=1,ny),i=1,nx), &
+                   (( n2(i,j), j=1,ny),i=1,nx), &
                    ((m11(i,j), j=1,ny),i=1,nx), &
                    ((m12(i,j), j=1,ny),i=1,nx), &
                    ((m22(i,j), j=1,ny),i=1,nx), &
@@ -537,8 +538,8 @@
 !.... make a restart and grid file in the body normal coordinates
 
         if (lst) then
-          write(*,*) ' WARNING: only valid for body-fitted mesh'
-!         write(*,*) ' WARNING: parallel flow assumption'
+          write(*,*) 'WARNING: only valid for body-fitted mesh'
+!         write(*,*) 'WARNING: parallel flow assumption'
           allocate ( ynn(ny), uss(ny), unn(ny) )
           do i = 1, nx
             bn1 = n1(i,1) / sqrt( n1(i,1)**2 + n2(i,1)**2 )
@@ -594,8 +595,10 @@
           q(2,:,:) = v(1,:,:) * v(2,:,:) * p3dnorm              ! rho u
           q(3,:,:) = v(1,:,:) * v(3,:,:) * p3dnorm              ! rho v
           q(4,:,:) = v(1,:,:) * v(4,:,:) * p3dnorm              ! rho w
-          q(5,:,:) = p3dnorm * v(1,:,:) * ( one / gamma1 / (gamma*Ma**2) * &
-            v(5,:,:) + pt5 * (v(2,:,:)**2+v(3,:,:)**2+v(4,:,:)**2) ) ! total E
+          q(5,:,:) = p3dnorm * v(1,:,:) * &
+                     ( one / gamma1 / (gamma*Ma**2) * &
+                     v(5,:,:) + pt5 * (v(2,:,:)**2+v(3,:,:)**2+ &
+                     v(4,:,:)**2) )                             ! total E
         else
           q(1,:,:) = v(1,:,:)                                   ! rho
           q(2,:,:) = v(2,:,:)                                   ! u-velocity
@@ -643,7 +646,6 @@
         j = 1
         write(*,"('Enter j ==> ',$)")
         read(*,*) j
-
         do i = 1, nx
           m1l = n1(i,j) / sqrt( n1(i,j)**2 + n2(i,j)**2 )
           m2l = n2(i,j) / sqrt( n1(i,j)**2 + n2(i,j)**2 )
@@ -651,13 +653,10 @@
           write(12,"(8(1pe16.9,1x))") s(i), v(1,i,j), v(2,i,j), &
                                       v(3,i,j), v(4,i,j), v(5,i,j), p(i,j)
         end do
-
-!       j = 1
         do i = 1, nx
           write(17,"(8(1pe16.9,1x))") x(i,j), g2v(1,i,j), g2v(2,i,j), &
                                       g2v(3,i,j), g2v(4,i,j), g2v(5,i,j)
         end do
-
 
 !.... write out quantities along the outflow boundnary
 
@@ -714,7 +713,7 @@
                    unn(ny) )
         open(11,file='loc.dat')
         write(11,"('# ',a)") "i, s(i), x(i,1)"
-        write(39,"('# ',a)") "x(i,1), edge, rhoe, ue, ve, we, te"
+        write(39,"('# ',a)") "x(i,1), s(i), edge, rhoe, ue, ve, we, te, umag, alp"
         do i = imin, imax, inc
           if (i.gt.0 .and. i.le.nx) then
           call makename(base,i,fname)
@@ -769,7 +768,7 @@
 
             do j = 1, ny-1
               write(*,*) i, j, v(5,i,j)
-              if ( v(5,i,j) .lt. 0.999*v(5,i,1) ) goto 700  ! rough estimate
+              if ( v(5,i,j) .lt. 0.999*v(5,i,1) ) goto 700    ! rough estimate
             end do
 
           else
@@ -788,21 +787,23 @@
           we   = bsder( 0, edge, kord, knot, ny, bs(:,4) )
           te   = bsder( 0, edge, kord, knot, ny, bs(:,5) )
           pe   = rhoe * te / (gamma * Ma**2)
-#ifdef NPOST_DEBUG
-          write(*,"(8(1pe13.6,1x))") x(i,1), edge, rhoe, ue, ve, we, te
-#endif
-          write(39,"(8(1pe13.6,1x))") x(i,1), edge, rhoe, ue, ve, we, te
-          alp = atan2( we, ue )
+          alp  = atan2( we, ue )
           umag = sqrt(ue**2+we**2)
-
+#ifdef NPOST_DEBUG
+          write(*,"(10(1pe13.6,1x))") x(i,1), s(i), edge, rhoe, ue, ve, we, te
+                                      umag, alp*180.0/pi
+#endif
+          write(39,"(10(1pe13.6,1x))") x(i,1), s(i), edge, rhoe, ue, ve, we, te, &
+                                       umag, alp*180.0/pi
           open(10,file=fname)
           open(12,file=fname1)
           open(13,file=fname2)
+          write(10,"('# ',a)") 'n, rho, us, un, w, t, p, \tilde us/Ue, \tilde ws/Ue'
           do j = 1, ny
             write(10,"(9(1pe17.9e3,1x))") ynn(j), v(1,i,j), uss(j), &
                unn(j), v(4,i,j), v(5,i,j), p(i,j), &
-               (cos(alp) * uss(j) + sin(alp) * v(4,i,j)), &
-               (-sin(alp) * uss(j) + cos(alp) * v(4,i,j))
+               (cos(alp)*uss(j) + sin(alp)*v(4,i,j))/umag, &
+               (-sin(alp)*uss(j) + cos(alp)*v(4,i,j))/umag
             write(12,"(9(1pe17.9e3,1x))") ynn(j),      &
                g1v(1,i,j)*bn1 + g2v(1,i,j)*bn2,      &
                bn2*(g1v(2,i,j)*bn1+g2v(2,i,j)*bn2) - &
@@ -1215,8 +1216,14 @@
                              "phie, Ma1, edge*wmax*Re"
         write(13,"('# ',a)") "s(i), delta, alp"
 
-        !do i = 1, nx
+!.... Skipt the attachment line (SSC)
+
+#define NPOST_SKIP_AL=1
+#ifdef NPOST_SKIP_AL
         do i = 2, nx
+#else
+        do i = 1, nx
+#endif
           delta = zero
           theta = zero
 
