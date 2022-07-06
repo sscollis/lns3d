@@ -50,7 +50,7 @@ script `dpds.py`:
 ```
 yielding the following plot
 
-![Pressure gradient](https://github.com/sscollis/lns3d/blob/master/test/pcyl/dpds.png)
+![Pressure gradient](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/dpds.png)
 
 ## Size of domain
 
