@@ -1216,7 +1216,7 @@
                              "phie, Ma1, edge*wmax*Re"
         write(13,"('# ',a)") "s(i), delta, alp"
 
-!.... Skipt the attachment line (SSC)
+!.... Skip the attachment line (SSC)
 
 #define NPOST_SKIP_AL=1
 #ifdef NPOST_SKIP_AL
@@ -1306,7 +1306,8 @@
 !         Cp     = (pe/pinf - one)/(p0 - one)               ! Cp (comp)
           Cp     = two*( pe - pinf )
           alp    = atan2( we, ue )
-          phie   = (alp - alpha) * 180.0 / pi
+!         phie   = (alp - alpha) * 180.0 / pi
+          phie   = alp * 180.0 / pi  ! experiment  ! SSC: changed 7/7/22
 #ifdef NPOST_DEBUG
           !write(*,"(9(1pe13.6,1x))")  s(i),edge,rhoe,ue,ve,we,te,pe,phie
 #endif
@@ -1411,11 +1412,11 @@
           write(12,"(20(1pe13.6,1x))") s(i), delta, theta, wmax, U1, &
                                        Te, phie, Ma1, edge*wmax*Re
 
+!.... the last item is Poll's crossflow Reynolds number
+
 !.... stat.dat
 
           write(13,"(20(1pe13.6,1x))") s(i), delta, alp
-          
-!.... the last item is Poll's crossflow Reynolds number
 
 !.... output a profile
 
