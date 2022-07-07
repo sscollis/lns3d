@@ -7,7 +7,7 @@
 #  Revised: 4-5-95
 #
 #=============================================================================
-NAME   = pre 
+NAME   = pre.exe
 DEBUG  =  
 FFLAGS = -g -r8 -c $(DEBUG)
 OFLAGS = -g -r8 $(DEBUG) -o $(NAME)

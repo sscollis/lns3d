@@ -6,7 +6,7 @@
 #  Revised: 4-5-95
 #
 NPROC  =  4
-NAME   =  pre 
+NAME   =  pre.exe
 DEBUG  = 
 FFLAGS =  -c $(DEBUG)
 OFLAGS =  $(DEBUG) -o $(NAME)

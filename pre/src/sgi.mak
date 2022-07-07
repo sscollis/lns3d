@@ -7,7 +7,7 @@
 #  Revised: 4-5-95
 #
 #=============================================================================
-NAME   = pre 
+NAME   = pre.sgi
 DEBUG  =  
 FFLAGS = -O -r8 -c $(DEBUG)
 OFLAGS = -O -r8 $(DEBUG) -o $(NAME)

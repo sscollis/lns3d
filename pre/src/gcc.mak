@@ -7,7 +7,7 @@
 #  Revised: 2/12/2020 
 #
 #=============================================================================
-NAME   = pre 
+NAME   = pre.exe
 DEBUG  =  
 OFLAGS = -cpp -fdefault-real-8 $(DEBUG) -o $(NAME)
 FFLAGS = -cpp -fdefault-real-8 -c $(DEBUG)
