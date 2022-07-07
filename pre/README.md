@@ -11,9 +11,11 @@ The directories herein are:
 
 Directory  |   Description
 -----------|----------------------------------------------------------------
-`src`      |  The original version working in `JIK` ordering with B-splines
+`src_org`  |  The original version working in `JIK` ordering with B-splines
 `src_ij`   |  Updated to use `KIJ` ordering but with no B-spline support
 -----------|----------------------------------------------------------------
+
+There is a symbolic link `src -> src_ij` as the version to use.
 
 S. Scott Collis\
 flow.phyaics.simulation@gmail.com
