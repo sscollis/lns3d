@@ -70,5 +70,7 @@ Notes
        3. There could be a difference in the wall-temperature BC -- I corrected
           what looked like a discrepency in enforcing this BC. 
 
+## Point of Contact
+
 S. Scott Collis\
 flow.physics.simulation@gmail.com
