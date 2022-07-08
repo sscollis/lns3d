@@ -39,7 +39,7 @@ $STAB_DIR/stab < stab.inp
 # Extract most unstable mode
 #
 $STAB_DIR/getab < getab.inp
-\rm stab.out stab-beta.out
+\mv stab.out stab-beta.out
 #
 # Output eigenvector at max instability
 #
