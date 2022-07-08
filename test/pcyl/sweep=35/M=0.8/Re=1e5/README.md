@@ -39,7 +39,7 @@ with runs for 20,000 iterations.
 
 ## Reference
 
-There is a reference solution in the `ref` directory stored as `mean.R.0'
+There is a reference solution in the `ref` directory stored as `mean.R.0`
 along with grid and metric files.  There are also boundary-layer thickness
 results from `npost` and these are generally useful although some of the 
 results, like the numerical value for the `edge` may be coorupted due to the
