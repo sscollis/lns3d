@@ -1218,12 +1218,12 @@
 
 !.... Skip the attachment line (SSC)
 
-#define NPOST_SKIP_AL=1
 #ifdef NPOST_SKIP_AL
         do i = 2, nx
 #else
         do i = 1, nx
 #endif
+          write(*,*) "i = ", i
           delta = zero
           theta = zero
 
@@ -1318,7 +1318,7 @@
           write(14,12) x(i,1), zero, y(i,1), bn2*ue+bn1*ve, we, &
                        -bn1*ue+bn2*ve, te, Cp
 
-          if (abs(s(i)).le.1.0e-8) goto 555
+          !if (abs(s(i)).le.1.0e-8) goto 555
 
 !.... switch to streamline coordinates, normalize by U1, and interpolate
 !.... should U1 have un in it?
