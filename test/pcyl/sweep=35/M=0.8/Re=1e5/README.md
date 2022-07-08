@@ -54,7 +54,12 @@ suitable for extracting profiles and thickness statistics.   This is done
 using `npost` and the resulting data can be plotted using the collestion of 
 `gnuplot` scripts ending in `.com`.
 
-Notes
+### Running
+
+Use the `run.sh` script in the `lst` directory, possibly changing where
+the mean flow solution comes from.
+
+### Notes
   1. The thickness results can be compared to those from the reference mean
      solution so see the impact of using a conformal versus body-fitted mesh
      (which is small for most quantities)
