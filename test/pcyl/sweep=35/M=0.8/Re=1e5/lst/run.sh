@@ -14,8 +14,8 @@ $LNS3D_DIR/pre/src/pre.exe <<EOF
 EOF
 \mv metric.new metric.dat
 $LNS3D_DIR/mesh/interpc -x3 -y3 -o -p -ij <<EOF
-../grid.dat
-../output.R.57
+../ref/grid.dat
+../ref/mean.R.0
 
 0.01 7 .25
 0.001 7 .75
