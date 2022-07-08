@@ -1,5 +1,12 @@
 #!/bin/bash
+#
+# setup paths
+#
 LNS3D_DIR=${LNS3D_DIR:=$HOME/git/lns3d}
+STAB_DIR=${STAB_DIR:=$HOME/git/stab}
+#
+# Make body-fitted mesh on parabolic cylinder
+#
 $LNS3D_DIR/mesh/pc -y3 < pc.inp
 \ln -f -s grid.dat grid.xyz
 #
@@ -24,4 +31,21 @@ EOF
 $LNS3D_DIR/util/npost -p -t -Wc output.R.0 <<EOF
 1 384 1
 EOF
+#
+# Run stability analysis (sweep in beta)
+#
+$STAB_DIR/stab < stab.inp
+#
+# Extract most unstable mode
+#
+$STAB_DIR/getab < getab.inp
+#
+# Output eigenvector at max instability
+#
+$STAB_DIR/getevec <<EOF
+eig.14
+505
+0
+EOF
+\mv space.1 space.14
 exit 0

@@ -1,4 +1,4 @@
-plot "stab.1" u 1:($2) w l t ""
+plot "stab.out" u 1:($2) w l t ""
 set xrange [0:200]
 set yrange [-200:0]
 set mxtics 10
