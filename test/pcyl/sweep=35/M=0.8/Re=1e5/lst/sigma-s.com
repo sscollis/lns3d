@@ -1,4 +1,4 @@
-plot "stab.out" u 2:(-$4) w l
+plot "stab-s.out" u 2:(-$4) w l
 set xzeroaxis
 set yrange [-1:2]
 set xrange [0:35]
