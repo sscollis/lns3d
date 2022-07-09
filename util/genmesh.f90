@@ -17,7 +17,7 @@
         real    :: dx, dy, dxi, deta
         integer :: nx, ny
 
-        character*80 name
+        character(80) name
 
 !.... default values are for temporal instability calculation
 

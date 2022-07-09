@@ -250,7 +250,7 @@
 
 !.... write out the derivatives on the body
 
-	write(*,"('Enter j ==> ',$)") 
+	write(*,"('Enter j cooresponding to the body ==> ',$)") 
 	read(*,*) j
 	do i = 1, nx
 	  write(50,20) xi(i), m(1,i,j), m(2,i,j)

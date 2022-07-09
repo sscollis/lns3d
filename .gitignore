@@ -32,7 +32,7 @@
 *.out
 *.app
 lns3d
-pre
+pre.exe
 #
 .DS_Store
 Makefile

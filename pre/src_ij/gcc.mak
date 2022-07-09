@@ -7,15 +7,16 @@
 #  Revised: 2-12-2020
 #
 #=============================================================================
-NAME     = pre 
+NAME     = pre.exe
 DEBUG    = -g 
-FFLAGS   = -cpp -fdefault-real-8 -c $(DEBUG)
-F77FLAGS = -cpp -fdefault-real-8 -ffixed-line-length-120 -std=legacy -c $(DEBUG)
+FFLAGS   = -cpp -fdefault-real-8 -O2 -c $(DEBUG)
+F77FLAGS = -cpp -fdefault-real-8 -ffixed-line-length-120 -std=legacy \
+-O2 -c $(DEBUG)
 OFLAGS   = -fdefault-real-8 $(DEBUG) -o $(NAME)
 LIB      = 
 COMP     = gfortran
 F77      = gfortran
-CC       = gcc-9
+CC       = gcc-11
 #
 #  Define Fortran90 suffix
 #
