@@ -1,0 +1,3 @@
+#!/bin/bash
+\rm *.aux *.log *.lot *.toc *.lof *.pdf *.dvi *.out *.bbl *.blg
+exit 0

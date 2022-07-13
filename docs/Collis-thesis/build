@@ -1,0 +1,7 @@
+#!/bin/bash
+latex thesis && bibtex thesis && latex thesis && latex thesis && \
+dvipdf thesis
+#
+# now you can view the PDF using, e.g. `open thesis.pdf`
+#
+exit 0
