@@ -1,0 +1,2682 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: pasteboard
+%%Creator: nxyplot
+%%CreationDate: Mon Oct 21 07:46:16 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 1
+%%BoundingBox: 0 0 631 372
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -4 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 631 372 rectclip
+0 0 631 372 rectclip
+1 setgray
+0 0 631 372 rectfill
+0.4 setlinewidth
+0 setgray
+/Helvetica findfont 12 scalefont
+15
+exch
+defineuserobject
+15 execuserobject setfont
+324.834015 10 moveto
+() show
+15 execuserobject setfont
+18 182.834 moveto
+gsave
+90 rotate
+() show
+grestore
+/Helvetica findfont 14 scalefont
+16
+exch
+defineuserobject
+16 execuserobject setfont
+310.161987 356 moveto
+() show
+gsave
+100 50 translate
+-119.475006 0 translate
+1 setlinewidth
+newpath
+119.475006 0 moveto
+597.375 0 lineto
+597.375 289.799988 lineto
+119.475006 289.799988 lineto
+closepath
+stroke
+0.4 setlinewidth
+/Times-Roman findfont 20 scalefont
+45
+exch
+defineuserobject
+45 execuserobject setfont
+newpath
+1 setlinewidth
+119.475006 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+119.475006 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+111.975006 -25 moveto
+( 5) show
+131.422501 3 moveto
+0 -3 rlineto
+stroke
+131.422501 289.799988 moveto
+0 -3 rlineto
+stroke
+143.37001 3 moveto
+0 -3 rlineto
+stroke
+143.37001 289.799988 moveto
+0 -3 rlineto
+stroke
+155.317505 3 moveto
+0 -3 rlineto
+stroke
+155.317505 289.799988 moveto
+0 -3 rlineto
+stroke
+167.265015 3 moveto
+0 -3 rlineto
+stroke
+167.265015 289.799988 moveto
+0 -3 rlineto
+stroke
+179.212509 3 moveto
+0 -3 rlineto
+stroke
+179.212509 289.799988 moveto
+0 -3 rlineto
+stroke
+191.160004 3 moveto
+0 -3 rlineto
+stroke
+191.160004 289.799988 moveto
+0 -3 rlineto
+stroke
+203.107513 3 moveto
+0 -3 rlineto
+stroke
+203.107513 289.799988 moveto
+0 -3 rlineto
+stroke
+215.055008 3 moveto
+0 -3 rlineto
+stroke
+215.055008 289.799988 moveto
+0 -3 rlineto
+stroke
+227.002502 3 moveto
+0 -3 rlineto
+stroke
+227.002502 289.799988 moveto
+0 -3 rlineto
+stroke
+238.950012 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+238.950012 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+228.950012 -25 moveto
+(10) show
+250.897507 3 moveto
+0 -3 rlineto
+stroke
+250.897507 289.799988 moveto
+0 -3 rlineto
+stroke
+262.845001 3 moveto
+0 -3 rlineto
+stroke
+262.845001 289.799988 moveto
+0 -3 rlineto
+stroke
+274.792511 3 moveto
+0 -3 rlineto
+stroke
+274.792511 289.799988 moveto
+0 -3 rlineto
+stroke
+286.740021 3 moveto
+0 -3 rlineto
+stroke
+286.740021 289.799988 moveto
+0 -3 rlineto
+stroke
+298.6875 3 moveto
+0 -3 rlineto
+stroke
+298.6875 289.799988 moveto
+0 -3 rlineto
+stroke
+310.63501 3 moveto
+0 -3 rlineto
+stroke
+310.63501 289.799988 moveto
+0 -3 rlineto
+stroke
+322.58252 3 moveto
+0 -3 rlineto
+stroke
+322.58252 289.799988 moveto
+0 -3 rlineto
+stroke
+334.530029 3 moveto
+0 -3 rlineto
+stroke
+334.530029 289.799988 moveto
+0 -3 rlineto
+stroke
+346.477509 3 moveto
+0 -3 rlineto
+stroke
+346.477509 289.799988 moveto
+0 -3 rlineto
+stroke
+358.425018 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+358.425018 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+348.425018 -25 moveto
+(15) show
+370.372528 3 moveto
+0 -3 rlineto
+stroke
+370.372528 289.799988 moveto
+0 -3 rlineto
+stroke
+382.320007 3 moveto
+0 -3 rlineto
+stroke
+382.320007 289.799988 moveto
+0 -3 rlineto
+stroke
+394.267517 3 moveto
+0 -3 rlineto
+stroke
+394.267517 289.799988 moveto
+0 -3 rlineto
+stroke
+406.215027 3 moveto
+0 -3 rlineto
+stroke
+406.215027 289.799988 moveto
+0 -3 rlineto
+stroke
+418.162506 3 moveto
+0 -3 rlineto
+stroke
+418.162506 289.799988 moveto
+0 -3 rlineto
+stroke
+430.110016 3 moveto
+0 -3 rlineto
+stroke
+430.110016 289.799988 moveto
+0 -3 rlineto
+stroke
+442.057526 3 moveto
+0 -3 rlineto
+stroke
+442.057526 289.799988 moveto
+0 -3 rlineto
+stroke
+454.005005 3 moveto
+0 -3 rlineto
+stroke
+454.005005 289.799988 moveto
+0 -3 rlineto
+stroke
+465.952515 3 moveto
+0 -3 rlineto
+stroke
+465.952515 289.799988 moveto
+0 -3 rlineto
+stroke
+477.900024 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+477.900024 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+467.900024 -25 moveto
+(20) show
+489.847534 3 moveto
+0 -3 rlineto
+stroke
+489.847534 289.799988 moveto
+0 -3 rlineto
+stroke
+501.795013 3 moveto
+0 -3 rlineto
+stroke
+501.795013 289.799988 moveto
+0 -3 rlineto
+stroke
+513.742554 3 moveto
+0 -3 rlineto
+stroke
+513.742554 289.799988 moveto
+0 -3 rlineto
+stroke
+525.690002 3 moveto
+0 -3 rlineto
+stroke
+525.690002 289.799988 moveto
+0 -3 rlineto
+stroke
+537.637512 3 moveto
+0 -3 rlineto
+stroke
+537.637512 289.799988 moveto
+0 -3 rlineto
+stroke
+549.585022 3 moveto
+0 -3 rlineto
+stroke
+549.585022 289.799988 moveto
+0 -3 rlineto
+stroke
+561.532532 3 moveto
+0 -3 rlineto
+stroke
+561.532532 289.799988 moveto
+0 -3 rlineto
+stroke
+573.480042 3 moveto
+0 -3 rlineto
+stroke
+573.480042 289.799988 moveto
+0 -3 rlineto
+stroke
+585.427551 3 moveto
+0 -3 rlineto
+stroke
+585.427551 289.799988 moveto
+0 -3 rlineto
+stroke
+597.375 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+597.375 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+587.375 -25 moveto
+(25) show
+125.475006 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+597.375 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+99.475006 -8 moveto
+(0) show
+122.475006 5.796 moveto
+-3 0 rlineto
+stroke
+597.375 5.796 moveto
+-3 0 rlineto
+stroke
+122.475006 11.591999 moveto
+-3 0 rlineto
+stroke
+597.375 11.591999 moveto
+-3 0 rlineto
+stroke
+122.475006 17.387999 moveto
+-3 0 rlineto
+stroke
+597.375 17.387999 moveto
+-3 0 rlineto
+stroke
+122.475006 23.183998 moveto
+-3 0 rlineto
+stroke
+597.375 23.183998 moveto
+-3 0 rlineto
+stroke
+122.475006 28.98 moveto
+-3 0 rlineto
+stroke
+597.375 28.98 moveto
+-3 0 rlineto
+stroke
+122.475006 34.775997 moveto
+-3 0 rlineto
+stroke
+597.375 34.775997 moveto
+-3 0 rlineto
+stroke
+122.475006 40.571999 moveto
+-3 0 rlineto
+stroke
+597.375 40.571999 moveto
+-3 0 rlineto
+stroke
+122.475006 46.367996 moveto
+-3 0 rlineto
+stroke
+597.375 46.367996 moveto
+-3 0 rlineto
+stroke
+122.475006 52.163998 moveto
+-3 0 rlineto
+stroke
+597.375 52.163998 moveto
+-3 0 rlineto
+stroke
+125.475006 57.959999 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+597.375 57.959999 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+84.475006 49.959999 moveto
+(0.2) show
+122.475006 63.756001 moveto
+-3 0 rlineto
+stroke
+597.375 63.756001 moveto
+-3 0 rlineto
+stroke
+122.475006 69.552002 moveto
+-3 0 rlineto
+stroke
+597.375 69.552002 moveto
+-3 0 rlineto
+stroke
+122.475006 75.348 moveto
+-3 0 rlineto
+stroke
+597.375 75.348 moveto
+-3 0 rlineto
+stroke
+122.475006 81.143997 moveto
+-3 0 rlineto
+stroke
+597.375 81.143997 moveto
+-3 0 rlineto
+stroke
+122.475006 86.939995 moveto
+-3 0 rlineto
+stroke
+597.375 86.939995 moveto
+-3 0 rlineto
+stroke
+122.475006 92.736 moveto
+-3 0 rlineto
+stroke
+597.375 92.736 moveto
+-3 0 rlineto
+stroke
+122.475006 98.531998 moveto
+-3 0 rlineto
+stroke
+597.375 98.531998 moveto
+-3 0 rlineto
+stroke
+122.475006 104.327995 moveto
+-3 0 rlineto
+stroke
+597.375 104.327995 moveto
+-3 0 rlineto
+stroke
+122.475006 110.124001 moveto
+-3 0 rlineto
+stroke
+597.375 110.124001 moveto
+-3 0 rlineto
+stroke
+125.475006 115.919998 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+597.375 115.919998 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+84.475006 107.919998 moveto
+(0.4) show
+122.475006 121.715996 moveto
+-3 0 rlineto
+stroke
+597.375 121.715996 moveto
+-3 0 rlineto
+stroke
+122.475006 127.512001 moveto
+-3 0 rlineto
+stroke
+597.375 127.512001 moveto
+-3 0 rlineto
+stroke
+122.475006 133.307999 moveto
+-3 0 rlineto
+stroke
+597.375 133.307999 moveto
+-3 0 rlineto
+stroke
+122.475006 139.104004 moveto
+-3 0 rlineto
+stroke
+597.375 139.104004 moveto
+-3 0 rlineto
+stroke
+122.475006 144.899994 moveto
+-3 0 rlineto
+stroke
+597.375 144.899994 moveto
+-3 0 rlineto
+stroke
+122.475006 150.695999 moveto
+-3 0 rlineto
+stroke
+597.375 150.695999 moveto
+-3 0 rlineto
+stroke
+122.475006 156.491989 moveto
+-3 0 rlineto
+stroke
+597.375 156.491989 moveto
+-3 0 rlineto
+stroke
+122.475006 162.287994 moveto
+-3 0 rlineto
+stroke
+597.375 162.287994 moveto
+-3 0 rlineto
+stroke
+122.475006 168.084 moveto
+-3 0 rlineto
+stroke
+597.375 168.084 moveto
+-3 0 rlineto
+stroke
+125.475006 173.87999 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+597.375 173.87999 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+84.475006 165.87999 moveto
+(0.6) show
+122.475006 179.675995 moveto
+-3 0 rlineto
+stroke
+597.375 179.675995 moveto
+-3 0 rlineto
+stroke
+122.475006 185.471985 moveto
+-3 0 rlineto
+stroke
+597.375 185.471985 moveto
+-3 0 rlineto
+stroke
+122.475006 191.26799 moveto
+-3 0 rlineto
+stroke
+597.375 191.26799 moveto
+-3 0 rlineto
+stroke
+122.475006 197.063995 moveto
+-3 0 rlineto
+stroke
+597.375 197.063995 moveto
+-3 0 rlineto
+stroke
+122.475006 202.859985 moveto
+-3 0 rlineto
+stroke
+597.375 202.859985 moveto
+-3 0 rlineto
+stroke
+122.475006 208.655991 moveto
+-3 0 rlineto
+stroke
+597.375 208.655991 moveto
+-3 0 rlineto
+stroke
+122.475006 214.451981 moveto
+-3 0 rlineto
+stroke
+597.375 214.451981 moveto
+-3 0 rlineto
+stroke
+122.475006 220.247986 moveto
+-3 0 rlineto
+stroke
+597.375 220.247986 moveto
+-3 0 rlineto
+stroke
+122.475006 226.043991 moveto
+-3 0 rlineto
+stroke
+597.375 226.043991 moveto
+-3 0 rlineto
+stroke
+125.475006 231.839996 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+597.375 231.839996 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+84.475006 223.839996 moveto
+(0.8) show
+122.475006 237.636002 moveto
+-3 0 rlineto
+stroke
+597.375 237.636002 moveto
+-3 0 rlineto
+stroke
+122.475006 243.431992 moveto
+-3 0 rlineto
+stroke
+597.375 243.431992 moveto
+-3 0 rlineto
+stroke
+122.475006 249.227997 moveto
+-3 0 rlineto
+stroke
+597.375 249.227997 moveto
+-3 0 rlineto
+stroke
+122.475006 255.024002 moveto
+-3 0 rlineto
+stroke
+597.375 255.024002 moveto
+-3 0 rlineto
+stroke
+122.475006 260.820007 moveto
+-3 0 rlineto
+stroke
+597.375 260.820007 moveto
+-3 0 rlineto
+stroke
+122.475006 266.615997 moveto
+-3 0 rlineto
+stroke
+597.375 266.615997 moveto
+-3 0 rlineto
+stroke
+122.475006 272.411987 moveto
+-3 0 rlineto
+stroke
+597.375 272.411987 moveto
+-3 0 rlineto
+stroke
+122.475006 278.208008 moveto
+-3 0 rlineto
+stroke
+597.375 278.208008 moveto
+-3 0 rlineto
+stroke
+122.475006 284.003998 moveto
+-3 0 rlineto
+stroke
+597.375 284.003998 moveto
+-3 0 rlineto
+stroke
+125.475006 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+597.375 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+84.475006 281.799988 moveto
+(1.0) show
+119.475006 0 477.899994 289.799988 rectclip
+newpath
+0.4 setlinewidth
+0 setgray
+[] 0 setdash
+191.380844 105.222313 moveto
+191.728836 108.013382 lineto
+192.077179 110.894287 lineto
+192.425858 113.704475 lineto
+192.774872 116.383385 lineto
+193.124222 119.179085 lineto
+193.473907 121.711365 lineto
+193.823929 124.374329 lineto
+194.174286 126.855019 lineto
+194.524979 129.289627 lineto
+194.876022 131.743073 lineto
+195.227402 133.960617 lineto
+195.579086 136.306259 lineto
+195.931137 138.40007 lineto
+196.283539 140.527206 lineto
+196.636246 142.568848 lineto
+196.989304 144.442108 lineto
+197.342697 146.401749 lineto
+197.696411 148.091553 lineto
+198.050476 149.867447 lineto
+198.404892 151.471207 lineto
+198.759628 152.992661 lineto
+199.1147 154.533234 lineto
+199.470123 155.832687 lineto
+199.825867 157.236481 lineto
+200.181946 158.41394 lineto
+200.538376 159.59227 lineto
+200.895142 160.713226 lineto
+201.252243 161.656509 lineto
+201.609695 162.688782 lineto
+201.967468 163.47966 lineto
+202.325577 164.334274 lineto
+202.684036 165.064285 lineto
+203.042816 165.696335 lineto
+203.401932 166.376205 lineto
+203.761414 166.836685 lineto
+204.121201 167.395142 lineto
+204.481323 167.782303 lineto
+204.841812 168.15065 lineto
+205.202621 168.512909 lineto
+205.563766 168.705338 lineto
+205.925247 169.000641 lineto
+206.287079 169.10408 lineto
+206.649246 169.255081 lineto
+207.011734 169.34491 lineto
+207.374588 169.329849 lineto
+207.737762 169.398239 lineto
+208.101273 169.281448 lineto
+208.465103 169.255936 lineto
+208.829315 169.124664 lineto
+209.193832 168.956863 lineto
+209.558685 168.835724 lineto
+209.923889 168.559555 lineto
+210.289429 168.393784 lineto
+210.655319 168.094131 lineto
+211.021515 167.819122 lineto
+211.388062 167.547287 lineto
+211.754974 167.164749 lineto
+212.122208 166.890594 lineto
+212.489746 166.472702 lineto
+212.857666 166.126678 lineto
+213.225891 165.741531 lineto
+213.594498 165.297562 lineto
+213.963409 164.941986 lineto
+214.332672 164.451065 lineto
+214.70224 164.061584 lineto
+215.072189 163.59848 lineto
+215.442444 163.128128 lineto
+215.813065 162.714584 lineto
+216.184021 162.189178 lineto
+216.555298 161.776199 lineto
+216.92691 161.267319 lineto
+217.298874 160.796112 lineto
+217.671188 160.345749 lineto
+218.043823 159.815994 lineto
+218.416794 159.394623 lineto
+218.7901 158.867477 lineto
+219.163757 158.411926 lineto
+219.537735 157.943314 lineto
+219.912079 157.431519 lineto
+220.286728 157.012192 lineto
+220.661758 156.489395 lineto
+221.037094 156.060471 lineto
+221.412781 155.588394 lineto
+221.788788 155.110229 lineto
+222.165146 154.700165 lineto
+222.54184 154.199097 lineto
+222.918884 153.801193 lineto
+223.296249 153.338974 lineto
+223.673965 152.902817 lineto
+224.052017 152.507248 lineto
+224.43042 152.039795 lineto
+224.809128 151.674652 lineto
+225.188217 151.231552 lineto
+225.567612 150.841187 lineto
+225.947342 150.462708 lineto
+226.327438 150.036133 lineto
+226.707855 149.702271 lineto
+227.088623 149.285248 lineto
+227.469711 148.939804 lineto
+227.851151 148.581024 lineto
+228.232925 148.198196 lineto
+228.615036 147.892471 lineto
+228.997482 147.505875 lineto
+229.38028 147.201584 lineto
+229.763412 146.862808 lineto
+230.146896 146.523453 lineto
+230.530685 146.241776 lineto
+230.914841 145.886749 lineto
+231.299332 145.618408 lineto
+231.684143 145.299332 lineto
+232.069305 145.000259 lineto
+232.454819 144.737991 lineto
+232.840668 144.414291 lineto
+233.226852 144.175491 lineto
+233.613358 143.87468 lineto
+234.000214 143.610962 lineto
+234.387421 143.36377 lineto
+234.774963 143.069031 lineto
+235.162842 142.852554 lineto
+235.551056 142.568558 lineto
+235.939606 142.333817 lineto
+236.328491 142.097336 lineto
+236.717728 141.828415 lineto
+237.1073 141.627289 lineto
+237.497192 141.357483 lineto
+237.887466 141.14563 lineto
+238.278061 140.916107 lineto
+238.668976 140.668335 lineto
+239.060257 140.476776 lineto
+239.451843 140.218567 lineto
+239.843796 140.022949 lineto
+240.236069 139.796906 lineto
+240.628708 139.565643 lineto
+241.021667 139.378723 lineto
+241.414963 139.129211 lineto
+241.808609 138.943741 lineto
+242.202591 138.718262 lineto
+242.596909 138.499466 lineto
+242.991577 138.311966 lineto
+243.386581 138.068542 lineto
+243.781921 137.888565 lineto
+244.177582 137.661087 lineto
+244.573624 137.450394 lineto
+244.969971 137.259415 lineto
+245.366669 137.01976 lineto
+245.763702 136.840652 lineto
+246.161072 136.60939 lineto
+246.558792 136.403351 lineto
+246.956863 136.205994 lineto
+247.35524 135.968063 lineto
+247.753983 135.786362 lineto
+248.153046 135.550461 lineto
+248.55246 135.345871 lineto
+248.952225 135.140686 lineto
+249.35231 134.902771 lineto
+249.752747 134.716141 lineto
+250.153519 134.474731 lineto
+250.554642 134.268967 lineto
+250.95607 134.055389 lineto
+251.357864 133.816299 lineto
+251.76001 133.623001 lineto
+252.162476 133.376099 lineto
+252.565277 133.167725 lineto
+252.96843 132.94545 lineto
+253.371918 132.704056 lineto
+253.775757 132.50351 lineto
+254.179916 132.251099 lineto
+254.584427 132.039536 lineto
+254.989288 131.808563 lineto
+255.39447 131.56485 lineto
+255.799988 131.357056 lineto
+256.205872 131.099426 lineto
+256.612061 130.88382 lineto
+257.018616 130.645309 lineto
+257.425507 130.399277 lineto
+257.832733 130.184525 lineto
+258.240326 129.922836 lineto
+258.648224 129.703171 lineto
+259.056458 129.458298 lineto
+259.465057 129.20993 lineto
+259.873993 128.989105 lineto
+260.283234 128.723938 lineto
+260.692871 128.500793 lineto
+261.102814 128.250687 lineto
+261.513092 128.000595 lineto
+261.923737 127.774551 lineto
+262.334686 127.507355 lineto
+262.746002 127.281319 lineto
+263.157654 127.027161 lineto
+263.569641 126.775902 lineto
+263.981964 126.546089 lineto
+264.394623 126.277443 lineto
+264.807648 126.04908 lineto
+265.221008 125.79232 lineto
+265.634705 125.540779 lineto
+266.048737 125.308067 lineto
+266.463104 125.039131 lineto
+266.877808 124.809319 lineto
+267.292877 124.551399 lineto
+267.708252 124.29985 lineto
+268.123993 124.065697 lineto
+268.54007 123.79705 lineto
+268.956451 123.566658 lineto
+269.37323 123.308739 lineto
+269.790314 123.05806 lineto
+270.207764 122.823029 lineto
+270.625519 122.556129 lineto
+271.04364 122.325737 lineto
+271.462097 122.06868 lineto
+271.88089 121.819168 lineto
+272.300049 121.584427 lineto
+272.719513 121.319252 lineto
+273.139313 121.089737 lineto
+273.559479 120.834427 lineto
+273.97998 120.586647 lineto
+274.400818 120.353363 lineto
+274.821991 120.090508 lineto
+275.24353 119.862144 lineto
+275.665375 119.609154 lineto
+276.087585 119.363403 lineto
+276.510132 119.132133 lineto
+276.933014 118.872192 lineto
+277.356232 118.645279 lineto
+277.779785 118.39547 lineto
+278.203705 118.151741 lineto
+278.62793 117.922798 lineto
+279.052521 117.666039 lineto
+279.477448 117.440865 lineto
+279.90271 117.194824 lineto
+280.328339 116.953133 lineto
+280.754303 116.727089 lineto
+281.180573 116.473518 lineto
+281.607208 116.250656 lineto
+282.03418 116.008095 lineto
+282.461487 115.768715 lineto
+282.88913 115.54557 lineto
+283.317139 115.295769 lineto
+283.745483 115.074654 lineto
+284.174133 114.836143 lineto
+284.603149 114.599091 lineto
+285.032532 114.379128 lineto
+285.462219 114.132507 lineto
+285.892242 113.913422 lineto
+286.322632 113.67926 lineto
+286.753357 113.443947 lineto
+287.184418 113.227173 lineto
+287.615814 112.984314 lineto
+288.047546 112.766678 lineto
+288.479645 112.536865 lineto
+288.912079 112.303581 lineto
+289.344849 112.089706 lineto
+289.777954 111.850334 lineto
+290.211365 111.634438 lineto
+290.645172 111.408676 lineto
+291.079315 111.177132 lineto
+291.513794 110.966148 lineto
+291.948608 110.729965 lineto
+292.383728 110.515228 lineto
+292.819244 110.293533 lineto
+293.255096 110.063721 lineto
+293.691254 109.855347 lineto
+294.127777 109.622643 lineto
+294.564636 109.408768 lineto
+295.001831 109.190842 lineto
+295.439362 108.962479 lineto
+295.877258 108.756134 lineto
+296.31546 108.527199 lineto
+296.754028 108.313622 lineto
+297.192963 108.099739 lineto
+297.632202 107.872543 lineto
+298.071777 107.668228 lineto
+298.511719 107.442474 lineto
+298.951996 107.229187 lineto
+299.392578 107.018784 lineto
+299.833527 106.793037 lineto
+300.274841 106.589882 lineto
+300.716492 106.367897 lineto
+301.158447 106.154602 lineto
+301.600769 105.947403 lineto
+302.043427 105.723099 lineto
+302.48642 105.520813 lineto
+302.929779 105.302017 lineto
+303.373444 105.088425 lineto
+303.817474 104.884117 lineto
+304.261871 104.66156 lineto
+304.706573 104.459564 lineto
+305.151611 104.244537 lineto
+305.597015 104.030663 lineto
+306.042725 103.828964 lineto
+306.4888 103.607841 lineto
+306.935242 103.405846 lineto
+307.381989 103.194305 lineto
+307.829102 102.980141 lineto
+308.27652 102.780464 lineto
+308.724304 102.561661 lineto
+309.172455 102.359383 lineto
+309.62088 102.151306 lineto
+310.069702 101.936562 lineto
+310.51886 101.738632 lineto
+310.968353 101.522156 lineto
+311.418182 101.319 lineto
+311.868347 101.114403 lineto
+312.318848 100.899666 lineto
+312.769714 100.702888 lineto
+313.220917 100.489311 lineto
+313.672455 100.284996 lineto
+314.124329 100.08358 lineto
+314.576569 99.869423 lineto
+315.029144 99.673225 lineto
+315.482025 99.462257 lineto
+315.935272 99.257072 lineto
+316.388885 99.058563 lineto
+316.842804 98.844986 lineto
+317.297058 98.649078 lineto
+317.751678 98.441582 lineto
+318.206665 98.235237 lineto
+318.661926 98.039047 lineto
+319.117584 97.826912 lineto
+319.573578 97.630424 lineto
+320.029877 97.426414 lineto
+320.486542 97.2192 lineto
+320.943573 97.02504 lineto
+321.400909 96.814934 lineto
+321.858612 96.617577 lineto
+322.31665 96.417038 lineto
+322.774994 96.209541 lineto
+323.233734 96.016823 lineto
+323.69278 95.809029 lineto
+324.152161 95.610527 lineto
+324.611908 95.41346 lineto
+325.072021 95.205673 lineto
+325.53244 95.013824 lineto
+325.993195 94.808937 lineto
+326.454315 94.609261 lineto
+326.915771 94.415382 lineto
+327.377533 94.208466 lineto
+327.839691 94.016335 lineto
+328.302155 93.815208 lineto
+328.764984 93.61409 lineto
+329.228149 93.422821 lineto
+329.69165 93.217354 lineto
+330.155487 93.024635 lineto
+330.61969 92.827286 lineto
+331.084198 92.62529 lineto
+331.549072 92.435768 lineto
+332.014282 92.232613 lineto
+332.479858 92.039032 lineto
+332.94577 91.845154 lineto
+333.411987 91.642868 lineto
+333.878571 91.454506 lineto
+334.34549 91.254242 lineto
+334.812775 91.059502 lineto
+335.280365 90.868813 lineto
+335.748322 90.667114 lineto
+336.216614 90.479034 lineto
+336.685242 90.282257 lineto
+337.154236 90.086067 lineto
+337.623566 89.89827 lineto
+338.093201 89.698021 lineto
+338.563232 89.509361 lineto
+339.033569 89.31636 lineto
+339.504242 89.119293 lineto
+339.975281 88.933533 lineto
+340.446655 88.735596 lineto
+340.918365 88.545784 lineto
+341.390411 88.356544 lineto
+341.862823 88.159187 lineto
+342.335541 87.974586 lineto
+342.808655 87.779549 lineto
+343.282074 87.588562 lineto
+343.755829 87.402512 lineto
+344.22995 87.205742 lineto
+344.704407 87.021141 lineto
+345.179199 86.829872 lineto
+345.654327 86.637444 lineto
+346.129822 86.454002 lineto
+346.605652 86.258972 lineto
+347.081787 86.073784 lineto
+347.558319 85.885994 lineto
+348.035156 85.693275 lineto
+348.51236 85.511284 lineto
+348.989899 85.318855 lineto
+349.467743 85.132225 lineto
+349.945984 84.948204 lineto
+350.424561 84.755478 lineto
+350.903442 84.574066 lineto
+351.38269 84.384827 lineto
+351.862274 84.197037 lineto
+352.342224 84.015915 lineto
+352.82251 83.824066 lineto
+353.303131 83.642365 lineto
+353.784058 83.456894 lineto
+354.265381 83.267937 lineto
+354.747009 83.088844 lineto
+355.229004 82.899315 lineto
+355.711334 82.716446 lineto
+356.194 82.534752 lineto
+356.677032 82.345512 lineto
+357.16037 82.166992 lineto
+357.644073 81.980934 lineto
+358.128113 81.796333 lineto
+358.612518 81.617813 lineto
+359.097229 81.429451 lineto
+359.582306 81.250641 lineto
+360.067719 81.068069 lineto
+360.553467 80.882599 lineto
+361.039581 80.705818 lineto
+361.526001 80.519768 lineto
+362.012787 80.339516 lineto
+362.499908 80.160706 lineto
+362.987366 79.974937 lineto
+363.475189 79.799034 lineto
+363.963348 79.615875 lineto
+364.451843 79.434464 lineto
+364.940674 79.258263 lineto
+365.429871 79.07338 lineto
+365.919373 78.897171 lineto
+366.409241 78.717506 lineto
+366.899475 78.534927 lineto
+367.390015 78.360756 lineto
+367.88092 78.178185 lineto
+368.372162 78.000534 lineto
+368.863739 77.824623 lineto
+369.355652 77.641769 lineto
+369.847931 77.468178 lineto
+370.340546 77.288498 lineto
+370.833496 77.109398 lineto
+371.326782 76.936104 lineto
+371.820404 76.754395 lineto
+372.314392 76.580231 lineto
+372.808746 76.40403 lineto
+373.303406 76.22406 lineto
+373.798401 76.052498 lineto
+374.293762 75.873116 lineto
+374.789459 75.697495 lineto
+375.285461 75.52478 lineto
+375.78186 75.34481 lineto
+376.278564 75.173248 lineto
+376.775665 74.997337 lineto
+377.273071 74.820274 lineto
+377.770813 74.649872 lineto
+378.268921 74.471352 lineto
+378.767365 74.29892 lineto
+379.266144 74.126198 lineto
+379.765259 73.948555 lineto
+380.26474 73.779305 lineto
+380.764526 73.603401 lineto
+381.264679 73.42952 lineto
+381.765198 73.259995 lineto
+382.266022 73.082924 lineto
+382.767212 72.913101 lineto
+383.268707 72.740959 lineto
+383.770599 72.565628 lineto
+384.272797 72.397835 lineto
+384.77536 72.222794 lineto
+385.278259 72.051811 lineto
+385.781525 71.882858 lineto
+386.285095 71.707527 lineto
+386.789032 71.540024 lineto
+387.293274 71.368172 lineto
+387.797882 71.19574 lineto
+388.302887 71.029106 lineto
+388.808136 70.855225 lineto
+389.313782 70.686569 lineto
+389.819794 70.518478 lineto
+390.32608 70.345177 lineto
+390.832764 70.179413 lineto
+391.339783 70.00843 lineto
+391.847137 69.838318 lineto
+392.354858 69.672844 lineto
+392.862885 69.500412 lineto
+393.371307 69.334068 lineto
+393.880005 69.166275 lineto
+394.389099 68.995293 lineto
+394.898499 68.831268 lineto
+395.408264 68.661156 lineto
+395.918365 68.493362 lineto
+396.428802 68.328751 lineto
+396.939575 68.158058 lineto
+397.450714 67.993744 lineto
+397.962219 67.826813 lineto
+398.47403 67.657867 lineto
+398.986176 67.494995 lineto
+399.498688 67.326042 lineto
+400.011566 67.160568 lineto
+400.52475 66.997124 lineto
+401.0383 66.827873 lineto
+401.552155 66.665298 lineto
+402.066406 66.499535 lineto
+402.580963 66.332611 lineto
+403.095856 66.171188 lineto
+403.611115 66.003395 lineto
+404.126709 65.839951 lineto
+404.642639 65.677368 lineto
+405.158905 65.509865 lineto
+405.675568 65.34903 lineto
+406.192535 65.184425 lineto
+406.709839 65.019234 lineto
+407.227478 64.859268 lineto
+407.745514 64.692917 lineto
+408.263824 64.531212 lineto
+408.782532 64.369507 lineto
+409.301544 64.204025 lineto
+409.820953 64.04464 lineto
+410.340637 63.880901 lineto
+410.860718 63.717747 lineto
+411.381104 63.558933 lineto
+411.901855 63.394035 lineto
+412.422943 63.234066 lineto
+412.944366 63.073811 lineto
+413.466156 62.909492 lineto
+stroke
+newpath
+413.466156 62.909492 moveto
+413.988281 62.751842 lineto
+414.510712 62.589554 lineto
+415.033539 62.427845 lineto
+415.556702 62.270191 lineto
+416.08017 62.107037 lineto
+416.604034 61.948513 lineto
+417.128204 61.789413 lineto
+417.65274 61.626835 lineto
+418.177582 61.470345 lineto
+418.70282 61.309505 lineto
+419.228363 61.149536 lineto
+419.754242 60.993042 lineto
+420.280518 60.831333 lineto
+420.807098 60.673973 lineto
+421.334015 60.516323 lineto
+421.861267 60.355484 lineto
+422.388916 60.20015 lineto
+422.91687 60.04076 lineto
+423.44519 59.88224 lineto
+423.973816 59.7272 lineto
+424.502838 59.566936 lineto
+425.032135 59.411026 lineto
+425.561829 59.254822 lineto
+426.091827 59.095142 lineto
+426.622192 58.941257 lineto
+427.152954 58.783318 lineto
+427.68399 58.625957 lineto
+428.215363 58.472363 lineto
+428.747101 58.313557 lineto
+429.279205 58.158798 lineto
+429.811615 58.004047 lineto
+430.344391 57.845818 lineto
+430.877502 57.693092 lineto
+431.41098 57.536892 lineto
+431.944763 57.380688 lineto
+432.478912 57.228542 lineto
+433.013428 57.071182 lineto
+433.548279 56.917587 lineto
+434.083435 56.764286 lineto
+434.618958 56.607502 lineto
+435.154816 56.455936 lineto
+435.69104 56.301186 lineto
+436.2276 56.146137 lineto
+436.764496 55.995445 lineto
+437.301727 55.839531 lineto
+437.839294 55.687096 lineto
+438.377228 55.53553 lineto
+438.915497 55.37991 lineto
+439.454102 55.2295 lineto
+439.993103 55.076195 lineto
+440.53241 54.922314 lineto
+441.072021 54.772778 lineto
+441.612 54.618607 lineto
+442.152344 54.467041 lineto
+442.693024 54.316921 lineto
+443.23407 54.162746 lineto
+443.775421 54.01321 lineto
+444.317139 53.861935 lineto
+444.859161 53.708923 lineto
+445.40155 53.560543 lineto
+445.944336 53.407822 lineto
+446.487427 53.257122 lineto
+447.030823 53.108746 lineto
+447.574585 52.95573 lineto
+448.118713 52.807064 lineto
+448.663177 52.657528 lineto
+449.207977 52.505383 lineto
+449.753113 52.358456 lineto
+450.298615 52.20747 lineto
+450.844482 52.05735 lineto
+451.390625 51.910423 lineto
+451.937164 51.758858 lineto
+452.484039 51.611061 lineto
+453.031281 51.463261 lineto
+453.578827 51.312279 lineto
+454.126709 51.165928 lineto
+454.674988 51.016972 lineto
+455.223541 50.867432 lineto
+455.772491 50.721954 lineto
+456.321747 50.571835 lineto
+456.871368 50.424618 lineto
+457.421356 50.278557 lineto
+457.971619 50.128731 lineto
+458.522278 49.98354 lineto
+459.073303 49.836323 lineto
+459.624634 49.687656 lineto
+460.176331 49.543335 lineto
+460.728363 49.394958 lineto
+461.280731 49.248318 lineto
+461.833435 49.104 lineto
+462.386505 48.95533 lineto
+462.93988 48.810722 lineto
+463.493622 48.665531 lineto
+464.04776 48.517735 lineto
+464.602173 48.374573 lineto
+465.156982 48.228226 lineto
+465.712097 48.081875 lineto
+466.267578 47.939297 lineto
+466.823364 47.792076 lineto
+467.379547 47.648045 lineto
+467.936035 47.504883 lineto
+468.492889 47.357956 lineto
+469.050079 47.215374 lineto
+469.607635 47.071342 lineto
+470.165466 46.925575 lineto
+470.723694 46.784153 lineto
+471.282257 46.638962 lineto
+471.841156 46.49493 lineto
+472.400421 46.353508 lineto
+472.960022 46.208027 lineto
+473.519958 46.066029 lineto
+474.080292 45.924023 lineto
+474.6409 45.779125 lineto
+475.201874 45.638569 lineto
+475.763184 45.495117 lineto
+476.32486 45.351669 lineto
+476.886841 45.211697 lineto
+477.449219 45.067955 lineto
+478.011902 44.926243 lineto
+478.574951 44.78598 lineto
+479.138367 44.641949 lineto
+479.702087 44.501976 lineto
+480.266144 44.360844 lineto
+480.830566 44.217976 lineto
+481.395325 44.079155 lineto
+481.960419 43.936867 lineto
+482.525879 43.795444 lineto
+483.091675 43.656921 lineto
+483.657806 43.514336 lineto
+484.224274 43.374367 lineto
+484.791107 43.23526 lineto
+485.358307 43.092968 lineto
+485.925812 42.954735 lineto
+486.493652 42.814758 lineto
+487.06189 42.673626 lineto
+487.630402 42.535973 lineto
+488.199341 42.39513 lineto
+488.768555 42.255444 lineto
+489.338165 42.118084 lineto
+489.908081 41.976952 lineto
+490.478333 41.839005 lineto
+491.04895 41.701057 lineto
+491.619904 41.560215 lineto
+492.191223 41.423431 lineto
+492.762878 41.284618 lineto
+493.334869 41.144932 lineto
+493.907196 41.008728 lineto
+494.479858 40.869335 lineto
+495.052887 40.731098 lineto
+495.626282 40.594894 lineto
+496.199982 40.455208 lineto
+496.774078 40.318714 lineto
+497.34848 40.181927 lineto
+497.923218 40.042824 lineto
+498.498322 39.907196 lineto
+499.073761 39.769833 lineto
+499.649506 39.631599 lineto
+500.225647 39.496841 lineto
+500.802124 39.358894 lineto
+501.378937 39.222111 lineto
+501.956085 39.087353 lineto
+502.533569 38.949116 lineto
+503.11142 38.813778 lineto
+503.689667 38.678448 lineto
+504.268158 38.540501 lineto
+504.847046 38.406616 lineto
+505.4263 38.270695 lineto
+506.005829 38.133621 lineto
+506.585785 38.000313 lineto
+507.166016 37.863819 lineto
+507.746613 37.728481 lineto
+508.327576 37.595173 lineto
+508.908905 37.458385 lineto
+509.490479 37.324501 lineto
+510.07251 37.190613 lineto
+510.654816 37.054409 lineto
+511.237518 36.92168 lineto
+511.820526 36.787498 lineto
+512.40387 36.652161 lineto
+512.98761 36.520016 lineto
+513.571594 36.385258 lineto
+514.156006 36.25108 lineto
+514.740784 36.119511 lineto
+515.325806 35.984463 lineto
+515.911255 35.851738 lineto
+516.497009 35.719879 lineto
+517.08313 35.585121 lineto
+517.669617 35.453842 lineto
+518.256409 35.321404 lineto
+518.843567 35.187515 lineto
+519.43103 35.056812 lineto
+520.01886 34.924088 lineto
+520.607117 34.791359 lineto
+521.195618 34.661236 lineto
+521.784485 34.528217 lineto
+522.373718 34.396648 lineto
+522.963257 34.266819 lineto
+523.553162 34.133801 lineto
+524.143433 34.003391 lineto
+524.73407 33.873272 lineto
+525.325012 33.740833 lineto
+525.91626 33.611584 lineto
+526.507874 33.480881 lineto
+527.099854 33.349312 lineto
+527.692139 33.220932 lineto
+528.284851 33.089943 lineto
+528.877869 32.959534 lineto
+529.471252 32.83115 lineto
+530.06488 32.700161 lineto
+530.658936 32.570911 lineto
+531.253357 32.442528 lineto
+531.848083 32.311539 lineto
+532.443176 32.183449 lineto
+533.038574 32.054775 lineto
+533.634338 31.924656 lineto
+534.230469 31.797144 lineto
+534.826904 31.668182 lineto
+535.423767 31.538933 lineto
+536.020874 31.412001 lineto
+536.618408 31.282749 lineto
+537.216187 31.154659 lineto
+stroke
+newpath
+0.4 setlinewidth
+0 setgray
+[4 4] 0 setdash
+95.583717 323.929718 moveto
+95.80426 323.634125 lineto
+96.025078 323.051636 lineto
+96.246162 322.506805 lineto
+96.467529 322.173523 lineto
+96.689163 321.417175 lineto
+96.911064 321.231689 lineto
+97.133247 320.414459 lineto
+97.355705 320.200012 lineto
+97.578423 319.498718 lineto
+97.80143 319.104553 lineto
+98.024689 318.623505 lineto
+98.24823 318.003326 lineto
+98.472054 317.725098 lineto
+98.696144 316.957123 lineto
+98.920517 316.754272 lineto
+99.145149 315.997894 lineto
+99.370056 315.702332 lineto
+99.595245 315.102417 lineto
+99.820702 314.612671 lineto
+100.046425 314.221436 lineto
+100.272438 313.546204 lineto
+100.498711 313.294067 lineto
+100.725258 312.543488 lineto
+100.952087 312.294281 lineto
+101.179184 311.619019 lineto
+101.406563 311.236481 lineto
+101.634209 310.735138 lineto
+101.862129 310.164215 lineto
+102.090317 309.836761 lineto
+102.318794 309.135437 lineto
+102.547539 308.883331 lineto
+102.776558 308.179108 lineto
+103.005844 307.860321 lineto
+103.235405 307.277832 lineto
+103.465248 306.805481 lineto
+103.695358 306.393951 lineto
+103.925758 305.762177 lineto
+104.156418 305.472382 lineto
+104.387352 304.776855 lineto
+104.618576 304.48996 lineto
+104.850052 303.855255 lineto
+105.081818 303.458252 lineto
+105.313858 302.968475 lineto
+105.546158 302.417877 lineto
+105.778748 302.070129 lineto
+106.011604 301.415161 lineto
+106.244751 301.122467 lineto
+106.478157 300.470428 lineto
+106.711838 300.12265 lineto
+106.945801 299.574951 lineto
+107.180038 299.093872 lineto
+107.414551 298.688171 lineto
+107.649338 298.082458 lineto
+107.884399 297.766602 lineto
+108.119728 297.120331 lineto
+108.355347 296.795746 lineto
+108.59124 296.213257 lineto
+108.8274 295.787262 lineto
+109.063835 295.329376 lineto
+109.300552 294.778748 lineto
+109.537537 294.428101 lineto
+109.774803 293.805054 lineto
+110.012344 293.483337 lineto
+110.25016 292.883453 lineto
+110.488251 292.498016 lineto
+110.726616 291.996674 lineto
+110.965263 291.498199 lineto
+111.204185 291.109894 lineto
+111.443375 290.518707 lineto
+111.682846 290.188324 lineto
+111.9226 289.5867 lineto
+112.162613 289.226196 lineto
+112.402916 288.694702 lineto
+112.643486 288.239136 lineto
+112.884346 287.81485 lineto
+113.125481 287.261902 lineto
+113.366875 286.9133 lineto
+113.608559 286.322388 lineto
+113.85051 285.972595 lineto
+114.092751 285.424866 lineto
+114.335258 285.002045 lineto
+114.578041 284.548218 lineto
+114.821098 284.03064 lineto
+115.064445 283.660858 lineto
+115.30806 283.088501 lineto
+115.551949 282.740173 lineto
+115.79612 282.186371 lineto
+116.040573 281.787323 lineto
+116.285294 281.311462 lineto
+116.530296 280.825165 lineto
+116.775566 280.434814 lineto
+117.021118 279.883911 lineto
+117.266953 279.531219 lineto
+117.513054 278.979431 lineto
+117.759438 278.595734 lineto
+118.006111 278.105103 lineto
+118.253036 277.645203 lineto
+118.500252 277.236572 lineto
+118.747757 276.707977 lineto
+118.995522 276.347748 lineto
+119.243568 275.803223 lineto
+119.491898 275.428528 lineto
+119.740494 274.930054 lineto
+119.989372 274.491028 lineto
+120.238541 274.067902 lineto
+120.487968 273.560455 lineto
+120.737679 273.191559 lineto
+120.987671 272.657745 lineto
+121.23793 272.287659 lineto
+121.488487 271.786316 lineto
+121.739304 271.36319 lineto
+121.990402 270.929657 lineto
+122.241776 270.440765 lineto
+122.493439 270.064026 lineto
+122.745369 269.542084 lineto
+122.997581 269.173767 lineto
+123.250069 268.673584 lineto
+123.502838 268.262634 lineto
+123.755882 267.822418 lineto
+124.009209 267.349487 lineto
+124.262802 266.966064 lineto
+124.516685 266.456299 lineto
+124.770844 266.088562 lineto
+125.025284 265.591827 lineto
+125.279999 265.189575 lineto
+125.534981 264.746185 lineto
+125.790253 264.286865 lineto
+126.045799 263.898529 lineto
+126.301628 263.400665 lineto
+126.557732 263.032043 lineto
+126.814117 262.541107 lineto
+127.070786 262.145264 lineto
+127.327721 261.700989 lineto
+127.584938 261.252655 lineto
+127.842445 260.86145 lineto
+128.10022 260.374268 lineto
+128.358276 260.005646 lineto
+128.616608 259.521118 lineto
+128.875214 259.130157 lineto
+129.134109 258.687073 lineto
+129.39328 258.248016 lineto
+129.652725 257.855316 lineto
+129.912445 257.378021 lineto
+130.17247 257.009125 lineto
+130.432755 256.531525 lineto
+130.693314 256.144348 lineto
+130.954147 255.704437 lineto
+131.215286 255.272339 lineto
+131.476685 254.880539 lineto
+131.738358 254.411652 lineto
+132.00032 254.043304 lineto
+132.262558 253.572678 lineto
+132.525085 253.1884 lineto
+132.787872 252.752823 lineto
+133.050949 252.326828 lineto
+133.314316 251.936462 lineto
+133.577942 251.475098 lineto
+133.841858 251.107635 lineto
+134.106049 250.644531 lineto
+134.370529 250.262573 lineto
+134.635269 249.832214 lineto
+134.900299 249.410843 lineto
+135.165619 249.023102 lineto
+135.431198 248.568695 lineto
+135.697083 248.202682 lineto
+135.963226 247.746811 lineto
+136.22966 247.366882 lineto
+136.496368 246.942047 lineto
+136.763367 246.524734 lineto
+137.030624 246.140747 lineto
+137.298172 245.692429 lineto
+137.56601 245.328445 lineto
+137.834106 244.879547 lineto
+138.102493 244.501343 lineto
+138.37117 244.082886 lineto
+138.640121 243.668747 lineto
+138.909363 243.289108 lineto
+139.178864 242.846008 lineto
+139.448654 242.484344 lineto
+139.718719 242.042404 lineto
+139.989059 241.665649 lineto
+140.259689 241.25415 lineto
+140.530594 240.842621 lineto
+140.801788 240.467621 lineto
+141.073257 240.030029 lineto
+141.345016 239.67038 lineto
+141.61705 239.235977 lineto
+141.889343 238.860107 lineto
+142.161942 238.455841 lineto
+142.434814 238.046631 lineto
+142.707962 237.676559 lineto
+142.9814 237.244171 lineto
+143.255112 236.886566 lineto
+143.529099 236.459412 lineto
+143.803375 236.084396 lineto
+144.077927 235.687668 lineto
+144.352753 235.280502 lineto
+144.627884 234.915359 lineto
+144.903275 234.48819 lineto
+145.178955 234.132309 lineto
+145.45491 233.712967 lineto
+145.73114 233.338547 lineto
+146.00766 232.949051 lineto
+146.284454 232.544189 lineto
+146.561554 232.183975 lineto
+146.838898 231.762329 lineto
+147.116547 231.407608 lineto
+147.39447 230.996674 lineto
+147.672668 230.622253 lineto
+147.951157 230.240585 lineto
+148.229919 229.837769 lineto
+148.508972 229.481598 lineto
+148.7883 229.066025 lineto
+149.067902 228.712463 lineto
+149.347794 228.309647 lineto
+149.62796 227.935226 lineto
+149.908417 227.561096 lineto
+150.189148 227.160889 lineto
+150.470169 226.808777 lineto
+150.751465 226.399567 lineto
+151.033035 226.046021 lineto
+151.314896 225.652466 lineto
+151.597031 225.277481 lineto
+151.879456 224.910873 lineto
+152.162155 224.51355 lineto
+152.445145 224.164337 lineto
+152.728409 223.76268 lineto
+153.011963 223.408829 lineto
+153.295776 223.023987 lineto
+153.579895 222.648972 lineto
+153.864288 222.289337 lineto
+154.148956 221.895508 lineto
+154.433914 221.548615 lineto
+154.719147 221.15477 lineto
+155.004669 220.800064 lineto
+155.290466 220.424759 lineto
+155.576553 220.049774 lineto
+155.862915 219.695923 lineto
+156.149551 219.307022 lineto
+156.436478 218.961273 lineto
+156.723679 218.576126 lineto
+157.011185 218.219971 lineto
+157.29895 217.853668 lineto
+157.587006 217.479248 lineto
+157.875336 217.13089 lineto
+158.163956 216.747208 lineto
+158.45285 216.401764 lineto
+158.742035 216.025894 lineto
+159.031494 215.668579 lineto
+159.321243 215.310379 lineto
+159.611267 214.937988 lineto
+159.901581 214.593124 lineto
+160.192169 214.216385 lineto
+160.483047 213.870361 lineto
+160.7742 213.504059 lineto
+161.065643 213.145279 lineto
+161.357361 212.794922 lineto
+161.649368 212.425125 lineto
+161.94165 212.08287 lineto
+162.234222 211.713959 lineto
+162.527069 211.366501 lineto
+162.82019 211.00975 lineto
+163.113617 210.650681 lineto
+163.407303 210.306412 lineto
+163.701279 209.941238 lineto
+163.995544 209.599579 lineto
+164.290085 209.239944 lineto
+164.58493 208.890442 lineto
+164.880035 208.542969 lineto
+165.175415 208.184189 lineto
+165.4711 207.844543 lineto
+165.767059 207.485489 lineto
+166.063293 207.143234 lineto
+166.359802 206.793167 lineto
+166.656601 206.441925 lineto
+166.95369 206.102554 lineto
+167.251068 205.746094 lineto
+167.548721 205.409073 lineto
+167.846649 205.057541 lineto
+168.144867 204.713837 lineto
+168.443375 204.373337 lineto
+168.742157 204.0215 lineto
+169.041214 203.688232 lineto
+169.340576 203.336136 lineto
+169.640198 202.99968 lineto
+169.940109 202.657425 lineto
+170.240311 202.311401 lineto
+170.540802 201.979874 lineto
+170.841568 201.628632 lineto
+171.142609 201.299423 lineto
+171.443939 200.953964 lineto
+171.745544 200.616364 lineto
+172.04744 200.283676 lineto
+172.349625 199.936203 lineto
+172.652084 199.612198 lineto
+172.954819 199.26358 lineto
+173.257858 198.936111 lineto
+173.561172 198.59906 lineto
+173.864761 198.259125 lineto
+174.16864 197.936279 lineto
+174.472794 197.587952 lineto
+174.777237 197.269455 lineto
+175.08197 196.926346 lineto
+175.386978 196.597992 lineto
+175.692276 196.270523 lineto
+175.997849 195.928558 lineto
+176.303711 195.613831 lineto
+176.609863 195.267227 lineto
+176.916275 194.95105 lineto
+177.222992 194.615768 lineto
+177.529984 194.285385 lineto
+177.837265 193.968063 lineto
+178.144821 193.624054 lineto
+178.452667 193.31601 lineto
+178.760803 192.973755 lineto
+179.069214 192.657303 lineto
+179.377899 192.331848 lineto
+179.68689 191.997986 lineto
+179.996155 191.690521 lineto
+180.305695 191.346527 lineto
+180.615524 191.042236 lineto
+180.925629 190.70694 lineto
+181.236038 190.388153 lineto
+181.546707 190.073441 lineto
+181.857666 189.736694 lineto
+182.168915 189.436737 lineto
+182.480453 189.095932 lineto
+182.792267 188.791946 lineto
+183.10437 188.466202 lineto
+183.416748 188.143646 lineto
+183.729431 187.839355 lineto
+184.042374 187.501465 lineto
+184.355606 187.206451 lineto
+184.669128 186.871719 lineto
+184.982925 186.565414 lineto
+185.297012 186.250961 lineto
+185.611389 185.924362 lineto
+185.926041 185.629059 lineto
+186.240982 185.292603 lineto
+186.556198 184.999039 lineto
+186.871704 184.673294 lineto
+187.1875 184.36293 lineto
+187.503571 184.059509 lineto
+187.819931 183.730591 lineto
+188.136581 183.44136 lineto
+188.453506 183.109833 lineto
+188.770706 182.814529 lineto
+189.088211 182.499802 lineto
+189.405991 182.185074 lineto
+189.724045 181.89122 lineto
+190.042404 181.562592 lineto
+190.361038 181.275986 lineto
+190.679947 180.952271 lineto
+190.999161 180.653473 lineto
+191.318634 180.349777 lineto
+191.638412 180.03215 lineto
+191.95845 179.745255 lineto
+192.278809 179.420105 lineto
+192.599426 179.133194 lineto
+192.920334 178.819061 lineto
+193.241531 178.516495 lineto
+193.563004 178.222351 lineto
+193.88475 177.90416 lineto
+194.206818 177.621307 lineto
+194.529129 177.302246 lineto
+194.85173 177.013016 lineto
+195.174637 176.70903 lineto
+195.497818 176.40358 lineto
+195.821304 176.116959 lineto
+196.14505 175.800781 lineto
+196.469101 175.519104 lineto
+196.793411 175.20816 lineto
+197.118011 174.916321 lineto
+197.442902 174.621582 lineto
+197.768082 174.314972 lineto
+198.093536 174.033295 lineto
+198.419266 173.721466 lineto
+198.745331 173.439499 lineto
+199.071625 173.136658 lineto
+199.398224 172.842804 lineto
+199.725113 172.555618 lineto
+200.052292 172.249878 lineto
+200.37973 171.971375 lineto
+200.707474 171.665039 lineto
+201.035507 171.382507 lineto
+201.363815 171.087769 lineto
+201.692383 170.792465 lineto
+202.021271 170.511353 lineto
+202.350433 170.207932 lineto
+202.679886 169.931473 lineto
+203.009613 169.631531 lineto
+203.339645 169.347519 lineto
+203.669937 169.060333 lineto
+204.000519 168.76474 lineto
+204.331406 168.488846 lineto
+204.662567 168.188614 lineto
+204.993988 167.91272 lineto
+205.325745 167.620026 lineto
+205.65773 167.334564 lineto
+205.990036 167.054626 lineto
+206.322617 166.759323 lineto
+206.655487 166.486908 lineto
+206.988647 166.191895 lineto
+207.322083 165.915421 lineto
+207.655823 165.630264 lineto
+207.989822 165.343353 lineto
+208.324097 165.069778 lineto
+208.658691 164.776505 lineto
+208.993546 164.505829 lineto
+209.328705 164.216904 lineto
+209.664154 163.938995 lineto
+209.999863 163.661652 lineto
+210.335876 163.374161 lineto
+210.67215 163.10524 lineto
+211.008728 162.81572 lineto
+211.345581 162.545044 lineto
+211.682739 162.263367 lineto
+212.020187 161.983994 lineto
+212.357895 161.713318 lineto
+212.695892 161.427002 lineto
+213.03418 161.160385 lineto
+213.372772 160.876373 lineto
+213.711624 160.604843 lineto
+214.050781 160.330688 lineto
+214.390213 160.050156 lineto
+214.729904 159.784424 lineto
+215.072189 159.644135 lineto
+215.442444 159.342178 lineto
+215.813065 159.101364 lineto
+216.184021 158.754456 lineto
+216.555298 158.526108 lineto
+216.92691 158.202972 lineto
+217.298874 157.923035 lineto
+217.671188 157.663956 lineto
+218.043823 157.327774 lineto
+218.416794 157.100876 lineto
+218.7901 156.766724 lineto
+219.163757 156.505615 lineto
+219.537735 156.227402 lineto
+219.912079 155.906311 lineto
+220.286728 155.674469 lineto
+220.661758 155.335968 lineto
+221.037094 155.089066 lineto
+221.412781 154.793762 lineto
+221.788788 154.490067 lineto
+222.165146 154.248947 lineto
+222.54184 153.911896 lineto
+222.918884 153.674271 lineto
+223.296249 153.365036 lineto
+223.673965 153.078445 lineto
+224.052017 152.825165 lineto
+224.43042 152.494766 lineto
+224.809128 152.26149 lineto
+225.188217 151.942719 lineto
+225.567612 151.672043 lineto
+225.947342 151.405716 lineto
+226.327438 151.085785 lineto
+226.707855 150.852188 lineto
+227.088623 150.528488 lineto
+227.469711 150.270859 lineto
+227.851151 149.992355 lineto
+228.232925 149.684891 lineto
+228.615036 149.44754 lineto
+228.997482 149.122971 lineto
+229.38028 148.875763 lineto
+229.763412 148.586838 lineto
+230.146896 148.292389 lineto
+230.530685 148.049255 lineto
+230.914841 147.72757 lineto
+231.299332 147.487335 lineto
+231.684143 147.190277 lineto
+232.069305 146.90889 lineto
+232.454819 146.658798 lineto
+232.840668 146.342621 lineto
+233.226852 146.10672 lineto
+233.613358 145.804169 lineto
+234.000214 145.534653 lineto
+234.387421 145.277313 lineto
+234.774963 144.968674 lineto
+235.162842 144.734512 lineto
+235.551056 144.429062 lineto
+235.939606 144.169983 lineto
+236.328491 143.905685 lineto
+236.717728 143.606033 lineto
+237.1073 143.371582 lineto
+237.497192 143.065552 lineto
+237.887466 142.81546 lineto
+238.278061 142.544785 lineto
+238.668976 142.25441 lineto
+239.060257 142.018509 lineto
+239.451843 141.713943 lineto
+239.843796 141.470795 lineto
+240.236069 141.19519 lineto
+240.628708 140.914383 lineto
+241.021667 140.675873 lineto
+241.414963 140.374191 lineto
+241.808609 140.136551 lineto
+242.202591 139.857468 lineto
+242.596909 139.585342 lineto
+242.991577 139.343948 lineto
+243.386581 139.046616 lineto
+243.781921 138.812744 lineto
+244.177582 138.531357 lineto
+244.573624 138.267349 lineto
+244.969971 138.023041 lineto
+245.366669 137.730637 lineto
+245.763702 137.499374 lineto
+246.161072 137.216812 lineto
+246.558792 136.960052 lineto
+246.956863 136.713135 lineto
+247.35524 136.426239 lineto
+stroke
+newpath
+247.35524 136.426239 moveto
+247.753983 136.196716 lineto
+248.153046 135.913879 lineto
+248.55246 135.663788 lineto
+248.952225 135.414261 lineto
+249.35231 135.133163 lineto
+249.752747 134.904495 lineto
+250.153519 134.622528 lineto
+250.554642 134.377945 lineto
+250.95607 134.126099 lineto
+251.357864 133.850784 lineto
+251.76001 133.622711 lineto
+252.162476 133.342194 lineto
+252.565277 133.102234 lineto
+252.96843 132.848953 lineto
+253.371918 132.578857 lineto
+253.775757 132.351074 lineto
+254.179916 132.072296 lineto
+254.584427 131.83638 lineto
+254.989288 131.58223 lineto
+255.39447 131.317078 lineto
+255.799988 131.089279 lineto
+256.205872 130.81311 lineto
+256.612061 130.580399 lineto
+257.018616 130.325958 lineto
+257.425507 130.065414 lineto
+257.832733 129.837357 lineto
+258.240326 129.563782 lineto
+258.648224 129.333679 lineto
+259.056458 129.079224 lineto
+259.465057 128.823044 lineto
+259.873993 128.594971 lineto
+260.283234 128.32431 lineto
+260.692871 128.096512 lineto
+261.102814 127.842369 lineto
+261.513092 127.589951 lineto
+261.923737 127.362167 lineto
+262.334686 127.094109 lineto
+262.746002 126.868355 lineto
+263.157654 126.615059 lineto
+263.569641 126.366127 lineto
+263.981964 126.138634 lineto
+264.394623 125.873466 lineto
+264.807648 125.649162 lineto
+265.221008 125.397324 lineto
+265.634705 125.150993 lineto
+266.048737 124.92408 lineto
+266.463104 124.661812 lineto
+266.877808 124.438957 lineto
+267.292877 124.188278 lineto
+267.708252 123.944847 lineto
+268.123993 123.718513 lineto
+268.54007 123.458855 lineto
+268.956451 123.237442 lineto
+269.37323 122.98851 lineto
+269.790314 122.747398 lineto
+270.207764 122.521927 lineto
+270.625519 122.264877 lineto
+271.04364 122.044624 lineto
+271.462097 121.797424 lineto
+271.88089 121.558342 lineto
+272.300049 121.334038 lineto
+272.719513 121.0793 lineto
+273.139313 120.860214 lineto
+273.559479 120.615334 lineto
+273.97998 120.377991 lineto
+274.400818 120.154846 lineto
+274.821991 119.902428 lineto
+275.24353 119.684502 lineto
+275.665375 119.441643 lineto
+276.087585 119.20575 lineto
+276.510132 118.984337 lineto
+276.933014 118.733948 lineto
+277.356232 118.516891 lineto
+277.779785 118.27636 lineto
+278.203705 118.041908 lineto
+278.62793 117.821953 lineto
+279.052521 117.573883 lineto
+279.477448 117.357407 lineto
+279.90271 117.119484 lineto
+280.328339 116.885902 lineto
+280.754303 116.667679 lineto
+281.180573 116.421928 lineto
+281.607208 116.206024 lineto
+282.03418 115.970711 lineto
+282.461487 115.738289 lineto
+282.88913 115.521812 lineto
+283.317139 115.277794 lineto
+283.745483 115.062767 lineto
+284.174133 114.830063 lineto
+284.603149 114.598511 lineto
+285.032532 114.383476 lineto
+285.462219 114.142067 lineto
+285.892242 113.927338 lineto
+286.322632 113.697517 lineto
+286.753357 113.466545 lineto
+287.184418 113.25354 lineto
+287.615814 113.013878 lineto
+288.047546 112.799713 lineto
+288.479645 112.572807 lineto
+288.912079 112.342415 lineto
+289.344849 112.131149 lineto
+289.777954 111.893806 lineto
+290.211365 111.679932 lineto
+290.645172 111.45591 lineto
+291.079315 111.226105 lineto
+291.513794 111.016579 lineto
+291.948608 110.781548 lineto
+292.383728 110.56797 lineto
+292.819244 110.346855 lineto
+293.255096 110.117622 lineto
+293.691254 109.909546 lineto
+294.127777 109.677414 lineto
+294.564636 109.463547 lineto
+295.001831 109.245613 lineto
+295.439362 109.01696 lineto
+295.877258 108.810333 lineto
+296.31546 108.580811 lineto
+296.754028 108.366646 lineto
+297.192963 108.151901 lineto
+297.632202 107.924118 lineto
+298.071777 107.718651 lineto
+298.511719 107.492035 lineto
+298.951996 107.27787 lineto
+299.392578 107.066025 lineto
+299.833527 106.839119 lineto
+300.274841 106.634804 lineto
+300.716492 106.411079 lineto
+301.158447 106.196335 lineto
+301.600769 105.987679 lineto
+302.043427 105.761925 lineto
+302.48642 105.558197 lineto
+302.929779 105.337952 lineto
+303.373444 105.122917 lineto
+303.817474 104.91687 lineto
+304.261871 104.692566 lineto
+304.706573 104.489128 lineto
+305.151611 104.272354 lineto
+305.597015 104.05703 lineto
+306.042725 103.853592 lineto
+306.4888 103.631027 lineto
+306.935242 103.427589 lineto
+307.381989 103.214584 lineto
+307.829102 102.99868 lineto
+308.27652 102.797569 lineto
+308.724304 102.577309 lineto
+309.172455 102.373581 lineto
+309.62088 102.164062 lineto
+310.069702 101.948166 lineto
+310.51886 101.748772 lineto
+310.968353 101.530846 lineto
+311.418182 101.326538 lineto
+311.868347 101.120781 lineto
+312.318848 100.904884 lineto
+312.769714 100.706947 lineto
+313.220917 100.492203 lineto
+313.672455 100.287025 lineto
+314.124329 100.084457 lineto
+314.576569 99.869423 lineto
+315.029144 99.672363 lineto
+315.482025 99.46051 lineto
+315.935272 99.254761 lineto
+316.388885 99.055374 lineto
+316.842804 98.841209 lineto
+317.297058 98.64444 lineto
+317.751678 98.436363 lineto
+318.206665 98.229446 lineto
+318.661926 98.032677 lineto
+319.117584 97.820244 lineto
+319.573578 97.623184 lineto
+320.029877 97.418869 lineto
+320.486542 97.211372 lineto
+320.943573 97.016922 lineto
+321.400909 96.806236 lineto
+321.858612 96.608589 lineto
+322.31665 96.408051 lineto
+322.774994 96.200264 lineto
+323.233734 96.007545 lineto
+323.69278 95.799469 lineto
+324.152161 95.600952 lineto
+324.611908 95.403893 lineto
+325.072021 95.196396 lineto
+325.53244 95.004265 lineto
+325.993195 94.79966 lineto
+326.454315 94.599983 lineto
+326.915771 94.406113 lineto
+327.377533 94.199203 lineto
+327.839691 94.007355 lineto
+328.302155 93.806229 lineto
+328.764984 93.6054 lineto
+329.228149 93.414413 lineto
+329.69165 93.208946 lineto
+330.155487 93.016808 lineto
+330.61969 92.819458 lineto
+331.084198 92.61776 lineto
+331.549072 92.42852 lineto
+332.014282 92.225662 lineto
+332.479858 92.032364 lineto
+332.94577 91.838776 lineto
+333.411987 91.63678 lineto
+333.878571 91.4487 lineto
+334.34549 91.248741 lineto
+334.812775 91.054291 lineto
+335.280365 90.863892 lineto
+335.748322 90.662766 lineto
+336.216614 90.474686 lineto
+336.685242 90.278198 lineto
+337.154236 90.082588 lineto
+337.623566 89.895088 lineto
+338.093201 89.695129 lineto
+338.563232 89.506752 lineto
+339.033569 89.313751 lineto
+339.504242 89.117264 lineto
+339.975281 88.931503 lineto
+340.446655 88.733864 lineto
+340.918365 88.544617 lineto
+341.390411 88.355377 lineto
+341.862823 88.15831 lineto
+342.335541 87.973709 lineto
+342.808655 87.778969 lineto
+343.282074 87.58828 lineto
+343.755829 87.402512 lineto
+344.22995 87.206039 lineto
+344.704407 87.021721 lineto
+345.179199 86.830452 lineto
+345.654327 86.638313 lineto
+346.129822 86.455162 lineto
+346.605652 86.260124 lineto
+347.081787 86.074944 lineto
+347.558319 85.887444 lineto
+348.035156 85.694725 lineto
+348.51236 85.513023 lineto
+348.989899 85.320587 lineto
+349.467743 85.134254 lineto
+349.945984 84.950233 lineto
+350.424561 84.757515 lineto
+350.903442 84.576096 lineto
+351.38269 84.387154 lineto
+351.862274 84.199356 lineto
+352.342224 84.018234 lineto
+352.82251 83.826675 lineto
+353.303131 83.644676 lineto
+353.784058 83.459503 lineto
+354.265381 83.270546 lineto
+354.747009 83.091454 lineto
+355.229004 82.901924 lineto
+355.711334 82.719055 lineto
+356.194 82.537361 lineto
+356.677032 82.348122 lineto
+357.16037 82.169601 lineto
+357.644073 81.983261 lineto
+358.128113 81.798943 lineto
+358.612518 81.62014 lineto
+359.097229 81.43206 lineto
+359.582306 81.25296 lineto
+360.067719 81.070389 lineto
+360.553467 80.884911 lineto
+361.039581 80.708138 lineto
+361.526001 80.521797 lineto
+362.012787 80.341827 lineto
+362.499908 80.162735 lineto
+362.987366 79.976967 lineto
+363.475189 79.800774 lineto
+363.963348 79.617622 lineto
+364.451843 79.436211 lineto
+364.940674 79.26001 lineto
+365.429871 79.075119 lineto
+365.919373 78.898621 lineto
+366.409241 78.719238 lineto
+366.899475 78.536377 lineto
+367.390015 78.362206 lineto
+367.88092 78.179344 lineto
+368.372162 78.001694 lineto
+368.863739 77.825493 lineto
+369.355652 77.642632 lineto
+369.847931 77.46904 lineto
+370.340546 77.28936 lineto
+370.833496 77.110275 lineto
+371.326782 76.936966 lineto
+371.820404 76.755272 lineto
+372.314392 76.580811 lineto
+372.808746 76.40461 lineto
+373.303406 76.22464 lineto
+373.798401 76.052795 lineto
+374.293762 75.873405 lineto
+374.789459 75.697792 lineto
+375.285461 75.52478 lineto
+375.78186 75.34481 lineto
+376.278564 75.173248 lineto
+376.775665 74.997337 lineto
+377.273071 74.820274 lineto
+377.770813 74.649574 lineto
+378.268921 74.471352 lineto
+378.767365 74.29863 lineto
+379.266144 74.126198 lineto
+379.765259 73.948555 lineto
+380.26474 73.779022 lineto
+380.764526 73.603111 lineto
+381.264679 73.42923 lineto
+381.765198 73.259697 lineto
+382.266022 73.082626 lineto
+382.767212 72.912804 lineto
+383.268707 72.740379 lineto
+383.770599 72.565338 lineto
+384.272797 72.397255 lineto
+384.77536 72.222504 lineto
+385.278259 72.051231 lineto
+385.781525 71.882278 lineto
+386.285095 71.707237 lineto
+386.789032 71.539444 lineto
+387.293274 71.367592 lineto
+387.797882 71.195168 lineto
+388.302887 71.028526 lineto
+388.808136 70.854652 lineto
+389.313782 70.686272 lineto
+389.819794 70.517899 lineto
+390.32608 70.344597 lineto
+390.832764 70.178833 lineto
+391.339783 70.007851 lineto
+391.847137 69.837738 lineto
+392.354858 69.672264 lineto
+392.862885 69.499832 lineto
+393.371307 69.333488 lineto
+393.880005 69.165985 lineto
+394.389099 68.995003 lineto
+394.898499 68.830681 lineto
+395.408264 68.660568 lineto
+395.918365 68.493073 lineto
+396.428802 68.328461 lineto
+396.939575 68.157478 lineto
+397.450714 67.993454 lineto
+397.962219 67.82653 lineto
+398.47403 67.657578 lineto
+398.986176 67.494995 lineto
+399.498688 67.326042 lineto
+400.011566 67.160278 lineto
+400.52475 66.996834 lineto
+401.0383 66.827591 lineto
+401.552155 66.665298 lineto
+402.066406 66.499535 lineto
+402.580963 66.332321 lineto
+403.095856 66.171188 lineto
+403.611115 66.003395 lineto
+404.126709 65.839951 lineto
+404.642639 65.677368 lineto
+405.158905 65.509865 lineto
+405.675568 65.34903 lineto
+406.192535 65.184425 lineto
+406.709839 65.019234 lineto
+407.227478 64.859268 lineto
+407.745514 64.692917 lineto
+408.263824 64.531212 lineto
+408.782532 64.369797 lineto
+409.301544 64.204025 lineto
+409.820953 64.04464 lineto
+410.340637 63.881191 lineto
+410.860718 63.718033 lineto
+411.381104 63.559223 lineto
+411.901855 63.394325 lineto
+412.422943 63.234356 lineto
+412.944366 63.073811 lineto
+413.466156 62.909779 lineto
+413.988281 62.752129 lineto
+414.510712 62.589844 lineto
+415.033539 62.428131 lineto
+415.556702 62.270481 lineto
+416.08017 62.107327 lineto
+416.604034 61.948803 lineto
+417.128204 61.789703 lineto
+417.65274 61.627125 lineto
+418.177582 61.470638 lineto
+418.70282 61.309795 lineto
+419.228363 61.149826 lineto
+419.754242 60.993332 lineto
+420.280518 60.831627 lineto
+420.807098 60.674557 lineto
+421.334015 60.516903 lineto
+421.861267 60.355774 lineto
+422.388916 60.200733 lineto
+422.91687 60.041054 lineto
+423.44519 59.88253 lineto
+423.973816 59.727489 lineto
+424.502838 59.56723 lineto
+425.032135 59.411316 lineto
+425.561829 59.255112 lineto
+426.091827 59.095432 lineto
+426.622192 58.941551 lineto
+427.152954 58.783607 lineto
+427.68399 58.626247 lineto
+428.215363 58.472652 lineto
+428.747101 58.313843 lineto
+429.279205 58.159382 lineto
+429.811615 58.004627 lineto
+430.344391 57.846394 lineto
+430.877502 57.693672 lineto
+431.41098 57.537178 lineto
+431.944763 57.380978 lineto
+432.478912 57.228832 lineto
+433.013428 57.071472 lineto
+433.548279 56.917877 lineto
+434.083435 56.764862 lineto
+434.618958 56.607792 lineto
+435.154816 56.456226 lineto
+435.69104 56.301472 lineto
+436.2276 56.146431 lineto
+436.764496 55.995735 lineto
+437.301727 55.839821 lineto
+437.839294 55.687386 lineto
+438.377228 55.53553 lineto
+438.915497 55.37991 lineto
+439.454102 55.2295 lineto
+439.993103 55.076488 lineto
+440.53241 54.922314 lineto
+441.072021 54.773067 lineto
+441.612 54.618607 lineto
+442.152344 54.467041 lineto
+442.693024 54.316921 lineto
+443.23407 54.162746 lineto
+443.775421 54.01321 lineto
+444.317139 53.861935 lineto
+444.859161 53.708923 lineto
+445.40155 53.560543 lineto
+445.944336 53.407822 lineto
+446.487427 53.257122 lineto
+447.030823 53.108746 lineto
+447.574585 52.95573 lineto
+448.118713 52.807064 lineto
+448.663177 52.657528 lineto
+449.207977 52.505383 lineto
+449.753113 52.358456 lineto
+450.298615 52.20747 lineto
+450.844482 52.05735 lineto
+451.390625 51.910423 lineto
+451.937164 51.758858 lineto
+452.484039 51.611061 lineto
+453.031281 51.463261 lineto
+453.578827 51.312279 lineto
+454.126709 51.166218 lineto
+454.674988 51.017262 lineto
+455.223541 50.867725 lineto
+455.772491 50.722244 lineto
+456.321747 50.572418 lineto
+456.871368 50.425198 lineto
+457.421356 50.279137 lineto
+457.971619 50.129311 lineto
+458.522278 49.983833 lineto
+459.073303 49.836613 lineto
+459.624634 49.687946 lineto
+460.176331 49.543915 lineto
+460.728363 49.395542 lineto
+461.280731 49.248898 lineto
+461.833435 49.10458 lineto
+462.386505 48.95591 lineto
+462.93988 48.811302 lineto
+463.493622 48.666115 lineto
+464.04776 48.518314 lineto
+464.602173 48.375153 lineto
+465.156982 48.228802 lineto
+465.712097 48.082455 lineto
+466.267578 47.939873 lineto
+466.823364 47.792652 lineto
+467.379547 47.648624 lineto
+467.936035 47.505466 lineto
+468.492889 47.358532 lineto
+469.050079 47.215954 lineto
+469.607635 47.071636 lineto
+470.165466 46.926155 lineto
+470.723694 46.784443 lineto
+471.282257 46.639252 lineto
+471.841156 46.49551 lineto
+472.400421 46.353798 lineto
+472.960022 46.208317 lineto
+473.519958 46.066319 lineto
+474.080292 45.924023 lineto
+474.6409 45.779125 lineto
+475.201874 45.638569 lineto
+475.763184 45.495117 lineto
+476.32486 45.351669 lineto
+476.886841 45.211697 lineto
+477.449219 45.067665 lineto
+478.011902 44.925957 lineto
+478.574951 44.7854 lineto
+479.138367 44.641373 lineto
+479.702087 44.501396 lineto
+480.266144 44.360264 lineto
+480.830566 44.217102 lineto
+481.395325 44.077999 lineto
+481.960419 43.935997 lineto
+482.525879 43.794281 lineto
+483.091675 43.655758 lineto
+483.657806 43.51289 lineto
+484.224274 43.373203 lineto
+484.791107 43.23381 lineto
+485.358307 43.091518 lineto
+485.925812 42.952991 lineto
+486.493652 42.813023 lineto
+487.06189 42.6716 lineto
+487.630402 42.534233 lineto
+488.199341 42.393101 lineto
+488.768555 42.253418 lineto
+489.338165 42.116055 lineto
+489.908081 41.974632 lineto
+490.478333 41.836395 lineto
+491.04895 41.698452 lineto
+491.619904 41.557606 lineto
+492.191223 41.420822 lineto
+492.762878 41.282009 lineto
+493.334869 41.142323 lineto
+493.907196 41.006119 lineto
+494.479858 40.866726 lineto
+495.052887 40.728493 lineto
+495.626282 40.592285 lineto
+496.199982 40.452599 lineto
+stroke
+newpath
+496.199982 40.452599 moveto
+496.774078 40.315815 lineto
+497.34848 40.179317 lineto
+497.923218 40.039925 lineto
+498.498322 39.904587 lineto
+499.073761 39.767223 lineto
+499.649506 39.62928 lineto
+500.225647 39.494522 lineto
+500.802124 39.356575 lineto
+501.378937 39.219791 lineto
+501.956085 39.085323 lineto
+502.533569 38.94709 lineto
+503.11142 38.812042 lineto
+503.689667 38.676994 lineto
+504.268158 38.539341 lineto
+504.847046 38.405453 lineto
+505.4263 38.269825 lineto
+506.005829 38.133041 lineto
+506.585785 38.000023 lineto
+507.166016 37.863819 lineto
+507.746613 37.728771 lineto
+508.327576 37.595753 lineto
+508.908905 37.459259 lineto
+509.490479 37.325657 lineto
+510.07251 37.192348 lineto
+510.654816 37.056435 lineto
+511.237518 36.923996 lineto
+511.820526 36.790398 lineto
+512.40387 36.655354 lineto
+512.98761 36.523781 lineto
+513.571594 36.389606 lineto
+514.156006 36.255718 lineto
+514.740784 36.124435 lineto
+515.325806 35.990261 lineto
+515.911255 35.857822 lineto
+516.497009 35.726543 lineto
+517.08313 35.592365 lineto
+517.669617 35.461376 lineto
+518.256409 35.329517 lineto
+518.843567 35.196209 lineto
+519.43103 35.066086 lineto
+520.01886 34.933941 lineto
+520.607117 34.801502 lineto
+521.195618 34.671959 lineto
+521.784485 34.539524 lineto
+522.373718 34.408531 lineto
+522.963257 34.278992 lineto
+523.553162 34.146553 lineto
+524.143433 34.017014 lineto
+524.73407 33.887184 lineto
+525.325012 33.755032 lineto
+525.91626 33.626362 lineto
+526.507874 33.496243 lineto
+527.099854 33.364964 lineto
+527.692139 33.23687 lineto
+528.284851 33.106461 lineto
+528.877869 32.976341 lineto
+529.471252 32.848537 lineto
+530.06488 32.717838 lineto
+530.658936 32.588879 lineto
+531.253357 32.460785 lineto
+531.848083 32.330376 lineto
+532.443176 32.202576 lineto
+533.038574 32.074192 lineto
+533.634338 31.944073 lineto
+534.230469 31.816851 lineto
+534.826904 31.688179 lineto
+535.423767 31.558928 lineto
+536.020874 31.431997 lineto
+536.618408 31.303036 lineto
+537.216187 31.174944 lineto
+stroke
+[] 0 setdash
+gsave
+newpath
+0.4 setlinewidth
+0 setgray
+newpath
+0.4 setlinewidth
+0 setgray
+grestore
+gsave
+grestore
+grestore
+grestore
+%%Trailer
+%%DocumentFonts: Times-Roman
+%%+ Helvetica

@@ -1,0 +1,5403 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: NeXTcontour
+%%Creator: NeXTcontour
+%%CreationDate: Sun Oct 29 15:41:01 1995
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 1
+%%BoundingBox: 60 20 535 170 
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -9 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+%0 0 564 205 rectclip
+%0 0 564 205 rectclip
+%gsave 1 setgray 0 0 564 205 rectfill grestore
+/Helvetica findfont 14 scalefont
+10
+exch
+defineuserobject
+10 execuserobject setfont
+300.75 189 moveto
+() show
+gsave
+75 25 translate
+125.681358 0 translate
+0 setlinewidth
+0 setgray
+newpath
+-125.681358 0 moveto
+314.41864 0 lineto
+314.41864 141.267029 lineto
+-125.681358 141.267029 lineto
+closepath
+stroke
+/Courier findfont 12 scalefont
+11
+exch
+defineuserobject
+11 execuserobject setfont
+-125.681358 0 440.100006 141.267029 rectclip
+0 setlinewidth
+0 setgray
+newpath
+0 0 moveto
+0.000284 0.054335 lineto
+0.001137 0.108679 lineto
+0.002558 0.163042 lineto
+0.00455 0.217432 lineto
+0.007114 0.271861 lineto
+0.010251 0.326336 lineto
+0.013964 0.380868 lineto
+0.018256 0.435466 lineto
+0.02313 0.49014 lineto
+0.028589 0.5449 lineto
+0.034638 0.599755 lineto
+0.041282 0.654716 lineto
+0.048525 0.709793 lineto
+0.056374 0.764996 lineto
+0.064834 0.820337 lineto
+0.073912 0.875825 lineto
+0.083616 0.931471 lineto
+0.093952 0.987288 lineto
+0.104931 1.043286 lineto
+0.11656 1.099477 lineto
+0.12885 1.155873 lineto
+0.14181 1.212487 lineto
+0.155453 1.269332 lineto
+0.169789 1.326419 lineto
+0.184832 1.383764 lineto
+0.200595 1.441378 lineto
+0.217092 1.499278 lineto
+0.234338 1.557478 lineto
+0.25235 1.615992 lineto
+0.271144 1.674837 lineto
+0.29074 1.734028 lineto
+0.311155 1.793584 lineto
+0.332412 1.85352 lineto
+0.354532 1.913856 lineto
+0.377537 1.974611 lineto
+0.401453 2.035803 lineto
+0.426306 2.097454 lineto
+0.452123 2.159584 lineto
+0.478935 2.222216 lineto
+0.506771 2.285373 lineto
+0.535666 2.349079 lineto
+0.565656 2.413359 lineto
+0.596777 2.47824 lineto
+0.629071 2.54375 lineto
+0.662578 2.609916 lineto
+0.697347 2.67677 lineto
+0.733424 2.744343 lineto
+0.770861 2.812667 lineto
+0.809715 2.881779 lineto
+0.850043 2.951715 lineto
+0.891909 3.022513 lineto
+0.93538 3.094214 lineto
+0.980528 3.16686 lineto
+1.02743 3.240495 lineto
+1.07617 3.315168 lineto
+1.126835 3.390927 lineto
+1.17952 3.467824 lineto
+1.234328 3.545916 lineto
+1.291367 3.625257 lineto
+1.350755 3.705911 lineto
+1.412619 3.787941 lineto
+1.477094 3.871413 lineto
+1.544325 3.956399 lineto
+1.614471 4.042973 lineto
+1.687699 4.131212 lineto
+1.764192 4.221196 lineto
+1.844144 4.313012 lineto
+1.927765 4.406748 lineto
+2.015281 4.502494 lineto
+2.106935 4.600346 lineto
+2.202985 4.7004 lineto
+2.30371 4.802759 lineto
+2.409405 4.907521 lineto
+2.520387 5.01479 lineto
+2.636993 5.124667 lineto
+2.759577 5.237252 lineto
+2.888513 5.352641 lineto
+3.024194 5.470925 lineto
+3.167027 5.592188 lineto
+3.317435 5.716502 lineto
+3.475848 5.843925 lineto
+3.642706 5.974501 lineto
+3.818444 6.108251 lineto
+4.003496 6.245175 lineto
+4.198282 6.385245 lineto
+4.403202 6.528407 lineto
+4.618628 6.674573 lineto
+4.844901 6.823627 lineto
+5.082323 6.975418 lineto
+5.331149 7.12977 lineto
+5.591594 7.28648 lineto
+5.863826 7.445323 lineto
+6.147972 7.60606 lineto
+6.444125 7.768442 lineto
+6.752349 7.932217 lineto
+7.072695 8.097141 lineto
+7.405208 8.26298 lineto
+7.749939 8.429511 lineto
+8.10696 8.596539 lineto
+8.476375 8.763885 lineto
+8.85833 8.931406 lineto
+9.253025 9.098974 lineto
+9.660727 9.266496 lineto
+10.081768 9.4339 lineto
+10.516569 9.601142 lineto
+10.965636 9.7682 lineto
+11.429574 9.935074 lineto
+11.909097 10.101783 lineto
+12.405038 10.268365 lineto
+12.918358 10.434874 lineto
+13.450164 10.601377 lineto
+14.001726 10.767958 lineto
+14.574494 10.934712 lineto
+15.170125 11.101746 lineto
+15.79051 11.269176 lineto
+16.437817 11.437132 lineto
+17.114519 11.60575 lineto
+17.823465 11.775175 lineto
+18.567938 11.945562 lineto
+19.351727 12.117072 lineto
+20.179235 12.289869 lineto
+21.055605 12.464124 lineto
+21.98686 12.640002 lineto
+22.980095 12.817663 lineto
+24.043718 12.997252 lineto
+25.187723 13.17888 lineto
+26.424049 13.362606 lineto
+27.767002 13.548407 lineto
+29.233715 13.736122 lineto
+30.844675 13.925395 lineto
+32.624149 14.115559 lineto
+34.600407 14.305511 lineto
+36.805321 14.493534 lineto
+39.272858 14.677114 lineto
+42.035721 14.852814 lineto
+45.119785 15.016333 lineto
+48.536922 15.162917 lineto
+52.278694 15.288207 lineto
+56.31477 15.3893 lineto
+60.598026 15.465582 lineto
+65.074379 15.518862 lineto
+69.692436 15.552819 lineto
+74.409508 15.572088 lineto
+79.193291 15.581382 lineto
+84.020905 15.584841 lineto
+88.876816 15.585621 lineto
+93.750793 15.585669 lineto
+98.636238 15.585669 lineto
+103.528915 15.585669 lineto
+108.426147 15.585669 lineto
+113.326233 15.585669 lineto
+118.228119 15.585669 lineto
+123.131119 15.585669 lineto
+128.034821 15.585669 lineto
+132.938965 15.585669 lineto
+137.843399 15.585669 lineto
+142.748001 15.585669 lineto
+147.65271 15.585669 lineto
+152.557495 15.585669 lineto
+157.462296 15.585669 lineto
+162.367157 15.585669 lineto
+167.272018 15.585669 lineto
+172.17688 15.585669 lineto
+177.081772 15.585669 lineto
+181.986649 15.585669 lineto
+186.891525 15.585669 lineto
+191.796417 15.585669 lineto
+196.701324 15.585669 lineto
+201.606201 15.585669 lineto
+206.511093 15.585669 lineto
+211.41597 15.585669 lineto
+216.320862 15.585669 lineto
+221.225769 15.585669 lineto
+226.130646 15.585669 lineto
+231.035538 15.585669 lineto
+235.940414 15.585669 lineto
+240.845322 15.585669 lineto
+245.750214 15.585669 lineto
+250.65509 15.585669 lineto
+255.559982 15.585669 lineto
+260.464874 15.585669 lineto
+265.369751 15.585669 lineto
+270.274628 15.585669 lineto
+275.179535 15.585669 lineto
+280.084442 15.585669 lineto
+284.989319 15.585669 lineto
+289.894226 15.585669 lineto
+294.799103 15.585669 lineto
+299.703979 15.585669 lineto
+304.608887 15.585669 lineto
+309.513763 15.585669 lineto
+314.41864 15.585669 lineto
+319.323547 15.585669 lineto
+324.228455 15.585669 lineto
+329.133331 15.585669 lineto
+334.038208 15.585669 lineto
+338.943115 15.585669 lineto
+343.847992 15.585669 lineto
+348.752869 15.585669 lineto
+353.657776 15.585669 lineto
+358.562683 15.585669 lineto
+363.46756 15.585669 lineto
+368.372467 15.585669 lineto
+373.277344 15.585669 lineto
+378.18222 15.585669 lineto
+383.087097 15.585669 lineto
+387.992004 15.585669 lineto
+392.896912 15.585669 lineto
+397.801788 15.585669 lineto
+402.706696 15.585669 lineto
+407.611572 15.585669 lineto
+412.516449 15.585669 lineto
+417.421356 15.585669 lineto
+422.326233 15.585669 lineto
+427.23111 15.585669 lineto
+432.136047 15.585669 lineto
+437.040924 15.585669 lineto
+441.945801 15.585669 lineto
+446.850677 15.585669 lineto
+451.755585 15.585669 lineto
+456.660461 15.585669 lineto
+461.565338 15.585669 lineto
+466.470245 15.585669 lineto
+471.375153 15.585669 lineto
+476.280029 15.585669 lineto
+481.184937 15.585669 lineto
+486.089813 15.585669 lineto
+490.99469 15.585669 lineto
+495.899597 15.585669 lineto
+500.804474 15.585669 lineto
+505.709351 15.585669 lineto
+510.614227 15.585669 lineto
+515.519104 15.585669 lineto
+520.424011 15.585669 lineto
+525.328918 15.585669 lineto
+530.233765 15.585669 lineto
+535.138672 15.585669 lineto
+540.043579 15.585669 lineto
+544.948425 15.585669 lineto
+549.853394 15.585669 lineto
+554.758301 15.585669 lineto
+559.663147 15.585669 lineto
+564.568054 15.585669 lineto
+569.472961 15.585669 lineto
+574.377808 15.585669 lineto
+579.282715 15.585669 lineto
+584.187622 15.585669 lineto
+589.092468 15.585669 lineto
+593.997375 15.585669 lineto
+598.902222 15.585669 lineto
+603.807129 15.585669 lineto
+608.712036 15.585669 lineto
+613.616882 15.585669 lineto
+618.52179 15.585669 lineto
+623.426758 15.585669 lineto
+stroke
+newpath
+0 0 moveto
+stroke
+newpath
+0.000284 0.054335 moveto
+stroke
+newpath
+0.001137 0.108679 moveto
+stroke
+newpath
+0.002558 0.163042 moveto
+stroke
+newpath
+0.00455 0.217432 moveto
+stroke
+newpath
+0.007114 0.271861 moveto
+stroke
+newpath
+0.010251 0.326336 moveto
+stroke
+newpath
+0.013964 0.380868 moveto
+stroke
+newpath
+0.018256 0.435466 moveto
+stroke
+newpath
+0.02313 0.49014 moveto
+stroke
+newpath
+0.028589 0.5449 moveto
+stroke
+newpath
+0.034638 0.599755 moveto
+stroke
+newpath
+0.041282 0.654716 moveto
+stroke
+newpath
+0.048525 0.709793 moveto
+stroke
+newpath
+0.056374 0.764996 moveto
+stroke
+newpath
+0.064834 0.820337 moveto
+stroke
+newpath
+0.073912 0.875825 moveto
+stroke
+newpath
+0.083616 0.931471 moveto
+stroke
+newpath
+0.093952 0.987288 moveto
+stroke
+newpath
+0.104931 1.043286 moveto
+stroke
+newpath
+0.11656 1.099477 moveto
+stroke
+newpath
+0.12885 1.155873 moveto
+stroke
+newpath
+0.14181 1.212487 moveto
+stroke
+newpath
+0.155453 1.269332 moveto
+stroke
+newpath
+0.169789 1.326419 moveto
+stroke
+newpath
+0.184832 1.383764 moveto
+stroke
+newpath
+0.200595 1.441378 moveto
+stroke
+newpath
+0.217092 1.499278 moveto
+stroke
+newpath
+0.234338 1.557478 moveto
+stroke
+newpath
+0.25235 1.615992 moveto
+stroke
+newpath
+0.271144 1.674837 moveto
+stroke
+newpath
+0.29074 1.734028 moveto
+stroke
+newpath
+0.311155 1.793584 moveto
+stroke
+newpath
+0.332412 1.85352 moveto
+stroke
+newpath
+0.354532 1.913856 moveto
+stroke
+newpath
+0.377537 1.974611 moveto
+stroke
+newpath
+0.401453 2.035803 moveto
+stroke
+newpath
+0.426306 2.097454 moveto
+stroke
+newpath
+0.452123 2.159584 moveto
+stroke
+newpath
+0.478935 2.222216 moveto
+stroke
+newpath
+0.506771 2.285373 moveto
+stroke
+newpath
+0.535666 2.349079 moveto
+stroke
+newpath
+0.565656 2.413359 moveto
+stroke
+newpath
+0.596777 2.47824 moveto
+stroke
+newpath
+0.629071 2.54375 moveto
+stroke
+newpath
+0.662578 2.609916 moveto
+stroke
+newpath
+0.697347 2.67677 moveto
+stroke
+newpath
+0.733424 2.744343 moveto
+stroke
+newpath
+0.770861 2.812667 moveto
+stroke
+newpath
+0.809715 2.881779 moveto
+stroke
+newpath
+0.850043 2.951715 moveto
+stroke
+newpath
+0.891909 3.022513 moveto
+stroke
+newpath
+0.93538 3.094214 moveto
+stroke
+newpath
+0.980528 3.16686 moveto
+stroke
+newpath
+1.02743 3.240495 moveto
+stroke
+newpath
+1.07617 3.315168 moveto
+stroke
+newpath
+1.126835 3.390927 moveto
+stroke
+newpath
+1.17952 3.467824 moveto
+stroke
+newpath
+1.234328 3.545916 moveto
+stroke
+newpath
+1.291367 3.625257 moveto
+stroke
+newpath
+1.350755 3.705911 moveto
+stroke
+newpath
+1.412619 3.787941 moveto
+stroke
+newpath
+1.477094 3.871413 moveto
+stroke
+newpath
+1.544325 3.956399 moveto
+stroke
+newpath
+1.614471 4.042973 moveto
+stroke
+newpath
+1.687699 4.131212 moveto
+stroke
+newpath
+1.764192 4.221196 moveto
+stroke
+newpath
+1.844144 4.313012 moveto
+stroke
+newpath
+1.927765 4.406748 moveto
+stroke
+newpath
+2.015281 4.502494 moveto
+stroke
+newpath
+2.106935 4.600346 moveto
+stroke
+newpath
+2.202985 4.7004 moveto
+stroke
+newpath
+2.30371 4.802759 moveto
+stroke
+newpath
+2.409405 4.907521 moveto
+stroke
+newpath
+2.520387 5.01479 moveto
+stroke
+newpath
+2.636993 5.124667 moveto
+stroke
+newpath
+2.759577 5.237252 moveto
+stroke
+newpath
+2.888513 5.352641 moveto
+stroke
+newpath
+3.024194 5.470925 moveto
+stroke
+newpath
+3.167027 5.592188 moveto
+stroke
+newpath
+3.317435 5.716502 moveto
+stroke
+newpath
+3.475848 5.843925 moveto
+stroke
+newpath
+3.642706 5.974501 moveto
+stroke
+newpath
+3.818444 6.108251 moveto
+stroke
+newpath
+4.003496 6.245175 moveto
+stroke
+newpath
+4.198282 6.385245 moveto
+stroke
+newpath
+4.403202 6.528407 moveto
+stroke
+newpath
+4.618628 6.674573 moveto
+stroke
+newpath
+4.844901 6.823627 moveto
+stroke
+newpath
+5.082323 6.975418 moveto
+stroke
+newpath
+5.331149 7.12977 moveto
+stroke
+newpath
+5.591594 7.28648 moveto
+stroke
+newpath
+5.863826 7.445323 moveto
+stroke
+newpath
+6.147972 7.60606 moveto
+stroke
+newpath
+6.444125 7.768442 moveto
+stroke
+newpath
+6.752349 7.932217 moveto
+stroke
+newpath
+7.072695 8.097141 moveto
+stroke
+newpath
+7.405208 8.26298 moveto
+stroke
+newpath
+7.749939 8.429511 moveto
+stroke
+newpath
+8.10696 8.596539 moveto
+stroke
+newpath
+8.476375 8.763885 moveto
+stroke
+newpath
+8.85833 8.931406 moveto
+stroke
+newpath
+9.253025 9.098974 moveto
+stroke
+newpath
+9.660727 9.266496 moveto
+stroke
+newpath
+10.081768 9.4339 moveto
+stroke
+newpath
+10.516569 9.601142 moveto
+stroke
+newpath
+10.965636 9.7682 moveto
+stroke
+newpath
+11.429574 9.935074 moveto
+stroke
+newpath
+11.909097 10.101783 moveto
+stroke
+newpath
+12.405038 10.268365 moveto
+stroke
+newpath
+12.918358 10.434874 moveto
+stroke
+newpath
+13.450164 10.601377 moveto
+stroke
+newpath
+14.001726 10.767958 moveto
+stroke
+newpath
+14.574494 10.934712 moveto
+stroke
+newpath
+15.170125 11.101746 moveto
+stroke
+newpath
+15.79051 11.269176 moveto
+stroke
+newpath
+16.437817 11.437132 moveto
+stroke
+newpath
+17.114519 11.60575 moveto
+stroke
+newpath
+17.823465 11.775175 moveto
+stroke
+newpath
+18.567938 11.945562 moveto
+stroke
+newpath
+19.351727 12.117072 moveto
+stroke
+newpath
+20.179235 12.289869 moveto
+stroke
+newpath
+21.055605 12.464124 moveto
+stroke
+newpath
+21.98686 12.640002 moveto
+stroke
+newpath
+22.980095 12.817663 moveto
+stroke
+newpath
+24.043718 12.997252 moveto
+stroke
+newpath
+25.187723 13.17888 moveto
+stroke
+newpath
+26.424049 13.362606 moveto
+stroke
+newpath
+27.767002 13.548407 moveto
+stroke
+newpath
+29.233715 13.736122 moveto
+stroke
+newpath
+30.844675 13.925395 moveto
+stroke
+newpath
+32.624149 14.115559 moveto
+stroke
+newpath
+34.600407 14.305511 moveto
+stroke
+newpath
+36.805321 14.493534 moveto
+stroke
+newpath
+39.272858 14.677114 moveto
+stroke
+newpath
+42.035721 14.852814 moveto
+stroke
+newpath
+45.119785 15.016333 moveto
+stroke
+newpath
+48.536922 15.162917 moveto
+stroke
+newpath
+52.278694 15.288207 moveto
+stroke
+newpath
+56.31477 15.3893 moveto
+stroke
+newpath
+60.598026 15.465582 moveto
+stroke
+newpath
+65.074379 15.518862 moveto
+stroke
+newpath
+69.692436 15.552819 moveto
+stroke
+newpath
+74.409508 15.572088 moveto
+stroke
+newpath
+79.193291 15.581382 moveto
+stroke
+newpath
+84.020905 15.584841 moveto
+stroke
+newpath
+88.876816 15.585621 moveto
+stroke
+newpath
+93.750793 15.585669 moveto
+stroke
+newpath
+98.636238 15.585669 moveto
+stroke
+newpath
+103.528915 15.585669 moveto
+stroke
+newpath
+108.426147 15.585669 moveto
+stroke
+newpath
+113.326233 15.585669 moveto
+stroke
+newpath
+118.228119 15.585669 moveto
+stroke
+newpath
+123.131119 15.585669 moveto
+stroke
+newpath
+128.034821 15.585669 moveto
+stroke
+newpath
+132.938965 15.585669 moveto
+stroke
+newpath
+137.843399 15.585669 moveto
+stroke
+newpath
+142.748001 15.585669 moveto
+stroke
+newpath
+147.65271 15.585669 moveto
+stroke
+newpath
+152.557495 15.585669 moveto
+stroke
+newpath
+157.462296 15.585669 moveto
+stroke
+newpath
+162.367157 15.585669 moveto
+stroke
+newpath
+167.272018 15.585669 moveto
+stroke
+newpath
+172.17688 15.585669 moveto
+stroke
+newpath
+177.081772 15.585669 moveto
+stroke
+newpath
+181.986649 15.585669 moveto
+stroke
+newpath
+186.891525 15.585669 moveto
+stroke
+newpath
+191.796417 15.585669 moveto
+stroke
+newpath
+196.701324 15.585669 moveto
+stroke
+newpath
+201.606201 15.585669 moveto
+stroke
+newpath
+206.511093 15.585669 moveto
+stroke
+newpath
+211.41597 15.585669 moveto
+stroke
+newpath
+216.320862 15.585669 moveto
+stroke
+newpath
+221.225769 15.585669 moveto
+stroke
+newpath
+226.130646 15.585669 moveto
+stroke
+newpath
+231.035538 15.585669 moveto
+stroke
+newpath
+235.940414 15.585669 moveto
+stroke
+newpath
+240.845322 15.585669 moveto
+stroke
+newpath
+245.750214 15.585669 moveto
+stroke
+newpath
+250.65509 15.585669 moveto
+stroke
+newpath
+255.559982 15.585669 moveto
+stroke
+newpath
+260.464874 15.585669 moveto
+stroke
+newpath
+265.369751 15.585669 moveto
+stroke
+newpath
+270.274628 15.585669 moveto
+stroke
+newpath
+275.179535 15.585669 moveto
+stroke
+newpath
+280.084442 15.585669 moveto
+stroke
+newpath
+284.989319 15.585669 moveto
+stroke
+newpath
+289.894226 15.585669 moveto
+stroke
+newpath
+294.799103 15.585669 moveto
+stroke
+newpath
+299.703979 15.585669 moveto
+stroke
+newpath
+304.608887 15.585669 moveto
+stroke
+newpath
+309.513763 15.585669 moveto
+stroke
+newpath
+314.41864 15.585669 moveto
+stroke
+newpath
+319.323547 15.585669 moveto
+stroke
+newpath
+324.228455 15.585669 moveto
+stroke
+newpath
+329.133331 15.585669 moveto
+stroke
+newpath
+334.038208 15.585669 moveto
+stroke
+newpath
+338.943115 15.585669 moveto
+stroke
+newpath
+343.847992 15.585669 moveto
+stroke
+newpath
+348.752869 15.585669 moveto
+stroke
+newpath
+353.657776 15.585669 moveto
+stroke
+newpath
+358.562683 15.585669 moveto
+stroke
+newpath
+363.46756 15.585669 moveto
+stroke
+newpath
+368.372467 15.585669 moveto
+stroke
+newpath
+373.277344 15.585669 moveto
+stroke
+newpath
+378.18222 15.585669 moveto
+stroke
+newpath
+383.087097 15.585669 moveto
+stroke
+newpath
+387.992004 15.585669 moveto
+stroke
+newpath
+392.896912 15.585669 moveto
+stroke
+newpath
+397.801788 15.585669 moveto
+stroke
+newpath
+402.706696 15.585669 moveto
+stroke
+newpath
+407.611572 15.585669 moveto
+stroke
+newpath
+412.516449 15.585669 moveto
+stroke
+newpath
+417.421356 15.585669 moveto
+stroke
+newpath
+422.326233 15.585669 moveto
+stroke
+newpath
+427.23111 15.585669 moveto
+stroke
+newpath
+432.136047 15.585669 moveto
+stroke
+newpath
+437.040924 15.585669 moveto
+stroke
+newpath
+441.945801 15.585669 moveto
+stroke
+newpath
+446.850677 15.585669 moveto
+stroke
+newpath
+451.755585 15.585669 moveto
+stroke
+newpath
+456.660461 15.585669 moveto
+stroke
+newpath
+461.565338 15.585669 moveto
+stroke
+newpath
+466.470245 15.585669 moveto
+stroke
+newpath
+471.375153 15.585669 moveto
+stroke
+newpath
+476.280029 15.585669 moveto
+stroke
+newpath
+481.184937 15.585669 moveto
+stroke
+newpath
+486.089813 15.585669 moveto
+stroke
+newpath
+490.99469 15.585669 moveto
+stroke
+newpath
+495.899597 15.585669 moveto
+stroke
+newpath
+500.804474 15.585669 moveto
+stroke
+newpath
+505.709351 15.585669 moveto
+stroke
+newpath
+510.614227 15.585669 moveto
+stroke
+newpath
+515.519104 15.585669 moveto
+stroke
+newpath
+520.424011 15.585669 moveto
+stroke
+newpath
+525.328918 15.585669 moveto
+stroke
+newpath
+530.233765 15.585669 moveto
+stroke
+newpath
+535.138672 15.585669 moveto
+stroke
+newpath
+540.043579 15.585669 moveto
+stroke
+newpath
+544.948425 15.585669 moveto
+stroke
+newpath
+549.853394 15.585669 moveto
+stroke
+newpath
+554.758301 15.585669 moveto
+stroke
+newpath
+559.663147 15.585669 moveto
+stroke
+newpath
+564.568054 15.585669 moveto
+stroke
+newpath
+569.472961 15.585669 moveto
+stroke
+newpath
+574.377808 15.585669 moveto
+stroke
+newpath
+579.282715 15.585669 moveto
+stroke
+newpath
+584.187622 15.585669 moveto
+stroke
+newpath
+589.092468 15.585669 moveto
+stroke
+newpath
+593.997375 15.585669 moveto
+stroke
+newpath
+598.902222 15.585669 moveto
+stroke
+newpath
+603.807129 15.585669 moveto
+stroke
+newpath
+608.712036 15.585669 moveto
+stroke
+newpath
+613.616882 15.585669 moveto
+stroke
+newpath
+618.52179 15.585669 moveto
+stroke
+newpath
+623.426758 15.585669 moveto
+stroke
+0 setlinewidth
+0 setgray
+[] 0 setdash
+newpath
+314.41864 15.585669 moveto
+309.513763 15.585669 lineto
+304.608887 15.585669 lineto
+299.703979 15.585669 lineto
+294.799103 15.585669 lineto
+289.894226 15.585669 lineto
+284.989319 15.585669 lineto
+280.084442 15.585669 lineto
+275.179535 15.585669 lineto
+270.274628 15.585669 lineto
+265.369751 15.585669 lineto
+260.464874 15.585669 lineto
+255.559982 15.585669 lineto
+250.65509 15.585669 lineto
+245.750214 15.585669 lineto
+240.845322 15.585669 lineto
+235.940414 15.585669 lineto
+231.035538 15.585669 lineto
+226.130646 15.585669 lineto
+221.225769 15.585669 lineto
+216.320862 15.585669 lineto
+211.41597 15.585669 lineto
+206.511093 15.585669 lineto
+201.606201 15.585669 lineto
+196.701324 15.585669 lineto
+191.796417 15.585669 lineto
+186.891525 15.585669 lineto
+181.986649 15.585669 lineto
+177.081772 15.585669 lineto
+172.17688 15.585669 lineto
+167.272018 15.585669 lineto
+162.367157 15.585669 lineto
+157.462296 15.585669 lineto
+152.557495 15.585669 lineto
+147.65271 15.585669 lineto
+142.748001 15.585669 lineto
+137.843399 15.585669 lineto
+132.938965 15.585669 lineto
+128.034821 15.585669 lineto
+123.131119 15.585669 lineto
+118.228119 15.585669 lineto
+113.326233 15.585669 lineto
+108.426147 15.585669 lineto
+103.528915 15.585669 lineto
+98.636238 15.585669 lineto
+93.750793 15.585669 lineto
+88.876816 15.585621 lineto
+84.020905 15.584841 lineto
+79.193291 15.581382 lineto
+74.409508 15.572088 lineto
+69.692436 15.552819 lineto
+65.074379 15.518862 lineto
+60.598026 15.465582 lineto
+56.31477 15.3893 lineto
+52.278694 15.288207 lineto
+48.536922 15.162917 lineto
+45.119785 15.016333 lineto
+42.035721 14.852814 lineto
+39.272858 14.677114 lineto
+36.805321 14.493534 lineto
+34.600407 14.305511 lineto
+32.624149 14.115559 lineto
+30.844675 13.925395 lineto
+29.233715 13.736122 lineto
+27.767002 13.548407 lineto
+26.424049 13.362606 lineto
+25.187723 13.17888 lineto
+24.043718 12.997252 lineto
+22.980095 12.817663 lineto
+21.98686 12.640002 lineto
+21.055605 12.464124 lineto
+20.179235 12.289869 lineto
+19.351727 12.117072 lineto
+18.567938 11.945562 lineto
+17.823465 11.775175 lineto
+17.114519 11.60575 lineto
+16.437817 11.437132 lineto
+15.79051 11.269176 lineto
+15.170125 11.101746 lineto
+14.574494 10.934712 lineto
+14.001726 10.767958 lineto
+13.450164 10.601377 lineto
+12.918358 10.434874 lineto
+12.405038 10.268365 lineto
+11.909097 10.101783 lineto
+11.429574 9.935074 lineto
+10.965636 9.7682 lineto
+10.516569 9.601142 lineto
+10.081768 9.4339 lineto
+9.660727 9.266496 lineto
+9.253025 9.098974 lineto
+8.85833 8.931406 lineto
+8.476375 8.763885 lineto
+8.10696 8.596539 lineto
+7.749939 8.429511 lineto
+7.405208 8.26298 lineto
+7.072695 8.097141 lineto
+6.752349 7.932217 lineto
+6.444125 7.768442 lineto
+6.147972 7.60606 lineto
+5.863826 7.445323 lineto
+5.591594 7.28648 lineto
+5.331149 7.12977 lineto
+5.082323 6.975418 lineto
+4.844901 6.823627 lineto
+4.618628 6.674573 lineto
+4.403202 6.528407 lineto
+4.198282 6.385245 lineto
+4.003496 6.245175 lineto
+3.818444 6.108251 lineto
+3.642706 5.974501 lineto
+3.475848 5.843925 lineto
+3.317435 5.716502 lineto
+3.167027 5.592188 lineto
+3.024194 5.470925 lineto
+2.888513 5.352641 lineto
+2.759577 5.237252 lineto
+2.636993 5.124667 lineto
+2.520387 5.01479 lineto
+2.409405 4.907521 lineto
+2.30371 4.802759 lineto
+2.202985 4.7004 lineto
+2.106935 4.600346 lineto
+2.015281 4.502494 lineto
+1.927765 4.406748 lineto
+1.844144 4.313012 lineto
+1.764192 4.221196 lineto
+1.687699 4.131212 lineto
+1.614471 4.042973 lineto
+1.544325 3.956399 lineto
+1.477094 3.871413 lineto
+1.412619 3.787941 lineto
+1.350755 3.705911 lineto
+1.291367 3.625257 lineto
+1.234328 3.545916 lineto
+1.17952 3.467824 lineto
+1.126835 3.390927 lineto
+1.07617 3.315168 lineto
+1.02743 3.240495 lineto
+0.980528 3.16686 lineto
+0.93538 3.094214 lineto
+0.891909 3.022513 lineto
+0.850043 2.951715 lineto
+0.809715 2.881779 lineto
+0.770861 2.812667 lineto
+0.733424 2.744343 lineto
+0.697347 2.67677 lineto
+0.662578 2.609916 lineto
+0.629071 2.54375 lineto
+0.596777 2.47824 lineto
+0.565656 2.413359 lineto
+0.535666 2.349079 lineto
+0.506771 2.285373 lineto
+0.478935 2.222216 lineto
+0.452123 2.159584 lineto
+0.426306 2.097454 lineto
+0.401453 2.035803 lineto
+0.377537 1.974611 lineto
+0.354532 1.913856 lineto
+0.332412 1.85352 lineto
+0.311155 1.793584 lineto
+0.29074 1.734028 lineto
+0.271144 1.674837 lineto
+0.25235 1.615992 lineto
+0.234338 1.557478 lineto
+0.217092 1.499278 lineto
+0.200595 1.441378 lineto
+0.184832 1.383764 lineto
+0.169789 1.326419 lineto
+0.155453 1.269332 lineto
+0.14181 1.212487 lineto
+0.12885 1.155873 lineto
+0.11656 1.099477 lineto
+0.104931 1.043286 lineto
+0.093952 0.987288 lineto
+0.083616 0.931471 lineto
+0.073912 0.875825 lineto
+0.064834 0.820337 lineto
+0.056374 0.764996 lineto
+0.048525 0.709793 lineto
+0.041282 0.654716 lineto
+0.034638 0.599755 lineto
+0.028589 0.5449 lineto
+0.02313 0.49014 lineto
+0.018256 0.435466 lineto
+0.013964 0.380868 lineto
+0.010251 0.326336 lineto
+0.007114 0.271861 lineto
+0.00455 0.217432 lineto
+0.002558 0.163042 lineto
+0.001137 0.108679 lineto
+0.000284 0.054335 lineto
+0 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 15.893445 moveto
+309.513763 15.89198 lineto
+304.608887 15.890512 lineto
+299.703979 15.889045 lineto
+294.799103 15.887575 lineto
+289.894226 15.886109 lineto
+284.989319 15.884642 lineto
+284.91806 15.884622 lineto
+280.084442 15.883176 lineto
+275.179535 15.881712 lineto
+270.274628 15.880253 lineto
+265.369751 15.8788 lineto
+260.464874 15.877355 lineto
+255.559982 15.875918 lineto
+250.65509 15.874496 lineto
+245.750214 15.873083 lineto
+240.845322 15.87169 lineto
+235.940414 15.870313 lineto
+231.035538 15.86896 lineto
+226.130646 15.86763 lineto
+221.225769 15.866333 lineto
+216.320862 15.865067 lineto
+211.41597 15.86384 lineto
+206.511093 15.862657 lineto
+201.606201 15.861525 lineto
+196.701324 15.860449 lineto
+191.796417 15.859442 lineto
+186.891525 15.858507 lineto
+181.986649 15.85766 lineto
+177.081772 15.856908 lineto
+172.17688 15.856269 lineto
+167.272018 15.85575 lineto
+162.367157 15.855375 lineto
+157.462296 15.855154 lineto
+152.557495 15.855111 lineto
+147.65271 15.85526 lineto
+142.748001 15.855622 lineto
+137.843399 15.85621 lineto
+132.938965 15.857038 lineto
+128.034821 15.858101 lineto
+123.131119 15.85939 lineto
+118.228119 15.860852 lineto
+113.326233 15.862413 lineto
+108.426147 15.863901 lineto
+103.528915 15.865075 lineto
+98.636238 15.86551 lineto
+93.750793 15.864591 lineto
+88.876801 15.86132 lineto
+84.020805 15.854013 lineto
+79.192986 15.840341 lineto
+74.989998 15.820018 lineto
+74.408813 15.817252 lineto
+69.691185 15.780782 lineto
+65.072403 15.727847 lineto
+63.781075 15.706425 lineto
+60.595261 15.654604 lineto
+56.311165 15.558836 lineto
+55.589195 15.537233 lineto
+52.274284 15.439425 lineto
+48.531776 15.297883 lineto
+48.525154 15.297569 lineto
+45.113995 15.137062 lineto
+42.034496 14.961844 lineto
+42.029373 14.961554 lineto
+39.266045 14.775687 lineto
+36.798122 14.583623 lineto
+35.789806 14.494254 lineto
+34.59288 14.388442 lineto
+32.616341 14.192414 lineto
+30.836626 13.997062 lineto
+29.552839 13.842639 lineto
+29.225462 13.803309 lineto
+27.75857 13.611672 lineto
+26.415462 13.422426 lineto
+25.178995 13.235642 lineto
+24.034864 13.051278 lineto
+23.289652 12.923714 lineto
+22.971128 12.869221 lineto
+21.977789 12.689316 lineto
+21.04644 12.511391 lineto
+20.169983 12.335258 lineto
+19.342392 12.160725 lineto
+18.558525 11.987606 lineto
+17.81398 11.815721 lineto
+17.104963 11.644894 lineto
+16.942398 11.604067 lineto
+16.428194 11.474963 lineto
+15.780825 11.305774 lineto
+15.160375 11.137178 lineto
+14.564682 10.969044 lineto
+13.991854 10.801245 lineto
+13.440231 10.633672 lineto
+12.908365 10.466224 lineto
+12.394985 10.298815 lineto
+11.898985 10.131371 lineto
+11.4194 9.96384 lineto
+10.9554 9.796178 lineto
+10.50627 9.628366 lineto
+10.442025 9.603548 lineto
+10.071403 9.460403 lineto
+9.650291 9.29231 lineto
+9.242517 9.124128 lineto
+8.847748 8.955926 lineto
+8.465714 8.787801 lineto
+8.096217 8.619872 lineto
+7.73911 8.452289 lineto
+7.394287 8.285227 lineto
+7.061678 8.118882 lineto
+6.74123 7.953475 lineto
+6.432897 7.78924 lineto
+6.13663 7.626423 lineto
+5.852363 7.465273 lineto
+5.580003 7.30604 lineto
+5.319422 7.148963 lineto
+5.070451 6.994266 lineto
+4.832878 6.842151 lineto
+4.606444 6.692795 lineto
+4.390848 6.546347 lineto
+4.18575 6.402924 lineto
+3.990776 6.26261 lineto
+3.805526 6.125463 lineto
+3.629579 5.991508 lineto
+3.462502 5.860744 lineto
+3.303859 5.73315 lineto
+3.153209 5.608681 lineto
+3.010123 5.487279 lineto
+2.874177 5.368869 lineto
+2.744962 5.25337 lineto
+2.622087 5.140688 lineto
+2.505176 5.030728 lineto
+2.393873 4.923388 lineto
+2.287842 4.818567 lineto
+2.186766 4.716163 lineto
+2.090348 4.616073 lineto
+1.998308 4.518197 lineto
+1.910387 4.422439 lineto
+1.826341 4.328702 lineto
+1.745944 4.236895 lineto
+1.668984 4.146929 lineto
+1.595266 4.05872 lineto
+1.524605 3.972187 lineto
+1.456832 3.887251 lineto
+1.391787 3.80384 lineto
+1.329324 3.721881 lineto
+1.269305 3.641308 lineto
+1.211601 3.562058 lineto
+1.156092 3.48407 lineto
+1.116375 3.426982 lineto
+1.102661 3.40729 lineto
+1.051191 3.331671 lineto
+1.001599 3.257151 lineto
+0.953794 3.18368 lineto
+0.907689 3.111211 lineto
+0.863203 3.039701 lineto
+0.82026 2.969107 lineto
+0.778787 2.899389 lineto
+0.738715 2.830508 lineto
+0.699981 2.762431 lineto
+0.662522 2.69512 lineto
+0.64662 2.665886 lineto
+0.62624 2.628565 lineto
+0.591083 2.562731 lineto
+0.557024 2.497571 lineto
+0.524011 2.43306 lineto
+0.491993 2.36917 lineto
+0.460918 2.305875 lineto
+0.430739 2.243151 lineto
+0.424843 2.230616 lineto
+0.401282 2.181027 lineto
+0.372581 2.119443 lineto
+0.344616 2.058364 lineto
+0.317337 1.997771 lineto
+0.290693 1.937643 lineto
+0.287768 1.930899 lineto
+0.264376 1.878055 lineto
+0.238541 1.818905 lineto
+0.213164 1.760164 lineto
+0.189215 1.704186 lineto
+0.188168 1.701821 lineto
+0.163039 1.643998 lineto
+0.138178 1.586523 lineto
+0.113524 1.529376 lineto
+0.110073 1.521249 lineto
+0.088376 1.472714 lineto
+0.063225 1.416347 lineto
+0.040313 1.365011 lineto
+0.038038 1.360241 lineto
+0.011961 1.304566 lineto
+-0.014042 1.249027 lineto
+-0.026186 1.222765 lineto
+-0.040594 1.193729 lineto
+-0.067449 1.138565 lineto
+-0.093965 1.083362 lineto
+-0.094052 1.083173 lineto
+-0.12109 1.028277 lineto
+-0.147426 0.973007 lineto
+-0.167194 0.929831 lineto
+-0.173062 0.917559 lineto
+-0.19815 0.861949 lineto
+-0.221892 0.806045 lineto
+-0.244235 0.749853 lineto
+-0.249663 0.735154 lineto
+-0.265384 0.693414 lineto
+-0.284971 0.636693 lineto
+-0.302874 0.579697 lineto
+-0.319087 0.52245 lineto
+-0.333603 0.464976 lineto
+-0.345813 0.41003 lineto
+-0.346426 0.407301 lineto
+-0.35766 0.349454 lineto
+-0.367147 0.29145 lineto
+-0.374895 0.233315 lineto
+-0.380913 0.175077 lineto
+-0.385207 0.116761 lineto
+-0.387781 0.058393 lineto
+-0.388639 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 16.197779 moveto
+309.513763 16.194756 lineto
+304.608887 16.191723 lineto
+299.703979 16.188686 lineto
+294.799103 16.185646 lineto
+289.894226 16.182602 lineto
+284.989319 16.179556 lineto
+280.084442 16.17651 lineto
+275.179535 16.173464 lineto
+270.274628 16.170427 lineto
+265.369751 16.167391 lineto
+260.464874 16.164368 lineto
+255.559982 16.161352 lineto
+250.65509 16.158356 lineto
+245.750214 16.155375 lineto
+240.845322 16.152418 lineto
+235.940414 16.149485 lineto
+231.035538 16.146584 lineto
+226.130646 16.143719 lineto
+221.225769 16.1409 lineto
+216.320862 16.138126 lineto
+211.41597 16.135414 lineto
+206.511093 16.132765 lineto
+201.606201 16.130194 lineto
+196.701324 16.127705 lineto
+191.796417 16.125319 lineto
+186.891525 16.123037 lineto
+181.986649 16.120886 lineto
+177.081772 16.118874 lineto
+172.17688 16.117023 lineto
+167.272018 16.115345 lineto
+162.367157 16.113865 lineto
+157.462296 16.112597 lineto
+152.557495 16.111563 lineto
+147.65271 16.110775 lineto
+142.748001 16.11025 lineto
+137.843399 16.109978 lineto
+132.938965 16.109961 lineto
+128.034821 16.110147 lineto
+123.131119 16.110483 lineto
+118.228119 16.110836 lineto
+113.326233 16.111031 lineto
+108.426147 16.11075 lineto
+103.528915 16.109577 lineto
+100.735344 16.108011 lineto
+98.636238 16.106804 lineto
+93.750793 16.101397 lineto
+88.876793 16.092052 lineto
+84.020721 16.076845 lineto
+79.192726 16.053526 lineto
+74.408234 16.019375 lineto
+72.430374 15.998693 lineto
+69.690132 15.970487 lineto
+65.070747 15.903797 lineto
+61.933857 15.842466 lineto
+60.59288 15.816778 lineto
+56.308022 15.706817 lineto
+53.989677 15.630107 lineto
+52.270363 15.574155 lineto
+48.527115 15.420168 lineto
+47.144436 15.350211 lineto
+45.108662 15.248326 lineto
+42.023445 15.063097 lineto
+40.914597 14.984868 lineto
+39.259609 14.868874 lineto
+36.791252 14.669587 lineto
+35.048801 14.510404 lineto
+34.585629 14.468257 lineto
+32.608776 14.266861 lineto
+30.828787 14.06688 lineto
+29.431206 13.895286 lineto
+29.217382 13.869088 lineto
+27.750282 13.67387 lineto
+26.406988 13.481452 lineto
+25.170355 13.291833 lineto
+24.026075 13.104913 lineto
+23.992712 13.099126 lineto
+22.962206 12.92053 lineto
+21.96874 12.738507 lineto
+21.037279 12.558639 lineto
+20.160715 12.380713 lineto
+19.333025 12.204516 lineto
+18.715326 12.066874 lineto
+18.549068 12.02985 lineto
+17.804434 11.856525 lineto
+17.095333 11.684349 lineto
+16.41848 11.513148 lineto
+15.771035 11.342759 lineto
+15.15051 11.173028 lineto
+14.554745 11.003816 lineto
+13.981845 10.834991 lineto
+13.576016 10.710995 lineto
+13.430153 10.666444 lineto
+12.898212 10.498075 lineto
+12.384761 10.329788 lineto
+11.888685 10.161506 lineto
+11.409027 9.993171 lineto
+10.944951 9.824739 lineto
+10.495745 9.656186 lineto
+10.0608 9.487512 lineto
+9.639609 9.318733 lineto
+9.231756 9.149893 lineto
+8.836902 8.98106 lineto
+8.454781 8.812326 lineto
+8.454101 8.812016 lineto
+8.085188 8.643828 lineto
+7.727978 8.475702 lineto
+7.383049 8.308121 lineto
+7.050327 8.141281 lineto
+6.729761 7.975402 lineto
+6.421303 7.810719 lineto
+6.124904 7.647476 lineto
+5.840497 7.485925 lineto
+5.567989 7.326314 lineto
+5.307251 7.168882 lineto
+5.058115 7.013851 lineto
+4.820368 6.861426 lineto
+4.59375 6.711782 lineto
+4.377959 6.565066 lineto
+4.172655 6.421396 lineto
+3.977465 6.280857 lineto
+3.791986 6.143503 lineto
+3.615799 6.00936 lineto
+3.44847 5.878428 lineto
+3.28956 5.750684 lineto
+3.138631 5.626082 lineto
+2.995251 5.504563 lineto
+2.858996 5.386054 lineto
+2.729457 5.27047 lineto
+2.606241 5.157719 lineto
+2.488973 5.047704 lineto
+2.377294 4.940324 lineto
+2.270869 4.835477 lineto
+2.169379 4.733059 lineto
+2.072526 4.63297 lineto
+1.98003 4.535108 lineto
+1.891629 4.439376 lineto
+1.807079 4.345678 lineto
+1.726151 4.253922 lineto
+1.648634 4.164021 lineto
+1.574329 4.075888 lineto
+1.503051 3.989442 lineto
+1.492155 3.975929 lineto
+1.434589 3.904637 lineto
+1.36881 3.821376 lineto
+1.305569 3.739582 lineto
+1.244726 3.65919 lineto
+1.186151 3.580135 lineto
+1.129719 3.502357 lineto
+1.075317 3.425798 lineto
+1.022835 3.350405 lineto
+0.972171 3.276125 lineto
+0.92323 3.202909 lineto
+0.903377 3.172586 lineto
+0.875838 3.130762 lineto
+0.829921 3.059629 lineto
+0.785453 2.989432 lineto
+0.742356 2.920131 lineto
+0.700553 2.851689 lineto
+0.659974 2.784069 lineto
+0.620547 2.717239 lineto
+0.618386 2.713502 lineto
+0.581891 2.651325 lineto
+0.544209 2.586151 lineto
+0.507451 2.521677 lineto
+0.471553 2.457876 lineto
+0.438223 2.39789 lineto
+0.436419 2.394735 lineto
+0.401386 2.332494 lineto
+0.366976 2.270849 lineto
+0.333125 2.209774 lineto
+0.307042 2.162338 lineto
+0.299512 2.14935 lineto
+0.26537 2.089821 lineto
+0.231539 2.030779 lineto
+0.201133 1.977662 lineto
+0.197773 1.972266 lineto
+0.162389 1.914832 lineto
+0.127122 1.857757 lineto
+0.10793 1.826568 lineto
+0.090579 1.801464 lineto
+0.052525 1.745932 lineto
+0.019165 1.697075 lineto
+0.014169 1.690682 lineto
+-0.027222 1.636483 lineto
+-0.068022 1.582134 lineto
+-0.071507 1.577362 lineto
+-0.111575 1.528548 lineto
+-0.154144 1.474588 lineto
+-0.170012 1.453616 lineto
+-0.19709 1.420601 lineto
+-0.239232 1.366246 lineto
+-0.279371 1.311233 lineto
+-0.28257 1.3066 lineto
+-0.319052 1.255939 lineto
+-0.356618 1.199992 lineto
+-0.391979 1.14341 lineto
+-0.415705 1.102674 lineto
+-0.425503 1.086302 lineto
+-0.457614 1.028771 lineto
+-0.487578 0.970707 lineto
+-0.515455 0.912156 lineto
+-0.541298 0.853163 lineto
+-0.565157 0.793768 lineto
+-0.576395 0.76322 lineto
+-0.587437 0.734054 lineto
+-0.608134 0.674042 lineto
+-0.626909 0.613715 lineto
+-0.643797 0.553108 lineto
+-0.658827 0.492253 lineto
+-0.672027 0.431181 lineto
+-0.68342 0.369923 lineto
+-0.693027 0.308507 lineto
+-0.700864 0.24696 lineto
+-0.706946 0.18531 lineto
+-0.711282 0.123582 lineto
+-0.71388 0.061804 lineto
+-0.714745 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 16.499189 moveto
+309.513763 16.494539 lineto
+304.608887 16.489876 lineto
+299.703979 16.485203 lineto
+297.857422 16.483431 lineto
+294.799103 16.480501 lineto
+289.894226 16.475786 lineto
+284.989319 16.471058 lineto
+280.084442 16.466328 lineto
+275.179535 16.461588 lineto
+270.274628 16.456848 lineto
+265.369751 16.452106 lineto
+260.464874 16.447371 lineto
+255.559982 16.442638 lineto
+250.65509 16.43792 lineto
+245.750214 16.43321 lineto
+240.845322 16.428524 lineto
+235.940414 16.423861 lineto
+231.035538 16.419226 lineto
+226.130646 16.414625 lineto
+221.225769 16.41007 lineto
+216.320862 16.405561 lineto
+211.41597 16.401115 lineto
+206.511093 16.396732 lineto
+201.606201 16.392431 lineto
+196.701324 16.388216 lineto
+191.796417 16.384108 lineto
+186.891525 16.38011 lineto
+181.986649 16.376247 lineto
+177.081772 16.372524 lineto
+172.17688 16.368969 lineto
+167.272018 16.365585 lineto
+162.367157 16.362396 lineto
+157.462296 16.359409 lineto
+152.557495 16.356638 lineto
+147.65271 16.354084 lineto
+142.748001 16.351746 lineto
+137.843399 16.34959 lineto
+132.938965 16.347586 lineto
+128.034821 16.345648 lineto
+123.131119 16.343664 lineto
+118.228119 16.341438 lineto
+113.326233 16.338717 lineto
+109.855255 16.33613 lineto
+108.426147 16.335037 lineto
+103.528915 16.32971 lineto
+98.636238 16.322012 lineto
+93.750793 16.310888 lineto
+88.876785 16.294878 lineto
+84.02066 16.272078 lineto
+79.192505 16.240379 lineto
+74.623108 16.199062 lineto
+74.407738 16.197126 lineto
+69.689209 16.137245 lineto
+65.069275 16.060099 lineto
+63.234291 16.019339 lineto
+60.590759 15.961706 lineto
+56.305172 15.840907 lineto
+54.73521 15.784555 lineto
+52.266769 15.697431 lineto
+48.522789 15.533566 lineto
+47.574619 15.482925 lineto
+45.103664 15.352508 lineto
+42.017838 15.159209 lineto
+41.191948 15.098708 lineto
+39.253471 14.957777 lineto
+36.784641 14.75226 lineto
+35.297852 14.61268 lineto
+34.578617 14.545482 lineto
+32.601418 14.339315 lineto
+30.821117 14.135171 lineto
+29.746845 14.000746 lineto
+29.209446 13.933684 lineto
+27.742111 13.735182 lineto
+26.398607 13.539832 lineto
+25.161785 13.347571 lineto
+24.470594 13.233159 lineto
+24.017334 13.158249 lineto
+22.95331 12.971679 lineto
+21.959702 12.787655 lineto
+21.028109 12.605938 lineto
+20.151423 12.426297 lineto
+19.434683 12.27234 lineto
+19.323618 12.248506 lineto
+18.539551 12.072363 lineto
+17.794813 11.89765 lineto
+17.085613 11.72417 lineto
+16.408667 11.551737 lineto
+15.76113 11.380178 lineto
+15.140519 11.209337 lineto
+14.626821 11.062532 lineto
+14.544669 11.03907 lineto
+13.971681 10.869267 lineto
+13.419899 10.699781 lineto
+12.887875 10.53051 lineto
+12.374338 10.361358 lineto
+11.878181 10.192245 lineto
+11.398438 10.023113 lineto
+10.934278 9.853913 lineto
+10.484987 9.684624 lineto
+10.049956 9.515239 lineto
+9.97358 9.48451 lineto
+9.628669 9.345801 lineto
+9.220712 9.176335 lineto
+8.82575 9.006901 lineto
+8.443518 8.837594 lineto
+8.073813 8.668533 lineto
+7.716489 8.499867 lineto
+7.37144 8.331771 lineto
+7.038592 8.164438 lineto
+6.717892 7.998092 lineto
+6.409294 7.832964 lineto
+6.112747 7.669302 lineto
+5.828185 7.507354 lineto
+5.555512 7.34737 lineto
+5.2946 7.189588 lineto
+5.045279 7.034232 lineto
+4.807335 6.881505 lineto
+4.58051 6.731583 lineto
+4.562709 6.719472 lineto
+4.364493 6.584622 lineto
+4.158951 6.440728 lineto
+3.963509 6.299986 lineto
+3.777766 6.16245 lineto
+3.6013 6.028144 lineto
+3.433679 5.897069 lineto
+3.274462 5.769198 lineto
+3.123211 5.644487 lineto
+2.979492 5.522878 lineto
+2.974545 5.518583 lineto
+2.84287 5.404309 lineto
+2.712941 5.288684 lineto
+2.589314 5.175912 lineto
+2.47161 5.065895 lineto
+2.359471 4.958531 lineto
+2.252559 4.853719 lineto
+2.150554 4.751354 lineto
+2.053157 4.651335 lineto
+1.960085 4.553561 lineto
+1.871076 4.457934 lineto
+1.785882 4.364358 lineto
+1.704275 4.272742 lineto
+1.626038 4.182997 lineto
+1.550972 4.095039 lineto
+1.47889 4.008784 lineto
+1.409616 3.924157 lineto
+1.362919 3.865922 lineto
+1.342944 3.841116 lineto
+1.278652 3.75964 lineto
+1.216692 3.679586 lineto
+1.156928 3.600892 lineto
+1.099232 3.523497 lineto
+1.043485 3.447344 lineto
+0.989573 3.372379 lineto
+0.93739 3.29855 lineto
+0.911367 3.261065 lineto
+0.886643 3.225928 lineto
+0.837194 3.154483 lineto
+0.789143 3.084045 lineto
+0.742398 3.014573 lineto
+0.696874 2.946027 lineto
+0.65524 2.882549 lineto
+0.652432 2.878397 lineto
+0.608205 2.812069 lineto
+0.564881 2.746571 lineto
+0.522379 2.681866 lineto
+0.480621 2.617922 lineto
+0.480109 2.617126 lineto
+0.437798 2.555548 lineto
+0.395438 2.493884 lineto
+0.353494 2.432883 lineto
+0.345565 2.421257 lineto
+0.309311 2.373663 lineto
+0.264707 2.315273 lineto
+0.232025 2.272561 lineto
+0.218856 2.25797 lineto
+0.169279 2.202654 lineto
+0.127642 2.156149 lineto
+0.118713 2.148037 lineto
+0.062432 2.095839 lineto
+0.023536 2.059028 lineto
+0.004624 2.044235 lineto
+-0.057021 1.993952 lineto
+-0.088531 1.967052 lineto
+-0.119309 1.943689 lineto
+-0.181775 1.893221 lineto
+-0.216749 1.863089 lineto
+-0.242606 1.841908 lineto
+-0.302057 1.789846 lineto
+-0.358418 1.736523 lineto
+-0.369345 1.725529 lineto
+-0.413281 1.682469 lineto
+-0.465569 1.627396 lineto
+-0.515031 1.571284 lineto
+-0.554393 1.523357 lineto
+-0.562049 1.51429 lineto
+-0.607782 1.456743 lineto
+-0.650955 1.398351 lineto
+-0.691661 1.339184 lineto
+-0.729987 1.279305 lineto
+-0.766011 1.218775 lineto
+-0.780683 1.192372 lineto
+-0.80061 1.157802 lineto
+-0.833585 1.096361 lineto
+-0.864384 1.034381 lineto
+-0.893064 0.971906 lineto
+-0.919674 0.90898 lineto
+-0.944263 0.845643 lineto
+-0.966871 0.781935 lineto
+-0.987537 0.71789 lineto
+-1.006297 0.653543 lineto
+-1.02318 0.588927 lineto
+-1.038214 0.524072 lineto
+-1.051424 0.459008 lineto
+-1.059012 0.415641 lineto
+-1.06302 0.393776 lineto
+-1.07312 0.328401 lineto
+-1.081364 0.262887 lineto
+-1.087762 0.197262 lineto
+-1.092325 0.131554 lineto
+-1.09506 0.065791 lineto
+-1.095971 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 16.798426 moveto
+309.513763 16.792044 lineto
+304.608887 16.785633 lineto
+299.703979 16.779202 lineto
+294.799103 16.772745 lineto
+289.894226 16.76627 lineto
+284.989319 16.759775 lineto
+280.084442 16.753263 lineto
+275.179535 16.746737 lineto
+270.274628 16.740198 lineto
+265.369751 16.73365 lineto
+260.464874 16.727098 lineto
+255.559982 16.720539 lineto
+250.65509 16.713985 lineto
+245.750214 16.707432 lineto
+240.845322 16.700893 lineto
+235.940414 16.694365 lineto
+231.035538 16.687862 lineto
+226.130646 16.681381 lineto
+221.225769 16.67494 lineto
+216.320862 16.668535 lineto
+211.41597 16.662188 lineto
+208.58606 16.658543 lineto
+206.511093 16.655863 lineto
+201.606201 16.649565 lineto
+196.701324 16.643333 lineto
+191.796417 16.637188 lineto
+186.891525 16.631134 lineto
+181.986649 16.625185 lineto
+177.081772 16.61935 lineto
+172.17688 16.613646 lineto
+167.272018 16.608074 lineto
+162.367157 16.602652 lineto
+157.462296 16.597368 lineto
+152.557495 16.592236 lineto
+147.65271 16.587229 lineto
+142.748001 16.582329 lineto
+137.843399 16.57748 lineto
+132.938965 16.572622 lineto
+128.034821 16.567627 lineto
+123.131119 16.562338 lineto
+118.228119 16.556511 lineto
+113.326233 16.549822 lineto
+108.426147 16.541798 lineto
+103.528915 16.531843 lineto
+98.636238 16.519114 lineto
+93.750793 16.502565 lineto
+89.482483 16.483391 lineto
+88.876778 16.480623 lineto
+84.020607 16.449953 lineto
+79.192307 16.409758 lineto
+74.40728 16.357613 lineto
+70.995674 16.308611 lineto
+69.688362 16.290043 lineto
+65.067932 16.202827 lineto
+60.588795 16.095858 lineto
+60.302616 16.086977 lineto
+56.302532 15.965069 lineto
+52.263397 15.81313 lineto
+52.052956 15.803278 lineto
+48.518723 15.640215 lineto
+45.098907 15.45177 lineto
+44.999897 15.445268 lineto
+42.012478 15.251032 lineto
+39.247547 15.043528 lineto
+38.699097 14.996381 lineto
+36.778236 14.832355 lineto
+34.571789 14.620662 lineto
+32.869308 14.439448 lineto
+32.5942 14.410297 lineto
+30.813585 14.202253 lineto
+29.201622 13.997369 lineto
+27.734022 13.795873 lineto
+27.426525 13.750452 lineto
+26.390289 13.597769 lineto
+25.153257 13.403018 lineto
+24.008617 13.211442 lineto
+22.944418 13.022803 lineto
+22.301901 12.902514 lineto
+21.950653 12.836864 lineto
+21.018908 12.653394 lineto
+20.142078 12.472126 lineto
+19.314142 12.292818 lineto
+18.529951 12.115234 lineto
+17.785103 11.939155 lineto
+17.464106 11.860024 lineto
+17.07579 11.764405 lineto
+16.398733 11.590796 lineto
+15.751086 11.418124 lineto
+15.130369 11.246227 lineto
+14.534415 11.07495 lineto
+13.961332 10.904156 lineto
+13.409462 10.733718 lineto
+12.877604 10.563608 lineto
+12.877353 10.563528 lineto
+12.363712 10.393549 lineto
+11.86745 10.223645 lineto
+11.387602 10.053753 lineto
+10.923336 9.883825 lineto
+10.473936 9.713836 lineto
+10.038795 9.54378 lineto
+9.617403 9.373671 lineto
+9.209344 9.203551 lineto
+8.814277 9.033488 lineto
+8.431937 8.863573 lineto
+8.39421 8.846264 lineto
+8.0621 8.693974 lineto
+7.704636 8.524798 lineto
+7.359439 8.356215 lineto
+7.026437 8.188424 lineto
+6.705575 8.02164 lineto
+6.396805 7.8561 lineto
+6.100078 7.692049 lineto
+5.815323 7.529737 lineto
+5.542449 7.369414 lineto
+5.281322 7.211317 lineto
+5.031776 7.055672 lineto
+4.793593 6.902678 lineto
+4.566513 6.752515 lineto
+4.350235 6.605329 lineto
+4.144415 6.461234 lineto
+3.948677 6.320316 lineto
+3.76262 6.18263 lineto
+3.58582 6.0482 lineto
+3.417843 5.917025 lineto
+3.258248 5.78908 lineto
+3.106595 5.664321 lineto
+2.962449 5.542686 lineto
+2.825384 5.424101 lineto
+2.69499 5.308482 lineto
+2.570871 5.195735 lineto
+2.452647 5.085763 lineto
+2.33996 4.978464 lineto
+2.232469 4.873735 lineto
+2.129853 4.771473 lineto
+2.031811 4.671575 lineto
+1.938058 4.57394 lineto
+1.84833 4.478472 lineto
+1.764269 4.387127 lineto
+1.762374 4.385076 lineto
+1.679795 4.293801 lineto
+1.60052 4.204429 lineto
+1.524343 4.116873 lineto
+1.451074 4.031053 lineto
+1.380532 3.94689 lineto
+1.31255 3.864312 lineto
+1.24697 3.783248 lineto
+1.183643 3.70363 lineto
+1.155722 3.667905 lineto
+1.122144 3.625599 lineto
+1.062341 3.549078 lineto
+1.004336 3.473844 lineto
+0.948006 3.399842 lineto
+0.893236 3.327019 lineto
+0.840492 3.256099 lineto
+0.839902 3.255335 lineto
+0.786645 3.185511 lineto
+0.734515 3.116753 lineto
+0.683412 3.049017 lineto
+0.633887 2.983116 lineto
+0.633204 2.982278 lineto
+0.581151 2.917958 lineto
+0.529658 2.854553 lineto
+0.479951 2.793599 lineto
+0.47851 2.792083 lineto
+0.422638 2.733053 lineto
+0.366906 2.67474 lineto
+0.353325 2.6605 lineto
+0.304487 2.620373 lineto
+0.240059 2.567389 lineto
+0.238674 2.566237 lineto
+0.163962 2.520071 lineto
+0.124513 2.494921 lineto
+0.083407 2.474671 lineto
+9.623407e-06 2.430712 lineto
+-0.000503 2.430475 lineto
+-0.087578 2.387216 lineto
+-0.144749 2.356002 lineto
+-0.171265 2.342039 lineto
+-0.25278 2.295501 lineto
+-0.319048 2.253879 lineto
+-0.330314 2.246937 lineto
+-0.405772 2.197153 lineto
+-0.477311 2.145511 lineto
+-0.53165 2.102994 lineto
+-0.54564 2.092354 lineto
+-0.612355 2.038286 lineto
+-0.675684 1.982746 lineto
+-0.73579 1.925858 lineto
+-0.792636 1.867933 lineto
+-0.792833 1.86774 lineto
+-0.849308 1.809182 lineto
+-0.902895 1.749513 lineto
+-0.953709 1.688823 lineto
+-1.001854 1.627193 lineto
+-1.047428 1.564698 lineto
+-1.090521 1.501408 lineto
+-1.114979 1.463073 lineto
+-1.132065 1.437574 lineto
+-1.172463 1.373298 lineto
+-1.210509 1.308339 lineto
+-1.246268 1.242749 lineto
+-1.279798 1.17658 lineto
+-1.311154 1.109877 lineto
+-1.340384 1.042685 lineto
+-1.367533 0.975046 lineto
+-1.392644 0.906998 lineto
+-1.415753 0.838579 lineto
+-1.436895 0.769823 lineto
+-1.4561 0.700764 lineto
+-1.473396 0.631434 lineto
+-1.488808 0.561863 lineto
+-1.502357 0.492081 lineto
+-1.514062 0.422117 lineto
+-1.516 0.408376 lineto
+-1.52443 0.352023 lineto
+-1.532992 0.281792 lineto
+-1.53964 0.211444 lineto
+-1.544382 0.141011 lineto
+-1.547225 0.07052 lineto
+-1.548172 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 17.096682 moveto
+309.513763 17.088499 lineto
+304.608887 17.080276 lineto
+299.703979 17.072016 lineto
+294.799103 17.063713 lineto
+289.894226 17.055382 lineto
+284.989319 17.04701 lineto
+280.084442 17.03861 lineto
+275.179535 17.030178 lineto
+270.274628 17.021721 lineto
+265.369751 17.013233 lineto
+260.464874 17.004725 lineto
+255.559982 16.996191 lineto
+250.65509 16.987648 lineto
+245.750214 16.979084 lineto
+240.845322 16.970514 lineto
+235.940414 16.961937 lineto
+231.035538 16.953362 lineto
+226.130646 16.94479 lineto
+221.225769 16.93623 lineto
+216.320862 16.927687 lineto
+211.41597 16.91917 lineto
+206.511093 16.910683 lineto
+201.606201 16.902241 lineto
+196.701324 16.893843 lineto
+191.796417 16.885506 lineto
+186.891525 16.877234 lineto
+181.986649 16.86904 lineto
+180.58493 16.866701 lineto
+177.081772 16.860836 lineto
+172.17688 16.852673 lineto
+167.272018 16.844578 lineto
+162.367157 16.836555 lineto
+157.462296 16.828594 lineto
+152.557495 16.820683 lineto
+147.65271 16.812782 lineto
+142.748001 16.804859 lineto
+137.843399 16.796833 lineto
+132.938965 16.788616 lineto
+128.034821 16.780052 lineto
+123.131119 16.770958 lineto
+118.228119 16.761045 lineto
+113.326233 16.749966 lineto
+108.426147 16.737204 lineto
+103.528915 16.722136 lineto
+98.636238 16.703884 lineto
+93.750793 16.681381 lineto
+89.827148 16.658504 lineto
+88.87677 16.652901 lineto
+84.020538 16.615211 lineto
+79.192108 16.567707 lineto
+74.406845 16.507967 lineto
+71.23465 16.456888 lineto
+69.687584 16.432295 lineto
+65.066666 16.33691 lineto
+60.586948 16.221693 lineto
+60.209282 16.209236 lineto
+56.30003 16.082691 lineto
+52.260201 15.922763 lineto
+51.720119 15.896408 lineto
+48.514828 15.742389 lineto
+45.094345 15.546925 lineto
+44.487095 15.505857 lineto
+42.007294 15.339964 lineto
+39.241798 15.126747 lineto
+38.046364 15.021746 lineto
+36.771984 14.910627 lineto
+34.56509 14.694436 lineto
+32.587109 14.480112 lineto
+32.140438 14.426878 lineto
+30.806141 14.268561 lineto
+29.193867 14.060508 lineto
+27.725988 13.856159 lineto
+26.673929 13.698975 lineto
+26.382002 13.655488 lineto
+25.144743 13.458403 lineto
+23.999891 13.26469 lineto
+22.935499 13.074086 lineto
+21.941557 12.88631 lineto
+21.574144 12.813218 lineto
+21.009647 12.70114 lineto
+20.13266 12.518318 lineto
+19.304575 12.337552 lineto
+18.520245 12.158597 lineto
+17.775261 11.981223 lineto
+17.06583 11.805212 lineto
+16.798176 11.736071 lineto
+16.388653 11.630429 lineto
+15.74088 11.45668 lineto
+15.120043 11.283755 lineto
+14.523971 11.111498 lineto
+13.950772 10.939764 lineto
+13.398787 10.768426 lineto
+12.866566 10.597369 lineto
+12.352835 10.426494 lineto
+12.293361 10.406024 lineto
+11.856459 10.255806 lineto
+11.37649 10.085174 lineto
+10.912102 9.914534 lineto
+10.462579 9.743859 lineto
+10.02731 9.573143 lineto
+9.60579 9.402401 lineto
+9.197598 9.231672 lineto
+8.802395 9.061023 lineto
+8.419913 8.890545 lineto
+8.049953 8.72036 lineto
+7.844375 8.622769 lineto
+7.692346 8.550651 lineto
+7.346979 8.381599 lineto
+7.013798 8.213366 lineto
+6.692747 8.046164 lineto
+6.383779 7.880231 lineto
+6.086842 7.715812 lineto
+5.801866 7.553159 lineto
+5.528756 7.39252 lineto
+5.267381 7.234135 lineto
+5.01757 7.078226 lineto
+4.779107 6.924998 lineto
+4.55173 6.774625 lineto
+4.335135 6.627256 lineto
+4.128979 6.483007 lineto
+3.932886 6.341962 lineto
+3.74645 6.204175 lineto
+3.569248 6.069671 lineto
+3.400844 5.938448 lineto
+3.240795 5.810482 lineto
+3.088661 5.685728 lineto
+2.944003 5.564124 lineto
+2.806396 5.445596 lineto
+2.675427 5.330058 lineto
+2.550697 5.217418 lineto
+2.431826 5.107578 lineto
+2.318452 5.000435 lineto
+2.210233 4.895888 lineto
+2.106846 4.793831 lineto
+2.064489 4.751115 lineto
+2.007864 4.69428 lineto
+1.913003 4.597122 lineto
+1.822079 4.502174 lineto
+1.734839 4.409343 lineto
+1.651044 4.318536 lineto
+1.570472 4.229665 lineto
+1.492913 4.142645 lineto
+1.41817 4.057394 lineto
+1.349926 3.978307 lineto
+1.346019 3.973867 lineto
+1.27557 3.892535 lineto
+1.207324 3.81279 lineto
+1.141123 3.734565 lineto
+1.076816 3.657794 lineto
+1.01426 3.582418 lineto
+1.000673 3.565841 lineto
+0.951784 3.509415 lineto
+0.890183 3.438043 lineto
+0.829749 3.367953 lineto
+0.77701 3.306734 lineto
+0.76988 3.29939 lineto
+0.706923 3.234446 lineto
+0.64447 3.170669 lineto
+0.613697 3.139357 lineto
+0.577911 3.110624 lineto
+0.506976 3.054147 lineto
+0.480924 3.033498 lineto
+0.426129 3.003997 lineto
+0.360486 2.968307 lineto
+0.335089 2.95979 lineto
+0.237874 2.925218 lineto
+0.229731 2.923174 lineto
+0.114882 2.890994 lineto
+0.100302 2.88644 lineto
+0.000551 2.857788 lineto
+-0.063182 2.836732 lineto
+-0.109306 2.82159 lineto
+-0.214673 2.782507 lineto
+-0.261951 2.762825 lineto
+-0.31571 2.740731 lineto
+-0.412631 2.696464 lineto
+-0.504395 2.649357 lineto
+-0.505507 2.648743 lineto
+-0.594546 2.601042 lineto
+-0.680172 2.550335 lineto
+-0.761504 2.49744 lineto
+-0.805613 2.466453 lineto
+-0.84029 2.443137 lineto
+-0.917143 2.387694 lineto
+-0.990288 2.330493 lineto
+-1.059909 2.271682 lineto
+-1.126171 2.211395 lineto
+-1.177961 2.160913 lineto
+-1.189843 2.149951 lineto
+-1.253136 2.08809 lineto
+-1.313387 2.024976 lineto
+-1.370713 1.960706 lineto
+-1.425223 1.895365 lineto
+-1.477015 1.829037 lineto
+-1.526183 1.761794 lineto
+-1.572811 1.693705 lineto
+-1.616976 1.624835 lineto
+-1.643585 1.580637 lineto
+-1.659737 1.555461 lineto
+-1.701768 1.485736 lineto
+-1.741412 1.415313 lineto
+-1.778724 1.344241 lineto
+-1.813755 1.272572 lineto
+-1.846555 1.200351 lineto
+-1.877166 1.127621 lineto
+-1.905629 1.054424 lineto
+-1.93198 0.9808 lineto
+-1.956253 0.906784 lineto
+-1.978478 0.832415 lineto
+-1.998684 0.757725 lineto
+-2.016893 0.682748 lineto
+-2.033129 0.607515 lineto
+-2.04741 0.532058 lineto
+-2.059754 0.456406 lineto
+-2.070174 0.380588 lineto
+-2.078683 0.304633 lineto
+-2.085291 0.22857 lineto
+-2.090004 0.152425 lineto
+-2.09283 0.076226 lineto
+-2.093771 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 17.395227 moveto
+309.513763 17.38517 lineto
+304.608887 17.375057 lineto
+299.703979 17.364889 lineto
+294.799103 17.354664 lineto
+289.894226 17.344389 lineto
+284.989319 17.334057 lineto
+280.084442 17.323677 lineto
+275.179535 17.313244 lineto
+270.274628 17.302765 lineto
+265.369751 17.292233 lineto
+260.464874 17.281662 lineto
+255.559982 17.271044 lineto
+250.65509 17.260386 lineto
+245.750214 17.249687 lineto
+240.845322 17.238958 lineto
+235.940414 17.228193 lineto
+231.035538 17.217403 lineto
+226.130646 17.206587 lineto
+221.225769 17.195753 lineto
+216.320862 17.1849 lineto
+211.41597 17.174042 lineto
+206.511093 17.163174 lineto
+201.606201 17.152313 lineto
+196.701324 17.141453 lineto
+191.796417 17.130608 lineto
+186.891525 17.119776 lineto
+184.344788 17.114132 lineto
+181.986649 17.108923 lineto
+177.081772 17.098024 lineto
+172.17688 17.087132 lineto
+167.272018 17.076229 lineto
+162.367157 17.065315 lineto
+157.462296 17.054361 lineto
+152.557495 17.043348 lineto
+147.65271 17.032227 lineto
+142.748001 17.020945 lineto
+137.843399 17.009405 lineto
+132.938965 16.997505 lineto
+128.034821 16.985069 lineto
+123.131119 16.971889 lineto
+118.228119 16.957664 lineto
+113.326233 16.942022 lineto
+108.426147 16.924429 lineto
+103.528915 16.904236 lineto
+98.636238 16.880541 lineto
+96.295815 16.866701 lineto
+93.750793 16.851595 lineto
+88.876762 16.815777 lineto
+84.020485 16.77194 lineto
+79.191933 16.718079 lineto
+74.406441 16.651602 lineto
+73.934204 16.64303 lineto
+69.686836 16.567387 lineto
+65.06546 16.465187 lineto
+61.986843 16.379936 lineto
+60.58519 16.341925 lineto
+56.29763 16.195793 lineto
+52.881302 16.053993 lineto
+52.257122 16.028557 lineto
+48.511055 15.841407 lineto
+45.256233 15.649313 lineto
+45.089897 15.639631 lineto
+42.002224 15.426848 lineto
+39.236149 15.208479 lineto
+38.572617 15.148796 lineto
+36.765827 14.987646 lineto
+34.558472 14.767365 lineto
+32.580082 14.549305 lineto
+32.48954 14.538328 lineto
+30.79874 14.334458 lineto
+29.186134 14.123453 lineto
+27.717962 13.916395 lineto
+26.918476 13.795404 lineto
+26.373707 13.713264 lineto
+25.136196 13.51398 lineto
+23.991117 13.318233 lineto
+22.926516 13.125727 lineto
+21.932388 12.936163 lineto
+21.746607 12.898862 lineto
+21.00029 12.749396 lineto
+20.123127 12.565077 lineto
+19.294876 12.382898 lineto
+18.510391 12.202603 lineto
+17.765265 12.02395 lineto
+17.055698 11.846713 lineto
+16.93881 11.816315 lineto
+16.378376 11.670837 lineto
+15.730465 11.496036 lineto
+15.109489 11.322104 lineto
+14.513287 11.148879 lineto
+13.939961 10.976214 lineto
+13.387854 10.803977 lineto
+12.855512 10.632051 lineto
+12.42681 10.488776 lineto
+12.341656 10.460359 lineto
+11.845139 10.288927 lineto
+11.365033 10.117566 lineto
+10.900508 9.946226 lineto
+10.450844 9.774877 lineto
+10.015435 9.603508 lineto
+9.593771 9.432136 lineto
+9.185431 9.260801 lineto
+8.790076 9.089567 lineto
+8.407439 8.91853 lineto
+8.037317 8.747806 lineto
+7.972949 8.71717 lineto
+7.679511 8.577646 lineto
+7.333946 8.408149 lineto
+7.000557 8.239491 lineto
+6.679287 8.071895 lineto
+6.370088 7.905593 lineto
+6.072906 7.740833 lineto
+5.78767 7.577866 lineto
+5.514283 7.416942 lineto
+5.252615 7.258301 lineto
+5.002491 7.102168 lineto
+4.763693 6.948746 lineto
+4.535959 6.798212 lineto
+4.318984 6.650713 lineto
+4.11242 6.506367 lineto
+3.91589 6.365258 lineto
+3.728988 6.22744 lineto
+3.551288 6.09294 lineto
+3.38235 5.961754 lineto
+3.221732 5.833859 lineto
+3.068988 5.709209 lineto
+2.923679 5.587745 lineto
+2.785376 5.469391 lineto
+2.653662 5.354062 lineto
+2.528138 5.241665 lineto
+2.408419 5.132102 lineto
+2.29414 5.025272 lineto
+2.244695 4.978065 lineto
+2.184777 4.921249 lineto
+2.079988 4.819933 lineto
+1.9796 4.721078 lineto
+1.883318 4.624586 lineto
+1.790866 4.530357 lineto
+1.701983 4.438299 lineto
+1.616426 4.348318 lineto
+1.533963 4.260327 lineto
+1.505806 4.229812 lineto
+1.453573 4.174901 lineto
+1.375286 4.091725 lineto
+1.299319 4.01037 lineto
+1.225485 3.93076 lineto
+1.153603 3.852821 lineto
+1.147599 3.846242 lineto
+1.080443 3.778712 lineto
+1.008294 3.706465 lineto
+0.937274 3.635801 lineto
+0.921354 3.619935 lineto
+0.86119 3.570735 lineto
+0.783664 3.508416 lineto
+0.757836 3.487841 lineto
+0.695382 3.454589 lineto
+0.624774 3.417448 lineto
+0.594542 3.409705 lineto
+0.501035 3.384883 lineto
+0.467372 3.381489 lineto
+0.369598 3.369545 lineto
+0.318641 3.365761 lineto
+0.216753 3.355128 lineto
+0.168101 3.349928 lineto
+0.031975 3.330195 lineto
+0.024222 3.329008 lineto
+-0.113436 3.303459 lineto
+-0.193829 3.284743 lineto
+-0.244015 3.27301 lineto
+-0.36912 3.238731 lineto
+-0.471675 3.20531 lineto
+-0.487692 3.200235 lineto
+-0.603375 3.159539 lineto
+-0.712965 3.115134 lineto
+-0.815483 3.068066 lineto
+-0.816951 3.067425 lineto
+-0.920176 3.018798 lineto
+-1.018378 2.967311 lineto
+-1.111857 2.913228 lineto
+-1.200886 2.856781 lineto
+-1.244014 2.827336 lineto
+-1.288068 2.799146 lineto
+-1.37357 2.7404 lineto
+-1.455181 2.679699 lineto
+-1.533086 2.617201 lineto
+-1.607453 2.553047 lineto
+-1.678439 2.487368 lineto
+-1.746185 2.420281 lineto
+-1.782786 2.381777 lineto
+-1.812715 2.352509 lineto
+-1.878569 2.284216 lineto
+-1.941404 2.214672 lineto
+-2.00132 2.143965 lineto
+-2.058414 2.072175 lineto
+-2.11277 1.99938 lineto
+-2.164471 1.925649 lineto
+-2.21359 1.851048 lineto
+-2.260196 1.775638 lineto
+-2.304352 1.699475 lineto
+-2.346117 1.622613 lineto
+-2.385545 1.545101 lineto
+-2.422686 1.466988 lineto
+-2.457586 1.388317 lineto
+-2.467168 1.36519 lineto
+-2.49212 1.30944 lineto
+-2.525093 1.230143 lineto
+-2.555784 1.150333 lineto
+-2.584225 1.070051 lineto
+-2.610446 0.989337 lineto
+-2.634475 0.90823 lineto
+-2.656335 0.826766 lineto
+-2.67605 0.744982 lineto
+-2.693638 0.662912 lineto
+-2.709116 0.58059 lineto
+-2.722502 0.49805 lineto
+-2.733805 0.415323 lineto
+-2.743039 0.332442 lineto
+-2.750211 0.249439 lineto
+-2.755329 0.166343 lineto
+-2.758396 0.083187 lineto
+-2.759418 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 17.696178 moveto
+309.513763 17.684162 lineto
+304.608887 17.672062 lineto
+299.703979 17.659891 lineto
+294.799103 17.647638 lineto
+289.894226 17.635313 lineto
+284.989319 17.622908 lineto
+280.084442 17.610428 lineto
+275.179535 17.597872 lineto
+270.274628 17.585243 lineto
+265.369751 17.572538 lineto
+260.464874 17.559761 lineto
+255.559982 17.546907 lineto
+250.65509 17.533985 lineto
+245.750214 17.52099 lineto
+240.845322 17.507929 lineto
+235.940414 17.494797 lineto
+231.035538 17.481604 lineto
+226.130646 17.468342 lineto
+221.225769 17.455023 lineto
+216.320862 17.441641 lineto
+211.41597 17.428205 lineto
+206.511093 17.414711 lineto
+204.17308 17.40822 lineto
+201.606201 17.401211 lineto
+196.701324 17.387691 lineto
+191.796417 17.374115 lineto
+186.891525 17.360476 lineto
+181.986649 17.346777 lineto
+177.081772 17.333008 lineto
+172.17688 17.319164 lineto
+167.272018 17.305227 lineto
+162.367157 17.291187 lineto
+157.462296 17.277008 lineto
+152.557495 17.262659 lineto
+147.65271 17.248077 lineto
+142.748001 17.233204 lineto
+137.843399 17.217928 lineto
+132.938965 17.202127 lineto
+128.034821 17.185614 lineto
+123.131119 17.168163 lineto
+118.228119 17.149443 lineto
+113.326233 17.129057 lineto
+110.126923 17.114132 lineto
+108.426147 17.106249 lineto
+103.528915 17.080116 lineto
+98.636238 17.050116 lineto
+93.750793 17.015163 lineto
+88.876755 16.973824 lineto
+84.020432 16.924202 lineto
+79.191757 16.864029 lineto
+79.077553 16.862194 lineto
+74.406052 16.789133 lineto
+69.686111 16.69882 lineto
+65.175949 16.59251 lineto
+65.064285 16.589943 lineto
+60.583481 16.458788 lineto
+56.29528 16.306313 lineto
+55.265083 16.261047 lineto
+52.254116 16.13171 lineto
+48.507347 15.938652 lineto
+47.110329 15.852863 lineto
+45.085541 15.730556 lineto
+41.997215 15.512679 lineto
+40.016621 15.352229 lineto
+39.230568 15.289268 lineto
+36.759705 15.064167 lineto
+34.551876 14.839968 lineto
+33.671768 14.740995 lineto
+32.573067 14.61834 lineto
+30.791332 14.400438 lineto
+29.178381 14.186572 lineto
+27.884485 14.001668 lineto
+27.709908 13.976844 lineto
+26.365349 13.771489 lineto
+25.127569 13.570081 lineto
+23.982252 13.372327 lineto
+22.91744 13.177909 lineto
+22.572704 13.111478 lineto
+21.923088 12.986732 lineto
+20.99078 12.798449 lineto
+20.113428 12.612656 lineto
+19.285004 12.429066 lineto
+18.50036 12.247413 lineto
+17.755089 12.067446 lineto
+17.657423 12.042862 lineto
+17.045332 11.889191 lineto
+16.36784 11.712258 lineto
+15.719776 11.536412 lineto
+15.098658 11.361471 lineto
+14.502316 11.187266 lineto
+13.928858 11.013649 lineto
+13.376625 10.840485 lineto
+13.072219 10.741658 lineto
+12.844131 10.667756 lineto
+12.330083 10.495413 lineto
+11.833414 10.323233 lineto
+11.353158 10.151146 lineto
+10.888479 9.979103 lineto
+10.438663 9.807072 lineto
+10.003102 9.635043 lineto
+9.581282 9.463031 lineto
+9.172784 9.291077 lineto
+8.777269 9.119245 lineto
+8.593723 9.036953 lineto
+8.394423 8.947727 lineto
+8.02404 8.776643 lineto
+7.666007 8.60605 lineto
+7.320212 8.436128 lineto
+6.986581 8.267071 lineto
+6.665056 8.099104 lineto
+6.355585 7.932459 lineto
+6.058114 7.767389 lineto
+5.772571 7.604145 lineto
+5.498856 7.442976 lineto
+5.236834 7.284128 lineto
+4.986331 7.127824 lineto
+4.747127 6.974271 lineto
+4.518954 6.823645 lineto
+4.301504 6.676097 lineto
+4.09443 6.531745 lineto
+3.897348 6.390675 lineto
+3.709849 6.252942 lineto
+3.531504 6.118571 lineto
+3.36187 5.987564 lineto
+3.200499 5.859896 lineto
+3.046942 5.735523 lineto
+2.900756 5.614386 lineto
+2.761508 5.49641 lineto
+2.628775 5.38151 lineto
+2.502152 5.269595 lineto
+2.381251 5.160566 lineto
+2.338621 5.121343 lineto
+2.265334 5.054699 lineto
+2.154116 4.951797 lineto
+2.047457 4.851548 lineto
+1.945035 4.753851 lineto
+1.846545 4.658608 lineto
+1.7517 4.565722 lineto
+1.660229 4.475097 lineto
+1.642691 4.457481 lineto
+1.570116 4.388158 lineto
+1.48218 4.303817 lineto
+1.396594 4.221621 lineto
+1.313128 4.141486 lineto
+1.298039 4.126918 lineto
+1.226639 4.067181 lineto
+1.140147 3.995888 lineto
+1.081234 3.948001 lineto
+1.049975 3.93004 lineto
+0.949718 3.873818 lineto
+0.924914 3.860191 lineto
+0.825307 3.836439 lineto
+0.795028 3.829232 lineto
+0.667714 3.829242 lineto
+0.656725 3.830337 lineto
+0.525306 3.84071 lineto
+0.453937 3.846396 lineto
+0.354858 3.851523 lineto
+0.259562 3.854673 lineto
+0.146972 3.854414 lineto
+0.077196 3.853173 lineto
+-0.094165 3.843008 lineto
+-0.108339 3.841671 lineto
+-0.257925 3.826693 lineto
+-0.411713 3.803065 lineto
+-0.423513 3.800845 lineto
+-0.560953 3.775651 lineto
+-0.702094 3.742543 lineto
+-0.815284 3.710314 lineto
+-0.83634 3.704676 lineto
+-0.968433 3.664826 lineto
+-1.093811 3.620598 lineto
+-1.212943 3.572433 lineto
+-1.306023 3.530249 lineto
+-1.327408 3.521301 lineto
+-1.441568 3.469434 lineto
+-1.550499 3.414443 lineto
+-1.654501 3.356603 lineto
+-1.753848 3.296161 lineto
+-1.848788 3.233337 lineto
+-1.926437 3.177884 lineto
+-1.940458 3.168714 lineto
+-2.03335 3.10419 lineto
+-2.122289 3.037605 lineto
+-2.207449 2.969114 lineto
+-2.288986 2.898857 lineto
+-2.367045 2.82696 lineto
+-2.441759 2.753542 lineto
+-2.513251 2.67871 lineto
+-2.581634 2.602562 lineto
+-2.647013 2.525189 lineto
+-2.709485 2.446675 lineto
+-2.719315 2.433656 lineto
+-2.773229 2.368287 lineto
+-2.834857 2.288986 lineto
+-2.893642 2.208606 lineto
+-2.949654 2.127214 lineto
+-3.00296 2.044877 lineto
+-3.05362 1.961656 lineto
+-3.101691 1.877608 lineto
+-3.147225 1.792789 lineto
+-3.19027 1.707249 lineto
+-3.23087 1.621037 lineto
+-3.269068 1.534202 lineto
+-3.304899 1.446786 lineto
+-3.338398 1.358833 lineto
+-3.369599 1.270384 lineto
+-3.39853 1.181478 lineto
+-3.425218 1.092153 lineto
+-3.449686 1.002445 lineto
+-3.471956 0.912391 lineto
+-3.492049 0.822024 lineto
+-3.50998 0.731378 lineto
+-3.525767 0.640486 lineto
+-3.539422 0.549381 lineto
+-3.550957 0.458094 lineto
+-3.560381 0.366655 lineto
+-3.567702 0.275096 lineto
+-3.572927 0.183447 lineto
+-3.576059 0.091739 lineto
+-3.577103 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 18.002419 moveto
+309.513763 17.988281 lineto
+304.608887 17.974035 lineto
+299.703979 17.959684 lineto
+294.799103 17.945225 lineto
+289.894226 17.930658 lineto
+284.989319 17.915979 lineto
+280.084442 17.901194 lineto
+275.179535 17.886292 lineto
+270.274628 17.871279 lineto
+265.369751 17.856148 lineto
+260.464874 17.840904 lineto
+255.559982 17.825542 lineto
+250.65509 17.810064 lineto
+245.750214 17.79446 lineto
+240.845322 17.778744 lineto
+235.940414 17.762896 lineto
+234.363464 17.757732 lineto
+231.035538 17.747217 lineto
+226.130646 17.731562 lineto
+221.225769 17.715799 lineto
+216.320862 17.699923 lineto
+211.41597 17.683937 lineto
+206.511093 17.667833 lineto
+201.606201 17.651615 lineto
+196.701324 17.635277 lineto
+191.796417 17.618814 lineto
+186.891525 17.602219 lineto
+181.986649 17.585487 lineto
+177.081772 17.5686 lineto
+172.17688 17.551554 lineto
+167.272018 17.534313 lineto
+162.367157 17.516865 lineto
+157.462296 17.499157 lineto
+152.557495 17.481152 lineto
+147.65271 17.462769 lineto
+142.748001 17.44393 lineto
+137.843399 17.424503 lineto
+133.898254 17.40822 lineto
+132.938965 17.40436 lineto
+128.034821 17.383362 lineto
+123.131119 17.36121 lineto
+118.228119 17.337566 lineto
+113.326233 17.312029 lineto
+108.426147 17.284037 lineto
+103.528915 17.252897 lineto
+98.636238 17.217659 lineto
+93.750793 17.177135 lineto
+88.876747 17.129684 lineto
+87.556496 17.113873 lineto
+84.020378 17.073099 lineto
+79.191589 17.005873 lineto
+74.405655 16.925362 lineto
+70.04232 16.835291 lineto
+69.685394 16.828173 lineto
+65.063141 16.711781 lineto
+60.581779 16.574619 lineto
+58.776451 16.50618 lineto
+56.292976 16.414883 lineto
+52.251129 16.234283 lineto
+49.835262 16.104649 lineto
+48.503681 16.034786 lineto
+45.081188 15.821297 lineto
+42.212017 15.613668 lineto
+41.992237 15.598009 lineto
+39.224987 15.370114 lineto
+36.753582 15.140809 lineto
+35.516228 15.012431 lineto
+34.545269 14.912724 lineto
+32.565994 14.687933 lineto
+30.783867 14.466915 lineto
+29.450924 14.287571 lineto
+29.170576 14.250113 lineto
+27.701731 14.038194 lineto
+26.356867 13.830566 lineto
+25.118822 13.626963 lineto
+23.973282 13.42707 lineto
+23.918428 13.416932 lineto
+22.908182 13.231144 lineto
+21.913578 13.03843 lineto
+20.981062 12.848568 lineto
+20.103523 12.661241 lineto
+19.274935 12.47615 lineto
+18.838259 12.374211 lineto
+18.490103 12.293233 lineto
+17.744587 12.112334 lineto
+17.034645 11.932972 lineto
+16.356989 11.754924 lineto
+15.708771 11.577989 lineto
+15.08751 11.401978 lineto
+14.491039 11.226727 lineto
+14.121934 11.114317 lineto
+13.917422 11.052209 lineto
+13.364957 10.878425 lineto
+12.832254 10.705018 lineto
+12.318043 10.531886 lineto
+11.821212 10.358935 lineto
+11.340797 10.186097 lineto
+10.875962 10.013318 lineto
+10.425991 9.840568 lineto
+9.990275 9.667836 lineto
+9.585519 9.502184 lineto
+9.568298 9.495151 lineto
+9.159523 9.322825 lineto
+8.763714 9.150656 lineto
+8.380602 8.978735 lineto
+8.009978 8.807185 lineto
+7.651694 8.636156 lineto
+7.305635 8.465823 lineto
+6.971725 8.296389 lineto
+6.649902 8.128074 lineto
+6.340114 7.96112 lineto
+6.042303 7.795777 lineto
+5.756392 7.632302 lineto
+5.482281 7.470947 lineto
+5.219829 7.31196 lineto
+4.968857 7.155569 lineto
+4.729141 7.001982 lineto
+4.500409 6.85138 lineto
+4.282348 6.703918 lineto
+4.074603 6.559714 lineto
+3.876786 6.418859 lineto
+3.688481 6.281412 lineto
+3.509252 6.1474 lineto
+3.33865 6.016827 lineto
+3.176219 5.889671 lineto
+3.021502 5.76589 lineto
+2.874048 5.645427 lineto
+2.733415 5.52821 lineto
+2.599174 5.414156 lineto
+2.47091 5.303174 lineto
+2.404013 5.244235 lineto
+2.347725 5.195692 lineto
+2.228987 5.09183 lineto
+2.114877 4.990891 lineto
+2.005034 4.892776 lineto
+1.899119 4.797386 lineto
+1.796808 4.704625 lineto
+1.785835 4.694571 lineto
+1.694102 4.617728 lineto
+1.593397 4.533997 lineto
+1.494825 4.45293 lineto
+1.470429 4.432925 lineto
+1.389273 4.381845 lineto
+1.281182 4.316253 lineto
+1.272026 4.310803 lineto
+1.144999 4.276083 lineto
+1.127606 4.27153 lineto
+1.00124 4.279768 lineto
+0.934057 4.295875 lineto
+0.868219 4.310784 lineto
+0.712217 4.34978 lineto
+0.660995 4.36157 lineto
+0.522821 4.389877 lineto
+0.405449 4.410313 lineto
+0.290561 4.426549 lineto
+0.170583 4.440663 lineto
+0.004269 4.453349 lineto
+-0.047676 4.456511 lineto
+-0.253077 4.461204 lineto
+-0.350699 4.458914 lineto
+-0.447241 4.456381 lineto
+-0.631908 4.443637 lineto
+-0.794018 4.42374 lineto
+-0.805693 4.422428 lineto
+-0.976204 4.397948 lineto
+-1.137337 4.366498 lineto
+-1.289863 4.328863 lineto
+-1.352056 4.310996 lineto
+-1.439263 4.28853 lineto
+-1.584787 4.245113 lineto
+-1.723392 4.196996 lineto
+-1.855542 4.144636 lineto
+-1.981651 4.088434 lineto
+-2.061437 4.04932 lineto
+-2.104984 4.030229 lineto
+-2.228413 3.971487 lineto
+-2.34663 3.909541 lineto
+-2.459908 3.844654 lineto
+-2.568495 3.77706 lineto
+-2.672618 3.70697 lineto
+-2.772487 3.634576 lineto
+-2.868292 3.56005 lineto
+-2.960205 3.483551 lineto
+-2.973568 3.47182 lineto
+-3.054724 3.407736 lineto
+-3.146565 3.330413 lineto
+-3.234739 3.251253 lineto
+-3.319374 3.170376 lineto
+-3.400585 3.087891 lineto
+-3.47848 3.003902 lineto
+-3.553157 2.918502 lineto
+-3.62471 2.831781 lineto
+-3.693222 2.743819 lineto
+-3.758772 2.654693 lineto
+-3.821434 2.564474 lineto
+-3.881275 2.473231 lineto
+-3.938358 2.381026 lineto
+-3.99274 2.287917 lineto
+-4.044475 2.193962 lineto
+-4.093613 2.099214 lineto
+-4.1402 2.003722 lineto
+-4.162263 1.955676 lineto
+-4.186402 1.907963 lineto
+-4.232038 1.811871 lineto
+-4.275017 1.715047 lineto
+-4.315376 1.61754 lineto
+-4.353145 1.519398 lineto
+-4.388352 1.420667 lineto
+-4.421026 1.321393 lineto
+-4.451187 1.22162 lineto
+-4.47886 1.121389 lineto
+-4.504064 1.020742 lineto
+-4.526815 0.919721 lineto
+-4.547131 0.818363 lineto
+-4.565024 0.71671 lineto
+-4.580507 0.614798 lineto
+-4.593591 0.512666 lineto
+-4.604283 0.410351 lineto
+-4.612591 0.307891 lineto
+-4.618522 0.205321 lineto
+-4.622077 0.102679 lineto
+-4.62326 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 18.31637 moveto
+309.513763 18.299746 lineto
+304.608887 18.282967 lineto
+299.703979 18.266029 lineto
+294.799103 18.24893 lineto
+289.894226 18.231668 lineto
+284.989319 18.214231 lineto
+280.084442 18.196625 lineto
+275.179535 18.178835 lineto
+273.613281 18.173073 lineto
+270.274628 18.161505 lineto
+265.369751 18.144323 lineto
+260.464874 18.127001 lineto
+255.559982 18.109526 lineto
+250.65509 18.091904 lineto
+245.750214 18.074125 lineto
+240.845322 18.05619 lineto
+235.940414 18.038095 lineto
+231.035538 18.019836 lineto
+226.130646 18.001404 lineto
+221.225769 17.982801 lineto
+216.320862 17.964018 lineto
+211.41597 17.945051 lineto
+206.511093 17.925886 lineto
+201.606201 17.906525 lineto
+196.701324 17.886944 lineto
+191.796417 17.867144 lineto
+186.891525 17.847101 lineto
+181.986649 17.826803 lineto
+177.081772 17.806217 lineto
+172.17688 17.78532 lineto
+167.272018 17.764067 lineto
+165.850311 17.757732 lineto
+162.367157 17.743006 lineto
+157.462296 17.721802 lineto
+152.557495 17.700178 lineto
+147.65271 17.678045 lineto
+142.748001 17.655323 lineto
+137.843399 17.631874 lineto
+132.938965 17.60755 lineto
+128.034821 17.582129 lineto
+123.131119 17.555347 lineto
+118.228119 17.526833 lineto
+113.326233 17.49612 lineto
+108.426147 17.462557 lineto
+103.528915 17.425318 lineto
+101.572601 17.40822 lineto
+98.636238 17.383968 lineto
+93.750793 17.337631 lineto
+88.87674 17.284401 lineto
+84.020332 17.222181 lineto
+79.191422 17.148304 lineto
+76.924622 17.105442 lineto
+74.405273 17.060457 lineto
+69.684677 16.95715 lineto
+65.061989 16.834118 lineto
+63.447891 16.780622 lineto
+60.580093 16.689791 lineto
+56.290653 16.524105 lineto
+53.436245 16.390404 lineto
+52.248146 16.336512 lineto
+48.499989 16.131691 lineto
+45.132896 15.915473 lineto
+45.076839 15.911954 lineto
+41.987202 15.684299 lineto
+39.219353 15.451643 lineto
+37.96954 15.332675 lineto
+36.747402 15.21808 lineto
+34.538544 14.986757 lineto
+32.558842 14.758348 lineto
+31.547331 14.630603 lineto
+30.77631 14.53422 lineto
+29.162575 14.31525 lineto
+27.693394 14.100761 lineto
+26.348253 13.890563 lineto
+25.731213 13.787719 lineto
+25.109915 13.684907 lineto
+23.964012 13.483633 lineto
+22.898655 13.285921 lineto
+21.903835 13.091413 lineto
+20.971136 12.899765 lineto
+20.417685 12.780472 lineto
+20.093391 12.710941 lineto
+19.264503 12.524917 lineto
+18.47942 12.340954 lineto
+17.733719 12.158787 lineto
+17.023611 11.97817 lineto
+16.345808 11.798878 lineto
+15.697468 11.6207 lineto
+15.51867 11.569682 lineto
+15.075981 11.44388 lineto
+14.479232 11.268039 lineto
+13.905368 11.092854 lineto
+13.352729 10.918183 lineto
+12.81986 10.743905 lineto
+12.30549 10.569911 lineto
+11.808507 10.396108 lineto
+11.32795 10.222426 lineto
+10.874778 10.053219 lineto
+10.862973 10.048824 lineto
+10.412697 9.875711 lineto
+9.976659 9.702655 lineto
+9.554344 9.529673 lineto
+9.145331 9.356802 lineto
+8.749276 9.184111 lineto
+8.365908 9.011696 lineto
+7.995019 8.839678 lineto
+7.636454 8.66821 lineto
+7.290098 8.497475 lineto
+6.95587 8.327675 lineto
+6.633706 8.159038 lineto
+6.323547 7.991809 lineto
+6.025333 7.826244 lineto
+5.73898 7.662605 lineto
+5.46438 7.501154 lineto
+5.201388 7.342141 lineto
+4.949815 7.185803 lineto
+4.709427 7.032354 lineto
+4.479945 6.881986 lineto
+4.261044 6.734856 lineto
+4.052359 6.591093 lineto
+3.853489 6.450793 lineto
+3.664006 6.314022 lineto
+3.483461 6.180815 lineto
+3.311389 6.051182 lineto
+3.147321 5.925107 lineto
+2.990786 5.802553 lineto
+2.841314 5.683471 lineto
+2.698449 5.567791 lineto
+2.561743 5.455438 lineto
+2.490299 5.395837 lineto
+2.429752 5.34741 lineto
+2.301534 5.244087 lineto
+2.177785 5.144136 lineto
+2.058089 5.047468 lineto
+1.961104 4.969218 lineto
+1.940758 4.955242 lineto
+1.819354 4.873016 lineto
+1.699612 4.79455 lineto
+1.68432 4.784689 lineto
+1.558923 4.739785 lineto
+1.510392 4.72353 lineto
+1.378332 4.732047 lineto
+1.361834 4.738075 lineto
+1.253193 4.777126 lineto
+1.111738 4.838981 lineto
+0.984192 4.892224 lineto
+0.941146 4.909449 lineto
+0.732634 4.985548 lineto
+0.631148 5.018557 lineto
+0.475915 5.064385 lineto
+0.319165 5.105057 lineto
+0.158109 5.140559 lineto
+0.035163 5.164569 lineto
+-0.226698 5.203173 lineto
+-0.23781 5.204403 lineto
+-0.474468 5.228139 lineto
+-0.704827 5.237642 lineto
+-0.734402 5.237767 lineto
+-0.927543 5.239585 lineto
+-1.137677 5.230728 lineto
+-1.335341 5.211658 lineto
+-1.362793 5.208043 lineto
+-1.530875 5.189867 lineto
+-1.717601 5.160918 lineto
+-1.894813 5.124654 lineto
+-2.063253 5.081871 lineto
+-2.165922 5.051393 lineto
+-2.227721 5.035801 lineto
+-2.391724 4.988609 lineto
+-2.5485 4.936258 lineto
+-2.698504 4.87922 lineto
+-2.842148 4.817914 lineto
+-2.979805 4.752716 lineto
+-3.111809 4.683957 lineto
+-3.204353 4.631667 lineto
+-3.241392 4.613433 lineto
+-3.373511 4.543633 lineto
+-3.500545 4.470659 lineto
+-3.622725 4.394745 lineto
+-3.740262 4.316098 lineto
+-3.85335 4.234909 lineto
+-3.96217 4.151352 lineto
+-4.066885 4.065587 lineto
+-4.167644 3.977755 lineto
+-4.264588 3.887992 lineto
+-4.357845 3.796421 lineto
+-4.447535 3.703152 lineto
+-4.533763 3.608292 lineto
+-4.565676 3.571376 lineto
+-4.621669 3.513691 lineto
+-4.70918 3.418533 lineto
+-4.793244 3.321779 lineto
+-4.873945 3.223522 lineto
+-4.951355 3.123845 lineto
+-5.025548 3.022827 lineto
+-5.096588 2.920543 lineto
+-5.164537 2.817067 lineto
+-5.22945 2.712463 lineto
+-5.291379 2.606797 lineto
+-5.350375 2.50013 lineto
+-5.406479 2.392521 lineto
+-5.459735 2.284025 lineto
+-5.51018 2.174696 lineto
+-5.557849 2.064586 lineto
+-5.602777 1.953746 lineto
+-5.64499 1.842222 lineto
+-5.684521 1.730062 lineto
+-5.72139 1.617312 lineto
+-5.755623 1.504016 lineto
+-5.787241 1.390216 lineto
+-5.816262 1.275955 lineto
+-5.842705 1.161274 lineto
+-5.866583 1.046214 lineto
+-5.887911 0.930814 lineto
+-5.906703 0.815114 lineto
+-5.922967 0.699152 lineto
+-5.936714 0.582966 lineto
+-5.947949 0.466595 lineto
+-5.956682 0.350076 lineto
+-5.962915 0.233445 lineto
+-5.966651 0.116741 lineto
+-5.967896 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 18.638275 moveto
+309.513763 18.619976 lineto
+304.608887 18.601505 lineto
+299.703979 18.582867 lineto
+294.799103 18.564047 lineto
+289.894226 18.545052 lineto
+284.989319 18.525864 lineto
+280.084442 18.506491 lineto
+275.179535 18.486917 lineto
+270.274628 18.467144 lineto
+265.369751 18.447157 lineto
+260.464874 18.426958 lineto
+255.559982 18.406532 lineto
+250.65509 18.385878 lineto
+245.750214 18.364979 lineto
+240.845322 18.343832 lineto
+235.940414 18.322424 lineto
+231.035538 18.300743 lineto
+226.130646 18.278772 lineto
+221.225769 18.256506 lineto
+216.320862 18.233915 lineto
+211.41597 18.210993 lineto
+206.511093 18.187704 lineto
+203.487656 18.173073 lineto
+201.606201 18.164707 lineto
+196.701324 18.142487 lineto
+191.796417 18.119982 lineto
+186.891525 18.09717 lineto
+181.986649 18.074034 lineto
+177.081772 18.050541 lineto
+172.17688 18.026665 lineto
+167.272018 18.002359 lineto
+162.367157 17.977581 lineto
+157.462296 17.952257 lineto
+152.557495 17.926321 lineto
+147.65271 17.899654 lineto
+142.748001 17.872145 lineto
+137.843399 17.843603 lineto
+132.938965 17.813828 lineto
+128.034821 17.782513 lineto
+124.392998 17.757732 lineto
+123.131119 17.749836 lineto
+118.228119 17.716782 lineto
+113.326233 17.681444 lineto
+108.426147 17.643208 lineto
+103.528915 17.601309 lineto
+98.636238 17.554661 lineto
+93.750793 17.501852 lineto
+88.87674 17.440838 lineto
+86.677948 17.40782 lineto
+84.020279 17.371334 lineto
+79.191246 17.292355 lineto
+74.404884 17.198805 lineto
+69.683968 17.086391 lineto
+69.455307 17.079578 lineto
+65.060822 16.957874 lineto
+60.578369 16.807314 lineto
+57.978233 16.700155 lineto
+56.288322 16.633827 lineto
+52.245094 16.441328 lineto
+48.782825 16.244616 lineto
+48.496284 16.228867 lineto
+45.072369 16.005295 lineto
+41.982098 15.771729 lineto
+41.005569 15.686868 lineto
+39.213619 15.534659 lineto
+36.741043 15.297622 lineto
+34.531746 15.061655 lineto
+34.131573 15.014359 lineto
+32.55151 14.830501 lineto
+30.768478 14.603965 lineto
+29.1544 14.381798 lineto
+27.964897 14.205397 lineto
+27.684923 14.164318 lineto
+26.339331 13.952707 lineto
+25.10062 13.745346 lineto
+23.954468 13.541875 lineto
+22.888916 13.34192 lineto
+22.366085 13.238462 lineto
+21.893841 13.145744 lineto
+20.960773 12.953201 lineto
+20.082712 12.763318 lineto
+19.253628 12.57578 lineto
+18.468372 12.390292 lineto
+17.722538 12.206581 lineto
+17.232729 12.080922 lineto
+17.012257 12.024692 lineto
+16.334126 11.844812 lineto
+15.685443 11.66612 lineto
+15.063725 11.488421 lineto
+14.4668 11.311539 lineto
+13.892776 11.135313 lineto
+13.339992 10.959599 lineto
+12.806994 10.78427 lineto
+12.425766 10.654559 lineto
+12.292453 10.609403 lineto
+11.795124 10.435269 lineto
+11.314199 10.261304 lineto
+10.848842 10.087453 lineto
+10.398331 9.913688 lineto
+9.962054 9.739997 lineto
+9.539499 9.566398 lineto
+9.130239 9.392933 lineto
+8.733931 9.219673 lineto
+8.350296 9.046716 lineto
+7.97913 8.874192 lineto
+7.620267 8.702256 lineto
+7.301581 8.54492 lineto
+7.273576 8.531132 lineto
+6.938814 8.36133 lineto
+6.616079 8.192736 lineto
+6.305311 8.025591 lineto
+6.006444 7.860157 lineto
+5.719394 7.696694 lineto
+5.444049 7.535463 lineto
+5.180261 7.376717 lineto
+4.927841 7.220691 lineto
+4.68655 7.067601 lineto
+4.456109 6.917635 lineto
+4.236187 6.770954 lineto
+4.02642 6.627684 lineto
+3.917571 6.5516 lineto
+3.826145 6.488274 lineto
+3.634726 6.353034 lineto
+3.451967 6.221618 lineto
+3.277372 6.094051 lineto
+3.110438 5.970335 lineto
+2.95066 5.850449 lineto
+2.797533 5.734354 lineto
+2.650563 5.621997 lineto
+2.63344 5.608758 lineto
+2.504928 5.518097 lineto
+2.362979 5.419178 lineto
+2.224733 5.324553 lineto
+2.193483 5.303353 lineto
+2.07578 5.248341 lineto
+1.960652 5.198166 lineto
+1.908143 5.196857 lineto
+1.81206 5.196422 lineto
+1.690423 5.249461 lineto
+1.562837 5.329813 lineto
+1.540447 5.344275 lineto
+1.412248 5.425893 lineto
+1.228291 5.534842 lineto
+1.001704 5.656088 lineto
+0.984384 5.664692 lineto
+0.722194 5.787966 lineto
+0.546897 5.861038 lineto
+0.374404 5.92669 lineto
+0.16571 5.997757 lineto
+-0.060883 6.064239 lineto
+-0.178788 6.095834 lineto
+-0.496425 6.165987 lineto
+-0.609651 6.185433 lineto
+-0.794701 6.216056 lineto
+-1.075107 6.248289 lineto
+-1.307667 6.26163 lineto
+-1.33785 6.263743 lineto
+-1.595724 6.273264 lineto
+-1.838458 6.269119 lineto
+-2.067504 6.253049 lineto
+-2.204101 6.23737 lineto
+-2.28978 6.230657 lineto
+-2.509998 6.205475 lineto
+-2.719604 6.171523 lineto
+-2.919407 6.129732 lineto
+-3.110126 6.080912 lineto
+-3.292401 6.025769 lineto
+-3.369186 5.999637 lineto
+-3.475258 5.970242 lineto
+-3.656998 5.913126 lineto
+-3.831492 5.85068 lineto
+-3.999154 5.783351 lineto
+-4.160357 5.71154 lineto
+-4.315442 5.635603 lineto
+-4.464716 5.55586 lineto
+-4.608464 5.4726 lineto
+-4.746939 5.38608 lineto
+-4.880378 5.296536 lineto
+-4.90379 5.279932 lineto
+-5.019521 5.209297 lineto
+-5.156022 5.120097 lineto
+-5.287735 5.027969 lineto
+-5.414832 4.933093 lineto
+-5.537469 4.835635 lineto
+-5.655793 4.735748 lineto
+-5.769937 4.633573 lineto
+-5.880024 4.529241 lineto
+-5.986169 4.422874 lineto
+-6.08848 4.314585 lineto
+-6.187051 4.204476 lineto
+-6.281975 4.09265 lineto
+-6.373336 3.979197 lineto
+-6.461212 3.864204 lineto
+-6.545675 3.747752 lineto
+-6.626791 3.629919 lineto
+-6.704622 3.510777 lineto
+-6.779227 3.390397 lineto
+-6.850657 3.268843 lineto
+-6.918963 3.146179 lineto
+-6.957072 3.074014 lineto
+-6.987199 3.023205 lineto
+-7.056306 2.900086 lineto
+-7.1221 2.775808 lineto
+-7.184618 2.650434 lineto
+-7.243893 2.524029 lineto
+-7.299959 2.396653 lineto
+-7.352846 2.268365 lineto
+-7.402578 2.139224 lineto
+-7.449183 2.009287 lineto
+-7.492684 1.878607 lineto
+-7.5331 1.747241 lineto
+-7.57045 1.615239 lineto
+-7.604753 1.482654 lineto
+-7.636023 1.349539 lineto
+-7.664274 1.215942 lineto
+-7.689519 1.081914 lineto
+-7.711769 0.947505 lineto
+-7.731032 0.812762 lineto
+-7.747317 0.677735 lineto
+-7.760632 0.542471 lineto
+-7.77098 0.407018 lineto
+-7.778368 0.271424 lineto
+-7.782797 0.135736 lineto
+-7.784271 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 18.98752 moveto
+309.513763 18.966213 lineto
+304.608887 18.944645 lineto
+299.703979 18.922817 lineto
+294.799103 18.900707 lineto
+289.894226 18.878315 lineto
+284.989319 18.855618 lineto
+280.084442 18.832611 lineto
+275.179535 18.809273 lineto
+270.274628 18.785593 lineto
+265.369751 18.761549 lineto
+260.464874 18.737131 lineto
+255.559982 18.712305 lineto
+250.65509 18.687059 lineto
+246.749268 18.66658 lineto
+245.750214 18.661959 lineto
+240.845322 18.638893 lineto
+235.940414 18.615538 lineto
+231.035538 18.591892 lineto
+226.130646 18.567932 lineto
+221.225769 18.543652 lineto
+216.320862 18.519026 lineto
+211.41597 18.494043 lineto
+206.511093 18.468672 lineto
+201.606201 18.4429 lineto
+196.701324 18.416683 lineto
+191.796417 18.390003 lineto
+186.891525 18.362808 lineto
+181.986649 18.335062 lineto
+177.081772 18.306698 lineto
+172.17688 18.277658 lineto
+167.272018 18.247852 lineto
+162.367157 18.21719 lineto
+157.462296 18.185535 lineto
+155.60791 18.173073 lineto
+152.557495 18.155003 lineto
+147.65271 18.124992 lineto
+142.748001 18.09407 lineto
+137.843399 18.062071 lineto
+132.938965 18.028797 lineto
+128.034821 17.993975 lineto
+123.131119 17.957264 lineto
+118.228119 17.918192 lineto
+113.326233 17.876154 lineto
+108.426147 17.830294 lineto
+103.528915 17.779472 lineto
+101.689346 17.757732 lineto
+98.636238 17.726099 lineto
+93.750793 17.668995 lineto
+88.876732 17.604156 lineto
+84.020218 17.528917 lineto
+79.191071 17.439636 lineto
+77.470261 17.400589 lineto
+74.40448 17.33852 lineto
+69.683212 17.222921 lineto
+65.059631 17.084724 lineto
+63.568569 17.029507 lineto
+60.576614 16.927114 lineto
+56.285881 16.748678 lineto
+53.192841 16.592529 lineto
+52.24202 16.546944 lineto
+48.492374 16.331417 lineto
+45.067844 16.099613 lineto
+44.620518 16.06423 lineto
+41.976803 15.862449 lineto
+39.207661 15.62095 lineto
+37.206615 15.42362 lineto
+36.734608 15.37816 lineto
+34.524593 15.140412 lineto
+32.543869 14.905684 lineto
+30.760546 14.674632 lineto
+30.609804 14.653414 lineto
+29.145926 14.450798 lineto
+27.675913 14.231921 lineto
+26.330034 14.017463 lineto
+25.091125 13.807089 lineto
+24.666931 13.730597 lineto
+23.944632 13.601892 lineto
+22.878613 13.40116 lineto
+21.883175 13.203742 lineto
+20.949903 13.009266 lineto
+20.07169 12.817388 lineto
+19.246902 12.628786 lineto
+19.242506 12.627789 lineto
+18.456852 12.441747 lineto
+17.710606 12.257578 lineto
+16.999969 12.075026 lineto
+16.321653 11.893854 lineto
+15.672811 11.713846 lineto
+15.050961 11.534804 lineto
+14.453937 11.356549 lineto
+14.223186 11.285162 lineto
+13.879645 11.179584 lineto
+13.326456 11.003611 lineto
+12.79303 10.828084 lineto
+12.278094 10.652894 lineto
+11.780538 10.477951 lineto
+11.299389 10.303182 lineto
+10.833813 10.128533 lineto
+10.383086 9.953979 lineto
+9.946599 9.779513 lineto
+9.523832 9.605157 lineto
+9.201444 9.468017 lineto
+9.114293 9.431109 lineto
+8.717451 9.257859 lineto
+8.333248 9.084963 lineto
+7.961467 8.912553 lineto
+7.601947 8.74079 lineto
+7.254564 8.569861 lineto
+6.919226 8.399984 lineto
+6.595857 8.231396 lineto
+6.284388 8.064351 lineto
+5.98474 7.899123 lineto
+5.696817 7.735986 lineto
+5.420492 7.575216 lineto
+5.155598 7.417081 lineto
+4.901928 7.261832 lineto
+4.659225 7.109703 lineto
+4.427182 6.960898 lineto
+4.205448 6.815596 lineto
+3.993629 6.67394 lineto
+3.791294 6.536044 lineto
+3.766161 6.518582 lineto
+3.596332 6.40419 lineto
+3.409157 6.277081 lineto
+3.229421 6.15448 lineto
+3.056537 6.036432 lineto
+2.889912 5.922958 lineto
+2.864834 5.905832 lineto
+2.719705 5.824807 lineto
+2.550637 5.735113 lineto
+2.508714 5.713704 lineto
+2.350651 5.688245 lineto
+2.320127 5.684349 lineto
+2.19482 5.73749 lineto
+2.079976 5.832009 lineto
+1.949513 5.949942 lineto
+1.791067 6.087045 lineto
+1.596247 6.24406 lineto
+1.593749 6.24595 lineto
+1.356298 6.42204 lineto
+1.057804 6.620996 lineto
+0.891963 6.720925 lineto
+0.684845 6.839042 lineto
+0.354647 7.006595 lineto
+0.215683 7.070959 lineto
+-0.110156 7.207664 lineto
+-0.378856 7.305022 lineto
+-0.529653 7.356065 lineto
+-0.917151 7.467632 lineto
+-1.138713 7.51824 lineto
+-1.278947 7.550301 lineto
+-1.623844 7.613595 lineto
+-1.945298 7.65267 lineto
+-2.11943 7.66524 lineto
+-2.254587 7.678518 lineto
+-2.556803 7.695958 lineto
+-2.84232 7.697313 lineto
+-3.112696 7.684608 lineto
+-3.369277 7.659553 lineto
+-3.399274 7.655622 lineto
+-3.631585 7.637608 lineto
+-3.88442 7.606937 lineto
+-4.12614 7.566666 lineto
+-4.357535 7.517763 lineto
+-4.579318 7.461069 lineto
+-4.792114 7.397322 lineto
+-4.996493 7.327171 lineto
+-5.0913 7.291149 lineto
+-5.203151 7.257753 lineto
+-5.411304 7.188316 lineto
+-5.61194 7.113117 lineto
+-5.805446 7.032597 lineto
+-5.992169 6.947152 lineto
+-6.172432 6.857135 lineto
+-6.346523 6.762868 lineto
+-6.514711 6.66464 lineto
+-6.677239 6.562715 lineto
+-6.834333 6.457331 lineto
+-6.986197 6.348705 lineto
+-7.133022 6.237036 lineto
+-7.274981 6.122507 lineto
+-7.361132 6.049207 lineto
+-7.417943 6.00791 lineto
+-7.565513 5.894724 lineto
+-7.708241 5.778579 lineto
+-7.846254 5.659628 lineto
+-7.979677 5.538018 lineto
+-8.108622 5.413886 lineto
+-8.233195 5.287356 lineto
+-8.35349 5.158549 lineto
+-8.469598 5.027576 lineto
+-8.5816 4.894544 lineto
+-8.689575 4.759552 lineto
+-8.793592 4.622696 lineto
+-8.89372 4.484065 lineto
+-8.990017 4.343744 lineto
+-9.082541 4.201818 lineto
+-9.171341 4.058362 lineto
+-9.256471 3.913454 lineto
+-9.337973 3.767166 lineto
+-9.415885 3.619566 lineto
+-9.490251 3.470725 lineto
+-9.561103 3.320705 lineto
+-9.628473 3.169572 lineto
+-9.692392 3.017387 lineto
+-9.752891 2.86421 lineto
+-9.809991 2.7101 lineto
+-9.863714 2.555115 lineto
+-9.914088 2.399311 lineto
+-9.961126 2.242743 lineto
+-10.00485 2.085468 lineto
+-10.045275 1.927536 lineto
+-10.082413 1.769002 lineto
+-10.116281 1.609919 lineto
+-10.14689 1.450337 lineto
+-10.174247 1.290307 lineto
+-10.198367 1.129882 lineto
+-10.219251 0.96911 lineto
+-10.236912 0.808043 lineto
+-10.251351 0.646729 lineto
+-10.262578 0.485219 lineto
+-10.270589 0.323561 lineto
+-10.275393 0.161805 lineto
+-10.276993 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 19.354912 moveto
+309.513763 19.328615 lineto
+304.608887 19.301838 lineto
+299.703979 19.274561 lineto
+295.878357 19.252872 lineto
+294.799103 19.247759 lineto
+289.894226 19.224171 lineto
+284.989319 19.200289 lineto
+280.084442 19.176104 lineto
+275.179535 19.151598 lineto
+270.274628 19.126764 lineto
+265.369751 19.101578 lineto
+260.464874 19.076029 lineto
+255.559982 19.050093 lineto
+250.65509 19.023756 lineto
+245.750214 18.996986 lineto
+240.845322 18.969767 lineto
+235.940414 18.942062 lineto
+231.035538 18.913851 lineto
+226.130646 18.885084 lineto
+221.225769 18.855734 lineto
+216.320862 18.825745 lineto
+211.41597 18.795074 lineto
+206.511093 18.763659 lineto
+201.606201 18.731432 lineto
+196.701324 18.698313 lineto
+192.13739 18.66658 lineto
+191.796417 18.664591 lineto
+186.891525 18.635233 lineto
+181.986649 18.605309 lineto
+177.081772 18.574757 lineto
+172.17688 18.543528 lineto
+167.272018 18.511538 lineto
+162.367157 18.478706 lineto
+157.462296 18.444912 lineto
+152.557495 18.410027 lineto
+147.65271 18.373867 lineto
+142.748001 18.336227 lineto
+137.843399 18.296814 lineto
+132.938965 18.255276 lineto
+128.034821 18.211124 lineto
+124.099663 18.173073 lineto
+123.131119 18.165241 lineto
+118.228119 18.122751 lineto
+113.326233 18.077433 lineto
+108.426147 18.028524 lineto
+103.528915 17.975031 lineto
+98.636238 17.915493 lineto
+93.750793 17.847908 lineto
+88.876724 17.769211 lineto
+88.273552 17.757589 lineto
+84.020164 17.689186 lineto
+79.19088 17.598034 lineto
+74.40406 17.489305 lineto
+70.451248 17.378485 lineto
+69.682465 17.359451 lineto
+65.058357 17.219633 lineto
+60.57476 17.053785 lineto
+58.416573 16.955431 lineto
+56.283386 16.866055 lineto
+52.238682 16.661358 lineto
+48.848938 16.455103 lineto
+48.488449 16.43433 lineto
+45.062973 16.20121 lineto
+41.971306 15.956676 lineto
+40.767513 15.847191 lineto
+39.201511 15.710014 lineto
+36.727631 15.465448 lineto
+34.517227 15.221524 lineto
+33.664127 15.117408 lineto
+32.535992 14.983238 lineto
+30.751917 14.751471 lineto
+29.136927 14.524037 lineto
+27.666727 14.300848 lineto
+27.309515 14.242714 lineto
+26.320385 14.084671 lineto
+25.08087 13.873795 lineto
+23.933985 13.666858 lineto
+22.867777 13.463453 lineto
+21.872238 13.263191 lineto
+21.55423 13.195924 lineto
+20.938623 13.06743 lineto
+20.059898 12.87522 lineto
+19.230183 12.685408 lineto
+18.444328 12.497687 lineto
+17.697927 12.311771 lineto
+16.987185 12.127399 lineto
+16.308815 11.944329 lineto
+16.259148 11.930408 lineto
+15.659537 11.763995 lineto
+15.037195 11.584835 lineto
+14.43965 11.406542 lineto
+13.865005 11.228951 lineto
+13.311598 11.051917 lineto
+12.777976 10.875316 lineto
+12.262863 10.699035 lineto
+11.765145 10.522987 lineto
+11.283855 10.347103 lineto
+11.141533 10.293412 lineto
+10.817853 10.17216 lineto
+10.366542 9.997716 lineto
+9.929425 9.823428 lineto
+9.505981 9.649318 lineto
+9.095778 9.475436 lineto
+8.698461 9.301865 lineto
+8.313745 9.128716 lineto
+7.941405 8.956131 lineto
+7.581267 8.784288 lineto
+7.233196 8.613392 lineto
+6.897083 8.443679 lineto
+6.572834 8.275411 lineto
+6.260356 8.108871 lineto
+5.959546 7.944358 lineto
+5.670275 7.782182 lineto
+5.392382 7.622652 lineto
+5.125662 7.466075 lineto
+4.869862 7.312745 lineto
+4.624673 7.162936 lineto
+4.389737 7.016901 lineto
+4.164639 6.874861 lineto
+3.948919 6.73701 lineto
+3.888567 6.697923 lineto
+3.738754 6.608063 lineto
+3.534344 6.486781 lineto
+3.336142 6.371679 lineto
+3.214011 6.302279 lineto
+3.134376 6.27426 lineto
+2.934366 6.212457 lineto
+2.907585 6.219088 lineto
+2.788043 6.252546 lineto
+2.681331 6.355445 lineto
+2.571645 6.491963 lineto
+2.440728 6.653809 lineto
+2.279973 6.84194 lineto
+2.081199 7.059178 lineto
+1.83416 7.308429 lineto
+1.525211 7.59191 lineto
+1.411911 7.687132 lineto
+1.137573 7.910614 lineto
+0.646585 8.262845 lineto
+0.590384 8.299541 lineto
+0.021389 8.641999 lineto
+-0.053442 8.682905 lineto
+-0.617183 8.96139 lineto
+-0.781744 9.032293 lineto
+-1.132956 9.176623 lineto
+-1.607754 9.339931 lineto
+-1.822806 9.401242 lineto
+-2.056817 9.470068 lineto
+-2.485419 9.574111 lineto
+-2.885485 9.645537 lineto
+-3.186322 9.682219 lineto
+-3.266301 9.694978 lineto
+-3.647979 9.742121 lineto
+-4.009146 9.767352 lineto
+-4.351724 9.773468 lineto
+-4.67738 9.762827 lineto
+-4.987565 9.737434 lineto
+-4.992783 9.736846 lineto
+-5.312225 9.722508 lineto
+-5.623594 9.694723 lineto
+-5.922151 9.654992 lineto
+-6.208781 9.604487 lineto
+-6.484271 9.544232 lineto
+-6.749328 9.47512 lineto
+-7.00459 9.39794 lineto
+-7.250628 9.313387 lineto
+-7.418465 9.249386 lineto
+-7.495708 9.227321 lineto
+-7.75049 9.146644 lineto
+-7.996793 9.058994 lineto
+-8.235028 8.964877 lineto
+-8.465557 8.864736 lineto
+-8.688722 8.758977 lineto
+-8.904829 8.647967 lineto
+-9.114163 8.53204 lineto
+-9.316983 8.411495 lineto
+-9.513525 8.28661 lineto
+-9.704012 8.157635 lineto
+-9.888645 8.024804 lineto
+-10.067607 7.888326 lineto
+-10.241073 7.748399 lineto
+-10.409202 7.605204 lineto
+-10.57213 7.458904 lineto
+-10.722538 7.31677 lineto
+-10.730907 7.310064 lineto
+-10.902369 7.166052 lineto
+-11.068486 7.018684 lineto
+-11.229366 6.868115 lineto
+-11.385118 6.714494 lineto
+-11.535837 6.557959 lineto
+-11.681609 6.398638 lineto
+-11.822525 6.236662 lineto
+-11.958656 6.072145 lineto
+-12.090072 5.905201 lineto
+-12.216844 5.735939 lineto
+-12.339026 5.564462 lineto
+-12.456676 5.390868 lineto
+-12.569847 5.215254 lineto
+-12.678588 5.037712 lineto
+-12.782939 4.858331 lineto
+-12.882942 4.677198 lineto
+-12.978636 4.494397 lineto
+-13.070053 4.310009 lineto
+-13.157224 4.124115 lineto
+-13.240181 3.936791 lineto
+-13.318951 3.748116 lineto
+-13.393555 3.558162 lineto
+-13.464015 3.367005 lineto
+-13.530356 3.174715 lineto
+-13.592593 2.981364 lineto
+-13.650744 2.787024 lineto
+-13.704822 2.591761 lineto
+-13.754845 2.395646 lineto
+-13.800823 2.198746 lineto
+-13.842769 2.001129 lineto
+-13.880687 1.802861 lineto
+-13.914593 1.604009 lineto
+-13.944491 1.404638 lineto
+-13.970391 1.204814 lineto
+-13.99229 1.004603 lineto
+-14.010203 0.804069 lineto
+-14.024127 0.603277 lineto
+-14.034067 0.402292 lineto
+-14.040027 0.201178 lineto
+-14.042006 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 19.769861 moveto
+309.513763 19.743567 lineto
+304.608887 19.716852 lineto
+299.703979 19.689701 lineto
+294.799103 19.662085 lineto
+289.894226 19.633984 lineto
+284.989319 19.605362 lineto
+280.084442 19.576195 lineto
+275.179535 19.546444 lineto
+270.274628 19.516075 lineto
+265.369751 19.485041 lineto
+260.464874 19.4533 lineto
+255.559982 19.420795 lineto
+250.65509 19.387476 lineto
+245.750214 19.353271 lineto
+240.845322 19.318115 lineto
+235.940414 19.281919 lineto
+232.119247 19.252872 lineto
+231.035538 19.246437 lineto
+226.130646 19.216728 lineto
+221.225769 19.18648 lineto
+216.320862 19.155643 lineto
+211.41597 19.124186 lineto
+206.511093 19.092045 lineto
+201.606201 19.059175 lineto
+196.701324 19.025501 lineto
+191.796417 18.990953 lineto
+186.891525 18.955433 lineto
+181.986649 18.918844 lineto
+177.081772 18.881048 lineto
+172.17688 18.841908 lineto
+167.272018 18.801228 lineto
+162.367157 18.758801 lineto
+157.462296 18.714336 lineto
+152.557495 18.667517 lineto
+152.46434 18.66658 lineto
+147.65271 18.629129 lineto
+142.748001 18.589567 lineto
+137.843399 18.548372 lineto
+132.938965 18.505243 lineto
+128.034821 18.459761 lineto
+123.131119 18.411402 lineto
+118.228119 18.359425 lineto
+113.326233 18.302866 lineto
+108.426147 18.24033 lineto
+103.748604 18.173073 lineto
+103.528915 18.170586 lineto
+98.636238 18.108948 lineto
+93.750793 18.040138 lineto
+88.876717 17.961557 lineto
+84.020103 17.869205 lineto
+79.190681 17.757206 lineto
+79.047371 17.753166 lineto
+74.403603 17.647516 lineto
+69.681595 17.517044 lineto
+65.05706 17.357557 lineto
+64.527 17.335022 lineto
+60.572777 17.189098 lineto
+56.280643 16.995167 lineto
+53.717678 16.853182 lineto
+52.235283 16.778059 lineto
+48.484005 16.550974 lineto
+45.058037 16.304132 lineto
+44.792 16.281771 lineto
+41.965382 16.058262 lineto
+39.194805 15.807029 lineto
+37.10004 15.591283 lineto
+36.720573 15.553724 lineto
+34.509216 15.309755 lineto
+32.52734 15.068365 lineto
+30.74308 14.830153 lineto
+30.279438 14.762913 lineto
+29.127525 14.600574 lineto
+27.656521 14.377445 lineto
+26.309767 14.158632 lineto
+25.07011 13.943769 lineto
+24.137707 13.772028 lineto
+23.9231 13.733283 lineto
+22.856239 13.529799 lineto
+21.860018 13.329646 lineto
+20.926022 13.132428 lineto
+20.047142 12.937788 lineto
+19.217356 12.74538 lineto
+18.523577 12.577233 lineto
+18.431446 12.555229 lineto
+17.684458 12.369344 lineto
+16.973095 12.185115 lineto
+16.294069 12.002299 lineto
+15.644534 11.820678 lineto
+15.022001 11.640049 lineto
+14.424306 11.46023 lineto
+13.849551 11.281055 lineto
+13.296076 11.102386 lineto
+13.203576 11.071511 lineto
+12.761924 10.925677 lineto
+12.24614 10.749688 lineto
+11.747705 10.574019 lineto
+11.265641 10.398607 lineto
+10.799105 10.223409 lineto
+10.347364 10.048407 lineto
+9.909799 9.87361 lineto
+9.485875 9.699058 lineto
+9.075151 9.524818 lineto
+8.677259 9.350995 lineto
+8.291897 9.177725 lineto
+7.91882 9.005184 lineto
+7.557829 8.833588 lineto
+7.208754 8.663183 lineto
+6.871449 8.494261 lineto
+6.545774 8.327144 lineto
+6.231576 8.162185 lineto
+5.928686 7.999763 lineto
+5.636894 7.840277 lineto
+5.355945 7.684139 lineto
+5.085525 7.531765 lineto
+4.825253 7.383571 lineto
+4.57468 7.239962 lineto
+4.333283 7.101331 lineto
+4.227724 7.040559 lineto
+4.094453 6.976788 lineto
+3.855561 6.868705 lineto
+3.715305 6.809658 lineto
+3.593078 6.807744 lineto
+3.506296 6.810824 lineto
+3.396033 6.912474 lineto
+3.305859 7.063581 lineto
+3.204193 7.247296 lineto
+3.079682 7.462959 lineto
+2.925321 7.714575 lineto
+2.86683 7.803225 lineto
+2.733502 8.00721 lineto
+2.493066 8.34588 lineto
+2.190001 8.735785 lineto
+2.165228 8.764924 lineto
+1.806685 9.181528 lineto
+1.318065 9.686282 lineto
+0.744715 10.203643 lineto
+0.690316 10.250315 lineto
+-0.119795 10.867663 lineto
+-0.150627 10.889068 lineto
+-0.912378 11.374109 lineto
+-1.174333 11.520523 lineto
+-1.603045 11.750338 lineto
+-2.237858 12.043575 lineto
+-2.559596 12.169924 lineto
+-2.836541 12.282375 lineto
+-3.411495 12.48419 lineto
+-3.947531 12.634345 lineto
+-4.397326 12.731389 lineto
+-4.454158 12.746265 lineto
+-4.969957 12.862582 lineto
+-5.45795 12.944555 lineto
+-5.920828 12.996768 lineto
+-6.360907 13.023063 lineto
+-6.780202 13.026682 lineto
+-6.861979 13.024523 lineto
+-7.215111 13.042418 lineto
+-7.64016 13.045897 lineto
+-8.047916 13.030946 lineto
+-8.439612 12.999445 lineto
+-8.816345 12.953038 lineto
+-9.179094 12.893144 lineto
+-9.528741 12.821014 lineto
+-9.866083 12.737745 lineto
+-10.191839 12.644303 lineto
+-10.209086 12.638856 lineto
+-10.542561 12.568294 lineto
+-10.884002 12.483228 lineto
+-11.214657 12.38831 lineto
+-11.535044 12.284251 lineto
+-11.845631 12.171681 lineto
+-12.146858 12.051174 lineto
+-12.439116 11.923246 lineto
+-12.722769 11.788363 lineto
+-12.998144 11.646947 lineto
+-13.265555 11.499386 lineto
+-13.525281 11.346031 lineto
+-13.777575 11.1872 lineto
+-14.022682 11.023192 lineto
+-14.260817 10.854276 lineto
+-14.492185 10.680702 lineto
+-14.716966 10.502697 lineto
+-14.811453 10.42422 lineto
+-14.951222 10.328416 lineto
+-15.190587 10.155216 lineto
+-15.423129 9.977128 lineto
+-15.648988 9.794367 lineto
+-15.868296 9.607139 lineto
+-16.081184 9.415636 lineto
+-16.287767 9.220044 lineto
+-16.488152 9.020534 lineto
+-16.682432 8.817267 lineto
+-16.870705 8.610403 lineto
+-17.053043 8.400087 lineto
+-17.229536 8.186461 lineto
+-17.400248 7.969662 lineto
+-17.565241 7.749819 lineto
+-17.724581 7.52706 lineto
+-17.878328 7.301505 lineto
+-18.026518 7.073269 lineto
+-18.16921 6.842469 lineto
+-18.306442 6.609213 lineto
+-18.438255 6.37361 lineto
+-18.564682 6.135763 lineto
+-18.685764 5.895778 lineto
+-18.801519 5.653752 lineto
+-18.91198 5.409784 lineto
+-19.017176 5.163973 lineto
+-19.117123 4.916412 lineto
+-19.211842 4.667195 lineto
+-19.301353 4.416416 lineto
+-19.385675 4.164165 lineto
+-19.464825 3.910533 lineto
+-19.538809 3.655611 lineto
+-19.607649 3.399487 lineto
+-19.671343 3.142247 lineto
+-19.729914 2.883983 lineto
+-19.783365 2.624779 lineto
+-19.831703 2.364723 lineto
+-19.874929 2.1039 lineto
+-19.913063 1.842397 lineto
+-19.946098 1.5803 lineto
+-19.974043 1.317694 lineto
+-19.996897 1.054663 lineto
+-20.014668 0.791293 lineto
+-20.027348 0.52767 lineto
+-20.034946 0.263877 lineto
+-20.037477 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 20.264536 moveto
+309.513763 20.231085 lineto
+304.608887 20.196777 lineto
+299.703979 20.161562 lineto
+294.799103 20.125366 lineto
+289.894226 20.088123 lineto
+284.989319 20.049744 lineto
+280.084442 20.010149 lineto
+275.179535 19.969229 lineto
+272.856293 19.949278 lineto
+270.274628 19.933613 lineto
+265.369751 19.903322 lineto
+260.464874 19.872444 lineto
+255.559982 19.840935 lineto
+250.65509 19.808756 lineto
+245.750214 19.77585 lineto
+240.845322 19.74217 lineto
+235.940414 19.707642 lineto
+231.035538 19.672201 lineto
+226.130646 19.635761 lineto
+221.225769 19.598234 lineto
+216.320862 19.559507 lineto
+211.41597 19.519468 lineto
+206.511093 19.477962 lineto
+201.606201 19.434841 lineto
+196.701324 19.3899 lineto
+191.796417 19.342924 lineto
+186.891525 19.29364 lineto
+183.027603 19.252872 lineto
+181.986649 19.245071 lineto
+177.081772 19.20726 lineto
+172.17688 19.168299 lineto
+167.272018 19.128029 lineto
+162.367157 19.086285 lineto
+157.462296 19.042835 lineto
+152.557495 18.997419 lineto
+147.65271 18.949684 lineto
+142.748001 18.899212 lineto
+137.843399 18.845428 lineto
+132.938965 18.787638 lineto
+128.034821 18.724863 lineto
+123.881485 18.66658 lineto
+123.131119 18.659056 lineto
+118.228119 18.606577 lineto
+113.326233 18.550171 lineto
+108.426147 18.488682 lineto
+103.528915 18.420538 lineto
+98.636238 18.343376 lineto
+93.750793 18.253712 lineto
+90.064644 18.173038 lineto
+88.876701 18.153908 lineto
+84.020035 18.063677 lineto
+79.190445 17.956694 lineto
+74.403099 17.825354 lineto
+71.719879 17.733183 lineto
+69.680702 17.677412 lineto
+65.055496 17.523266 lineto
+60.570637 17.335199 lineto
+59.183201 17.263218 lineto
+56.277706 17.133404 lineto
+52.231346 16.913305 lineto
+49.274403 16.716915 lineto
+48.479511 16.668884 lineto
+45.052231 16.425224 lineto
+41.959053 16.166697 lineto
+40.888603 16.063469 lineto
+39.187706 15.909809 lineto
+36.712318 15.657035 lineto
+34.500706 15.403472 lineto
+33.540955 15.281483 lineto
+32.518314 15.1572 lineto
+30.732973 14.920167 lineto
+29.116907 14.687016 lineto
+27.645838 14.457604 lineto
+26.968647 14.344256 lineto
+26.298716 14.235617 lineto
+25.058168 14.021438 lineto
+23.910351 13.811084 lineto
+22.843311 13.604128 lineto
+21.84705 13.400151 lineto
+20.993198 13.216058 lineto
+20.91308 13.199168 lineto
+20.033443 13.004982 lineto
+19.202854 12.8132 lineto
+18.416161 12.623503 lineto
+17.668957 12.435601 lineto
+16.957445 12.249227 lineto
+16.278343 12.064133 lineto
+15.628807 11.880097 lineto
+15.395939 11.811659 lineto
+15.005816 11.69887 lineto
+14.407323 11.519653 lineto
+13.831711 11.341207 lineto
+13.277314 11.163394 lineto
+12.742667 10.986094 lineto
+12.22649 10.809216 lineto
+11.727656 10.63268 lineto
+11.245188 10.456441 lineto
+10.778227 10.280477 lineto
+10.326034 10.104794 lineto
+9.887966 9.929433 lineto
+9.463474 9.754474 lineto
+9.132121 9.614004 lineto
+9.051982 9.58029 lineto
+8.652817 9.407636 lineto
+8.266061 9.235683 lineto
+7.891456 9.064623 lineto
+7.528784 8.894679 lineto
+7.177862 8.726114 lineto
+6.838523 8.559235 lineto
+6.510606 8.394376 lineto
+6.460711 8.368744 lineto
+6.192685 8.234232 lineto
+5.8848 8.078554 lineto
+5.586685 7.92766 lineto
+5.297763 7.782321 lineto
+5.017337 7.643363 lineto
+4.802718 7.539276 lineto
+4.739314 7.520018 lineto
+4.44162 7.444971 lineto
+4.416128 7.439814 lineto
+4.271287 7.520787 lineto
+4.194336 7.679781 lineto
+4.123689 7.882502 lineto
+4.082142 7.998826 lineto
+4.04019 8.12325 lineto
+3.936487 8.405996 lineto
+3.805202 8.736891 lineto
+3.638546 9.123302 lineto
+3.426612 9.573537 lineto
+3.332387 9.753816 lineto
+3.157248 10.096626 lineto
+2.811775 10.701817 lineto
+2.365951 11.398462 lineto
+1.832667 12.134944 lineto
+1.78817 12.195418 lineto
+1.037039 13.098436 lineto
+0.226141 13.93985 lineto
+0.051958 14.108992 lineto
+-0.921722 14.96065 lineto
+-1.246069 15.215693 lineto
+-1.92812 15.723082 lineto
+-2.83747 16.310238 lineto
+-2.969624 16.386648 lineto
+-3.713335 16.822779 lineto
+-4.530962 17.232878 lineto
+-5.277023 17.543509 lineto
+-5.292323 17.550549 lineto
+-6.073256 17.878016 lineto
+-6.809219 18.134512 lineto
+-7.504999 18.330549 lineto
+-8.16465 18.4748 lineto
+-8.39369 18.51461 lineto
+-8.837593 18.62648 lineto
+-9.504925 18.763447 lineto
+-10.143069 18.860731 lineto
+-10.754315 18.922977 lineto
+-11.340693 18.954174 lineto
+-11.904016 18.957748 lineto
+-12.445895 18.936647 lineto
+-12.646585 18.921824 lineto
+-13.008633 18.932165 lineto
+-13.576201 18.927673 lineto
+-14.124416 18.900719 lineto
+-14.654412 18.853291 lineto
+-15.167228 18.787159 lineto
+-15.663805 18.703876 lineto
+-16.144985 18.604818 lineto
+-16.61158 18.491224 lineto
+-17.064276 18.364172 lineto
+-17.50374 18.224648 lineto
+-17.930561 18.073509 lineto
+-18.345306 17.911562 lineto
+-18.505114 17.844191 lineto
+-18.781105 17.762684 lineto
+-19.225843 17.617142 lineto
+-19.658577 17.460077 lineto
+-20.079758 17.292173 lineto
+-20.489756 17.114012 lineto
+-20.88896 16.926167 lineto
+-21.277687 16.72913 lineto
+-21.656275 16.523382 lineto
+-22.024984 16.309341 lineto
+-22.384098 16.08741 lineto
+-22.73385 15.857956 lineto
+-23.07448 15.621321 lineto
+-23.406181 15.37782 lineto
+-23.729158 15.127755 lineto
+-24.043571 14.871392 lineto
+-24.349598 14.608999 lineto
+-24.64739 14.340824 lineto
+-24.937086 14.067093 lineto
+-25.218796 13.788016 lineto
+-25.492664 13.503816 lineto
+-25.75878 13.214677 lineto
+-26.017256 12.920793 lineto
+-26.268181 12.622339 lineto
+-26.511635 12.319489 lineto
+-26.647236 12.143376 lineto
+-26.761642 12.017604 lineto
+-27.022186 11.717748 lineto
+-27.274487 11.412873 lineto
+-27.518604 11.103169 lineto
+-27.754597 10.788827 lineto
+-27.982546 10.470039 lineto
+-28.202465 10.146969 lineto
+-28.414417 9.819798 lineto
+-28.618439 9.488694 lineto
+-28.814571 9.153827 lineto
+-29.002834 8.815351 lineto
+-29.183266 8.473431 lineto
+-29.355886 8.128224 lineto
+-29.520735 7.779886 lineto
+-29.677805 7.428564 lineto
+-29.827148 7.074417 lineto
+-29.96875 6.717586 lineto
+-30.102652 6.358225 lineto
+-30.228842 5.996476 lineto
+-30.347347 5.632485 lineto
+-30.458172 5.266397 lineto
+-30.561325 4.898356 lineto
+-30.656813 4.528502 lineto
+-30.744646 4.156977 lineto
+-30.824831 3.783923 lineto
+-30.897367 3.409481 lineto
+-30.96224 3.033789 lineto
+-31.019497 2.656989 lineto
+-31.069094 2.279217 lineto
+-31.111061 1.900616 lineto
+-31.145386 1.521322 lineto
+-31.172077 1.141475 lineto
+-31.191124 0.761213 lineto
+-31.202528 0.380675 lineto
+-31.206329 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 20.847656 moveto
+309.513763 20.798836 lineto
+307.32016 20.776304 lineto
+304.608887 20.759335 lineto
+299.703979 20.728073 lineto
+294.799103 20.69611 lineto
+289.894226 20.663404 lineto
+284.989319 20.62989 lineto
+280.084442 20.595516 lineto
+275.179535 20.560202 lineto
+270.274628 20.52388 lineto
+265.369751 20.486458 lineto
+260.464874 20.447844 lineto
+255.559982 20.407919 lineto
+250.65509 20.366571 lineto
+245.750214 20.32365 lineto
+240.845322 20.279005 lineto
+235.940414 20.232443 lineto
+231.035538 20.183769 lineto
+226.130646 20.132723 lineto
+221.225769 20.079046 lineto
+216.320862 20.0224 lineto
+211.41597 19.96242 lineto
+210.385788 19.949278 lineto
+206.511093 19.919102 lineto
+201.606201 19.879757 lineto
+196.701324 19.839054 lineto
+191.796417 19.79685 lineto
+186.891525 19.752932 lineto
+181.986649 19.707087 lineto
+177.081772 19.659025 lineto
+172.17688 19.608431 lineto
+167.272018 19.55488 lineto
+162.367157 19.497898 lineto
+157.462296 19.436848 lineto
+152.557495 19.370975 lineto
+147.65271 19.299284 lineto
+144.723694 19.252872 lineto
+142.748001 19.233444 lineto
+137.843399 19.182823 lineto
+132.938965 19.129066 lineto
+128.034821 19.071426 lineto
+123.131119 19.008949 lineto
+118.228119 18.940271 lineto
+113.326233 18.863562 lineto
+108.426147 18.776108 lineto
+103.528915 18.674023 lineto
+103.215393 18.66658 lineto
+98.636238 18.598116 lineto
+93.750793 18.515127 lineto
+88.876694 18.417938 lineto
+84.019951 18.299568 lineto
+79.794518 18.169218 lineto
+79.190208 18.156183 lineto
+74.402504 18.033989 lineto
+69.679573 17.882353 lineto
+65.12635 17.691364 lineto
+65.05394 17.688976 lineto
+60.568069 17.510525 lineto
+56.274284 17.294451 lineto
+54.069847 17.156181 lineto
+52.227142 17.057495 lineto
+48.4739 16.816076 lineto
+45.046364 16.54756 lineto
+44.92791 16.536751 lineto
+41.951683 16.292967 lineto
+39.17942 16.029755 lineto
+37.013088 15.793546 lineto
+36.703915 15.76211 lineto
+34.490864 15.511868 lineto
+32.507565 15.262986 lineto
+30.722218 15.015963 lineto
+29.978674 14.903888 lineto
+29.105639 14.778739 lineto
+27.63332 14.551536 lineto
+26.285416 14.328255 lineto
+25.044783 14.108487 lineto
+23.897123 13.891788 lineto
+23.611567 13.834746 lineto
+22.829418 13.684012 lineto
+21.832077 13.481553 lineto
+20.89703 13.281946 lineto
+20.017168 13.08482 lineto
+19.186468 12.88982 lineto
+18.39979 12.696624 lineto
+17.688686 12.514187 lineto
+17.652679 12.505177 lineto
+16.940182 12.319946 lineto
+16.260017 12.136182 lineto
+15.609331 11.953672 lineto
+14.98563 11.772226 lineto
+14.38674 11.591675 lineto
+13.810753 11.411875 lineto
+13.255997 11.232705 lineto
+12.721002 11.05407 lineto
+12.204473 10.875904 lineto
+11.705275 10.698169 lineto
+11.499619 10.622761 lineto
+11.221867 10.522381 lineto
+10.753492 10.348088 lineto
+10.299745 10.174285 lineto
+9.859964 10.001033 lineto
+9.433578 9.828435 lineto
+9.020093 9.656634 lineto
+8.619074 9.485825 lineto
+8.230146 9.316253 lineto
+7.852966 9.148223 lineto
+7.48722 8.982101 lineto
+7.1326 8.81832 lineto
+6.841156 8.681811 lineto
+6.788182 8.658572 lineto
+6.449276 8.511624 lineto
+6.117686 8.373165 lineto
+5.792023 8.245125 lineto
+5.68014 8.20361 lineto
+5.42565 8.207928 lineto
+5.394427 8.210826 lineto
+5.306974 8.362533 lineto
+5.292185 8.44021 lineto
+5.268583 8.580365 lineto
+5.23254 8.844246 lineto
+5.184659 9.155035 lineto
+5.136767 9.421562 lineto
+5.121757 9.52047 lineto
+5.041438 9.950099 lineto
+4.932757 10.453318 lineto
+4.876389 10.672657 lineto
+4.791188 11.042812 lineto
+4.603673 11.731772 lineto
+4.364763 12.496746 lineto
+4.353662 12.535318 lineto
+4.026245 13.471125 lineto
+3.590321 14.5575 lineto
+3.011845 15.81496 lineto
+2.243516 17.263996 lineto
+1.220901 18.924175 lineto
+0.385841 20.103552 lineto
+-0.144574 20.809744 lineto
+-1.406387 22.311434 lineto
+-1.972763 22.923281 lineto
+-2.926795 23.898764 lineto
+-4.299183 25.133101 lineto
+-4.432996 25.242411 lineto
+-5.645402 26.248957 lineto
+-6.905813 27.157074 lineto
+-7.758921 27.6919 lineto
+-8.121452 27.939241 lineto
+-9.359401 28.708498 lineto
+-10.53408 29.336773 lineto
+-11.652093 29.844742 lineto
+-12.284599 30.092667 lineto
+-12.775332 30.329096 lineto
+-13.929379 30.826101 lineto
+-15.036674 31.230532 lineto
+-16.100508 31.553423 lineto
+-17.123877 31.804365 lineto
+-18.109348 31.991518 lineto
+-18.477606 32.046455 lineto
+-19.139965 32.218296 lineto
+-20.18417 32.444096 lineto
+-21.193203 32.612915 lineto
+-22.168964 32.730286 lineto
+-23.1133 32.801189 lineto
+-24.027843 32.829933 lineto
+-24.914181 32.820408 lineto
+-25.773674 32.775925 lineto
+-26.607725 32.699566 lineto
+-27.004036 32.650234 lineto
+-27.477232 32.650566 lineto
+-28.377716 32.621979 lineto
+-29.25312 32.560852 lineto
+-30.104647 32.469677 lineto
+-30.933243 32.350533 lineto
+-31.739969 32.205448 lineto
+-32.525597 32.036079 lineto
+-33.291058 31.844088 lineto
+-34.037048 31.630846 lineto
+-34.764309 31.397673 lineto
+-35.473484 31.145731 lineto
+-36.165207 30.876112 lineto
+-36.839989 30.589735 lineto
+-37.49844 30.287575 lineto
+-38.140976 29.970371 lineto
+-38.768089 29.63892 lineto
+-38.785763 29.629076 lineto
+-39.467293 29.350056 lineto
+-40.152401 29.045868 lineto
+-40.821152 28.72538 lineto
+-41.473995 28.38937 lineto
+-42.111214 28.038481 lineto
+-42.733208 27.673382 lineto
+-43.340195 27.29463 lineto
+-43.932499 26.9028 lineto
+-44.510338 26.49839 lineto
+-45.073986 26.081919 lineto
+-45.623615 25.653824 lineto
+-46.159451 25.21455 lineto
+-46.68166 24.764511 lineto
+-47.190445 24.304115 lineto
+-47.685867 23.833694 lineto
+-48.168205 23.353668 lineto
+-48.63744 22.864313 lineto
+-49.0938 22.366011 lineto
+-49.537315 21.859043 lineto
+-49.968151 21.343748 lineto
+-50.386299 20.820377 lineto
+-50.791958 20.289267 lineto
+-51.185089 19.750652 lineto
+-51.565834 19.204832 lineto
+-51.934174 18.652044 lineto
+-52.29023 18.092569 lineto
+-52.634014 17.526651 lineto
+-52.965576 16.954538 lineto
+-53.284912 16.376467 lineto
+-53.59214 15.792697 lineto
+-53.887192 15.203439 lineto
+-54.170143 14.60894 lineto
+-54.440979 14.009425 lineto
+-54.699776 13.405134 lineto
+-54.946461 12.796275 lineto
+-55.111229 12.365956 lineto
+-55.191513 12.185182 lineto
+-55.44714 11.574061 lineto
+-55.688969 10.95802 lineto
+-55.916935 10.337327 lineto
+-56.13118 9.712286 lineto
+-56.331497 9.083142 lineto
+-56.51812 8.450207 lineto
+-56.690842 7.813729 lineto
+-56.8498 7.174001 lineto
+-56.994892 6.531284 lineto
+-57.126247 5.885866 lineto
+-57.243721 5.238006 lineto
+-57.347443 4.587987 lineto
+-57.437267 3.936071 lineto
+-57.513332 3.282536 lineto
+-57.575489 2.627646 lineto
+-57.623875 1.971679 lineto
+-57.658382 1.314901 lineto
+-57.679031 0.657585 lineto
+-57.685944 0 lineto
+stroke
+[] 0 setdash
+newpath
+314.41864 21.755779 moveto
+309.513763 21.721972 lineto
+304.608887 21.687099 lineto
+299.703979 21.651072 lineto
+294.799103 21.613781 lineto
+289.894226 21.575113 lineto
+284.989319 21.534925 lineto
+280.084442 21.49308 lineto
+275.179535 21.449394 lineto
+270.274628 21.403685 lineto
+265.369751 21.355715 lineto
+260.464874 21.30525 lineto
+255.559982 21.251978 lineto
+250.65509 21.195581 lineto
+245.750214 21.135656 lineto
+240.845322 21.071764 lineto
+235.940414 21.003359 lineto
+231.035538 20.929842 lineto
+226.130646 20.850462 lineto
+221.88147 20.776304 lineto
+221.225769 20.770828 lineto
+216.320862 20.728828 lineto
+211.41597 20.684914 lineto
+206.511093 20.638805 lineto
+201.606201 20.590214 lineto
+196.701324 20.538755 lineto
+191.796417 20.484009 lineto
+186.891525 20.425423 lineto
+181.986649 20.362373 lineto
+177.081772 20.294046 lineto
+172.17688 20.21949 lineto
+167.272018 20.137463 lineto
+162.367157 20.046459 lineto
+157.681015 19.949278 lineto
+157.462296 19.94702 lineto
+152.557495 19.894314 lineto
+147.65271 19.837835 lineto
+142.748001 19.776779 lineto
+137.843399 19.710043 lineto
+132.938965 19.636211 lineto
+128.034821 19.553318 lineto
+123.131119 19.458736 lineto
+118.228119 19.348669 lineto
+114.572517 19.252872 lineto
+113.326233 19.235727 lineto
+108.426147 19.162209 lineto
+103.528915 19.078466 lineto
+98.636238 18.980314 lineto
+93.750793 18.861248 lineto
+88.876686 18.710354 lineto
+87.706139 18.666344 lineto
+84.019852 18.587816 lineto
+79.189842 18.462097 lineto
+74.401749 18.29925 lineto
+70.987122 18.145533 lineto
+69.678337 18.106022 lineto
+65.051628 17.935207 lineto
+60.565067 17.715553 lineto
+58.804642 17.606041 lineto
+56.270233 17.485065 lineto
+52.221661 17.245665 lineto
+48.949902 17.000299 lineto
+48.468044 16.969753 lineto
+45.038345 16.714783 lineto
+41.943207 16.438223 lineto
+40.486359 16.285814 lineto
+39.170204 16.163229 lineto
+36.692745 15.90185 lineto
+34.479527 15.636729 lineto
+33.014896 15.440036 lineto
+32.496117 15.375689 lineto
+30.708967 15.13394 lineto
+29.091347 14.89509 lineto
+27.619009 14.658917 lineto
+26.271523 14.425015 lineto
+26.259583 14.422809 lineto
+25.029432 14.208308 lineto
+23.880161 13.995306 lineto
+22.811777 13.785437 lineto
+21.814291 13.578266 lineto
+20.879301 13.373373 lineto
+19.999729 13.170357 lineto
+19.973152 13.163954 lineto
+19.167719 12.977487 lineto
+18.379559 12.786998 lineto
+17.630878 12.598358 lineto
+16.917879 12.411319 lineto
+16.237261 12.225657 lineto
+15.586166 12.041185 lineto
+14.9621 11.857739 lineto
+14.362871 11.675189 lineto
+13.786562 11.493441 lineto
+13.506925 11.402452 lineto
+13.230782 11.314691 lineto
+12.693981 11.138844 lineto
+12.175455 10.963804 lineto
+11.674039 10.789568 lineto
+11.188694 10.616183 lineto
+10.718499 10.443743 lineto
+10.262628 10.272397 lineto
+9.820334 10.102362 lineto
+9.390935 9.933929 lineto
+8.973791 9.767484 lineto
+8.568287 9.603512 lineto
+8.173809 9.442633 lineto
+7.984554 9.364949 lineto
+7.785325 9.295141 lineto
+7.39802 9.169722 lineto
+7.012529 9.062921 lineto
+6.983662 9.055943 lineto
+6.78709 9.153583 lineto
+6.762084 9.373718 lineto
+6.770132 9.556716 lineto
+6.77784 9.657344 lineto
+6.801909 9.995571 lineto
+6.821013 10.38337 lineto
+6.82186 10.393291 lineto
+6.845708 10.862987 lineto
+6.855612 11.314518 lineto
+6.861505 11.414571 lineto
+6.873536 12.063659 lineto
+6.866883 12.374475 lineto
+6.874298 12.826004 lineto
+6.854688 13.574392 lineto
+6.856571 13.720516 lineto
+6.816379 14.770167 lineto
+6.79724 14.978321 lineto
+6.742911 16.000742 lineto
+6.673204 16.65731 lineto
+6.620605 17.442427 lineto
+6.469883 18.669163 lineto
+6.431201 19.130423 lineto
+6.151524 21.105854 lineto
+6.136728 21.178593 lineto
+5.753274 23.415398 lineto
+5.417434 24.934063 lineto
+5.190832 26.113531 lineto
+4.409939 29.260981 lineto
+3.488536 32.388973 lineto
+3.337844 32.926662 lineto
+1.876508 37.183609 lineto
+1.08652 39.180862 lineto
+-0.105541 42.110367 lineto
+-2.789691 47.782013 lineto
+-3.307035 48.782166 lineto
+-6.322608 54.11298 lineto
+-6.415505 54.263123 lineto
+-9.124962 58.543777 lineto
+-11.316589 61.582653 lineto
+-11.716132 62.150589 lineto
+-14.378611 65.675011 lineto
+-16.894421 68.607582 lineto
+-17.935482 69.710213 lineto
+-19.488781 71.498375 lineto
+-22.131529 74.275826 lineto
+-24.691187 76.664635 lineto
+-26.884275 78.486832 lineto
+-27.226 78.811447 lineto
+-30.027269 81.30658 lineto
+-32.768768 83.487724 lineto
+-35.45533 85.386757 lineto
+-38.091148 87.032326 lineto
+-38.957489 87.524925 lineto
+-40.943443 88.909042 lineto
+-43.875889 90.763046 lineto
+-46.755291 92.375679 lineto
+-49.582542 93.767601 lineto
+-52.356754 94.955437 lineto
+-55.07793 95.956001 lineto
+-55.234734 96.007935 lineto
+-58.136898 97.352386 lineto
+-61.158035 98.580223 lineto
+-64.115601 99.617294 lineto
+-67.010231 100.479332 lineto
+-69.841179 101.178772 lineto
+-72.609177 101.728737 lineto
+-75.314186 102.140083 lineto
+-77.05571 102.33651 lineto
+-78.095016 102.588326 lineto
+-81.070114 103.206833 lineto
+-83.976639 103.683174 lineto
+-86.81472 104.02639 lineto
+-89.586967 104.247368 lineto
+-92.294205 104.35405 lineto
+-94.938736 104.355225 lineto
+-97.521431 104.257378 lineto
+-100.044891 104.06813 lineto
+-102.509819 103.792686 lineto
+-104.919113 103.43779 lineto
+-106.195572 103.210045 lineto
+-107.437592 103.15583 lineto
+-110.090508 102.961708 lineto
+-112.683128 102.679298 lineto
+-115.218582 102.314995 lineto
+-117.697197 101.872429 lineto
+-120.121468 101.35672 lineto
+-122.49192 100.771103 lineto
+-124.810905 100.119987 lineto
+-127.078735 99.405991 lineto
+-129.297684 98.632957 lineto
+-131.467834 97.803001 lineto
+-133.591553 96.919655 lineto
+-135.668167 95.984207 lineto
+-137.70047 95.000198 lineto
+-139.68782 93.968704 lineto
+-141.632355 92.892532 lineto
+-143.533493 91.772705 lineto
+-144.698517 91.048119 lineto
+-145.494736 90.67247 lineto
+-147.578369 89.624901 lineto
+-149.616425 88.528412 lineto
+-151.607315 87.383675 lineto
+-153.553879 86.193703 lineto
+-155.454651 84.959106 lineto
+-157.311951 83.682434 lineto
+-159.124649 82.364418 lineto
+-160.894516 81.007156 lineto
+-162.620682 79.611458 lineto
+-164.304871 78.179268 lineto
+-165.946106 76.711266 lineto
+-167.545944 75.209229 lineto
+-169.103012 73.67363 lineto
+-170.619614 72.106468 lineto
+-172.093887 70.507996 lineto
+-173.52803 68.880058 lineto
+-174.920181 67.2229 lineto
+-176.27243 65.538261 lineto
+-177.583099 63.826439 lineto
+-178.854156 62.089058 lineto
+-180.083801 60.326389 lineto
+-181.273834 58.539925 lineto
+-182.422577 56.729996 lineto
+-183.531982 54.898067 lineto
+-184.600159 53.044434 lineto
+-185.629364 51.170578 lineto
+-186.61731 49.276707 lineto
+-187.565826 47.364147 lineto
+-188.473389 45.433327 lineto
+-189.341888 43.485523 lineto
+-190.169052 41.521019 lineto
+-190.957047 39.541107 lineto
+-191.703659 37.546127 lineto
+-192.411407 35.53738 lineto
+-193.077682 33.515167 lineto
+-193.705063 31.48074 lineto
+-194.290909 29.434443 lineto
+-194.837418 27.377417 lineto
+-195.23558 25.748781 lineto
+-195.358429 25.31216 lineto
+-195.892929 23.243484 lineto
+-196.37941 21.164015 lineto
+-196.821304 19.075096 lineto
+-197.215134 16.977356 lineto
+-197.564316 14.872064 lineto
+-197.865372 12.759917 lineto
+-198.121262 10.642089 lineto
+-198.328995 8.519376 lineto
+-198.491989 6.392903 lineto
+-198.607269 4.263517 lineto
+-198.677856 2.132248 lineto
+-198.702698 0 lineto
+stroke
+[] 0 setdash
+newpath
+10.160701 10.426132 moveto
+9.739226 10.309747 lineto
+9.281416 10.204868 lineto
+9.007038 10.157794 lineto
+8.874949 10.328561 lineto
+8.939778 10.622699 lineto
+9.013236 10.868317 lineto
+9.053691 10.986435 lineto
+9.192536 11.417759 lineto
+9.240702 11.584431 lineto
+9.355105 11.92656 lineto
+9.479259 12.343117 lineto
+9.542212 12.525814 lineto
+9.729955 13.1459 lineto
+9.760036 13.231719 lineto
+9.992564 13.998328 lineto
+10.015427 14.063166 lineto
+10.267408 14.905374 lineto
+10.315239 15.04197 lineto
+10.555892 15.869699 lineto
+10.667294 16.193754 lineto
+10.860799 16.890381 lineto
+11.080009 17.548439 lineto
+11.187233 17.959213 lineto
+11.539783 19.069036 lineto
+11.566751 19.141806 lineto
+11.900152 20.292362 lineto
+12.155714 21.016813 lineto
+12.296421 21.545195 lineto
+12.723553 22.856123 lineto
+12.864739 23.222366 lineto
+13.171499 24.279367 lineto
+13.677629 25.685455 lineto
+13.732594 25.81711 lineto
+14.194095 27.288321 lineto
+14.791451 28.813955 lineto
+14.816748 28.870132 lineto
+15.399418 30.598055 lineto
+16.104776 32.275291 lineto
+16.19495 32.461391 lineto
+16.835476 34.22855 lineto
+17.672577 36.096813 lineto
+17.979218 36.68383 lineto
+18.567183 38.190338 lineto
+19.569109 40.301804 lineto
+20.327269 41.643444 lineto
+20.68189 42.482143 lineto
+21.896065 44.901722 lineto
+23.285847 47.174473 lineto
+23.486267 47.459881 lineto
+24.791925 49.894966 lineto
+26.510139 52.527473 lineto
+27.856281 54.262154 lineto
+28.444393 55.253262 lineto
+30.603304 58.32328 lineto
+33.071529 61.202679 lineto
+34.063473 62.184898 lineto
+35.834751 64.450638 lineto
+38.949993 67.736191 lineto
+42.446838 70.760468 lineto
+43.265198 71.353722 lineto
+46.287285 74.175781 lineto
+50.470291 77.356445 lineto
+54.938961 80.133492 lineto
+58.31057 81.858765 lineto
+59.612762 82.720535 lineto
+64.417389 85.289528 lineto
+69.295769 87.389702 lineto
+74.200401 89.081589 lineto
+79.103676 90.419083 lineto
+83.994453 91.4422 lineto
+88.873688 92.181183 lineto
+93.750793 92.652199 lineto
+98.636238 92.862923 lineto
+103.528915 92.808556 lineto
+108.426147 92.483299 lineto
+113.326233 91.873337 lineto
+118.228119 90.966141 lineto
+123.131119 89.742081 lineto
+128.034821 88.184052 lineto
+132.938965 86.268585 lineto
+137.843399 83.976555 lineto
+141.494003 82.009407 lineto
+142.748001 81.280205 lineto
+147.65271 78.118507 lineto
+152.557495 74.439529 lineto
+155.544113 71.951477 lineto
+157.462296 70.133499 lineto
+162.367157 65.056442 lineto
+163.905945 63.349716 lineto
+167.272018 58.881538 lineto
+169.326477 56.012161 lineto
+172.17688 51.228828 lineto
+173.037186 49.76667 lineto
+175.597092 44.460606 lineto
+177.081772 40.76078 lineto
+177.411438 39.959785 lineto
+178.700012 36.147137 lineto
+179.650375 32.921101 lineto
+180.281097 30.194056 lineto
+180.715027 27.890688 lineto
+181.186417 25.946512 lineto
+181.986649 25.184994 lineto
+182.996429 24.306467 lineto
+182.053253 22.923655 lineto
+181.986649 22.921217 lineto
+177.081772 22.707697 lineto
+172.17688 22.416553 lineto
+167.272018 22.012524 lineto
+164.874191 21.758209 lineto
+162.367157 21.710278 lineto
+157.462296 21.600651 lineto
+152.557495 21.464497 lineto
+147.65271 21.292061 lineto
+142.748001 21.069477 lineto
+137.852097 20.776304 lineto
+137.843399 20.776159 lineto
+132.938965 20.686981 lineto
+128.034821 20.578924 lineto
+123.131119 20.444788 lineto
+118.228119 20.273535 lineto
+113.326233 20.048204 lineto
+111.576691 19.949278 lineto
+108.426147 19.888435 lineto
+103.528915 19.775597 lineto
+98.636238 19.631231 lineto
+93.750793 19.437607 lineto
+90.290154 19.25284 lineto
+88.876663 19.220768 lineto
+84.019684 19.088717 lineto
+79.189308 18.908644 lineto
+74.511826 18.653202 lineto
+74.400749 18.649981 lineto
+69.676247 18.485806 lineto
+65.048569 18.259022 lineto
+62.283287 18.073221 lineto
+60.560921 17.998398 lineto
+56.264317 17.763491 lineto
+52.226147 17.459618 lineto
+52.215443 17.459011 lineto
+48.459003 17.206882 lineto
+45.028728 16.915386 lineto
+43.458092 16.753317 lineto
+41.932392 16.623606 lineto
+39.157288 16.350199 lineto
+36.679863 16.063 lineto
+35.691944 15.932581 lineto
+34.465523 15.790924 lineto
+32.479763 15.536633 lineto
+30.692343 15.282009 lineto
+29.075163 15.026833 lineto
+28.619896 14.94903 lineto
+27.601479 14.790465 lineto
+26.251427 14.564988 lineto
+25.008802 14.342478 lineto
+23.859322 14.122464 lineto
+22.79108 13.904448 lineto
+21.976997 13.728127 lineto
+21.793589 13.690828 lineto
+20.856422 13.491371 lineto
+19.974424 13.294483 lineto
+19.141548 13.099858 lineto
+18.35264 12.907235 lineto
+17.603266 12.716383 lineto
+16.88961 12.527122 lineto
+16.208353 12.339316 lineto
+15.5566 12.152892 lineto
+14.931803 11.967843 lineto
+14.908669 11.960812 lineto
+14.329919 11.790496 lineto
+13.750558 11.614836 lineto
+13.192035 11.440678 lineto
+12.652778 11.268123 lineto
+12.131367 11.097354 lineto
+11.626508 10.928644 lineto
+11.136988 10.762385 lineto
+10.661657 10.599117 lineto
+10.199389 10.439558 lineto
+10.160701 10.426132 lineto
+stroke
+[] 0 setdash
+newpath
+12.602866 11.678432 moveto
+12.463786 11.861073 lineto
+12.446115 11.888533 lineto
+12.451829 11.898587 lineto
+12.677662 12.269282 lineto
+12.857093 12.529724 lineto
+13.014036 12.738597 lineto
+13.299311 13.136331 lineto
+13.423108 13.294299 lineto
+13.766599 13.761575 lineto
+13.918139 13.950375 lineto
+14.260459 14.407603 lineto
+14.519468 14.724511 lineto
+14.783589 15.07332 lineto
+15.249971 15.636978 lineto
+15.339621 15.754929 lineto
+15.929113 16.461922 lineto
+16.158978 16.714136 lineto
+16.556433 17.190899 lineto
+17.228741 17.927338 lineto
+17.284826 17.983309 lineto
+17.942839 18.705019 lineto
+18.714035 19.476744 lineto
+18.71875 19.481024 lineto
+19.536123 20.300533 lineto
+20.428421 21.113249 lineto
+20.595003 21.250145 lineto
+21.387508 21.974474 lineto
+22.431751 22.833651 lineto
+23.118147 23.340786 lineto
+23.567963 23.712843 lineto
+24.807705 24.621061 lineto
+26.172842 25.510798 lineto
+26.712883 25.818718 lineto
+27.673933 26.433691 lineto
+29.337021 27.352097 lineto
+31.189957 28.23107 lineto
+32.596546 28.788412 lineto
+33.258446 29.083733 lineto
+35.573692 29.901026 lineto
+38.172859 30.601757 lineto
+41.085293 31.141287 lineto
+44.331558 31.45475 lineto
+47.915909 31.453415 lineto
+51.820271 31.022152 lineto
+56.00386 30.020216 lineto
+56.075909 29.995663 lineto
+60.409576 28.329454 lineto
+61.487778 27.782019 lineto
+64.721573 25.876209 lineto
+64.978477 25.703032 lineto
+66.931686 24.253536 lineto
+68.520966 22.882376 lineto
+69.657959 21.796104 lineto
+69.731476 21.725565 lineto
+70.791679 20.747984 lineto
+70.720154 19.92066 lineto
+69.669113 19.776024 lineto
+66.920914 19.199738 lineto
+65.040855 19.077805 lineto
+60.551918 18.613041 lineto
+60.027901 18.536814 lineto
+56.253113 18.290579 lineto
+52.203297 17.875906 lineto
+52.188622 17.874023 lineto
+48.444279 17.593096 lineto
+45.013386 17.235352 lineto
+44.350113 17.15061 lineto
+41.914413 16.931726 lineto
+39.138115 16.62775 lineto
+36.931152 16.330456 lineto
+36.660809 16.301395 lineto
+34.443153 16.037264 lineto
+32.456375 15.76684 lineto
+30.669056 15.489399 lineto
+29.832458 15.345426 lineto
+29.05015 15.230471 lineto
+27.573986 14.996781 lineto
+26.222723 14.764934 lineto
+24.979282 14.534455 lineto
+23.829437 14.304817 lineto
+22.847019 14.094344 lineto
+22.760944 14.077706 lineto
+21.759607 13.875573 lineto
+20.820526 13.676497 lineto
+19.936535 13.48033 lineto
+19.101524 13.287005 lineto
+18.310249 13.096581 lineto
+17.558146 12.909247 lineto
+16.841209 12.725409 lineto
+16.155857 12.545718 lineto
+15.498813 12.371211 lineto
+14.86698 12.20342 lineto
+14.257284 12.044644 lineto
+13.666496 11.898273 lineto
+13.090932 11.769408 lineto
+12.602866 11.678432 lineto
+stroke
+[] 0 setdash
+newpath
+26.11454 15.512504 moveto
+26.115364 15.512735 lineto
+26.139856 15.516015 lineto
+26.115383 15.512603 lineto
+26.11454 15.512504 lineto
+stroke
+grestore
+grestore
+%%Trailer
+%%DocumentFonts: Courier
+%%+ Helvetica

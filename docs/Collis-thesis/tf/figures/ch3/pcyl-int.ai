@@ -1,0 +1,10905 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Adobe Illustrator(TM) 3.0.1.
+%%For: () ()
+%%Title: (/u/collis/posse/thesis/figures/ch3/pcyl-int.ai)
+%%CreationDate: (10/23/96) (17:11)
+%%BoundingBox: 118 9 703 597
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentFiles:/u/collis/posse/thesis/figures/ch3/pcyl-int.eps
+%%DocumentSuppliedResources: procset Adobe_packedarray 2.0 0
+%%+ procset Adobe_cmykcolor 1.1 0
+%%+ procset Adobe_cshow 1.1 0
+%%+ procset Adobe_customcolor 1.0 0
+%%+ procset Adobe_IllustratorA_AI3 1.0 1
+%AI3_ColorUsage: Color
+%AI3_IncludePlacedImages
+%AI3_TemplateBox: 306 396 306 396
+%AI3_TileBox: 30 31 762 581
+%AI3_DocumentPreview: Header
+%%Template:
+%%PageOrigin:30 31
+%%AI3_PaperRect:0 612 792 0
+%%AI3_Margin:30 31 30 31
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Adobe_packedarray 2.0 0
+%%Title: (Packed Array Operators)
+%%Version: 2.0 
+%%CreationDate: (8/2/90) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+userdict /Adobe_packedarray 5 dict dup begin put
+/initialize			% - initialize -
+{
+/packedarray where
+	{
+	pop
+	}
+	{
+	Adobe_packedarray begin
+	Adobe_packedarray
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/packedarray		% arguments count packedarray array
+{
+array astore readonly
+} def
+/setpacking			% boolean setpacking -
+{
+pop
+} def
+/currentpacking		% - setpacking boolean
+{
+false
+} def
+currentdict readonly pop end
+%%EndResource
+Adobe_packedarray /initialize get exec
+
+%%BeginResource: procset Adobe_cmykcolor 1.1 0
+%%Title: (CMYK Color Operators)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cmykcolor 4 dict dup begin put
+/initialize			% - initialize -
+{
+/setcmykcolor where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cmykcolor_vars 2 dict dup begin put
+	/_setrgbcolor
+		/setrgbcolor load def
+	/_currentrgbcolor
+		/currentrgbcolor load def
+	Adobe_cmykcolor begin
+	Adobe_cmykcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	end
+	Adobe_cmykcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_cmykcolor eq
+	{
+	end
+	} if
+} def
+/setcmykcolor		% cyan magenta yellow black setcmykcolor -
+{
+1 sub 4 1 roll
+3
+	{
+	3 index add neg dup 0 lt
+		{
+		pop 0
+		} if
+	3 1 roll
+	} repeat
+Adobe_cmykcolor_vars /_setrgbcolor get exec
+pop
+} def 
+/currentcmykcolor	% - currentcmykcolor cyan magenta yellow black
+{
+Adobe_cmykcolor_vars /_currentrgbcolor get exec
+3
+	{
+	1 sub neg 3 1 roll
+	} repeat
+0
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_cshow 1.1 0
+%%Title: (cshow Operator)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cshow 3 dict dup begin put
+/initialize			% - initialize -
+{
+/cshow where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cshow_vars 1 dict dup begin put
+	/_cshow		% - _cshow proc
+		{} def
+	Adobe_cshow begin
+	Adobe_cshow
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/cshow				% proc string cshow -
+{
+exch
+Adobe_cshow_vars
+	exch /_cshow
+	exch put
+	{
+	0 0 Adobe_cshow_vars /_cshow get exec
+	} forall
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_customcolor 1.0 0
+%%Title: (Custom Color Operators)
+%%Version: 1.0 
+%%CreationDate: (5/9/88) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_customcolor 5 dict dup begin put
+/initialize			% - initialize -
+{
+/setcustomcolor where
+	{
+	pop
+	}
+	{
+	Adobe_customcolor begin
+	Adobe_customcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	Adobe_customcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_customcolor eq
+	{
+	end
+	} if
+} def
+/findcmykcustomcolor	% cyan magenta yellow black name findcmykcustomcolor object
+{
+5 packedarray
+}  def
+/setcustomcolor		% object tint setcustomcolor -
+{
+exch
+aload pop pop
+4
+	{
+	4 index mul 4 1 roll
+	} repeat
+5 -1 roll pop
+setcmykcolor
+} def
+/setoverprint		% boolean setoverprint -
+{
+pop
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_IllustratorA_AI3 1.0 1
+%%Title: (Adobe Illustrator (R) Version 3.0 Abbreviated Prolog)
+%%Version: 1.0 
+%%CreationDate: (7/22/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_IllustratorA_AI3 61 dict dup begin put
+% initialization
+/initialize				% - initialize -
+{
+% 47 vars, but leave slack of 10 entries for custom Postscript fragments
+userdict /Adobe_IllustratorA_AI3_vars 57 dict dup begin put
+
+% paint operands
+/_lp /none def
+/_pf {} def
+/_ps {} def
+/_psf {} def
+/_pss {} def
+/_pjsf {} def
+/_pjss {} def
+/_pola 0 def
+/_doClip 0 def
+
+% paint operators
+/cf	currentflat def	% - cf flatness
+
+% typography operands
+/_tm matrix def
+/_renderStart [/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0] def 
+/_renderEnd [null null null null /i1 /i1 /i1 /i1] def
+/_render -1 def
+/_rise 0 def
+/_ax 0 def			% x character spacing	(_ax, _ay, _cx, _cy follows awidthshow naming convention)
+/_ay 0 def			% y character spacing
+/_cx 0 def			% x word spacing
+/_cy 0 def			% y word spacing
+/_leading [0 0] def
+/_ctm matrix def
+/_mtx matrix def
+/_sp 16#020 def
+/_hyphen (-) def
+/_fScl 0 def
+/_cnt 0 def
+/_hs 1 def
+/_nativeEncoding 0 def
+/_useNativeEncoding 0 def
+/_tempEncode 0 def
+/_pntr 0 def
+/_tDict 2 dict def
+
+% typography operators
+/Tx {} def
+/Tj {} def
+
+% compound path operators
+/CRender {} def
+
+% printing
+/_AI3_savepage {} def
+
+% color operands
+/_gf null def
+/_cf 4 array def
+/_if null def
+/_of false def
+/_fc {} def
+/_gs null def
+/_cs 4 array def
+/_is null def
+/_os false def
+/_sc {} def
+/_i null def
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3
+	{
+	dup xcheck
+		{
+		bind
+		} if
+	pop pop
+	} forall
+end
+end
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3_vars begin
+newpath
+} def
+/terminate				% - terminate -
+{
+end
+end
+} def
+% definition operators
+/_					% - _ null
+null def
+/ddef				% key value ddef -
+{
+Adobe_IllustratorA_AI3_vars 3 1 roll put
+} def
+/xput				% key value literal xput -
+{
+dup load dup length exch maxlength eq
+	{
+	dup dup load dup
+	length 2 mul dict copy def
+	} if
+load begin def end
+} def
+/npop				% integer npop -
+{
+	{
+	pop
+	} repeat
+} def
+% marking operators
+/sw					% ax ay string sw x y 
+{
+dup length exch stringwidth
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add
+} def
+/swj				% cx cy fillchar ax ay string swj x y
+{
+dup 4 1 roll
+dup length exch stringwidth 
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add 
+6 2 roll /_cnt 0 ddef
+{1 index eq {/_cnt _cnt 1 add ddef} if} forall pop
+exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} def
+/ss					% ax ay string matrix ss -
+{
+4 1 roll
+	{				% matrix ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put pop
+	gsave
+	false charpath currentpoint
+	4 index setmatrix
+	stroke
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+3 npop
+} def
+/jss				% cx cy fillchar ax ay string matrix jss -
+{
+4 1 roll
+	{				% cx cy fillchar matrix ax ay char 0 0 {proc} -   
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	gsave
+	_sp eq 
+		{
+		exch 6 index 6 index 6 index 5 -1 roll widthshow  
+		currentpoint
+		}
+		{
+		false charpath currentpoint
+		4 index setmatrix stroke
+		}ifelse
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+6 npop
+} def
+
+% path operators
+/sp					% ax ay string sp -
+{
+	{
+	2 npop (0) exch
+	2 copy 0 exch put pop
+	false charpath
+	2 copy rmoveto
+	} exch cshow
+2 npop
+} def
+/jsp					% cx cy fillchar ax ay string jsp -
+{
+	{					% cx cy fillchar ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	_sp eq 
+		{
+		exch 5 index 5 index 5 index 5 -1 roll widthshow  
+		}
+		{
+		false charpath
+		}ifelse
+	2 copy rmoveto
+	} exch cshow
+5 npop
+} def
+
+% path construction operators
+/pl				% x y pl x y
+{
+transform
+0.25 sub round 0.25 add exch
+0.25 sub round 0.25 add exch
+itransform
+} def
+/setstrokeadjust where
+	{
+	pop true setstrokeadjust
+	/c				% x1 y1 x2 y2 x3 y3 c -
+	{
+	curveto
+	} def
+	/C
+	/c load def
+	/v				% x2 y2 x3 y3 v -
+	{
+	currentpoint 6 2 roll curveto
+	} def
+	/V
+	/v load def
+	/y				% x1 y1 x2 y2 y -
+	{
+	2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l				% x y l -
+	{
+	lineto
+	} def
+	/L
+	/l load def
+	/m				% x y m -
+	{
+	moveto
+	} def
+	}
+	{%else
+	/c
+	{
+	pl curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+	currentpoint 6 2 roll pl curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+	pl 2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+	pl lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+	pl moveto
+	} def
+	}ifelse
+
+% graphic state operators
+/d					% array phase d -
+{
+setdash
+} def
+/cf	{} def			% - cf flatness
+/i					% flatness i -
+{
+dup 0 eq
+	{
+	pop cf
+	} if
+setflat
+} def
+/j					% linejoin j -
+{
+setlinejoin
+} def
+/J					% linecap J -
+{
+setlinecap
+} def
+/M					% miterlimit M -
+{
+setmiterlimit
+} def
+/w					% linewidth w -
+{
+setlinewidth
+} def
+
+% path painting operators
+/H					% - H -
+{} def
+/h					% - h -
+{
+closepath
+} def
+/N					% - N -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq {clip /_doClip 0 ddef} if 
+	newpath
+	} 
+	{
+	/CRender {N} ddef
+	}ifelse
+} def
+/n					% - n -
+{N} def
+/F					% - F -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _pf grestore clip newpath /_lp /none ddef _fc 
+		/_doClip 0 ddef
+		}
+		{
+		_pf
+		}ifelse
+	} 
+	{
+	/CRender {F} ddef
+	}ifelse
+} def
+/f					% - f -
+{
+closepath
+F
+} def
+/S					% - S -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _ps grestore clip newpath /_lp /none ddef _sc 
+		/_doClip 0 ddef
+		}
+		{
+		_ps
+		}ifelse
+	} 
+	{
+	/CRender {S} ddef
+	}ifelse
+} def
+/s					% - s -
+{
+closepath
+S
+} def
+/B					% - B -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 	% F clears _doClip
+	gsave F grestore 
+		{
+		gsave S grestore clip newpath /_lp /none ddef _sc
+		/_doClip 0 ddef
+		} 
+		{
+		S
+		}ifelse
+	}
+	{
+	/CRender {B} ddef
+	}ifelse
+} def
+/b					% - b -
+{
+closepath
+B
+} def
+/W					% - W -
+{
+/_doClip 1 ddef
+} def
+/*					% - [string] * -
+{
+count 0 ne 
+	{
+	dup type (stringtype) eq {pop} if
+	} if 
+_pola 0 eq {newpath} if
+} def
+
+% group operators
+/u					% - u -
+{} def
+/U					% - U -
+{} def
+/q					% - q -
+{
+_pola 0 eq {gsave} if
+} def
+/Q					% - Q -
+{
+_pola 0 eq {grestore} if
+} def
+/*u					% - *u -
+{
+_pola 1 add /_pola exch ddef
+} def
+/*U					% - *U -
+{
+_pola 1 sub /_pola exch ddef 
+_pola 0 eq {CRender} if
+} def
+/D					% polarized D -
+{pop} def
+/*w					% - *w -
+{} def
+/*W					% - *W -
+{} def
+
+% place operators
+/`					% matrix llx lly urx ury string ` -
+{
+/_i save ddef
+6 1 roll 4 npop
+concat
+userdict begin
+/showpage {} def
+false setoverprint
+pop
+} def
+/~					% - ~ -
+{
+end
+_i restore
+} def
+
+% color operators
+/O					% flag O -
+{
+0 ne
+/_of exch ddef
+/_lp /none ddef
+} def
+/R					% flag R -
+{
+0 ne
+/_os exch ddef
+/_lp /none ddef
+} def
+/g					% gray g -
+{
+/_gf exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_gf setgray
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/G					% gray G -
+{
+/_gs exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_gs setgray
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/k					% cyan magenta yellow black k -
+{
+_cf astore pop
+/_fc
+{
+_lp /fill ne
+	{
+	_of setoverprint
+	_cf aload pop setcmykcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/K					% cyan magenta yellow black K -
+{
+_cs astore pop
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_cs aload pop setcmykcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/x					% cyan magenta yellow black name gray x -
+{
+/_gf exch ddef
+findcmykcustomcolor
+/_if exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_if _gf 1 exch sub setcustomcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/X					% cyan magenta yellow black name gray X -
+{
+/_gs exch ddef
+findcmykcustomcolor
+/_is exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_is _gs 1 exch sub setcustomcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+
+% locked object operator
+/A					% value A -
+{
+pop
+} def
+
+currentdict readonly pop end
+setpacking
+
+% annotate page operator
+/annotatepage
+{
+} def
+%%EndResource
+%AI3-Grid.0 18 18 3 0 0 0 3
+%%EndProlog
+%%BeginSetup
+Adobe_cmykcolor /initialize get exec
+
+Adobe_cshow /initialize get exec
+
+Adobe_customcolor /initialize get exec
+
+Adobe_IllustratorA_AI3 /initialize get exec
+
+%%EndSetup
+0 A
+[1 0 0 1 18.5 -1.5] 100 10 684 599
+(/u/collis/posse/thesis/figures/ch3/pcyl-int.eps)`
+%%BeginDocument: /u/collis/posse/thesis/figures/ch3/pcyl-int.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 100 10 684 599                                              
+%%%BoundingBox: 12 100 601 684 
+%%Orientation: Portrait 
+%%Title: PostScript_file
+%%Creator: PSLIB
+%%CreationDate: Wed Oct 23 14:21:50 1996
+%%EndComments
+%
+% Begin page 1 ...
+%
+save
+mark
+100 dict begin
+/nosym
+{}
+def
+/plussym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup
+-.4 mul 0 rmoveto
+.8 mul 0 rlineto
+-.4 mul exch -.4 mul rmoveto
+.8 mul 0 exch rlineto
+stroke
+setdash
+}
+def
+/xsym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup dup dup
+-.325 mul exch -.325 mul rmoveto
+.65 mul exch .65 mul rlineto
+-.65 mul 0 rmoveto
+.65 mul exch -.65 mul rlineto
+stroke
+setdash
+}
+def
+/squaresym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup
+-.35 mul exch -.35 mul rmoveto
+.7 mul 0 rlineto
+0 exch .7 mul rlineto
+-.7 mul 0 rlineto
+closepath
+stroke
+setdash
+}
+def
+/circlesym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+5 -1 roll .4 mul 0 360 arc
+closepath
+stroke
+setdash
+}
+def
+/diamondsym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup dup dup
+-.475 mul 0 rmoveto
+.475 mul exch -.475 mul rlineto
+.475 mul exch .475 mul rlineto
+-.475 mul exch .475 mul rlineto
+closepath
+stroke
+setdash
+}
+def
+/deltasym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup
+-.35 mul exch -.35 mul rmoveto
+.7 mul 0 rlineto
+-.35 mul exch .7 mul rlineto
+closepath
+stroke
+setdash
+}
+def
+/nablasym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup
+-.35 mul exch .35 mul rmoveto
+.7 mul 0 rlineto
+-.35 mul exch -.7 mul rlineto
+closepath
+stroke
+setdash
+}
+def
+/fsquaresym
+{
+currentpoint
+newpath
+moveto
+dup dup dup dup
+-.35 mul exch -.35 mul rmoveto
+.7 mul 0 rlineto
+0 exch .7 mul rlineto
+-.7 mul 0 rlineto
+closepath
+fill
+}
+def
+/fcirclesym
+{
+currentpoint
+newpath
+3 -1 roll .4 mul 0 360 arc
+closepath
+fill
+}
+def
+/fdiamondsym
+{
+currentpoint
+newpath
+moveto
+dup dup dup dup dup dup
+-.475 mul 0 rmoveto
+.475 mul exch -.475 mul rlineto
+.475 mul exch .475 mul rlineto
+-.475 mul exch .475 mul rlineto
+closepath
+fill
+}
+def
+/fdeltasym
+{
+currentpoint
+newpath
+moveto
+dup dup dup dup
+-.35 mul exch -.35 mul rmoveto
+.7 mul 0 rlineto
+-.35 mul exch .7 mul rlineto
+closepath
+fill
+}
+def
+/fnablasym
+{
+currentpoint
+newpath
+moveto
+dup dup dup dup
+-.35 mul exch .35 mul rmoveto
+.7 mul 0 rlineto
+-.35 mul exch -.7 mul rlineto
+closepath
+fill
+}
+def
+%%BeginStripped
+%612 0 translate
+%90 rotate
+%%EndStripped
+0.180000 0.180000 scale
+131 50 translate
+/m { moveto } bind def
+/l { lineto } bind def
+/S { setrgbcolor } bind def
+/G { setgray } bind def
+/f { fill } bind def
+/s { stroke } bind def
+/c { closepath } bind def
+/C { currentpoint } bind def
+/drawpoint { % stack: ... x y
+   currentlinecap
+   currentdash
+   currentlinewidth
+   6 -2 roll
+   2 setlinecap
+   [] 0 setdash
+   4.90342 setlinewidth
+   2 copy
+   moveto
+   lineto
+   stroke
+   setlinewidth
+   setdash
+   setlinecap
+} bind def
+/dashadj { % stack: ... int
+   5 mul
+} bind def
+0 0 m
+4138 0 l
+4138 3300 l
+0 3300 l
+c
+clip
+newpath
+/TRfont-0 /Times-Roman findfont 73.551262 scalefont def
+TRfont-0 setfont
+gsave
+grestore
+gsave
+0 0 m
+4134 0 l
+4134 3295 l
+0 3295 l
+c
+clip
+newpath
+1.000000 1.000000 1.000000 S
+%%BeginStripped
+%0 0 m
+%4134 0 l
+%4134 3295 l
+%0 3295 l
+%c
+%f
+%%EndStripped
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+8 setlinewidth
+509 90 m
+3625 90 l
+s
+509 90 m
+509 12 l
+s
+821 90 m
+821 12 l
+s
+1132 90 m
+1132 12 l
+s
+1444 90 m
+1444 12 l
+s
+1755 90 m
+1755 12 l
+s
+2067 90 m
+2067 12 l
+s
+2378 90 m
+2378 12 l
+s
+2690 90 m
+2690 12 l
+s
+3001 90 m
+3001 12 l
+s
+3313 90 m
+3313 12 l
+s
+3625 90 m
+3625 12 l
+s
+3625 90 m
+%(\170) show
+509 90 m
+509 3205 l
+s
+509 90 m
+431 90 l
+s
+509 402 m
+431 402 l
+s
+509 713 m
+431 713 l
+s
+509 1025 m
+431 1025 l
+s
+509 1336 m
+431 1336 l
+s
+509 1648 m
+431 1648 l
+s
+509 1959 m
+431 1959 l
+s
+509 2270 m
+431 2270 l
+s
+509 2582 m
+431 2582 l
+s
+509 2893 m
+431 2893 l
+s
+509 3205 m
+431 3205 l
+s
+509 3205 m
+%(\171) show
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+8 setlinewidth
+2067 90 m
+2066 90 l
+2065 90 l
+2064 90 l
+2063 90 l
+2062 90 l
+2061 90 l
+2060 90 l
+2059 90 l
+2058 90 l
+2057 90 l
+2056 90 l
+2055 90 l
+2054 90 l
+2052 90 l
+2051 90 l
+2050 90 l
+2048 90 l
+2046 90 l
+2044 90 l
+2042 90 l
+2040 90 l
+2037 90 l
+2034 90 l
+2031 90 l
+2028 90 l
+2025 90 l
+2021 90 l
+2016 90 l
+2012 90 l
+2007 90 l
+2001 90 l
+1995 90 l
+1989 90 l
+1981 90 l
+1974 90 l
+1965 90 l
+1956 90 l
+1946 90 l
+1935 90 l
+1923 90 l
+1910 90 l
+1896 90 l
+1881 90 l
+1865 90 l
+1847 90 l
+1828 90 l
+1808 90 l
+1786 90 l
+1762 90 l
+1737 90 l
+1709 90 l
+1680 90 l
+1648 90 l
+1615 90 l
+1579 90 l
+1541 90 l
+1501 90 l
+1459 90 l
+1414 90 l
+1366 90 l
+1317 90 l
+1265 90 l
+1211 90 l
+1155 90 l
+1096 90 l
+1036 90 l
+974 90 l
+910 90 l
+846 90 l
+780 90 l
+713 90 l
+645 90 l
+577 90 l
+509 90 l
+C s
+m
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+8 setlinewidth
+3625 189 m
+3625 190 l
+3624 190 l
+3624 191 l
+3624 192 l
+3624 193 l
+3624 194 l
+3624 195 l
+3624 196 l
+3624 197 l
+3624 198 l
+3624 199 l
+3624 200 l
+3624 201 l
+3624 202 l
+3624 203 l
+3624 204 l
+3624 206 l
+3624 207 l
+3624 209 l
+3624 211 l
+3624 213 l
+3624 215 l
+3624 217 l
+3623 220 l
+3623 222 l
+3623 225 l
+3623 228 l
+3623 231 l
+3623 235 l
+3623 239 l
+3622 242 l
+3622 247 l
+3622 251 l
+3622 256 l
+3621 261 l
+3621 266 l
+3621 272 l
+3620 278 l
+3620 284 l
+3620 291 l
+3619 298 l
+3619 305 l
+3618 313 l
+3618 322 l
+3617 330 l
+3616 340 l
+3615 349 l
+3614 360 l
+3614 370 l
+3612 382 l
+3611 394 l
+3610 406 l
+3609 419 l
+3607 433 l
+3606 447 l
+3604 462 l
+3602 478 l
+3600 495 l
+3598 512 l
+3595 530 l
+3592 550 l
+3589 570 l
+3586 590 l
+3582 612 l
+3578 635 l
+3574 659 l
+3570 684 l
+3564 710 l
+3559 737 l
+3553 766 l
+3546 795 l
+3539 826 l
+3531 858 l
+3523 892 l
+3514 927 l
+3504 964 l
+3493 1002 l
+3481 1041 l
+3468 1082 l
+3454 1125 l
+3439 1169 l
+3423 1215 l
+3405 1263 l
+3386 1312 l
+3366 1364 l
+3344 1417 l
+3320 1471 l
+3294 1528 l
+3267 1586 l
+3238 1646 l
+3206 1707 l
+3173 1771 l
+3137 1836 l
+3099 1902 l
+3059 1970 l
+3016 2039 l
+2971 2109 l
+2924 2181 l
+2875 2254 l
+2823 2327 l
+2769 2401 l
+2712 2476 l
+2654 2551 l
+2594 2626 l
+2532 2701 l
+2468 2775 l
+2403 2850 l
+2337 2923 l
+2270 2996 l
+2203 3067 l
+2135 3138 l
+2067 3206 l
+C s
+m
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+8 setlinewidth
+2067 90 m
+2067 91 l
+2067 92 l
+2068 93 l
+2069 94 l
+2070 94 l
+2070 95 l
+2071 95 l
+2071 96 l
+2072 96 l
+2073 96 l
+2073 97 l
+2074 97 l
+2075 97 l
+2076 98 l
+2077 98 l
+2078 98 l
+2078 99 l
+2079 99 l
+2080 99 l
+2081 100 l
+2082 100 l
+2083 100 l
+2084 101 l
+2085 101 l
+2086 101 l
+2087 102 l
+2088 102 l
+2089 102 l
+2090 102 l
+2091 103 l
+2092 103 l
+2093 103 l
+2094 103 l
+2096 104 l
+2097 104 l
+2098 104 l
+2099 104 l
+2100 105 l
+2101 105 l
+2103 105 l
+2104 105 l
+2105 106 l
+2106 106 l
+2108 106 l
+2109 106 l
+2110 107 l
+2112 107 l
+2113 107 l
+2114 107 l
+2116 108 l
+2117 108 l
+2119 108 l
+2120 109 l
+2122 109 l
+2123 109 l
+2125 109 l
+2127 110 l
+2128 110 l
+2130 110 l
+2131 110 l
+2133 111 l
+2135 111 l
+2136 111 l
+2138 111 l
+2140 112 l
+2142 112 l
+2144 112 l
+2145 112 l
+2147 113 l
+2149 113 l
+2151 113 l
+2153 113 l
+2155 114 l
+2157 114 l
+2159 114 l
+2161 114 l
+2163 115 l
+2165 115 l
+2167 115 l
+2169 115 l
+2171 116 l
+2173 116 l
+2175 116 l
+2177 116 l
+2179 117 l
+2182 117 l
+2184 117 l
+2186 118 l
+2188 118 l
+2191 118 l
+2193 118 l
+2195 119 l
+2198 119 l
+2200 119 l
+2202 119 l
+2205 120 l
+2207 120 l
+2210 120 l
+2212 120 l
+2215 121 l
+2217 121 l
+2220 121 l
+2222 121 l
+2225 122 l
+2227 122 l
+2230 122 l
+2233 122 l
+2235 123 l
+2238 123 l
+2241 123 l
+2244 123 l
+2246 124 l
+2249 124 l
+2252 124 l
+2255 124 l
+2257 125 l
+2260 125 l
+2263 125 l
+2266 125 l
+2269 126 l
+2272 126 l
+2275 126 l
+2278 127 l
+2281 127 l
+2284 127 l
+2287 127 l
+2290 128 l
+2293 128 l
+2296 128 l
+2299 128 l
+2303 129 l
+2306 129 l
+2309 129 l
+2312 129 l
+2315 130 l
+2319 130 l
+2322 130 l
+2325 130 l
+2329 131 l
+2332 131 l
+2335 131 l
+2339 131 l
+2342 132 l
+2345 132 l
+2349 132 l
+2352 132 l
+2356 133 l
+2359 133 l
+2363 133 l
+2367 133 l
+2370 134 l
+2374 134 l
+2377 134 l
+2381 134 l
+2385 135 l
+2388 135 l
+2392 135 l
+2396 136 l
+2399 136 l
+2403 136 l
+2407 136 l
+2411 137 l
+2415 137 l
+2419 137 l
+2422 137 l
+2426 138 l
+2430 138 l
+2434 138 l
+2438 138 l
+2442 139 l
+2446 139 l
+2450 139 l
+2454 139 l
+2458 140 l
+2462 140 l
+2466 140 l
+2471 140 l
+2475 141 l
+2479 141 l
+2483 141 l
+2487 141 l
+2492 142 l
+2496 142 l
+2500 142 l
+2504 142 l
+2509 143 l
+2513 143 l
+2517 143 l
+2522 143 l
+2526 144 l
+2531 144 l
+2535 144 l
+2540 145 l
+2544 145 l
+2549 145 l
+2553 145 l
+2558 146 l
+2562 146 l
+2567 146 l
+2571 146 l
+2576 147 l
+2581 147 l
+2585 147 l
+2590 147 l
+2595 148 l
+2600 148 l
+2604 148 l
+2609 148 l
+2614 149 l
+2619 149 l
+2624 149 l
+2629 149 l
+2633 150 l
+2638 150 l
+2643 150 l
+2648 150 l
+2653 151 l
+2658 151 l
+2663 151 l
+2668 151 l
+2673 152 l
+2678 152 l
+2684 152 l
+2689 152 l
+2694 153 l
+2699 153 l
+2704 153 l
+2709 154 l
+2715 154 l
+2720 154 l
+2725 154 l
+2731 155 l
+2736 155 l
+2741 155 l
+2747 155 l
+2752 156 l
+2757 156 l
+2763 156 l
+2768 156 l
+2774 157 l
+2779 157 l
+2785 157 l
+2790 157 l
+2796 158 l
+2801 158 l
+2807 158 l
+2813 158 l
+2818 159 l
+2824 159 l
+2830 159 l
+2835 159 l
+2841 160 l
+2847 160 l
+2852 160 l
+2858 160 l
+2864 161 l
+2870 161 l
+2876 161 l
+2882 161 l
+2888 162 l
+2893 162 l
+2899 162 l
+2905 163 l
+2911 163 l
+2917 163 l
+2923 163 l
+2929 164 l
+2935 164 l
+2942 164 l
+2948 164 l
+2954 165 l
+2960 165 l
+2966 165 l
+2972 165 l
+2978 166 l
+2985 166 l
+2991 166 l
+2997 166 l
+3004 167 l
+3010 167 l
+3016 167 l
+3023 167 l
+3029 168 l
+3035 168 l
+3042 168 l
+3048 168 l
+3055 169 l
+3061 169 l
+3068 169 l
+3074 169 l
+3081 170 l
+3087 170 l
+3094 170 l
+3101 170 l
+3107 171 l
+3114 171 l
+3121 171 l
+3127 172 l
+3134 172 l
+3141 172 l
+3147 172 l
+3154 173 l
+3161 173 l
+3168 173 l
+3175 173 l
+3182 174 l
+3188 174 l
+3195 174 l
+3202 174 l
+3209 175 l
+3216 175 l
+3223 175 l
+3230 175 l
+3237 176 l
+3244 176 l
+3251 176 l
+3259 176 l
+3266 177 l
+3273 177 l
+3280 177 l
+3287 177 l
+3294 178 l
+3302 178 l
+3309 178 l
+3316 178 l
+3323 179 l
+3331 179 l
+3338 179 l
+3345 179 l
+3353 180 l
+3360 180 l
+3368 180 l
+3375 181 l
+3383 181 l
+3390 181 l
+3398 181 l
+3405 182 l
+3413 182 l
+3420 182 l
+3428 182 l
+3435 183 l
+3443 183 l
+3451 183 l
+3458 183 l
+3466 184 l
+3474 184 l
+3482 184 l
+3489 184 l
+3497 185 l
+3505 185 l
+3513 185 l
+3521 185 l
+3528 186 l
+3536 186 l
+3544 186 l
+3552 186 l
+3560 187 l
+3568 187 l
+3576 187 l
+3584 187 l
+3592 188 l
+3600 188 l
+3608 188 l
+3616 188 l
+3625 189 l
+C s
+m
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+8 setlinewidth
+509 90 m
+509 98 l
+509 107 l
+509 115 l
+509 123 l
+509 131 l
+509 139 l
+510 147 l
+510 155 l
+510 163 l
+510 172 l
+510 180 l
+511 188 l
+511 196 l
+511 204 l
+511 212 l
+512 220 l
+512 229 l
+512 237 l
+513 245 l
+513 253 l
+514 261 l
+514 269 l
+515 277 l
+515 286 l
+516 294 l
+516 302 l
+517 310 l
+517 318 l
+518 326 l
+519 334 l
+519 342 l
+520 351 l
+521 359 l
+521 367 l
+522 375 l
+523 383 l
+524 391 l
+524 399 l
+525 408 l
+526 416 l
+527 424 l
+528 432 l
+529 440 l
+530 448 l
+531 456 l
+532 465 l
+532 473 l
+534 481 l
+535 489 l
+536 497 l
+537 505 l
+538 513 l
+539 521 l
+540 530 l
+541 538 l
+542 546 l
+544 554 l
+545 562 l
+546 570 l
+547 578 l
+549 587 l
+550 595 l
+551 603 l
+553 611 l
+554 619 l
+555 627 l
+557 635 l
+558 644 l
+560 652 l
+561 660 l
+563 668 l
+564 676 l
+566 684 l
+567 692 l
+569 700 l
+570 709 l
+572 717 l
+574 725 l
+575 733 l
+577 741 l
+579 749 l
+580 757 l
+582 766 l
+584 774 l
+586 782 l
+588 790 l
+589 798 l
+591 806 l
+593 814 l
+595 823 l
+597 831 l
+599 839 l
+601 847 l
+603 855 l
+605 863 l
+607 871 l
+609 879 l
+611 888 l
+613 896 l
+615 904 l
+617 912 l
+620 920 l
+622 928 l
+624 936 l
+626 945 l
+628 953 l
+631 961 l
+633 969 l
+635 977 l
+638 985 l
+640 993 l
+642 1002 l
+645 1010 l
+647 1018 l
+649 1026 l
+652 1034 l
+654 1042 l
+657 1050 l
+659 1058 l
+662 1067 l
+665 1075 l
+667 1083 l
+670 1091 l
+672 1099 l
+675 1107 l
+678 1115 l
+680 1124 l
+683 1132 l
+686 1140 l
+689 1148 l
+691 1156 l
+694 1164 l
+697 1172 l
+700 1181 l
+703 1189 l
+705 1197 l
+708 1205 l
+711 1213 l
+714 1221 l
+717 1229 l
+720 1237 l
+723 1246 l
+726 1254 l
+729 1262 l
+732 1270 l
+735 1278 l
+739 1286 l
+742 1294 l
+745 1303 l
+748 1311 l
+751 1319 l
+754 1327 l
+758 1335 l
+761 1343 l
+764 1351 l
+767 1359 l
+771 1368 l
+774 1376 l
+778 1384 l
+781 1392 l
+784 1400 l
+788 1408 l
+791 1416 l
+795 1425 l
+798 1433 l
+802 1441 l
+805 1449 l
+809 1457 l
+812 1465 l
+816 1473 l
+820 1482 l
+823 1490 l
+827 1498 l
+831 1506 l
+834 1514 l
+838 1522 l
+842 1530 l
+846 1538 l
+849 1547 l
+853 1555 l
+857 1563 l
+861 1571 l
+865 1579 l
+869 1587 l
+872 1595 l
+876 1604 l
+880 1612 l
+884 1620 l
+888 1628 l
+892 1636 l
+896 1644 l
+901 1652 l
+905 1661 l
+909 1669 l
+913 1677 l
+917 1685 l
+921 1693 l
+925 1701 l
+930 1709 l
+934 1717 l
+938 1726 l
+942 1734 l
+947 1742 l
+951 1750 l
+955 1758 l
+960 1766 l
+964 1774 l
+968 1783 l
+973 1791 l
+977 1799 l
+982 1807 l
+986 1815 l
+991 1823 l
+995 1831 l
+1000 1840 l
+1004 1848 l
+1009 1856 l
+1014 1864 l
+1018 1872 l
+1023 1880 l
+1028 1888 l
+1032 1896 l
+1037 1905 l
+1042 1913 l
+1047 1921 l
+1051 1929 l
+1056 1937 l
+1061 1945 l
+1066 1953 l
+1071 1962 l
+1076 1970 l
+1081 1978 l
+1086 1986 l
+1091 1994 l
+1095 2002 l
+1100 2010 l
+1106 2019 l
+1111 2027 l
+1116 2035 l
+1121 2043 l
+1126 2051 l
+1131 2059 l
+1136 2067 l
+1141 2075 l
+1146 2084 l
+1152 2092 l
+1157 2100 l
+1162 2108 l
+1167 2116 l
+1173 2124 l
+1178 2132 l
+1183 2141 l
+1189 2149 l
+1194 2157 l
+1200 2165 l
+1205 2173 l
+1210 2181 l
+1216 2189 l
+1221 2198 l
+1227 2206 l
+1232 2214 l
+1238 2222 l
+1244 2230 l
+1249 2238 l
+1255 2246 l
+1260 2254 l
+1266 2263 l
+1272 2271 l
+1277 2279 l
+1283 2287 l
+1289 2295 l
+1295 2303 l
+1300 2311 l
+1306 2320 l
+1312 2328 l
+1318 2336 l
+1324 2344 l
+1330 2352 l
+1336 2360 l
+1342 2368 l
+1348 2377 l
+1354 2385 l
+1360 2393 l
+1366 2401 l
+1372 2409 l
+1378 2417 l
+1384 2425 l
+1390 2433 l
+1396 2442 l
+1402 2450 l
+1408 2458 l
+1414 2466 l
+1421 2474 l
+1427 2482 l
+1433 2490 l
+1439 2499 l
+1446 2507 l
+1452 2515 l
+1458 2523 l
+1465 2531 l
+1471 2539 l
+1478 2547 l
+1484 2556 l
+1490 2564 l
+1497 2572 l
+1503 2580 l
+1510 2588 l
+1516 2596 l
+1523 2604 l
+1530 2612 l
+1536 2621 l
+1543 2629 l
+1549 2637 l
+1556 2645 l
+1563 2653 l
+1569 2661 l
+1576 2669 l
+1583 2678 l
+1590 2686 l
+1596 2694 l
+1603 2702 l
+1610 2710 l
+1617 2718 l
+1624 2726 l
+1631 2734 l
+1638 2743 l
+1645 2751 l
+1652 2759 l
+1658 2767 l
+1665 2775 l
+1673 2783 l
+1680 2791 l
+1687 2800 l
+1694 2808 l
+1701 2816 l
+1708 2824 l
+1715 2832 l
+1722 2840 l
+1729 2848 l
+1737 2857 l
+1744 2865 l
+1751 2873 l
+1758 2881 l
+1766 2889 l
+1773 2897 l
+1780 2905 l
+1788 2913 l
+1795 2922 l
+1802 2930 l
+1810 2938 l
+1817 2946 l
+1825 2954 l
+1832 2962 l
+1840 2970 l
+1847 2979 l
+1855 2987 l
+1862 2995 l
+1870 3003 l
+1878 3011 l
+1885 3019 l
+1893 3027 l
+1901 3036 l
+1908 3044 l
+1916 3052 l
+1924 3060 l
+1932 3068 l
+1939 3076 l
+1947 3084 l
+1955 3092 l
+1963 3101 l
+1971 3109 l
+1979 3117 l
+1987 3125 l
+1994 3133 l
+2002 3141 l
+2010 3149 l
+2018 3158 l
+2026 3166 l
+2034 3174 l
+2042 3182 l
+2051 3190 l
+2059 3198 l
+2067 3206 l
+C s
+m
+[ 8 dashadj 8 dashadj ] 0 setdash
+8 setlinewidth
+0.000000 0.000000 0.000000 S
+3502 969 m
+3495 962 l
+3495 961 l
+3489 955 l
+3482 948 l
+3475 941 l
+3468 934 l
+3462 927 l
+3455 920 l
+3448 913 l
+3443 908 l
+3442 907 l
+3435 900 l
+3428 893 l
+3422 886 l
+3415 880 l
+3408 873 l
+3402 866 l
+3395 860 l
+3393 858 l
+3388 853 l
+3382 847 l
+3375 840 l
+3369 834 l
+3362 828 l
+3356 821 l
+3349 815 l
+3345 811 l
+3343 809 l
+3336 802 l
+3330 796 l
+3323 790 l
+3317 784 l
+3310 778 l
+3304 772 l
+3299 767 l
+3297 766 l
+3291 760 l
+3285 754 l
+3278 748 l
+3272 742 l
+3265 736 l
+3259 730 l
+3254 726 l
+3253 724 l
+3246 719 l
+3240 713 l
+3234 707 l
+3227 702 l
+3221 696 l
+3215 690 l
+3211 687 l
+3209 685 l
+3202 679 l
+3196 674 l
+3190 668 l
+3184 663 l
+3178 657 l
+3171 652 l
+3170 651 l
+3165 647 l
+3159 641 l
+3153 636 l
+3147 631 l
+3141 626 l
+3135 620 l
+3130 616 l
+3129 615 l
+3122 610 l
+3116 605 l
+3110 600 l
+3104 595 l
+3098 590 l
+3092 585 l
+3086 580 l
+3080 575 l
+3074 570 l
+3068 566 l
+3062 561 l
+3057 556 l
+3055 555 l
+3051 551 l
+3045 547 l
+3039 542 l
+3033 537 l
+3027 533 l
+3021 528 l
+3019 526 l
+3015 523 l
+3010 519 l
+3004 514 l
+2998 510 l
+2992 506 l
+2987 501 l
+2985 500 l
+2981 497 l
+2975 492 l
+2969 488 l
+2964 484 l
+2958 480 l
+2953 476 l
+2952 475 l
+2947 471 l
+2941 467 l
+2935 463 l
+2930 459 l
+2924 455 l
+2921 452 l
+2919 451 l
+2913 447 l
+2908 443 l
+2902 439 l
+2897 435 l
+2891 431 l
+2886 427 l
+2880 423 l
+2875 419 l
+2869 415 l
+2864 412 l
+2862 411 l
+2858 408 l
+2853 404 l
+2848 400 l
+2842 397 l
+2837 393 l
+2835 392 l
+2832 389 l
+2826 386 l
+2821 382 l
+2816 379 l
+2810 375 l
+2808 374 l
+2805 372 l
+2800 368 l
+2795 365 l
+2789 362 l
+2784 358 l
+2783 357 l
+2779 355 l
+2774 352 l
+2769 348 l
+2764 345 l
+2759 342 l
+2758 342 l
+2753 339 l
+2748 335 l
+2743 332 l
+2738 329 l
+2735 327 l
+2733 326 l
+2728 323 l
+2723 320 l
+2718 317 l
+2713 314 l
+2708 311 l
+2703 308 l
+2698 305 l
+2694 302 l
+2692 301 l
+2689 299 l
+2684 296 l
+2679 294 l
+2674 291 l
+2671 289 l
+2669 288 l
+2664 285 l
+2660 283 l
+2655 280 l
+2652 278 l
+2650 277 l
+2645 275 l
+2641 272 l
+2636 269 l
+2633 268 l
+2631 267 l
+2627 264 l
+2622 262 l
+2617 259 l
+2616 258 l
+2613 257 l
+2608 254 l
+2604 252 l
+2599 249 l
+2595 247 l
+2590 245 l
+2586 242 l
+2582 241 l
+2581 240 l
+2577 238 l
+2572 235 l
+2568 233 l
+2567 233 l
+2563 231 l
+2559 229 l
+2554 226 l
+2552 225 l
+2550 224 l
+2546 222 l
+2541 220 l
+2538 218 l
+2537 218 l
+2533 216 l
+2529 214 l
+2525 212 l
+2524 212 l
+2520 210 l
+2516 208 l
+2512 206 l
+2507 204 l
+2503 202 l
+2500 200 l
+2499 200 l
+2495 198 l
+2491 196 l
+2489 195 l
+2487 194 l
+2483 193 l
+2479 191 l
+2478 190 l
+2475 189 l
+2471 187 l
+2468 186 l
+2467 185 l
+2463 184 l
+2459 182 l
+2458 182 l
+2455 180 l
+2451 179 l
+2448 178 l
+2447 177 l
+2443 175 l
+2440 174 l
+2439 174 l
+2435 172 l
+2431 171 l
+2428 169 l
+2424 168 l
+2420 166 l
+2416 165 l
+2412 163 l
+2409 162 l
+2405 160 l
+2403 159 l
+2401 159 l
+2398 157 l
+2397 157 l
+2394 156 l
+2391 155 l
+2390 155 l
+2387 153 l
+2385 153 l
+2383 152 l
+2380 151 l
+2376 149 l
+2375 149 l
+2373 148 l
+2371 148 l
+2369 147 l
+2367 146 l
+2366 146 l
+2363 145 l
+2362 144 l
+2359 143 l
+2356 142 l
+2355 142 l
+2353 141 l
+2352 141 l
+2350 140 l
+2348 140 l
+2347 139 l
+2345 139 l
+2342 138 l
+2342 137 l
+2340 137 l
+2338 136 l
+2336 136 l
+2335 135 l
+2333 135 l
+2332 134 l
+2330 134 l
+2329 133 l
+2328 133 l
+2327 133 l
+2326 132 l
+2325 132 l
+2324 132 l
+2323 131 l
+2322 131 l
+2321 131 l
+2320 131 l
+2320 130 l
+2319 130 l
+2318 130 l
+s
+3132 1844 m
+3129 1831 l
+3126 1818 l
+3122 1804 l
+3119 1791 l
+3116 1778 l
+3113 1764 l
+3110 1751 l
+3107 1738 l
+3106 1734 l
+3103 1725 l
+3100 1712 l
+3097 1700 l
+3094 1687 l
+3090 1674 l
+3087 1662 l
+3084 1649 l
+3082 1642 l
+3081 1636 l
+3077 1624 l
+3074 1612 l
+3070 1599 l
+3067 1587 l
+3064 1575 l
+3060 1563 l
+3058 1553 l
+3057 1551 l
+3053 1539 l
+3050 1527 l
+3046 1515 l
+3043 1503 l
+3040 1492 l
+3036 1480 l
+3033 1469 l
+3033 1468 l
+3029 1457 l
+3025 1445 l
+3022 1434 l
+3018 1423 l
+3015 1411 l
+3011 1400 l
+3008 1389 l
+3004 1378 l
+3001 1367 l
+2997 1356 l
+2993 1345 l
+2990 1334 l
+2986 1323 l
+2983 1313 l
+2983 1312 l
+2979 1302 l
+2975 1291 l
+2971 1281 l
+2968 1270 l
+2964 1260 l
+2960 1249 l
+2957 1240 l
+2957 1239 l
+2953 1229 l
+2949 1219 l
+2946 1208 l
+2942 1198 l
+2938 1188 l
+2934 1178 l
+2932 1172 l
+2931 1169 l
+2927 1159 l
+2923 1149 l
+2919 1139 l
+2916 1129 l
+2912 1120 l
+2908 1110 l
+2907 1107 l
+2904 1101 l
+2900 1091 l
+2897 1082 l
+2893 1073 l
+2889 1063 l
+2885 1054 l
+2882 1046 l
+2881 1045 l
+2878 1036 l
+2874 1027 l
+2870 1018 l
+2866 1009 l
+2862 1000 l
+2858 991 l
+2857 988 l
+2855 982 l
+2851 974 l
+2847 965 l
+2843 956 l
+2839 948 l
+2835 939 l
+2833 934 l
+2832 931 l
+2828 923 l
+2824 914 l
+2820 906 l
+2816 898 l
+2812 889 l
+2809 882 l
+2808 881 l
+2804 873 l
+2800 865 l
+2797 857 l
+2793 849 l
+2789 841 l
+2785 834 l
+2781 826 l
+2777 818 l
+2773 810 l
+2769 803 l
+2766 795 l
+2762 788 l
+2758 780 l
+2754 773 l
+2750 766 l
+2746 758 l
+2742 751 l
+2739 745 l
+2738 744 l
+2734 737 l
+2731 730 l
+2727 722 l
+2723 715 l
+2719 709 l
+2717 705 l
+2715 702 l
+2711 695 l
+2707 688 l
+2703 681 l
+2700 674 l
+2696 668 l
+2695 667 l
+2692 661 l
+2688 655 l
+2684 648 l
+2680 642 l
+2676 635 l
+2674 631 l
+2673 629 l
+2669 622 l
+2665 616 l
+2661 610 l
+2657 604 l
+2653 598 l
+2650 592 l
+2646 585 l
+2642 579 l
+2638 573 l
+2634 568 l
+2633 566 l
+2630 562 l
+2627 556 l
+2623 550 l
+2619 544 l
+2615 539 l
+2614 537 l
+2611 533 l
+2608 527 l
+2604 522 l
+2600 516 l
+2596 511 l
+2595 509 l
+2592 506 l
+2589 500 l
+2585 495 l
+2581 490 l
+2577 484 l
+2574 479 l
+2570 474 l
+2566 469 l
+2563 464 l
+2559 459 l
+2555 454 l
+2551 449 l
+2548 444 l
+2544 439 l
+2542 437 l
+2540 434 l
+2537 430 l
+2533 425 l
+2529 420 l
+2526 415 l
+2522 411 l
+2518 406 l
+2515 402 l
+2511 397 l
+2510 396 l
+2508 393 l
+2504 388 l
+2500 384 l
+2497 380 l
+2494 377 l
+2493 376 l
+2490 371 l
+2486 367 l
+2482 363 l
+2480 359 l
+2479 359 l
+2475 355 l
+2472 351 l
+2468 347 l
+2465 343 l
+2461 339 l
+2458 335 l
+2454 331 l
+2451 328 l
+2451 327 l
+2447 324 l
+2444 320 l
+2441 316 l
+2438 314 l
+2437 312 l
+2434 309 l
+2430 305 l
+2427 302 l
+2425 300 l
+2423 298 l
+2420 295 l
+2417 291 l
+2413 288 l
+2410 285 l
+2407 281 l
+2403 278 l
+2401 276 l
+2400 275 l
+2397 272 l
+2393 268 l
+2390 265 l
+2387 262 l
+2384 259 l
+2380 256 l
+2379 255 l
+2377 253 l
+2374 250 l
+2371 247 l
+2369 245 l
+2367 244 l
+2364 241 l
+2361 239 l
+2359 236 l
+2358 236 l
+2355 233 l
+2352 230 l
+2349 228 l
+2345 225 l
+2342 222 l
+2340 220 l
+2339 220 l
+2336 217 l
+2333 215 l
+2331 213 l
+2330 212 l
+2327 210 l
+2324 207 l
+2323 206 l
+2321 205 l
+2318 203 l
+2315 200 l
+2314 200 l
+2312 198 l
+2309 196 l
+2307 194 l
+2306 193 l
+2303 191 l
+2300 189 l
+2299 188 l
+2297 187 l
+2295 185 l
+2292 183 l
+2289 181 l
+2286 179 l
+2286 178 l
+2283 177 l
+2280 175 l
+2279 174 l
+2278 173 l
+2275 171 l
+2273 170 l
+2272 169 l
+2269 167 l
+2267 166 l
+2267 165 l
+2264 164 l
+2262 162 l
+2261 162 l
+2259 160 l
+2256 159 l
+2256 158 l
+2253 157 l
+2251 156 l
+2251 155 l
+2248 153 l
+2247 153 l
+2245 152 l
+2243 150 l
+2242 150 l
+2240 149 l
+2238 147 l
+2235 146 l
+2234 145 l
+2233 144 l
+2230 143 l
+2228 141 l
+2227 141 l
+2225 140 l
+2223 139 l
+2220 137 l
+2218 136 l
+2217 135 l
+2215 135 l
+2214 134 l
+2213 133 l
+2211 133 l
+2211 132 l
+2209 131 l
+2208 131 l
+2207 130 l
+2206 130 l
+2204 129 l
+2202 128 l
+2201 127 l
+2200 127 l
+2199 126 l
+2197 125 l
+2195 125 l
+2195 124 l
+2194 124 l
+2193 123 l
+2192 123 l
+2191 123 l
+2190 122 l
+2189 122 l
+2188 121 l
+2187 121 l
+2186 120 l
+2185 120 l
+2184 119 l
+2183 119 l
+2182 118 l
+2181 118 l
+2180 118 l
+2180 117 l
+2179 117 l
+2178 117 l
+s
+2333 2928 m
+2335 2921 l
+2343 2901 l
+2352 2874 l
+2362 2846 l
+2372 2822 l
+2373 2819 l
+2381 2793 l
+2389 2768 l
+2398 2742 l
+2405 2721 l
+2407 2716 l
+2414 2691 l
+2422 2667 l
+2429 2642 l
+2436 2619 l
+2437 2618 l
+2443 2594 l
+2449 2571 l
+2456 2548 l
+2463 2524 l
+2464 2518 l
+2468 2502 l
+2474 2480 l
+2479 2457 l
+2485 2435 l
+2489 2417 l
+2490 2413 l
+2495 2392 l
+2499 2371 l
+2504 2349 l
+2509 2328 l
+2512 2317 l
+2513 2307 l
+2517 2287 l
+2521 2267 l
+2525 2246 l
+2529 2226 l
+2531 2218 l
+2533 2206 l
+2536 2187 l
+2539 2168 l
+2542 2148 l
+2546 2129 l
+2548 2120 l
+2549 2110 l
+2551 2092 l
+2554 2073 l
+2557 2055 l
+2559 2036 l
+2561 2024 l
+2562 2018 l
+2564 2000 l
+2566 1983 l
+2568 1965 l
+2570 1947 l
+2573 1930 l
+2573 1929 l
+2574 1913 l
+2576 1896 l
+2577 1879 l
+2579 1862 l
+2581 1845 l
+2582 1839 l
+2582 1828 l
+2583 1812 l
+2585 1796 l
+2586 1780 l
+2587 1764 l
+2588 1750 l
+2588 1747 l
+2589 1732 l
+2590 1716 l
+2590 1701 l
+2591 1685 l
+2592 1670 l
+2593 1664 l
+2593 1655 l
+2593 1640 l
+2593 1625 l
+2594 1610 l
+2594 1595 l
+2595 1580 l
+2595 1566 l
+2595 1552 l
+2595 1538 l
+2595 1523 l
+2595 1509 l
+2595 1500 l
+2595 1495 l
+2595 1481 l
+2595 1468 l
+2595 1454 l
+2594 1440 l
+2594 1427 l
+2594 1423 l
+2594 1414 l
+2593 1400 l
+2593 1387 l
+2592 1374 l
+2592 1361 l
+2592 1349 l
+2592 1348 l
+2591 1336 l
+2590 1323 l
+2589 1310 l
+2589 1298 l
+2588 1286 l
+2588 1278 l
+2587 1273 l
+2586 1261 l
+2585 1249 l
+2584 1237 l
+2583 1225 l
+2582 1213 l
+2582 1210 l
+2581 1201 l
+2580 1190 l
+2579 1178 l
+2578 1167 l
+2577 1155 l
+2576 1145 l
+2576 1144 l
+2574 1133 l
+2573 1122 l
+2572 1111 l
+2570 1100 l
+2569 1089 l
+2568 1084 l
+2568 1078 l
+2566 1067 l
+2565 1057 l
+2563 1046 l
+2562 1035 l
+2560 1025 l
+2559 1015 l
+2557 1004 l
+2555 994 l
+2554 984 l
+2552 974 l
+2551 970 l
+2550 964 l
+2549 954 l
+2547 945 l
+2545 935 l
+2543 925 l
+2542 917 l
+2542 916 l
+2540 906 l
+2538 897 l
+2536 887 l
+2534 878 l
+2532 869 l
+2532 868 l
+2530 860 l
+2528 851 l
+2526 842 l
+2524 833 l
+2522 824 l
+2522 821 l
+2520 815 l
+2518 806 l
+2516 798 l
+2514 789 l
+2512 781 l
+2511 776 l
+2510 772 l
+2508 764 l
+2506 756 l
+2503 747 l
+2501 739 l
+2500 734 l
+2499 731 l
+2497 723 l
+2495 715 l
+2492 707 l
+2490 699 l
+2489 695 l
+2488 692 l
+2486 684 l
+2483 676 l
+2481 669 l
+2479 661 l
+2478 658 l
+2476 654 l
+2474 646 l
+2472 639 l
+2469 632 l
+2467 625 l
+2466 623 l
+2465 618 l
+2462 611 l
+2460 604 l
+2458 597 l
+2455 590 l
+2453 583 l
+2450 576 l
+2448 569 l
+2445 563 l
+2444 559 l
+2443 556 l
+2441 550 l
+2438 543 l
+2436 537 l
+2433 530 l
+2431 524 l
+2428 518 l
+2426 512 l
+2423 506 l
+2422 502 l
+2421 500 l
+2418 494 l
+2416 488 l
+2413 482 l
+2411 477 l
+2411 476 l
+2408 470 l
+2406 464 l
+2403 459 l
+2401 453 l
+2400 453 l
+2398 448 l
+2395 442 l
+2393 437 l
+2390 431 l
+2390 430 l
+2388 426 l
+2385 421 l
+2383 415 l
+2380 410 l
+2380 409 l
+2378 405 l
+2375 400 l
+2372 395 l
+2370 390 l
+2370 389 l
+2367 385 l
+2365 380 l
+2362 375 l
+2360 371 l
+2357 366 l
+2355 361 l
+2352 357 l
+2350 354 l
+2349 352 l
+2347 348 l
+2344 343 l
+2342 339 l
+2341 337 l
+2339 334 l
+2337 330 l
+2334 326 l
+2332 322 l
+2329 317 l
+2327 313 l
+2324 309 l
+2323 308 l
+2321 305 l
+2319 301 l
+2316 297 l
+2315 295 l
+2314 293 l
+2311 290 l
+2309 286 l
+2306 282 l
+2304 278 l
+2301 275 l
+2299 271 l
+2298 271 l
+2296 268 l
+2294 264 l
+2291 261 l
+2291 260 l
+2289 257 l
+2286 254 l
+2284 250 l
+2283 249 l
+2282 247 l
+2279 244 l
+2277 241 l
+2276 240 l
+2274 237 l
+2272 234 l
+2269 231 l
+2267 228 l
+2264 225 l
+2262 223 l
+2262 222 l
+2260 219 l
+2257 217 l
+2256 215 l
+2255 214 l
+2253 211 l
+2250 208 l
+2248 205 l
+2246 203 l
+2244 201 l
+2243 200 l
+2241 198 l
+2239 195 l
+2238 195 l
+2236 193 l
+2234 190 l
+2233 189 l
+2232 188 l
+2229 185 l
+2227 183 l
+2225 181 l
+2223 178 l
+2222 178 l
+2220 176 l
+2218 174 l
+2217 173 l
+2216 172 l
+2214 170 l
+2213 169 l
+2211 168 l
+2209 165 l
+2208 165 l
+2207 163 l
+2205 161 l
+2204 161 l
+2203 160 l
+2201 158 l
+2200 157 l
+2199 156 l
+2196 154 l
+2194 152 l
+2192 150 l
+2190 149 l
+2189 148 l
+2188 147 l
+2186 145 l
+2184 144 l
+2182 142 l
+2180 140 l
+2179 140 l
+2178 139 l
+2176 138 l
+2176 137 l
+2174 136 l
+2172 134 l
+2171 134 l
+2170 133 l
+2169 132 l
+2168 132 l
+2166 130 l
+2165 129 l
+2164 129 l
+2163 128 l
+2162 127 l
+2161 126 l
+2160 126 l
+2159 125 l
+2158 125 l
+2157 124 l
+2155 123 l
+2153 122 l
+2152 121 l
+2151 120 l
+2150 119 l
+2149 119 l
+2148 118 l
+2147 118 l
+2146 117 l
+2145 117 l
+2145 116 l
+2144 116 l
+2143 116 l
+2143 115 l
+2142 115 l
+2141 114 l
+2140 114 l
+2139 113 l
+2138 113 l
+2138 112 l
+2137 112 l
+2136 112 l
+2136 111 l
+2135 111 l
+s
+1426 2481 m
+1432 2478 l
+1469 2462 l
+1507 2445 l
+1509 2444 l
+1558 2418 l
+1585 2403 l
+1619 2381 l
+1659 2355 l
+1729 2302 l
+1795 2244 l
+1856 2183 l
+1882 2153 l
+1914 2118 l
+1932 2095 l
+1967 2051 l
+1970 2046 l
+1998 2007 l
+2016 1981 l
+2023 1970 l
+2044 1937 l
+2061 1910 l
+2065 1904 l
+2081 1875 l
+2099 1845 l
+2103 1839 l
+2113 1819 l
+2126 1793 l
+2140 1766 l
+2151 1743 l
+2162 1719 l
+2173 1695 l
+2173 1694 l
+2182 1673 l
+2191 1651 l
+2201 1629 l
+2203 1623 l
+2208 1608 l
+2216 1588 l
+2224 1568 l
+2230 1552 l
+2231 1548 l
+2237 1529 l
+2243 1510 l
+2250 1491 l
+2253 1482 l
+2256 1473 l
+2261 1455 l
+2266 1437 l
+2272 1419 l
+2273 1414 l
+2276 1402 l
+2280 1386 l
+2285 1369 l
+2289 1352 l
+2291 1347 l
+2293 1336 l
+2297 1321 l
+2300 1305 l
+2304 1289 l
+2306 1282 l
+2307 1274 l
+2310 1259 l
+2313 1244 l
+2316 1229 l
+2318 1219 l
+2319 1215 l
+2321 1201 l
+2323 1187 l
+2326 1172 l
+2328 1159 l
+2328 1158 l
+2330 1145 l
+2332 1132 l
+2334 1118 l
+2336 1105 l
+2336 1100 l
+2337 1092 l
+2339 1079 l
+2340 1066 l
+2341 1054 l
+2343 1044 l
+2343 1041 l
+2344 1029 l
+2345 1017 l
+2346 1005 l
+2347 993 l
+2347 990 l
+2348 981 l
+2348 969 l
+2349 958 l
+2350 946 l
+2350 939 l
+2350 935 l
+2351 924 l
+2351 913 l
+2351 902 l
+2352 891 l
+2352 890 l
+2352 881 l
+2352 870 l
+2352 859 l
+2352 849 l
+2352 843 l
+2352 839 l
+2352 829 l
+2352 819 l
+2352 809 l
+2352 799 l
+2351 789 l
+2351 779 l
+2351 770 l
+2350 760 l
+2350 757 l
+2350 751 l
+2349 742 l
+2349 733 l
+2348 724 l
+2348 717 l
+2348 715 l
+2347 706 l
+2346 697 l
+2346 688 l
+2345 680 l
+2345 679 l
+2344 671 l
+2343 663 l
+2342 654 l
+2341 646 l
+2341 643 l
+2340 638 l
+2339 630 l
+2338 622 l
+2337 614 l
+2337 609 l
+2336 606 l
+2335 598 l
+2334 591 l
+2333 583 l
+2332 578 l
+2332 576 l
+2331 568 l
+2329 561 l
+2328 553 l
+2327 548 l
+2327 546 l
+2326 539 l
+2324 532 l
+2323 525 l
+2322 519 l
+2322 518 l
+2320 511 l
+2319 505 l
+2317 498 l
+2316 493 l
+2316 491 l
+2314 485 l
+2313 478 l
+2311 472 l
+2311 468 l
+2310 466 l
+2308 459 l
+2307 453 l
+2305 447 l
+2305 444 l
+2304 441 l
+2302 435 l
+2300 429 l
+2299 423 l
+2299 422 l
+2297 418 l
+2296 412 l
+2294 406 l
+2293 402 l
+2292 401 l
+2290 395 l
+2289 390 l
+2287 384 l
+2287 382 l
+2285 379 l
+2284 374 l
+2282 368 l
+2280 364 l
+2280 363 l
+2278 358 l
+2277 353 l
+2275 348 l
+2274 347 l
+2273 343 l
+2271 339 l
+2269 334 l
+2268 331 l
+2268 329 l
+2266 324 l
+2264 320 l
+2262 316 l
+2262 315 l
+2260 311 l
+2258 306 l
+2257 302 l
+2255 298 l
+2253 294 l
+2251 289 l
+2249 285 l
+2247 281 l
+2245 277 l
+2243 273 l
+2242 269 l
+2240 265 l
+2238 262 l
+2236 258 l
+2234 255 l
+2234 254 l
+2232 250 l
+2230 247 l
+2229 245 l
+2228 243 l
+2226 240 l
+2224 236 l
+2224 235 l
+2223 233 l
+2221 230 l
+2219 227 l
+2219 226 l
+2217 223 l
+2215 220 l
+2214 218 l
+2213 217 l
+2211 214 l
+2209 211 l
+2207 208 l
+2206 205 l
+2205 204 l
+2204 202 l
+2202 199 l
+2200 197 l
+2200 196 l
+2198 194 l
+2196 191 l
+2194 188 l
+2193 186 l
+2192 185 l
+2191 183 l
+2189 181 l
+2188 179 l
+2187 178 l
+2185 176 l
+2184 174 l
+2183 173 l
+2182 171 l
+2181 170 l
+2180 169 l
+2178 166 l
+2177 165 l
+2176 164 l
+2174 162 l
+2174 161 l
+2173 160 l
+2171 158 l
+2170 157 l
+2169 156 l
+2167 154 l
+2166 152 l
+2164 150 l
+2162 148 l
+2161 147 l
+2160 146 l
+2159 144 l
+2157 143 l
+2156 141 l
+2155 141 l
+2154 139 l
+2153 139 l
+2152 137 l
+2151 137 l
+2150 136 l
+2149 134 l
+2147 133 l
+2147 132 l
+2145 131 l
+2145 130 l
+2144 130 l
+2143 129 l
+2142 128 l
+2141 127 l
+2139 126 l
+2139 125 l
+2138 124 l
+2137 124 l
+2136 123 l
+2134 122 l
+2133 121 l
+2133 120 l
+2131 119 l
+2130 118 l
+2129 118 l
+2128 117 l
+2127 116 l
+2126 115 l
+2125 115 l
+2124 114 l
+2123 113 l
+2122 112 l
+2121 112 l
+2120 111 l
+2119 111 l
+2119 110 l
+2118 110 l
+2117 109 l
+2116 109 l
+2116 108 l
+2115 108 l
+2114 108 l
+2114 107 l
+s
+557 634 m
+557 635 l
+559 643 l
+561 651 l
+563 659 l
+565 667 l
+567 676 l
+569 684 l
+571 692 l
+574 700 l
+576 708 l
+578 716 l
+580 723 l
+583 731 l
+585 739 l
+588 747 l
+590 755 l
+592 763 l
+595 771 l
+598 779 l
+600 787 l
+603 795 l
+605 803 l
+608 811 l
+611 819 l
+614 827 l
+616 835 l
+619 842 l
+622 850 l
+625 858 l
+628 866 l
+631 874 l
+634 882 l
+637 889 l
+640 897 l
+643 905 l
+647 913 l
+650 921 l
+653 928 l
+657 936 l
+660 944 l
+663 952 l
+667 959 l
+670 967 l
+674 975 l
+677 982 l
+681 990 l
+685 998 l
+688 1005 l
+692 1013 l
+696 1021 l
+700 1028 l
+703 1036 l
+707 1043 l
+711 1051 l
+715 1059 l
+719 1066 l
+724 1074 l
+728 1081 l
+732 1089 l
+736 1096 l
+740 1103 l
+745 1111 l
+749 1118 l
+754 1126 l
+758 1133 l
+761 1138 l
+763 1140 l
+767 1148 l
+772 1155 l
+776 1162 l
+781 1170 l
+786 1177 l
+790 1184 l
+795 1191 l
+800 1199 l
+805 1206 l
+810 1213 l
+815 1220 l
+820 1227 l
+825 1234 l
+831 1241 l
+836 1248 l
+841 1255 l
+847 1262 l
+852 1269 l
+858 1276 l
+863 1283 l
+869 1290 l
+875 1297 l
+881 1303 l
+886 1310 l
+892 1317 l
+898 1323 l
+904 1330 l
+911 1337 l
+917 1343 l
+923 1350 l
+924 1351 l
+929 1356 l
+936 1363 l
+942 1369 l
+949 1376 l
+955 1382 l
+962 1388 l
+969 1394 l
+975 1401 l
+982 1407 l
+989 1413 l
+996 1419 l
+1003 1425 l
+1011 1431 l
+1018 1437 l
+1026 1443 l
+1033 1449 l
+1041 1454 l
+1049 1460 l
+1056 1465 l
+1064 1471 l
+1072 1476 l
+1080 1482 l
+1088 1487 l
+1097 1493 l
+1105 1498 l
+1114 1503 l
+1122 1508 l
+1131 1513 l
+1140 1518 l
+1149 1523 l
+1158 1527 l
+1167 1532 l
+1177 1536 l
+1186 1541 l
+1188 1541 l
+1196 1545 l
+1206 1549 l
+1216 1553 l
+1226 1557 l
+1236 1561 l
+1247 1565 l
+1257 1568 l
+1268 1572 l
+1279 1575 l
+1291 1578 l
+1300 1580 l
+1302 1581 l
+1314 1583 l
+1326 1586 l
+1338 1588 l
+1350 1590 l
+1363 1592 l
+1376 1594 l
+1389 1596 l
+1401 1597 l
+1403 1597 l
+1417 1597 l
+1431 1598 l
+1446 1598 l
+1461 1598 l
+1477 1597 l
+1493 1596 l
+1510 1595 l
+1528 1592 l
+1546 1589 l
+1565 1586 l
+1576 1584 l
+1585 1581 l
+1607 1575 l
+1630 1568 l
+1653 1561 l
+1655 1560 l
+1683 1548 l
+1714 1534 l
+1722 1531 l
+1754 1513 l
+1786 1494 l
+1812 1476 l
+1843 1453 l
+1895 1408 l
+1926 1377 l
+1942 1361 l
+1975 1323 l
+1984 1312 l
+2004 1286 l
+2022 1262 l
+2027 1254 l
+2045 1226 l
+2055 1211 l
+2062 1201 l
+2075 1177 l
+2085 1161 l
+2088 1155 l
+2099 1134 l
+2110 1113 l
+2111 1110 l
+2119 1095 l
+2127 1076 l
+2134 1061 l
+2136 1058 l
+2142 1041 l
+2149 1024 l
+2154 1012 l
+2156 1007 l
+2162 992 l
+2167 976 l
+2172 965 l
+2173 961 l
+2177 947 l
+2182 932 l
+2187 918 l
+2191 904 l
+2194 891 l
+2198 877 l
+2199 874 l
+2201 864 l
+2205 852 l
+2208 839 l
+2210 831 l
+2211 827 l
+2213 815 l
+2216 803 l
+2218 791 l
+2219 789 l
+2220 780 l
+2222 768 l
+2224 757 l
+2226 750 l
+2226 746 l
+2228 735 l
+2229 725 l
+2231 714 l
+2231 712 l
+2232 704 l
+2233 694 l
+2235 684 l
+2236 676 l
+2236 674 l
+2237 664 l
+2237 655 l
+2238 645 l
+2239 641 l
+2239 636 l
+2240 627 l
+2240 618 l
+2241 609 l
+2241 600 l
+2241 591 l
+2242 583 l
+2242 578 l
+2242 574 l
+2242 566 l
+2242 558 l
+2242 550 l
+2242 548 l
+2242 542 l
+2242 534 l
+2242 526 l
+2242 521 l
+2242 518 l
+2242 511 l
+2241 503 l
+2241 496 l
+2241 494 l
+2241 489 l
+2240 481 l
+2240 474 l
+2240 470 l
+2240 467 l
+2239 460 l
+2238 453 l
+2238 447 l
+2238 446 l
+2237 440 l
+2236 434 l
+2236 427 l
+2236 424 l
+2235 421 l
+2234 414 l
+2233 408 l
+2233 404 l
+2233 402 l
+2232 396 l
+2231 390 l
+2230 384 l
+2229 378 l
+2228 373 l
+2227 367 l
+2227 366 l
+2226 362 l
+2225 356 l
+2224 351 l
+2224 349 l
+2223 345 l
+2222 340 l
+2221 335 l
+2220 333 l
+2219 330 l
+2218 325 l
+2217 320 l
+2217 318 l
+2216 315 l
+2215 310 l
+2213 305 l
+2213 304 l
+2212 301 l
+2211 296 l
+2210 291 l
+2209 290 l
+2208 287 l
+2207 282 l
+2206 278 l
+2204 274 l
+2203 270 l
+2202 266 l
+2202 265 l
+2200 261 l
+2199 257 l
+2198 256 l
+2197 253 l
+2196 249 l
+2195 246 l
+2195 245 l
+2193 242 l
+2192 238 l
+2191 236 l
+2190 234 l
+2189 231 l
+2188 227 l
+2187 227 l
+2186 224 l
+2185 220 l
+2184 219 l
+2183 217 l
+2182 214 l
+2180 211 l
+2180 210 l
+2179 207 l
+2177 204 l
+2176 201 l
+2174 198 l
+2174 197 l
+2173 195 l
+2171 192 l
+2170 190 l
+2170 189 l
+2168 186 l
+2167 184 l
+2165 181 l
+2164 179 l
+2164 178 l
+2162 176 l
+2161 174 l
+2161 173 l
+2159 171 l
+2158 169 l
+2158 168 l
+2156 166 l
+2156 164 l
+2155 163 l
+2153 161 l
+2153 160 l
+2152 159 l
+2150 157 l
+2150 156 l
+2149 154 l
+2148 153 l
+2148 152 l
+2146 150 l
+2145 149 l
+2145 148 l
+2143 146 l
+2142 144 l
+2141 143 l
+2140 142 l
+2139 141 l
+2139 140 l
+2137 139 l
+2136 138 l
+2136 137 l
+2135 135 l
+2134 135 l
+2133 134 l
+2133 133 l
+2132 132 l
+2131 131 l
+2130 130 l
+2129 129 l
+2128 127 l
+2127 127 l
+2126 126 l
+2126 125 l
+2125 125 l
+2124 124 l
+2124 123 l
+2123 122 l
+2122 122 l
+2122 121 l
+2121 120 l
+2120 120 l
+2120 119 l
+2119 119 l
+2118 118 l
+2117 117 l
+2116 116 l
+2115 115 l
+2114 115 l
+2114 114 l
+2113 113 l
+2112 113 l
+2112 112 l
+2111 111 l
+2110 111 l
+2110 110 l
+2109 110 l
+2108 110 l
+2108 109 l
+2107 109 l
+2107 108 l
+2106 108 l
+2106 107 l
+2105 107 l
+2104 107 l
+2104 106 l
+2103 106 l
+2103 105 l
+2102 105 l
+s
+995 90 m
+995 97 l
+995 104 l
+995 111 l
+995 117 l
+995 124 l
+995 131 l
+995 138 l
+996 144 l
+996 151 l
+996 158 l
+996 165 l
+997 171 l
+997 178 l
+997 185 l
+998 191 l
+998 198 l
+999 205 l
+999 212 l
+1000 218 l
+1000 225 l
+1001 232 l
+1002 239 l
+1002 245 l
+1003 252 l
+1004 259 l
+1004 266 l
+1005 272 l
+1006 279 l
+1007 286 l
+1008 292 l
+1009 299 l
+1010 306 l
+1011 313 l
+1012 319 l
+1013 326 l
+1014 333 l
+1015 339 l
+1016 346 l
+1017 353 l
+1018 359 l
+1019 366 l
+1021 373 l
+1022 380 l
+1023 386 l
+1025 393 l
+1026 400 l
+1027 406 l
+1029 413 l
+1030 419 l
+1032 426 l
+1033 433 l
+1035 439 l
+1036 446 l
+1038 453 l
+1040 459 l
+1041 466 l
+1043 473 l
+1045 479 l
+1047 486 l
+1049 492 l
+1051 499 l
+1052 505 l
+1054 512 l
+1056 519 l
+1058 525 l
+1060 532 l
+1063 538 l
+1065 545 l
+1067 551 l
+1069 558 l
+1071 564 l
+1074 571 l
+1076 577 l
+1078 584 l
+1081 590 l
+1083 597 l
+1086 603 l
+1088 610 l
+1091 616 l
+1093 623 l
+1096 629 l
+1098 635 l
+1101 642 l
+1104 648 l
+1107 655 l
+1110 661 l
+1112 667 l
+1115 674 l
+1118 680 l
+1121 686 l
+1123 690 l
+1124 693 l
+1127 699 l
+1130 705 l
+1134 711 l
+1137 718 l
+1140 724 l
+1143 730 l
+1146 736 l
+1150 743 l
+1153 749 l
+1157 755 l
+1160 761 l
+1164 767 l
+1167 773 l
+1171 779 l
+1175 785 l
+1178 791 l
+1182 797 l
+1186 803 l
+1190 809 l
+1194 815 l
+1198 821 l
+1202 827 l
+1206 833 l
+1210 839 l
+1214 845 l
+1219 851 l
+1223 856 l
+1227 862 l
+1232 868 l
+1237 874 l
+1241 879 l
+1246 885 l
+1251 890 l
+1255 896 l
+1260 902 l
+1265 907 l
+1270 912 l
+1270 913 l
+1275 918 l
+1280 923 l
+1285 929 l
+1291 934 l
+1296 939 l
+1301 945 l
+1307 950 l
+1312 955 l
+1318 960 l
+1323 965 l
+1329 970 l
+1335 975 l
+1341 980 l
+1347 985 l
+1353 990 l
+1359 995 l
+1366 999 l
+1372 1004 l
+1379 1008 l
+1385 1013 l
+1389 1015 l
+1392 1017 l
+1399 1022 l
+1406 1026 l
+1412 1030 l
+1420 1035 l
+1427 1039 l
+1434 1043 l
+1442 1046 l
+1449 1050 l
+1457 1054 l
+1465 1058 l
+1473 1061 l
+1481 1064 l
+1489 1068 l
+1490 1068 l
+1498 1071 l
+1507 1074 l
+1516 1077 l
+1525 1079 l
+1534 1082 l
+1543 1084 l
+1553 1086 l
+1563 1088 l
+1573 1090 l
+1577 1091 l
+1584 1092 l
+1594 1093 l
+1605 1094 l
+1617 1095 l
+1628 1096 l
+1640 1096 l
+1653 1096 l
+1666 1095 l
+1680 1094 l
+1694 1092 l
+1709 1090 l
+1721 1088 l
+1725 1087 l
+1742 1083 l
+1760 1078 l
+1780 1072 l
+1781 1071 l
+1803 1062 l
+1829 1051 l
+1835 1048 l
+1864 1031 l
+1882 1020 l
+1924 988 l
+1961 955 l
+1994 920 l
+1996 918 l
+2022 886 l
+2024 884 l
+2039 861 l
+2049 848 l
+2055 838 l
+2067 818 l
+2071 812 l
+2078 800 l
+2087 782 l
+2091 776 l
+2096 766 l
+2103 750 l
+2108 741 l
+2110 735 l
+2116 721 l
+2122 707 l
+2127 694 l
+2132 681 l
+2135 674 l
+2136 668 l
+2140 657 l
+2144 645 l
+2145 642 l
+2148 633 l
+2151 622 l
+2154 611 l
+2157 601 l
+2159 590 l
+2162 581 l
+2162 580 l
+2164 570 l
+2166 560 l
+2168 553 l
+2168 551 l
+2170 542 l
+2171 532 l
+2173 526 l
+2173 523 l
+2174 515 l
+2176 506 l
+2177 500 l
+2177 498 l
+2178 489 l
+2179 481 l
+2180 476 l
+2180 473 l
+2180 465 l
+2181 458 l
+2182 453 l
+2182 450 l
+2182 443 l
+2183 435 l
+2183 431 l
+2183 428 l
+2183 421 l
+2184 414 l
+2184 410 l
+2184 407 l
+2184 400 l
+2184 394 l
+2184 391 l
+2184 387 l
+2184 381 l
+2184 374 l
+2184 372 l
+2184 368 l
+2183 362 l
+2183 356 l
+2183 355 l
+2183 350 l
+2182 344 l
+2182 339 l
+2182 333 l
+2181 328 l
+2181 323 l
+2181 322 l
+2180 317 l
+2180 311 l
+2179 309 l
+2179 306 l
+2178 301 l
+2178 296 l
+2177 291 l
+2176 286 l
+2176 283 l
+2175 282 l
+2175 277 l
+2174 272 l
+2174 271 l
+2173 268 l
+2172 264 l
+2171 260 l
+2171 259 l
+2170 255 l
+2169 251 l
+2169 249 l
+2168 247 l
+2168 242 l
+2167 239 l
+2167 238 l
+2166 235 l
+2165 231 l
+2164 230 l
+2163 227 l
+2162 223 l
+2162 222 l
+2161 220 l
+2160 216 l
+2160 214 l
+2159 212 l
+2158 209 l
+2157 206 l
+2156 202 l
+2155 199 l
+2154 196 l
+2152 193 l
+2152 192 l
+2151 190 l
+2150 187 l
+2150 186 l
+2149 184 l
+2148 181 l
+2147 178 l
+2145 175 l
+2144 173 l
+2143 170 l
+2142 167 l
+2141 166 l
+2140 165 l
+2139 162 l
+2139 161 l
+2138 160 l
+2137 158 l
+2137 157 l
+2136 155 l
+2135 153 l
+2134 153 l
+2133 151 l
+2133 150 l
+2132 149 l
+2131 146 l
+2129 144 l
+2129 143 l
+2128 142 l
+2127 140 l
+2126 139 l
+2125 138 l
+2125 137 l
+2124 135 l
+2123 135 l
+2122 133 l
+2121 131 l
+2120 131 l
+2120 130 l
+2119 129 l
+2119 128 l
+2118 127 l
+2117 127 l
+2116 125 l
+2115 124 l
+2115 123 l
+2114 122 l
+2113 121 l
+2112 120 l
+2112 119 l
+2111 119 l
+2110 118 l
+2109 117 l
+2108 116 l
+2107 115 l
+2107 114 l
+2106 114 l
+2106 113 l
+2105 112 l
+2104 112 l
+2104 111 l
+2103 111 l
+2103 110 l
+2102 110 l
+2102 109 l
+2101 109 l
+2101 108 l
+2100 108 l
+2100 107 l
+2099 107 l
+2098 106 l
+2097 106 l
+2097 105 l
+2096 105 l
+2096 104 l
+2095 104 l
+2095 103 l
+s
+1295 90 m
+1295 96 l
+1295 102 l
+1295 107 l
+1295 113 l
+1295 119 l
+1296 125 l
+1296 130 l
+1296 136 l
+1296 142 l
+1297 148 l
+1297 153 l
+1297 159 l
+1298 165 l
+1298 170 l
+1298 176 l
+1299 182 l
+1299 188 l
+1300 193 l
+1301 199 l
+1301 205 l
+1302 210 l
+1302 216 l
+1303 222 l
+1304 228 l
+1305 233 l
+1305 239 l
+1306 245 l
+1307 250 l
+1308 256 l
+1309 262 l
+1310 267 l
+1311 273 l
+1312 279 l
+1313 284 l
+1314 290 l
+1315 296 l
+1316 301 l
+1317 307 l
+1318 313 l
+1320 318 l
+1321 324 l
+1322 330 l
+1324 335 l
+1325 341 l
+1326 346 l
+1328 352 l
+1329 358 l
+1331 363 l
+1332 369 l
+1334 374 l
+1336 380 l
+1337 386 l
+1339 391 l
+1341 397 l
+1343 402 l
+1344 408 l
+1346 413 l
+1348 419 l
+1350 424 l
+1352 430 l
+1354 435 l
+1356 441 l
+1358 446 l
+1360 452 l
+1362 457 l
+1365 463 l
+1367 468 l
+1369 474 l
+1371 479 l
+1374 484 l
+1376 490 l
+1378 495 l
+1381 501 l
+1383 506 l
+1386 511 l
+1388 517 l
+1391 522 l
+1394 527 l
+1396 532 l
+1399 538 l
+1402 543 l
+1405 548 l
+1408 553 l
+1411 559 l
+1414 564 l
+1417 569 l
+1420 574 l
+1423 579 l
+1426 584 l
+1429 590 l
+1433 595 l
+1436 600 l
+1439 605 l
+1443 610 l
+1446 615 l
+1450 620 l
+1454 624 l
+1457 629 l
+1461 634 l
+1465 639 l
+1469 644 l
+1473 649 l
+1477 653 l
+1481 658 l
+1485 663 l
+1489 667 l
+1494 672 l
+1498 677 l
+1502 681 l
+1507 686 l
+1511 690 l
+1516 695 l
+1520 699 l
+1525 703 l
+1530 708 l
+1535 712 l
+1540 716 l
+1545 720 l
+1550 724 l
+1556 728 l
+1561 732 l
+1566 736 l
+1572 740 l
+1576 742 l
+1578 744 l
+1583 747 l
+1589 751 l
+1595 754 l
+1601 758 l
+1607 761 l
+1614 765 l
+1620 768 l
+1627 771 l
+1634 774 l
+1641 777 l
+1648 780 l
+1655 782 l
+1662 785 l
+1670 787 l
+1678 789 l
+1686 791 l
+1694 793 l
+1702 795 l
+1711 797 l
+1720 798 l
+1722 798 l
+1729 799 l
+1739 800 l
+1748 800 l
+1759 800 l
+1769 800 l
+1780 800 l
+1781 800 l
+1793 798 l
+1805 796 l
+1818 794 l
+1831 791 l
+1833 791 l
+1849 786 l
+1866 780 l
+1875 777 l
+1887 771 l
+1912 758 l
+1914 758 l
+1948 735 l
+1977 711 l
+2004 685 l
+2019 667 l
+2026 659 l
+2039 642 l
+2046 633 l
+2053 622 l
+2064 606 l
+2065 604 l
+2074 588 l
+2079 580 l
+2082 574 l
+2089 560 l
+2092 554 l
+2095 547 l
+2100 535 l
+2103 530 l
+2105 523 l
+2109 512 l
+2112 506 l
+2113 501 l
+2117 491 l
+2120 482 l
+2121 481 l
+2123 472 l
+2126 462 l
+2127 460 l
+2129 453 l
+2131 444 l
+2133 439 l
+2133 435 l
+2135 427 l
+2137 419 l
+2138 411 l
+2140 403 l
+2141 399 l
+2141 396 l
+2143 388 l
+2144 381 l
+2145 374 l
+2146 367 l
+2146 364 l
+2146 360 l
+2147 354 l
+2148 347 l
+2148 341 l
+2148 334 l
+2149 331 l
+2149 328 l
+2149 322 l
+2149 317 l
+2149 316 l
+2149 311 l
+2150 305 l
+2150 303 l
+2150 300 l
+2150 294 l
+2150 290 l
+2149 289 l
+2149 284 l
+2149 279 l
+2149 278 l
+2149 274 l
+2149 269 l
+2149 266 l
+2148 264 l
+2148 259 l
+2148 255 l
+2147 250 l
+2147 246 l
+2147 245 l
+2146 241 l
+2146 237 l
+2145 236 l
+2145 233 l
+2144 229 l
+2144 227 l
+2144 225 l
+2143 221 l
+2143 218 l
+2142 217 l
+2142 213 l
+2141 210 l
+2140 206 l
+2140 203 l
+2139 202 l
+2139 199 l
+2138 196 l
+2137 192 l
+2136 190 l
+2136 189 l
+2135 186 l
+2135 184 l
+2134 183 l
+2133 180 l
+2133 178 l
+2133 177 l
+2132 174 l
+2131 173 l
+2131 171 l
+2130 168 l
+2129 166 l
+2128 163 l
+2127 160 l
+2126 159 l
+2126 158 l
+2125 155 l
+2124 153 l
+2123 151 l
+2122 148 l
+2121 146 l
+2120 145 l
+2120 144 l
+2119 142 l
+2119 141 l
+2118 140 l
+2117 139 l
+2117 138 l
+2116 136 l
+2115 134 l
+2114 134 l
+2114 132 l
+2113 131 l
+2112 129 l
+2111 127 l
+2110 127 l
+2109 126 l
+2109 125 l
+2108 124 l
+2107 122 l
+2106 121 l
+2106 120 l
+2105 120 l
+2105 119 l
+2104 118 l
+2103 117 l
+2102 116 l
+2102 115 l
+2101 114 l
+2101 113 l
+2100 113 l
+2099 112 l
+2099 111 l
+2098 111 l
+2098 110 l
+2097 110 l
+2097 109 l
+2096 108 l
+2095 107 l
+2094 107 l
+2094 106 l
+2093 106 l
+2093 105 l
+2092 104 l
+2091 104 l
+2091 103 l
+2090 103 l
+2090 102 l
+s
+1488 90 m
+1488 95 l
+1488 100 l
+1488 105 l
+1489 110 l
+1489 115 l
+1489 120 l
+1489 125 l
+1489 130 l
+1490 135 l
+1490 140 l
+1490 145 l
+1491 150 l
+1491 155 l
+1491 160 l
+1492 165 l
+1492 170 l
+1493 175 l
+1493 179 l
+1494 184 l
+1495 189 l
+1495 194 l
+1496 199 l
+1497 204 l
+1497 209 l
+1498 214 l
+1499 219 l
+1500 224 l
+1501 229 l
+1502 234 l
+1503 239 l
+1504 243 l
+1505 248 l
+1506 253 l
+1507 258 l
+1508 263 l
+1509 268 l
+1510 273 l
+1512 278 l
+1513 282 l
+1514 287 l
+1515 292 l
+1517 297 l
+1518 302 l
+1520 307 l
+1521 311 l
+1523 316 l
+1524 321 l
+1525 323 l
+1526 326 l
+1527 331 l
+1529 335 l
+1531 340 l
+1532 345 l
+1534 350 l
+1536 354 l
+1538 359 l
+1540 364 l
+1542 368 l
+1544 373 l
+1546 378 l
+1548 383 l
+1550 387 l
+1552 392 l
+1554 396 l
+1556 401 l
+1558 406 l
+1561 410 l
+1563 415 l
+1566 419 l
+1568 424 l
+1571 428 l
+1573 433 l
+1576 437 l
+1578 442 l
+1581 446 l
+1584 451 l
+1587 455 l
+1590 459 l
+1592 464 l
+1595 468 l
+1598 472 l
+1602 477 l
+1605 481 l
+1608 485 l
+1611 489 l
+1615 494 l
+1618 498 l
+1622 502 l
+1625 506 l
+1629 510 l
+1632 514 l
+1636 518 l
+1640 522 l
+1643 526 l
+1647 530 l
+1651 534 l
+1655 537 l
+1659 541 l
+1664 545 l
+1668 548 l
+1672 552 l
+1677 555 l
+1681 559 l
+1686 562 l
+1691 566 l
+1696 569 l
+1697 569 l
+1701 572 l
+1706 575 l
+1711 578 l
+1716 581 l
+1721 584 l
+1727 587 l
+1733 590 l
+1738 592 l
+1744 595 l
+1751 597 l
+1757 600 l
+1758 600 l
+1763 602 l
+1770 604 l
+1777 606 l
+1784 607 l
+1791 609 l
+1798 610 l
+1806 611 l
+1810 612 l
+1814 612 l
+1823 613 l
+1831 613 l
+1841 613 l
+1850 612 l
+1855 612 l
+1861 611 l
+1872 610 l
+1883 607 l
+1894 605 l
+1896 604 l
+1911 599 l
+1927 593 l
+1950 581 l
+1956 578 l
+1982 561 l
+2004 542 l
+2023 522 l
+2032 512 l
+2040 502 l
+2048 491 l
+2054 483 l
+2059 475 l
+2067 463 l
+2069 460 l
+2076 447 l
+2078 443 l
+2082 435 l
+2087 425 l
+2087 424 l
+2092 414 l
+2095 406 l
+2096 404 l
+2100 395 l
+2102 389 l
+2103 385 l
+2106 377 l
+2108 372 l
+2108 368 l
+2111 361 l
+2112 355 l
+2113 353 l
+2115 345 l
+2116 340 l
+2117 338 l
+2118 331 l
+2119 325 l
+2120 324 l
+2121 317 l
+2122 311 l
+2123 305 l
+2124 298 l
+2125 293 l
+2125 287 l
+2126 286 l
+2126 281 l
+2126 276 l
+2127 274 l
+2127 270 l
+2127 265 l
+2127 263 l
+2127 260 l
+2128 255 l
+2128 252 l
+2128 250 l
+2128 245 l
+2128 242 l
+2128 240 l
+2128 236 l
+2128 233 l
+2128 231 l
+2127 227 l
+2127 224 l
+2127 223 l
+2127 219 l
+2127 216 l
+2127 215 l
+2126 211 l
+2126 208 l
+2126 207 l
+2126 203 l
+2125 201 l
+2125 199 l
+2125 196 l
+2124 194 l
+2124 192 l
+2124 189 l
+2124 188 l
+2123 185 l
+2122 182 l
+2122 179 l
+2121 177 l
+2121 176 l
+2121 173 l
+2120 171 l
+2120 170 l
+2119 167 l
+2118 164 l
+2118 162 l
+2118 161 l
+2117 159 l
+2117 158 l
+2116 156 l
+2115 154 l
+2115 151 l
+2114 150 l
+2114 149 l
+2113 147 l
+2113 146 l
+2112 144 l
+2112 143 l
+2111 142 l
+2111 140 l
+2110 140 l
+2110 138 l
+2109 138 l
+2109 136 l
+2108 135 l
+2108 134 l
+2107 132 l
+2106 130 l
+2105 128 l
+2104 126 l
+2103 125 l
+2103 124 l
+2103 123 l
+2102 123 l
+2102 122 l
+2101 121 l
+2101 120 l
+2100 119 l
+2100 118 l
+2099 117 l
+2098 116 l
+2097 115 l
+2097 114 l
+2096 113 l
+2096 112 l
+2095 112 l
+2095 111 l
+2094 111 l
+2094 110 l
+2093 109 l
+2092 108 l
+2092 107 l
+2091 107 l
+2091 106 l
+2090 106 l
+2090 105 l
+2089 105 l
+2089 104 l
+2088 104 l
+2088 103 l
+2087 103 l
+2087 102 l
+2086 102 l
+2086 101 l
+s
+1620 90 m
+1620 95 l
+1620 99 l
+1620 103 l
+1620 108 l
+1620 112 l
+1620 116 l
+1620 121 l
+1621 125 l
+1621 130 l
+1621 134 l
+1621 138 l
+1622 143 l
+1622 147 l
+1623 151 l
+1623 156 l
+1624 160 l
+1624 164 l
+1625 169 l
+1625 173 l
+1626 177 l
+1627 182 l
+1627 186 l
+1628 190 l
+1629 195 l
+1630 199 l
+1630 203 l
+1631 208 l
+1632 212 l
+1633 216 l
+1634 220 l
+1635 225 l
+1636 229 l
+1637 233 l
+1638 238 l
+1640 242 l
+1641 246 l
+1642 250 l
+1643 255 l
+1645 259 l
+1646 263 l
+1647 267 l
+1649 271 l
+1650 276 l
+1652 280 l
+1653 284 l
+1655 288 l
+1656 292 l
+1658 296 l
+1660 301 l
+1662 305 l
+1663 309 l
+1665 313 l
+1667 317 l
+1669 321 l
+1671 325 l
+1673 329 l
+1675 333 l
+1677 337 l
+1679 341 l
+1682 345 l
+1684 349 l
+1686 353 l
+1689 357 l
+1691 361 l
+1693 363 l
+1694 365 l
+1696 368 l
+1699 372 l
+1701 376 l
+1704 380 l
+1706 384 l
+1709 387 l
+1712 391 l
+1715 395 l
+1718 398 l
+1721 402 l
+1724 406 l
+1727 409 l
+1730 413 l
+1734 416 l
+1737 420 l
+1740 423 l
+1744 426 l
+1748 430 l
+1751 433 l
+1755 436 l
+1758 438 l
+1759 439 l
+1763 442 l
+1767 445 l
+1771 448 l
+1775 451 l
+1779 454 l
+1784 457 l
+1788 460 l
+1793 462 l
+1797 465 l
+1802 468 l
+1807 470 l
+1810 471 l
+1813 472 l
+1818 474 l
+1823 476 l
+1829 478 l
+1835 480 l
+1841 482 l
+1847 483 l
+1853 485 l
+1854 485 l
+1860 486 l
+1867 487 l
+1874 487 l
+1881 488 l
+1889 488 l
+1891 488 l
+1898 487 l
+1907 486 l
+1917 485 l
+1923 484 l
+1927 483 l
+1939 479 l
+1950 475 l
+1953 474 l
+1970 466 l
+1974 464 l
+1995 451 l
+2008 441 l
+2013 437 l
+2015 435 l
+2029 422 l
+2042 407 l
+2044 404 l
+2054 391 l
+2056 388 l
+2064 376 l
+2065 374 l
+2072 363 l
+2073 361 l
+2077 352 l
+2080 347 l
+2082 342 l
+2086 333 l
+2087 333 l
+2090 325 l
+2092 319 l
+2093 317 l
+2095 309 l
+2097 306 l
+2098 302 l
+2100 295 l
+2100 294 l
+2102 288 l
+2104 282 l
+2104 281 l
+2105 275 l
+2106 271 l
+2106 269 l
+2108 263 l
+2108 260 l
+2109 258 l
+2109 252 l
+2110 250 l
+2110 247 l
+2111 242 l
+2111 240 l
+2111 237 l
+2112 232 l
+2112 231 l
+2112 227 l
+2113 223 l
+2113 222 l
+2113 218 l
+2113 215 l
+2113 214 l
+2113 209 l
+2113 207 l
+2113 205 l
+2113 201 l
+2113 200 l
+2113 197 l
+2113 193 l
+2113 190 l
+2113 187 l
+2113 186 l
+2112 183 l
+2112 181 l
+2112 179 l
+2112 176 l
+2111 173 l
+2111 171 l
+2111 170 l
+2110 167 l
+2110 166 l
+2110 164 l
+2109 161 l
+2109 158 l
+2109 157 l
+2108 155 l
+2108 153 l
+2107 150 l
+2107 149 l
+2106 148 l
+2106 146 l
+2106 145 l
+2105 143 l
+2105 141 l
+2104 140 l
+2104 138 l
+2103 137 l
+2103 136 l
+2102 134 l
+2102 132 l
+2101 130 l
+2100 128 l
+2100 127 l
+2099 125 l
+2098 124 l
+2098 123 l
+2097 122 l
+2097 121 l
+2097 120 l
+2096 120 l
+2096 119 l
+2096 118 l
+2095 117 l
+2094 116 l
+2094 115 l
+2093 114 l
+2093 113 l
+2092 112 l
+2091 111 l
+2091 110 l
+2090 109 l
+2090 108 l
+2089 108 l
+2089 107 l
+2088 106 l
+2087 105 l
+2087 104 l
+2086 104 l
+2086 103 l
+2085 103 l
+2085 102 l
+2084 102 l
+2084 101 l
+2083 101 l
+2083 100 l
+s
+1712 90 m
+1712 94 l
+1712 98 l
+1713 102 l
+1713 106 l
+1713 110 l
+1713 114 l
+1713 117 l
+1713 121 l
+1714 125 l
+1714 129 l
+1714 133 l
+1715 137 l
+1715 141 l
+1716 145 l
+1716 148 l
+1717 152 l
+1717 156 l
+1718 160 l
+1718 164 l
+1719 168 l
+1720 172 l
+1720 175 l
+1721 179 l
+1722 183 l
+1723 187 l
+1724 191 l
+1724 195 l
+1725 198 l
+1726 202 l
+1727 206 l
+1728 210 l
+1730 214 l
+1731 217 l
+1732 221 l
+1733 225 l
+1734 229 l
+1736 232 l
+1737 236 l
+1738 240 l
+1740 243 l
+1741 247 l
+1743 251 l
+1744 255 l
+1746 258 l
+1747 262 l
+1749 265 l
+1751 269 l
+1753 273 l
+1754 276 l
+1756 280 l
+1758 283 l
+1760 287 l
+1762 290 l
+1764 294 l
+1766 297 l
+1769 301 l
+1771 304 l
+1771 305 l
+1773 308 l
+1775 311 l
+1778 314 l
+1780 318 l
+1782 321 l
+1785 324 l
+1788 328 l
+1790 331 l
+1793 334 l
+1796 337 l
+1799 340 l
+1801 344 l
+1804 347 l
+1808 350 l
+1811 353 l
+1814 355 l
+1817 358 l
+1821 361 l
+1823 363 l
+1824 364 l
+1828 367 l
+1831 369 l
+1835 372 l
+1839 374 l
+1843 377 l
+1847 379 l
+1851 382 l
+1856 384 l
+1860 386 l
+1864 388 l
+1865 388 l
+1869 390 l
+1874 392 l
+1879 393 l
+1884 395 l
+1890 396 l
+1896 397 l
+1899 398 l
+1901 398 l
+1908 399 l
+1914 400 l
+1921 400 l
+1928 400 l
+1929 400 l
+1936 399 l
+1944 398 l
+1953 397 l
+1954 397 l
+1964 394 l
+1976 390 l
+1992 382 l
+1994 381 l
+2011 371 l
+2025 359 l
+2037 347 l
+2048 335 l
+2057 323 l
+2059 321 l
+2065 311 l
+2066 309 l
+2072 300 l
+2072 299 l
+2077 290 l
+2077 289 l
+2080 282 l
+2082 278 l
+2084 274 l
+2087 267 l
+2089 260 l
+2090 257 l
+2091 254 l
+2093 247 l
+2095 241 l
+2095 238 l
+2096 236 l
+2097 230 l
+2098 225 l
+2099 221 l
+2099 220 l
+2100 215 l
+2100 214 l
+2101 211 l
+2101 206 l
+2102 202 l
+2102 199 l
+2102 197 l
+2103 193 l
+2103 189 l
+2103 186 l
+2103 182 l
+2103 181 l
+2103 178 l
+2103 175 l
+2103 171 l
+2103 170 l
+2103 168 l
+2103 165 l
+2102 162 l
+2102 161 l
+2102 159 l
+2102 157 l
+2102 156 l
+2101 153 l
+2101 150 l
+2101 149 l
+2101 148 l
+2100 146 l
+2100 145 l
+2100 143 l
+2100 142 l
+2099 140 l
+2099 139 l
+2099 138 l
+2098 137 l
+2098 136 l
+2098 134 l
+2097 132 l
+2097 131 l
+2096 130 l
+2096 129 l
+2096 128 l
+2096 127 l
+2095 126 l
+2095 125 l
+2095 124 l
+2094 123 l
+2094 122 l
+2094 121 l
+2093 121 l
+2093 120 l
+2093 119 l
+2092 118 l
+2092 117 l
+2091 116 l
+2091 115 l
+2091 114 l
+2090 113 l
+2089 112 l
+2089 111 l
+2088 110 l
+2088 109 l
+2087 109 l
+2087 108 l
+2087 107 l
+2086 107 l
+2086 106 l
+2085 105 l
+2085 104 l
+2084 104 l
+2084 103 l
+2083 103 l
+2083 102 l
+2082 101 l
+2082 100 l
+2081 100 l
+s
+1780 90 m
+1780 94 l
+1780 97 l
+1780 101 l
+1780 104 l
+1781 108 l
+1781 111 l
+1781 115 l
+1781 118 l
+1782 122 l
+1782 125 l
+1782 129 l
+1783 132 l
+1783 136 l
+1784 139 l
+1784 143 l
+1785 146 l
+1785 150 l
+1786 153 l
+1786 156 l
+1787 160 l
+1788 163 l
+1789 167 l
+1789 170 l
+1790 174 l
+1791 177 l
+1792 180 l
+1793 184 l
+1794 187 l
+1794 188 l
+1795 191 l
+1796 194 l
+1797 197 l
+1798 201 l
+1799 204 l
+1801 207 l
+1802 211 l
+1803 214 l
+1805 217 l
+1806 221 l
+1807 224 l
+1809 227 l
+1810 231 l
+1812 234 l
+1813 237 l
+1815 240 l
+1817 243 l
+1819 247 l
+1820 250 l
+1822 253 l
+1824 256 l
+1826 259 l
+1828 262 l
+1830 265 l
+1832 268 l
+1835 271 l
+1837 274 l
+1839 277 l
+1842 280 l
+1843 282 l
+1844 283 l
+1847 286 l
+1849 289 l
+1852 291 l
+1854 294 l
+1857 297 l
+1860 299 l
+1863 302 l
+1866 305 l
+1869 307 l
+1872 310 l
+1876 312 l
+1879 314 l
+1882 316 l
+1883 317 l
+1886 319 l
+1890 321 l
+1894 323 l
+1898 325 l
+1902 327 l
+1906 328 l
+1910 330 l
+1913 331 l
+1915 332 l
+1920 333 l
+1925 334 l
+1930 335 l
+1935 336 l
+1940 336 l
+1941 337 l
+1947 337 l
+1953 337 l
+1960 336 l
+1962 336 l
+1968 335 l
+1976 334 l
+1982 332 l
+1986 331 l
+1997 327 l
+1998 326 l
+2013 318 l
+2016 317 l
+2025 310 l
+2036 301 l
+2043 294 l
+2046 291 l
+2054 282 l
+2057 277 l
+2061 272 l
+2064 266 l
+2067 263 l
+2070 257 l
+2072 253 l
+2074 249 l
+2076 244 l
+2078 241 l
+2080 236 l
+2081 234 l
+2083 228 l
+2085 222 l
+2086 220 l
+2087 217 l
+2088 212 l
+2089 211 l
+2090 206 l
+2090 205 l
+2091 201 l
+2092 199 l
+2092 197 l
+2093 192 l
+2093 188 l
+2094 186 l
+2094 184 l
+2094 180 l
+2095 180 l
+2095 176 l
+2095 175 l
+2095 172 l
+2095 170 l
+2095 169 l
+2096 165 l
+2096 162 l
+2096 161 l
+2096 159 l
+2096 157 l
+2096 156 l
+2095 153 l
+2095 150 l
+2095 149 l
+2095 147 l
+2095 145 l
+2095 142 l
+2094 140 l
+2094 139 l
+2094 137 l
+2094 136 l
+2094 135 l
+2093 134 l
+2093 133 l
+2093 131 l
+2092 129 l
+2092 127 l
+2091 125 l
+2091 123 l
+2090 121 l
+2090 120 l
+2090 119 l
+2089 118 l
+2089 117 l
+2089 116 l
+2088 115 l
+2088 114 l
+2087 113 l
+2087 112 l
+2086 111 l
+2086 110 l
+2086 109 l
+2085 108 l
+2084 107 l
+2084 106 l
+2083 105 l
+2083 104 l
+2082 103 l
+2082 102 l
+2081 102 l
+2081 101 l
+2080 101 l
+2080 100 l
+2079 100 l
+2079 99 l
+s
+1831 90 m
+1831 93 l
+1831 97 l
+1832 100 l
+1832 103 l
+1832 106 l
+1832 109 l
+1832 112 l
+1832 116 l
+1833 119 l
+1833 122 l
+1833 125 l
+1834 128 l
+1834 131 l
+1835 135 l
+1835 138 l
+1836 141 l
+1836 144 l
+1837 147 l
+1838 150 l
+1838 153 l
+1839 156 l
+1840 160 l
+1841 163 l
+1842 166 l
+1842 169 l
+1843 172 l
+1844 175 l
+1845 178 l
+1846 181 l
+1848 184 l
+1849 187 l
+1850 190 l
+1851 193 l
+1852 196 l
+1854 199 l
+1855 202 l
+1857 205 l
+1858 208 l
+1860 211 l
+1861 214 l
+1863 217 l
+1864 219 l
+1866 222 l
+1868 225 l
+1870 228 l
+1872 231 l
+1873 233 l
+1875 236 l
+1877 239 l
+1880 241 l
+1882 244 l
+1884 247 l
+1886 249 l
+1889 252 l
+1891 254 l
+1894 257 l
+1896 259 l
+1899 261 l
+1902 264 l
+1904 266 l
+1907 268 l
+1910 270 l
+1913 272 l
+1917 274 l
+1920 276 l
+1924 278 l
+1927 280 l
+1930 281 l
+1931 282 l
+1935 283 l
+1939 285 l
+1943 286 l
+1947 287 l
+1952 288 l
+1954 288 l
+1957 289 l
+1962 289 l
+1967 290 l
+1973 290 l
+1979 289 l
+1986 288 l
+1990 288 l
+1994 287 l
+2003 284 l
+2005 283 l
+2016 278 l
+2017 278 l
+2028 271 l
+2038 263 l
+2046 256 l
+2053 248 l
+2054 246 l
+2059 240 l
+2063 235 l
+2064 233 l
+2068 226 l
+2069 225 l
+2072 219 l
+2073 218 l
+2075 212 l
+2076 211 l
+2078 206 l
+2079 204 l
+2080 200 l
+2081 198 l
+2082 195 l
+2083 192 l
+2084 190 l
+2085 186 l
+2085 185 l
+2086 181 l
+2086 180 l
+2087 177 l
+2087 175 l
+2088 173 l
+2088 170 l
+2088 169 l
+2089 165 l
+2089 162 l
+2089 161 l
+2090 158 l
+2090 157 l
+2090 155 l
+2090 153 l
+2090 152 l
+2090 149 l
+2090 146 l
+2090 143 l
+2090 142 l
+2090 141 l
+2090 139 l
+2090 138 l
+2090 136 l
+2090 134 l
+2089 133 l
+2089 131 l
+2089 129 l
+2089 127 l
+2088 125 l
+2088 123 l
+2087 121 l
+2087 119 l
+2087 118 l
+2086 116 l
+2086 115 l
+2086 114 l
+2085 114 l
+2085 113 l
+2085 112 l
+2084 111 l
+2084 110 l
+2084 109 l
+2083 108 l
+2083 107 l
+2082 107 l
+2082 106 l
+2082 105 l
+2081 104 l
+2081 103 l
+2080 103 l
+2080 102 l
+2080 101 l
+2079 101 l
+2079 100 l
+2078 100 l
+2078 99 l
+2078 98 l
+s
+1871 90 m
+1871 93 l
+1871 96 l
+1871 99 l
+1871 102 l
+1871 105 l
+1871 108 l
+1871 111 l
+1872 113 l
+1872 116 l
+1872 119 l
+1873 122 l
+1873 125 l
+1874 128 l
+1874 131 l
+1875 134 l
+1875 136 l
+1876 139 l
+1877 142 l
+1877 145 l
+1878 148 l
+1879 151 l
+1879 153 l
+1880 156 l
+1881 159 l
+1882 162 l
+1883 165 l
+1884 167 l
+1885 170 l
+1886 173 l
+1888 176 l
+1889 178 l
+1890 181 l
+1891 184 l
+1893 186 l
+1894 189 l
+1895 190 l
+1895 192 l
+1897 194 l
+1898 197 l
+1900 199 l
+1902 202 l
+1903 204 l
+1905 207 l
+1907 209 l
+1909 212 l
+1911 214 l
+1913 217 l
+1915 219 l
+1917 221 l
+1919 224 l
+1921 226 l
+1924 228 l
+1924 229 l
+1926 230 l
+1929 232 l
+1931 234 l
+1934 236 l
+1937 238 l
+1940 240 l
+1943 242 l
+1946 244 l
+1948 245 l
+1949 245 l
+1952 247 l
+1956 248 l
+1959 250 l
+1963 251 l
+1967 252 l
+1968 252 l
+1972 253 l
+1976 254 l
+1981 254 l
+1985 254 l
+1986 254 l
+1992 254 l
+1998 253 l
+2000 253 l
+2005 252 l
+2012 250 l
+2013 250 l
+2023 245 l
+2024 245 l
+2033 240 l
+2041 234 l
+2048 228 l
+2054 221 l
+2056 218 l
+2059 215 l
+2063 209 l
+2064 208 l
+2067 202 l
+2069 200 l
+2071 196 l
+2072 194 l
+2074 191 l
+2075 188 l
+2076 185 l
+2077 182 l
+2078 180 l
+2079 177 l
+2080 175 l
+2080 173 l
+2081 170 l
+2081 169 l
+2082 165 l
+2083 164 l
+2083 161 l
+2084 157 l
+2085 154 l
+2085 153 l
+2085 150 l
+2085 149 l
+2085 147 l
+2086 146 l
+2086 144 l
+2086 143 l
+2086 141 l
+2086 139 l
+2086 137 l
+2086 136 l
+2086 134 l
+2086 133 l
+2086 131 l
+2086 129 l
+2086 127 l
+2085 125 l
+2085 123 l
+2085 121 l
+2085 119 l
+2084 119 l
+2084 118 l
+2084 117 l
+2084 116 l
+2084 115 l
+2083 114 l
+2083 113 l
+2083 112 l
+2083 111 l
+2082 110 l
+2082 109 l
+2082 108 l
+2081 108 l
+2081 107 l
+2081 106 l
+2080 105 l
+2080 104 l
+2079 103 l
+2079 102 l
+2078 101 l
+2078 100 l
+2077 100 l
+2077 99 l
+2077 98 l
+2076 98 l
+s
+1901 90 m
+1902 93 l
+1902 96 l
+1902 98 l
+1902 101 l
+1902 104 l
+1902 106 l
+1902 109 l
+1903 112 l
+1903 114 l
+1903 117 l
+1904 119 l
+1904 122 l
+1905 125 l
+1905 127 l
+1906 130 l
+1906 133 l
+1907 135 l
+1908 138 l
+1908 140 l
+1909 143 l
+1910 146 l
+1911 148 l
+1912 151 l
+1912 153 l
+1913 156 l
+1914 158 l
+1916 161 l
+1917 163 l
+1918 166 l
+1919 168 l
+1920 171 l
+1921 171 l
+1922 173 l
+1923 175 l
+1924 178 l
+1926 180 l
+1927 183 l
+1929 185 l
+1930 187 l
+1932 189 l
+1934 192 l
+1936 194 l
+1937 196 l
+1939 198 l
+1941 200 l
+1944 202 l
+1946 204 l
+1948 206 l
+1950 208 l
+1953 210 l
+1955 212 l
+1958 214 l
+1960 216 l
+1963 217 l
+1966 218 l
+1966 219 l
+1969 220 l
+1972 221 l
+1976 223 l
+1979 224 l
+1983 225 l
+1987 225 l
+1991 226 l
+1996 226 l
+1997 226 l
+2000 226 l
+2006 226 l
+2009 226 l
+2012 225 l
+2019 223 l
+2020 223 l
+2028 220 l
+2029 219 l
+2037 215 l
+2044 210 l
+2050 205 l
+2055 199 l
+2060 194 l
+2063 189 l
+2066 185 l
+2067 184 l
+2069 179 l
+2070 179 l
+2072 174 l
+2072 173 l
+2074 169 l
+2075 168 l
+2076 165 l
+2076 164 l
+2077 161 l
+2078 159 l
+2078 157 l
+2079 155 l
+2080 153 l
+2080 152 l
+2080 149 l
+2081 148 l
+2081 146 l
+2081 145 l
+2082 143 l
+2082 142 l
+2082 140 l
+2082 139 l
+2082 137 l
+2082 136 l
+2083 134 l
+2083 133 l
+2083 132 l
+2083 131 l
+2083 129 l
+2083 127 l
+2083 126 l
+2083 125 l
+2083 124 l
+2083 123 l
+2083 122 l
+2082 121 l
+2082 120 l
+2082 118 l
+2082 117 l
+2082 116 l
+2082 115 l
+2081 114 l
+2081 113 l
+2081 112 l
+2081 111 l
+2081 110 l
+2081 109 l
+2080 109 l
+2080 108 l
+2080 107 l
+2080 106 l
+2079 106 l
+2079 105 l
+2079 104 l
+2078 103 l
+2078 102 l
+2078 101 l
+2077 101 l
+2077 100 l
+2077 99 l
+2076 99 l
+2076 98 l
+2075 98 l
+s
+1926 90 m
+1926 93 l
+1926 95 l
+1926 98 l
+1926 100 l
+1927 103 l
+1927 105 l
+1927 107 l
+1927 110 l
+1928 112 l
+1928 115 l
+1928 117 l
+1929 120 l
+1929 122 l
+1930 124 l
+1930 127 l
+1931 129 l
+1932 132 l
+1932 134 l
+1933 136 l
+1934 139 l
+1935 141 l
+1936 143 l
+1936 146 l
+1937 148 l
+1938 150 l
+1940 153 l
+1941 155 l
+1942 157 l
+1943 159 l
+1944 162 l
+1945 163 l
+1946 164 l
+1947 166 l
+1948 168 l
+1950 170 l
+1951 173 l
+1953 175 l
+1954 177 l
+1956 179 l
+1958 181 l
+1960 183 l
+1962 184 l
+1964 186 l
+1965 187 l
+1966 188 l
+1968 190 l
+1970 192 l
+1973 193 l
+1975 195 l
+1978 196 l
+1980 198 l
+1982 199 l
+1983 199 l
+1986 200 l
+1989 201 l
+1993 202 l
+1996 203 l
+2000 204 l
+2004 204 l
+2008 205 l
+2013 204 l
+2018 204 l
+2024 202 l
+2027 202 l
+2032 200 l
+2035 198 l
+2042 195 l
+2047 190 l
+2052 186 l
+2057 182 l
+2060 177 l
+2062 176 l
+2064 173 l
+2067 169 l
+2067 168 l
+2069 165 l
+2070 163 l
+2071 161 l
+2072 158 l
+2073 157 l
+2074 153 l
+2075 150 l
+2076 149 l
+2077 146 l
+2077 143 l
+2078 142 l
+2078 140 l
+2078 139 l
+2079 137 l
+2079 136 l
+2079 134 l
+2079 133 l
+2080 132 l
+2080 130 l
+2080 128 l
+2080 127 l
+2080 126 l
+2080 125 l
+2080 123 l
+2080 121 l
+2080 120 l
+2080 119 l
+2080 118 l
+2080 117 l
+2080 115 l
+2080 114 l
+2080 113 l
+2080 112 l
+2079 112 l
+2079 111 l
+2079 110 l
+2079 109 l
+2079 108 l
+2078 107 l
+2078 106 l
+2078 105 l
+2078 104 l
+2077 103 l
+2077 102 l
+2077 101 l
+2076 101 l
+2076 100 l
+2076 99 l
+2075 99 l
+2075 98 l
+2075 97 l
+2074 97 l
+s
+1946 90 m
+1946 93 l
+1946 95 l
+1946 97 l
+1946 99 l
+1947 102 l
+1947 104 l
+1947 106 l
+1947 108 l
+1948 111 l
+1948 113 l
+1948 115 l
+1949 117 l
+1949 120 l
+1950 122 l
+1951 124 l
+1951 126 l
+1952 129 l
+1953 131 l
+1953 133 l
+1954 135 l
+1955 137 l
+1956 139 l
+1957 142 l
+1958 144 l
+1959 146 l
+1960 148 l
+1961 150 l
+1962 152 l
+1963 154 l
+1965 156 l
+1966 158 l
+1968 160 l
+1969 162 l
+1971 164 l
+1972 166 l
+1974 167 l
+1976 169 l
+1977 171 l
+1979 173 l
+1981 174 l
+1983 175 l
+1984 176 l
+1986 177 l
+1988 179 l
+1990 180 l
+1993 182 l
+1996 183 l
+1998 184 l
+2001 185 l
+2004 186 l
+2008 186 l
+2011 187 l
+2015 187 l
+2018 187 l
+2020 187 l
+2024 187 l
+2027 186 l
+2030 185 l
+2034 184 l
+2038 183 l
+2040 181 l
+2046 178 l
+2051 175 l
+2055 171 l
+2058 167 l
+2062 164 l
+2062 163 l
+2064 160 l
+2067 156 l
+2069 153 l
+2070 151 l
+2070 149 l
+2072 146 l
+2073 143 l
+2073 142 l
+2074 140 l
+2075 139 l
+2075 137 l
+2076 136 l
+2076 135 l
+2076 133 l
+2076 132 l
+2077 130 l
+2077 128 l
+2077 127 l
+2078 126 l
+2078 125 l
+2078 124 l
+2078 122 l
+2078 120 l
+2078 118 l
+2078 117 l
+2078 116 l
+2078 115 l
+2078 114 l
+2078 113 l
+2078 112 l
+2078 111 l
+2078 110 l
+2078 109 l
+2077 108 l
+2077 107 l
+2077 106 l
+2077 105 l
+2077 104 l
+2076 103 l
+2076 102 l
+2076 101 l
+2075 100 l
+2075 99 l
+2075 98 l
+2074 98 l
+2074 97 l
+s
+1962 90 m
+1962 92 l
+1962 95 l
+1963 97 l
+1963 99 l
+1963 101 l
+1963 103 l
+1963 105 l
+1964 107 l
+1964 109 l
+1964 111 l
+1965 113 l
+1965 116 l
+1966 118 l
+1966 120 l
+1967 122 l
+1968 124 l
+1968 126 l
+1969 128 l
+1970 130 l
+1971 132 l
+1972 134 l
+1972 136 l
+1973 138 l
+1974 140 l
+1975 142 l
+1977 144 l
+1978 145 l
+1979 147 l
+1980 149 l
+1982 151 l
+1983 153 l
+1984 154 l
+1985 154 l
+1986 156 l
+1988 158 l
+1990 159 l
+1991 161 l
+1993 162 l
+1995 164 l
+1997 165 l
+1998 165 l
+2000 167 l
+2002 168 l
+2004 169 l
+2007 170 l
+2009 171 l
+2010 171 l
+2013 172 l
+2016 172 l
+2018 173 l
+2019 173 l
+2023 173 l
+2027 173 l
+2032 172 l
+2034 172 l
+2037 171 l
+2040 170 l
+2045 167 l
+2046 167 l
+2050 165 l
+2054 162 l
+2057 158 l
+2059 156 l
+2060 155 l
+2063 152 l
+2065 149 l
+2065 148 l
+2067 146 l
+2068 143 l
+2069 143 l
+2070 140 l
+2071 139 l
+2071 138 l
+2072 135 l
+2073 132 l
+2074 130 l
+2074 129 l
+2075 128 l
+2075 126 l
+2075 124 l
+2076 123 l
+2076 122 l
+2076 121 l
+2076 120 l
+2076 119 l
+2076 117 l
+2076 116 l
+2076 115 l
+2077 114 l
+2077 113 l
+2077 112 l
+2077 111 l
+2076 111 l
+2076 110 l
+2076 109 l
+2076 108 l
+2076 107 l
+2076 106 l
+2076 105 l
+2076 104 l
+2075 103 l
+2075 102 l
+2075 101 l
+2075 100 l
+2074 100 l
+2074 99 l
+2074 98 l
+2074 97 l
+2073 97 l
+s
+1976 90 m
+1976 92 l
+1976 94 l
+1976 96 l
+1976 98 l
+1976 100 l
+1977 102 l
+1977 104 l
+1977 106 l
+1978 108 l
+1978 110 l
+1978 112 l
+1979 114 l
+1979 116 l
+1980 118 l
+1981 120 l
+1981 121 l
+1982 123 l
+1983 125 l
+1984 127 l
+1984 129 l
+1985 131 l
+1986 133 l
+1987 133 l
+1987 134 l
+1988 136 l
+1989 138 l
+1991 140 l
+1992 141 l
+1993 143 l
+1995 145 l
+1996 146 l
+1998 148 l
+1999 149 l
+2000 150 l
+2001 151 l
+2003 152 l
+2004 154 l
+2006 155 l
+2008 156 l
+2010 157 l
+2011 157 l
+2013 158 l
+2015 159 l
+2018 160 l
+2019 160 l
+2021 161 l
+2024 161 l
+2027 161 l
+2031 161 l
+2034 161 l
+2035 161 l
+2040 160 l
+2045 158 l
+2048 156 l
+2049 156 l
+2053 153 l
+2056 151 l
+2059 148 l
+2061 146 l
+2062 145 l
+2064 143 l
+2066 140 l
+2067 137 l
+2069 135 l
+2070 133 l
+2070 131 l
+2071 130 l
+2072 128 l
+2072 126 l
+2073 125 l
+2073 124 l
+2074 122 l
+2074 121 l
+2074 120 l
+2074 119 l
+2075 117 l
+2075 116 l
+2075 115 l
+2075 114 l
+2075 113 l
+2075 112 l
+2075 111 l
+2075 110 l
+2075 109 l
+2075 108 l
+2075 107 l
+2075 106 l
+2075 105 l
+2075 104 l
+2075 103 l
+2075 102 l
+2074 102 l
+2074 101 l
+2074 100 l
+2074 99 l
+2073 98 l
+2073 97 l
+2073 96 l
+s
+1987 90 m
+1987 92 l
+1987 94 l
+1987 96 l
+1988 98 l
+1988 100 l
+1988 101 l
+1988 103 l
+1989 105 l
+1989 107 l
+1989 109 l
+1990 110 l
+1990 111 l
+1990 112 l
+1991 114 l
+1991 116 l
+1992 118 l
+1993 119 l
+1993 121 l
+1994 123 l
+1995 125 l
+1996 126 l
+1997 128 l
+1998 130 l
+1999 131 l
+2000 133 l
+2001 134 l
+2002 136 l
+2004 138 l
+2005 139 l
+2007 140 l
+2008 142 l
+2010 143 l
+2011 145 l
+2012 145 l
+2013 146 l
+2015 147 l
+2017 148 l
+2019 149 l
+2021 150 l
+2022 150 l
+2024 151 l
+2027 151 l
+2028 152 l
+2030 152 l
+2033 152 l
+2035 152 l
+2037 152 l
+2040 151 l
+2041 151 l
+2045 150 l
+2046 149 l
+2049 148 l
+2053 146 l
+2056 144 l
+2058 142 l
+2061 139 l
+2063 137 l
+2064 135 l
+2065 135 l
+2066 133 l
+2067 130 l
+2068 130 l
+2069 128 l
+2069 127 l
+2070 126 l
+2070 124 l
+2071 123 l
+2071 122 l
+2072 121 l
+2072 119 l
+2073 118 l
+2073 116 l
+2073 115 l
+2074 114 l
+2074 113 l
+2074 112 l
+2074 111 l
+2074 110 l
+2074 109 l
+2074 108 l
+2074 107 l
+2074 106 l
+2074 105 l
+2074 104 l
+2074 103 l
+2074 102 l
+2074 101 l
+2073 101 l
+2073 100 l
+2073 99 l
+2073 98 l
+2073 97 l
+2072 97 l
+2072 96 l
+s
+1997 90 m
+1997 92 l
+1997 94 l
+1997 95 l
+1997 97 l
+1997 99 l
+1998 101 l
+1998 102 l
+1998 104 l
+1999 106 l
+1999 108 l
+1999 109 l
+2000 111 l
+2000 113 l
+2001 114 l
+2002 116 l
+2002 118 l
+2003 119 l
+2004 121 l
+2005 122 l
+2005 123 l
+2006 124 l
+2007 125 l
+2008 127 l
+2009 129 l
+2010 130 l
+2011 131 l
+2013 133 l
+2014 134 l
+2015 135 l
+2017 137 l
+2019 138 l
+2020 139 l
+2022 140 l
+2023 140 l
+2024 141 l
+2026 142 l
+2029 143 l
+2030 143 l
+2031 143 l
+2034 144 l
+2036 144 l
+2037 144 l
+2040 144 l
+2041 144 l
+2044 143 l
+2045 143 l
+2049 142 l
+2050 141 l
+2053 140 l
+2056 138 l
+2058 136 l
+2060 134 l
+2062 132 l
+2064 130 l
+2065 128 l
+2067 126 l
+2067 125 l
+2068 124 l
+2069 123 l
+2069 122 l
+2070 121 l
+2070 119 l
+2071 118 l
+2071 116 l
+2072 115 l
+2072 114 l
+2072 112 l
+2073 111 l
+2073 110 l
+2073 109 l
+2073 108 l
+2073 107 l
+2073 106 l
+2073 105 l
+2073 104 l
+2073 103 l
+2073 102 l
+2073 101 l
+2073 100 l
+2073 99 l
+2072 98 l
+2072 97 l
+2072 96 l
+s
+2005 90 m
+2005 92 l
+2005 94 l
+2005 95 l
+2005 97 l
+2005 98 l
+2006 100 l
+2006 102 l
+2006 103 l
+2007 105 l
+2007 107 l
+2008 108 l
+2008 110 l
+2009 111 l
+2009 113 l
+2010 114 l
+2011 116 l
+2011 117 l
+2012 119 l
+2013 120 l
+2014 122 l
+2015 123 l
+2016 125 l
+2017 126 l
+2019 127 l
+2020 128 l
+2021 130 l
+2023 131 l
+2024 132 l
+2025 132 l
+2026 133 l
+2028 134 l
+2030 135 l
+2032 136 l
+2034 136 l
+2036 137 l
+2037 137 l
+2039 137 l
+2042 137 l
+2046 137 l
+2050 136 l
+2050 135 l
+2053 134 l
+2056 133 l
+2058 131 l
+2060 129 l
+2062 128 l
+2064 126 l
+2065 124 l
+2066 123 l
+2067 121 l
+2068 120 l
+2068 119 l
+2069 118 l
+2069 117 l
+2069 116 l
+2070 115 l
+2070 114 l
+2071 113 l
+2071 112 l
+2071 111 l
+2071 110 l
+2072 110 l
+2072 109 l
+2072 108 l
+2072 107 l
+2072 106 l
+2072 105 l
+2072 104 l
+2072 103 l
+2072 102 l
+2072 101 l
+2072 100 l
+2072 99 l
+2072 98 l
+2072 97 l
+2072 96 l
+2071 96 l
+s
+2012 90 m
+2012 92 l
+2012 93 l
+2012 95 l
+2012 96 l
+2012 98 l
+2013 100 l
+2013 101 l
+2013 103 l
+2014 104 l
+2014 106 l
+2015 107 l
+2015 109 l
+2016 110 l
+2016 111 l
+2017 113 l
+2018 114 l
+2019 116 l
+2019 117 l
+2020 118 l
+2021 120 l
+2022 121 l
+2024 122 l
+2025 124 l
+2026 125 l
+2027 126 l
+2029 127 l
+2030 128 l
+2032 129 l
+2033 129 l
+2034 130 l
+2036 130 l
+2038 131 l
+2039 131 l
+2040 131 l
+2043 132 l
+2046 131 l
+2047 131 l
+2050 131 l
+2053 130 l
+2056 128 l
+2058 127 l
+2060 125 l
+2062 124 l
+2063 123 l
+2063 122 l
+2064 121 l
+2066 119 l
+2067 118 l
+2067 117 l
+2068 115 l
+2069 114 l
+2069 113 l
+2070 112 l
+2070 111 l
+2070 110 l
+2071 109 l
+2071 108 l
+2071 107 l
+2071 106 l
+2071 105 l
+2072 105 l
+2072 104 l
+2072 103 l
+2072 102 l
+2072 101 l
+2072 100 l
+2072 99 l
+2072 98 l
+2071 98 l
+2071 97 l
+2071 96 l
+2071 95 l
+s
+2018 90 m
+2018 92 l
+2018 93 l
+2018 95 l
+2018 96 l
+2018 98 l
+2019 99 l
+2019 100 l
+2019 102 l
+2020 103 l
+2020 105 l
+2021 106 l
+2021 108 l
+2022 109 l
+2022 110 l
+2023 111 l
+2023 112 l
+2024 113 l
+2025 114 l
+2026 115 l
+2027 117 l
+2028 118 l
+2029 119 l
+2030 120 l
+2031 121 l
+2033 122 l
+2034 123 l
+2035 124 l
+2036 124 l
+2037 125 l
+2039 126 l
+2040 126 l
+2041 126 l
+2043 127 l
+2044 127 l
+2046 127 l
+2048 127 l
+2049 126 l
+2051 126 l
+2053 126 l
+2054 125 l
+2056 124 l
+2058 123 l
+2060 122 l
+2062 121 l
+2063 119 l
+2064 118 l
+2065 117 l
+2066 116 l
+2066 115 l
+2067 114 l
+2068 113 l
+2068 112 l
+2069 111 l
+2069 110 l
+2070 109 l
+2070 108 l
+2070 107 l
+2070 106 l
+2071 105 l
+2071 104 l
+2071 103 l
+2071 102 l
+2071 101 l
+2071 100 l
+2071 99 l
+2071 98 l
+2071 97 l
+2071 96 l
+2071 95 l
+s
+2023 90 m
+2023 92 l
+2023 93 l
+2023 94 l
+2023 96 l
+2024 97 l
+2024 99 l
+2024 100 l
+2025 101 l
+2025 103 l
+2025 104 l
+2026 105 l
+2026 107 l
+2027 108 l
+2028 109 l
+2028 110 l
+2029 112 l
+2030 113 l
+2031 114 l
+2032 115 l
+2033 116 l
+2034 117 l
+2036 118 l
+2037 119 l
+2038 120 l
+2040 121 l
+2042 121 l
+2044 122 l
+2046 122 l
+2048 123 l
+2049 123 l
+2051 122 l
+2052 122 l
+2054 122 l
+2055 121 l
+2057 121 l
+2058 120 l
+2060 119 l
+2062 117 l
+2063 116 l
+2064 115 l
+2065 114 l
+2066 113 l
+2067 112 l
+2067 111 l
+2068 110 l
+2068 109 l
+2069 108 l
+2069 107 l
+2069 106 l
+2070 106 l
+2070 105 l
+2070 104 l
+2070 103 l
+2070 102 l
+2071 102 l
+2071 101 l
+2071 100 l
+2071 99 l
+2071 98 l
+2071 97 l
+2071 96 l
+2070 96 l
+2070 95 l
+s
+2028 90 m
+2028 92 l
+2028 93 l
+2028 94 l
+2028 96 l
+2028 97 l
+2028 98 l
+2029 99 l
+2029 101 l
+2030 102 l
+2030 103 l
+2031 104 l
+2031 106 l
+2032 107 l
+2032 108 l
+2033 109 l
+2034 110 l
+2034 111 l
+2035 111 l
+2036 112 l
+2037 114 l
+2038 114 l
+2039 115 l
+2041 116 l
+2042 117 l
+2043 118 l
+2044 118 l
+2045 118 l
+2047 119 l
+2050 119 l
+2052 119 l
+2053 119 l
+2055 118 l
+2056 118 l
+2057 118 l
+2059 117 l
+2060 116 l
+2062 115 l
+2063 114 l
+2064 113 l
+2065 112 l
+2066 111 l
+2066 110 l
+2067 109 l
+2068 108 l
+2068 107 l
+2068 106 l
+2069 105 l
+2069 104 l
+2069 103 l
+2070 103 l
+2070 102 l
+2070 101 l
+2070 100 l
+2070 99 l
+2070 98 l
+2070 97 l
+2070 96 l
+2070 95 l
+s
+2032 90 m
+2032 92 l
+2032 93 l
+2032 94 l
+2032 95 l
+2032 96 l
+2032 98 l
+2033 99 l
+2033 100 l
+2034 101 l
+2034 103 l
+2035 104 l
+2035 105 l
+2036 106 l
+2037 107 l
+2037 108 l
+2038 109 l
+2039 110 l
+2040 111 l
+2041 112 l
+2042 113 l
+2044 114 l
+2045 114 l
+2047 115 l
+2048 115 l
+2050 116 l
+2051 116 l
+2053 116 l
+2056 115 l
+2057 115 l
+2059 114 l
+2061 113 l
+2062 112 l
+2063 112 l
+2064 111 l
+2065 110 l
+2066 109 l
+2066 108 l
+2067 107 l
+2067 106 l
+2068 106 l
+2068 105 l
+2068 104 l
+2069 103 l
+2069 102 l
+2069 101 l
+2070 101 l
+2070 100 l
+2070 99 l
+2070 98 l
+2070 97 l
+2070 96 l
+2070 95 l
+s
+2035 90 m
+2035 91 l
+2035 93 l
+2035 94 l
+2035 95 l
+2036 96 l
+2036 97 l
+2036 98 l
+2037 100 l
+2037 101 l
+2038 102 l
+2038 103 l
+2039 104 l
+2039 105 l
+2040 106 l
+2041 107 l
+2042 108 l
+2043 109 l
+2044 110 l
+2045 111 l
+2046 111 l
+2048 112 l
+2049 113 l
+2051 113 l
+2052 113 l
+2053 113 l
+2054 113 l
+2056 113 l
+2058 112 l
+2059 112 l
+2060 112 l
+2061 111 l
+2062 110 l
+2063 109 l
+2064 109 l
+2065 108 l
+2065 107 l
+2066 106 l
+2067 106 l
+2067 105 l
+2067 104 l
+2068 104 l
+2068 103 l
+2068 102 l
+2069 102 l
+2069 101 l
+2069 100 l
+2069 99 l
+2070 98 l
+2070 97 l
+2070 96 l
+2070 95 l
+2070 94 l
+s
+2038 90 m
+2038 91 l
+2038 93 l
+2038 94 l
+2039 95 l
+2039 96 l
+2039 97 l
+2039 98 l
+2040 99 l
+2040 100 l
+2041 101 l
+2041 102 l
+2042 103 l
+2043 104 l
+2043 105 l
+2044 106 l
+2045 107 l
+2046 108 l
+2047 109 l
+2048 109 l
+2049 109 l
+2050 110 l
+2051 110 l
+2053 111 l
+2055 111 l
+2057 111 l
+2058 110 l
+2059 110 l
+2060 110 l
+2061 109 l
+2062 108 l
+2063 108 l
+2064 107 l
+2065 106 l
+2066 105 l
+2066 104 l
+2067 104 l
+2067 103 l
+2068 102 l
+2068 101 l
+2069 100 l
+2069 99 l
+2069 98 l
+2069 97 l
+2069 96 l
+2069 95 l
+2069 94 l
+s
+2041 90 m
+2041 91 l
+2041 92 l
+2041 93 l
+2041 95 l
+2042 96 l
+2042 97 l
+2042 98 l
+2043 99 l
+2043 100 l
+2044 101 l
+2044 102 l
+2045 103 l
+2045 104 l
+2046 104 l
+2047 105 l
+2048 106 l
+2049 107 l
+2050 107 l
+2052 108 l
+2053 108 l
+2054 109 l
+2055 109 l
+2056 109 l
+2057 109 l
+2058 109 l
+2059 108 l
+2060 108 l
+2061 107 l
+2062 107 l
+2063 106 l
+2064 105 l
+2065 105 l
+2065 104 l
+2066 104 l
+2066 103 l
+2067 102 l
+2067 101 l
+2068 101 l
+2068 100 l
+2068 99 l
+2069 99 l
+2069 98 l
+2069 97 l
+2069 96 l
+2069 95 l
+2069 94 l
+s
+2043 90 m
+2043 91 l
+2043 92 l
+2044 93 l
+2044 94 l
+2044 95 l
+2044 96 l
+2045 97 l
+2045 98 l
+2045 99 l
+2046 100 l
+2047 101 l
+2047 102 l
+2048 103 l
+2049 104 l
+2050 104 l
+2051 105 l
+2052 106 l
+2053 106 l
+2055 107 l
+2056 107 l
+2057 107 l
+2058 107 l
+2059 107 l
+2060 106 l
+2061 106 l
+2062 106 l
+2063 105 l
+2064 105 l
+2064 104 l
+2065 104 l
+2065 103 l
+2066 102 l
+2067 101 l
+2067 100 l
+2068 100 l
+2068 99 l
+2068 98 l
+2069 98 l
+2069 97 l
+2069 96 l
+2069 95 l
+2069 94 l
+s
+2045 90 m
+2046 91 l
+2046 92 l
+2046 93 l
+2046 94 l
+2046 95 l
+2046 96 l
+2047 96 l
+2047 97 l
+2047 98 l
+2048 99 l
+2048 100 l
+2049 101 l
+2050 101 l
+2050 102 l
+2051 103 l
+2052 103 l
+2052 104 l
+2053 104 l
+2054 104 l
+2055 105 l
+2056 105 l
+2057 105 l
+2058 105 l
+2059 105 l
+2060 105 l
+2061 105 l
+2062 104 l
+2063 104 l
+2064 103 l
+2065 102 l
+2066 101 l
+2067 100 l
+2067 99 l
+2068 99 l
+2068 98 l
+2068 97 l
+2069 97 l
+2069 96 l
+2069 95 l
+2069 94 l
+s
+2047 90 m
+2047 91 l
+2048 92 l
+2048 93 l
+2048 94 l
+2048 95 l
+2048 96 l
+2049 97 l
+2049 98 l
+2050 98 l
+2050 99 l
+2051 100 l
+2052 101 l
+2052 102 l
+2053 102 l
+2054 103 l
+2055 103 l
+2056 103 l
+2057 104 l
+2058 104 l
+2059 104 l
+2060 104 l
+2061 103 l
+2062 103 l
+2063 103 l
+2064 102 l
+2065 101 l
+2066 100 l
+2067 100 l
+2067 99 l
+2067 98 l
+2068 98 l
+2068 97 l
+2068 96 l
+2069 95 l
+2069 94 l
+s
+2049 90 m
+2049 91 l
+2049 92 l
+2049 93 l
+2050 94 l
+2050 95 l
+2050 96 l
+2051 96 l
+2051 97 l
+2052 98 l
+2052 99 l
+2053 100 l
+2054 100 l
+2054 101 l
+2055 101 l
+2056 102 l
+2057 102 l
+2058 102 l
+2059 102 l
+2060 102 l
+2061 102 l
+2062 102 l
+2063 102 l
+2063 101 l
+2064 101 l
+2065 101 l
+2065 100 l
+2066 100 l
+2066 99 l
+2067 99 l
+2067 98 l
+2068 97 l
+2068 96 l
+2068 95 l
+2068 94 l
+2069 94 l
+s
+2051 90 m
+2051 91 l
+2051 92 l
+2051 93 l
+2051 94 l
+2051 95 l
+2052 95 l
+2052 96 l
+2053 97 l
+2053 98 l
+2054 98 l
+2054 99 l
+2055 100 l
+2056 100 l
+2057 101 l
+2058 101 l
+2059 101 l
+2060 101 l
+2061 101 l
+2062 101 l
+2063 101 l
+2064 100 l
+2065 100 l
+2065 99 l
+2066 99 l
+2066 98 l
+2067 98 l
+2067 97 l
+2068 96 l
+2068 95 l
+2068 94 l
+2068 93 l
+s
+2052 90 m
+2052 91 l
+2052 92 l
+2052 93 l
+2053 94 l
+2053 95 l
+2054 96 l
+2054 97 l
+2055 97 l
+2055 98 l
+2056 99 l
+2057 99 l
+2057 100 l
+2058 100 l
+2059 100 l
+2060 100 l
+2061 100 l
+2062 100 l
+2063 100 l
+2064 100 l
+2064 99 l
+2065 99 l
+2066 98 l
+2066 97 l
+2067 97 l
+2067 96 l
+2068 96 l
+2068 95 l
+2068 94 l
+2068 93 l
+s
+2054 90 m
+2054 91 l
+2054 92 l
+2054 93 l
+2054 94 l
+2055 95 l
+2055 96 l
+2056 97 l
+2057 98 l
+2058 99 l
+2059 99 l
+2060 99 l
+2061 99 l
+2062 99 l
+2063 99 l
+2064 99 l
+2064 98 l
+2065 98 l
+2066 98 l
+2066 97 l
+2067 97 l
+2067 96 l
+2067 95 l
+2068 95 l
+2068 94 l
+2068 93 l
+s
+2055 90 m
+2055 91 l
+2055 92 l
+2055 93 l
+2055 94 l
+2056 95 l
+2057 96 l
+2057 97 l
+2058 97 l
+2059 98 l
+2060 98 l
+2061 98 l
+2062 98 l
+2063 98 l
+2064 98 l
+2065 98 l
+2065 97 l
+2066 97 l
+2066 96 l
+2067 96 l
+2067 95 l
+2068 95 l
+2068 94 l
+2068 93 l
+s
+2056 90 m
+2056 91 l
+2056 92 l
+2056 93 l
+2057 94 l
+2057 95 l
+2058 96 l
+2059 97 l
+2060 97 l
+2061 98 l
+2062 98 l
+2063 98 l
+2064 97 l
+2065 97 l
+2066 96 l
+2067 96 l
+2067 95 l
+2067 94 l
+2068 94 l
+2068 93 l
+s
+2057 90 m
+2057 91 l
+2057 92 l
+2057 93 l
+2058 94 l
+2058 95 l
+2059 96 l
+2060 96 l
+2061 97 l
+2062 97 l
+2063 97 l
+2064 97 l
+2065 97 l
+2065 96 l
+2066 96 l
+2066 95 l
+2067 95 l
+2067 94 l
+2068 94 l
+2068 93 l
+s
+2058 90 m
+2058 91 l
+2058 92 l
+2058 93 l
+2058 94 l
+2059 94 l
+2059 95 l
+2060 95 l
+2061 96 l
+2062 96 l
+2063 96 l
+2064 96 l
+2065 96 l
+2066 96 l
+2066 95 l
+2067 95 l
+2067 94 l
+2068 94 l
+2068 93 l
+s
+2058 90 m
+2059 91 l
+2059 92 l
+2059 93 l
+2060 94 l
+2060 95 l
+2061 95 l
+2062 96 l
+2063 96 l
+2064 96 l
+2065 96 l
+2065 95 l
+2066 95 l
+2067 95 l
+2067 94 l
+2067 93 l
+2068 93 l
+s
+2059 90 m
+2059 91 l
+2059 92 l
+2060 92 l
+2060 93 l
+2060 94 l
+2061 94 l
+2062 95 l
+2063 95 l
+2064 95 l
+2065 95 l
+2066 95 l
+2066 94 l
+2067 94 l
+2067 93 l
+2068 93 l
+s
+2060 90 m
+2060 91 l
+2060 92 l
+2060 93 l
+2061 93 l
+2061 94 l
+2062 94 l
+2062 95 l
+2063 95 l
+2064 95 l
+2065 95 l
+2066 95 l
+2066 94 l
+2067 94 l
+2067 93 l
+2068 93 l
+2068 92 l
+s
+2061 90 m
+2061 91 l
+2061 92 l
+2061 93 l
+2062 93 l
+2062 94 l
+2063 94 l
+2064 94 l
+2065 94 l
+2066 94 l
+2067 94 l
+2067 93 l
+2067 92 l
+s
+2061 90 m
+2061 91 l
+2061 92 l
+2062 92 l
+2062 93 l
+2063 93 l
+2063 94 l
+2064 94 l
+2065 94 l
+2066 94 l
+2066 93 l
+2067 93 l
+2067 92 l
+s
+2062 90 m
+2062 91 l
+2062 92 l
+2063 93 l
+2064 93 l
+2064 94 l
+2065 94 l
+2066 94 l
+2066 93 l
+2067 93 l
+2067 92 l
+s
+2062 90 m
+2062 91 l
+2063 92 l
+2063 93 l
+2064 93 l
+2065 93 l
+2066 93 l
+2067 93 l
+2067 92 l
+s
+2063 90 m
+2063 91 l
+2063 92 l
+2064 92 l
+2064 93 l
+2065 93 l
+2066 93 l
+2067 93 l
+2067 92 l
+s
+2063 90 m
+2063 91 l
+2064 92 l
+2065 93 l
+2066 93 l
+2066 92 l
+2067 92 l
+s
+2064 90 m
+2064 91 l
+2064 92 l
+2065 92 l
+2066 92 l
+2067 92 l
+s
+2064 90 m
+2064 91 l
+2064 92 l
+2065 92 l
+2066 92 l
+2067 92 l
+s
+2064 90 m
+2064 91 l
+2065 91 l
+2065 92 l
+2066 92 l
+2067 92 l
+s
+2065 90 m
+2065 91 l
+2065 92 l
+2066 92 l
+2067 92 l
+2067 91 l
+s
+2065 90 m
+2065 91 l
+2066 91 l
+2066 92 l
+2067 91 l
+s
+2065 90 m
+2065 91 l
+2066 91 l
+2067 91 l
+s
+2066 90 m
+2066 91 l
+2067 91 l
+s
+2066 90 m
+2066 91 l
+2067 91 l
+s
+2066 90 m
+2067 91 l
+C s
+m
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+8 setlinewidth
+509 90 m
+3625 90 l
+s
+509 90 m
+509 12 l
+s
+821 90 m
+821 12 l
+s
+1132 90 m
+1132 12 l
+s
+1444 90 m
+1444 12 l
+s
+1755 90 m
+1755 12 l
+s
+2067 90 m
+2067 12 l
+s
+2378 90 m
+2378 12 l
+s
+2690 90 m
+2690 12 l
+s
+3001 90 m
+3001 12 l
+s
+3313 90 m
+3313 12 l
+s
+3625 90 m
+3625 12 l
+s
+3625 90 m
+%(\170) show
+509 90 m
+509 3205 l
+s
+509 90 m
+431 90 l
+s
+509 402 m
+431 402 l
+s
+509 713 m
+431 713 l
+s
+509 1025 m
+431 1025 l
+s
+509 1336 m
+431 1336 l
+s
+509 1648 m
+431 1648 l
+s
+509 1959 m
+431 1959 l
+s
+509 2270 m
+431 2270 l
+s
+509 2582 m
+431 2582 l
+s
+509 2893 m
+431 2893 l
+s
+509 3205 m
+431 3205 l
+s
+509 3205 m
+%(\171) show
+[] 0 setdash
+8 setlinewidth
+0.000000 0.000000 0.000000 S
+3489 955 m
+3440 902 l
+3380 844 l
+3365 830 l
+3327 791 l
+3273 742 l
+3251 723 l
+3223 696 l
+3175 654 l
+3146 630 l
+3129 614 l
+3085 578 l
+3049 550 l
+3042 544 l
+3003 512 l
+2963 483 l
+2960 481 l
+2928 456 l
+2892 431 l
+2879 422 l
+2859 407 l
+2827 386 l
+2804 371 l
+2796 365 l
+2768 347 l
+2738 329 l
+2736 328 l
+2713 313 l
+2687 298 l
+2674 291 l
+2663 284 l
+2641 271 l
+2617 259 l
+2597 248 l
+2577 237 l
+2565 232 l
+2558 228 l
+2540 219 l
+2522 210 l
+2518 209 l
+2506 203 l
+2490 195 l
+2475 189 l
+2474 189 l
+2460 182 l
+2447 177 l
+2436 172 l
+2433 171 l
+2421 166 l
+2409 162 l
+2400 158 l
+2397 157 l
+2387 153 l
+2377 149 l
+2368 146 l
+2367 146 l
+2358 143 l
+2349 140 l
+2340 137 l
+2338 136 l
+2333 134 l
+2325 132 l
+2318 130 l
+s
+3126 1818 m
+3105 1720 l
+3072 1601 l
+3065 1580 l
+3043 1492 l
+3009 1390 l
+3003 1374 l
+2980 1297 l
+2946 1209 l
+2941 1197 l
+2918 1129 l
+2885 1053 l
+2880 1042 l
+2857 984 l
+2827 919 l
+2821 909 l
+2800 860 l
+2771 805 l
+2765 794 l
+2745 754 l
+2718 706 l
+2711 694 l
+2694 662 l
+2669 621 l
+2659 607 l
+2646 584 l
+2623 548 l
+2611 533 l
+2601 516 l
+2580 486 l
+2566 468 l
+2559 458 l
+2540 432 l
+2524 413 l
+2520 408 l
+2503 386 l
+2484 365 l
+2468 346 l
+2452 328 l
+2448 324 l
+2437 311 l
+2422 296 l
+2414 288 l
+2408 282 l
+2394 269 l
+2382 258 l
+2381 256 l
+2369 245 l
+2356 234 l
+2354 232 l
+2345 224 l
+2334 215 l
+2327 210 l
+2324 207 l
+2314 199 l
+2304 192 l
+2303 191 l
+2295 185 l
+2286 179 l
+2280 175 l
+2278 173 l
+2270 167 l
+2262 162 l
+2260 161 l
+2255 158 l
+2248 153 l
+2241 149 l
+2235 145 l
+2229 142 l
+2224 140 l
+2223 139 l
+2218 136 l
+2212 133 l
+2209 131 l
+2207 130 l
+2202 128 l
+2198 126 l
+2195 124 l
+2193 123 l
+2189 122 l
+2185 120 l
+2182 118 l
+2181 118 l
+2178 117 l
+s
+2350 2877 m
+2378 2806 l
+2437 2625 l
+2481 2453 l
+2487 2423 l
+2519 2292 l
+2546 2139 l
+2554 2068 l
+2566 1997 l
+2581 1863 l
+2586 1777 l
+2590 1738 l
+2596 1621 l
+2595 1534 l
+2596 1512 l
+2596 1411 l
+2590 1328 l
+2590 1316 l
+2586 1229 l
+2577 1153 l
+2576 1146 l
+2568 1071 l
+2557 1003 l
+2556 1000 l
+2547 935 l
+2533 874 l
+2533 873 l
+2522 817 l
+2508 765 l
+2508 763 l
+2496 717 l
+2482 671 l
+2481 668 l
+2470 630 l
+2456 591 l
+2454 586 l
+2444 555 l
+2430 521 l
+2427 515 l
+2418 491 l
+2405 462 l
+2401 453 l
+2393 436 l
+2381 411 l
+2375 400 l
+2370 388 l
+2358 367 l
+2351 355 l
+2347 347 l
+2337 329 l
+2328 316 l
+2326 312 l
+2317 297 l
+2306 282 l
+2298 269 l
+2288 256 l
+2286 253 l
+2280 245 l
+2272 234 l
+2267 228 l
+2264 224 l
+2256 215 l
+2249 207 l
+2248 206 l
+2242 198 l
+2235 191 l
+2233 189 l
+2228 184 l
+2222 177 l
+2217 173 l
+2216 171 l
+2210 166 l
+2204 161 l
+2203 160 l
+2199 156 l
+2194 152 l
+2190 149 l
+2189 148 l
+2185 144 l
+2180 140 l
+2179 139 l
+2176 137 l
+2172 134 l
+2168 131 l
+2164 129 l
+2160 126 l
+2158 124 l
+2157 124 l
+2154 122 l
+2151 120 l
+2149 119 l
+2148 118 l
+2145 116 l
+2142 115 l
+2140 114 l
+2140 113 l
+2137 112 l
+2135 111 l
+s
+1331 2511 m
+1521 2438 l
+1527 2435 l
+1677 2342 l
+1805 2234 l
+1911 2121 l
+1949 2070 l
+2000 2006 l
+2073 1892 l
+2134 1781 l
+2183 1673 l
+2192 1647 l
+2224 1570 l
+2257 1473 l
+2282 1383 l
+2283 1379 l
+2305 1292 l
+2321 1209 l
+2324 1181 l
+2333 1132 l
+2342 1059 l
+2345 1016 l
+2348 991 l
+2352 928 l
+2352 879 l
+2353 868 l
+2353 813 l
+2351 764 l
+2351 761 l
+2349 714 l
+2344 669 l
+2344 667 l
+2340 628 l
+2334 589 l
+2333 583 l
+2329 554 l
+2322 520 l
+2320 512 l
+2316 490 l
+2309 461 l
+2306 451 l
+2303 434 l
+2295 410 l
+2291 398 l
+2288 387 l
+2281 366 l
+2277 353 l
+2274 346 l
+2268 328 l
+2262 314 l
+2260 311 l
+2254 295 l
+2247 281 l
+2241 267 l
+2234 255 l
+2233 252 l
+2229 243 l
+2222 232 l
+2220 228 l
+2217 222 l
+2211 213 l
+2207 207 l
+2206 204 l
+2201 197 l
+2195 189 l
+2191 182 l
+2186 176 l
+2184 174 l
+2181 170 l
+2177 165 l
+2173 160 l
+2172 159 l
+2169 155 l
+2164 150 l
+2163 149 l
+2161 146 l
+2157 142 l
+2154 140 l
+2154 139 l
+2150 136 l
+2147 133 l
+2146 132 l
+2144 130 l
+2141 127 l
+2138 125 l
+2136 123 l
+2133 121 l
+2131 119 l
+2130 119 l
+2128 117 l
+2126 115 l
+2125 114 l
+2124 114 l
+2122 112 l
+2120 111 l
+2119 110 l
+2118 110 l
+2116 109 l
+2114 107 l
+s
+489 90 m
+489 96 l
+489 102 l
+489 108 l
+490 115 l
+490 122 l
+490 129 l
+490 137 l
+490 145 l
+490 153 l
+490 162 l
+491 172 l
+491 181 l
+492 192 l
+492 202 l
+493 214 l
+493 225 l
+494 238 l
+495 251 l
+496 265 l
+497 279 l
+498 294 l
+499 310 l
+501 326 l
+503 344 l
+505 362 l
+507 381 l
+510 401 l
+513 422 l
+516 444 l
+520 467 l
+524 491 l
+528 516 l
+533 543 l
+539 571 l
+546 600 l
+553 631 l
+561 663 l
+570 696 l
+580 731 l
+591 768 l
+604 806 l
+618 846 l
+634 887 l
+652 931 l
+672 976 l
+695 1023 l
+721 1071 l
+750 1122 l
+784 1174 l
+792 1185 l
+820 1227 l
+861 1282 l
+909 1337 l
+964 1392 l
+1029 1447 l
+1096 1492 l
+1106 1498 l
+1196 1545 l
+1307 1582 l
+1317 1584 l
+1452 1598 l
+1489 1596 l
+1627 1570 l
+1682 1548 l
+1740 1521 l
+1833 1461 l
+1910 1395 l
+1974 1325 l
+2027 1255 l
+2030 1250 l
+2071 1185 l
+2108 1118 l
+2138 1053 l
+2153 1015 l
+2163 990 l
+2184 931 l
+2200 874 l
+2203 858 l
+2213 821 l
+2223 771 l
+2228 736 l
+2230 724 l
+2236 680 l
+2239 639 l
+2239 637 l
+2242 600 l
+2243 564 l
+2242 555 l
+2243 531 l
+2242 500 l
+2241 486 l
+2240 470 l
+2238 443 l
+2236 427 l
+2235 418 l
+2232 395 l
+2229 377 l
+2228 373 l
+2225 353 l
+2221 335 l
+2220 334 l
+2217 317 l
+2212 301 l
+2212 298 l
+2208 286 l
+2204 272 l
+2202 267 l
+2200 259 l
+2195 247 l
+2193 241 l
+2191 236 l
+2187 226 l
+2183 218 l
+2183 216 l
+2179 207 l
+2175 199 l
+2174 198 l
+2171 191 l
+2167 184 l
+2166 182 l
+2164 178 l
+2160 171 l
+2157 167 l
+2157 166 l
+2153 161 l
+2150 156 l
+2150 155 l
+2147 151 l
+2144 147 l
+2142 145 l
+2141 143 l
+2138 140 l
+2135 136 l
+2133 133 l
+2130 130 l
+2129 129 l
+2128 127 l
+2126 125 l
+2123 123 l
+2123 122 l
+2121 121 l
+2119 119 l
+2117 117 l
+2115 115 l
+2113 113 l
+2112 113 l
+2112 112 l
+2110 111 l
+2108 109 l
+2107 108 l
+2105 107 l
+2104 106 l
+2103 105 l
+s
+994 90 m
+994 95 l
+994 100 l
+994 105 l
+994 111 l
+994 116 l
+994 122 l
+994 129 l
+995 135 l
+995 142 l
+995 150 l
+995 157 l
+996 165 l
+996 174 l
+997 183 l
+997 192 l
+998 202 l
+999 212 l
+999 223 l
+1000 234 l
+1002 246 l
+1003 258 l
+1004 271 l
+1006 285 l
+1008 299 l
+1010 314 l
+1012 330 l
+1015 346 l
+1018 363 l
+1021 382 l
+1025 400 l
+1029 420 l
+1034 441 l
+1040 463 l
+1046 486 l
+1052 509 l
+1060 534 l
+1069 560 l
+1078 587 l
+1089 616 l
+1101 645 l
+1115 676 l
+1130 708 l
+1148 741 l
+1168 775 l
+1190 810 l
+1216 846 l
+1222 854 l
+1244 883 l
+1277 921 l
+1314 958 l
+1359 995 l
+1411 1029 l
+1416 1032 l
+1473 1061 l
+1549 1086 l
+1561 1088 l
+1648 1096 l
+1674 1094 l
+1766 1076 l
+1807 1060 l
+1842 1044 l
+1905 1004 l
+1957 960 l
+2000 914 l
+2036 867 l
+2039 863 l
+2066 821 l
+2091 776 l
+2112 733 l
+2124 702 l
+2128 691 l
+2143 652 l
+2154 614 l
+2158 597 l
+2163 579 l
+2170 546 l
+2175 515 l
+2175 514 l
+2179 485 l
+2182 457 l
+2182 448 l
+2183 432 l
+2184 408 l
+2184 394 l
+2184 385 l
+2184 365 l
+2183 348 l
+2183 345 l
+2182 327 l
+2180 310 l
+2179 309 l
+2178 295 l
+2175 280 l
+2174 276 l
+2173 267 l
+2170 254 l
+2169 248 l
+2168 242 l
+2165 232 l
+2163 224 l
+2162 222 l
+2159 212 l
+2156 204 l
+2156 203 l
+2154 196 l
+2151 188 l
+2150 186 l
+2148 181 l
+2145 175 l
+2143 171 l
+2143 169 l
+2140 163 l
+2137 158 l
+2135 154 l
+2132 149 l
+2131 148 l
+2130 145 l
+2128 141 l
+2126 138 l
+2125 138 l
+2123 135 l
+2121 132 l
+2120 131 l
+2119 129 l
+2117 126 l
+2115 124 l
+2113 121 l
+2112 119 l
+2111 119 l
+2110 117 l
+2108 116 l
+2107 114 l
+2105 112 l
+2104 111 l
+2103 110 l
+2102 110 l
+2101 108 l
+2100 107 l
+2099 107 l
+2098 106 l
+2097 105 l
+2096 104 l
+2095 104 l
+s
+1294 90 m
+1294 94 l
+1294 99 l
+1294 103 l
+1294 108 l
+1294 112 l
+1295 118 l
+1295 123 l
+1295 129 l
+1295 134 l
+1295 141 l
+1296 147 l
+1296 154 l
+1297 161 l
+1297 169 l
+1298 177 l
+1298 185 l
+1299 194 l
+1300 203 l
+1301 212 l
+1302 222 l
+1304 233 l
+1305 244 l
+1307 255 l
+1309 267 l
+1311 280 l
+1314 293 l
+1317 307 l
+1320 322 l
+1323 337 l
+1327 353 l
+1332 370 l
+1337 387 l
+1343 405 l
+1349 424 l
+1356 444 l
+1365 465 l
+1374 486 l
+1384 509 l
+1396 532 l
+1400 539 l
+1409 556 l
+1424 581 l
+1440 607 l
+1459 633 l
+1481 659 l
+1507 686 l
+1536 713 l
+1553 726 l
+1570 739 l
+1610 763 l
+1659 784 l
+1665 786 l
+1720 798 l
+1753 800 l
+1803 797 l
+1824 793 l
+1882 774 l
+1930 748 l
+1970 718 l
+2003 686 l
+2031 653 l
+2055 620 l
+2074 588 l
+2090 557 l
+2104 528 l
+2115 499 l
+2123 472 l
+2124 471 l
+2131 447 l
+2137 423 l
+2139 408 l
+2141 400 l
+2144 379 l
+2147 359 l
+2147 356 l
+2149 340 l
+2149 322 l
+2149 315 l
+2150 306 l
+2150 291 l
+2149 280 l
+2149 277 l
+2149 264 l
+2147 251 l
+2146 240 l
+2145 229 l
+2144 226 l
+2143 220 l
+2141 210 l
+2140 205 l
+2139 202 l
+2138 194 l
+2136 187 l
+2135 187 l
+2134 180 l
+2132 174 l
+2131 172 l
+2130 168 l
+2128 162 l
+2126 159 l
+2126 157 l
+2124 153 l
+2122 148 l
+2120 144 l
+2118 140 l
+2117 139 l
+2116 137 l
+2114 134 l
+2113 131 l
+2111 128 l
+2109 125 l
+2108 123 l
+2106 121 l
+2105 119 l
+2103 117 l
+2102 115 l
+2101 114 l
+2101 113 l
+2099 112 l
+2098 110 l
+2097 109 l
+2096 108 l
+2095 107 l
+2094 106 l
+2093 105 l
+2092 104 l
+2091 103 l
+2090 102 l
+s
+1488 90 m
+1488 94 l
+1488 97 l
+1488 101 l
+1488 105 l
+1488 109 l
+1488 114 l
+1488 119 l
+1488 123 l
+1489 129 l
+1489 134 l
+1489 140 l
+1490 145 l
+1490 152 l
+1491 158 l
+1491 165 l
+1492 172 l
+1493 180 l
+1494 188 l
+1495 196 l
+1496 204 l
+1497 213 l
+1499 223 l
+1501 233 l
+1503 243 l
+1505 254 l
+1508 266 l
+1511 278 l
+1514 290 l
+1518 303 l
+1522 317 l
+1527 331 l
+1532 346 l
+1538 362 l
+1545 378 l
+1553 394 l
+1562 412 l
+1572 430 l
+1578 441 l
+1583 449 l
+1595 468 l
+1609 487 l
+1626 507 l
+1644 527 l
+1666 547 l
+1687 562 l
+1692 567 l
+1722 585 l
+1758 600 l
+1768 603 l
+1804 611 l
+1832 613 l
+1866 611 l
+1884 607 l
+1927 593 l
+1963 574 l
+1992 552 l
+2017 529 l
+2038 505 l
+2056 481 l
+2070 458 l
+2082 435 l
+2085 429 l
+2093 413 l
+2101 392 l
+2108 372 l
+2109 366 l
+2113 353 l
+2118 336 l
+2121 319 l
+2124 303 l
+2125 289 l
+2126 282 l
+2127 275 l
+2128 262 l
+2128 251 l
+2128 250 l
+2128 239 l
+2128 228 l
+2127 226 l
+2127 219 l
+2126 210 l
+2126 204 l
+2125 201 l
+2125 193 l
+2123 186 l
+2122 179 l
+2121 173 l
+2120 171 l
+2119 167 l
+2118 162 l
+2117 158 l
+2116 157 l
+2115 152 l
+2113 148 l
+2112 144 l
+2111 140 l
+2110 138 l
+2109 136 l
+2108 133 l
+2106 131 l
+2106 130 l
+2105 128 l
+2104 125 l
+2103 124 l
+2102 123 l
+2101 120 l
+2100 119 l
+2100 118 l
+2099 116 l
+2097 115 l
+2097 114 l
+2096 113 l
+2095 111 l
+2094 110 l
+2093 109 l
+2092 108 l
+2091 107 l
+2091 106 l
+2090 105 l
+2089 104 l
+2088 103 l
+2087 102 l
+2086 101 l
+s
+1620 90 m
+1620 93 l
+1620 97 l
+1620 100 l
+1620 103 l
+1620 107 l
+1620 111 l
+1620 115 l
+1620 119 l
+1621 124 l
+1621 129 l
+1621 134 l
+1622 139 l
+1622 144 l
+1623 147 l
+1623 150 l
+1623 156 l
+1624 162 l
+1625 169 l
+1626 176 l
+1627 183 l
+1628 191 l
+1630 198 l
+1631 207 l
+1633 216 l
+1635 225 l
+1638 234 l
+1640 244 l
+1643 255 l
+1647 265 l
+1650 277 l
+1655 289 l
+1660 301 l
+1665 314 l
+1672 327 l
+1679 341 l
+1687 355 l
+1696 370 l
+1707 385 l
+1720 400 l
+1725 406 l
+1733 416 l
+1749 431 l
+1768 446 l
+1790 461 l
+1797 465 l
+1816 474 l
+1848 484 l
+1853 485 l
+1890 488 l
+1899 487 l
+1936 480 l
+1957 472 l
+1967 468 l
+1993 453 l
+2015 436 l
+2033 418 l
+2048 400 l
+2053 392 l
+2061 382 l
+2071 364 l
+2080 347 l
+2087 331 l
+2089 326 l
+2094 315 l
+2099 300 l
+2102 286 l
+2103 283 l
+2106 273 l
+2108 261 l
+2110 250 l
+2110 249 l
+2112 238 l
+2112 228 l
+2113 224 l
+2113 218 l
+2113 209 l
+2113 202 l
+2113 201 l
+2113 193 l
+2113 186 l
+2112 184 l
+2112 179 l
+2111 173 l
+2111 169 l
+2111 167 l
+2110 162 l
+2109 157 l
+2108 152 l
+2107 148 l
+2106 146 l
+2106 144 l
+2104 140 l
+2103 137 l
+2103 136 l
+2102 133 l
+2101 130 l
+2101 129 l
+2100 127 l
+2099 125 l
+2098 123 l
+2098 122 l
+2097 120 l
+2096 118 l
+2095 118 l
+2095 116 l
+2094 115 l
+2093 113 l
+2092 111 l
+2091 110 l
+2090 109 l
+2089 107 l
+2088 106 l
+2087 105 l
+2087 104 l
+2086 104 l
+2086 103 l
+2085 102 l
+2084 102 l
+2084 101 l
+2083 100 l
+s
+1712 90 m
+1712 93 l
+1712 96 l
+1712 99 l
+1712 102 l
+1712 105 l
+1712 109 l
+1713 112 l
+1713 116 l
+1713 120 l
+1713 124 l
+1714 129 l
+1714 134 l
+1715 138 l
+1715 143 l
+1716 149 l
+1717 154 l
+1717 160 l
+1718 166 l
+1720 173 l
+1721 180 l
+1722 187 l
+1724 194 l
+1726 202 l
+1728 210 l
+1731 218 l
+1734 227 l
+1737 236 l
+1740 246 l
+1744 256 l
+1749 266 l
+1755 277 l
+1761 288 l
+1768 299 l
+1771 304 l
+1775 311 l
+1784 323 l
+1794 335 l
+1805 348 l
+1819 360 l
+1833 370 l
+1835 372 l
+1853 383 l
+1876 392 l
+1881 394 l
+1904 399 l
+1920 400 l
+1942 399 l
+1951 397 l
+1977 389 l
+1999 378 l
+2017 365 l
+2033 352 l
+2046 338 l
+2057 324 l
+2066 310 l
+2073 296 l
+2078 287 l
+2080 283 l
+2085 271 l
+2089 259 l
+2092 250 l
+2093 248 l
+2096 238 l
+2098 228 l
+2099 222 l
+2100 218 l
+2101 210 l
+2102 201 l
+2102 200 l
+2103 194 l
+2103 186 l
+2103 182 l
+2103 180 l
+2103 174 l
+2103 168 l
+2103 167 l
+2102 162 l
+2102 157 l
+2101 154 l
+2101 152 l
+2101 148 l
+2100 144 l
+2099 140 l
+2098 137 l
+2098 135 l
+2098 134 l
+2097 131 l
+2096 128 l
+2095 125 l
+2094 123 l
+2094 122 l
+2093 120 l
+2092 118 l
+2091 116 l
+2091 115 l
+2090 113 l
+2089 112 l
+2089 111 l
+2088 110 l
+2087 109 l
+2087 108 l
+2087 107 l
+2086 106 l
+2085 105 l
+2085 104 l
+2084 103 l
+2083 102 l
+2082 101 l
+2081 100 l
+s
+1780 90 m
+1780 93 l
+1780 95 l
+1780 98 l
+1780 101 l
+1780 104 l
+1780 107 l
+1780 110 l
+1781 114 l
+1781 117 l
+1781 121 l
+1782 125 l
+1782 129 l
+1783 134 l
+1783 138 l
+1784 143 l
+1785 148 l
+1786 153 l
+1787 159 l
+1788 164 l
+1789 170 l
+1791 177 l
+1792 183 l
+1795 190 l
+1797 197 l
+1799 205 l
+1802 213 l
+1806 221 l
+1810 229 l
+1814 238 l
+1819 246 l
+1819 247 l
+1825 256 l
+1831 266 l
+1838 276 l
+1846 286 l
+1856 296 l
+1867 306 l
+1870 308 l
+1880 315 l
+1896 324 l
+1910 330 l
+1914 331 l
+1938 336 l
+1942 337 l
+1968 335 l
+1970 335 l
+1990 330 l
+2008 321 l
+2023 312 l
+2036 301 l
+2047 290 l
+2056 279 l
+2064 268 l
+2070 257 l
+2073 251 l
+2075 247 l
+2080 237 l
+2084 227 l
+2086 219 l
+2087 218 l
+2089 210 l
+2091 202 l
+2092 196 l
+2092 194 l
+2094 187 l
+2095 180 l
+2095 178 l
+2095 174 l
+2096 168 l
+2096 163 l
+2096 158 l
+2096 153 l
+2095 151 l
+2095 149 l
+2095 145 l
+2094 141 l
+2094 137 l
+2093 134 l
+2093 133 l
+2093 131 l
+2092 128 l
+2092 126 l
+2092 125 l
+2091 123 l
+2090 121 l
+2090 120 l
+2090 119 l
+2089 117 l
+2088 115 l
+2087 113 l
+2087 112 l
+2086 111 l
+2086 110 l
+2085 109 l
+2085 107 l
+2084 106 l
+2083 105 l
+2083 104 l
+2082 103 l
+2082 102 l
+2081 102 l
+2081 101 l
+2080 100 l
+2079 99 l
+s
+1831 90 m
+1831 92 l
+1831 95 l
+1831 97 l
+1831 100 l
+1831 103 l
+1832 105 l
+1832 108 l
+1832 111 l
+1832 115 l
+1832 118 l
+1833 122 l
+1833 126 l
+1834 129 l
+1834 134 l
+1835 138 l
+1836 142 l
+1837 147 l
+1838 152 l
+1839 157 l
+1841 163 l
+1842 168 l
+1844 174 l
+1846 181 l
+1849 187 l
+1851 194 l
+1854 201 l
+1858 208 l
+1862 215 l
+1864 218 l
+1867 223 l
+1872 231 l
+1878 239 l
+1884 247 l
+1892 256 l
+1901 264 l
+1905 266 l
+1912 272 l
+1925 279 l
+1937 284 l
+1940 285 l
+1959 289 l
+1963 290 l
+1984 289 l
+1986 289 l
+2002 284 l
+2017 278 l
+2030 270 l
+2040 261 l
+2049 252 l
+2057 243 l
+2063 234 l
+2069 226 l
+2073 218 l
+2073 217 l
+2077 209 l
+2080 202 l
+2082 194 l
+2083 193 l
+2084 187 l
+2086 181 l
+2087 175 l
+2087 174 l
+2088 169 l
+2089 164 l
+2089 159 l
+2090 159 l
+2090 154 l
+2090 149 l
+2090 148 l
+2090 145 l
+2090 142 l
+2090 138 l
+2090 135 l
+2089 132 l
+2089 130 l
+2089 129 l
+2089 126 l
+2088 123 l
+2088 121 l
+2087 119 l
+2087 118 l
+2086 117 l
+2086 115 l
+2085 113 l
+2085 112 l
+2084 110 l
+2084 109 l
+2083 108 l
+2083 106 l
+2082 106 l
+2082 105 l
+2081 104 l
+2081 103 l
+2080 103 l
+2080 102 l
+2080 101 l
+2079 101 l
+2079 100 l
+2078 100 l
+2078 99 l
+2078 98 l
+s
+1871 90 m
+1871 92 l
+1871 94 l
+1871 97 l
+1871 99 l
+1871 101 l
+1871 104 l
+1871 107 l
+1871 110 l
+1872 113 l
+1872 116 l
+1872 119 l
+1873 122 l
+1873 126 l
+1874 130 l
+1875 134 l
+1876 138 l
+1876 142 l
+1878 147 l
+1879 151 l
+1880 156 l
+1882 161 l
+1884 167 l
+1886 172 l
+1889 178 l
+1891 184 l
+1895 190 l
+1898 197 l
+1903 203 l
+1903 204 l
+1907 210 l
+1913 217 l
+1919 224 l
+1927 231 l
+1935 237 l
+1936 238 l
+1946 244 l
+1958 249 l
+1961 250 l
+1973 253 l
+1982 254 l
+1994 254 l
+2000 253 l
+2014 249 l
+2026 244 l
+2034 239 l
+2036 237 l
+2045 230 l
+2048 227 l
+2052 223 l
+2059 215 l
+2064 208 l
+2068 201 l
+2072 194 l
+2074 190 l
+2075 188 l
+2077 181 l
+2080 175 l
+2081 170 l
+2083 164 l
+2084 159 l
+2084 156 l
+2084 155 l
+2085 150 l
+2086 146 l
+2086 144 l
+2086 142 l
+2086 139 l
+2086 135 l
+2086 132 l
+2086 129 l
+2086 127 l
+2085 124 l
+2085 122 l
+2085 121 l
+2085 120 l
+2084 118 l
+2084 116 l
+2083 114 l
+2083 112 l
+2083 111 l
+2082 111 l
+2082 109 l
+2082 108 l
+2081 108 l
+2081 107 l
+2081 106 l
+2080 105 l
+2080 104 l
+2079 103 l
+2079 102 l
+2078 101 l
+2078 100 l
+2077 99 l
+2076 98 l
+s
+1902 90 m
+1902 92 l
+1902 94 l
+1902 96 l
+1902 98 l
+1902 101 l
+1902 103 l
+1902 105 l
+1902 108 l
+1903 111 l
+1903 114 l
+1903 117 l
+1904 120 l
+1905 123 l
+1905 127 l
+1906 130 l
+1907 134 l
+1908 138 l
+1909 142 l
+1910 146 l
+1912 151 l
+1913 155 l
+1915 160 l
+1917 165 l
+1920 171 l
+1923 176 l
+1926 182 l
+1930 187 l
+1935 193 l
+1937 195 l
+1940 199 l
+1946 205 l
+1953 210 l
+1961 216 l
+1962 216 l
+1971 221 l
+1982 225 l
+1983 225 l
+1998 226 l
+1999 226 l
+2013 225 l
+2022 222 l
+2024 221 l
+2034 217 l
+2043 211 l
+2050 205 l
+2055 199 l
+2060 193 l
+2064 188 l
+2065 187 l
+2068 181 l
+2071 176 l
+2074 170 l
+2075 166 l
+2076 165 l
+2078 160 l
+2079 155 l
+2080 151 l
+2081 147 l
+2082 143 l
+2082 140 l
+2082 136 l
+2083 133 l
+2083 131 l
+2083 130 l
+2083 127 l
+2083 125 l
+2083 124 l
+2083 122 l
+2082 120 l
+2082 118 l
+2082 116 l
+2082 114 l
+2081 114 l
+2081 113 l
+2081 111 l
+2081 110 l
+2080 108 l
+2080 107 l
+2080 106 l
+2079 106 l
+2079 105 l
+2079 104 l
+2078 104 l
+2078 103 l
+2078 102 l
+2077 101 l
+2077 100 l
+2076 99 l
+2076 98 l
+2075 98 l
+s
+1926 90 m
+1926 92 l
+1926 94 l
+1926 96 l
+1926 98 l
+1926 100 l
+1926 102 l
+1927 104 l
+1927 107 l
+1927 109 l
+1928 112 l
+1928 115 l
+1928 118 l
+1929 121 l
+1930 124 l
+1930 127 l
+1931 131 l
+1932 134 l
+1934 138 l
+1935 142 l
+1937 146 l
+1938 150 l
+1940 154 l
+1941 155 l
+1943 159 l
+1945 164 l
+1948 169 l
+1952 174 l
+1956 179 l
+1961 184 l
+1965 187 l
+1967 189 l
+1973 193 l
+1981 198 l
+1984 199 l
+1990 202 l
+2000 204 l
+2002 204 l
+2013 204 l
+2018 204 l
+2024 202 l
+2033 199 l
+2041 195 l
+2048 190 l
+2053 185 l
+2058 180 l
+2062 175 l
+2066 170 l
+2069 165 l
+2070 162 l
+2071 160 l
+2073 156 l
+2075 152 l
+2076 148 l
+2076 147 l
+2077 144 l
+2078 140 l
+2079 137 l
+2079 134 l
+2080 131 l
+2080 128 l
+2080 125 l
+2080 123 l
+2080 121 l
+2080 119 l
+2080 117 l
+2080 116 l
+2080 115 l
+2080 113 l
+2079 112 l
+2079 111 l
+2079 110 l
+2079 109 l
+2079 108 l
+2079 107 l
+2078 106 l
+2078 105 l
+2078 104 l
+2077 103 l
+2077 102 l
+2077 101 l
+2076 101 l
+2076 100 l
+2076 99 l
+2075 99 l
+2075 98 l
+2074 97 l
+s
+1946 90 m
+1946 92 l
+1946 94 l
+1946 95 l
+1946 97 l
+1946 99 l
+1947 101 l
+1947 103 l
+1947 105 l
+1947 108 l
+1948 110 l
+1948 113 l
+1949 116 l
+1949 118 l
+1950 121 l
+1951 124 l
+1951 128 l
+1952 131 l
+1954 134 l
+1955 138 l
+1957 142 l
+1959 146 l
+1961 150 l
+1963 154 l
+1966 158 l
+1968 161 l
+1969 162 l
+1973 167 l
+1977 171 l
+1983 175 l
+1987 178 l
+1989 179 l
+1996 183 l
+2002 185 l
+2005 186 l
+2014 187 l
+2016 187 l
+2025 187 l
+2033 184 l
+2034 184 l
+2041 181 l
+2047 177 l
+2052 173 l
+2057 169 l
+2061 165 l
+2064 160 l
+2065 159 l
+2067 156 l
+2069 152 l
+2071 148 l
+2073 145 l
+2073 143 l
+2074 141 l
+2075 138 l
+2076 135 l
+2076 133 l
+2077 132 l
+2077 129 l
+2078 126 l
+2078 125 l
+2078 124 l
+2078 121 l
+2078 119 l
+2078 117 l
+2078 115 l
+2078 114 l
+2078 112 l
+2078 111 l
+2078 109 l
+2077 108 l
+2077 107 l
+2077 106 l
+2077 104 l
+2076 103 l
+2076 102 l
+2076 101 l
+2075 100 l
+2075 99 l
+2075 98 l
+2074 98 l
+2074 97 l
+s
+1962 90 m
+1962 92 l
+1962 93 l
+1962 95 l
+1963 97 l
+1963 98 l
+1963 100 l
+1963 102 l
+1963 104 l
+1964 107 l
+1964 109 l
+1964 111 l
+1965 114 l
+1965 116 l
+1966 119 l
+1967 122 l
+1968 125 l
+1969 128 l
+1970 131 l
+1972 134 l
+1973 137 l
+1974 138 l
+1975 141 l
+1978 145 l
+1980 149 l
+1983 153 l
+1987 156 l
+1991 160 l
+1995 164 l
+2001 167 l
+2005 169 l
+2008 170 l
+2016 173 l
+2026 173 l
+2027 173 l
+2034 172 l
+2041 169 l
+2047 166 l
+2050 164 l
+2052 163 l
+2056 159 l
+2060 156 l
+2063 152 l
+2065 148 l
+2068 145 l
+2069 142 l
+2070 139 l
+2071 138 l
+2072 135 l
+2073 132 l
+2074 130 l
+2074 129 l
+2075 127 l
+2075 124 l
+2076 122 l
+2076 120 l
+2076 118 l
+2076 116 l
+2077 114 l
+2077 113 l
+2077 111 l
+2076 110 l
+2076 108 l
+2076 107 l
+2076 106 l
+2076 105 l
+2076 104 l
+2075 103 l
+2075 102 l
+2075 101 l
+2075 100 l
+2074 99 l
+2074 98 l
+2074 97 l
+2073 97 l
+s
+1976 90 m
+1976 92 l
+1976 93 l
+1976 95 l
+1976 96 l
+1976 98 l
+1976 100 l
+1977 102 l
+1977 103 l
+1977 105 l
+1978 108 l
+1978 110 l
+1979 112 l
+1979 115 l
+1980 117 l
+1981 120 l
+1982 122 l
+1983 125 l
+1984 128 l
+1986 131 l
+1987 134 l
+1989 138 l
+1992 141 l
+1994 144 l
+1995 145 l
+1997 148 l
+2001 151 l
+2005 154 l
+2008 156 l
+2011 157 l
+2017 160 l
+2019 160 l
+2025 161 l
+2028 161 l
+2035 161 l
+2036 161 l
+2042 159 l
+2047 157 l
+2052 154 l
+2056 151 l
+2059 148 l
+2062 145 l
+2064 142 l
+2066 139 l
+2068 136 l
+2068 135 l
+2070 133 l
+2071 130 l
+2072 128 l
+2073 126 l
+2073 125 l
+2073 123 l
+2074 121 l
+2074 119 l
+2075 117 l
+2075 115 l
+2075 113 l
+2075 112 l
+2075 110 l
+2075 109 l
+2075 108 l
+2075 106 l
+2075 105 l
+2075 104 l
+2075 103 l
+2075 102 l
+2074 102 l
+2074 101 l
+2074 100 l
+2074 99 l
+2073 98 l
+2073 97 l
+2073 96 l
+s
+1987 90 m
+1987 92 l
+1987 93 l
+1987 94 l
+1987 96 l
+1988 97 l
+1988 99 l
+1988 101 l
+1988 103 l
+1988 105 l
+1989 107 l
+1989 109 l
+1990 111 l
+1990 113 l
+1991 115 l
+1992 118 l
+1993 120 l
+1994 123 l
+1996 126 l
+1997 129 l
+1999 131 l
+1999 132 l
+2001 134 l
+2003 137 l
+2006 140 l
+2010 143 l
+2012 145 l
+2014 146 l
+2018 149 l
+2022 150 l
+2024 151 l
+2030 152 l
+2032 152 l
+2037 152 l
+2042 151 l
+2043 151 l
+2048 149 l
+2052 146 l
+2056 144 l
+2059 141 l
+2062 139 l
+2064 136 l
+2066 133 l
+2067 132 l
+2067 131 l
+2069 128 l
+2070 126 l
+2071 123 l
+2071 122 l
+2072 121 l
+2072 119 l
+2073 117 l
+2073 116 l
+2074 114 l
+2074 112 l
+2074 111 l
+2074 109 l
+2074 108 l
+2074 107 l
+2074 106 l
+2074 105 l
+2074 104 l
+2074 103 l
+2074 102 l
+2074 101 l
+2073 100 l
+2073 99 l
+2073 98 l
+2073 97 l
+2072 97 l
+2072 96 l
+s
+1997 90 m
+1997 91 l
+1997 93 l
+1997 94 l
+1997 96 l
+1997 97 l
+1997 99 l
+1997 100 l
+1998 102 l
+1998 104 l
+1998 106 l
+1999 107 l
+1999 109 l
+2000 112 l
+2001 114 l
+2002 116 l
+2003 118 l
+2004 121 l
+2005 123 l
+2007 126 l
+2009 129 l
+2011 131 l
+2014 134 l
+2015 135 l
+2017 136 l
+2020 139 l
+2025 141 l
+2030 143 l
+2032 144 l
+2037 144 l
+2039 144 l
+2044 143 l
+2047 142 l
+2049 142 l
+2053 140 l
+2056 138 l
+2059 135 l
+2061 133 l
+2064 131 l
+2065 128 l
+2066 128 l
+2067 126 l
+2068 124 l
+2069 122 l
+2070 120 l
+2070 119 l
+2071 118 l
+2071 116 l
+2072 114 l
+2072 113 l
+2073 111 l
+2073 110 l
+2073 109 l
+2073 108 l
+2073 107 l
+2073 106 l
+2073 105 l
+2073 104 l
+2073 103 l
+2073 102 l
+2073 101 l
+2073 100 l
+2073 99 l
+2072 98 l
+2072 97 l
+2072 96 l
+s
+2005 90 m
+2005 91 l
+2005 93 l
+2005 94 l
+2005 95 l
+2005 97 l
+2005 98 l
+2006 100 l
+2006 101 l
+2006 103 l
+2007 105 l
+2007 106 l
+2008 108 l
+2008 110 l
+2009 112 l
+2010 114 l
+2011 117 l
+2012 119 l
+2014 121 l
+2015 124 l
+2017 126 l
+2019 128 l
+2020 128 l
+2022 131 l
+2026 133 l
+2028 134 l
+2030 135 l
+2034 137 l
+2035 137 l
+2041 137 l
+2046 137 l
+2050 136 l
+2050 135 l
+2053 134 l
+2057 132 l
+2059 130 l
+2061 128 l
+2063 126 l
+2065 124 l
+2066 122 l
+2068 120 l
+2069 118 l
+2069 117 l
+2070 116 l
+2070 115 l
+2071 113 l
+2071 112 l
+2071 110 l
+2072 109 l
+2072 108 l
+2072 107 l
+2072 106 l
+2072 105 l
+2072 104 l
+2072 103 l
+2072 102 l
+2072 101 l
+2072 100 l
+2072 99 l
+2072 98 l
+2072 97 l
+2071 96 l
+s
+2012 90 m
+2012 91 l
+2012 92 l
+2012 94 l
+2012 95 l
+2012 96 l
+2012 98 l
+2013 99 l
+2013 101 l
+2013 102 l
+2014 104 l
+2014 105 l
+2015 107 l
+2015 109 l
+2016 111 l
+2017 113 l
+2018 115 l
+2019 117 l
+2021 119 l
+2023 121 l
+2023 122 l
+2025 124 l
+2027 126 l
+2030 128 l
+2031 128 l
+2034 129 l
+2037 131 l
+2038 131 l
+2042 132 l
+2044 132 l
+2047 131 l
+2051 130 l
+2053 130 l
+2054 129 l
+2057 128 l
+2059 126 l
+2062 124 l
+2063 122 l
+2065 120 l
+2066 119 l
+2067 117 l
+2068 115 l
+2069 114 l
+2069 113 l
+2070 112 l
+2070 111 l
+2071 110 l
+2071 108 l
+2071 107 l
+2071 106 l
+2072 105 l
+2072 104 l
+2072 103 l
+2072 102 l
+2072 101 l
+2072 100 l
+2072 99 l
+2072 98 l
+2071 98 l
+2071 97 l
+2071 96 l
+2071 95 l
+s
+2018 90 m
+2018 91 l
+2018 92 l
+2018 93 l
+2018 95 l
+2018 96 l
+2018 97 l
+2019 99 l
+2019 100 l
+2019 101 l
+2020 103 l
+2020 105 l
+2021 106 l
+2021 108 l
+2022 110 l
+2023 112 l
+2024 114 l
+2026 115 l
+2027 117 l
+2029 119 l
+2031 121 l
+2034 123 l
+2037 125 l
+2039 126 l
+2041 126 l
+2044 127 l
+2046 127 l
+2048 127 l
+2052 126 l
+2054 125 l
+2055 125 l
+2058 123 l
+2060 122 l
+2062 120 l
+2063 119 l
+2065 117 l
+2066 116 l
+2067 114 l
+2068 113 l
+2069 111 l
+2069 110 l
+2070 109 l
+2070 107 l
+2070 106 l
+2071 105 l
+2071 104 l
+2071 103 l
+2071 102 l
+2071 101 l
+2071 100 l
+2071 99 l
+2071 98 l
+2071 97 l
+2071 96 l
+2071 95 l
+s
+2023 90 m
+2023 91 l
+2023 92 l
+2023 93 l
+2023 94 l
+2023 96 l
+2024 97 l
+2024 98 l
+2024 99 l
+2024 101 l
+2025 102 l
+2025 104 l
+2026 105 l
+2027 107 l
+2028 109 l
+2029 110 l
+2030 112 l
+2030 113 l
+2031 114 l
+2033 116 l
+2035 117 l
+2036 119 l
+2037 119 l
+2040 121 l
+2042 121 l
+2043 122 l
+2046 122 l
+2048 123 l
+2050 122 l
+2053 122 l
+2055 121 l
+2056 121 l
+2058 120 l
+2060 119 l
+2062 117 l
+2064 116 l
+2065 114 l
+2066 113 l
+2067 112 l
+2068 110 l
+2068 109 l
+2069 108 l
+2069 107 l
+2070 106 l
+2070 105 l
+2070 104 l
+2070 103 l
+2071 102 l
+2071 101 l
+2071 100 l
+2071 99 l
+2071 98 l
+2071 97 l
+2071 96 l
+2070 96 l
+2070 95 l
+s
+2028 90 m
+2028 91 l
+2028 92 l
+2028 93 l
+2028 94 l
+2028 95 l
+2028 97 l
+2028 98 l
+2029 99 l
+2029 100 l
+2029 102 l
+2030 103 l
+2031 105 l
+2031 106 l
+2032 108 l
+2033 109 l
+2034 110 l
+2034 111 l
+2036 113 l
+2038 114 l
+2039 115 l
+2040 116 l
+2042 117 l
+2044 118 l
+2045 118 l
+2048 119 l
+2049 119 l
+2051 119 l
+2054 118 l
+2055 118 l
+2057 118 l
+2059 117 l
+2061 116 l
+2062 114 l
+2064 113 l
+2065 112 l
+2066 111 l
+2066 110 l
+2067 109 l
+2067 108 l
+2068 107 l
+2069 106 l
+2069 105 l
+2069 104 l
+2070 103 l
+2070 102 l
+2070 101 l
+2070 100 l
+2070 99 l
+2070 98 l
+2070 97 l
+2070 96 l
+2070 95 l
+s
+2032 90 m
+2032 91 l
+2032 92 l
+2032 93 l
+2032 94 l
+2032 95 l
+2032 96 l
+2032 97 l
+2033 99 l
+2033 100 l
+2033 101 l
+2034 102 l
+2035 104 l
+2035 105 l
+2036 107 l
+2037 107 l
+2037 108 l
+2039 110 l
+2040 111 l
+2042 112 l
+2042 113 l
+2044 114 l
+2046 115 l
+2047 115 l
+2050 116 l
+2053 116 l
+2055 115 l
+2058 115 l
+2060 114 l
+2061 113 l
+2063 112 l
+2064 111 l
+2065 110 l
+2066 108 l
+2067 107 l
+2067 106 l
+2068 105 l
+2068 104 l
+2069 104 l
+2069 103 l
+2069 102 l
+2069 101 l
+2070 100 l
+2070 99 l
+2070 98 l
+2070 97 l
+2070 96 l
+2070 95 l
+s
+2035 90 m
+2035 91 l
+2035 92 l
+2035 93 l
+2035 94 l
+2035 95 l
+2036 96 l
+2036 97 l
+2036 98 l
+2037 99 l
+2037 101 l
+2038 102 l
+2038 103 l
+2039 104 l
+2040 105 l
+2040 106 l
+2041 107 l
+2042 109 l
+2044 110 l
+2046 111 l
+2048 112 l
+2051 113 l
+2054 113 l
+2055 113 l
+2056 113 l
+2058 112 l
+2060 111 l
+2062 111 l
+2063 110 l
+2064 109 l
+2065 108 l
+2066 107 l
+2067 106 l
+2067 105 l
+2067 104 l
+2068 104 l
+2068 103 l
+2068 102 l
+2069 101 l
+2069 100 l
+2069 99 l
+2070 98 l
+2070 97 l
+2070 96 l
+2070 95 l
+2070 94 l
+s
+2038 90 m
+2038 91 l
+2038 92 l
+2038 93 l
+2038 94 l
+2038 95 l
+2039 96 l
+2039 97 l
+2039 98 l
+2040 99 l
+2040 100 l
+2041 101 l
+2041 102 l
+2042 104 l
+2043 105 l
+2044 106 l
+2046 107 l
+2046 108 l
+2047 109 l
+2049 110 l
+2050 110 l
+2052 110 l
+2053 111 l
+2055 111 l
+2057 110 l
+2059 110 l
+2061 109 l
+2062 108 l
+2063 108 l
+2064 107 l
+2065 106 l
+2066 105 l
+2067 104 l
+2067 103 l
+2068 102 l
+2068 101 l
+2069 100 l
+2069 99 l
+2069 98 l
+2069 97 l
+2069 96 l
+2069 95 l
+2069 94 l
+s
+2041 90 m
+2041 91 l
+2041 92 l
+2041 93 l
+2041 94 l
+2041 95 l
+2042 96 l
+2042 97 l
+2042 98 l
+2043 100 l
+2043 101 l
+2044 102 l
+2045 103 l
+2046 104 l
+2047 105 l
+2048 106 l
+2049 106 l
+2050 107 l
+2051 108 l
+2053 108 l
+2054 109 l
+2056 109 l
+2058 108 l
+2060 108 l
+2061 108 l
+2061 107 l
+2063 107 l
+2064 106 l
+2065 105 l
+2065 104 l
+2066 103 l
+2067 103 l
+2067 102 l
+2068 101 l
+2068 100 l
+2068 99 l
+2069 99 l
+2069 98 l
+2069 97 l
+2069 96 l
+2069 95 l
+2069 94 l
+s
+2043 90 m
+2043 91 l
+2043 92 l
+2043 93 l
+2044 93 l
+2044 94 l
+2044 95 l
+2044 96 l
+2044 97 l
+2045 98 l
+2045 99 l
+2046 100 l
+2047 101 l
+2047 102 l
+2048 102 l
+2049 103 l
+2050 104 l
+2050 105 l
+2051 105 l
+2053 106 l
+2055 107 l
+2056 107 l
+2057 107 l
+2059 107 l
+2060 106 l
+2061 106 l
+2062 106 l
+2063 105 l
+2064 104 l
+2065 104 l
+2066 103 l
+2066 102 l
+2067 102 l
+2067 101 l
+2068 100 l
+2068 99 l
+2068 98 l
+2069 97 l
+2069 96 l
+2069 95 l
+2069 94 l
+s
+2045 90 m
+2046 91 l
+2046 92 l
+2046 93 l
+2046 94 l
+2046 95 l
+2046 96 l
+2047 97 l
+2047 98 l
+2048 99 l
+2048 100 l
+2049 101 l
+2050 102 l
+2051 103 l
+2052 103 l
+2052 104 l
+2054 104 l
+2054 105 l
+2056 105 l
+2057 105 l
+2058 105 l
+2059 105 l
+2060 105 l
+2061 105 l
+2062 104 l
+2063 103 l
+2064 103 l
+2065 102 l
+2066 102 l
+2066 101 l
+2067 100 l
+2067 99 l
+2068 99 l
+2068 98 l
+2068 97 l
+2069 97 l
+2069 96 l
+2069 95 l
+2069 94 l
+s
+2047 90 m
+2047 91 l
+2047 92 l
+2048 92 l
+2048 93 l
+2048 94 l
+2048 95 l
+2048 96 l
+2049 96 l
+2049 97 l
+2050 98 l
+2050 99 l
+2051 100 l
+2052 101 l
+2053 102 l
+2054 103 l
+2056 103 l
+2058 104 l
+2059 104 l
+2061 103 l
+2062 103 l
+2063 103 l
+2064 102 l
+2065 102 l
+2065 101 l
+2066 100 l
+2067 99 l
+2067 98 l
+2068 98 l
+2068 97 l
+2068 96 l
+2069 95 l
+2069 94 l
+s
+2049 90 m
+2049 91 l
+2049 92 l
+2049 93 l
+2050 94 l
+2050 95 l
+2050 96 l
+2051 97 l
+2051 98 l
+2052 99 l
+2053 99 l
+2053 100 l
+2054 101 l
+2055 101 l
+2057 102 l
+2059 102 l
+2060 102 l
+2061 102 l
+2062 102 l
+2063 101 l
+2064 101 l
+2065 100 l
+2066 99 l
+2067 98 l
+2067 97 l
+2068 97 l
+2068 96 l
+2068 95 l
+2068 94 l
+2069 94 l
+s
+2051 90 m
+2051 91 l
+2051 92 l
+2051 93 l
+2051 94 l
+2052 95 l
+2052 96 l
+2053 97 l
+2053 98 l
+2054 98 l
+2054 99 l
+2055 99 l
+2056 100 l
+2057 101 l
+2058 101 l
+2059 101 l
+2061 101 l
+2062 101 l
+2063 101 l
+2064 100 l
+2065 100 l
+2065 99 l
+2066 99 l
+2066 98 l
+2067 98 l
+2067 97 l
+2068 96 l
+2068 95 l
+2068 94 l
+2068 93 l
+s
+2052 90 m
+2052 91 l
+2052 92 l
+2052 93 l
+2053 93 l
+2053 94 l
+2053 95 l
+2054 96 l
+2055 97 l
+2055 98 l
+2056 99 l
+2057 99 l
+2059 100 l
+2060 100 l
+2061 100 l
+2062 100 l
+2063 100 l
+2064 99 l
+2065 99 l
+2065 98 l
+2066 98 l
+2067 97 l
+2067 96 l
+2068 96 l
+2068 95 l
+2068 94 l
+2068 93 l
+s
+2054 90 m
+2054 91 l
+2054 92 l
+2054 93 l
+2054 94 l
+2054 95 l
+2055 95 l
+2055 96 l
+2056 97 l
+2057 98 l
+2058 98 l
+2058 99 l
+2059 99 l
+2060 99 l
+2061 99 l
+2062 99 l
+2063 99 l
+2064 99 l
+2064 98 l
+2065 98 l
+2066 98 l
+2066 97 l
+2067 97 l
+2067 96 l
+2067 95 l
+2068 95 l
+2068 94 l
+2068 93 l
+s
+2055 90 m
+2055 91 l
+2055 92 l
+2055 93 l
+2055 94 l
+2056 95 l
+2057 96 l
+2057 97 l
+2058 97 l
+2059 98 l
+2060 98 l
+2061 98 l
+2062 98 l
+2063 98 l
+2064 98 l
+2065 98 l
+2065 97 l
+2066 97 l
+2067 96 l
+2067 95 l
+2068 95 l
+2068 94 l
+2068 93 l
+s
+2056 90 m
+2056 91 l
+2056 92 l
+2056 93 l
+2056 94 l
+2057 94 l
+2057 95 l
+2058 96 l
+2059 97 l
+2060 97 l
+2061 98 l
+2062 98 l
+2063 98 l
+2064 97 l
+2065 97 l
+2066 97 l
+2066 96 l
+2067 96 l
+2067 95 l
+2067 94 l
+2068 94 l
+2068 93 l
+s
+2057 90 m
+2057 91 l
+2057 92 l
+2057 93 l
+2057 94 l
+2058 94 l
+2058 95 l
+2059 95 l
+2059 96 l
+2060 96 l
+2061 97 l
+2062 97 l
+2063 97 l
+2064 97 l
+2065 97 l
+2065 96 l
+2066 96 l
+2066 95 l
+2067 95 l
+2067 94 l
+2068 94 l
+2068 93 l
+s
+2058 90 m
+2058 91 l
+2058 92 l
+2058 93 l
+2059 94 l
+2059 95 l
+2060 95 l
+2060 96 l
+2061 96 l
+2062 96 l
+2063 96 l
+2064 96 l
+2065 96 l
+2066 96 l
+2066 95 l
+2067 95 l
+2067 94 l
+2068 93 l
+s
+2058 90 m
+2058 91 l
+2059 91 l
+2059 92 l
+2059 93 l
+2060 94 l
+2060 95 l
+2061 95 l
+2062 96 l
+2063 96 l
+2064 96 l
+2065 96 l
+2065 95 l
+2066 95 l
+2067 94 l
+2067 93 l
+2068 93 l
+s
+2059 90 m
+2059 91 l
+2059 92 l
+2060 92 l
+2060 93 l
+2060 94 l
+2061 94 l
+2061 95 l
+2062 95 l
+2063 95 l
+2064 95 l
+2065 95 l
+2066 95 l
+2066 94 l
+2067 94 l
+2067 93 l
+2068 93 l
+s
+2060 90 m
+2060 91 l
+2060 92 l
+2060 93 l
+2061 93 l
+2061 94 l
+2062 94 l
+2063 95 l
+2064 95 l
+2065 95 l
+2066 94 l
+2067 94 l
+2067 93 l
+2068 93 l
+2068 92 l
+s
+2061 90 m
+2061 91 l
+2061 92 l
+2061 93 l
+2062 93 l
+2062 94 l
+2063 94 l
+2064 94 l
+2065 94 l
+2066 94 l
+2067 94 l
+2067 93 l
+2068 92 l
+s
+2061 90 m
+2061 91 l
+2061 92 l
+2062 92 l
+2062 93 l
+2063 94 l
+2064 94 l
+2065 94 l
+2066 94 l
+2066 93 l
+2067 93 l
+2067 92 l
+s
+2062 90 m
+2062 91 l
+2062 92 l
+2063 93 l
+2064 93 l
+2064 94 l
+2065 94 l
+2066 94 l
+2066 93 l
+2067 93 l
+2067 92 l
+s
+2062 90 m
+2062 91 l
+2063 92 l
+2063 93 l
+2064 93 l
+2065 93 l
+2066 93 l
+2067 93 l
+2067 92 l
+s
+2063 90 m
+2063 91 l
+2063 92 l
+2064 92 l
+2064 93 l
+2065 93 l
+2066 93 l
+2067 93 l
+2067 92 l
+s
+2063 90 m
+2063 91 l
+2064 92 l
+2065 93 l
+2066 93 l
+2066 92 l
+2067 92 l
+s
+2064 90 m
+2064 91 l
+2064 92 l
+2065 92 l
+2066 92 l
+2067 92 l
+s
+2064 90 m
+2064 91 l
+2064 92 l
+2065 92 l
+2066 92 l
+2067 92 l
+s
+2064 90 m
+2064 91 l
+2065 91 l
+2065 92 l
+2066 92 l
+2067 92 l
+s
+2065 90 m
+2065 91 l
+2065 92 l
+2066 92 l
+2067 92 l
+2067 91 l
+s
+2065 90 m
+2065 91 l
+2066 91 l
+2066 92 l
+2067 91 l
+s
+2065 90 m
+2065 91 l
+2066 91 l
+2067 91 l
+s
+2066 90 m
+2066 91 l
+2067 91 l
+s
+2066 90 m
+2066 91 l
+2067 91 l
+s
+2066 90 m
+2067 91 l
+%%BeginStripped
+s
+0 0 m
+(\40) show
+0.000000 0.000000 0.000000 S
+2052 3210 m
+(\40) show
+2052 3125 m
+(\40) show
+0 0 m
+(\40) show
+0.000000 0.000000 0.000000 S
+2052 3210 m
+(\40) show
+2052 3125 m
+(\40) show
+%%EndStripped
+showpage
+grestore
+end
+cleartomark
+restore
+%
+% End page 1 ...
+%
+%%EndDocument
+~
+0 O
+1 g
+0 i 0 J 0 j 1 w 4 M []0 d
+%AI3_Note:
+0 D
+287 441.25 m
+302.75 461.5 l
+269.5 480 l
+249.5 453 l
+F
+436.75 564 m
+455.5 544 l
+440.5 579.25 l
+F
+600.5 351.25 m
+607 340.25 l
+606.25 363 l
+F
+670 194.75 m
+672 188.25 l
+680 195.5 l
+F
+%%PageTrailer
+%%Trailer
+Adobe_IllustratorA_AI3 /terminate get exec
+
+Adobe_customcolor /terminate get exec
+
+Adobe_cshow /terminate get exec
+
+Adobe_cmykcolor /terminate get exec
+
+Adobe_packedarray /terminate get exec
+
+%%EOF

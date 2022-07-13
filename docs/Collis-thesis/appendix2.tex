@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Appendix 2
+%
+%  S. Scott Collis
+%
+%  Written: 10-22-95
+%
+%  Revised: 10-22-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Computation of Mesh Metrics \label{a:metrics}}
+
+For generality, we assume that there are two levels of mapping used to
+transform physical space to computational space.  These mapping can be written
+abstractly as
+%
+\begin{equation}
+  (x,y) \mapsto (\tilde\xi,\tilde\eta) \mapsto (\xi,\eta)
+\end{equation}
+%
+An example of such a mapping is presented in Chapter \ref{c:pcyl} where a
+conformal mapping transforms physical space to parabolic coordinates with an
+additional mapping used to transform to a uniform computational space.  The
+metric terms required by the flow solver (see \S\ref{s:gencoord}) to convert
+derivatives in computational space to derivatives in physical space are
+computed using the derivatives of the mapping functions along with the chain
+rule.
+
+For example, to compute the first derivative metrics [see equation
+(\ref{e:jacobian})], the chain rule is used to obtain
+%
+\begin{eqnarray}
+x_{,\xi}  &=&  x_{,\tilde\xi}  \, \tilde\xi_{,\xi}  + 
+               x_{,\tilde\eta} \, \tilde\eta_{,\xi} \, ,  \label{e:map1} \\
+y_{,\xi}  &=&  y_{,\tilde\xi}  \, \tilde\xi_{,\xi}  + 
+               y_{,\tilde\eta} \, \tilde\eta_{,\xi} \, ,  \label{e:map2} \\ 
+x_{,\eta} &=&  x_{,\tilde\xi}  \, \tilde\xi_{,\eta} + 
+               x_{,\tilde\eta} \, \tilde\eta_{,\eta} \, , \label{e:map3} \\
+y_{,\eta} &=&  y_{,\tilde\xi}  \, \tilde\xi_{,\eta} + 
+               y_{,\tilde\eta} \, \tilde\eta_{,\eta} \, . \label{e:map4}
+\end{eqnarray}
+%
+The right-hand-sides of equations (\ref{e:map1})--(\ref{e:map4}) are known
+from the definitions of the mapping functions.  Thus, the inverse Jacobian is
+given by
+%
+\begin{equation}
+{\bf J}^{-1} = \left [ \matrix{x_{,\xi} & y_{,\xi} \cr
+                               \noalign{\smallskip}
+                               x_{,\eta} & y_{,\eta} \cr } \right ]
+\end{equation}
+%
+and the determinant of the Jacobian is
+%
+\begin{equation}
+|{\bf J}| = \frac{1}{x_{,\xi} \, y_{,\eta} - x_{,\eta} \, y_{,\xi}}.
+\end{equation}
+%
+Taking the inverse, the Jacobian is obtained
+%
+\begin{equation}
+{\bf J} \equiv \left [ \matrix{\xi_{,x} & \eta_{,x} \cr
+                               \noalign{\smallskip}
+                               \xi_{,y} & \eta_{,y} \cr } \right ] =
+     |{\bf J}| \left [ \matrix{ y_{,\eta} & -y_{,\xi} \cr
+                               \noalign{\smallskip}
+                                -x_{,\eta} & x_{,\xi} \cr } \right ] .
+\end{equation}
+%
+A similar procedure is used to determine the second derivative metrics [see
+equation (\ref{e:hessian})] using the second derivatives of the mapping
+functions along with the chain rule.  The results are
+%
+\newcommand{\xixx}{\xi_{,xx}}
+\newcommand{\xixy}{\xi_{,xy}}
+\newcommand{\xiyy}{\xi_{,yy}}
+\newcommand{\etaxx}{\eta_{,xx}}
+\newcommand{\etaxy}{\eta_{,xy}}
+\newcommand{\etayy}{\eta_{,yy}}
+%
+\newcommand{\xix}{\xi_{,x}}
+\newcommand{\xiy}{\xi_{,y}}
+\newcommand{\etax}{\eta_{,x}}
+\newcommand{\etay}{\eta_{,y}}
+%
+\newcommand{\xxixi}{x_{,\xi\xi}}
+\newcommand{\xxieta}{x_{,\xi\eta}}
+\newcommand{\xetaeta}{x_{,\eta\eta}}
+%
+\newcommand{\yxixi}{y_{,\xi\xi}}
+\newcommand{\yxieta}{y_{,\xi\eta}}
+\newcommand{\yetaeta}{y_{,\eta\eta}}
+%
+\newcommand{\dxdxi}{x_{,\xi}}
+\newcommand{\dydxi}{y_{,\xi}}
+\newcommand{\dxdeta}{x_{,\eta}}
+\newcommand{\dydeta}{y_{,\eta}}
+%
+\newcommand{\rjac}{|{\bf J}|}
+\newcommand{\drjacdxi}{|{\bf J}|_{,\xi}}
+\newcommand{\drjacdeta}{|{\bf J}|_{,\eta}}
+%
+\newcommand{\dsdxi}{\tilde\xi_{,\xi}}
+\newcommand{\dsdeta}{\tilde\xi_{,\eta}}
+\newcommand{\drdxi}{\tilde\eta_{,\xi}}
+\newcommand{\drdeta}{\tilde\eta_{,\eta}}
+%
+\newcommand{\dsdxidxi}{ \tilde\xi_{,\xi\xi} }
+\newcommand{\dsdxideta}{ \tilde\xi_{,\xi\eta} }
+\newcommand{\dsdetadeta}{ \tilde\xi_{,\eta\eta} }
+\newcommand{\drdxidxi}{ \tilde\eta_{,\xi\xi} }
+\newcommand{\drdxideta}{ \tilde\eta_{,\xi\eta} }
+\newcommand{\drdetadeta}{ \tilde\eta_{,\eta\eta} }
+%
+\newcommand{\dxds}{x_{,\tilde\xi} }
+\newcommand{\dxdr}{x_{,\tilde\eta} }
+\newcommand{\dyds}{y_{,\tilde\xi} }
+\newcommand{\dydr}{y_{,\tilde\eta} }
+%
+\newcommand{\dxdsds}{x_{,\tilde\xi\tilde\xi} }
+\newcommand{\dxdsdr}{x_{,\tilde\xi\tilde\eta} }
+\newcommand{\dxdrdr}{x_{,\tilde\eta\tilde\eta} }
+\newcommand{\dydsds}{y_{,\tilde\xi\tilde\xi} }
+\newcommand{\dydsdr}{y_{,\tilde\xi\tilde\eta} }
+\newcommand{\dydrdr}{y_{,\tilde\eta\tilde\eta} }
+%
+\begin{eqnarray}
+\xxixi &=& \dxdsds \dsdxi^2 + \dxds \dsdxidxi + 2 \dxdsdr \drdxi \dsdxi + 
+  \dxdrdr \drdxi^2 + \dxdr \drdxidxi \\
+\xxieta &=& \dxdsds \dsdeta \dsdxi + \dxds \dsdxideta + \dxdsdr \drdeta \dsdxi
+  + \dxdsdr \drdxi \dsdeta + \dxdrdr \drdeta \drdxi + \dxdr \drdxideta \\ 
+\xetaeta &=& \dxdsds \dsdeta^2 + \dxds \dsdetadeta + 2 \dxdsdr \drdeta 
+  \dsdeta + \dxdrdr \drdeta^2 + \dxdr \drdetadeta \\
+\yxixi &=& \dydsds \dsdxi^2 + \dyds \dsdxidxi + 2 \dydsdr \drdxi \dsdxi + 
+  \dydrdr \drdxi^2 + \dydr \drdxidxi \\
+\yxieta &=& \dydsds \dsdeta \dsdxi + \dyds \dsdxideta + 
+  \dydsdr \drdeta \dsdxi + \dydsdr \drdxi \dsdeta + \dydrdr \drdeta \drdxi + 
+  \dydr \drdxideta \\
+\yetaeta &=& \dydsds \dsdeta^2 + \dyds \dsdetadeta + 
+  2 \dydsdr \drdeta \dsdeta + \dydrdr \drdeta^2 + \dydr \drdetadeta
+\end{eqnarray}
+%
+\begin{eqnarray}
+\drjacdxi & = & -\left( \xxixi\dydeta + \dxdxi\yxieta - 
+                      \xxieta\dydxi - \dxdeta\yxixi \right ) \rjac^2 \\
+\drjacdeta & = & -\left( \xxieta\dydeta + \dxdxi\yetaeta - 
+                       \xetaeta\dydxi - \dxdeta\yxieta \right) \rjac^2
+\end{eqnarray}
+%
+\begin{eqnarray}
+\xixx & = &   \;\; ( \drjacdxi \dydeta + \yxieta \rjac ) \xix + 
+                   ( \drjacdeta \dydeta + \yetaeta \rjac )  \etax \\
+\xixy & = &   \;\; ( \drjacdxi \dydeta + \yxieta \rjac ) \xiy + 
+                   ( \drjacdeta \dydeta + \yetaeta \rjac ) \etay \\
+\xiyy & = &   -( \drjacdxi \dxdeta + \xxieta \rjac ) \xiy - 
+               ( \drjacdeta \dxdeta + \xetaeta \rjac ) \etay  \\
+\etaxx & = &  -( \drjacdxi \dydxi + \yxixi \rjac ) \xix - 
+               ( \drjacdeta \dydxi + \yxieta \rjac ) \etax \\
+\etaxy & = &  -( \drjacdxi \dydxi + \yxixi \rjac ) \xiy - 
+               ( \drjacdeta \dydxi + \yxieta \rjac ) \etay \\
+\etayy & = &  \;\; ( \drjacdxi \dxdxi + \xxixi \rjac ) \xiy + 
+                   ( \drjacdeta \dxdxi + \xxieta \rjac ) \etay
+\end{eqnarray}
+

@@ -1,0 +1,395 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Appendix 3:  Falkner--Skan--Cooke boundary layers
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 9-18-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Compressible Falkner--Skan--Cooke Solutions \label{a:FSC}}
+
+Considerable research into the stability and receptivity characteristics of
+three-dimen\-sional boundary layers has been conducted for the family of
+incompressible yawed-wedge flows, often referred to as Falkner--Skan--Cooke
+(FSC) flows \cite{Cooke:50}.  Under suitable assumptions, an analogous family
+of self-similar compressible, three-dimensional boundary layers flows are
+possible.  These flows were first studied by Reshotko \& Beckwith
+\cite{ReBe:58} as a model of the flow near the stagnation-line of a yawed
+cylinder.  In this appendix, we summarize the derivation of the compressible
+FSC equations and present solutions in a form useful for stability/receptivity
+calculations.
+
+Using the Stewartson transformation along with a linear viscosity-temperature
+relation and $\Pr=1$, the compressible boundary layer equations (subject to
+isothermal, no-slip wall boundary conditions and edge conditions at infinity)
+reduce to a system of two, ordinary differential equations.  The details of the
+derivation are presented by Reshotko \& Beckwith \cite{ReBe:58} in the context
+of the stagnation-line flow and here we only summarize the derivation with
+suitable changes to consider more general three-dimensional boundary layers.
+In the following, velocities are nondimensionalized by the free-stream
+speed-of-sound, $c_\infty^*$, lengths by a convenient length scale $L^*$
+(defined explicitly below), and all other quantities are nondimensionalized by
+their freestream values.  Consider the following Falkner-Skan distributions of
+inviscid slip velocities
+%
+\begin{equation} \label{e:uedge}
+  u_e \equiv \frac{u^*_e}{c_\infty^*} = \M_\infty c_e(\tilde x) \, 
+                                   {\tilde x}^m \cos\theta  \comma
+\end{equation}
+%
+\begin{equation} \label{e:wedge}
+  w_e \equiv \frac{w^*_e}{c_\infty^*}  = \M_\infty \sin\theta
+\end{equation}
+%
+where $c_e(\tilde x) \equiv c^*_e / c^*_\infty$ is the local speed-of-sound at
+the boundary layer edge.  The tilde denotes that $x$ has been transformed to
+account for variable viscosity and density effects using the Stewartson
+transformation \cite{Stewartson:64} which is defined as
+%
+\begin{equation}
+  \tilde x \equiv \frac{\tilde x^*}{L^*} = 
+	\int_0^{x} \frac{\mu_w T_0}{\mu_0 T_w}
+	\left(\frac{c_e}{c_0}\right)^\frac{3\gamma-1}{\gamma-1} dx \comma
+\end{equation}
+%
+\begin{equation}
+  \tilde y \equiv \frac{\tilde y^*}{L^*} = \frac{c_e}{c_0} 
+	\int_0^y \frac{\rho}{\rho_e} dy  \comma
+\end{equation}
+%
+where the subscript ``$0$'' denotes freestream stagnation quantities while
+subscript ``$w$'' denotes conditions at the wall.  Note that the quantity
+$(\mu_w T_0)/(\mu_0 T_w)$ can be determined from Sutherland's law given
+$T_0/T_w$ and for the special case of $T_0/T_w = 1$, $(\mu_w T_0)/(\mu_0 T_w)
+= 1$.  Note that Sutherland's law is only used once to determine the ratio
+$\mu_w/\mu_0$ given $T_0/T_w$.  The viscosity is then given by the linear
+relationship
+%
+\begin{equation}
+  \frac{\mu}{\mu_0} = \left(\frac{\mu_w T_o}{\mu_0 T_w}\right)
+  \frac{T}{T_0} \period
+\end{equation}
+
+To convert the equations to a set of ordinary differential equations, a
+similarity transformation is applied:
+%
+\begin{equation}
+  \xi = \tilde x ,
+\end{equation}
+%
+\begin{equation} \label{e:sim}
+  \eta = \tilde y  
+  	 \sqrt{ \frac{m+1}{2} \Re_c
+	        \left(\frac{c_0}{c_e}\right)^\frac{2\gamma}{\gamma-1}
+                \tilde x^{m-1} } \comma
+\end{equation}
+%
+\begin{equation}
+  u(\xi,\eta) = f'(\eta) \, u_e(\xi) \comma
+\end{equation}
+%
+\begin{equation}
+  w(\eta) = g(\eta) \, w_e  \comma
+\end{equation}
+%
+\begin{equation}
+  \frac{H - H_w}{H_e - H_w} = \phi(\eta) \comma
+\end{equation}
+%
+where $H$ is the total enthalpy.  In equation (\ref{e:sim}) 
+%
+\begin{equation}
+  \Re_c = \frac{u^*_e(\tilde x^* = L^*) \, L^*}{\nu^*_e(\tilde x^* = L^*)}
+\end{equation}
+%
+is the chordwise Reynolds number, based on edge quantities at $\tilde x^* =
+L^*$.
+
+When $\Pr=1$, the similarity transformation converts the boundary layer
+equations into the following system of ordinary differential equations
+%
+\begin{equation} \label{e:sxmon}
+f''' + f f'' = \beta_h \left[ {f'}^2 - 1 - 
+               \left( \frac{T_0}{T_{N0}} - 1 \right ) (1 - g^2) - 
+               \left( \frac{T_w}{T_0} - 1 \right) 
+	       \left(\frac{T_0}{T_{N0}}\right) (1 - \phi) \right] \comma
+\end{equation}
+%
+\begin{equation} \label{e:szmon} 
+g'' + f g' = 0  \comma
+\end{equation}
+%
+\begin{equation} \label{e:senergy}
+\phi'' + f \phi' = 0  \comma
+\end{equation}
+%
+where primes denote differentiation with respect to $\eta$, the pressure
+gradient (\ie\ Hartree) parameter is given by $\beta_h =
+\frac{2m}{m+1}$, and the ratio $T_0/T_{N0}$, which combines the effects of
+sweep-angle and Mach number (see \cite{ReBe:58}), is defined as
+%
+\begin{equation}
+  \frac{T_0}{T_{N0}} = \frac{1 + \frac{\gamma-1}{2} \M^2_\infty}
+                       {1 + \frac{\gamma-1}{2} \M^2_\infty \cos^2\theta} 
+                       \period
+\end{equation}
+%
+The above equations are solved subject to isothermal, no-slip wall boundary
+conditions with edge conditions enforced at infinity.  After the Stewartson
+and similarity transformations, these boundary conditions become
+%
+\begin{equation}
+\begin{array}{llll}
+  f(0) = 0 , &
+  f'(0) = 0, &
+  g(0) = 0 , &
+  \phi(0) = 0 , \\[0.1in]
+  f(\infty) = 1 , &
+  g(\infty) = 1 , &
+  \phi(\infty) = 1 \period
+\end{array}
+\end{equation}
+%
+We note that when $\Pr=1$ the spanwise momentum equation and the energy
+equation (along with their boundary conditions) are identical such that one
+equation can be dropped.  However, unlike the incompressible case, the
+chordwise momentum and spanwise momentum (or energy) equations are coupled for
+compressible flow and must be solved simultaneously.  In order for a
+similarity solution to exist, the coefficients in equations (\ref{e:sxmon})
+must be independent of $\xi$.  This occurs when $\beta_h$ is constant and the
+wall is isothermal (\ie\ $T_w/T_0$ is constant) and the solutions presented
+below satisfy both of these requirements.  See \cite{ReBe:58} for a discussion
+of similarity when $\Pr \ne 1$.
+
+Returning to the definitions of the local edge-velocities
+(\ref{e:uedge},\ref{e:wedge}) we see that the local sweep-angle is given by
+%
+\begin{equation}
+  \theta_e = \tan^{-1}\left( \frac{\tan\theta}
+                                   {\tilde x^{-m} c_e} \right)
+\end{equation}
+%
+and, since
+%
+\begin{equation}
+  {c_e} = \frac{ 1 + \frac{\gamma-1}{2} \M^2_\infty \cos^2 \theta }
+ 	   { 1 + \frac{\gamma-1}{2} \M^2_\infty \tilde x^{2m} \cos^2 \theta } 
+\end{equation}
+%
+the local sweep-angle is equal to the freestream sweep-angle, $\theta$, when
+$\tilde x = 1$ .  This, in fact, is what motivates the specific form of the
+edge velocities given in equations (\ref{e:uedge}) and (\ref{e:wedge}).  Thus,
+the length scale $L^*$ can now be identified as the chordwise location where
+the local sweep-angle equals the freestream sweep-angle and, the chordwise
+Reynolds number can be explicitly evaluated as
+%
+\begin{equation}
+  \Re_c = \frac{(U^*_\infty \cos\theta) L^*}{\nu^*_\infty}
+\end{equation}
+%
+since $U^*_e = U^*_\infty$ when $\tilde x^* = L^*$.
+
+Once the ODE's have been solved for $f(\eta)$ and $g(\eta)$, the primitive
+variables at $\tilde x = 1$, nondimensionalized by edge quantities, are given
+by
+%
+\begin{eqnarray}
+  \frac{T}{T_e} = \left( 1 + \frac{\gamma-1}{2} \M^2_\infty \right) 
+        \Bigg[ 1 + \left( \frac{T_w}{T_0} - 1 \right) (1 - \phi) - 
+	\\ \nonumber
+	\left(\frac{\frac{\gamma-1}{2} \M^2_\infty \cos^2\theta}
+	     {1 + \frac{\gamma-1}{2} \M^2_\infty}\right) f'^2 -
+	\left( 1 - \frac{T_{N0}}{T_0} \right) g^2 \Bigg] ,
+\end{eqnarray}
+%
+\begin{equation}
+  \frac{u}{U_e} = f' \cos\theta ,
+\end{equation}
+%
+\begin{equation}
+  \frac{w}{U_e} = g \sin\theta ,
+\end{equation}
+%
+\begin{equation}
+  \frac{\rho}{\rho_e} = \frac{T_e}{T} \period
+\end{equation}
+
+For stability calculations, it is useful to rotate the velocities to the local
+streamline coordinates:
+%
+\begin{equation}
+  \frac{u_s}{U_e} =  f' \cos^2\theta + g \sin^2\theta ,
+\end{equation}
+%
+\begin{equation}
+  \frac{w_s}{U_e} = (g - f') \cos\theta \sin\theta .
+\end{equation}
+
+Given the temperature profile, the physical $y$ coordinate is obtained from
+%
+\begin{equation}
+  y \equiv \frac{y^*}{L^*} = 
+  	\frac{\Psi}{\Re_c^{1/2}}\int_0^\eta \frac{T}{T_e} d\eta 
+\end{equation}
+%
+where
+%
+\begin{equation}
+  \Psi = \left( 1 + \frac{\gamma-1}{2} \M_\infty^2 \right)^
+         {\frac{1}{2 - 2\gamma}}
+         \sqrt{\frac{2}{m+1}} .
+\end{equation}
+%
+The displacement thickness of the streamwise velocity component is computed
+from the definition
+%
+\begin{equation}
+  \delta_1 \equiv 
+  \int_0^\infty \left( 1 - \frac{\rho u_s}{\rho_e U_e} \right) dy
+\end{equation}
+%
+which, when converted to an $\eta$ integral, yields
+%
+\begin{equation}
+  \delta_1 \equiv \frac{\delta^*_1}{L^*} =
+	\frac{\Psi}{\Re_c^{1/2}} \int_0^\infty \left( \frac{T}{T_e} - 
+        \frac{u_s}{U_e} \right) d\eta .
+\end{equation}
+%
+The momentum thickness of the streamwise profile is computed in a similar
+fashion using the definition
+%
+\begin{equation}
+  \delta_2 \equiv \int_0^\infty \frac{\rho u_s}{\rho_e U_e}
+                  \left( 1 - \frac{u_s}{U_e} \right) dy 
+\end{equation}
+%
+leading to
+%
+\begin{equation}
+  \delta_2 \equiv \frac{\delta^*_2}{L^*} = 
+  	\frac{\Psi}{\Re_c^{1/2}} \int_0^\infty \frac{u_s}{U_e}
+        \left( 1 - \frac{u_s}{U_e} \right) d\eta .
+\end{equation}
+%
+The factors $\delta^*_1/L^*$ and $\delta_2^*/L^*$ are useful in converting
+solutions to the thickness length-scales commonly used in
+stability/receptivity analysis.  For example, if $\delta^*_1$ is the desired
+length-scale, then
+%
+\begin{equation}
+  \frac{y^*}{\delta^*_1} = \frac{y^*}{L^*} \frac{L^*}{\delta^*_1} =
+  \frac{\int_0^\eta \frac{T}{T_e} d\eta}
+                                {\int_0^\infty \left( \frac{T}{T_e} - 
+        			 \frac{u_s}{U_e} \right) d\eta} \period
+\end{equation}
+
+In order to obtain solutions for $\tilde x = 1$, the following parameters must
+be specified: $\M_e$, $T_w/T_0$, $\theta_e$, and $\beta_h$.  Then equations
+(\ref{e:sxmon}) and (\ref{e:szmon}) are solved using fourth-order accurate
+Runge-Kutta integration with a fixed step-size.  The integration is started
+from the wall using assumed values of $f''(0)$ and $g'(0)$.  Then a Newton
+iteration is performed to determine $f''(0)$ and $g'(0)$ such that the edge
+boundary conditions are satisfied.  The infinite domain in $\eta$ is truncated
+to $\eta=20$ which is over 5 boundary layer thicknesses above the wall.
+
+Our motivation in computing FSC profiles is to provide a convenient analytical
+set of boundary-layer profiles that can be used to model the profiles obtained
+from full NS calculations.  As an example of matching a FSC solution to a
+boundary-layer profile from a NS solution, we consider the flow over a
+parabolic cylinder with the conditions $\M = 0.8$, $Re=1 \times 10^5$, $\theta
+= 35^\circ$, $T_w/T_0 = 1$ and extract the boundary-layer profile at the point
+of maximum crossflow, $s^*/r^*_n=0.804$, where $\delta^*_1/r^*_n = 3.842
+\times 10^{-3}$.  At this location, the solution is projected to the
+body-normal coordinate-system, $(s,n,z)$, and the local edge-conditions are
+determined to be: $\M_e = 0.657$, $\theta_e = 54.4^\circ$, and $\beta_h =
+0.766$ with $\delta^*_1/r^*_n = 3.842 \times 10^{-3}$.  Using these
+parameters, a FSC profile is computed and converted to the coordinate system
+used for the parabolic cylinder.  In figure \ref{f:upro} velocity profiles
+from the NS and FSC solutions are compared demonstrating very good agreement.
+The maximum crossflow for the NS profile is $-0.107$ while the FSC predicts a
+value of $-0.103$ which is within 4\% of the NS solution.  Figure \ref{f:tpro}
+compares the density and temperature profiles from the NS and FSC solutions
+and again the agreement is good.  Also in good agreement is the shape factor,
+$H \equiv \delta_1/\delta_2$, which is equal to $2.67$ for the FSC profile as
+compared to the measured value of $2.66$ for the NS profile.
+
+Using the linear stability solver discussed in Appendix \ref{a:LST}, the
+chordwise wavenumber and growth-rates for a stationary cross-flow instability
+have been computed for both the NS and FSC profile as a function of spanwise
+wavenumber.  Figure \ref{f:wavnum} shows that predicted wavenumbers for both
+profiles are in good agreement with a slight deviation at higher spanwise
+wavenumbers.  The predicted grow-rates are shown in figure \ref{f:FSCgr} where
+it is seen that the FSC profile has a lower peak growth-rate (by $\approx
+2\%$), and the unstable range is shifted slightly to higher spanwise
+wavenumbers.  The reduction in peak grow-rate is not surprising given the
+slightly reduced level of crossflow in the FSC profile.  It is, of course,
+possible to construct a FSC profile that better matches the NS solution by
+tweaking some of the parameters ($\theta_e$ in particular).  The advantage of
+the current approach is that it provides an unambiguous definition of the
+parameters required to compute FSC profiles, based solely on boundary-layer
+edge quantities and the displacement thickness.
+
+In summary, we have presented the derivation of the compressible FSC
+similarity equations and have obtained solutions in a form suitable for
+stability and receptivity analysis of infinite-span swept-wings.  It has also
+been demonstrated that when boundary-layer edge-conditions and displacement
+thickness are matched to a local NS solution, FSC solutions are obtained which
+possess similar stability characteristics.
+
+%==============================================================================
+%
+%  Tables and Figures
+%
+%==============================================================================
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$n$} 
+\figlab 3.66in 2.4in {$u_s$} 
+\figlab 3.66in 0.9in {$w_s$} 
+\epsfxsize=5.5in \epsfbox{figures/ap3/upro.eps}
+\caption[Comparison of FSC and NS boundary layer profiles for the local
+streamwise and crossflow velocities at $s_{max}$] {Comparison of FSC
+$\solid$ and NS $\dashed$ boundary layer profiles for the local streamwise
+and crossflow velocities at $s_{max}$. Recall that $n = n^*/r^*_n$ is the
+wall-normal coordinate nondimensionalized by the nose radius of the parabolic
+cylinder. \label{f:upro} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$n$} 
+\figlab 1.524in 1.0in {$\rho$} 
+\figlab 1.524in 2.25in {$T$} 
+\epsfxsize=5.5in \epsfbox{figures/ap3/tpro.eps}
+\caption[Comparison of FSC and NS boundary layer profiles for the temperature
+and density at $s_{max}$] {Comparison of FSC $\solid$ and NS $\dashed$
+boundary layer profiles for the temperature and density at
+$s_{max}$. \label{f:tpro} }
+\end{figure}
+%
+%.... Stability comparison
+%
+\begin{figure}[p]
+\centering
+\setvlabel{$\alpha^*_r r^*_n$}
+\sethlabel{$\beta^* r^*_n$} 
+\epsfxsize=5.5in \epsfbox{figures/ap3/wavnum.eps}
+\caption[Comparison of LST wavenumber predictions] {Comparison of LST
+wavenumber predictions for the FSC $\solid$ and NS $\dashed$ boundary
+layer profiles. \label{f:wavnum} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\setvlabel{$\alpha^*_i r^*_n$}
+\sethlabel{$\beta^* r^*_n$} 
+\epsfxsize=5.5in \epsfbox{figures/ap3/gr.eps}
+\caption[Comparison of LST growth-rate predictions] {Comparison of LST
+growth-rate predictions for the FSC $\solid$ and NS $\dashed$ boundary
+layer profiles. \label{f:FSCgr} }
+\end{figure}

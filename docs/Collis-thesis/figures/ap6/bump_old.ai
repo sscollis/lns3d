@@ -1,0 +1,1862 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Adobe Illustrator(TM) 3.0.1.
+%%For: () ()
+%%Title: (/u/collis/tex/thesis/figures/bump.ai)
+%%CreationDate: (7/12/96) (15:24)
+%%BoundingBox: 240 191 593 465
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentFiles:
+%%+
+%%+
+%%+
+%%+
+%%+
+%%+
+%%+
+%%+
+%%+
+%%DocumentSuppliedResources: procset Adobe_packedarray 2.0 0
+%%+ procset Adobe_cmykcolor 1.1 0
+%%+ procset Adobe_cshow 1.1 0
+%%+ procset Adobe_customcolor 1.0 0
+%%+ procset Adobe_IllustratorA_AI3 1.0 1
+%AI3_ColorUsage: Color
+%AI3_TemplateBox: 306 396 306 396
+%AI3_TileBox: 30 31 762 581
+%AI3_DocumentPreview: Header
+%%Template:
+%%PageOrigin:30 31
+%%AI3_PaperRect:0 612 792 0
+%%AI3_Margin:30 31 30 31
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Adobe_packedarray 2.0 0
+%%Title: (Packed Array Operators)
+%%Version: 2.0 
+%%CreationDate: (8/2/90) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+userdict /Adobe_packedarray 5 dict dup begin put
+/initialize			% - initialize -
+{
+/packedarray where
+	{
+	pop
+	}
+	{
+	Adobe_packedarray begin
+	Adobe_packedarray
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/packedarray		% arguments count packedarray array
+{
+array astore readonly
+} def
+/setpacking			% boolean setpacking -
+{
+pop
+} def
+/currentpacking		% - setpacking boolean
+{
+false
+} def
+currentdict readonly pop end
+%%EndResource
+Adobe_packedarray /initialize get exec
+
+%%BeginResource: procset Adobe_cmykcolor 1.1 0
+%%Title: (CMYK Color Operators)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cmykcolor 4 dict dup begin put
+/initialize			% - initialize -
+{
+/setcmykcolor where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cmykcolor_vars 2 dict dup begin put
+	/_setrgbcolor
+		/setrgbcolor load def
+	/_currentrgbcolor
+		/currentrgbcolor load def
+	Adobe_cmykcolor begin
+	Adobe_cmykcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	end
+	Adobe_cmykcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_cmykcolor eq
+	{
+	end
+	} if
+} def
+/setcmykcolor		% cyan magenta yellow black setcmykcolor -
+{
+1 sub 4 1 roll
+3
+	{
+	3 index add neg dup 0 lt
+		{
+		pop 0
+		} if
+	3 1 roll
+	} repeat
+Adobe_cmykcolor_vars /_setrgbcolor get exec
+pop
+} def 
+/currentcmykcolor	% - currentcmykcolor cyan magenta yellow black
+{
+Adobe_cmykcolor_vars /_currentrgbcolor get exec
+3
+	{
+	1 sub neg 3 1 roll
+	} repeat
+0
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_cshow 1.1 0
+%%Title: (cshow Operator)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cshow 3 dict dup begin put
+/initialize			% - initialize -
+{
+/cshow where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cshow_vars 1 dict dup begin put
+	/_cshow		% - _cshow proc
+		{} def
+	Adobe_cshow begin
+	Adobe_cshow
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/cshow				% proc string cshow -
+{
+exch
+Adobe_cshow_vars
+	exch /_cshow
+	exch put
+	{
+	0 0 Adobe_cshow_vars /_cshow get exec
+	} forall
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_customcolor 1.0 0
+%%Title: (Custom Color Operators)
+%%Version: 1.0 
+%%CreationDate: (5/9/88) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_customcolor 5 dict dup begin put
+/initialize			% - initialize -
+{
+/setcustomcolor where
+	{
+	pop
+	}
+	{
+	Adobe_customcolor begin
+	Adobe_customcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	Adobe_customcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_customcolor eq
+	{
+	end
+	} if
+} def
+/findcmykcustomcolor	% cyan magenta yellow black name findcmykcustomcolor object
+{
+5 packedarray
+}  def
+/setcustomcolor		% object tint setcustomcolor -
+{
+exch
+aload pop pop
+4
+	{
+	4 index mul 4 1 roll
+	} repeat
+5 -1 roll pop
+setcmykcolor
+} def
+/setoverprint		% boolean setoverprint -
+{
+pop
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_IllustratorA_AI3 1.0 1
+%%Title: (Adobe Illustrator (R) Version 3.0 Abbreviated Prolog)
+%%Version: 1.0 
+%%CreationDate: (7/22/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_IllustratorA_AI3 61 dict dup begin put
+% initialization
+/initialize				% - initialize -
+{
+% 47 vars, but leave slack of 10 entries for custom Postscript fragments
+userdict /Adobe_IllustratorA_AI3_vars 57 dict dup begin put
+
+% paint operands
+/_lp /none def
+/_pf {} def
+/_ps {} def
+/_psf {} def
+/_pss {} def
+/_pjsf {} def
+/_pjss {} def
+/_pola 0 def
+/_doClip 0 def
+
+% paint operators
+/cf	currentflat def	% - cf flatness
+
+% typography operands
+/_tm matrix def
+/_renderStart [/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0] def 
+/_renderEnd [null null null null /i1 /i1 /i1 /i1] def
+/_render -1 def
+/_rise 0 def
+/_ax 0 def			% x character spacing	(_ax, _ay, _cx, _cy follows awidthshow naming convention)
+/_ay 0 def			% y character spacing
+/_cx 0 def			% x word spacing
+/_cy 0 def			% y word spacing
+/_leading [0 0] def
+/_ctm matrix def
+/_mtx matrix def
+/_sp 16#020 def
+/_hyphen (-) def
+/_fScl 0 def
+/_cnt 0 def
+/_hs 1 def
+/_nativeEncoding 0 def
+/_useNativeEncoding 0 def
+/_tempEncode 0 def
+/_pntr 0 def
+/_tDict 2 dict def
+
+% typography operators
+/Tx {} def
+/Tj {} def
+
+% compound path operators
+/CRender {} def
+
+% printing
+/_AI3_savepage {} def
+
+% color operands
+/_gf null def
+/_cf 4 array def
+/_if null def
+/_of false def
+/_fc {} def
+/_gs null def
+/_cs 4 array def
+/_is null def
+/_os false def
+/_sc {} def
+/_i null def
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3
+	{
+	dup xcheck
+		{
+		bind
+		} if
+	pop pop
+	} forall
+end
+end
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3_vars begin
+newpath
+} def
+/terminate				% - terminate -
+{
+end
+end
+} def
+% definition operators
+/_					% - _ null
+null def
+/ddef				% key value ddef -
+{
+Adobe_IllustratorA_AI3_vars 3 1 roll put
+} def
+/xput				% key value literal xput -
+{
+dup load dup length exch maxlength eq
+	{
+	dup dup load dup
+	length 2 mul dict copy def
+	} if
+load begin def end
+} def
+/npop				% integer npop -
+{
+	{
+	pop
+	} repeat
+} def
+% marking operators
+/sw					% ax ay string sw x y 
+{
+dup length exch stringwidth
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add
+} def
+/swj				% cx cy fillchar ax ay string swj x y
+{
+dup 4 1 roll
+dup length exch stringwidth 
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add 
+6 2 roll /_cnt 0 ddef
+{1 index eq {/_cnt _cnt 1 add ddef} if} forall pop
+exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} def
+/ss					% ax ay string matrix ss -
+{
+4 1 roll
+	{				% matrix ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put pop
+	gsave
+	false charpath currentpoint
+	4 index setmatrix
+	stroke
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+3 npop
+} def
+/jss				% cx cy fillchar ax ay string matrix jss -
+{
+4 1 roll
+	{				% cx cy fillchar matrix ax ay char 0 0 {proc} -   
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	gsave
+	_sp eq 
+		{
+		exch 6 index 6 index 6 index 5 -1 roll widthshow  
+		currentpoint
+		}
+		{
+		false charpath currentpoint
+		4 index setmatrix stroke
+		}ifelse
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+6 npop
+} def
+
+% path operators
+/sp					% ax ay string sp -
+{
+	{
+	2 npop (0) exch
+	2 copy 0 exch put pop
+	false charpath
+	2 copy rmoveto
+	} exch cshow
+2 npop
+} def
+/jsp					% cx cy fillchar ax ay string jsp -
+{
+	{					% cx cy fillchar ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	_sp eq 
+		{
+		exch 5 index 5 index 5 index 5 -1 roll widthshow  
+		}
+		{
+		false charpath
+		}ifelse
+	2 copy rmoveto
+	} exch cshow
+5 npop
+} def
+
+% path construction operators
+/pl				% x y pl x y
+{
+transform
+0.25 sub round 0.25 add exch
+0.25 sub round 0.25 add exch
+itransform
+} def
+/setstrokeadjust where
+	{
+	pop true setstrokeadjust
+	/c				% x1 y1 x2 y2 x3 y3 c -
+	{
+	curveto
+	} def
+	/C
+	/c load def
+	/v				% x2 y2 x3 y3 v -
+	{
+	currentpoint 6 2 roll curveto
+	} def
+	/V
+	/v load def
+	/y				% x1 y1 x2 y2 y -
+	{
+	2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l				% x y l -
+	{
+	lineto
+	} def
+	/L
+	/l load def
+	/m				% x y m -
+	{
+	moveto
+	} def
+	}
+	{%else
+	/c
+	{
+	pl curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+	currentpoint 6 2 roll pl curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+	pl 2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+	pl lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+	pl moveto
+	} def
+	}ifelse
+
+% graphic state operators
+/d					% array phase d -
+{
+setdash
+} def
+/cf	{} def			% - cf flatness
+/i					% flatness i -
+{
+dup 0 eq
+	{
+	pop cf
+	} if
+setflat
+} def
+/j					% linejoin j -
+{
+setlinejoin
+} def
+/J					% linecap J -
+{
+setlinecap
+} def
+/M					% miterlimit M -
+{
+setmiterlimit
+} def
+/w					% linewidth w -
+{
+setlinewidth
+} def
+
+% path painting operators
+/H					% - H -
+{} def
+/h					% - h -
+{
+closepath
+} def
+/N					% - N -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq {clip /_doClip 0 ddef} if 
+	newpath
+	} 
+	{
+	/CRender {N} ddef
+	}ifelse
+} def
+/n					% - n -
+{N} def
+/F					% - F -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _pf grestore clip newpath /_lp /none ddef _fc 
+		/_doClip 0 ddef
+		}
+		{
+		_pf
+		}ifelse
+	} 
+	{
+	/CRender {F} ddef
+	}ifelse
+} def
+/f					% - f -
+{
+closepath
+F
+} def
+/S					% - S -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _ps grestore clip newpath /_lp /none ddef _sc 
+		/_doClip 0 ddef
+		}
+		{
+		_ps
+		}ifelse
+	} 
+	{
+	/CRender {S} ddef
+	}ifelse
+} def
+/s					% - s -
+{
+closepath
+S
+} def
+/B					% - B -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 	% F clears _doClip
+	gsave F grestore 
+		{
+		gsave S grestore clip newpath /_lp /none ddef _sc
+		/_doClip 0 ddef
+		} 
+		{
+		S
+		}ifelse
+	}
+	{
+	/CRender {B} ddef
+	}ifelse
+} def
+/b					% - b -
+{
+closepath
+B
+} def
+/W					% - W -
+{
+/_doClip 1 ddef
+} def
+/*					% - [string] * -
+{
+count 0 ne 
+	{
+	dup type (stringtype) eq {pop} if
+	} if 
+_pola 0 eq {newpath} if
+} def
+
+% group operators
+/u					% - u -
+{} def
+/U					% - U -
+{} def
+/q					% - q -
+{
+_pola 0 eq {gsave} if
+} def
+/Q					% - Q -
+{
+_pola 0 eq {grestore} if
+} def
+/*u					% - *u -
+{
+_pola 1 add /_pola exch ddef
+} def
+/*U					% - *U -
+{
+_pola 1 sub /_pola exch ddef 
+_pola 0 eq {CRender} if
+} def
+/D					% polarized D -
+{pop} def
+/*w					% - *w -
+{} def
+/*W					% - *W -
+{} def
+
+% place operators
+/`					% matrix llx lly urx ury string ` -
+{
+/_i save ddef
+6 1 roll 4 npop
+concat
+userdict begin
+/showpage {} def
+false setoverprint
+pop
+} def
+/~					% - ~ -
+{
+end
+_i restore
+} def
+
+% color operators
+/O					% flag O -
+{
+0 ne
+/_of exch ddef
+/_lp /none ddef
+} def
+/R					% flag R -
+{
+0 ne
+/_os exch ddef
+/_lp /none ddef
+} def
+/g					% gray g -
+{
+/_gf exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_gf setgray
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/G					% gray G -
+{
+/_gs exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_gs setgray
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/k					% cyan magenta yellow black k -
+{
+_cf astore pop
+/_fc
+{
+_lp /fill ne
+	{
+	_of setoverprint
+	_cf aload pop setcmykcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/K					% cyan magenta yellow black K -
+{
+_cs astore pop
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_cs aload pop setcmykcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/x					% cyan magenta yellow black name gray x -
+{
+/_gf exch ddef
+findcmykcustomcolor
+/_if exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_if _gf 1 exch sub setcustomcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/X					% cyan magenta yellow black name gray X -
+{
+/_gs exch ddef
+findcmykcustomcolor
+/_is exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_is _gs 1 exch sub setcustomcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+
+% locked object operator
+/A					% value A -
+{
+pop
+} def
+
+currentdict readonly pop end
+setpacking
+
+% annotate page operator
+/annotatepage
+{
+} def
+%%EndResource
+%AI3-Grid.0 18 18 3 0.833333 0.833333 0.833333 1
+%%EndProlog
+%%BeginSetup
+Adobe_cmykcolor /initialize get exec
+
+Adobe_cshow /initialize get exec
+
+Adobe_customcolor /initialize get exec
+
+Adobe_IllustratorA_AI3 /initialize get exec
+
+%%EndSetup
+0 A
+0 R
+0 G
+0 i 0 J 0 j 1 w 4 M []0 d
+%AI3_Note:
+0 D
+590.9828 237 m
+281.125 237 l
+281.125 291 443.125 345 v
+486.4677 359.4476 537.5412 371.9624 589.1063 382.5446 c
+S
+351.625 306.75 m
+394.375 332.25 363.625 426 399.625 429 c
+435.625 432 460.5 352 519.625 367 c
+S
+0.2 w
+410.875 233.5 m
+410.875 332.4837 l
+S
+1 w
+410.875 333.75 m
+394.5256 369.2725 l
+S
+382.563 395.3285 m
+S
+380.875 399 m
+327.625 405 l
+S
+380.875 399 m
+388.375 450 l
+S
+410.875 333.75 m
+452.875 351.375 l
+S
+0 O
+0 g
+390.25 378.375 m
+392.125 364.125 l
+399.625 367.875 l
+F
+389.6326 462.2004 m
+384.037 448.5866 l
+392.4034 448.0246 l
+F
+315.818 406.7045 m
+328.8155 400.5693 l
+329.721 408.9055 l
+F
+0 R
+0 G
+0.2 w
+380.875 399 m
+394.75 367.5 l
+S
+0 O
+0 g
+1 w
+464.2788 357.1668 m
+450.1525 354.8914 l
+453.8065 348.1074 l
+F
+0 R
+0 G
+0.2 w
+380.875 391.5 m
+380.7118 326.0249 l
+S
+380.6787 311.5147 m
+S
+380.6787 311.5147 m
+380.6729 308.9816 l
+380.5 233.25 l
+S
+372.625 398.25 m
+241 398.125 l
+S
+277.75 237 m
+241.75 236.625 l
+S
+254.125 398.625 m
+254.125 337.875 l
+S
+254.125 305.25 m
+254.125 237.375 l
+S
+0 O
+0 g
+1 w
+254.5008 236.25 m
+257.5008 247.125 l
+251.1258 247.125 l
+F
+254.125 398.625 m
+251.125 387.75 l
+257.5 387.75 l
+F
+0 R
+0 G
+0.2 w
+413 332.5 m
+472 333 l
+S
+462 331.5 m
+462.5 295 l
+S
+462 272.5 m
+461.5 238 l
+S
+0 O
+0 g
+1 w
+462.0625 332.4375 m
+459.0625 321.5625 l
+465.4375 321.5625 l
+F
+461.9375 237.0625 m
+464.9375 247.9375 l
+458.5625 247.9375 l
+F
+0 R
+0 G
+0.2 w
+285.5 239.5 m
+292.1495 256.1238 308.414 271.4616 326.7489 284.3774 c
+S
+326.7489 284.3774 m
+S
+344.0018 295.5547 m
+S
+344.0018 295.5547 m
+373.296 313.1072 402 324 y
+S
+0 O
+0 g
+1 w
+409.9115 328.9381 m
+398.915 326.4199 l
+401.9393 320.8079 l
+F
+[1 0 0 1 -253.25 -453.5] 626 666 644 684
+(bump00000.eps)`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice297892.dvi
+%%Pages: 1 1
+%%BoundingBox: 626 666 644 684
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice297892.eps TeXice297892.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 1 121
+df<0000FE0003F8000003FF800FFE00000703C01C0700001C01E0300F80003800F0601FC00060
+00F8C03FC0006000FD807FC000C000FD807FC0018000FF007FC0018000FF007F80030000FE003F
+00060000FE001E00060000FE000000060000FE0000000C0001FC0000000C0001FC000000000001
+FC000000000001FC000000000003F8000000000003F8000000000003F8000000000003F8000000
+000007F0000000000007F0000000000007F0000000000007F000000000000FE000000000000FE0
+00000000000FE000000000000FE000040000001FC0000C0000001FC0000C0000001FC0000C000F
+001FC00018001F803FC00018003FC03FC00030007FC03F800030007FC06FC0006000FF806FC000
+C0007F80C7C00180007F0183C00300007C0301E00E00003C0E00F03C00000FFC007FF0000003F0
+001FC00000322D7EAB39>120 D E /Fb 1 127 df<00F800010003FF00038007FF8007000FFFE0
+0E001F1FFC7C003803FFF8007000FFF000E0007FE00040000F8000210978C232>126
+D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2318 219 a Fb(~)-56 b Fa(x)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+[1 0 0 1 -379.5 -352] 625 662 643 684
+(bump00001.eps)`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice297892.dvi
+%%Pages: 1 1
+%%BoundingBox: 625 662 643 684
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice297892.eps TeXice297892.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 1 122
+df<003F0000000000FF800000E001C3E00001F00301F00003F80601F00003F80C01F80003F80C
+01F80007F01801F80007F01803F80007F03003F80007F03003F8000FE06003F8000FE06007F000
+0FE06007F0000FE0C00FE0001FC0C00FE0001FC0000FE0001FC0001FC0001FC0001FC0003F8000
+1FC0003F80003F80003F80003F80003F80003F80007F00007F00007F00007F00007F00007F0000
+7F0000FE0000FE0000FE0000FE0000FE0000FE0000FE0000FE0000FC0001FC0001FC0001FC0001
+FC0001FC0001FC0001FC0001FC0003F80000FC0003F80000FC0003F80000FC0007F80000FC0007
+F000007E000FF000003E001FF000001F0077F000000F81EFE0000007FF8FE0000000FE0FE00000
+00000FE0000000001FC0000000001FC0000000001F800003C0003F800007E0003F00000FF0007F
+00001FF0007E00001FF000FC00003FE000FC00003FE001F800003FC003F000001F0007E0000018
+0007C000000C001F0000000E003E0000000781F800000001FFE0000000007F000000002D407DAB
+31>121 D E /Fb 1 127 df<00F800010003FF00038007FF8007000FFFE00E001F1FFC7C003803
+FFF8007000FFF000E0007FE00040000F8000210978C232>126 D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2321 219 a Fb(~)-57 b Fa(y)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+[1 0 0 1 -222.75 -294] 625 666 644 685
+(bump00002.eps)`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice297892.dvi
+%%Pages: 1 1
+%%BoundingBox: 625 666 644 685
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice297892.eps TeXice297892.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 1 111
+df<00F80003FC000003FE000FFF8000070F003C07C0000C0F80F003E0000C07C1C003F0001807
+E30001F8001807E60001F8003007EC0001F8003007EC0001FC003007F80001FC00600FF00001FC
+00600FE00001FC00600FE00001FC00600FE00001FC00C01FC00003F800C01FC00003F800001FC0
+0003F800001FC00003F800003F800007F000003F800007F000003F800007F000003F80000FE000
+007F00000FE000007F00000FE000007F00001FC000007F00001FC00000FE00001FC00000FE0000
+3F800000FE00003F800000FE00003F801001FC00007F003001FC00007F003001FC00007F003001
+FC0000FE006003F80000FE006003F80000FE006003F80000FC00C003F80000FC00C007F00000FC
+018007F00000FC030007F000007C030007F000007C0E0007E000003C1C0007C000001FF0000380
+000007E000342D7DAB3C>110 D E /Fb 1 95 df<00040000000E0000001F0000003F8000007F
+C00000FBE00001F1F00003E0F80007803C000F001E001E000F003C000780780003C0E00000E040
+0000401B0F75C432>94 D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2315 219 a Fb(^)-55 b Fa(n)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+[1 0 0 1 -186.25 -307] 627 666 643 685
+(bump00003.eps)`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice297892.dvi
+%%Pages: 1 1
+%%BoundingBox: 627 666 643 685
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice297892.eps TeXice297892.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 1 116
+df<00000FF80000003FFE000000F807000003E0018000078000C0000F000060000F000060001E
+0001F0003E0003F0003E0007F0007C000FE0007C000FE0007E0007C0007E000380007E00000000
+7F000000007FE00000007FFF0000007FFFE000003FFFF800001FFFFC00000FFFFE000007FFFF00
+0003FFFF0000003FFF80000001FF800000007F800000003FC00000001FC00F00001FC03F80000F
+803FC0000F807FC0000F807FC0000F00FF80001F00FF00001E00FE00001E007C00003C00600000
+78003000007000180001E0000C0003C00007801F800003FFFC0000007FE00000242D7BAB2F>
+115 D E /Fb 1 95 df<00040000000E0000001F0000003F8000007FC00000FBE00001F1F00003
+E0F80007803C000F001E001E000F003C000780780003C0E00000E0400000401B0F75C432>94
+D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2321 219 a Fb(^)-54 b Fa(s)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+[1 0 0 1 -309.75 -253.5] 625 666 644 684
+(bump00004.eps)`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice297892.dvi
+%%Pages: 1 1
+%%BoundingBox: 625 666 644 684
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice297892.eps TeXice297892.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 1 111
+df<00F80003FC000003FE000FFF8000070F003C07C0000C0F80F003E0000C07C1C003F0001807
+E30001F8001807E60001F8003007EC0001F8003007EC0001FC003007F80001FC00600FF00001FC
+00600FE00001FC00600FE00001FC00600FE00001FC00C01FC00003F800C01FC00003F800001FC0
+0003F800001FC00003F800003F800007F000003F800007F000003F800007F000003F80000FE000
+007F00000FE000007F00000FE000007F00001FC000007F00001FC00000FE00001FC00000FE0000
+3F800000FE00003F800000FE00003F801001FC00007F003001FC00007F003001FC00007F003001
+FC0000FE006003F80000FE006003F80000FE006003F80000FC00C003F80000FC00C007F00000FC
+018007F00000FC030007F000007C030007F000007C0E0007E000003C1C0007C000001FF0000380
+000007E000342D7DAB3C>110 D E /Fb 1 127 df<00F800010003FF00038007FF8007000FFFE0
+0E001F1FFC7C003803FFF8007000FFF000E0007FE00040000F8000210978C232>126
+D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2315 219 a Fb(~)-55 b Fa(n)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+[1 0 0 1 -260.25 -218.5] 627 666 643 684
+(bump00005.eps)`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice297892.dvi
+%%Pages: 1 1
+%%BoundingBox: 627 666 643 684
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice297892.eps TeXice297892.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 1 116
+df<00000FF80000003FFE000000F807000003E0018000078000C0000F000060000F000060001E
+0001F0003E0003F0003E0007F0007C000FE0007C000FE0007E0007C0007E000380007E00000000
+7F000000007FE00000007FFF0000007FFFE000003FFFF800001FFFFC00000FFFFE000007FFFF00
+0003FFFF0000003FFF80000001FF800000007F800000003FC00000001FC00F00001FC03F80000F
+803FC0000F807FC0000F807FC0000F00FF80001F00FF00001E00FE00001E007C00003C00600000
+78003000007000180001E0000C0003C00007801F800003FFFC0000007FE00000242D7BAB2F>
+115 D E /Fb 1 127 df<00F800010003FF00038007FF8007000FFFE00E001F1FFC7C003803FF
+F8007000FFF000E0007FE00040000F8000210978C232>126 D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2321 219 a Fb(~)-54 b Fa(s)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+[1 0 0 1 -223.75 -453] 626 666 644 679
+(bump00006.eps)`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice297892.dvi
+%%Pages: 1 1
+%%BoundingBox: 626 666 644 679
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice297892.eps TeXice297892.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 1 121
+df<0000FE0003F8000003FF800FFE00000703C01C0700001C01E0300F80003800F0601FC00060
+00F8C03FC0006000FD807FC000C000FD807FC0018000FF007FC0018000FF007F80030000FE003F
+00060000FE001E00060000FE000000060000FE0000000C0001FC0000000C0001FC000000000001
+FC000000000001FC000000000003F8000000000003F8000000000003F8000000000003F8000000
+000007F0000000000007F0000000000007F0000000000007F000000000000FE000000000000FE0
+00000000000FE000000000000FE000040000001FC0000C0000001FC0000C0000001FC0000C000F
+001FC00018001F803FC00018003FC03FC00030007FC03F800030007FC06FC0006000FF806FC000
+C0007F80C7C00180007F0183C00300007C0301E00E00003C0E00F03C00000FFC007FF0000003F0
+001FC00000322D7EAB39>120 D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2312 219 a Fa(x)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+[1 0 0 1 -171.25 -387] 625 662 643 679
+(bump00007.eps)`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice297892.dvi
+%%Pages: 1 1
+%%BoundingBox: 625 662 643 679
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice297892.eps TeXice297892.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 1 122
+df<003F0000000000FF800000E001C3E00001F00301F00003F80601F00003F80C01F80003F80C
+01F80007F01801F80007F01803F80007F03003F80007F03003F8000FE06003F8000FE06007F000
+0FE06007F0000FE0C00FE0001FC0C00FE0001FC0000FE0001FC0001FC0001FC0001FC0003F8000
+1FC0003F80003F80003F80003F80003F80003F80007F00007F00007F00007F00007F00007F0000
+7F0000FE0000FE0000FE0000FE0000FE0000FE0000FE0000FE0000FC0001FC0001FC0001FC0001
+FC0001FC0001FC0001FC0001FC0003F80000FC0003F80000FC0003F80000FC0007F80000FC0007
+F000007E000FF000003E001FF000001F0077F000000F81EFE0000007FF8FE0000000FE0FE00000
+00000FE0000000001FC0000000001FC0000000001F800003C0003F800007E0003F00000FF0007F
+00001FF0007E00001FF000FC00003FE000FC00003FE001F800003FC003F000001F0007E0000018
+0007C000000C001F0000000E003E0000000781F800000001FFE0000000007F000000002D407DAB
+31>121 D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2314 219 a Fa(y)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+[1 0 0 1 -297.75 -384.5] 627 666 643 679
+(bump00008.eps)`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice297892.dvi
+%%Pages: 1 1
+%%BoundingBox: 627 666 643 679
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice297892.eps TeXice297892.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 1 116
+df<00000FF80000003FFE000000F807000003E0018000078000C0000F000060000F000060001E
+0001F0003E0003F0003E0007F0007C000FE0007C000FE0007E0007C0007E000380007E00000000
+7F000000007FE00000007FFF0000007FFFE000003FFFF800001FFFFC00000FFFFE000007FFFF00
+0003FFFF0000003FFF80000001FF800000007F800000003FC00000001FC00F00001FC03F80000F
+803FC0000F807FC0000F807FC0000F00FF80001F00FF00001E00FE00001E007C00003C00600000
+78003000007000180001E0000C0003C00007801F800003FFFC0000007FE00000242D7BAB2F>
+115 D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2317 219 a Fa(s)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+0 R
+0 G
+0.2 w
+384.5 400.5 m
+484.5 443.75 l
+S
+465.75 357.5 m
+511.25 376.5 l
+S
+477.6875 436.5 m
+486.0625 417.5 l
+S
+496.6875 394 m
+505.0625 375 l
+S
+0 O
+0 g
+1 w
+475.9375 440.4375 m
+477.1853 429.2255 l
+483.1056 431.5901 l
+F
+505.541 374.106 m
+504.0015 385.2818 l
+498.1449 382.7637 l
+F
+[1 -0.0002 0.0002 1 -122.8461 -266.4134] 603 660 664 686
+(bump00008.eps)`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice297892.dvi
+%%Pages: 1 1
+%%BoundingBox: 603 660 664 686
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice297892.eps TeXice297892.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 2 42
+df<00000600000E0000180000380000700000E00001C0000380000780000700000E00001E0000
+3C00003C0000780000F80000F00001F00001E00003E00003C00007C00007C0000780000F80000F
+80000F80001F00001F00001F00003F00003E00003E00003E00007E00007E00007E00007C00007C
+00007C00007C0000FC0000FC0000FC0000FC0000FC0000FC0000FC0000FC0000FC0000FC0000FC
+0000FC0000FC0000FC0000FC0000FC0000FC0000FC00007C00007C00007C00007C00007E00007E
+00007E00003E00003E00003E00003F00001F00001F00001F00000F80000F80000F800007800007
+C00007C00003C00003E00001E00001F00000F00000F800007800003C00003C00001E00000E0000
+07000007800003800001C00000E000007000003800001800000E000006176477CA27>40
+D<800000C000006000007000003800001C00000E000007000007800003800001C00001E00000F0
+0000F000007800007C00003C00003E00001E00001F00000F00000F80000F800007800007C00007
+C00007C00003E00003E00003E00003F00001F00001F00001F00001F80001F80001F80000F80000
+F80000F80000F80000FC0000FC0000FC0000FC0000FC0000FC0000FC0000FC0000FC0000FC0000
+FC0000FC0000FC0000FC0000FC0000FC0000FC0000FC0000F80000F80000F80000F80001F80001
+F80001F80001F00001F00001F00003F00003E00003E00003E00007C00007C00007C0000780000F
+80000F80000F00001F00001E00003E00003C00007C0000780000F00000F00001E00001C0000380
+000780000700000E00001C0000380000700000600000C00000800000166479CA27>I
+E /Fb 1 120 df<01F0000380070007FC0007C00F800E1E0007C00FC0181F0007C01FC0181F00
+0F800FE0301F000F8007E0601F000F8003E0601F000F8001C0C03E001F0001C0C03E001F0001C0
+C03E001F0000C0007C001F0001C0007C003E00018000F8003E00018000F8003E00018000F8003E
+00018001F0007C00030001F0007C00030001F0007C00060001F0007C00060001F0007C00060001
+F00078000C0001F00078000C0001F000FC00180001F000FC00300000F001BC0060000078031E00
+C000003E060F038000001FFC07FF00000003F801FC0000331E7D9D3A>119
+D E /Fc 2 116 df<00F80003FC000003FE000FFF8000070F003C07C0000C0F80F003E0000C07
+C1C003F0001807E30001F8001807E60001F8003007EC0001F8003007EC0001FC003007F80001FC
+00600FF00001FC00600FE00001FC00600FE00001FC00600FE00001FC00C01FC00003F800C01FC0
+0003F800001FC00003F800001FC00003F800003F800007F000003F800007F000003F800007F000
+003F80000FE000007F00000FE000007F00000FE000007F00001FC000007F00001FC00000FE0000
+1FC00000FE00003F800000FE00003F800000FE00003F801001FC00007F003001FC00007F003001
+FC00007F003001FC0000FE006003F80000FE006003F80000FE006003F80000FC00C003F80000FC
+00C007F00000FC018007F00000FC030007F000007C030007F000007C0E0007E000003C1C0007C0
+00001FF0000380000007E000342D7DAB3C>110 D<00000FF80000003FFE000000F807000003E0
+018000078000C0000F000060000F000060001E0001F0003E0003F0003E0007F0007C000FE0007C
+000FE0007E0007C0007E000380007E000000007F000000007FE00000007FFF0000007FFFE00000
+3FFFF800001FFFFC00000FFFFE000007FFFF000003FFFF0000003FFF80000001FF800000007F80
+0000003FC00000001FC00F00001FC03F80000F803FC0000F807FC0000F807FC0000F00FF80001F
+00FF00001E00FE00001E007C00003C0060000078003000007000180001E0000C0003C00007801F
+800003FFFC0000007FE00000242D7BAB2F>115 D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2216 219 a Fc(n)2276 234 y Fb(w)2340 219 y Fa(\()p Fc(s)p
+Fa(\))p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+%%PageTrailer
+%%Trailer
+Adobe_IllustratorA_AI3 /terminate get exec
+
+Adobe_customcolor /terminate get exec
+
+Adobe_cshow /terminate get exec
+
+Adobe_cmykcolor /terminate get exec
+
+Adobe_packedarray /terminate get exec
+
+%%EOF

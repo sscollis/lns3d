@@ -1,0 +1,1361 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Chapter 4:  Model Problems and Code Validation
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 9-6-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[Model Problems and Code Validation]{Model Problems and \protect\\ 
+         Code Validation \label{c:valid}}
+
+Although the numerical method is presented in Chapter \ref{c:method} in the
+context of the swept, leading-edge receptivity problem, it is general enough
+to solve a variety of other problems.  This chapter begins by presenting
+results for three model problems that contain many of the fundamental physical
+phenomena occurring in leading-edge receptivity problems: unstable
+Tollmien--Schlichting waves, growing crossflow vortices, and acoustic
+scattering.  By isolating the physical phenomena, the viability of the method
+is evaluated and the resolution required to accurately represent each
+phenomenon is ascertained.  As a final validation of the method, the last
+section of this chapter presents acoustic leading-edge receptivity results
+along with comparisons to a previous computation \cite{Lin:92}.  Readers,
+anxious for swept leading-edge receptivity results, may wish to bypass this
+chapter and go directly to Chapter~\ref{c:pcyl} which discusses receptivity due
+to surface roughness on a swept parabolic-cylinder.
+
+\section[Viscous Instability Waves in a Parallel Boundary Layer]{Viscous 
+Instability Waves in a \protect\\ Parallel Boundary Layer \label{s:TS}}
+
+A major feature of the transitional flow near a leading-edge is the
+development of Tollmien--Schlichting (TS) waves in the boundary layer.  Since
+TS waves have large gradients in the wall normal direction, it is
+computationally challenging to resolve them accurately while representing the
+mean flow variation on the scale of the airfoil.  To determine the ability of
+our scheme to accurately compute the development of TS waves, we have
+performed a series of calculations using a parallel boundary layer as the base
+flow.  In this way, the solutions can be compared directly to parallel, Linear
+Stability Theory (LST).
+
+The base flow is computed from the compressible Falkner--Skan--Cooke equations
+(see Appendix~\ref{a:FSC}) for an unswept ($\theta=0$), zero-pressure-gradient
+($\beta_h=0$) boundary layer.  The flow conditions are $\M=0.3$, $\Re=1000$,
+and $\Pr=1.0$ with the reference length scale $L^*=\delta^*_1$ ($\delta^*_1$
+is the displacement thickness) and all other reference quantities are based on
+edge values.  The wall is assumed to be isothermal with $T_w = T_0$, where
+$T_0$ is the freestream stagnation temperature.\footnote{Under these
+conditions, $T_0$ is also the adiabatic wall temperature.}  A linear stability
+solver (see Appendix~\ref{a:LST}) using Chebyshev collocation with 96 points
+in the wall normal direction is used to provide the reference growth-rates for
+both temporally and spatially growing waves.  For both the Linearized
+Navier--Stokes (LNS) and LST calculations, constant fluid properties are
+assumed.
+
+\subsection{Temporally Growing TS Waves \label{ss:TStime}}
+
+First, consider the temporal problem where the waves grow in time. In this
+case, the disturbance field is periodic in the streamwise direction.  A
+computational domain containing only one wavelength of the TS wave is used
+with periodic boundary conditions on the left and right boundaries.  For this
+calculation, the top boundary is placed at $y=80$ which is sufficiently far
+away from the wall that a zero disturbance boundary condition can be used.  At
+the wall, the no-slip and isothermal boundary conditions are enforced as
+described in \S\ref{sss:distwallbc}.  Since we are interested in the temporal
+evolution of the disturbances, the unsteady solver is used with two-step
+implicit time-advancement.
+
+The mesh is uniform in the streamwise direction, $x$, with an algebraic
+mapping function in the wall normal direction, $y$.  The mapping function to
+computational space, $\eta \in [0,1]$, is given by equation (\ref{e:tsmap})
+with $y_{max}=80$ and $y_s=1$.
+
+The LST eigenfunction for $k_x = 0.308620690$ is used as the initial condition
+with a theoretical frequency of
+%
+% FSC: \M=0.3, \theta=0, \beta_h=0, T_w/T_0=1, \Re_\delta_1=1000, \Pr=1
+%
+% \omega = 1.1467880633548E-001   2.3844530425242E-003  (y_i=0.5, 64)
+% \omega = 1.1467880627332E-001   2.3844531249205E-003  (y_i=1.0, 96)
+%
+% \lambda_{TS} = 20.35892378
+%
+% \Delta t = 0.04764297421746
+%
+\begin{equation}
+  \omega_{LST} = 0.114678806 +  0.002384453 i
+\end{equation}
+%
+and the growth-rate is given by the imaginary part, $\sigma_{LST} =
+0.002384453$.  In passing, we note that the eigenvalues from the LST
+calculation are believed to be accurate to the number of digits indicated.
+This has been verified by calculations with 128 Chebyshev points which show no
+change to 9 decimal places.
+
+Growth-rate results from the Navier--Stokes calculations are based on the
+integrated, disturbance kinetic-energy
+%
+\begin{equation}
+  E'_k \equiv \int_0^\infty \frac{1}{2} \left( |\hat u'|^2 + |\hat v'|^2 + 
+                                               |\hat w'|^2 \right) dy \period
+\end{equation}
+%
+which is computed from the streamwise Fourier transform of the disturbance
+velocities for wavenumber $k_x$.  Given $E'_k$ the growth rate is given by
+%
+\begin{equation}
+  \sigma = \frac{1}{2} \frac{1}{E'_k} \frac{dE'_k}{dt}
+\end{equation}
+%
+where the factor $1/2$ is required since $E'_k$ is a quadratic quantity.
+
+Figure~\ref{f:ttsgrowth} shows the evolution of the growth-rate in the
+computed solution as a function of time for two spatial resolutions where each
+run was performed at a $\Delta t$ corresponding to $N_t=1150$ time-steps per
+period with two iterations of the implicit solver.  For early times, the
+growth-rate undergoes a transient as the solution adjusts from the LST initial
+condition to the eigenfunction associated with the discrete finite difference
+equations. During the transient, additional acoustic modes are also generated
+and these modes lead to the high frequency modulation of the growth-rate seen
+in figure~\ref{f:ttsgrowth}.  As grid resolution is increased the severity of
+the initial transient and the amplitude of the resulting acoustic modes are
+reduced since the finite difference eigenfunction converges to the LST
+eigenfunction used for the initial condition.
+
+To verify the rate of convergence, the relative error in the average growth
+rate is plotted in figure~\ref{f:spconv} over a range of mesh resolutions for
+$N_t=1150$ with 2 iterations of the implicit solver.  Fourth-order convergence
+is achieved in both spatial dimensions although the relative error begins to
+saturate at $10^{-4}$ due to the temporal error. If the $\CFL$ had been held
+constant instead of fixing $N_t$, then the saturation due to temporal errors
+would not have occurred \cite{KiMo:85}.  However, the conclusion would have
+remained the same --- the method is fourth-order accurate in space.
+
+To confirm temporal convergence, figure~\ref{f:tmconv} shows the relative
+error in the average growth-rate as a function of $N_t$, for an $(80 \times
+127)$ mesh. Results are included for 1, 2, and 3 iterations of the implicit
+disturbance solver.  In each case, (at least) second-order temporal
+convergence is obtained although the overall accuracy improves with the number
+of iterations.  In fact, the rate of convergence for 2 and 3 iterations is
+actually greater than second-order over the range of $N_t$ considered. This is
+due to the fact that as $N_t$ is increased, the additional iterations are more
+successful in removing the factorization error thus driving the solution to
+the exact, discrete solution.  Eventually, however, as $N_t$ is further
+increased the second-order error of the base time-advancement scheme will
+dominate regardless of the number of iterations.
+
+With the convergence results presented above, it is possible to determine a
+spatial/temporal resolution required to resolve TS wave development to any
+desired accuracy.  For the leading-edge receptivity problem a reasonable level
+of accuracy requires less than 1\% error in the amplitude of the TS wave over
+the length of the computational domain.  This level of accuracy can be
+achieved for a period of 40 oscillations in time with a resolution of
+$N_x=20$, $N_y=127$, $N_t=1150$ with 2 iterations of the implicit solver.  For
+this resolution, the error in the average growth-rate is $0.22\%$.  In terms
+of a spatially growing wave, with 20 nodes per streamwise wavelength, 127
+nodes normal to the wall, and 1150 time-steps per period with 2 iterations, a
+1\% error in the amplitude will not occur until a domain length of 40
+wavelengths which should be adequate for the leading-edge receptivity problems
+under consideration.
+
+\subsection{Spatially Growing TS Waves \label{ss:TSspace} }
+
+Now consider the case where the TS waves grow in space on the same parallel,
+mean boundary-layer profile.  For a frequency $\omega=0.08$ the spatial
+wavenumber predicted by LST is
+%
+% FSC: M=0.3, lambda=0, beta_h=0, Tw/T0=1, Re_\delta_1 = 1000, Pr=1
+%
+% k_x = 2.2804739410500E-001  -6.5163146761218E-003  (yi=1.0, 64)
+% k_x = 2.2804739411367E-001  -6.5163146912049E-003  (yi=1.0, 96)
+%
+% \lambda_{TS} = 27.552103
+%
+\begin{equation}
+  {k_x}_{LST} = 0.228047394 - 0.006516315 i
+\end{equation}
+%
+where the growth-rate is given by the negative imaginary part of the
+wavenumber, $\sigma_{LST} = 0.006516315$.
+
+For the spatial calculations the same wall-normal grid is used as in
+\S\ref{ss:TStime}. However, the streamwise length of the domain is increased
+to allow the TS waves to grow in space.  Two domain sizes are considered: $5
+\lambda_{TS}$ and $10 \lambda_{TS}$.  Based on the temporal convergence
+results, 20 nodes are used per TS wavelength resulting in an overall mesh size
+of $(101 \times 127)$ for the $5\lambda_{TS}$ case and $(201 \times 127)$ for
+the $10\lambda_{TS}$ case.
+
+Unlike the temporal problem, both inflow and outflow boundary conditions are
+required.  On the inflow boundary, the eigenfunction from LST is enforced by
+specifying the incoming inviscid char\-acter\-istics \cite{Giles:90}. On the
+outflow, a sponge is used over the last wavelength of the domain (see
+\S\ref{sss:sponge}).  The sponge function is given by equation
+(\ref{e:spgfun}) with $A_s = 2$, $N_s = 3$, and the reference state
+corresponds to zero disturbances.  The top and wall boundaries are treated in
+the same manner as in \S\ref{ss:TStime}.  Since we are interested in the time
+asymptotic solution, the frequency domain approach is used with $\omega =
+0.08$.
+
+Growth-rate results for both domains are presented in figure~\ref{f:stsgrowth}
+based on the integrated, disturbance kinetic-energy using
+%
+\begin{equation}
+  \sigma = \frac{1}{2} \frac{1}{E'_k} \frac{dE'_k}{dx} \period
+\end{equation}
+%
+In the figure, the sponge regions have been truncated so that the right
+boundary is coincident with the start of the sponge.  From the inflow boundary
+to the location $1 \lambda_{TS}$ upstream of the sponge the growth-rates from
+both domains are in reasonable agreement with LST.  To quantify this, the
+average growth-rate in this region gives a relative error of $2.9\times
+10^{-3}$ (for both domains) which is consistent with the error in the temporal
+problem ($2.2\times 10^{-3}$) for the same resolution.  However, the
+introduction of inflow/outflow boundaries causes several important differences
+between the spatial and temporal results discussed above.  The most obvious
+difference occurs near the outflow sponge where the spatial growth-rate
+undergoes a large fluctuation that appears to be limited to about $1
+\lambda_{TS}$ upstream of the start of the sponge for both domain
+lengths. This upstream influence is likely due to the elliptic nature of the
+streamwise viscous terms in the boundary layer.  The nature and extent of the
+upstream influence are consistent with the results of previous authors
+\cite{GuAd:93,Adams:94} who used a similar sponge term.
+
+Another difference between the spatial and temporal results is that the
+magnitude of the oscillations in growth rate about the mean value are much
+higher, $\approx 2\%$, for the spatial simulation as compared to $\approx
+0.1\%$ for the temporal simulation.  There are several potential sources for
+these oscillations.  First, similar to the temporal problem, there is a
+mismatch between the LST eigenfunction forced on the inflow and the discrete
+eigenfunction of the finite difference scheme.  Second, the one-dimensional,
+inviscid boundary condition used to force the eigenfunction at the inflow is
+only an approximation.  Third, the outflow sponge may cause reflections (both
+numerical waves and physical waves) which could travel upstream.
+
+To isolate the cause of these oscillations, a third simulation was performed
+using the $10 \lambda_x$ domain but with the outflow sponge set to use the LST
+solution as the reference state.  This ensures that the transient in the
+sponge will be less severe since the sponge only has to correct for the errors
+in the discrete finite difference solution instead of damping the disturbances
+to zero.  Figure~\ref{f:stsgrowth2} shows the growth-rate results from this
+simulation.  By comparison to figure \ref{f:stsgrowth}, the extent of the
+direct upstream influence of the sponge is similar to the previous results,
+although the magnitude of the influence is much less.  The amplitude of the
+oscillations in the interior of the domain are also reduced---they are on the
+order of $0.1\%$ instead of $2\%$.  From this, we conclude that the majority
+of the errors in the previous solutions are due to reflections from the strong
+sponge, not errors due to inflow forcing.  In constructing the sponge term,
+these results suggest that it is advantageous to devise the reference state so
+that the transient in the sponge is minimized.  Unlike the current case,
+however, in receptivity calculations the solution in the sponge is not known
+{\it a priori} so that different means of improving the solution must be
+sought.
+
+Returning to the zero reference state sponge, another way of reducing the
+influence of the sponge is to increase the length of the sponge while keeping
+the sponge function (\ie\ $A_s$ and $N_s$) constant.  Figure
+\ref{f:stsgrowth3} shows growth-rate results for sponge lengths of 1, 2, and 5
+$\lambda_{TS}$.  As the sponge length is increased the magnitude of the
+upstream influence is reduced for both the fluctuation directly upstream of
+the sponge and the oscillations in the interior.  Note: the fluctuation
+directly upstream of the sponge can only be seen for the 5 $\lambda_{TS}$
+sponge since this portion of the domain is not shown for the shorter sponges.
+However, by comparison to the results of figure \ref{f:stsgrowth} the direct
+upstream influence of the sponge has been significantly reduced by increasing
+the length of the sponge.  A similar, although smaller, reduction is obtained
+for the $2.5\lambda_{TS}$ case.  Comparing the solution with a $5\lambda_{TS}$
+sponge to the solution with a $\lambda_{TS}$ sponge using the LST reference
+state (figure \ref{f:stsgrowth2}) shows that the solutions are of comparable
+quality with errors on the order of $0.2\%$.
+
+To summarize the results of this section, the resolution estimates made for
+the temporal problem in \S\ref{ss:TStime} are verified for the spatial
+problem.  Furthermore, the outflow sponge is found to be successful in damping
+TS waves before they interact with the outflow boundary, although not without
+some level of upstream influence.  Two types of upstream influence are
+observed.  The first is a spatially damped oscillation of approximate length
+$\lambda_{TS}$ directly upstream of the start of the sponge.  The second type
+of upstream influence is due to reflections (both numerical and physical)
+which lead to oscillations of the growth-rate in the interior.  Both forms of
+upstream influence can be reduced by either improving the sponge reference
+state or by increasing the length of the sponge.  In either case, the effect
+is to reduce the strength of the transition in the sponge.  Acceptable
+solutions are obtained using a sponge length of $5\lambda_{TS}$ with a zero
+disturbance reference state.  For this case, the errors due to upstream
+influence are comparable in magnitude to the error in the average growth-rate
+and the maximum error in the growth-rate is less than $0.4\%$.
+%
+%.... TTD:  May want to address the cost of the sponge.
+%
+
+\section[Crossflow Vortices in a Parallel Boundary Layer.]{Crossflow 
+Vortices in a \protect \\ Parallel Boundary Layer \label{s:CFtest}}
+
+In addition to TS waves, the transitional flow near a swept leading-edge may
+also include crossflow (CF) vortices.  To evaluate the ability of our
+numerical method to predict the growth of CF vortices we have performed a
+series of calculations using a parallel boundary layer as the base flow.
+Similar to the TS wave study above, the solutions can be compared directly to
+parallel, Linear Stability Theory (LST).
+
+The base flow is computed from the compressible Falkner--Skan--Cooke equations
+(see Appendix~\ref{a:FSC}).  However, we now consider profiles with sweep and
+favorable pressure gradient ($\theta=45^\circ$, $\beta_h=1$) such that the
+crossflow component of velocity is maximized \cite{Mack:84a}.  The flow
+conditions are $\M=0.3$, $\Re=400$, and $\Pr=1.0$.  The reference length for
+this calculation is the displacement thickness of the chordwise velocity
+profile and all other reference quantities are based on edge values.  The wall
+is isothermal at the adiabatic wall temperature, $T_w = T_0$, and constant
+fluid properties are assumed.  The reference growth rates are obtained from
+the linear stability solver (see Appendix~\ref{a:LST}) with 96 Chebyshev
+collocation points.
+
+\subsection{Temporally Growing CF Vortices \label{ss:CFtime} }
+
+As in the case of TS waves, we begin by considering the growth of CF vortices
+in time.  For this test, a stationary mode with $k_x=-0.287436451$ and
+$k_z=0.35$ is simulated and for these wavenumbers LST predicts a purely
+imaginary frequency of
+%
+% FSC: \M=0.3, \theta=45, \beta_h=1, T_w/T_0=1, \Re_\delta_1=400, \Pr=1
+%      f'', g' = 1.2385480276669E+00  5.7111548452863E-01
+%      delta_1/l = 8.078596E-01, delta_2/l = 3.435010E-01, H = 2.351841
+%
+% \alpha_c = -0.287436451, \beta_c  =  0.350000000
+%
+% \omega = 6.3418714665148E-007   6.5335847229711E-003 (y_i=3.0, 64)
+% \omega = 6.3418779141636E-007   6.5335847210238E-003 (y_i=3.0, 96)
+%
+% \lambda_x = 21.85938938962055
+% \lambda_z = 17.95195802051310
+%
+\begin{equation}
+  \omega_{LST} = 0.006533585 i
+\end{equation}
+%
+so that the growth rate is given by $\sigma = 0.006533585$.  The LNS
+calculations use the same wall normal mapping used for the temporally growing
+TS waves in \S\ref{ss:TStime}.  The unsteady disturbance code is used with
+$\Delta t = 0.047643$ (the nominal time-step in the TS wave study) and with 2
+iterations per time-step.
+
+Figure~\ref{f:tcfgrowth} shows the evolution of the growth-rate of disturbance
+kinetic energy from the LNS calculation compared to LST.  The results for two
+spatial resolutions, $(20 \times 127)$ and $(80 \times 127)$, are presented
+and clearly demonstrate that the LNS solution converges to the LST solution as
+resolution is increased. Consistent with the TS wave study, the relative error
+in the growth-rate for a resolution of $(20 \times 127)$ is $0.28\%$ which
+should be adequate for the present investigation.
+
+\subsection{Spatially Growing CF Vortices \label{ss:CFspace} }
+
+Now consider the spatial growth of a stationary, $\omega=0$, CF vortex mode
+with $k_z = 0.35$.  LST predicts the chordwise wavenumber to be
+%
+% FSC: \M=0.3, \theta=45, \beta_h=1, T_w/T_0=1, \Re_\delta_1=400, \Pr=1
+%      f'', g' = 1.2385480276669E+00  5.7111548452863E-01
+%      delta_1/l = 8.078596E-01, delta_2/l = 3.435010E-01, H = 2.351841
+%
+% \omega   =  0.0
+% \beta_c  =  0.350000000
+%
+% \alpha = -2.8831962908108E-001  -1.3854663674703E-002 (y_i=3.0, 64)
+% \alpha = -2.8831962908130E-001  -1.3854663671636E-002 (y_i=3.0, 96)
+%
+% \lambda_x = 21.79242990567478
+% \lambda_z = 17.95195802051310
+%
+% L_x = 10 \lambda_x = 217.9242990567477
+%
+\begin{equation}
+  {k_x}_{LST} = -0.288319629 - 0.013854663 i
+\end{equation}
+%
+so that the spatial growth rate is given by $\sigma_{LST} = 0.013854663$.
+
+Similar to the spatial TS wave investigation, a domain is constructed that is
+$10 \lambda_x$ long and uses $20$ nodes per streamwise wavelength.  The wall
+normal mesh is identical to that used in the temporal investigation in
+\S\ref{ss:CFtime}.  On the inflow boundary the LST eigenfunction is enforced
+by setting the incoming characteristics \cite{Giles:90}.  Zero disturbance
+conditions are used on the top boundary and a sponge of length $\lambda_x$ is
+used on the outflow boundary.  The sponge parameters are $A_s=2$, $N_s=3$, and
+the reference state is zero.
+
+The computed growth-rate, based on the disturbance kinetic energy, is shown in
+figure~\ref{f:scfgrowth} compared to the value from LST where the sponge
+region has again been truncated.  Computing the average growth-rate in the
+domain yields a value within $0.3\%$ of the LST result.  Similar to the
+spatial TS wave results using a similar sponge, the sponge causes a
+fluctuation in the growth-rate that appears limited to $ 1 \lambda_{CF}$
+upstream of the start of the sponge.  However, unlike the spatial TS wave
+results, the overall level of the oscillations in the interior are much
+smaller indicating that the upstream influence of the sponge is more benign.
+
+Given these results, we conclude that the outflow sponge, relative to the TS
+wave problem, has relatively little impact on the CF vortex solution.  This
+fact allows the use of much shorter sponges, on the order of $\lambda$ for
+CF vortices, compared to $5\lambda$ for TS waves.
+
+\section{Acoustic Scattering from a Circular Cylinder\label{s:scat}}
+
+A fundamental aspect of the acoustic receptivity problem is the interaction of
+free\-stream acoustic waves with the leading-edge.  This interaction results
+in a scattered acoustic wave which propagates away from the body. To ensure
+that our simulations accurately represent this phenomenon, we have validated
+our code for the simple case of acoustic scattering from a stationary circular
+cylinder of radius $a^*$ subject to a plane acoustic-wave traveling
+perpendicular to the cylinder axis.  For this calculation, the reference
+length is the cylinder radius $L^* = a^*$, the reference velocity is the
+far-field acoustic speed $u^*_r = c^*_\infty$, and all other reference
+quantities are based on far-field values.
+
+The incident, plane acoustic-wave with nondimensional wavelength $\lambda$ is
+given by
+%
+\begin{equation}
+ p_i = P_0 e^{ i k (x - t) }, \quad k = {{2 \pi}\over{\lambda}}
+\end{equation}
+%
+where the direction of propagation is along the positive $x$-axis and $P_0$ is
+the incident pressure amplitude, taken to be $0.5$.
+
+Under these conditions, the scattered pressure wave can be expressed by the
+following Bessel function expansion \cite{MoIn:68}
+%
+\begin{equation}
+p_s = \sum_{m=0}^{\infty} A_m \cos(m\theta)
+      [ J_m(kr) + iN_m(kr)] e^{-i\omega t}
+\end{equation}
+%
+where $(r,\theta)$ are the the usual cylindrical coordinates, $\omega=k$, and
+%
+\begin{eqnarray}
+  A_m = -\epsilon_m P_0 i^{m+1} e^{-i\gamma_m}\sin\gamma_m , \\
+         \tan \gamma_0 = -{{J_1(k)}\over{N_1(k)}} , \\ 
+         \tan \gamma_m = {{J_{m-1}(k) - J_{m+1}(k)}\over
+		          {N_{m+1}(k) - N_{m-1}(k)}}
+\end{eqnarray}
+%
+with $\epsilon_0=1$ and $\epsilon_m = 2$ for all $m$ larger than zero.  In
+these expressions, $J_m$ and $N_m$ are Bessel functions of the first- and
+second-kind, respectively.  This solution is exact in the inviscid limit and
+is used to evaluate the accuracy of our numerical scheme.
+
+An inviscid simulation is conducted for an incident acoustic wave with
+$\lambda = 2.5$.  A circular mesh with dimensions $(256 \times 241)$ is used
+with the far-field boundary placed at $r_o=13.5$.  The mesh is uniform in
+$\theta$ and in $r$ and provides a minimum of 18 nodes per incident wavelength
+in $\theta$ and 48 nodes per scattered wavelength in $r$.  Since the flow is
+symmetric about the $x$-axis, we solve for the solution only on the upper
+half-plane with symmetry conditions used on the $x$-axis.
+
+Before proceeding, we note that the rather high resolution in $r$ is used to
+reduce the accumulation of phase errors in the calculation since the acoustic
+waves propagate over 10 wavelengths within the domain.  Compared to our
+acoustic receptivity calculations (see Chapter \ref{c:2dle}), this scattering
+test is a severe test of our method.
+
+%==============================================================================
+%.... Inviscid wall boundary condition
+%==============================================================================
+
+Since only viscous wall boundary conditions were discussed in
+\S\ref{ss:distbc}, the appropriate inviscid wall boundary conditions are
+presented here.  For an inviscid wall the only boundary condition required is
+the no-penetration condition, $\vn = 0$.  Since the wall boundaries are
+curved, in general, the equations and velocity unknowns on the wall boundary
+must be locally rotated to a body-normal coordinate system.  Defining the
+unit, body normal as $\{n_1,n_2\}^{\rm T}$, the primitive variables in the
+body-normal coordinate system are given by
+%
+\begin{equation}
+    \left\{\matrix{\rho\cr \vs\cr \vn\cr w\cr T\cr}\right\} = 
+    \left[\matrix{ 1 & & & & \cr & n_2 & -n_1 & & \cr 
+                   & n_1 & \ n_2 & & \cr & & & 1 & \cr & & & & 1\cr}\right]
+    \left\{\matrix{\rho\cr u\cr v\cr w\cr T\cr}\right\}
+\end{equation}
+%
+which can be written as
+%
+\begin{equation}
+  \bU_s = \bR \bU \period
+\end{equation}
+%
+The matrix, $\bR$ is used to rotate the equations and unknowns at the boundary
+to the body-normal coordinate system.  In particular, let $\bR_i$ be the
+rotation matrix at node $i$ on the boundary $j=1$.
+
+Before approximate factorization, the linear system that must be solved every
+iteration can be written compactly as
+%
+\begin{equation}
+  \bM \delta\bU = \bG \period
+\end{equation}
+%
+A block-diagonal matrix is constructed with the rotation matrix on the
+diagonal for nodes on the boundary and the identity matrix elsewhere;
+%
+\begin{equation}
+  \bS = {\rm diag}( \bR_1, \dots, \bR_{N_\xi}, \bI, \dots, \bI)
+\end{equation}
+%
+where the first $N_\xi$ nodes are on the boundary $j=1$.
+%
+Then the equations and unknowns can be rotated to the new coordinate system
+%
+\begin{equation}
+  [\bS \bM \bS^{\rm T}] (\bS \delta\bU) = (\bS \bG)
+\end{equation} 
+%
+which can be written as
+%
+\begin{equation}
+  \bM_s \bU_s = \bG_s  \period
+\end{equation}
+%
+Thus, on the boundary $j=1$, the velocity unknowns are $(\vs,\vn,w)$ and the
+$x$- and $y$-momentum equations have been replaced with the $s$- and
+$n$-momentum equations.  In practice, this system of equations is
+approximately factored before solving, as discussed in \S\ref{e:base}.
+
+In body normal coordinates at the wall, the impermeable boundary constraint
+can be written simply as
+%
+\begin{equation}
+  g_{\vn} = \vn = 0
+\end{equation}
+%
+which is used to replace the normal momentum equation at the boundary (Note
+that the tangential momentum-equation is solved as is).  The variation of this
+constraint required to form the LHS is simply
+%
+\begin{equation}
+  \delta g_{\vn} = \delta \vn \period
+\end{equation}
+
+At the far-field boundary, locally one-dimensional characteristic boundary
+conditions \cite{Giles:90} are used to force the plane acoustic wave. In
+addition, over the region $r_s=8.5$ to $r_o=13.5$ a sponge term is added to
+damp the scattered field while leaving the incident wave unaffected.  This is
+accomplished by using the sponge term defined in equation (\ref{e:sponge})
+with the reference state, $\bU_{ref}$, equal to the incident, plane acoustic
+wave.  The sponge function is defined by equation (\ref{e:spgfun}) with $x$
+replaced by $r$, $A_s = 10$, and $N_s = 3$.
+
+The simulation is conducted using the frequency domain approach with $\omega =
+k = 2.513$.  Figure~\ref{f:scatter} shows contours of the instantaneous,
+scattered pressure field from the simulation demonstrating the damping of the
+scattered field in the sponge region.  The acoustic intensity, $\Upsilon = r
+|p_s|^2$, for the scattered wave along the ray $\theta=\pi$ is shown in
+figure~\ref{f:intense} compared to inviscid theory.  As expected, the acoustic
+intensity approaches a constant far from the cylinder which confirms the
+expected $1/r$ decay of the scattered wave.  In the sponge, the intensity of
+the scattered wave is smoothly damped to zero and there are no noticeable
+reflections on this scale.  Often in acoustics the directionality of the
+scattered sound is of importance.  Figure~\ref{f:dir} shows a polar plot of
+the acoustic intensity at three radial locations.  The top frame, at $r=3.45$,
+shows excellent agreement between theory and calculation with the RMS relative
+error equal to $0.07\%$ and similar results are obtained for all $r < r_s$.
+The middle frame is slightly outside the sponge at $r=8.45$ and we see that
+even here the agreement with theory is good with an RMS error of $1\%$.  Note
+that most of these errors occur around $\theta=90^\circ$ which is the location
+of minimum resolution for the incoming acoustic wave.  The bottom frame, at
+$r=11.16$, is well within the sponge and, as expected, the scattered intensity
+is significantly reduced at this location.
+
+To assess the level of reflections in the sponge, figure \ref{f:error} shows
+the relative error in the computed acoustic intensity along the ray
+$\theta=\pi$.  Results are shown for both the original calculation, and a
+second calculation in which $r_o=11$ and $N_r = 201$ with all other parameters
+the same.  Thus, the second calculation has a sponge that is only one
+wavelength long and the number of nodes in $r$ is reduced to keep the number
+of points per wavelength constant.  For the original sponge, the RMS error in
+the interior region is $8.8 \times 10^{-4}$ while for the shorter sponge, the
+RMS error is an order-of-magnitude greater, $8.3 \times 10^{-3}$.  The
+oscillations in the error are indicative of both phase errors and reflections,
+while the mean error is entirely due to reflections since the spatial scheme
+has no inherent amplitude error.  As the sponge is lengthened, both the level
+of oscillations, and the mean error are reduced indicating that reflections
+are weaker for the longer sponge.
+
+Another means of reducing reflections caused by the sponge is to reduce the
+sponge amplitude $A_s$ while keeping the sponge length constant.  Figure
+\ref{f:error2} shows the relative error in acoustic intensity along the ray
+$\theta=\pi$ for the original calculation, and a third calculation where
+$A_s=5$ with all other quantities the same as the original calculation.  For
+this case, decreasing $A_s$, reduces the average error with little effect on
+the level of oscillations in the error.  The remaining oscillations are due to
+the phase error of the finite difference scheme.  We have found for this case,
+that further reduction of $A_s$ has negative impact on the solution, because
+the sponge is unable to reduce the amplitude of the scattered wave
+sufficiently to make it consistent with the far-field boundary condition.
+
+%
+%.... Summarize the results
+%
+In summary, we conclude that our numerical method can accurately predict the
+intensity and directionality of acoustic waves scattered from a solid body.
+Furthermore, we have found that an inflow sponge, where the reference state
+corresponds to an incoming acoustic wave, is a viable technique for enforcing
+incoming disturbances while reducing reflections of outgoing disturbances.
+For the current problem, a sponge two acoustic wavelengths long is required to
+reduce the error due to reflections to the level of the truncation error of
+the numerical scheme.
+
+%==============================================================================
+%	A C O U S T I C   R E C E P T I V I T Y 
+%==============================================================================
+\section[Two-Dimensional Leading-Edge Receptivity to Sound]{Two-Dimensional 
+Leading-Edge \protect \\ Receptivity to Sound\label{c:2dle} }
+
+In this section, results from two-dimensional calculations are presented for a
+flat-plate with a super-ellipse leading-edge.  For this calculation, the
+reference length scale is the plate half-thickness, $L^*$, and the reference
+velocity is the freestream speed, $u_r^* = u^*_\infty$.  All other reference
+quantities are based on their freestream values.  The plate is smooth, unswept
+and at zero angle-of-attack.  The super-ellipse geometry is given by
+%
+\begin{equation}
+  \left(1-{{x}\over{\AR}}\right)^m + y^2 = 1
+\end{equation}
+%
+where $\AR=x^*_j / L^*$ is the aspect-ratio of the leading edge (LE) with
+$x^*_j$ the location of the junction between the LE and plate; and $m$
+determines the level of continuity at the junction.
+
+To assess the ability of our method to predict LE receptivity, we have chosen
+the geometry and flow conditions so that our results can be compared to the
+previous incompressible results of Lin \cite{Lin:92}.  We therefore use an
+$\AR=6$, $m=4$ super-ellipse LE with $\Re=2400$ and $\M=0.1$ where $\M$ is
+selected based on mean flow comparisons (shown below) with the incompressible
+results.
+%
+%  The displacement thickness is 0.053 on the outflow plane.  Thus the
+%  farfield boundary is 754 \delta^* above the plate!
+%
+
+Figure~\ref{SEgrid} shows the computational mesh for this geometry where
+symmetry has been used to limit the domain to only the upper surface of the
+plate.  A plate length of 40 is used and the farfield boundary is placed 40
+units above the plate.  The mesh dimensions are $(384 \times 127)$ and
+hyperbolic tangent mapping functions, similar to those used by Lin
+\cite{Lin:92}, are used to cluster points near the LE and near the wall.  This
+mesh provides at least 30 points in the mean boundary-layer and 18-22 points
+per TS wavelength for the receptivity calculation.
+
+\subsection{Mean Flow Computation\label{s:2dmean}}
+
+The first step in performing a receptivity calculation is to determine the
+mean flow.  In computing the mean flow, the nonlinear solver discussed in
+\S\ref{s:base} is employed.  Adiabatic, no-slip boundary conditions are used
+on the plate surface with symmetry enforced directly in the finite-difference
+stencil on the boundary upstream of the leading-edge.  On the outflow
+boundary, a characteristic based nonreflecting boundary condition with viscous
+corrections \cite{PoLe:92} is used while on the inflow boundary first-order
+Riemann Extrapolation (see \S\ref{s:inflow}) is performed.  Each of these
+boundary conditions is treated fully implicitly to improve convergence to the
+steady-state.  Note that after performing the current calculation, an improved
+outflow boundary treatment was developed utilizing the parabolized
+Navier--Stokes equations (\eg\ \S\ref{sss:ParabolicBC}).  The current
+calculations were not rerun, since the outflow boundary treatment is not
+expected to have a large impact on the meanflow near the leading-edge.
+%
+%.... I wish I could rerun these to be sure...
+%
+
+The evolution of the displacement thickness, $\delta_1$, along the plate is
+shown in figure~\ref{delta}.  The computed result is compared to the Blasius
+solution where the virtual origin is set to match the computed solution.  The
+computed solution quickly evolves to the Blasius curve downstream of the
+junction at $x=6$ and by $x=10$ the development is indistinguishable from the
+Blasius curve.  At $x=30$ the solution begins to diverge from the Blasius
+curve as the approximate outflow boundary condition begins to influence the
+development.  This region of upstream influence does not affect the unsteady
+receptivity calculation since this region is inside the outflow sponge (see
+\S\ref{s:recep}).
+
+%To verify the farfield inviscid boundary conditions, contours of the pressure
+%coefficient, $C_p \equiv 2 ( p - p_\infty )$ are shown in figure~\ref{pfield}
+%demonstrating that the inviscid solution is smooth, even near the farfield
+%boundaries.  
+
+In comparing our results to those of Lin \cite{Lin:92}, we must verify that
+our $\M=0.1$ mean flow is a reasonable approximation to an incompressible
+flow.  Figure~\ref{dpds} shows the pressure gradient with respect to
+arc-length, $s$, along the plate for a range of Mach numbers.  As $\M$ is
+decreased, the curves converge to the incompressible result \cite{Lin:92} and
+for $\M=0.1$ the pressure gradient is indistinguishable from the
+incompressible curve.  This excellent agreement between our mean flow solution
+and Lin's \cite{Lin:92} is also observed in other wall quantities such as the
+pressure coefficient (figure \ref{f:cp}) and the wall vorticity (figure
+\ref{f:omega}).  Based on these comparisons we believe that our solutions at
+$\M=0.1$ are a good approximation to the incompressible solution.
+Figure~\ref{profile} shows a streamwise velocity profile, plotted versus the
+Blasius variable $\eta_b \equiv y\sqrt{\Re/x}$, in the flat plate region
+compared to Lin's results.  Again the comparison is excellent.  However, to
+confidently conclude that the stability properties of our mean flow match
+those of Lin requires that first- and second-derivatives of the boundary layer
+profiles agree.  Unfortunately Lin does not provide these data, but this
+comparison can be inferred from comparing the neutral point predictions of
+local, parallel LST.  For his mean flow, Lin reports the first neutral point
+location to be $x=5.7$ while our analysis yields $x=6.2$ using the parallel
+LST solver discussed in Appendix~\ref{a:LST}.  Given the extreme sensitivity
+of the neutral point location we judge this roughly 9\% difference to be
+acceptable.  Although only parallel LST theory has been applied to this flow,
+it is noted that the current results could be refined using the nonparallel
+theory developed in Appendix~\ref{s:NPLST}.
+
+\subsection{Receptivity Computation \label{s:recep}}
+
+With the mean flow computed in \S\ref{s:2dmean}, the linear disturbance solver
+discussed in \S\ref{s:dist} is used to solve for the response of the boundary
+layer to a forced, plane acoustic wave striking the leading edge at normal
+incidence.  For comparison to Lin's \cite{Lin:92} results, a nondimensional
+forcing frequency $\omega=0.552$ is used, which equates to a frequency
+parameter of $\F \equiv \omega / \Re \times 10^6 = 230$.  At $\M=0.1$ this
+frequency corresponds to a downstream propagating acoustic wave with
+wavelength $\lambda=125$.
+
+When this calculation was performed the more efficient frequency-domain
+approach (see \S\ref{ss:frequency}) was not complete.  So, instead, the
+unsteady approach was employed as described in \S\ref{ss:unsteady}.  The
+time-step is selected to provide $N_t=2400$ time-steps per period of the
+acoustic forcing and 2 iterations of the implicit solver are taken at each
+step.  Based on the resolution study of \S\ref{ss:TStime}, the spatial and
+temporal resolution used should be sufficient to yield TS growth-rates to
+within $0.2\%$.
+
+The wall, symmetry, and outflow boundary conditions for the receptivity
+calculation are the same as those used to compute the mean flow in
+\S\ref{s:2dmean}.  However, the farfield boundary condition is changed to a
+locally one-dimensional characteristic boundary condition \cite{Giles:90}
+which forces the plane acoustic wave while allowing boundary normal waves to
+exit.  This is the same farfield boundary condition used for the cylinder
+scattering problem in \S\ref{s:scat}.  See \S\ref{ss:distbc} for a detailed
+discussion of boundary condition implementation for the linear disturbance
+solver.
+
+To reduce reflections, two sponge terms are added to the NS equations: an
+inflow sponge and an outflow sponge.  Figure~\ref{schematic} is a schematic of
+the computational domain showing the boundary conditions and sponge regions.
+For the inflow sponge, the same sponge used in the cylinder scattering problem
+is utilized with $r_s=10$ and $r_0=40$ where $r$ is the normal distance from
+the plate.  By construction, this sponge damps all disturbances except the
+plane acoustic wave forced on the farfield boundary.  Near the outflow, a
+sponge similar to that used in the spatial TS wave problem is utilized with
+$x_s=20$ and $x_o=40$.  This sponge damps all disturbances, including the
+plane acoustic wave, before they hit the outflow boundary.  Linear stability
+theory predicts the wavelength of the TS waves in the boundary layer to be
+about $4 L^*$ so that the outflow sponge is approximately $5\lambda_{TS}$
+long.  Based on the results of the spatial TS model problem in
+\S\ref{ss:TSspace}, this sponge should provide sufficient damping with
+negligible reflection of the TS wave.  However, both the inflow and outflow
+sponge are only about $16\%$ of an acoustic wavelength in length.  Based the
+scattering for a circular cylinder (\eg\ \S\ref{s:scat}), this sponge is very
+likely to cause reflections.  However, experience has shown these reflections
+to be acceptably small for this problem as demonstrated by the clean
+instability wave shown in figure \ref{vclose} below.  Based on this, further
+increases in the sponge region were deemed unnecessary for this problem.
+%
+%.... Need more specifics of the sponges
+%
+
+The region in figure~\ref{schematic} where the two sponges overlap requires
+special attention.  To prevent incompatibility between the two sponges and the
+top boundary condition, the acoustic wave forced at the top boundary and the
+wave subtracted off in the inflow sponge must account for the decay of the
+plane acoustic wave in the outflow sponge.  This is accomplished by performing
+a one-dimensional acoustic wave simulation over the length of the domain
+[-40,40] using the same outflow sponge and the same flow conditions.  The
+solution to this problem, which now includes the damping in the outflow
+sponge, is then forced on the top boundary and subtracted off in the inflow
+sponge.
+
+To begin the calculation, the acoustic forcing on the boundary is smoothly
+ramped up over one period of the forcing.  The success of the boundary
+treatments is evident in instantaneous contours of velocity shown in
+figures~\ref{uprime} and \ref{vprime}.  The data in these figures are given
+for $t=65.45$ which corresponds to $5.75$ periods of the acoustic forcing.  By
+this time in the simulation, TS waves formed at the leading-edge have entered
+the outflow sponge so that a full train of TS waves exists on the plate
+surface.  The long wavelength acoustic wave is clearly visible in the $u'$
+contours of figure~\ref{uprime} with no noticeable distortion in the inflow
+sponge.  Included above the contour plot, is the distribution of the Fourier
+amplitude of $u'$ specified on the top boundary, showing the decay of the
+forcing wave in the outflow sponge.  Returning to the contours of $u'$, the
+solution takes the form of a Stokes-wave near the plate which obscures the
+development of instability waves.  However, since the Stokes-wave has nearly
+zero velocity component in $y$, contours of $v'$ in figure~\ref{vprime} shows
+the development and growth of an instability wave on the plate.  Also visible
+is the decay of the instability waves in the outflow sponge and the decay of
+the scattered acoustic field in the inflow sponge.
+
+Figure~\ref{vclose} again shows contours of $v'$ at $t=65.45$ but with the
+sponge regions removed for clarity.  At this particular phase of the forcing,
+the amplitude of the scattered acoustic wave and Stokes-wave near the LE
+region is negligible so that the development of the instability wave is
+clearly observed even close to the LE.  However, taking the Fourier transform
+in time (denoted by $\hat v'$) and plotting the amplitude in figure~\ref{vamp}
+shows the large scattered acoustic field and the Stokes-wave near the LE.
+Also observed in this figure is the initial decay and then growth of the
+instability wave in the boundary layer.
+
+To extract the amplitude of the instability wave from the total disturbance
+signal requires some form of post-processing.  For incompressible calculations
+this is typically accomplished by performing a separate, no-flow, scattering
+calculation for the same geometry.  After taking the Fourier transform in
+time, the Fourier coefficients of the scattering solution are subtracted from
+the Fourier coefficients of the receptivity solution leaving only the
+instability wave component \cite{Lin:92}.  However, for compressible flows
+there is a change in the acoustic wavelength between no-flow and finite flow
+conditions and this change increases with Mach number.  For our $\M=0.1$
+calculation, this amounts to a 10\% difference in the wavelengths between flow
+and no-flow conditions.  Even for this modest difference, we have found that
+subtracting the Fourier coefficients from a no-flow scattering calculation
+does not adequately remove the acoustic component.
+
+To analyze the present results, we use the complex plane decomposition
+developed by Wlezien \cite{Wlezien:94}.  As an example of this technique,
+figure \ref{vmax_phase} shows the trajectory of the Fourier coefficient of the
+vertical component of disturbance velocity plotted in the complex plane.  The
+large spiral curve shown in the figure is parameterized by $x$ and represents
+the Fourier coefficient at each $x$ taken at the $y$ location where the
+magnitude is maximum.  Each symbol on the curve represents data from a
+different $x$ location in the grid starting at $x=6$ and going to $x=20$.  If
+the disturbance consisted solely of a TS wave, the curve would spiral around a
+fixed center, first spiraling inward from $x=6$ to $x=9$ (corresponding to the
+initial decay of the TS wave) followed an outward spiral due to the growth of
+the instability wave.  However, as seen in the figure, the center of the
+spiral is not fixed, but appears to move as one follows the curve.  The
+changes in the center of the spiral are due to the presence of the scattered
+acoustic field resulting from the interaction of the incoming acoustic wave
+and the leading edge.  To separate the TS and acoustic components, Wlezien
+\cite{Wlezien:94} suggests that three consecutive samples along the spiral can
+be used to, locally, define a circle as shown schematically in figure
+\ref{cpd_schematic}.  The center of this circle approximates the acoustic
+component, while the radius approximates the TS component of the total
+disturbance.  Clearly, the success of this techniques depends on a large
+wavelength disparity between the TS wave and the acoustic wave which for our
+calculation is roughly 1:30.  The amplitude of the TS wave must also be on the
+order of, or greater than that of the acoustic wave for this technique to be
+useful.  Using the complex plane decomposition, the TS and acoustic components
+of the disturbance have been extracted and their amplitudes are shown in
+figure \ref{vmax_corr} compared to the total disturbance amplitude.  Clearly,
+the modulation in the total amplitude was due to interference between the two
+wave types.  The extracted TS wave amplitude has significantly less
+oscillations while the acoustic amplitude is of small amplitude and roughly
+constant in the flat plate region, as expected.
+
+Figure \ref{tscomp} shows the extracted TS wave Fourier amplitude compared to
+the results of Lin \cite{Lin:92}.  Recall that these results are taken at the
+local maximum in $y$ of $|\hat v'|$ for each $x$ location.  From the figure we
+see that our results are in excellent qualitative agreement with the
+incompressible results.  The Branch I locations (different from those of LST
+due to nonparallel effects) are in excellent agreement, although our
+calculation predicts the TS wave amplitude at Branch I to be 10\% higher than
+that predicted by Lin.  The source for this difference is not apparent,
+however the difference is of the same order as the difference in the LST
+predicted Branch I locations discussed in \S\ref{s:2dmean}.  Although, not
+performed here, it would be interesting to compare the current results to
+predicts based on the nonparallel linear stability theory of
+Appendix~\ref{s:NPLST}.
+
+To verify that the signal extracted by the complex plane decomposition is in
+fact a TS wave, figure~\ref{efun} shows the extracted $\hat v'$ variation in
+the $y$-direction compared to the $v'$-eigenfunction from parallel LST, both
+at $x=12$.  The agreement is excellent, confirming that the decomposition has
+extracted a TS wave from the full disturbance solution.  Ideally, one would
+like to perform a similar decomposition for other variables such as $\rho'$,
+$u'$, and $T'$.  However, since the TS wave amplitude is small compared to the
+forced/scattered acoustic wave, the complex plane decomposition is unable to
+extract the TS component for these variables.
+
+The final results in this section are for the same super-ellipse geometry but
+with the Mach number increased to 0.8.  Although this problem is somewhat
+academic since the pressure distribution is unrealistic for a wing in flight,
+it does serve as an introduction to high-speed acoustic receptivity
+calculations.  The mean pressure gradient along the plate for $\M=0.8$ is
+shown in figure~\ref{dpds}.  The most important observation from this plot is
+that both the magnitude and the streamwise extent of the adverse pressure
+gradient are significantly larger compared to the $\M=0.1$ case.  This
+suggests that the flow will be more unstable as is verified by LST which
+predicts the Branch~I location to be $x=3.0$ and the maximum growth rate to be
+an order of magnitude greater than the $\M=0.1$ case for the same frequency,
+$\F=230$.
+
+The receptivity calculation is conducted in the same manner as the $\M=0.1$
+case with $\F=230$ and figure~\ref{mhigh} shows the evolution of the local
+maximum of the instability wave amplitude along the plate.  These results are
+again computed using the complex plane decomposition \cite{Wlezien:94} where
+the instability to acoustic wavelength ratio is now only 1:6.5.  However, due
+to the large amplitude of the instability wave relative to the acoustic wave,
+nearly identical results are obtained by plotting the total disturbance
+amplitude without performing the complex plane decomposition.  Because of
+this, we can obtain disturbance mode-shapes for all the primitive variables
+for this case.  These curves are compared in figure~\ref{mheig} to the LST
+eigenfunction demonstrating conclusively that the primary response of the
+boundary layer is a TS wave.
+
+\section{Summary}
+
+For all three model problems---unstable TS wave, growing CF vortices, and
+acoustic scattering---the numerical method presented in Chapter \ref{c:method}
+produces accurate solutions when compared to exact theoretical results.  From
+these studies we have determined that for 20 points per wavelength and 128
+points in the wall normal direction (with suitable non-uniform mesh
+distribution away from the wall), both TS and CF average growth-rates can be
+predicted to within $0.2\%$.  Given the domain lengths anticipated for
+receptivity studies this level of accuracy ensures that the amplitude errors
+are less than $1\%$ over the entire domain.  To achieve this level of accuracy
+for spatially growing TS waves requires a sponge outflow region of
+approximately five instability wavelengths.  In contrast, this same level of
+accuracy can be achieved for CF vortices with a sponge length of only one
+wavelength.  We believe that the inviscid character of the CF instability
+makes it less susceptible to upstream influence caused by the sponge.  For the
+case of acoustic scattering from a circular cylinder, we have shown that an
+inflow sponge term can also be used to enforce an incoming acoustic
+disturbance while damping outgoing scattered waves.  This capability is vital
+to the study of acoustic receptivity which is the subject of the final
+validation study in which an incoming plane acoustic wave strikes a flat-plate
+with a super-ellipse leading-edge.  The geometry and flow conditions are
+modeled after an incompressible calculation performed by Lin \cite{Lin:92} and
+the mean flow at Mach number 0.1 is shown to be in excellent agreement with
+Lin's incompressible mean solution.  For the receptivity calculation, acoustic
+waves with $\F=230$ are forced on the far-field boundary using the ``inflow''
+sponge treatment developed for the cylinder scattering problem.  Performing a
+complex plane decomposition\cite{Wlezien:94} on the solution yields a TS wave
+amplitude that qualitatively agrees with Lin's results and compares to within
+10\% at the first neutral point.  The $y$-variation of the $v'$-component of
+the decomposed solution is shown to match the eigenfunction shape predicted
+from local, parallel, linear stability theory---verifying that the boundary
+layer response is indeed a TS wave.  Increasing the Mach number to $\M=0.8$
+for this geometry results in a mean boundary-layer with a severe adverse
+pressure gradient leading to large TS growth rates which are verified in the
+receptivity results.
+
+%==============================================================================
+%
+%  Tables and Figures
+%
+%==============================================================================
+%
+%.... Tollmien--Schlichting waves
+%
+\begin{figure}[p]
+\centering
+\sethlabel{ $t$ }
+\setvlabel{ $\sigma$ }
+\epsfxsize=5.0in \epsfboxo{figures/ch4/ttsgrowth.eps}
+\caption[Evolution of the temporal growth-rate for a TS wave] {Evolution of the
+temporal growth-rate for a TS wave with $N_t=1150$: \solid is LST, \dashed is
+a computed solution with $N_x=20$ and $N_y=127$, and \dotted is a computed
+solution with $N_x=80$ and $N_y=127$. \label{f:ttsgrowth}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{ $N_x, N_y$ }
+\setvlabel{ $(\bar\sigma - \sigma_{LST}) / \sigma_{LST}$ }
+\epsfxsize=4.5in \epsfbox{figures/ch4/spconv.ai}
+\caption[Spatial convergence of the temporal growth-rate for a TS wave]
+{Spatial convergence of the temporal growth-rate for a TS wave with
+$N_t=1150$.  The \solid line denotes grid refinement in $x$ with $N_y=127$,
+while the \dashed line denotes grid refinement in $y$ with
+$N_x=80$. \label{f:spconv} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{ $N_t$ }
+\setvlabel{ $(\bar\sigma - \sigma_{LST}) / \sigma_{LST}$ }
+\epsfxsize=4.5in \epsfbox{figures/ch4/tmconv.ai}
+\caption[Temporal convergence of the temporal growth-rate for a TS wave]
+{Temporal convergence of the temporal growth-rate for a TS wave with $N_x=80$
+and $N_y=127$.  The \solid line is for 1 iteration, the \dashed line for 2
+iterations, and the \dotted line for 3 iterations. \label{f:tmconv} }
+\end{figure}
+%
+%.... Spatial TS
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$\sigma$}
+\figlab 1.0in 2.4in {\a} 
+\epsfxsize=5.0in \epsfboxo{figures/ch4/sts1.eps}
+\bigskip
+\sethlabel{$x$}
+\setvlabel{$\sigma$}
+\figlab 1.0in 2.4in {\b} 
+\epsfxsize=5.0in \epsfboxo{figures/ch4/sts2.eps}
+\caption[Evolution of the spatial growth-rate for a TS wave with sponge to
+zero] {Evolution of the spatial growth-rate for a TS wave with sponge to zero:
+\solid is LST and \dashed are the computed results.  Frame \a shows results
+from the $5 \lambda_{TS}$ domain while the $10 \lambda_{TS}$ results are shown
+in frame \b. \label{f:stsgrowth}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$\sigma$}
+\epsfxsize=5.0in \epsfboxo{figures/ch4/sts3.eps}
+\caption[Evolution of the spatial growth-rate for a TS wave using a sponge to
+the LST solution] {Evolution of the spatial growth-rate for a TS wave using a
+sponge to the LST solution: \solid is LST and \dashed is the computed result.
+\label{f:stsgrowth2}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$\sigma$}
+\epsfxsize=5.0in \epsfboxo{figures/ch4/sts4a.ai}
+\caption[Effect of sponge length on the spatial growth-rate of a TS
+wave] {Effect of sponge length on the spatial growth-rate of a TS wave: \solid
+is LST, \dashed uses a $\lambda_{TS}$ sponge, \dotted a $2.5\lambda_{TS}$
+sponge, and \chndash\ a $5\lambda_{TS}$ sponge.
+\label{f:stsgrowth3}}
+\end{figure}
+%
+%.... Crossflow vorticies
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$t$}
+\setvlabel{$\sigma$}
+\epsfxsize=5.0in \epsfboxo{figures/ch4/tcfgrowth.eps}
+\caption[Evolution of the temporal growth-rate for a CF vortex] {Evolution of
+the temporal growth-rate for a CF vortex: \solid is LST, \dashed is a computed
+solution with $N_x=20$ and $N_y=127$, and \dotted is a computed solution with
+$N_x=80$ and $N_y=127$. \label{f:tcfgrowth}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$t$}
+\setvlabel{$\sigma$}
+\epsfxsize=5.0in \epsfboxo{figures/ch4/scfgrowth.eps}
+\caption[Evolution of the spatial growth-rate for a CF vortex] {Evolution of
+the spatial growth-rate for a CF vortex: \solid is LST, \dashed is a computed
+solution with $N_x=201$ and $N_y=127$. \label{f:scfgrowth}}
+\end{figure}
+%
+%.... Acoustic scattering
+%
+\begin{figure}[p]
+\centering
+\figlab -0.156in 2.46in {$y$} 
+\figlab 5.0in 0.0in {$x$} 
+\epsfxsize=5.0in \epsfbox{figures/ch4/cyl/scat.ai}
+\caption[Real component of the scattered pressure disturbance field] {Real
+component of the scattered pressure field. Contour are from -0.5 to 0.5 with
+increment $0.05$.  Solid contours denote positive pressure perturbations,
+dotted contours denote negative pressure perturbations and the shaded region
+is the sponge; tics every cylinder radii. \label{f:scatter}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$\Upsilon_s$}
+\epsfxsize=5.0in \epsfboxo{figures/ch4/cyl/intense.eps}
+\caption[Comparison of acoustic intensity] {Comparison of acoustic intensity
+along the ray $\theta=\pi$ for a circular cylinder subject to an incoming
+planar acoustic wave with $\lambda=2.5$. The \solid line is inviscid theory
+while the \dashed line is from the simulation. \label{f:intense}}
+\end{figure}
+%
+%.... Directionality results
+%
+\begin{figure}[p]
+\centering
+\figlab 1.25in 1.5in {$\a \quad r = 3.45$} 
+\epsfxsize=6.0in \epsfbox{figures/ch4/cyl/d5e.48.eps}
+\vskip 0.25in
+\figlab 1.25in 1.5in {$\b \quad r = 8.45$} 
+\epsfxsize=6.0in \epsfbox{figures/ch4/cyl/d5e.144.eps}
+\vskip 0.25in
+\figlab 1.25in 1.5in {$\c \quad r = 11.16$} 
+\epsfxsize=6.0in \epsfbox{figures/ch4/cyl/d5e.192.eps}
+\caption[Polar plot of scattered acoustic intensity] {Polar plot of scattered
+acoustic intensity, $\Upsilon$, for an incoming planar acoustic wave with
+$\lambda=2.5$. The \solid line is inviscid theory while the \dashed line is
+from the simulation. \label{f:dir} }
+\end{figure}
+%
+%.... Error plots
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{Percent error $(\Upsilon_s)$}
+\epsfxsize=5.0in \epsfbox{figures/ch4/cyl/error.eps}
+\caption[Effect of sponge-length on the relative-error in scattered acoustic
+intensity] {Effect of sponge-length on the relative-error in scattered acoustic
+intensity along the ray $\theta=\pi$ for a circular cylinder subject to an
+incoming planar acoustic wave with $\lambda=2.5$. \label{f:error}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{Percent error $(\Upsilon_s)$}
+\epsfxsize=5.0in \epsfbox{figures/ch4/cyl/error2.eps}
+\caption[Effect of sponge-amplitude on the relative-error in scattered
+acoustic intensity] {Effect of sponge-amplitude on the relative-error in
+scattered acoustic intensity along the ray $\theta=\pi$ for a circular
+cylinder subject to an incoming planar acoustic wave with
+$\lambda=2.5$. \label{f:error2}}
+\end{figure}
+\clearpage
+%
+%.... Super Ellipse (mean flow)
+%
+\begin{figure}[p]
+\centering
+\epsfxsize=4.25in \epsfbox{figures/ch4/grid.eps}
+\caption [Computational mesh for the flat-plate with $\AR=6$, $m=4$
+super-ellipse leading-edge]{Computational mesh for the flat-plate with
+$\AR=6$, $m=4$ super-ellipse leading-edge.  Total resolution is [384,127]
+however, only every third line is shown for clarity. \label{SEgrid} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$(\delta^*)^2$}
+\epsfxsize=5.0in 
+\epsfbox{figures/ch4/delta_wtheory.eps}
+\caption [Evolution of displacement thickness squared over the
+plate]{Evolution of displacement thickness squared over the plate.  The \solid
+line denotes the Blasius solution and the \dotted line is the computed
+solution. \label{delta} }
+\end{figure}
+%
+% \begin{figure}[p]
+% \centering
+% \epsfxsize=4.0in \epsfbox{figures/ch4/pres_025.eps}
+% \caption [Pressure coefficient contours for $\M=0.1$ mean flow]{Pressure
+% coefficient contours for $\M=0.1$ mean flow: Contours every $\pm 0.025$.
+% Solid lines denote positive $C_p$, dotted lines denote negative
+% $C_p$. \label{pfield} }
+% \end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$\partial p / \partial s$}
+\epsfxsize=5.0in \epsfbox{figures/ch4/dpds_new.eps}
+\caption {Pressure gradient along the plate for several Mach numbers.  The
+incompressible result is taken from \protect\cite{Lin:92}.
+\label{dpds} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$C_p$}
+\epsfxsize=5.0in \epsfbox{figures/ch4/cp_comp.eps}
+\caption [Comparison of the pressure coefficient]{Comparison of the pressure
+coefficient, $C_p$: \solid is the $\M=0.1$ result and \dashed is the
+incompressible result \protect\cite{Lin:92}.
+\label{f:cp} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$\omega_z$}
+\epsfxsize=5.0in \epsfbox{figures/ch4/vorticity.eps}
+\caption [Comparison of the wall vorticity] {Comparison of the wall vorticity,
+$\omega_z$: \solid is the $\M=0.1$ result and \dashed is the incompressible
+result \protect\cite{Lin:92}.
+\label{f:omega} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$u$} 
+\setvlabel{$\eta_b$} 
+\epsfxsize=3.0in \epsfbox{figures/ch4/u_profile.ai}
+\caption [Streamwise velocity profile at $x=22.7$ for $\M=0.1$]{Streamwise
+velocity profile at $x=22.7$ for $\M=0.1$. The \solid line is the
+incompressible result \protect\cite{Lin:92}, the \ldashed line is the $\M=0.1$
+result. \label{profile} }
+\end{figure}
+%
+%.... acoustic receptivity results
+%
+\begin{figure}[p]
+\centering
+\epsfxsize=5.0in \epsfbox{figures/ch4/schematic.eps}
+\caption [Schematic of the computational domain]{Schematic of the
+computational domain showing boundary conditions for unsteady receptivity
+calculations. \label{schematic} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\epsfxsize=5.0in \epsfbox{figures/ch4/uprime.eps}
+\caption [Contours of instantaneous streamwise velocity at
+$t=65.45$.]{Contours of instantaneous streamwise velocity at $t=65.45$.
+Contours from $-0.05$ to $0.05$ with increment $0.002$.  Solid contours
+indicate positive velocity while dotted contours indicate negative velocity.
+Included above the contour plot is the Fourier amplitude of $u'$ specified on
+the top boundary. \label{uprime} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\epsfxsize=6.0in \epsfbox{figures/ch4/vprime.eps}
+\caption [Contours of vertical velocity at $t=65.45$.]{Contours of vertical
+velocity at $t=65.45$. Contours from $-0.002$ to $0.002$ with increment
+$0.0002$.  Solid lines indicate positive velocity while dotted lines indicate
+negative velocity. \label{vprime} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\epsfxsize=5.5in \epsfbox{figures/ch4/vclose.ai}
+\caption [Closeup of the vertical disturbance velocity contours at
+$t=65.45$.]{Closeup of the vertical disturbance velocity contours at
+$t=65.45$.  Contours from $-0.002$ to $0.002$ with increment $0.0002$.  Solid
+lines indicate positive velocity while dotted lines indicate negative
+velocity.  \label{vclose}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\epsfxsize=5.5in \epsfbox{figures/ch4/vamp.ai}
+\caption [Contours of the Fourier amplitude of the vertical disturbance
+velocity.]{Contours of the Fourier amplitude of the vertical disturbance
+velocity.  Transform taken over the sixth period of the forcing.  Contours
+from $0$ to $0.02$ with increment $0.0002$. \label{vamp}}
+\end{figure}
+%
+% The complex plane decomposition
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$\mbox{Re}(\hat v')$}
+\setvlabel{$\mbox{Im}(\hat v')$}
+\epsfxsize=4.0in \epsfbox{figures/ch4/vmax_phase.eps}
+\caption [Trajectory of the Fourier coefficient, $\hat v'$]{Trajectory of the
+Fourier coefficient, $\hat v'$, in the complex plane.  \hbox{\solid\kern
+-.25in\solidcircle} ~denotes the trajectory in $x$ of the maximum in $y$ of
+$|\hat v'|$.  The \solid line in the center of the figure denotes the acoustic
+component obtained after using the complex-plane
+decomposition. \label{vmax_phase}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\epsfxsize=3.0in \epsfbox{figures/ch4/cpd_schematic.ai}
+\caption [Schematic of the complex-plane decomposition]{Schematic of the
+complex plane decomposition. \label{cpd_schematic}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$|\hat v'|_{max}$}
+\epsfxsize=5.25in \epsfbox{figures/ch4/vmax_corr.eps}
+\caption [Decomposition of the local maximum of the disturbance
+amplitude]{Decomposition of the local maximum of the amplitude of vertical
+component of disturbance velocity, \solid is the TS wave amplitude,
+\dashed is the total amplitude, and \dotted is the amplitude of the
+acoustic component. \label{vmax_corr}}
+\end{figure}
+%
+% Continue with the receptivity results
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$|\hat{v}'|_{max}$}
+\epsfxsize=4.9in \epsfbox{figures/ch4/vmax_comp.eps}
+\caption [Comparison of the local maximum of the TS wave amplitude along the
+plate.]{Comparison of the local maximum of the TS wave amplitude based on the
+vertical component of disturbance velocity along the plate.  The \solid line
+denotes the $\M=0.1$ result and the \dashed line denotes the incompressible
+result \protect\cite{Lin:92}. \label{tscomp} }
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$y$}
+\setvlabel{$\mbox{Re}(\hat v')$, $\mbox{Im}(\hat v')$}
+\epsfxsize=4.6in \epsfbox{figures/ch4/efun.eps}
+\caption [Extracted wave amplitude compared to LST at $x=12$ for
+$\M=0.1$.]{Extracted wave amplitude for the vertical component of disturbance
+velocity compared to LST at $x=12$ for $\M=0.1$. \solid is the real component
+of the computed solution, \ldashed is the imaginary component of the computed
+solution, \dashed is the real component of the LST solution, and \dotted is
+the imaginary component of the LST solution. \label{efun} }
+\end{figure}
+%
+% M=0.8 TS amplitude
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$x$}
+\setvlabel{$|\hat{v}'|_{max}$, $|\hat{u}'|_{max}$}
+\epsfxsize=5.2in \epsfbox{figures/ch4/norm_M=0.8b.eps}
+\caption [Comparison of the local maximum of the TS wave amplitude along the
+plate for $\M=0.8$.]{Comparison of the local maximum of the TS wave amplitude
+along the plate for $\M=0.8$.  The \solid line denotes the $|\hat{v}'|_{max}$
+result and the \dashed line denotes the $|\hat{u}'|_{max}$
+result. \label{mhigh} }
+\end{figure}
+%
+% M=0.8 eigenfunctions
+%
+\clearpage
+\begin{figure}[p] \label{mheig:a}
+\centering
+\figlab 4.0in 2.70in {\a} 
+\sethlabel{$y$}
+\setvlabel{$\mbox{Re}(\hat \rho')$, $\mbox{Im}(\hat \rho')$}
+\epsfxsize=4.5in
+\epsfbox{figures/ch4/rho_efun.eps}
+\end{figure}
+
+\begin{figure}[p] \label{mheig:b}
+\centering
+\figlab 4.0in 2.70in {\b} 
+\sethlabel{$y$}
+\setvlabel{$\mbox{\Re}(\hat u')$, $\mbox{Im}(\hat u')$}
+\epsfxsize=4.5in
+\epsfbox{figures/ch4/u_efun.eps}
+\figtit{\protect\ref{mheig}}{See following page for caption.}
+\end{figure}
+
+\begin{figure}[p] \label{mheig:c}
+\centering
+\figlab 4.0in 2.70in {\c} 
+\sethlabel{$y$}
+\setvlabel{$\mbox{Re}(\hat v')$, $\mbox{Im}(\hat v')$}
+\epsfxsize=4.5in
+\epsfbox{figures/ch4/v_efun.eps}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\figlab 4.0in 2.70in {\d} 
+\sethlabel{$y$}
+\setvlabel{$\mbox{Re}(\hat T')$, $\mbox{Im}(\hat T')$}
+\epsfxsize=4.5in
+\epsfbox{figures/ch4/t_efun.eps}
+\caption [Extracted wave amplitudes compared to LST at $x=12$ for
+$\M=0.8$.]{Extracted wave amplitudes compared to LST at $x=12$ for $\M=0.8$:
+\solid is the real component of the computed solution, \ldashed is the
+imaginary component of the computed solution, \dashed is the real component of
+the LST solution, and \dotted is the imaginary component of the LST
+solution. Frame \a shows density, \b streamwise velocity, \c vertical
+velocity, and \d temperature.
+\label{mheig} }
+\end{figure}

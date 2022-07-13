@@ -1,0 +1,150 @@
+{\rtf0\ansi{\fonttbl\f0\fmodern Ohlfs;}
+\paperw9840
+\paperh7160
+\margl120
+\margr120
+{\colortbl\red0\green0\blue0;}
+\pard\tx540\tx1460\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\f0\b0\i0\ul0\fs20\fi-540\li540 1	Effect of curvature on growth rate at s=0.82 \\solid QPNC, \\dashed QPWC\
+	\
+2	The effect of Mach number on the wall vorticity, \\solid 0.1, \\dashed 0.5, \\dotted 0.8, \\bullet is Davis' incompressible solution.\
+\
+3	The leading edge wall vorticity function versus mach number squared\
+\
+4	M=0.1, solution versus the incompressible parabolic solution at R=1000\
+	\
+5	R4:  max crossflow velocity\
+\
+6	R4:  local sweep angle\
+\
+9	Shape factor\
+\
+13	Boundary layer profiles that s=0.802\
+\
+14	Chordwise wavenumber, qpnc, qpwc, s=0.802.\
+\
+15	wave-angle, s=0.802\
+\
+16	QPNC GR, beta=35\
+\
+17	QPNC alpha, beta=35\
+\
+18	Comparison of QPNC and LNS starting at x=5.\
+\
+19	NPWC, QPNC, QPWC, LNS, beta=35\
+\
+20	NPWC, and the contributing terms (\\beta=35)\
+\
+21	Closeup of NPWC and contributing terms (\\beta=35)\
+\
+22	Normalized curvature:  K \\delta_1\
+\
+23	QPNC, QPWC, LNS, \\beta=35\
+\
+24	Wavenumber from QPNC, QPWC, NPWC\
+\
+25	Wavenumber from QPWC, NPWC, LNS\
+\
+26	Comparison of NPWC and LNS near the leading edge for Beta=35\
+\
+27	NPWC, QPWC for Beta=100\
+\
+28	sigma - s:  NPWC = dashed, QPWC = solid, nonparallel mean = dotted, eig dist = chndsh, beta = 100\
+	\
+29	sigma - s:  LNS = solid, NPWC = dashed for beta = 100\
+\
+30	N-factor - s:  \\beta = 100\
+\
+31	N-factor - s:  \\beta = 35\
+\
+32  	N-factor - s:  \\solid \\beta=35, \\dashed \\beta = 10\
+\
+33	
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\fc0 E'_k - s:  \\beta = 35, FSC, \\solid LNS \\dashed FRNT
+\pard\tx540\tx1460\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\fi-540\li540 \
+\
+34	
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\fc0 E'_k - s:  \\beta = 3
+\pard\tx540\tx1460\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\fi-540\li540\fc0 0
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\fc0 , FSC, \\solid LNS \\dashed FRNT
+\pard\tx540\tx1460\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\fi-540\li540\fc0 \
+\
+35	|\\Lambda| - s, \\beta = 35, \\solid NC, \\dashed WC\
+
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600 \
+
+\pard\tx540\tx1460\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\fi-540\li540 36	|\\Lambda| - s, \\beta = 100, \\solid NC, \\dashed WC\
+\
+37	|\\Lambda| - \\beta, \\solid NC, \\dashed WC\
+\
+38	E'_k for L=25 calculation\
+\
+40	Mapping function\
+\
+41	first derivative of the mapping function\
+\
+42	second derivative of the mapping function\
+\
+43	Combined mapping function plot (AI)\
+\
+44	Multidomain example showing growth-rate agreement between the first and second domains for \\beta=35.\
+\
+45	E'_k for the \\beta=100, new3\
+\
+46	growth-rate for the same conditions as 45\
+\
+47	\\beta=100, A_w plot \
+\
+48	\\beta=35, A_w plot\
+\
+49	\\beta=35, A_w plot, log-scale\
+\
+50	\\beta=100, A_w plot, log-scale\
+\
+51	The effect of curvature on the growth-rate of the \\beta=100 mode for the the FSC profile at maximum crossflow, s=0.802.  GR vs. normalized curvature based on the local value of displacement thickness, \\deta_1 = 3.842e-3.\
+\
+52	LNS growth-rate for \\solid \\beta=100, \\dashed \\beta=35\
+\
+53	Comparison of N-factors from NPWC and LNS for \\beta=35:  \\solid is LNS, \\dashed is NPWC\
+\
+54	Comparison of N-factors from NPWC and LNS for \\beta=100:  \\solid is LNS, \\dashed is NPWC\
+\
+55	New comparison to Davis' solution, R=10,100,1000\
+\
+56	New comparison to Davis' solution, R=100,1000\
+\
+57	
+\fc0 Effect of Mach number on the pressure gradient, $\\partialp/\\partial s$ at the wall for $\\Re=1000$, $\\Pr=0.7$:  \\solid $\\M=0.1$, \\dashed $\\M=0.5$, \\dotted $\\M=0.8$.\
+\
+58	Variation of $A_w$ with $\\sigma_w$ at $s=0.6$, $\\beta=100$.  \\solid, \\scircle LNS; \\dashed FRNT no curvature, \\dotted is a curve fitted to the LNS results using $\\Lambda=190$, $\\alpha = -140$.\
+\
+59	Growth rate from the FSC receptivity calculation: \\solid LST, \\dashed \\beta=35, \\dotted \\beta=30.\
+\
+60	The effect of $\\sigma_w$ on the FRNT predicted amplitude, $A_w$, for $\\beta=100$ without curvature:  \\solid $\\sigma_w = 0.001$, \\dashed 0.002, \\dotted 0.004, \\chndash 0.01, \\chndot 0.02 .\
+\
+61	The effect of $\\sigma_w$ on the FRNT predicted amplitude, $A_w$, for $\\beta=35$ without curvature:  \\solid $\\sigma_w = 0.005$, \\dashed 0.01, \\dotted 0.02, \\chndash 0.05, \\chndot 0.06.\
+\
+62	\\beta=35 combined alpha\
+\
+63	\\beta=35 combined sigma\
+\
+64	\\beta=100 combined alpha\
+\
+65	\\beta=100 combined sigma\
+\
+66	\\beta=35, extracted Lambda from the LNS compared to FRNT \\solid, \\scircle LNS, \\dashed FRNT NC, \\dotted FRNT WC\
+\
+67	\\beta=100, extracted Lambda from the LNS compared to FRNT \\solid, \\scircle LNS, \\dashed FRNT NC, \\dotted FRNT WC\
+\
+68	U_e versus s\
+\
+69	\\sigma for \\beta=35: \\solid LNS, \\dashed QPNC, \\dotted QPWC. \\chndash NPWC\
+\
+70	The same as 69, but in the scaled coordinates of Masad \\& Malik\
+\
+71	\\sigma for \\beta=100: \\solid LNS, \\dashed QPNC, \\dotted QPWC. \\chndash NPWC\
+\
+72	The same as 71, but in the scaled coordinates of Masad \\& Malik\
+\
+73	Nonparallel measure, \\frac\{\\partial \\delta_1\}\{\\partial s\} \\lambda_\
+
+}

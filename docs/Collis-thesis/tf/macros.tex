@@ -1,0 +1,145 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Macros: 
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 1-29-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Change thesis to report for the technical report
+%
+\newcommand{\thesis}{report}
+%
+% LaTeX shortcuts
+%
+\renewcommand{\S}{section\ }		% This lets you change section command
+\newcommand{\eqn}[1]{(\ref{#1})}	% Handy reference to equations
+\renewcommand{\epsilon}{\varepsilon}	% I like the other epsilon
+\newcommand{\enp}{\epsilon}		% Nonparallel epsilon
+%
+\newcommand{\refs}{[{\bf ?}]\marginpar{$\Longleftarrow$}}
+\newcommand{\eton}{\ensuremath{e^N}}
+\newcommand{\Rgas}{{\cal R}}
+\newcommand{\comma}{{\, ,}}
+\newcommand{\period}{{\, .}}
+%
+% Latin abbreviations
+%
+\newcommand{\ie}{{\it i.e.}}		% that is
+\newcommand{\eg}{{\it e.g.}}		% for examples
+\newcommand{\etc}{{\it etc.}}		% etcetera
+\newcommand{\viz}{{\it viz.}}		% see also
+\newcommand{\etal}{{\it et al.}}	% and others
+%
+% Nondimensional Parameters
+%
+\renewcommand{\Re}{{\sf Re}}		% Reynolds number
+\newcommand{\Ro}{{\sf Ro}}		% Rosby number
+\renewcommand{\Pr}{{\sf Pr}}		% Prandtl number
+\newcommand{\St}{{\sf S}}		% Stoudhal number
+\newcommand{\F}{{\sf F}}		% Frequency parameter
+\newcommand{\M}{{\sf M}}		% Mach number
+\newcommand{\AR}{{\sf AR}}		% Aspect ratio
+\newcommand{\CFL}{{\sf CFL}}		% Courant--Friedricks--Lewy number
+%
+% Mathematical operators
+%
+\renewcommand{\O}{{\cal O}}
+\renewcommand{\L}{{\cal L}}
+\newcommand{\erf}{\hbox{erf}}
+\newcommand{\RMS}{{\sf RMS}}
+\newcommand{\D}{{\rm D}}
+\newcommand{\p}{{\partial}}
+\renewcommand{\i}{{\rm i}}
+\renewcommand{\r}{{\rm r}}
+\newcommand{\m}{{\rm m}}
+\newcommand{\assgn}{{\Leftarrow}}
+%
+% mean flow variables
+%
+\newcommand{\Pm}{\bar p}
+\newcommand{\Tm}{\bar T}
+\newcommand{\rhom}{\bar \rho}
+\newcommand{\um}{\bar u}
+\newcommand{\vm}{\bar v}
+\newcommand{\wm}{\bar w}
+\newcommand{\bu}{{\bf u}}
+\newcommand{\bum}{{\bar\bu}}
+%
+% body fixed velocities
+%
+\newcommand{\vs}{{v_s}}
+\newcommand{\vn}{{v_n}}
+%
+% Theromodynamic properties
+%
+\newcommand{\cp}{c_p}
+\newcommand{\cv}{c_v}
+%
+% Instability wave notation
+%
+\newcommand{\cg}{c_g}		% group velocity
+\newcommand{\bk}{{\bf k}}	% wavenumber vector
+
+%
+% Navier-Stokes operator notation
+%
+\newcommand{\bU}{{\bf U}}
+\newcommand{\bhU}{{\hat{\bf U}}}
+\newcommand{\bhQ}{{\hat{\bf Q}}}
+\newcommand{\bUm}{{\bf \bar U}}
+\newcommand{\bA}{{\bf A}}
+\newcommand{\bB}{{\bf B}}
+\newcommand{\bC}{{\bf C}}
+\newcommand{\bD}{{\bf D}}
+\newcommand{\bE}{{\bf E}}
+\newcommand{\bF}{{\bf F}}
+\newcommand{\bG}{{\bf G}}
+\newcommand{\bH}{{\bf H}}
+
+\newcommand{\bVij}{{{\bf V}_{ij}}}
+\newcommand{\bVxx}{{{\bf V}_{11}}}
+\newcommand{\bVxy}{{{\bf V}_{12}}}
+\newcommand{\bVxz}{{{\bf V}_{13}}}
+\newcommand{\bVyy}{{{\bf V}_{22}}}
+\newcommand{\bVyz}{{{\bf V}_{23}}}
+\newcommand{\bVzz}{{{\bf V}_{33}}}
+
+\newcommand{\bVss}{{{\bf V}_{ss}}}
+\newcommand{\bVsn}{{{\bf V}_{sn}}}
+\newcommand{\bVsz}{{{\bf V}_{sz}}}
+\newcommand{\bVnn}{{{\bf V}_{nn}}}
+\newcommand{\bVnz}{{{\bf V}_{nz}}}
+
+\newcommand{\bI}{{\bf I}}
+\newcommand{\bZ}{{\bf Z}}
+\newcommand{\bhZ}{{\hat{\bf Z}}}
+\newcommand{\bW}{{\bf W}}
+\newcommand{\bL}{{\bf L}}
+\newcommand{\bM}{{\bf M}}
+\newcommand{\bR}{{\bf R}}
+\newcommand{\bS}{{\bf S}}
+%
+% Finite Reynolds number notation
+%
+\newcommand{\ew}{{\epsilon_w}}
+\newcommand{\ews}{{\epsilon^2_w}}
+\newcommand{\ewc}{{\epsilon^3_w}}
+\newcommand{\efs}{{\epsilon_{fs}}}
+\newcommand{\bw}{{\beta_{w}}}
+\newcommand{\acf}{{\alpha_{cf}}}
+\newcommand{\afs}{{\alpha_{fs}}}
+\newcommand{\bfs}{{\beta_{fs}}}
+
+%####################################################################
+%
+%       Diag operators
+%
+%####################################################################
+\font\fivesy=cmsy5
+\newcommand\Diag[1]{{\displaystyle\Big[\!\!\>{}^{{}^{
+  \hbox{\fivesy\char"2D}}} #1 {}^{}_{{}_{\hbox{\fivesy\char"26}}}\!\Big]}}

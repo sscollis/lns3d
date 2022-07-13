@@ -1,0 +1,120 @@
+\addvspace {10pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Laminar flow wing sections}}{15}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Routes to transition on a swept wing. }}{16}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Generic geometry for leading-edge receptivity calculations. }}{50}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Modified, block tri-diagonal matrix structure.}}{50}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Modified block, penta-diagonal matrix structure}}{51}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Contours of the pressure coefficient for the unswept parabolic cylinder with no boundary damping}}{52}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Contours of the pressure coefficient near the leading-edge for the unswept parabolic cylinder without boundary damping}}{52}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Contours of the pressure coefficient for the unswept parabolic cylinder}}{53}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Contours of the pressure coefficient near the leading-edge for the unswept parabolic cylinder}}{53}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Derivatives of the streamwise velocity at $x = 172$ for the unswept parabolic cylinder}}{54}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Contours of the pressure coefficient for ${\sf M}=0.1$, ${\sf Re}=1000$ flow over a parabolic cylinder}}{54}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Evolution of the displacement thickness squared for a ${\sf M}=0.1$ and ${\sf Re}=1000$ boundary layer on a parabolic cylinder. }}{55}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Evolution of the temporal growth-rate for a TS wave}}{78}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Spatial convergence of the temporal growth-rate for a TS wave}}{78}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Temporal convergence of the temporal growth-rate for a TS wave}}{79}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Evolution of the spatial growth-rate for a TS wave with sponge to zero}}{80}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Evolution of the spatial growth-rate for a TS wave using a sponge to the LST solution}}{81}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Effect of sponge length on the spatial growth-rate of a TS wave}}{81}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Evolution of the temporal growth-rate for a CF vortex}}{82}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Evolution of the spatial growth-rate for a CF vortex}}{82}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Real component of the scattered pressure disturbance field}}{83}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Comparison of acoustic intensity}}{83}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Polar plot of scattered acoustic intensity}}{84}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Effect of sponge-length on the relative-error in scattered acoustic intensity}}{85}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Effect of sponge-amplitude on the relative-error in scattered acoustic intensity}}{85}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Computational mesh for the flat-plate with ${\sf AR}=6$, $m=4$ super-ellipse leading-edge}}{86}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Evolution of displacement thickness squared over the plate}}{86}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Pressure gradient along the plate for several Mach numbers. The incompressible result is taken from \cite {Lin:92}. }}{87}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Comparison of the pressure coefficient}}{87}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Comparison of the wall vorticity}}{88}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Streamwise velocity profile at $x=22.7$ for ${\sf M}=0.1$}}{88}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Schematic of the computational domain}}{89}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Contours of instantaneous streamwise velocity at $t=65.45$.}}{89}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Contours of vertical velocity at $t=65.45$.}}{90}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Closeup of the vertical disturbance velocity contours at $t=65.45$.}}{90}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Contours of the Fourier amplitude of the vertical disturbance velocity.}}{91}
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Trajectory of the Fourier coefficient, $\mathaccent "705E\relax v'$}}{91}
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Schematic of the complex-plane decomposition}}{92}
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Decomposition of the local maximum of the disturbance amplitude}}{92}
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Comparison of the local maximum of the TS wave amplitude along the plate.}}{93}
+\contentsline {figure}{\numberline {4.29}{\ignorespaces Extracted wave amplitude compared to LST at $x=12$ for ${\sf M}=0.1$.}}{93}
+\contentsline {figure}{\numberline {4.30}{\ignorespaces Comparison of the local maximum of the TS wave amplitude along the plate for ${\sf M}=0.8$.}}{94}
+\contentsline {figure}{\numberline {4.31}{\ignorespaces Extracted wave amplitudes compared to LST at $x=12$ for ${\sf M}=0.8$.}}{96}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Swept parabolic-cylinder geometry. }}{130}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Contours of $C_p$ for ${\sf M}=0.8$, ${\sf Re}=1000$ flow over a parabolic cylinder}}{130}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Pressure gradient along the wall for two domain sizes}}{131}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Contours of $C_p$ from the potential solution at ${\sf M}=0.8$, ${\sf Re}=1000$ after interpolation to a Navier--Stokes mesh}}{131}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Typical Parabolic cylinder mesh}}{132}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Mapping function and its derivatives for parameters typical of those used in the wall-tangent direction}}{133}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Convergence history for ${\sf M}=0.1$, ${\sf Re}=1000$ mean flow calculation. }}{134}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Vorticity along the surface of the parabolic cylinder plotted in the coordinates of Davis \cite {Davis:72}.}}{134}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Effect of compressibility on the scaled wall-vorticity}}{135}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Variation of the scaled wall-vorticity at the attachment line with the Mach number squared}}{135}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Comparison of wall vorticity with an incompressible parabolized solution}}{136}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Effect of Mach number on the pressure gradient at the wall.}}{136}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Schematic of a three-dimensional boundary layer}}{137}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Velocity profiles at $s=0.197$}}{137}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Velocity profiles at $s=0.802$}}{138}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Velocity profiles at $s=2.09$}}{138}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Maximum, in the transverse direction, of the crossflow component of \\velocity}}{139}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Evolution of the local sweep angle}}{139}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Evolution of the Hartree parameter}}{140}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Boundary layer displacement thickness and momentum thickness}}{140}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Boundary layer shape factor}}{141}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Boundary layer profiles at the point of maximum crossflow}}{142}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Quasi-parallel LST spatial growth-rate}}{142}
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Quasi-parallel LST chordwise wavenumber}}{143}
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Wave-angle variation predicted from quasi-parallel LST}}{143}
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Quasi-parallel growth-rate without curvature}}{144}
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Comparison of QPNC and LNS growth-rates}}{144}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Comparison of QPNC, QPWC, and LNS growth-rates}}{145}
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Normalized surface curvature}}{145}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Comparison of growth-rate predictions for NPWC and LNS}}{146}
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Terms contributing to the nonparallel growth-rate}}{147}
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Comparison of QPNC, QPWC, and NPWC wavenumber predictions}}{148}
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Comparison of QPWC, NPWC, and LNS wavenumber predictions}}{148}
+\contentsline {figure}{\numberline {5.34}{\ignorespaces Comparison of NPWC and LNS growth-rates near the leading-edge}}{149}
+\contentsline {figure}{\numberline {5.35}{\ignorespaces Comparison of LNS and NPWC growth-rates}}{149}
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Contributions to nonparallel growth-rate for $\beta =100$}}{150}
+\contentsline {figure}{\numberline {5.37}{\ignorespaces Growth-rate from multidomain approach for $\beta =100$}}{150}
+\contentsline {figure}{\numberline {5.38}{\ignorespaces LNS growth-rate for $\beta =35$ and $\beta =100$ compared to NPWC}}{151}
+\contentsline {figure}{\numberline {5.39}{\ignorespaces LNS wavenumber for $\beta =35$ and $\beta =100$ compared to NPWC}}{152}
+\contentsline {figure}{\numberline {5.40}{\ignorespaces Evolution of the $N$-factor for $\beta =35$ and $\beta =100$}}{153}
+\contentsline {figure}{\numberline {5.41}{\ignorespaces Comparison of the LNS and NPWC $N$-factors for $\beta =35$}}{153}
+\contentsline {figure}{\numberline {5.42}{\ignorespaces Comparison of the LNS and NPWC $N$-factors for $\beta =100$}}{154}
+\contentsline {figure}{\numberline {5.43}{\ignorespaces Approximate criterion for the failure of nonparallel LST}}{154}
+\contentsline {figure}{\numberline {5.44}{\ignorespaces Evolution of ${E'_k}^{1/2}$ on a flat plate with parallel FSC profile}}{155}
+\contentsline {figure}{\numberline {5.45}{\ignorespaces Evolution of ${E'_k}^{1/2}$ on a flat plate with parallel FSC profile}}{155}
+\contentsline {figure}{\numberline {5.46}{\ignorespaces Evolution of the growth-rate for a flat plate with parallel FSC profile}}{156}
+\contentsline {figure}{\numberline {5.47}{\ignorespaces Magnitude of the receptivity efficiency function for $\beta =35$}}{156}
+\contentsline {figure}{\numberline {5.48}{\ignorespaces Magnitude of the receptivity efficiency function for $\beta =100$}}{157}
+\contentsline {figure}{\numberline {5.49}{\ignorespaces Variation of the magnitude of the receptivity efficiency with and without curvature}}{157}
+\contentsline {figure}{\numberline {5.50}{\ignorespaces Evolution of ${E'_k}^{1/2}$ for $\beta =100$, case 3. }}{158}
+\contentsline {figure}{\numberline {5.51}{\ignorespaces Growth rate based on $E'_k$ for $\beta =100$}}{158}
+\contentsline {figure}{\numberline {5.52}{\ignorespaces Effective amplitude at the bump location for $\beta =100$ and $\sigma _w=0.01$}}{159}
+\contentsline {figure}{\numberline {5.53}{\ignorespaces Effective amplitude at the bump location for $\beta =35$ and $\sigma _w=0.05$}}{159}
+\contentsline {figure}{\numberline {5.54}{\ignorespaces Effective amplitude at the bump location for $\beta =35$ and $\sigma _w=0.05$}}{160}
+\contentsline {figure}{\numberline {5.55}{\ignorespaces Effective amplitude at the bump location for $\beta =100$ and $\sigma _w=0.01$}}{160}
+\contentsline {figure}{\numberline {5.56}{\ignorespaces The effect of $\sigma _w$ on the FRNT predicted amplitude, $A_w$, for $\beta =100$}}{161}
+\contentsline {figure}{\numberline {5.57}{\ignorespaces The effect of $\sigma _w$ on the FRNT predicted amplitude, $A_w$, for $\beta =35$}}{161}
+\contentsline {figure}{\numberline {5.58}{\ignorespaces Variation of $A_w$ with $\sigma _w$ at $s=0.6$, $\beta =100$.}}{162}
+\contentsline {figure}{\numberline {5.59}{\ignorespaces Receptivity efficiency function from LNS compared to FRNT}}{163}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Comparison of FSC and NS boundary layer profiles for the local streamwise and crossflow velocities at $s_{max}$}}{197}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Comparison of FSC and NS boundary layer profiles for the temperature and density at $s_{max}$}}{197}
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Comparison of LST wavenumber predictions}}{198}
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Comparison of LST growth-rate predictions}}{198}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Coordinate systems for LST analysis of an infinite-span swept wing}}{212}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {F.1}{\ignorespaces Schematic of surface roughness geometry}}{225}

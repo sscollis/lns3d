@@ -1,0 +1,2134 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Adobe Illustrator(TM) 5.5
+%%For: () ()
+%%Title: (lfc.ai)
+%%CreationDate: (2/2/97) ( 3:11 PM)
+%%BoundingBox: 192 395 472 434
+%%HiResBoundingBox: 192.6728 395.5718 471.2251 434.3053
+%%DocumentProcessColors: Black
+%%DocumentSuppliedResources: procset Adobe_level2_AI5 1.0 0
+%%+ procset Adobe_IllustratorA_AI5 1.0 0
+%AI5_FileFormat 3.0
+%AI3_ColorUsage: Black&White
+%AI3_TemplateBox: 305.48 396.6 305.48 396.6
+%AI3_TileBox: 29.48 31.6 581.48 761.6
+%AI3_DocumentPreview: Header
+%AI5_ArtSize: 612 792
+%AI5_RulerUnits: 0
+%AI5_ArtFlags: 1 0 0 1 0 0 1 1 0
+%AI5_TargetResolution: 800
+%AI5_NumLayers: 1
+%AI5_OpenToView: -198.52 972.6 -1.5 685 805 18 0 1 386 125
+%AI5_OpenViewLayers: 7
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Adobe_level2_AI5 1.0 0
+%%Title: (Adobe Illustrator (R) Version 5.0 Level 2 Emulation)
+%%Version: 1.0 
+%%CreationDate: (04/10/93) ()
+%%Copyright: ((C) 1987-1993 Adobe Systems Incorporated All Rights Reserved)
+userdict /Adobe_level2_AI5 21 dict dup begin
+	put
+	/packedarray where not
+	{
+		userdict begin
+		/packedarray
+		{
+			array astore readonly
+		} bind def
+		/setpacking /pop load def
+		/currentpacking false def
+	 end
+		0
+	} if
+	pop
+	userdict /defaultpacking currentpacking put true setpacking
+	/initialize
+	{
+		Adobe_level2_AI5 begin
+	} bind def
+	/terminate
+	{
+		currentdict Adobe_level2_AI5 eq
+		{
+		 end
+		} if
+	} bind def
+	mark
+	/setcustomcolor where not
+	{
+		/findcmykcustomcolor
+		{
+			5 packedarray
+		} bind def
+		/setcustomcolor
+		{
+			exch aload pop pop
+			4
+			{
+				4 index mul 4 1 roll
+			} repeat
+			5 -1 roll pop
+			setcmykcolor
+		}
+		def
+	} if
+	
+	/gt38? mark {version cvx exec} stopped {cleartomark true} {38 gt exch pop} ifelse def
+	userdict /deviceDPI 72 0 matrix defaultmatrix dtransform dup mul exch dup mul add sqrt put
+	userdict /level2?
+	systemdict /languagelevel known dup
+	{
+		pop systemdict /languagelevel get 2 ge
+	} if
+	put
+	level2? not
+	{
+		/setcmykcolor where not
+		{
+			/setcmykcolor
+			{
+				exch .11 mul add exch .59 mul add exch .3 mul add
+				1 exch sub setgray
+			} def
+		} if
+		/currentcmykcolor where not
+		{
+			/currentcmykcolor
+			{
+				0 0 0 1 currentgray sub
+			} def
+		} if
+		/setoverprint where not
+		{
+			/setoverprint /pop load def
+		} if
+		/selectfont where not
+		{
+			/selectfont
+			{
+				exch findfont exch
+				dup type /arraytype eq
+				{
+					makefont
+				}
+				{
+					scalefont
+				} ifelse
+				setfont
+			} bind def
+		} if
+		/cshow where not
+		{
+			/cshow
+			{
+				[
+				0 0 5 -1 roll aload pop
+				] cvx bind forall
+			} bind def
+		} if
+	} if
+	cleartomark
+	/anyColor?
+	{
+		add add add 0 ne
+	} bind def
+	/testColor
+	{
+		gsave
+		setcmykcolor currentcmykcolor
+		grestore
+	} bind def
+	/testCMYKColorThrough
+	{
+		testColor anyColor?
+	} bind def
+	userdict /composite?
+	level2?
+	{
+		gsave 1 1 1 1 setcmykcolor currentcmykcolor grestore
+		add add add 4 eq
+	}
+	{
+		1 0 0 0 testCMYKColorThrough
+		0 1 0 0 testCMYKColorThrough
+		0 0 1 0 testCMYKColorThrough
+		0 0 0 1 testCMYKColorThrough
+		and and and
+	} ifelse
+	put
+	composite? not
+	{
+		userdict begin
+		gsave
+		/cyan? 1 0 0 0 testCMYKColorThrough def
+		/magenta? 0 1 0 0 testCMYKColorThrough def
+		/yellow? 0 0 1 0 testCMYKColorThrough def
+		/black? 0 0 0 1 testCMYKColorThrough def
+		grestore
+		/isCMYKSep? cyan? magenta? yellow? black? or or or def
+		/customColor? isCMYKSep? not def
+	 end
+	} if
+ end defaultpacking setpacking
+%%EndResource
+%%BeginResource: procset Adobe_IllustratorA_AI5 1.1 0
+%%Title: (Adobe Illustrator (R) Version 5.0 Abbreviated Prolog)
+%%Version: 1.1 
+%%CreationDate: (3/7/1994) ()
+%%Copyright: ((C) 1987-1994 Adobe Systems Incorporated All Rights Reserved)
+currentpacking true setpacking
+userdict /Adobe_IllustratorA_AI5_vars 70 dict dup begin
+put
+/_lp /none def
+/_pf
+{
+} def
+/_ps
+{
+} def
+/_psf
+{
+} def
+/_pss
+{
+} def
+/_pjsf
+{
+} def
+/_pjss
+{
+} def
+/_pola 0 def
+/_doClip 0 def
+/cf currentflat def
+/_tm matrix def
+/_renderStart
+[
+/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0
+] def
+/_renderEnd
+[
+null null null null /i1 /i1 /i1 /i1
+] def
+/_render -1 def
+/_rise 0 def
+/_ax 0 def
+/_ay 0 def
+/_cx 0 def
+/_cy 0 def
+/_leading
+[
+0 0
+] def
+/_ctm matrix def
+/_mtx matrix def
+/_sp 16#020 def
+/_hyphen (-) def
+/_fScl 0 def
+/_cnt 0 def
+/_hs 1 def
+/_nativeEncoding 0 def
+/_useNativeEncoding 0 def
+/_tempEncode 0 def
+/_pntr 0 def
+/_tDict 2 dict def
+/_wv 0 def
+/Tx
+{
+} def
+/Tj
+{
+} def
+/CRender
+{
+} def
+/_AI3_savepage
+{
+} def
+/_gf null def
+/_cf 4 array def
+/_if null def
+/_of false def
+/_fc
+{
+} def
+/_gs null def
+/_cs 4 array def
+/_is null def
+/_os false def
+/_sc
+{
+} def
+/discardSave null def
+/buffer 256 string def
+/beginString null def
+/endString null def
+/endStringLength null def
+/layerCnt 1 def
+/layerCount 1 def
+/perCent (%) 0 get def
+/perCentSeen? false def
+/newBuff null def
+/newBuffButFirst null def
+/newBuffLast null def
+/clipForward? false def
+end
+userdict /Adobe_IllustratorA_AI5 74 dict dup begin
+put
+/initialize
+{
+	Adobe_IllustratorA_AI5 dup begin
+	Adobe_IllustratorA_AI5_vars begin
+	discardDict
+	{
+		bind pop pop
+	} forall
+	dup /nc get begin
+	{
+		dup xcheck 1 index type /operatortype ne and
+		{
+			bind
+		} if
+		pop pop
+	} forall
+ end
+	newpath
+} def
+/terminate
+{
+ end
+ end
+} def
+/_
+null def
+/ddef
+{
+	Adobe_IllustratorA_AI5_vars 3 1 roll put
+} def
+/xput
+{
+	dup load dup length exch maxlength eq
+	{
+		dup dup load dup
+		length 2 mul dict copy def
+	} if
+	load begin
+	def
+ end
+} def
+/npop
+{
+	{
+		pop
+	} repeat
+} def
+/sw
+{
+	dup length exch stringwidth
+	exch 5 -1 roll 3 index mul add
+	4 1 roll 3 1 roll mul add
+} def
+/swj
+{
+	dup 4 1 roll
+	dup length exch stringwidth
+	exch 5 -1 roll 3 index mul add
+	4 1 roll 3 1 roll mul add
+	6 2 roll /_cnt 0 ddef
+	{
+		1 index eq
+		{
+			/_cnt _cnt 1 add ddef
+		} if
+	} forall
+	pop
+	exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} def
+/ss
+{
+	4 1 roll
+	{
+		2 npop
+		(0) exch 2 copy 0 exch put pop
+		gsave
+		false charpath currentpoint
+		4 index setmatrix
+		stroke
+		grestore
+		moveto
+		2 copy rmoveto
+	} exch cshow
+	3 npop
+} def
+/jss
+{
+	4 1 roll
+	{
+		2 npop
+		(0) exch 2 copy 0 exch put
+		gsave
+		_sp eq
+		{
+			exch 6 index 6 index 6 index 5 -1 roll widthshow
+			currentpoint
+		}
+		{
+			false charpath currentpoint
+			4 index setmatrix stroke
+		} ifelse
+		grestore
+		moveto
+		2 copy rmoveto
+	} exch cshow
+	6 npop
+} def
+/sp
+{
+	{
+		2 npop (0) exch
+		2 copy 0 exch put pop
+		false charpath
+		2 copy rmoveto
+	} exch cshow
+	2 npop
+} def
+/jsp
+{
+	{
+		2 npop
+		(0) exch 2 copy 0 exch put
+		_sp eq
+		{
+			exch 5 index 5 index 5 index 5 -1 roll widthshow
+		}
+		{
+			false charpath
+		} ifelse
+		2 copy rmoveto
+	} exch cshow
+	5 npop
+} def
+/pl
+{
+	transform
+	0.25 sub round 0.25 add exch
+	0.25 sub round 0.25 add exch
+	itransform
+} def
+/setstrokeadjust where
+{
+	pop true setstrokeadjust
+	/c
+	{
+		curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+		currentpoint 6 2 roll curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+		2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+		lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+		moveto
+	} def
+}
+{
+	/c
+	{
+		pl curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+		currentpoint 6 2 roll pl curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+		pl 2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+		pl lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+		pl moveto
+	} def
+} ifelse
+/d
+{
+	setdash
+} def
+/cf
+{
+} def
+/i
+{
+	dup 0 eq
+	{
+		pop cf
+	} if
+	setflat
+} def
+/j
+{
+	setlinejoin
+} def
+/J
+{
+	setlinecap
+} def
+/M
+{
+	setmiterlimit
+} def
+/w
+{
+	setlinewidth
+} def
+/H
+{
+} def
+/h
+{
+	closepath
+} def
+/N
+{
+	_pola 0 eq
+	{
+		_doClip 1 eq
+		{
+			clip /_doClip 0 ddef
+		} if
+		newpath
+	}
+	{
+		/CRender
+		{
+			N
+		} ddef
+	} ifelse
+} def
+/n
+{
+	N
+} def
+/F
+{
+	_pola 0 eq
+	{
+		_doClip 1 eq
+		{
+			gsave _pf grestore clip newpath /_lp /none ddef _fc
+			/_doClip 0 ddef
+		}
+		{
+			_pf
+		} ifelse
+	}
+	{
+		/CRender
+		{
+			F
+		} ddef
+	} ifelse
+} def
+/f
+{
+	closepath
+	F
+} def
+/S
+{
+	_pola 0 eq
+	{
+		_doClip 1 eq
+		{
+			gsave _ps grestore clip newpath /_lp /none ddef _sc
+			/_doClip 0 ddef
+		}
+		{
+			_ps
+		} ifelse
+	}
+	{
+		/CRender
+		{
+			S
+		} ddef
+	} ifelse
+} def
+/s
+{
+	closepath
+	S
+} def
+/B
+{
+	_pola 0 eq
+	{
+		_doClip 1 eq
+		gsave F grestore
+		{
+			gsave S grestore clip newpath /_lp /none ddef _sc
+			/_doClip 0 ddef
+		}
+		{
+			S
+		} ifelse
+	}
+	{
+		/CRender
+		{
+			B
+		} ddef
+	} ifelse
+} def
+/b
+{
+	closepath
+	B
+} def
+/W
+{
+	/_doClip 1 ddef
+} def
+/*
+{
+	count 0 ne
+	{
+		dup type /stringtype eq
+		{
+			pop
+		} if
+	} if
+	newpath
+} def
+/u
+{
+} def
+/U
+{
+} def
+/q
+{
+	_pola 0 eq
+	{
+		gsave
+	} if
+} def
+/Q
+{
+	_pola 0 eq
+	{
+		grestore
+	} if
+} def
+/*u
+{
+	_pola 1 add /_pola exch ddef
+} def
+/*U
+{
+	_pola 1 sub /_pola exch ddef
+	_pola 0 eq
+	{
+		CRender
+	} if
+} def
+/D
+{
+	pop
+} def
+/*w
+{
+} def
+/*W
+{
+} def
+/`
+{
+	/_i save ddef
+	clipForward?
+	{
+		nulldevice
+	} if
+	6 1 roll 4 npop
+	concat pop
+	userdict begin
+	/showpage
+	{
+	} def
+	0 setgray
+	0 setlinecap
+	1 setlinewidth
+	0 setlinejoin
+	10 setmiterlimit
+	[] 0 setdash
+	/setstrokeadjust where {pop false setstrokeadjust} if
+	newpath
+	0 setgray
+	false setoverprint
+} def
+/~
+{
+ end
+	_i restore
+} def
+/O
+{
+	0 ne
+	/_of exch ddef
+	/_lp /none ddef
+} def
+/R
+{
+	0 ne
+	/_os exch ddef
+	/_lp /none ddef
+} def
+/g
+{
+	/_gf exch ddef
+	/_fc
+	{
+		_lp /fill ne
+		{
+			_of setoverprint
+			_gf setgray
+			/_lp /fill ddef
+		} if
+	} ddef
+	/_pf
+	{
+		_fc
+		fill
+	} ddef
+	/_psf
+	{
+		_fc
+		ashow
+	} ddef
+	/_pjsf
+	{
+		_fc
+		awidthshow
+	} ddef
+	/_lp /none ddef
+} def
+/G
+{
+	/_gs exch ddef
+	/_sc
+	{
+		_lp /stroke ne
+		{
+			_os setoverprint
+			_gs setgray
+			/_lp /stroke ddef
+		} if
+	} ddef
+	/_ps
+	{
+		_sc
+		stroke
+	} ddef
+	/_pss
+	{
+		_sc
+		ss
+	} ddef
+	/_pjss
+	{
+		_sc
+		jss
+	} ddef
+	/_lp /none ddef
+} def
+/k
+{
+	_cf astore pop
+	/_fc
+	{
+		_lp /fill ne
+		{
+			_of setoverprint
+			_cf aload pop setcmykcolor
+			/_lp /fill ddef
+		} if
+	} ddef
+	/_pf
+	{
+		_fc
+		fill
+	} ddef
+	/_psf
+	{
+		_fc
+		ashow
+	} ddef
+	/_pjsf
+	{
+		_fc
+		awidthshow
+	} ddef
+	/_lp /none ddef
+} def
+/K
+{
+	_cs astore pop
+	/_sc
+	{
+		_lp /stroke ne
+		{
+			_os setoverprint
+			_cs aload pop setcmykcolor
+			/_lp /stroke ddef
+		} if
+	} ddef
+	/_ps
+	{
+		_sc
+		stroke
+	} ddef
+	/_pss
+	{
+		_sc
+		ss
+	} ddef
+	/_pjss
+	{
+		_sc
+		jss
+	} ddef
+	/_lp /none ddef
+} def
+/x
+{
+	/_gf exch ddef
+	findcmykcustomcolor
+	/_if exch ddef
+	/_fc
+	{
+		_lp /fill ne
+		{
+			_of setoverprint
+			_if _gf 1 exch sub setcustomcolor
+			/_lp /fill ddef
+		} if
+	} ddef
+	/_pf
+	{
+		_fc
+		fill
+	} ddef
+	/_psf
+	{
+		_fc
+		ashow
+	} ddef
+	/_pjsf
+	{
+		_fc
+		awidthshow
+	} ddef
+	/_lp /none ddef
+} def
+/X
+{
+	/_gs exch ddef
+	findcmykcustomcolor
+	/_is exch ddef
+	/_sc
+	{
+		_lp /stroke ne
+		{
+			_os setoverprint
+			_is _gs 1 exch sub setcustomcolor
+			/_lp /stroke ddef
+		} if
+	} ddef
+	/_ps
+	{
+		_sc
+		stroke
+	} ddef
+	/_pss
+	{
+		_sc
+		ss
+	} ddef
+	/_pjss
+	{
+		_sc
+		jss
+	} ddef
+	/_lp /none ddef
+} def
+/A
+{
+	pop
+} def
+/annotatepage
+{
+userdict /annotatepage 2 copy known {get exec} {pop pop} ifelse
+} def
+/discard
+{
+	save /discardSave exch store
+	discardDict begin
+	/endString exch store
+	gt38?
+	{
+		2 add
+	} if
+	load
+	stopped
+	pop
+ end
+	discardSave restore
+} bind def
+userdict /discardDict 7 dict dup begin
+put
+/pre38Initialize
+{
+	/endStringLength endString length store
+	/newBuff buffer 0 endStringLength getinterval store
+	/newBuffButFirst newBuff 1 endStringLength 1 sub getinterval store
+	/newBuffLast newBuff endStringLength 1 sub 1 getinterval store
+} def
+/shiftBuffer
+{
+	newBuff 0 newBuffButFirst putinterval
+	newBuffLast 0
+	currentfile read not
+	{
+	stop
+	} if
+	put
+} def
+0
+{
+	pre38Initialize
+	mark
+	currentfile newBuff readstring exch pop
+	{
+		{
+			newBuff endString eq
+			{
+				cleartomark stop
+			} if
+			shiftBuffer
+		} loop
+	}
+	{
+	stop
+	} ifelse
+} def
+1
+{
+	pre38Initialize
+	/beginString exch store
+	mark
+	currentfile newBuff readstring exch pop
+	{
+		{
+			newBuff beginString eq
+			{
+				/layerCount dup load 1 add store
+			}
+			{
+				newBuff endString eq
+				{
+					/layerCount dup load 1 sub store
+					layerCount 0 eq
+					{
+						cleartomark stop
+					} if
+				} if
+			} ifelse
+			shiftBuffer
+		} loop
+	}
+	{
+	stop
+	} ifelse
+} def
+2
+{
+	mark
+	{
+		currentfile buffer readline not
+		{
+		stop
+		} if
+		endString eq
+		{
+			cleartomark stop
+		} if
+	} loop
+} def
+3
+{
+	/beginString exch store
+	/layerCnt 1 store
+	mark
+	{
+		currentfile buffer readline not
+		{
+		stop
+		} if
+		dup beginString eq
+		{
+			pop /layerCnt dup load 1 add store
+		}
+		{
+			endString eq
+			{
+				layerCnt 1 eq
+				{
+					cleartomark stop
+				}
+				{
+					/layerCnt dup load 1 sub store
+				} ifelse
+			} if
+		} ifelse
+	} loop
+} def
+end
+userdict /clipRenderOff 15 dict dup begin
+put
+{
+	/n /N /s /S /f /F /b /B
+}
+{
+	{
+		_doClip 1 eq
+		{
+			/_doClip 0 ddef clip
+		} if
+		newpath
+	} def
+} forall
+/Tr /pop load def
+/Bb {} def
+/BB /pop load def
+/Bg {12 npop} def
+/Bm {6 npop} def
+/Bc /Bm load def
+/Bh {4 npop} def
+end
+/Lb
+{
+	4 npop
+	6 1 roll
+	pop
+	4 1 roll
+	pop pop pop
+	0 eq
+	{
+		0 eq
+		{
+			(%AI5_BeginLayer) 1 (%AI5_EndLayer--) discard
+		}
+		{
+			/clipForward? true def
+			
+			/Tx /pop load def
+			/Tj /pop load def
+			currentdict end clipRenderOff begin begin
+		} ifelse
+	}
+	{
+		0 eq
+		{
+			save /discardSave exch store
+		} if
+	} ifelse
+} bind def
+/LB
+{
+	discardSave dup null ne
+	{
+		restore
+	}
+	{
+		pop
+		clipForward?
+		{
+			currentdict
+		 end
+		 end
+		 begin
+			
+			/clipForward? false ddef
+		} if
+	} ifelse
+} bind def
+/Pb
+{
+	pop pop
+	0 (%AI5_EndPalette) discard
+} bind def
+/Np
+{
+	0 (%AI5_End_NonPrinting--) discard
+} bind def
+/Ln /pop load def
+/Ap
+/pop load def
+/Ar
+{
+	72 exch div
+	0 dtransform dup mul exch dup mul add sqrt
+	dup 1 lt
+	{
+		pop 1
+	} if
+	setflat
+} def
+/Mb
+{
+	q
+} def
+/Md
+{
+} def
+/MB
+{
+	Q
+} def
+/nc 3 dict def
+nc begin
+/setgray
+{
+	pop
+} bind def
+/setcmykcolor
+{
+	4 npop
+} bind def
+/setcustomcolor
+{
+	2 npop
+} bind def
+currentdict readonly pop
+end
+currentdict readonly pop
+end
+setpacking
+%%EndResource
+%%EndProlog
+%%BeginSetup
+Adobe_level2_AI5 /initialize get exec
+Adobe_IllustratorA_AI5 /initialize get exec
+%AI5_Begin_NonPrinting
+Np
+%AI3_BeginPattern: (Yellow Stripe)
+(Yellow Stripe) 8.4499 4.6 80.4499 76.6 [
+%AI3_Tile
+(0 O 0 R 0 0.4 1 0 k 0 0.4 1 0 K) @
+(
+800 Ar
+0 J 0 j 3.6 w 4 M []0 d
+%AI3_Note:
+0 D
+8.1999 8.1999 m
+80.6999 8.1999 L
+S
+8.1999 22.6 m
+80.6999 22.6 L
+S
+8.1999 37.0001 m
+80.6999 37.0001 L
+S
+8.1999 51.3999 m
+80.6999 51.3999 L
+S
+8.1999 65.8 m
+80.6999 65.8 L
+S
+8.1999 15.3999 m
+80.6999 15.3999 L
+S
+8.1999 29.8 m
+80.6999 29.8 L
+S
+8.1999 44.1999 m
+80.6999 44.1999 L
+S
+8.1999 58.6 m
+80.6999 58.6 L
+S
+8.1999 73.0001 m
+80.6999 73.0001 L
+S
+) &
+] E
+%AI3_EndPattern
+%AI5_End_NonPrinting--
+%AI5_Begin_NonPrinting
+Np
+3 Bn
+%AI5_BeginGradient: (Black & White)
+(Black & White) 0 2 Bd
+[
+<
+FFFEFDFCFBFAF9F8F7F6F5F4F3F2F1F0EFEEEDECEBEAE9E8E7E6E5E4E3E2E1E0DFDEDDDCDBDAD9D8
+D7D6D5D4D3D2D1D0CFCECDCCCBCAC9C8C7C6C5C4C3C2C1C0BFBEBDBCBBBAB9B8B7B6B5B4B3B2B1B0
+AFAEADACABAAA9A8A7A6A5A4A3A2A1A09F9E9D9C9B9A999897969594939291908F8E8D8C8B8A8988
+87868584838281807F7E7D7C7B7A797877767574737271706F6E6D6C6B6A69686766656463626160
+5F5E5D5C5B5A595857565554535251504F4E4D4C4B4A494847464544434241403F3E3D3C3B3A3938
+37363534333231302F2E2D2C2B2A292827262524232221201F1E1D1C1B1A19181716151413121110
+0F0E0D0C0B0A09080706050403020100
+>
+0 %_Br
+[
+0 0 50 100 %_Bs
+1 0 50 0 %_Bs
+BD
+%AI5_EndGradient
+%AI5_BeginGradient: (Red & Yellow)
+(Red & Yellow) 0 2 Bd
+[
+0
+<
+000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F2021222324252627
+28292A2B2C2D2E2F303132333435363738393A3B3C3D3E3F404142434445464748494A4B4C4D4E4F
+505152535455565758595A5B5C5D5E5F606162636465666768696A6B6C6D6E6F7071727374757677
+78797A7B7C7D7E7F808182838485868788898A8B8C8D8E8F909192939495969798999A9B9C9D9E9F
+A0A1A2A3A4A5A6A7A8A9AAABACADAEAFB0B1B2B3B4B5B6B7B8B9BABBBCBDBEBFC0C1C2C3C4C5C6C7
+C8C9CACBCCCDCECFD0D1D2D3D4D5D6D7D8D9DADBDCDDDEDFE0E1E2E3E4E5E6E7E8E9EAEBECEDEEEF
+F0F1F2F3F4F5F6F7F8F9FAFBFCFDFEFF
+>
+<
+FFFFFEFEFDFDFDFCFCFBFBFBFAFAF9F9F9F8F8F7F7F7F6F6F5F5F5F4F4F3F3F3F2F2F1F1F1F0F0EF
+EFEFEEEEEDEDEDECECEBEBEBEAEAE9E9E9E8E8E7E7E7E6E6E5E5E5E4E4E3E3E3E2E2E1E1E1E0E0DF
+DFDFDEDEDDDDDDDCDCDBDBDBDADAD9D9D9D8D8D7D7D7D6D6D5D5D5D4D4D3D3D3D2D2D1D1D1D0D0CF
+CFCFCECECDCDCDCCCCCBCBCBCACAC9C9C9C8C8C7C7C7C6C6C5C5C5C4C4C3C3C3C2C2C1C1C1C0C0BF
+BFBFBEBEBDBDBDBCBCBBBBBBBABAB9B9B9B8B8B7B7B7B6B6B5B5B5B4B4B3B3B3B2B2B1B1B1B0B0AF
+AFAFAEAEADADADACACABABABAAAAA9A9A9A8A8A7A7A7A6A6A5A5A5A4A4A3A3A3A2A2A1A1A1A0A09F
+9F9F9E9E9D9D9D9C9C9B9B9B9A9A9999
+>
+0
+1 %_Br
+[
+0 1 0.6 0 1 50 100 %_Bs
+0 0 1 0 1 50 0 %_Bs
+BD
+%AI5_EndGradient
+%AI5_BeginGradient: (Yellow & Blue Radial)
+(Yellow & Blue Radial) 1 2 Bd
+[
+<
+000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F2021222324252627
+28292A2B2C2D2E2F303132333435363738393A3B3C3D3E3F404142434445464748494A4B4C4D4E4F
+505152535455565758595A5B5C5D5E5F606162636465666768696A6B6C6D6E6F7071727374757677
+78797A7B7C7D7E7F808182838485868788898A8B8C8D8E8F909192939495969798999A9B9C9D9E9F
+A0A1A2A3A4A5A6A7A8A9AAABACADAEAFB0B1B2B3B4B5B6B7B8B9BABBBCBDBEBFC0C1C2C3C4C5C6C7
+C8C9CACBCCCDCECFD0D1D2D3D4D5D6D7D8D9DADBDCDDDEDFE0E1E2E3E4E5E6E7E8E9EAEBECEDEEEF
+F0F1F2F3F4F5F6F7F8F9FAFBFCFDFEFF
+>
+<
+1415161718191A1B1C1D1E1F1F202122232425262728292A2A2B2C2D2E2F30313233343536363738
+393A3B3C3D3E3F40414142434445464748494A4B4C4D4D4E4F50515253545556575858595A5B5C5D
+5E5F60616263646465666768696A6B6C6D6E6F6F707172737475767778797A7B7B7C7D7E7F808182
+83848586868788898A8B8C8D8E8F90919292939495969798999A9B9C9D9D9E9FA0A1A2A3A4A5A6A7
+A8A9A9AAABACADAEAFB0B1B2B3B4B4B5B6B7B8B9BABBBCBDBEBFC0C0C1C2C3C4C5C6C7C8C9CACBCB
+CCCDCECFD0D1D2D3D4D5D6D7D7D8D9DADBDCDDDEDFE0E1E2E2E3E4E5E6E7E8E9EAEBECEDEEEEEFF0
+F1F2F3F4F5F6F7F8F9F9FAFBFCFDFEFF
+>
+<
+ABAAAAA9A8A7A7A6A5A5A4A3A3A2A1A1A09F9F9E9D9D9C9B9B9A9999989797969595949393929191
+908F8F8E8D8D8C8B8B8A8989888787868585848383828181807F7F7E7D7D7C7B7B7A797978777776
+7575747373727171706F6F6E6D6D6C6B6B6A6969686767666565646362626160605F5E5E5D5C5C5B
+5A5A5958585756565554545352525150504F4E4E4D4C4C4B4A4A4948484746464544444342424140
+403F3E3E3D3C3C3B3A3A3938383736363534343332323130302F2E2E2D2C2C2B2A2A292828272626
+25242423222121201F1F1E1D1D1C1B1B1A1919181717161515141313121111100F0F0E0D0D0C0B0B
+0A090908070706050504030302010100
+>
+0
+1 %_Br
+[
+0 0.08 0.67 0 1 50 14 %_Bs
+1 1 0 0 1 50 100 %_Bs
+BD
+%AI5_EndGradient
+%AI5_End_NonPrinting--
+%AI5_BeginPalette
+0 0 Pb
+Pn
+Pc
+1 g
+Pc
+0 g
+Pc
+0 0 0 0 k
+Pc
+0.75 g
+Pc
+0.5 g
+Pc
+0.25 g
+Pc
+0 g
+Pc
+Bb
+2 (Black & White) -4014.52 4716.6 0 0 1 0 0 1 0 0 Bg
+0 BB
+Pc
+0.25 0 0 0 k
+Pc
+0.5 0 0 0 k
+Pc
+0.75 0 0 0 k
+Pc
+1 0 0 0 k
+Pc
+0.25 0.25 0 0 k
+Pc
+0.5 0.5 0 0 k
+Pc
+0.75 0.75 0 0 k
+Pc
+1 1 0 0 k
+Pc
+Bb
+2 (Red & Yellow) -4014.52 4716.6 0 0 1 0 0 1 0 0 Bg
+0 BB
+Pc
+0 0.25 0 0 k
+Pc
+0 0.5 0 0 k
+Pc
+0 0.75 0 0 k
+Pc
+0 1 0 0 k
+Pc
+0 0.25 0.25 0 k
+Pc
+0 0.5 0.5 0 k
+Pc
+0 0.75 0.75 0 k
+Pc
+0 1 1 0 k
+Pc
+Bb
+0 0 0 0 Bh
+2 (Yellow & Blue Radial) -4014.52 4716.6 0 0 1 0 0 1 0 0 Bg
+0 BB
+Pc
+0 0 0.25 0 k
+Pc
+0 0 0.5 0 k
+Pc
+0 0 0.75 0 k
+Pc
+0 0 1 0 k
+Pc
+0.25 0 0.25 0 k
+Pc
+0.5 0 0.5 0 k
+Pc
+0.75 0 0.75 0 k
+Pc
+1 0 1 0 k
+Pc
+(Yellow Stripe) 0 0 1 1 0 0 0 0 0 [1 0 0 1 0 0] p
+Pc
+0.25 0.125 0 0 k
+Pc
+0.5 0.25 0 0 k
+Pc
+0.75 0.375 0 0 k
+Pc
+1 0.5 0 0 k
+Pc
+0.125 0.25 0 0 k
+Pc
+0.25 0.5 0 0 k
+Pc
+0.375 0.75 0 0 k
+Pc
+0.5 1 0 0 k
+Pc
+0 0 0 0 k
+Pc
+0 0.25 0.125 0 k
+Pc
+0 0.5 0.25 0 k
+Pc
+0 0.75 0.375 0 k
+Pc
+0 1 0.5 0 k
+Pc
+0 0.125 0.25 0 k
+Pc
+0 0.25 0.5 0 k
+Pc
+0 0.375 0.75 0 k
+Pc
+0 0.5 1 0 k
+Pc
+0 0 0 0 k
+Pc
+0.125 0 0.25 0 k
+Pc
+0.25 0 0.5 0 k
+Pc
+0.375 0 0.75 0 k
+Pc
+0.5 0 1 0 k
+Pc
+0.25 0 0.125 0 k
+Pc
+0.5 0 0.25 0 k
+Pc
+0.75 0 0.375 0 k
+Pc
+1 0 0.5 0 k
+Pc
+0 0 0 0 k
+Pc
+0.25 0.125 0.125 0 k
+Pc
+0.5 0.25 0.25 0 k
+Pc
+0.75 0.375 0.375 0 k
+Pc
+1 0.5 0.5 0 k
+Pc
+0.25 0.25 0.125 0 k
+Pc
+0.5 0.5 0.25 0 k
+Pc
+0.75 0.75 0.375 0 k
+Pc
+1 1 0.5 0 k
+Pc
+0 0 0 0 k
+Pc
+0.125 0.25 0.125 0 k
+Pc
+0.25 0.5 0.25 0 k
+Pc
+0.375 0.75 0.375 0 k
+Pc
+0.5 1 0.5 0 k
+Pc
+0.125 0.25 0.25 0 k
+Pc
+0.25 0.5 0.5 0 k
+Pc
+0.375 0.75 0.75 0 k
+Pc
+0.5 1 1 0 k
+Pc
+0 0 0 0 k
+Pc
+0.125 0.125 0.25 0 k
+Pc
+0.25 0.25 0.5 0 k
+Pc
+0.375 0.375 0.75 0 k
+Pc
+0.5 0.5 1 0 k
+Pc
+0.25 0.125 0.25 0 k
+Pc
+0.5 0.25 0.5 0 k
+Pc
+0.75 0.375 0.75 0 k
+Pc
+1 0.5 1 0 k
+Pc
+PB
+%AI5_EndPalette
+%%EndSetup
+%AI5_BeginLayer
+1 1 1 1 0 0 0 79 128 255 Lb
+(Layer 1) Ln
+0 A
+u
+0 R
+0 G
+800 Ar
+0 J 0 j 1 w 4 M []0 d
+%AI3_Note:
+0 D
+283.6876 427.375 m
+284.9302 427.375 285.9375 428.3824 285.9375 429.625 C
+285.9375 429.625 L
+285.9375 430.8676 284.9302 431.875 283.6876 431.875 C
+272.9374 431.875 L
+271.6948 431.875 270.6875 430.8676 270.6875 429.625 C
+270.6875 429.625 L
+270.6875 428.3824 271.6948 427.375 272.9374 427.375 C
+283.6876 427.375 L
+s
+278.3125 429.625 m
+S
+U
+u
+302.5625 428.375 m
+303.736 428.375 304.6875 429.3264 304.6875 430.5 C
+304.6875 430.5 L
+304.6875 431.6736 303.736 432.625 302.5625 432.625 C
+291.0625 432.625 L
+289.8889 432.625 288.9375 431.6736 288.9375 430.5 C
+288.9375 430.5 L
+288.9375 429.3264 289.8889 428.375 291.0625 428.375 C
+302.5625 428.375 L
+s
+296.8125 430.5 m
+S
+U
+u
+318.1875 427.625 m
+319.7062 427.625 320.9375 428.8562 320.9375 430.375 C
+320.9375 430.375 L
+320.9375 431.8938 319.7062 433.125 318.1875 433.125 C
+308.6875 433.125 L
+307.1688 433.125 305.9375 431.8938 305.9375 430.375 C
+305.9375 430.375 L
+305.9375 428.8562 307.1688 427.625 308.6875 427.625 C
+318.1875 427.625 L
+s
+313.4375 430.375 m
+S
+U
+u
+337.6875 427.875 m
+339.2062 427.875 340.4375 429.1062 340.4375 430.625 C
+340.4375 430.625 L
+340.4375 432.1438 339.2062 433.375 337.6875 433.375 C
+326.6875 433.375 L
+325.1688 433.375 323.9375 432.1438 323.9375 430.625 C
+323.9375 430.625 L
+323.9375 429.1062 325.1688 427.875 326.6875 427.875 C
+337.6875 427.875 L
+s
+332.1875 430.625 m
+S
+U
+u
+355.9375 428.125 m
+357.3182 428.125 358.4375 429.2443 358.4375 430.625 C
+358.4375 430.625 L
+358.4375 432.0057 357.3182 433.125 355.9375 433.125 C
+345.4375 433.125 L
+344.0568 433.125 342.9375 432.0057 342.9375 430.625 C
+342.9375 430.625 L
+342.9375 429.2443 344.0568 428.125 345.4375 428.125 C
+355.9375 428.125 L
+s
+350.6875 430.625 m
+S
+U
+u
+365.5625 427.875 m
+367.0122 427.875 368.1875 429.0503 368.1875 430.5 C
+368.1875 430.5 L
+368.1875 431.9497 367.0122 433.125 365.5625 433.125 C
+364.5625 433.125 L
+363.1128 433.125 361.9375 431.9497 361.9375 430.5 C
+361.9375 430.5 L
+361.9375 429.0503 363.1128 427.875 364.5625 427.875 C
+365.5625 427.875 L
+s
+365.0625 430.5 m
+S
+U
+u
+382.3125 426.875 m
+383.7622 426.875 384.9375 428.0503 384.9375 429.5 C
+384.9375 429.5 L
+384.9375 430.9497 383.7622 432.125 382.3125 432.125 C
+373.8125 432.125 L
+372.3627 432.125 371.1875 430.9497 371.1875 429.5 C
+371.1875 429.5 L
+371.1875 428.0503 372.3627 426.875 373.8125 426.875 C
+382.3125 426.875 L
+s
+378.0625 429.5 m
+S
+U
+u
+288.4973 397.7477 m
+289.8748 397.6545 291.0671 398.6957 291.1603 400.0732 C
+291.1603 400.0732 L
+291.2536 401.4507 290.2124 402.643 288.8349 402.7363 C
+270.1278 404.0023 L
+268.7502 404.0955 267.5579 403.0543 267.4647 401.6768 C
+267.4647 401.6768 L
+267.3715 400.2993 268.4126 399.1069 269.7902 399.0137 C
+288.4973 397.7477 L
+s
+279.3125 400.875 m
+S
+U
+u
+310.6875 396.875 m
+311.9302 396.875 312.9375 397.8824 312.9375 399.125 C
+312.9375 399.125 L
+312.9375 400.3676 311.9302 401.375 310.6875 401.375 C
+295.4375 401.375 L
+294.1948 401.375 293.1875 400.3676 293.1875 399.125 C
+293.1875 399.125 L
+293.1875 397.8824 294.1948 396.875 295.4375 396.875 C
+310.6875 396.875 L
+s
+303.0625 399.125 m
+S
+U
+u
+329.3876 397.3028 m
+330.6986 397.3459 331.7265 398.4436 331.6834 399.7546 C
+331.6834 399.7546 L
+331.6403 401.0656 330.5426 402.0934 329.2316 402.0503 C
+318.4874 401.6971 L
+317.1764 401.654 316.1485 400.5563 316.1916 399.2454 C
+316.1916 399.2454 L
+316.2347 397.9344 317.3325 396.9066 318.6434 396.9497 C
+329.3876 397.3028 L
+s
+323.9375 399.5 m
+S
+U
+u
+344.3192 399.0208 m
+345.4127 399.176 346.1735 400.1883 346.0184 401.2819 C
+346.0184 401.2819 L
+345.8632 402.3756 344.8508 403.1363 343.7572 402.9812 C
+334.5988 401.6817 L
+333.5052 401.5265 332.7445 400.5142 332.8996 399.4205 C
+332.8996 399.4205 L
+333.0548 398.3269 334.0672 397.5662 335.1607 397.7213 C
+344.3192 399.0208 L
+s
+339.459 400.3513 m
+S
+U
+u
+357.6875 400.625 m
+358.654 400.625 359.4375 401.4085 359.4375 402.375 C
+359.4375 402.375 L
+359.4375 403.3415 358.654 404.125 357.6875 404.125 C
+354.1875 404.125 L
+353.221 404.125 352.4375 403.3415 352.4375 402.375 C
+352.4375 402.375 L
+352.4375 401.4085 353.221 400.625 354.1875 400.625 C
+357.6875 400.625 L
+s
+355.9375 402.375 m
+S
+U
+u
+264.4375 427.375 m
+265.404 427.375 266.1875 428.1585 266.1875 429.125 C
+266.1875 429.125 L
+266.1875 430.0915 265.404 430.875 264.4375 430.875 C
+257.4375 430.875 L
+256.471 430.875 255.6875 430.0915 255.6875 429.125 C
+255.6875 429.125 L
+255.6875 428.1585 256.471 427.375 257.4375 427.375 C
+264.4375 427.375 L
+s
+260.9375 429.125 m
+S
+U
+u
+250.0625 426.375 m
+251.098 426.375 251.9375 427.2145 251.9375 428.25 C
+251.9375 428.25 L
+251.9375 429.2855 251.098 430.125 250.0625 430.125 C
+247.3125 430.125 L
+246.277 430.125 245.4375 429.2855 245.4375 428.25 C
+245.4375 428.25 L
+245.4375 427.2145 246.277 426.375 247.3125 426.375 C
+250.0625 426.375 L
+s
+248.6875 428.25 m
+S
+U
+1.5 w
+193.4375 416.875 m
+192.4375 421.375 205.4375 424.625 v
+218.4375 427.875 226.1875 428.125 239.9375 429.625 c
+253.6875 431.125 281.1875 432.875 313.1875 433.375 c
+345.1875 433.875 370.9375 433.375 399.9375 431.375 c
+428.9375 429.375 465.6875 418.125 470.9375 418.125 c
+476.1875 418.125 431.1875 420.625 415.9375 414.625 c
+400.6875 408.625 353.6875 395.375 307.1875 396.375 c
+260.6875 397.375 245.9375 401.125 236.9375 406.375 c
+227.9375 411.625 219.9375 412.375 205.9375 412.875 c
+191.9375 413.375 193.4375 416.875 y
+s
+u
+1 w
+258.9375 400.875 m
+259.904 400.875 260.6875 401.6585 260.6875 402.625 C
+260.6875 402.625 L
+260.6875 403.5915 259.904 404.375 258.9375 404.375 C
+254.1875 404.375 L
+253.221 404.375 252.4375 403.5915 252.4375 402.625 C
+252.4375 402.625 L
+252.4375 401.6585 253.221 400.875 254.1875 400.875 C
+258.9375 400.875 L
+s
+256.5625 402.625 m
+S
+U
+u
+368.9375 402.625 m
+370.8705 402.625 372.4375 404.192 372.4375 406.125 C
+372.4375 406.125 L
+372.4375 408.058 370.8705 409.625 368.9375 409.625 C
+366.9375 409.625 L
+365.0045 409.625 363.4375 408.058 363.4375 406.125 C
+363.4375 406.125 L
+363.4375 404.192 365.0045 402.625 366.9375 402.625 C
+368.9375 402.625 L
+s
+367.9375 406.125 m
+S
+U
+u
+376.4375 404.625 m
+378.0943 404.625 379.4375 405.9682 379.4375 407.625 C
+379.4375 408.375 L
+379.4375 410.0318 378.0943 411.375 376.4375 411.375 C
+376.4375 411.375 L
+374.7807 411.375 373.4375 410.0318 373.4375 408.375 C
+373.4375 407.625 L
+373.4375 405.9682 374.7807 404.625 376.4375 404.625 C
+376.4375 404.625 L
+s
+376.4375 408 m
+S
+U
+u
+383.5625 405.375 m
+385.1503 405.375 386.4375 406.6622 386.4375 408.25 C
+386.4375 409.5 L
+386.4375 411.0878 385.1503 412.375 383.5625 412.375 C
+383.5625 412.375 L
+381.9747 412.375 380.6875 411.0878 380.6875 409.5 C
+380.6875 408.25 L
+380.6875 406.6622 381.9747 405.375 383.5625 405.375 C
+383.5625 405.375 L
+s
+383.5625 408.875 m
+S
+U
+u
+389.5625 407.375 m
+390.7361 407.375 391.6875 408.3264 391.6875 409.5 C
+391.6875 412.25 L
+391.6875 413.4236 390.7361 414.375 389.5625 414.375 C
+389.5625 414.375 L
+388.3889 414.375 387.4375 413.4236 387.4375 412.25 C
+387.4375 409.5 L
+387.4375 408.3264 388.3889 407.375 389.5625 407.375 C
+389.5625 407.375 L
+s
+389.5625 410.875 m
+S
+U
+u
+397.4375 409.875 m
+399.2324 409.875 400.6875 411.3301 400.6875 413.125 C
+400.6875 413.125 L
+400.6875 414.9199 399.2324 416.375 397.4375 416.375 C
+396.1875 416.375 L
+394.3926 416.375 392.9375 414.9199 392.9375 413.125 C
+392.9375 413.125 L
+392.9375 411.3301 394.3926 409.875 396.1875 409.875 C
+397.4375 409.875 L
+s
+396.8125 413.125 m
+S
+U
+u
+406.6875 412.875 m
+408.0682 412.875 409.1875 413.9943 409.1875 415.375 C
+409.1875 415.375 L
+409.1875 416.7557 408.0682 417.875 406.6875 417.875 C
+404.4375 417.875 L
+403.0568 417.875 401.9375 416.7557 401.9375 415.375 C
+401.9375 415.375 L
+401.9375 413.9943 403.0568 412.875 404.4375 412.875 C
+406.6875 412.875 L
+s
+405.5625 415.375 m
+S
+U
+u
+396.1875 424.625 m
+398.1204 424.625 399.6875 426.192 399.6875 428.125 C
+399.6875 428.125 L
+399.6875 430.058 398.1204 431.625 396.1875 431.625 C
+390.4375 431.625 L
+388.5046 431.625 386.9375 430.058 386.9375 428.125 C
+386.9375 428.125 L
+386.9375 426.192 388.5046 424.625 390.4375 424.625 C
+396.1875 424.625 L
+s
+393.3125 428.125 m
+S
+U
+u
+406.9375 424.625 m
+408.4563 424.625 409.6875 425.8562 409.6875 427.375 C
+409.6875 427.375 L
+409.6875 428.8938 408.4563 430.125 406.9375 430.125 C
+405.6875 430.125 L
+404.1687 430.125 402.9375 428.8938 402.9375 427.375 C
+402.9375 427.375 L
+402.9375 425.8562 404.1687 424.625 405.6875 424.625 C
+406.9375 424.625 L
+s
+406.3125 427.375 m
+S
+U
+u
+416.9375 424 m
+418.2492 424 419.3125 425.0633 419.3125 426.375 C
+419.3125 426.375 L
+419.3125 427.6867 418.2492 428.75 416.9375 428.75 C
+415.6875 428.75 L
+414.3759 428.75 413.3125 427.6867 413.3125 426.375 C
+413.3125 426.375 L
+413.3125 425.0633 414.3759 424 415.6875 424 C
+416.9375 424 L
+s
+416.3125 426.375 m
+S
+U
+u
+424.8125 423.25 m
+426.1242 423.25 427.1875 424.3133 427.1875 425.625 C
+427.1875 425.625 L
+427.1875 426.9367 426.1242 428 424.8125 428 C
+424.3125 428 L
+423.0008 428 421.9375 426.9367 421.9375 425.625 C
+421.9375 425.625 L
+421.9375 424.3133 423.0008 423.25 424.3125 423.25 C
+424.8125 423.25 L
+s
+424.5625 425.625 m
+S
+U
+u
+432.1875 422.75 m
+433.085 422.75 433.8125 423.4776 433.8125 424.375 C
+433.8125 424.375 L
+433.8125 425.2724 433.085 426 432.1875 426 C
+431.4375 426 L
+430.54 426 429.8125 425.2724 429.8125 424.375 C
+429.8125 424.375 L
+429.8125 423.4776 430.54 422.75 431.4375 422.75 C
+432.1875 422.75 L
+s
+431.8125 424.375 m
+S
+U
+u
+437.1875 423.125 m
+437.7398 423.125 438.1875 423.5727 438.1875 424.125 C
+438.1875 424.125 L
+438.1875 424.6773 437.7398 425.125 437.1875 425.125 C
+435.9375 425.125 L
+435.3852 425.125 434.9375 424.6773 434.9375 424.125 C
+434.9375 424.125 L
+434.9375 423.5727 435.3852 423.125 435.9375 423.125 C
+437.1875 423.125 L
+s
+436.5625 424.125 m
+S
+U
+u
+442.4375 422.375 m
+442.9898 422.375 443.4375 422.8227 443.4375 423.375 C
+443.4375 423.375 L
+443.4375 423.9273 442.9898 424.375 442.4375 424.375 C
+440.4375 424.375 L
+439.8852 424.375 439.4375 423.9273 439.4375 423.375 C
+439.4375 423.375 L
+439.4375 422.8227 439.8852 422.375 440.4375 422.375 C
+442.4375 422.375 L
+s
+441.4375 423.375 m
+S
+U
+u
+434.1875 418.875 m
+434.6017 418.875 434.9375 419.2108 434.9375 419.625 C
+434.9375 419.625 L
+434.9375 420.0392 434.6017 420.375 434.1875 420.375 C
+431.4375 420.375 L
+431.0233 420.375 430.6875 420.0392 430.6875 419.625 C
+430.6875 419.625 L
+430.6875 419.2108 431.0233 418.875 431.4375 418.875 C
+434.1875 418.875 L
+s
+432.8125 419.625 m
+S
+U
+u
+418.1907 416.9178 m
+418.8406 417.1506 419.1787 417.8662 418.9459 418.5161 C
+418.9459 418.5161 L
+418.713 419.166 417.9975 419.5042 417.3476 419.2713 C
+411.9343 417.3322 L
+411.2844 417.0994 410.9463 416.3838 411.1791 415.7339 C
+411.1791 415.7339 L
+411.4119 415.084 412.1275 414.7459 412.7774 414.9787 C
+418.1907 416.9178 L
+s
+415.0625 417.125 m
+S
+U
+u
+234.4302 408.5023 m
+235.7313 407.7187 237.4212 408.1381 238.2048 409.4391 C
+239.8816 412.2232 L
+240.6652 413.5242 240.2458 415.2142 238.9447 415.9978 C
+238.9447 415.9978 L
+237.6437 416.7814 235.9538 416.3619 235.1702 415.0609 C
+233.4933 412.2768 L
+232.7098 410.9758 233.1292 409.2859 234.4302 408.5023 C
+234.4302 408.5023 L
+s
+236.6875 412.25 m
+S
+U
+u
+239.9215 405.6386 m
+240.8778 404.9584 242.2046 405.1822 242.8848 406.1385 C
+245.2034 409.398 L
+245.8836 410.3544 245.6598 411.6811 244.7035 412.3614 C
+244.7035 412.3614 L
+243.7471 413.0416 242.4204 412.8178 241.7401 411.8615 C
+239.4216 408.602 L
+238.7414 407.6456 238.9652 406.3189 239.9215 405.6386 C
+239.9215 405.6386 L
+s
+242.3125 409 m
+S
+U
+u
+216.9375 413.125 m
+217.904 413.125 218.6875 413.9085 218.6875 414.875 C
+218.6875 414.875 L
+218.6875 415.8415 217.904 416.625 216.9375 416.625 C
+215.1875 416.625 L
+214.221 416.625 213.4375 415.8415 213.4375 414.875 C
+213.4375 414.875 L
+213.4375 413.9085 214.221 413.125 215.1875 413.125 C
+216.9375 413.125 L
+s
+216.0625 414.875 m
+S
+U
+u
+227.8654 411.2922 m
+229.1525 410.486 230.8495 410.876 231.6556 412.1632 C
+233.3807 414.9176 L
+234.1868 416.2047 233.7968 417.9017 232.5097 418.7078 C
+232.5097 418.7078 L
+231.2225 419.5139 229.5255 419.124 228.7194 417.8368 C
+226.9944 415.0824 L
+226.1882 413.7953 226.5782 412.0983 227.8654 411.2922 C
+227.8654 411.2922 L
+s
+230.1875 415 m
+S
+U
+u
+242.6875 425.625 m
+243.654 425.625 244.4375 426.4085 244.4375 427.375 C
+244.4375 427.375 L
+244.4375 428.3415 243.654 429.125 242.6875 429.125 C
+237.6875 429.125 L
+236.721 429.125 235.9375 428.3415 235.9375 427.375 C
+235.9375 427.375 L
+235.9375 426.4085 236.721 425.625 237.6875 425.625 C
+242.6875 425.625 L
+s
+240.1875 427.375 m
+S
+U
+u
+233.0005 425.1563 m
+234.03 425.2682 234.7738 426.1935 234.6618 427.223 C
+234.6618 427.223 L
+234.5499 428.2524 233.6246 428.9962 232.5951 428.8843 C
+227.6245 428.3437 L
+226.595 428.2318 225.8512 427.3065 225.9632 426.277 C
+225.9632 426.277 L
+226.0751 425.2476 227.0004 424.5038 228.0299 424.6157 C
+233.0005 425.1563 L
+s
+230.3125 426.75 m
+S
+U
+u
+223.8483 424.1501 m
+224.6709 424.2475 225.2589 424.9934 225.1614 425.8161 C
+225.1614 425.8161 L
+225.064 426.6387 224.3181 427.2267 223.4955 427.1292 C
+219.0267 426.5999 L
+218.204 426.5025 217.6161 425.7566 217.7135 424.9339 C
+217.7135 424.9339 L
+217.811 424.1113 218.5569 423.5233 219.3795 423.6208 C
+223.8483 424.1501 L
+s
+221.4375 425.375 m
+S
+U
+u
+215.7373 423.2594 m
+216.4864 423.384 216.9926 424.0924 216.8679 424.8414 C
+216.8679 424.8414 L
+216.7432 425.5905 216.0349 426.0967 215.2858 425.972 C
+207.8877 424.7406 L
+207.1386 424.6159 206.6324 423.9076 206.7571 423.1585 C
+206.7571 423.1585 L
+206.8818 422.4095 207.5901 421.9033 208.3392 422.028 C
+215.7373 423.2594 L
+s
+211.8125 424 m
+S
+U
+u
+210.4375 413.625 m
+211.542 413.625 212.4375 414.5204 212.4375 415.625 C
+212.4375 415.625 L
+212.4375 416.7295 211.542 417.625 210.4375 417.625 C
+208.6875 417.625 L
+207.5829 417.625 206.6875 416.7295 206.6875 415.625 C
+206.6875 415.625 L
+206.6875 414.5204 207.5829 413.625 208.6875 413.625 C
+210.4375 413.625 L
+s
+209.5625 415.625 m
+S
+U
+u
+220.5221 413.3193 m
+221.4526 412.3949 222.9564 412.3999 223.8808 413.3305 C
+225.1141 414.572 L
+226.0385 415.5026 226.0335 417.0063 225.1029 417.9307 C
+225.1029 417.9307 L
+224.1723 418.8551 222.6686 418.8501 221.7442 417.9195 C
+220.5109 416.678 L
+219.5865 415.7474 219.5915 414.2436 220.5221 413.3193 C
+220.5221 413.3193 L
+s
+222.8125 415.625 m
+S
+U
+u
+427.6875 417.875 m
+428.2398 417.875 428.6875 418.3227 428.6875 418.875 C
+428.6875 418.875 L
+428.6875 419.4273 428.2398 419.875 427.6875 419.875 C
+423.1875 419.875 L
+422.6352 419.875 422.1875 419.4273 422.1875 418.875 C
+422.1875 418.875 L
+422.1875 418.3227 422.6352 417.875 423.1875 417.875 C
+427.6875 417.875 L
+s
+425.4375 418.875 m
+S
+U
+u
+443.5625 419.125 m
+444.1838 419.125 444.6875 419.6287 444.6875 420.25 C
+444.6875 420.25 L
+444.6875 420.8713 444.1838 421.375 443.5625 421.375 C
+439.0625 421.375 L
+438.4412 421.375 437.9375 420.8713 437.9375 420.25 C
+437.9375 420.25 L
+437.9375 419.6287 438.4412 419.125 439.0625 419.125 C
+443.5625 419.125 L
+s
+441.3125 420.25 m
+S
+U
+u
+198.25 415 m
+199.5962 415 200.6875 416.0913 200.6875 417.4375 C
+200.6875 417.4375 L
+200.6875 418.7837 199.5962 419.875 198.25 419.875 C
+196.75 419.875 L
+195.4038 419.875 194.3125 418.7837 194.3125 417.4375 C
+194.3125 417.4375 L
+194.3125 416.0913 195.4038 415 196.75 415 C
+198.25 415 L
+s
+197.5 417.4375 m
+S
+U
+u
+203.8947 421.3884 m
+204.4315 421.5183 204.7613 422.0588 204.6314 422.5956 C
+204.6314 422.5956 L
+204.5014 423.1324 203.9609 423.4622 203.4241 423.3322 C
+201.4803 422.8616 L
+200.9435 422.7317 200.6137 422.1912 200.7436 421.6544 C
+200.7436 421.6544 L
+200.8736 421.1176 201.4141 420.7878 201.9509 420.9178 C
+203.8947 421.3884 L
+s
+202.6875 422.125 m
+S
+U
+u
+203.5625 414.125 m
+204.2528 414.125 204.8125 414.6846 204.8125 415.375 C
+204.8125 415.375 L
+204.8125 416.0653 204.2528 416.625 203.5625 416.625 C
+202.3125 416.625 L
+201.6221 416.625 201.0625 416.0653 201.0625 415.375 C
+201.0625 415.375 L
+201.0625 414.6846 201.6221 414.125 202.3125 414.125 C
+203.5625 414.125 L
+s
+202.9375 415.375 m
+S
+U
+LB
+%AI5_EndLayer--
+%%PageTrailer
+gsave annotatepage grestore showpage
+%%Trailer
+Adobe_IllustratorA_AI5 /terminate get exec
+Adobe_level2_AI5 /terminate get exec
+%%EOF

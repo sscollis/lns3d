@@ -1,0 +1,2834 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Adobe Illustrator(TM) 3.0.1.
+%%For: () ()
+%%Title: (/u/collis/iris2/nsf96/pcylpro.ai)
+%%CreationDate: (5/9/96) (12:16)
+%%BoundingBox: 158 236 666 407
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentFiles:/u/collis/iris2/nsf96/pcylpro4.eps
+%%+/u/collis/iris2/nsf96/pcylpro3.eps
+%%+/u/collis/iris2/nsf96/pcylpro2.eps
+%%+/u/collis/iris2/nsf96/pcylpro1.eps
+%%DocumentSuppliedResources: procset Adobe_packedarray 2.0 0
+%%+ procset Adobe_cmykcolor 1.1 0
+%%+ procset Adobe_cshow 1.1 0
+%%+ procset Adobe_customcolor 1.0 0
+%%+ procset Adobe_IllustratorA_AI3 1.0 1
+%AI3_ColorUsage: Color
+%AI3_IncludePlacedImages
+%AI3_TemplateBox: 306 396 306 396
+%AI3_TileBox: 30 31 762 581
+%AI3_DocumentPreview: Header
+%%Template:
+%%PageOrigin:30 31
+%%AI3_PaperRect:0 612 792 0
+%%AI3_Margin:30 31 30 31
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Adobe_packedarray 2.0 0
+%%Title: (Packed Array Operators)
+%%Version: 2.0 
+%%CreationDate: (8/2/90) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+userdict /Adobe_packedarray 5 dict dup begin put
+/initialize			% - initialize -
+{
+/packedarray where
+	{
+	pop
+	}
+	{
+	Adobe_packedarray begin
+	Adobe_packedarray
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/packedarray		% arguments count packedarray array
+{
+array astore readonly
+} def
+/setpacking			% boolean setpacking -
+{
+pop
+} def
+/currentpacking		% - setpacking boolean
+{
+false
+} def
+currentdict readonly pop end
+%%EndResource
+Adobe_packedarray /initialize get exec
+
+%%BeginResource: procset Adobe_cmykcolor 1.1 0
+%%Title: (CMYK Color Operators)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cmykcolor 4 dict dup begin put
+/initialize			% - initialize -
+{
+/setcmykcolor where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cmykcolor_vars 2 dict dup begin put
+	/_setrgbcolor
+		/setrgbcolor load def
+	/_currentrgbcolor
+		/currentrgbcolor load def
+	Adobe_cmykcolor begin
+	Adobe_cmykcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	end
+	Adobe_cmykcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_cmykcolor eq
+	{
+	end
+	} if
+} def
+/setcmykcolor		% cyan magenta yellow black setcmykcolor -
+{
+1 sub 4 1 roll
+3
+	{
+	3 index add neg dup 0 lt
+		{
+		pop 0
+		} if
+	3 1 roll
+	} repeat
+Adobe_cmykcolor_vars /_setrgbcolor get exec
+pop
+} def 
+/currentcmykcolor	% - currentcmykcolor cyan magenta yellow black
+{
+Adobe_cmykcolor_vars /_currentrgbcolor get exec
+3
+	{
+	1 sub neg 3 1 roll
+	} repeat
+0
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_cshow 1.1 0
+%%Title: (cshow Operator)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cshow 3 dict dup begin put
+/initialize			% - initialize -
+{
+/cshow where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cshow_vars 1 dict dup begin put
+	/_cshow		% - _cshow proc
+		{} def
+	Adobe_cshow begin
+	Adobe_cshow
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/cshow				% proc string cshow -
+{
+exch
+Adobe_cshow_vars
+	exch /_cshow
+	exch put
+	{
+	0 0 Adobe_cshow_vars /_cshow get exec
+	} forall
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_customcolor 1.0 0
+%%Title: (Custom Color Operators)
+%%Version: 1.0 
+%%CreationDate: (5/9/88) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_customcolor 5 dict dup begin put
+/initialize			% - initialize -
+{
+/setcustomcolor where
+	{
+	pop
+	}
+	{
+	Adobe_customcolor begin
+	Adobe_customcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	Adobe_customcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_customcolor eq
+	{
+	end
+	} if
+} def
+/findcmykcustomcolor	% cyan magenta yellow black name findcmykcustomcolor object
+{
+5 packedarray
+}  def
+/setcustomcolor		% object tint setcustomcolor -
+{
+exch
+aload pop pop
+4
+	{
+	4 index mul 4 1 roll
+	} repeat
+5 -1 roll pop
+setcmykcolor
+} def
+/setoverprint		% boolean setoverprint -
+{
+pop
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_IllustratorA_AI3 1.0 1
+%%Title: (Adobe Illustrator (R) Version 3.0 Abbreviated Prolog)
+%%Version: 1.0 
+%%CreationDate: (7/22/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_IllustratorA_AI3 61 dict dup begin put
+% initialization
+/initialize				% - initialize -
+{
+% 47 vars, but leave slack of 10 entries for custom Postscript fragments
+userdict /Adobe_IllustratorA_AI3_vars 57 dict dup begin put
+
+% paint operands
+/_lp /none def
+/_pf {} def
+/_ps {} def
+/_psf {} def
+/_pss {} def
+/_pjsf {} def
+/_pjss {} def
+/_pola 0 def
+/_doClip 0 def
+
+% paint operators
+/cf	currentflat def	% - cf flatness
+
+% typography operands
+/_tm matrix def
+/_renderStart [/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0] def 
+/_renderEnd [null null null null /i1 /i1 /i1 /i1] def
+/_render -1 def
+/_rise 0 def
+/_ax 0 def			% x character spacing	(_ax, _ay, _cx, _cy follows awidthshow naming convention)
+/_ay 0 def			% y character spacing
+/_cx 0 def			% x word spacing
+/_cy 0 def			% y word spacing
+/_leading [0 0] def
+/_ctm matrix def
+/_mtx matrix def
+/_sp 16#020 def
+/_hyphen (-) def
+/_fScl 0 def
+/_cnt 0 def
+/_hs 1 def
+/_nativeEncoding 0 def
+/_useNativeEncoding 0 def
+/_tempEncode 0 def
+/_pntr 0 def
+/_tDict 2 dict def
+
+% typography operators
+/Tx {} def
+/Tj {} def
+
+% compound path operators
+/CRender {} def
+
+% printing
+/_AI3_savepage {} def
+
+% color operands
+/_gf null def
+/_cf 4 array def
+/_if null def
+/_of false def
+/_fc {} def
+/_gs null def
+/_cs 4 array def
+/_is null def
+/_os false def
+/_sc {} def
+/_i null def
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3
+	{
+	dup xcheck
+		{
+		bind
+		} if
+	pop pop
+	} forall
+end
+end
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3_vars begin
+newpath
+} def
+/terminate				% - terminate -
+{
+end
+end
+} def
+% definition operators
+/_					% - _ null
+null def
+/ddef				% key value ddef -
+{
+Adobe_IllustratorA_AI3_vars 3 1 roll put
+} def
+/xput				% key value literal xput -
+{
+dup load dup length exch maxlength eq
+	{
+	dup dup load dup
+	length 2 mul dict copy def
+	} if
+load begin def end
+} def
+/npop				% integer npop -
+{
+	{
+	pop
+	} repeat
+} def
+% marking operators
+/sw					% ax ay string sw x y 
+{
+dup length exch stringwidth
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add
+} def
+/swj				% cx cy fillchar ax ay string swj x y
+{
+dup 4 1 roll
+dup length exch stringwidth 
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add 
+6 2 roll /_cnt 0 ddef
+{1 index eq {/_cnt _cnt 1 add ddef} if} forall pop
+exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} def
+/ss					% ax ay string matrix ss -
+{
+4 1 roll
+	{				% matrix ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put pop
+	gsave
+	false charpath currentpoint
+	4 index setmatrix
+	stroke
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+3 npop
+} def
+/jss				% cx cy fillchar ax ay string matrix jss -
+{
+4 1 roll
+	{				% cx cy fillchar matrix ax ay char 0 0 {proc} -   
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	gsave
+	_sp eq 
+		{
+		exch 6 index 6 index 6 index 5 -1 roll widthshow  
+		currentpoint
+		}
+		{
+		false charpath currentpoint
+		4 index setmatrix stroke
+		}ifelse
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+6 npop
+} def
+
+% path operators
+/sp					% ax ay string sp -
+{
+	{
+	2 npop (0) exch
+	2 copy 0 exch put pop
+	false charpath
+	2 copy rmoveto
+	} exch cshow
+2 npop
+} def
+/jsp					% cx cy fillchar ax ay string jsp -
+{
+	{					% cx cy fillchar ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	_sp eq 
+		{
+		exch 5 index 5 index 5 index 5 -1 roll widthshow  
+		}
+		{
+		false charpath
+		}ifelse
+	2 copy rmoveto
+	} exch cshow
+5 npop
+} def
+
+% path construction operators
+/pl				% x y pl x y
+{
+transform
+0.25 sub round 0.25 add exch
+0.25 sub round 0.25 add exch
+itransform
+} def
+/setstrokeadjust where
+	{
+	pop true setstrokeadjust
+	/c				% x1 y1 x2 y2 x3 y3 c -
+	{
+	curveto
+	} def
+	/C
+	/c load def
+	/v				% x2 y2 x3 y3 v -
+	{
+	currentpoint 6 2 roll curveto
+	} def
+	/V
+	/v load def
+	/y				% x1 y1 x2 y2 y -
+	{
+	2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l				% x y l -
+	{
+	lineto
+	} def
+	/L
+	/l load def
+	/m				% x y m -
+	{
+	moveto
+	} def
+	}
+	{%else
+	/c
+	{
+	pl curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+	currentpoint 6 2 roll pl curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+	pl 2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+	pl lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+	pl moveto
+	} def
+	}ifelse
+
+% graphic state operators
+/d					% array phase d -
+{
+setdash
+} def
+/cf	{} def			% - cf flatness
+/i					% flatness i -
+{
+dup 0 eq
+	{
+	pop cf
+	} if
+setflat
+} def
+/j					% linejoin j -
+{
+setlinejoin
+} def
+/J					% linecap J -
+{
+setlinecap
+} def
+/M					% miterlimit M -
+{
+setmiterlimit
+} def
+/w					% linewidth w -
+{
+setlinewidth
+} def
+
+% path painting operators
+/H					% - H -
+{} def
+/h					% - h -
+{
+closepath
+} def
+/N					% - N -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq {clip /_doClip 0 ddef} if 
+	newpath
+	} 
+	{
+	/CRender {N} ddef
+	}ifelse
+} def
+/n					% - n -
+{N} def
+/F					% - F -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _pf grestore clip newpath /_lp /none ddef _fc 
+		/_doClip 0 ddef
+		}
+		{
+		_pf
+		}ifelse
+	} 
+	{
+	/CRender {F} ddef
+	}ifelse
+} def
+/f					% - f -
+{
+closepath
+F
+} def
+/S					% - S -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _ps grestore clip newpath /_lp /none ddef _sc 
+		/_doClip 0 ddef
+		}
+		{
+		_ps
+		}ifelse
+	} 
+	{
+	/CRender {S} ddef
+	}ifelse
+} def
+/s					% - s -
+{
+closepath
+S
+} def
+/B					% - B -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 	% F clears _doClip
+	gsave F grestore 
+		{
+		gsave S grestore clip newpath /_lp /none ddef _sc
+		/_doClip 0 ddef
+		} 
+		{
+		S
+		}ifelse
+	}
+	{
+	/CRender {B} ddef
+	}ifelse
+} def
+/b					% - b -
+{
+closepath
+B
+} def
+/W					% - W -
+{
+/_doClip 1 ddef
+} def
+/*					% - [string] * -
+{
+count 0 ne 
+	{
+	dup type (stringtype) eq {pop} if
+	} if 
+_pola 0 eq {newpath} if
+} def
+
+% group operators
+/u					% - u -
+{} def
+/U					% - U -
+{} def
+/q					% - q -
+{
+_pola 0 eq {gsave} if
+} def
+/Q					% - Q -
+{
+_pola 0 eq {grestore} if
+} def
+/*u					% - *u -
+{
+_pola 1 add /_pola exch ddef
+} def
+/*U					% - *U -
+{
+_pola 1 sub /_pola exch ddef 
+_pola 0 eq {CRender} if
+} def
+/D					% polarized D -
+{pop} def
+/*w					% - *w -
+{} def
+/*W					% - *W -
+{} def
+
+% place operators
+/`					% matrix llx lly urx ury string ` -
+{
+/_i save ddef
+6 1 roll 4 npop
+concat
+userdict begin
+/showpage {} def
+false setoverprint
+pop
+} def
+/~					% - ~ -
+{
+end
+_i restore
+} def
+
+% color operators
+/O					% flag O -
+{
+0 ne
+/_of exch ddef
+/_lp /none ddef
+} def
+/R					% flag R -
+{
+0 ne
+/_os exch ddef
+/_lp /none ddef
+} def
+/g					% gray g -
+{
+/_gf exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_gf setgray
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/G					% gray G -
+{
+/_gs exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_gs setgray
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/k					% cyan magenta yellow black k -
+{
+_cf astore pop
+/_fc
+{
+_lp /fill ne
+	{
+	_of setoverprint
+	_cf aload pop setcmykcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/K					% cyan magenta yellow black K -
+{
+_cs astore pop
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_cs aload pop setcmykcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/x					% cyan magenta yellow black name gray x -
+{
+/_gf exch ddef
+findcmykcustomcolor
+/_if exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_if _gf 1 exch sub setcustomcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/X					% cyan magenta yellow black name gray X -
+{
+/_gs exch ddef
+findcmykcustomcolor
+/_is exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_is _gs 1 exch sub setcustomcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+
+% locked object operator
+/A					% value A -
+{
+pop
+} def
+
+currentdict readonly pop end
+setpacking
+
+% annotate page operator
+/annotatepage
+{
+} def
+%%EndResource
+%AI3-Grid.0 18 18 3 0 0 0 3
+%%EndProlog
+%%BeginSetup
+Adobe_cmykcolor /initialize get exec
+
+Adobe_cshow /initialize get exec
+
+Adobe_customcolor /initialize get exec
+
+Adobe_IllustratorA_AI3 /initialize get exec
+
+%%EndSetup
+0 A
+[0.4 0 0 0.4 168.5 236] 0 0 350 430
+(/u/collis/iris2/nsf96/pcylpro1.eps)`
+%%BeginDocument: /u/collis/iris2/nsf96/pcylpro1.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: profile.SP  -  /u/collis/iris2/present/AAA96
+%%Creator: SciPlot
+%%CreationDate: Thu May  9 11:58:07 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 1
+%%BoundingBox: 0 0 350 430
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -9 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 350 430 rectclip
+0 0 350 430 rectclip
+0 setgray
+2 setlinecap
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+0 setgray
+88.601051 60 moveto
+2 setlinewidth
+0 8 rlineto
+88.601051 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+88.601051 50 moveto
+-8.34 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0) show
+0 setgray
+208.356903 60 moveto
+2 setlinewidth
+0 8 rlineto
+208.356903 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+208.356903 50 moveto
+-20.85 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0.5) show
+0 setgray
+328.112762 60 moveto
+2 setlinewidth
+0 8 rlineto
+328.112762 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+328.112762 50 moveto
+-8.34 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(1) show
+0 setgray
+202.5 16.6 moveto
+0 0 rmoveto
+0 -18.719999 rmoveto
+0 setgray
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+0 setgray
+60 60 moveto
+2 setlinewidth
+8 0 rlineto
+345 60 moveto
+-8 0 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+50 60 moveto
+-16.68 0 rmoveto
+0 -11.7 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0) show
+0 setgray
+60 132 moveto
+2 setlinewidth
+8 0 rlineto
+345 132 moveto
+-8 0 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+50 132 moveto
+-41.700001 0 rmoveto
+0 -11.7 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0.2) show
+0 setgray
+60 204 moveto
+2 setlinewidth
+8 0 rlineto
+345 204 moveto
+-8 0 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+50 204 moveto
+-41.700001 0 rmoveto
+0 -11.7 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0.4) show
+0 setgray
+60 276 moveto
+2 setlinewidth
+8 0 rlineto
+345 276 moveto
+-8 0 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+50 276 moveto
+-41.700001 0 rmoveto
+0 -11.7 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0.6) show
+0 setgray
+60 348 moveto
+2 setlinewidth
+8 0 rlineto
+345 348 moveto
+-8 0 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+50 348 moveto
+-41.700001 0 rmoveto
+0 -11.7 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0.8) show
+0 setgray
+60 420 moveto
+2 setlinewidth
+8 0 rlineto
+345 420 moveto
+-8 0 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+50 420 moveto
+-16.68 0 rmoveto
+0 -11.7 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(1) show
+0 setgray
+-6.700001 240 moveto
+0 0 rmoveto
+90 rotate
+270 rotate
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+[] 0 setdash
+2 setlinewidth
+0 setgray
+60 60 moveto
+60 420 lineto
+stroke
+60 60 moveto
+345 60 lineto
+stroke
+345 60 moveto
+345 420 lineto
+stroke
+60 420 moveto
+345 420 lineto
+stroke
+0 setgray
+0 setgray
+3 setlinewidth
+0 setlinecap
+[] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+88.601051 60 333.456207 391.029266 setbbox
+88.601051 60 moveto
+95.883827 60.596485 lineto
+103.727196 61.24604 lineto
+112.164253 61.953381 lineto
+121.226875 62.723648 lineto
+130.944382 63.562443 lineto
+141.341492 64.475861 lineto
+152.435593 65.470535 lineto
+164.232834 66.553703 lineto
+176.72316 67.733231 lineto
+189.873505 69.017685 lineto
+203.61972 70.416412 lineto
+217.85672 71.93956 lineto
+232.428162 73.598206 lineto
+247.116943 75.404404 lineto
+261.639648 77.371269 lineto
+275.649078 79.513092 lineto
+288.750427 81.845444 lineto
+300.535309 84.385254 lineto
+310.635162 87.150978 lineto
+318.786774 90.162704 lineto
+324.894653 93.442314 lineto
+329.065582 97.013611 lineto
+331.593933 100.90255 lineto
+332.893158 105.13736 lineto
+333.394714 109.748795 lineto
+333.456207 114.770325 lineto
+333.315002 120.238419 lineto
+333.096436 126.192757 lineto
+332.852173 132.676559 lineto
+332.599274 139.736862 lineto
+332.342926 147.424911 lineto
+332.085449 155.796478 lineto
+331.828705 164.912262 lineto
+331.574493 174.838394 lineto
+331.324738 185.64682 lineto
+331.081421 197.415894 lineto
+330.846527 210.230896 lineto
+330.62207 224.184662 lineto
+330.409973 239.378281 lineto
+330.212158 255.921722 lineto
+330.030273 273.934692 lineto
+329.865967 293.547607 lineto
+329.72049 314.902222 lineto
+329.595062 338.152893 lineto
+329.490509 363.467651 lineto
+329.40744 391.029266 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+3 setlinewidth
+0 setlinecap
+[8 8] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+68.389854 60 102.069801 391.029266 setbbox
+88.601051 60 moveto
+86.286339 60.596485 lineto
+83.939728 61.24604 lineto
+81.589043 61.953381 lineto
+79.268997 62.723648 lineto
+77.021896 63.562443 lineto
+74.898071 64.475861 lineto
+72.95594 65.470535 lineto
+71.261398 66.553703 lineto
+69.886185 67.733231 lineto
+68.904831 69.017685 lineto
+68.389854 70.416412 lineto
+68.404747 71.93956 lineto
+68.994881 73.598206 lineto
+70.176598 75.404404 lineto
+71.926018 77.371269 lineto
+74.169891 79.513092 lineto
+76.782127 81.845444 lineto
+79.590073 84.385254 lineto
+82.393448 87.150978 lineto
+84.995514 90.162704 lineto
+87.240456 93.442314 lineto
+89.045372 97.013611 lineto
+90.413437 100.90255 lineto
+91.42057 105.13736 lineto
+92.180153 109.748795 lineto
+92.802444 114.770325 lineto
+93.367241 120.238419 lineto
+93.918106 126.192757 lineto
+94.472069 132.676559 lineto
+95.032661 139.736862 lineto
+95.598343 147.424911 lineto
+96.166039 155.796478 lineto
+96.732086 164.912262 lineto
+97.292503 174.838394 lineto
+97.843086 185.64682 lineto
+98.379501 197.415894 lineto
+98.897316 210.230896 lineto
+99.392136 224.184662 lineto
+99.859665 239.378281 lineto
+100.295807 255.921722 lineto
+100.696732 273.934692 lineto
+101.059021 293.547607 lineto
+101.379669 314.902222 lineto
+101.656197 338.152893 lineto
+101.886688 363.467651 lineto
+102.069801 391.029266 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+2 setlinecap
+2 setlinewidth
+stroke
+grestore
+%%Trailer
+%%EndDocument
+~
+[0.4 0 0 0.4 287.5 236] 0 0 350 430
+(/u/collis/iris2/nsf96/pcylpro2.eps)`
+%%BeginDocument: /u/collis/iris2/nsf96/pcylpro2.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: profile.SP  -  /u/collis/iris2/present/AAA96
+%%Creator: SciPlot
+%%CreationDate: Thu May  9 11:58:38 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 1
+%%BoundingBox: 0 0 350 430
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -9 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 350 430 rectclip
+0 0 350 430 rectclip
+0 setgray
+2 setlinecap
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+0 setgray
+88.601051 60 moveto
+2 setlinewidth
+0 8 rlineto
+88.601051 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+88.601051 50 moveto
+-8.34 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0) show
+0 setgray
+208.356903 60 moveto
+2 setlinewidth
+0 8 rlineto
+208.356903 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+208.356903 50 moveto
+-20.85 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0.5) show
+0 setgray
+328.112762 60 moveto
+2 setlinewidth
+0 8 rlineto
+328.112762 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+328.112762 50 moveto
+-8.34 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(1) show
+0 setgray
+202.5 16.6 moveto
+0 0 rmoveto
+0 -18.719999 rmoveto
+0 setgray
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+0 setgray
+60 60 moveto
+2 setlinewidth
+8 0 rlineto
+345 60 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 132 moveto
+2 setlinewidth
+8 0 rlineto
+345 132 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 204 moveto
+2 setlinewidth
+8 0 rlineto
+345 204 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 276 moveto
+2 setlinewidth
+8 0 rlineto
+345 276 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 348 moveto
+2 setlinewidth
+8 0 rlineto
+345 348 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 420 moveto
+2 setlinewidth
+8 0 rlineto
+345 420 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+35 240 moveto
+0 0 rmoveto
+90 rotate
+270 rotate
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+[] 0 setdash
+2 setlinewidth
+0 setgray
+60 60 moveto
+60 420 lineto
+stroke
+60 60 moveto
+345 60 lineto
+stroke
+345 60 moveto
+345 420 lineto
+stroke
+60 420 moveto
+345 420 lineto
+stroke
+0 setgray
+0 setgray
+3 setlinewidth
+0 setlinecap
+[] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+88.601051 60 329.099396 391.029266 setbbox
+88.601051 60 moveto
+93.143776 60.596485 lineto
+98.05764 61.24604 lineto
+103.369522 61.953381 lineto
+109.107208 62.723648 lineto
+115.299263 63.562443 lineto
+121.974632 64.475861 lineto
+129.162079 65.470535 lineto
+136.889328 66.553703 lineto
+145.181961 67.733231 lineto
+154.061813 69.017685 lineto
+163.544861 70.416412 lineto
+173.638351 71.93956 lineto
+184.337173 73.598206 lineto
+195.619064 75.404404 lineto
+207.438904 77.371269 lineto
+219.721786 79.513092 lineto
+232.355591 81.845444 lineto
+245.183487 84.385254 lineto
+257.99826 87.150978 lineto
+270.540497 90.162704 lineto
+282.504425 93.442314 lineto
+293.554871 97.013611 lineto
+303.358704 100.90255 lineto
+311.630219 105.13736 lineto
+318.18454 109.748795 lineto
+322.984619 114.770325 lineto
+326.162659 120.238419 lineto
+327.998993 126.192757 lineto
+328.857574 132.676559 lineto
+329.099396 139.736862 lineto
+329.009644 147.424911 lineto
+328.768005 155.796478 lineto
+328.463226 164.912262 lineto
+328.128845 174.838394 lineto
+327.77478 185.64682 lineto
+327.403564 197.415894 lineto
+327.016388 210.230896 lineto
+326.614288 224.184662 lineto
+326.1987 239.378281 lineto
+325.771332 255.921722 lineto
+325.33429 273.934692 lineto
+324.890106 293.547607 lineto
+324.44162 314.902222 lineto
+323.992157 338.152893 lineto
+323.545288 363.467651 lineto
+323.10495 391.029266 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+3 setlinewidth
+0 setlinecap
+[8 8] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+70.150978 60 97.917732 391.029266 setbbox
+88.601051 60 moveto
+87.495911 60.596485 lineto
+86.332039 61.24604 lineto
+85.111465 61.953381 lineto
+83.837883 62.723648 lineto
+82.516922 63.562443 lineto
+81.156662 64.475861 lineto
+79.768143 65.470535 lineto
+78.366051 66.553703 lineto
+76.969376 67.733231 lineto
+75.602196 69.017685 lineto
+74.294426 70.416412 lineto
+73.082428 71.93956 lineto
+72.00946 73.598206 lineto
+71.125488 75.404404 lineto
+70.486252 77.371269 lineto
+70.150978 79.513092 lineto
+70.178253 81.845444 lineto
+70.619591 84.385254 lineto
+71.510437 87.150978 lineto
+72.859093 90.162704 lineto
+74.635025 93.442314 lineto
+76.75975 97.013611 lineto
+79.104965 100.90255 lineto
+81.50267 105.13736 lineto
+83.770241 109.748795 lineto
+85.747253 114.770325 lineto
+87.333458 120.238419 lineto
+88.511726 126.192757 lineto
+89.343163 132.676559 lineto
+89.934799 139.736862 lineto
+90.396484 147.424911 lineto
+90.809494 155.796478 lineto
+91.218658 164.912262 lineto
+91.642265 174.838394 lineto
+92.085587 185.64682 lineto
+92.549355 197.415894 lineto
+93.032928 210.230896 lineto
+93.535065 224.184662 lineto
+94.054077 239.378281 lineto
+94.587799 255.921722 lineto
+95.133591 273.934692 lineto
+95.688332 293.547607 lineto
+96.248405 314.902222 lineto
+96.809731 338.152893 lineto
+97.36779 363.467651 lineto
+97.917732 391.029266 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+2 setlinecap
+2 setlinewidth
+stroke
+grestore
+%%Trailer
+%%EndDocument
+~
+[0.4 0 0 0.4 406.5 236] 0 0 350 430
+(/u/collis/iris2/nsf96/pcylpro3.eps)`
+%%BeginDocument: /u/collis/iris2/nsf96/pcylpro3.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: profile.SP  -  /u/collis/iris2/present/AAA96
+%%Creator: SciPlot
+%%CreationDate: Thu May  9 11:59:05 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 1
+%%BoundingBox: 0 0 350 430
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -9 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 350 430 rectclip
+0 0 350 430 rectclip
+0 setgray
+2 setlinecap
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+0 setgray
+88.601051 60 moveto
+2 setlinewidth
+0 8 rlineto
+88.601051 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+88.601051 50 moveto
+-8.34 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0) show
+0 setgray
+208.356903 60 moveto
+2 setlinewidth
+0 8 rlineto
+208.356903 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+208.356903 50 moveto
+-20.85 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0.5) show
+0 setgray
+328.112762 60 moveto
+2 setlinewidth
+0 8 rlineto
+328.112762 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+328.112762 50 moveto
+-8.34 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(1) show
+0 setgray
+202.5 16.6 moveto
+0 0 rmoveto
+0 -18.719999 rmoveto
+0 setgray
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+0 setgray
+60 60 moveto
+2 setlinewidth
+8 0 rlineto
+345 60 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 132 moveto
+2 setlinewidth
+8 0 rlineto
+345 132 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 204 moveto
+2 setlinewidth
+8 0 rlineto
+345 204 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 276 moveto
+2 setlinewidth
+8 0 rlineto
+345 276 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 348 moveto
+2 setlinewidth
+8 0 rlineto
+345 348 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 420 moveto
+2 setlinewidth
+8 0 rlineto
+345 420 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+35 240 moveto
+0 0 rmoveto
+90 rotate
+270 rotate
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+[] 0 setdash
+2 setlinewidth
+0 setgray
+60 60 moveto
+60 420 lineto
+stroke
+60 60 moveto
+345 60 lineto
+stroke
+345 60 moveto
+345 420 lineto
+stroke
+60 420 moveto
+345 420 lineto
+stroke
+0 setgray
+0 setgray
+3 setlinewidth
+0 setlinecap
+[] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+88.601051 60 328.196533 391.029266 setbbox
+88.601051 60 moveto
+90.336296 60.596485 lineto
+92.223312 61.24604 lineto
+94.276306 61.953381 lineto
+96.509277 62.723648 lineto
+98.937698 63.562443 lineto
+101.578323 64.475861 lineto
+104.449249 65.470535 lineto
+107.569977 66.553703 lineto
+110.96154 67.733231 lineto
+114.646492 69.017685 lineto
+118.649002 70.416412 lineto
+122.994835 71.93956 lineto
+127.711319 73.598206 lineto
+132.827209 75.404404 lineto
+138.372513 77.371269 lineto
+144.378082 79.513092 lineto
+150.875046 81.845444 lineto
+157.893936 84.385254 lineto
+165.46347 87.150978 lineto
+173.608704 90.162704 lineto
+182.348572 93.442314 lineto
+191.692535 97.013611 lineto
+201.636063 100.90255 lineto
+212.154907 105.13736 lineto
+223.198044 109.748795 lineto
+234.679428 114.770325 lineto
+246.469238 120.238419 lineto
+258.385834 126.192757 lineto
+270.19104 132.676559 lineto
+281.592194 139.736862 lineto
+292.255554 147.424911 lineto
+301.835114 155.796478 lineto
+310.018616 164.912262 lineto
+316.585083 174.838394 lineto
+321.460022 185.64682 lineto
+324.746094 197.415894 lineto
+326.707947 210.230896 lineto
+327.706818 224.184662 lineto
+328.107178 239.378281 lineto
+328.196533 255.921722 lineto
+328.152649 273.934692 lineto
+328.059937 293.547607 lineto
+327.948486 314.902222 lineto
+327.825836 338.152893 lineto
+327.693237 363.467651 lineto
+327.550415 391.029266 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+3 setlinewidth
+0 setlinecap
+[8 8] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+79.932541 60 89.531906 391.029266 setbbox
+88.601051 60 moveto
+88.419655 60.596485 lineto
+88.224129 61.24604 lineto
+88.013458 61.953381 lineto
+87.786758 62.723648 lineto
+87.543114 63.562443 lineto
+87.281616 64.475861 lineto
+87.001427 65.470535 lineto
+86.701736 66.553703 lineto
+86.381874 67.733231 lineto
+86.041298 69.017685 lineto
+85.679703 70.416412 lineto
+85.297058 71.93956 lineto
+84.893738 73.598206 lineto
+84.470627 75.404404 lineto
+84.029305 77.371269 lineto
+83.572212 79.513092 lineto
+83.102921 81.845444 lineto
+82.626434 84.385254 lineto
+82.149513 87.150978 lineto
+81.681137 90.162704 lineto
+81.23291 93.442314 lineto
+80.819565 97.013611 lineto
+80.45929 100.90255 lineto
+80.173988 105.13736 lineto
+79.989059 109.748795 lineto
+79.932541 114.770325 lineto
+80.033234 120.238419 lineto
+80.317368 126.192757 lineto
+80.803604 132.676559 lineto
+81.49649 139.736862 lineto
+82.379341 147.424911 lineto
+83.408623 155.796478 lineto
+84.513298 164.912262 lineto
+85.602394 174.838394 lineto
+86.582321 185.64682 lineto
+87.380341 197.415894 lineto
+87.965134 210.230896 lineto
+88.353149 224.184662 lineto
+88.59581 239.378281 lineto
+88.754387 255.921722 lineto
+88.87767 273.934692 lineto
+88.993706 293.547607 lineto
+89.114319 314.902222 lineto
+89.243416 338.152893 lineto
+89.38237 363.467651 lineto
+89.531906 391.029266 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+2 setlinecap
+2 setlinewidth
+stroke
+grestore
+%%Trailer
+%%EndDocument
+~
+[0.4 0 0 0.4 525.5 236] 0 0 350 430
+(/u/collis/iris2/nsf96/pcylpro4.eps)`
+%%BeginDocument: /u/collis/iris2/nsf96/pcylpro4.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: profile.SP  -  /u/collis/iris2/present/AAA96
+%%Creator: SciPlot
+%%CreationDate: Thu May  9 11:59:28 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 1
+%%BoundingBox: 0 0 350 430
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -9 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 350 430 rectclip
+0 0 350 430 rectclip
+0 setgray
+2 setlinecap
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+0 setgray
+88.601051 60 moveto
+2 setlinewidth
+0 8 rlineto
+88.601051 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+88.601051 50 moveto
+-8.34 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0) show
+0 setgray
+208.356903 60 moveto
+2 setlinewidth
+0 8 rlineto
+208.356903 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+208.356903 50 moveto
+-20.85 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(0.5) show
+0 setgray
+328.112762 60 moveto
+2 setlinewidth
+0 8 rlineto
+328.112762 420 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+/Helvetica findfont
+30 scalefont setfont
+328.112762 50 moveto
+-8.34 0 rmoveto
+0 -23.4 rmoveto
+/Helvetica findfont
+30 scalefont setfont
+(1) show
+0 setgray
+202.5 16.6 moveto
+0 0 rmoveto
+0 -18.719999 rmoveto
+0 setgray
+0 setgray
+/Helvetica findfont
+30 scalefont setfont
+0 setgray
+60 60 moveto
+2 setlinewidth
+8 0 rlineto
+345 60 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 132 moveto
+2 setlinewidth
+8 0 rlineto
+345 132 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 204 moveto
+2 setlinewidth
+8 0 rlineto
+345 204 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 276 moveto
+2 setlinewidth
+8 0 rlineto
+345 276 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 348 moveto
+2 setlinewidth
+8 0 rlineto
+345 348 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+60 420 moveto
+2 setlinewidth
+8 0 rlineto
+345 420 moveto
+-8 0 rlineto
+stroke
+0 setgray
+0 setgray
+35 240 moveto
+0 0 rmoveto
+90 rotate
+270 rotate
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+[] 0 setdash
+2 setlinewidth
+0 setgray
+60 60 moveto
+60 420 lineto
+stroke
+60 60 moveto
+345 60 lineto
+stroke
+345 60 moveto
+345 420 lineto
+stroke
+60 420 moveto
+345 420 lineto
+stroke
+0 setgray
+0 setgray
+3 setlinewidth
+0 setlinecap
+[] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+88.601051 60 328.095459 391.029266 setbbox
+88.601051 60 moveto
+89.554016 60.596485 lineto
+90.59211 61.24604 lineto
+91.721794 61.953381 lineto
+92.951797 62.723648 lineto
+94.290794 63.562443 lineto
+95.748436 64.475861 lineto
+97.335175 65.470535 lineto
+99.06237 66.553703 lineto
+100.942383 67.733231 lineto
+102.988609 69.017685 lineto
+105.215607 70.416412 lineto
+107.63916 71.93956 lineto
+110.276367 73.598206 lineto
+113.145744 75.404404 lineto
+116.267303 77.371269 lineto
+119.662605 79.513092 lineto
+123.354858 81.845444 lineto
+127.36895 84.385254 lineto
+131.73143 87.150978 lineto
+136.470459 90.162704 lineto
+141.615646 93.442314 lineto
+147.197845 97.013611 lineto
+153.248581 100.90255 lineto
+159.799469 105.13736 lineto
+166.881104 109.748795 lineto
+174.5215 114.770325 lineto
+182.743988 120.238419 lineto
+191.564224 126.192757 lineto
+200.986099 132.676559 lineto
+210.996445 139.736862 lineto
+221.558456 147.424911 lineto
+232.6035 155.796478 lineto
+244.022171 164.912262 lineto
+255.655396 174.838394 lineto
+267.287628 185.64682 lineto
+278.645569 197.415894 lineto
+289.406525 210.230896 lineto
+299.222046 224.184662 lineto
+307.758942 239.378281 lineto
+314.75592 255.921722 lineto
+320.083771 273.934692 lineto
+323.788147 293.547607 lineto
+326.090729 314.902222 lineto
+327.335999 338.152893 lineto
+327.899231 363.467651 lineto
+328.095459 391.029266 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+3 setlinewidth
+0 setlinecap
+[8 8] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+84.003532 60 88.601051 391.029266 setbbox
+88.601051 60 moveto
+88.551567 60.596485 lineto
+88.497894 61.24604 lineto
+88.439751 61.953381 lineto
+88.376755 62.723648 lineto
+88.308556 63.562443 lineto
+88.234756 64.475861 lineto
+88.154953 65.470535 lineto
+88.06871 66.553703 lineto
+87.975578 67.733231 lineto
+87.875107 69.017685 lineto
+87.766808 70.416412 lineto
+87.650223 71.93956 lineto
+87.524857 73.598206 lineto
+87.390259 75.404404 lineto
+87.245987 77.371269 lineto
+87.091644 79.513092 lineto
+86.92691 81.845444 lineto
+86.751556 84.385254 lineto
+86.565506 87.150978 lineto
+86.368866 90.162704 lineto
+86.162018 93.442314 lineto
+85.945702 97.013611 lineto
+85.721107 100.90255 lineto
+85.490074 105.13736 lineto
+85.255203 109.748795 lineto
+85.020142 114.770325 lineto
+84.78978 120.238419 lineto
+84.570587 126.192757 lineto
+84.370865 132.676559 lineto
+84.201019 139.736862 lineto
+84.073677 147.424911 lineto
+84.003532 155.796478 lineto
+84.006744 164.912262 lineto
+84.099625 174.838394 lineto
+84.296333 185.64682 lineto
+84.605515 197.415894 lineto
+85.026031 210.230896 lineto
+85.542717 224.184662 lineto
+86.12384 239.378281 lineto
+86.722588 255.921722 lineto
+87.284401 273.934692 lineto
+87.759827 293.547607 lineto
+88.118782 314.902222 lineto
+88.359024 338.152893 lineto
+88.503433 363.467651 lineto
+88.58683 391.029266 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+2 setlinecap
+2 setlinewidth
+stroke
+grestore
+%%Trailer
+%%EndDocument
+~
+%%PageTrailer
+%%Trailer
+Adobe_IllustratorA_AI3 /terminate get exec
+
+Adobe_customcolor /terminate get exec
+
+Adobe_cshow /terminate get exec
+
+Adobe_cmykcolor /terminate get exec
+
+Adobe_packedarray /terminate get exec
+
+%%EOF

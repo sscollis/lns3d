@@ -1,0 +1,342 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Appendix 6
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 9-5-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Linearized Roughness Boundary Condition \label{a:bumpbc}}
+
+Figure~\ref{f:bump} shows a schematic of the geometry under consideration.  In
+this appendix, all lengths are nondimensionalized by a reference length-scale
+$L^*$ which is the local boundary layer thickness at the roughness location.
+This scaling leads to a meaningful perturbation expansion for small roughness
+heights.  When using the results of this appendix, care must be taken to
+properly convert the scaling for the problem at hand.  All other quantities,
+$u_j$ and $T$, have been nondimensionalized by some convenient reference
+values.
+
+The smooth wall is denoted by $n(s,z)=0$, where $s$ is the wall tangent
+coordinate, $n$ is the wall-normal coordinate, and $z$ is the spanwise
+coordinate.  Note that this is a standard body-fitted coordinate system with
+$n$ a straight-line coordinate normal to the surface.  The rough wall is
+obtained by adding a small, spanwise-periodic perturbation given by
+%
+\begin{equation} \label{e:bump.w}
+  n_w(s,z) = \ew h_w(s) e^{i \bw z}
+\end{equation}
+%
+where $\ew = \ew^* / L^* \ll 1$ is the scaled roughness height, $h_w$ is the
+streamwise shape function, and $\bw = \bw^* L^*$ is the spanwise wavenumber of
+the bump.  Note that we have limited the study to spanwise periodic roughness
+distributions.  Since the analysis is linear, the current results can be
+thought of as the response of the boundary layer to a single Fourier mode of a
+more complicated spanwise distribution.
+
+The no-slip and isothermal boundary conditions are applied on the perturbed
+surface
+%
+\begin{eqnarray} \label{e:bump.bc}
+  u_j(s,n_w,z) = 0 , \\ 
+  T(s,n_w,z) = T_w .
+\end{eqnarray}
+%
+Similar to the expansions used in section~\ref{s:linNS}, the flow variables
+are written as
+%
+\begin{eqnarray} \label{e:bump.var}
+    u_j(x_i) &=& \bar u_j(x_i) + \ew \tilde u_j(x_i) + 
+                 \O(\ew^2), \label{e:bump.u} \\
+      T(x_i) &=& \bar T(x_i)   + \ew \tilde T(x_i) +   
+                 \O(\ew^2), \label{e:bump.t}
+\end{eqnarray}
+%
+where perturbations are denoted with a tilde.
+
+Linearized boundary conditions, which can be applied at the unperturbed wall,
+are derived by expanding equations (\ref{e:bump.bc}) in a Taylor series about
+the undisturbed wall location.  This yields
+%
+\begin{eqnarray} \label{e:bump.taylor}
+  u_j(s,n_w,z) = 0 &=& u_j(s,0,z) + \ew h_w(s) e^{i \bw z} 
+                   \frac{\partial u_j}{\partial n}(s,0,z) + \O(\ew^2) \\
+    T(s,n_w,z) = T_w &=& T(s,0,z) + \ew h_w(s) e^{i \bw z} 
+                  \frac{\partial T}{\partial n}(s,0,z) + \O(\ew^2) .
+\end{eqnarray}
+%
+Then using equations (\ref{e:bump.var}) in equation (\ref{e:bump.taylor}) gives
+%
+\begin{eqnarray}
+  \bar u_j(s,0,z)   &=& 0, \\
+  \bar T(s,0,z)     &=& T_w, \\
+  \tilde u_j(s,0,z) &=& -h_w(s) e^{i \bw z} 
+                        \frac{\partial \bar u_j}{\partial n}(s,0,z), \\
+  \tilde T(s,0,z)   &=& -h_w(s) e^{i \bw z} 
+                        \frac{\partial \bar T}{\partial n}(s,0,z), 
+\end{eqnarray}
+%
+where only terms of $\O(\ew)$ have been retained.  The mean flow solution is
+obtained using homogeneous boundary conditions on the unperturbed surface
+while the disturbance boundary conditions are inhomogeneous and proportional
+to the local, mean-flow gradients normal to the surface.
+
+If instead of an isothermal boundary condition, a constant heat-flux condition
+is used then the derivation of the linearized boundary conditions is
+substantially more involved.  This is due to the fact that the normal
+direction used in determining the wall-normal temperature gradient must be
+defined relative to the perturbed surface:
+%
+\begin{equation}
+ \frac{\partial T}{\partial \tilde n}(s,n_w,z) = g_w
+\end{equation}
+%
+where $\tilde n$ is the perturbed normal direction and $g_w$ is the prescribed,
+constant heat-flux.  
+
+Since we wish to apply these conditions for an infinite-span wing, the
+derivation is limited to a two-dimensional cylinder.  To derive the proper
+linearized heat-flux boundary condition we begin by assuming that the
+unperturbed surface is parametrically described by the arc-length, $s$.  Thus,
+%
+\begin{equation}
+  (x, y) = ( f(s), g(s) ),
+\end{equation}
+%
+as shown in figure~\ref{f:bump}.  The unit tangent and normal vectors are then
+given, respectively, by
+%
+\begin{eqnarray}
+  \hat s = \frac{(f',g')}{\sqrt{f'^2 + g'^2}}  \comma \\
+  \hat n = \frac{(-g',f')}{\sqrt{f'^2 + g'^2}} \comma
+\end{eqnarray}
+%
+where primes denote differentiation with-respect-to $s$.  The perturbed
+surface is denoted by $(\tilde x, \tilde y)$ where
+%
+\begin{equation}
+  \tilde x(s,z) = f(s) - \ew h_w(s) e^{i \bw z} 
+                         \frac{g'}{\sqrt{f'^2 +g'^2}} \comma
+\end{equation}
+%
+\begin{equation}
+  \tilde y(s,z) = g(s) + \ew h_w(s) e^{i \bw z} 
+                         \frac{f'}{\sqrt{f'^2 +g'^2}} \period
+\end{equation}
+
+To construct the normal to the perturbed surface we begin by defining two
+vectors which are tangent to the surface.  For this, we need derivatives of
+$\tilde x$ and $\tilde y$ with respect to $s$ and $z$.
+%
+\begin{equation}
+  \frac{\partial \tilde x}{\partial s} = f' - \frac{\ew \e^{i\bw z}}
+  {\sqrt{f'^2 +g'^2}} \left[ h'_w g' + h_w \left\{ g'' - 
+  \frac{g'(f'f'' + g'g'')}{(f'^2 +g'^2)} \right\} \right] \comma
+\end{equation}
+%
+\begin{equation}
+  \frac{\partial \tilde y}{\partial s} = g' - \frac{\ew \e^{i\bw z}}
+  {\sqrt{f'^2 +g'^2}} \left[ h'_w f' + h_w \left\{ f'' - 
+  \frac{f'(f'f'' + g'g'')}{(f'^2 +g'^2)} \right\} \right] \comma
+\end{equation}
+%
+\begin{equation}
+  \frac{\partial \tilde x}{\partial z} = -\ew h_w i 
+  \bw e^{i \bw z} \frac{g'}{\sqrt{f'^2 +g'^2}} \comma
+\end{equation}
+%
+\begin{equation}
+  \frac{\partial \tilde y}{\partial z} = \ew h_w i 
+  \bw e^{i \bw z} \frac{f'}{\sqrt{f'^2 +g'^2}} \comma
+\end{equation}
+%
+In the following derivation, these expressions are abbreviated to
+%
+\begin{eqnarray}
+  \tilde x_{,s} &=& f' + \ew A \comma \label{e:shortxs} \\
+  \tilde y_{,s} &=& g' + \ew B \comma \label{e:shortys} \\
+  \tilde x_{,z} &=& \ew C      \comma \label{e:shortxz} \\
+  \tilde y_{,z} &=& \ew D      \comma \label{e:shortyz}
+\end{eqnarray}
+%
+where $A$, $B$, $C$, and $D$ are complex functions of $(s,z)$.
+
+Using these abbreviated expressions, two vectors, each tangent to the
+perturbed surface, can be defined as
+%
+\begin{equation} 
+S_{xy} = \left\{
+\begin{array}{c}
+\tilde x_{,s} \\ \tilde y_{,s} \\ 0
+\end{array}
+\right\}  \qquad {\rm and} \qquad
+Z_{xy} = \left\{
+\begin{array}{c}
+\tilde x_{,z} \\ \tilde y_{,z} \\ 1
+\end{array}
+\right\} \period
+\end{equation}
+%
+The perturbed normal vector is then given by the cross product, $\tilde n =
+S_{xy} \times Z_{xy}$ which is found to be
+%
+\begin{equation}
+\tilde n = \left\{
+\begin{array}{c}
+-\tilde y^\dagger_{,s} \\ \tilde x^\dagger_{,s} \\ 
+(\tilde x^\dagger_{,z} \tilde y^\dagger_{,s} - 
+ \tilde x^\dagger_{,s} \tilde y^\dagger_{,z})
+\end{array}
+\right\} \period
+\end{equation}
+%
+Rewriting the normal vector using equations (\ref{e:shortxs}-\ref{e:shortyz})
+yields
+%
+\begin{equation}
+\tilde n = \left\{
+\begin{array}{c}
+-(g' + \ew B^\dagger) \\ 
+ (f' + \ew A^\dagger) \\ 
+\ew \left[ C^\dagger (g' + \ew B^\dagger) - 
+             D^\dagger (f' + \ew A^\dagger) \right]
+\end{array}
+\right\} \period
+\end{equation}
+%
+The normalization of this vector requires the quantity $1/|\tilde n|$, which,
+when expanded for small $\ew$, is given by
+%
+\begin{equation}
+  \frac{1}{|\tilde n|} = \overbrace{\frac{1}{\sqrt{f'^2 + g'^2}}}^E \: + \:
+                         \ew \overbrace{\frac{-( f' A_r + g' B_r )}
+			 {(f'^2 + g'^2)^{3/2}}}^F \: + \: \O(\epsilon^2_w)
+\end{equation}
+%
+where the terms $E$ and $F$ have been defined to simplify the notation.  Using
+this expression to normalize $\tilde n$ and expanding the result in powers of
+$\ew$ leads to
+%
+\begin{equation}
+\frac{\tilde n}{|\tilde n|} = \left\{
+\begin{array}{c}
+-g' E - \ew (g' F + B^\dagger E) \\ 
+ f' E + \ew (f' F + A^\dagger E) \\ 
+\ew ( C^\dagger g' - D^\dagger f' )
+\end{array}
+\right\} \: + \: \O(\epsilon^2_w) \period
+\end{equation}
+%
+Projecting this vector onto the undisturbed tangent and normal vectors yields
+the following expression
+%
+\begin{eqnarray}
+\frac{\tilde n}{|\tilde n|} &=& 
+    -\ew \frac{h'_w e^{-i \bw z}}{f'^2 + g'^2} \: \hat s +
+    \left\{ 1 - \ew i h_w \sin(\bw z) 
+    \frac{g'f''-f'g''}{(f'^2 + g'^2)^{3/2}} \right\} \: \hat n +  \nonumber \\
+& & \ew i h_w \bw e^{-i \bw z} \: \hat z \ + \ \O(\ew^2) \period
+\end{eqnarray}
+%
+For convenience, this expression is rewritten using the shorthand notation
+%
+\begin{equation}
+\frac{\tilde n}{|\tilde n|} = 
+    \ew \tilde n_s \hat s +
+    \left\{ 1 + \ew \tilde n_n \right\} \hat n +
+    \ew \tilde n_z \hat z \ + \ \O(\ew^2) \period
+\end{equation}
+
+We can now evaluate the temperature gradient in the perturbed normal-direction
+$\partial T / \partial \tilde n$ in terms of the gradients normal and tangent
+to the original body,
+%
+\begin{equation}
+\frac{\partial T}{\partial \tilde n} = 
+  \ew \tilde n^\dagger_s \frac{\partial T}{\partial s} +
+  (1 + \ew \tilde n^\dagger_n) \frac{\partial T}{\partial n} +
+  \ew \tilde n^\dagger_z \frac{\partial T}{\partial z} \ + \ 
+  \O(\ew^2) \period
+\end{equation}
+%
+To evaluate this gradient at $n=n_w$, derivatives are expanded in a Taylor
+series about $n=0$.  Using equation (\ref{e:bump.t}) and collecting terms of
+equal order in $\ew$ yields
+%
+\begin{equation}
+  \frac{\partial \bar T}{\partial n}(s,0,z) = q_w \comma
+\end{equation}
+%
+\begin{eqnarray}
+  \frac{\partial \tilde T}{\partial n}(s,0,z) &=& 
+      -\tilde n^\dagger_s \frac{\partial \bar T}{\partial s}(s,0,z) -
+       \tilde n^\dagger_n \frac{\partial \bar T}{\partial n}(s,0,z) - 
+  \nonumber\\
+   & & h_w e^{i \bw z} \frac{\partial^2 \bar T}{\partial n^2}(s,0,z) -
+       \tilde n^\dagger_z \frac{\partial \bar T}{\partial z}(s,0,z) \period
+\end{eqnarray}
+%
+Writing this expression out in full results in
+%
+\begin{eqnarray} \label{e:bump.tn}
+  \frac{\partial \tilde T}{\partial n}(s,0,z) &=& 
+         \frac{h'_w e^{i \bw z}}{f'^2 + g'^2} 
+         \frac{\partial \bar T}{\partial s}(s,0,z)  - \nonumber \\
+     & & i h_w \sin(\bw z)\frac{g'f''-f'g''}{(f'^2 + g'^2)^{3/2}}
+         \frac{\partial \bar T}{\partial n}(s,0,z) - \nonumber \\
+     & & h_w e^{i \bw z} \frac{\partial^2 \bar T}{\partial n^2}(s,0,z) +
+         i h_w \bw e^{i \bw z}
+         \frac{\partial \bar T}{\partial z}(s,0,z) \period
+\end{eqnarray}
+
+Equation (\ref{e:bump.tn}) is valid for any two-dimensional body with a small,
+spanwise periodic perturbation.  For all the cases considered here, $\partial
+\bar T/\partial z = 0$ so that the last term can be ignored.  From the general
+expression, several special cases follow directly:
+
+\medskip
+\noindent{\it Two-dimensional disturbance: $\bw = 0$}
+
+\begin{eqnarray} \label{e:2dtn}
+  \frac{\partial \tilde T}{\partial n}(s,0,z) &=& 
+         \frac{h'_w}{f'^2 + g'^2} 
+         \frac{\partial \bar T}{\partial s}(s,0,z) - 
+	 h_w \frac{\partial^2 \bar T}{\partial n^2}(s,0,z) \comma
+\end{eqnarray}
+
+\medskip
+\noindent{\it Flat Plate}
+
+\begin{eqnarray} \label{e:fptn}
+  \frac{\partial \tilde T}{\partial n}(s,0,z) &=& 
+         h'_w e^{i \bw z} 
+         \frac{\partial \bar T}{\partial s}(s,0,z)  -
+         h_w e^{i \bw z} \frac{\partial^2 \bar T}{\partial n^2}(s,0,z) \comma
+\end{eqnarray}
+
+\medskip
+\noindent{\it Flat Plate with parallel flow assumption}
+
+\begin{eqnarray} \label{e:fpptn}
+  \frac{\partial \tilde T}{\partial n}(s,0,z) &=& 
+          - h_w e^{i \bw z} \frac{\partial^2 \bar T}{\partial n^2}(s,0,z) 
+  \period
+\end{eqnarray}
+
+%==============================================================================
+%
+%  Tables and Figures
+%
+%==============================================================================
+
+\begin{figure}[p]
+\centering
+\epsfxsize=4.0in \epsfbox{figures/ap6/bump.ai}
+\caption [Schematic of surface roughness geometry]{Schematic of surface
+roughness geometry. Note that the height of the bump is exaggerated for
+clarity. \label{f:bump}}
+\end{figure}
+

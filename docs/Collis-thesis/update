@@ -1,0 +1,15 @@
+#!/bin/csh -f
+#
+#.... This script finds Latex files in the current directory that have
+#.... been modified within the last 24 hours, tars then, and compresses them
+#.... so that they can be updated on other systems.
+#
+#.... Author: Scott Collis
+#
+#.... Revised: 9-9-96
+#
+echo "Forming update.tar..."
+tar -cvf update.tar `find . -newer .start \( -name '*.tex' -o -name '*.eps' -o -name '*.ai' -o -name '*.mac' -o -name '*.bib' -o -name '*.sty' \) -print`
+echo "Compressing update.tar..."
+compress -f update.tar
+

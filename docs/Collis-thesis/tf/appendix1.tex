@@ -1,0 +1,810 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Appendix 1
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 7-18-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\dlm}{{\left(\frac{d\lambda}{dT}\right)_{T}}
+%\newcommand{\dmu}{{\left(\frac{d\mu}{dT}\right)_{ T}}}
+%\newcommand{\dcon}{{\left(\frac{d\kappa}{dT}\right)_{T}}}
+%
+%\newcommand{\dlm}{\frac{d\lambda}{dT}}
+%\newcommand{\dmu}{\frac{d\mu}{dT}}
+%\newcommand{\dcon}{\frac{d\kappa}{dT}}
+%
+\newcommand{\dlm}{\lambda_{,T}}
+\newcommand{\dmu}{\mu_{,T}}
+\newcommand{\dcon}{\kappa_{,T}}
+%
+\newcommand{\fact}{{\frac{1}{\rho\Re}}}
+\newcommand{\divu}{{u_{i,i}}}
+\newcommand{\gammam}{(\gamma-1)}
+\newcommand{\ff}{{\frac{\gamma(\gamma-1)\M^2}{\rho\Re}}}
+%
+\newcommand{\vvss}{v_{s,s}}
+\newcommand{\vsss}{v_{s,ss}}
+\newcommand{\vssn}{v_{s,sn}}
+\newcommand{\vssz}{v_{s,sz}}
+\newcommand{\vsn}{v_{s,n}}
+\newcommand{\vsnn}{v_{s,nn}}
+\newcommand{\vsz}{v_{s,z}}
+\newcommand{\vszz}{v_{s,zz}}
+%
+\newcommand{\vns}{v_{n,s}}
+\newcommand{\vnss}{v_{n,ss}}
+\newcommand{\vnsn}{v_{n,sn}}
+\newcommand{\vnsz}{v_{n,sz}}
+\newcommand{\vnn}{v_{n,n}}
+\newcommand{\vnnn}{v_{n,nn}}
+\newcommand{\vnnz}{v_{n,nz}}
+\newcommand{\vnz}{v_{n,z}}
+\newcommand{\vnzz}{v_{n,zz}}
+%
+\newcommand{\ws}{w_{,s}}
+\newcommand{\wss}{w_{,ss}}
+\newcommand{\wsn}{w_{,sn}}
+\newcommand{\wsz}{w_{,sz}}
+\newcommand{\wn}{w_{,n}}
+\newcommand{\wnn}{w_{,nn}}
+\newcommand{\wnz}{w_{,nz}}
+\newcommand{\wz}{w_{,z}}
+\newcommand{\wzz}{w_{,zz}}
+%
+\newcommand{\Ts}{T_{,s}}
+\newcommand{\Tn}{T_{,n}}
+\newcommand{\Tz}{T_{,z}}
+\newcommand{\Tss}{T_{,ss}}
+\newcommand{\Tnn}{T_{,nn}}
+\newcommand{\Tzz}{T_{,zz}}
+%
+\newcommand{\hn}{h_{,n}}
+\newcommand{\hs}{h_{,s}}
+\newcommand{\hhss}{h_{,ss}}
+\newcommand{\hsn}{h_{,sn}}
+\newcommand{\hnn}{h_{,nn}}
+%
+\newcommand{\ffh}{{\frac{\gamma(\gamma-1)\M^2}{\rho h \Re}}}
+\newcommand{\facth}{{\frac{1}{\rho h \Re}}}
+\newcommand{\bc}{{\bf c}}
+%
+%=============================================================================
+%
+\chapter{Matrix Definitions}
+
+\section[Matrices for the Linearized Navier--Stokes Equations]{Matrices 
+for the Linearized \protect\\ Navier--Stokes Equations \label{s:linmat}}
+
+The following appendix lists the nonzero elements of the matrices defined in
+\S\ref{s:linNS} for the linearized Navier--Stokes equations.  All terms
+are evaluated at the base-flow condition, $\bU = \bar\bU$.
+
+\bigskip
+\noindent{\fbox{$\bA$ matrix}}
+%
+\begin{eqnarray} 
+  A_{11} &=&  u_1 \\
+  A_{12} &=& \rho \\
+%
+  A_{21} &=& \frac{ T}{ \rho \gamma \M^2} \\
+  A_{22} &=&  u_1 -\fact\left(\lambda_{,1} + 
+              2 \mu_{,1}\right) \\
+  A_{23} &=& -\fact\left(\mu_{,2}\right) \\
+  A_{24} &=& -\fact\left(\mu_{,3}\right) \\
+  A_{25} &=& \frac{1}{\gamma \M^2} - 
+             \fact\left(\dlm \divu + 2 \dmu  S_{11} \right ) \\
+%
+  A_{32} &=& -\fact\lambda_{,2} \\
+  A_{33} &=&  u_1 - \fact\mu_{,1} \\
+  A_{35} &=& -2\fact\dmu S_{21} \\
+%
+  A_{42} &=& -\fact\lambda_{,3} \\
+  A_{44} &=&  u_1 -\fact\mu_{,1} \\
+  A_{45} &=& -2\fact\dmu S_{31} \\
+%
+  A_{52} &=& \gammam T - \ff\left(2\lambda\divu + 
+                                  4\mu S_{11}\right) \\
+  A_{53} &=& -\ff\left(4\mu S_{21}\right) \\
+  A_{54} &=& -\ff\left(4\mu S_{31}\right) \\
+  A_{55} &=&  u_1 - 
+             \frac{\gamma}{\rho\Pr\Re}\left( \kappa_{,1} + 
+             \dcon  T_{,1} \right)
+\end{eqnarray}
+\bigskip
+\noindent{\fbox{$\bB$ matrix}}
+%
+\begin{eqnarray} 
+  B_{11} &=&  u_2 \\
+  B_{13} &=& \rho \\
+%
+  B_{22} &=&  u_2 - \fact\mu_{,2}  \\
+  B_{23} &=& -\fact\lambda_{,1}\\
+  B_{25} &=& -2\fact\dmu S_{12} \\
+%
+  B_{31} &=& \frac{ T}{\rho\gamma \M^2} \\
+  B_{32} &=& -\fact\left(\mu_{,1}\right) \\
+  B_{33} &=&  u_2 -\fact\left(\lambda_{,2} + 
+             2 \mu_{,2}\right) \\
+  B_{34} &=& -\fact\left(\mu_{,3}\right) \\
+  B_{35} &=& \frac{1}{\gamma \M^2} - 
+             \fact\left(\dlm \divu + 2 \dmu  S_{22} \right ) \\
+%
+  B_{43} &=& -\fact\lambda_{,3} \\
+  B_{44} &=&  u_2 -\fact\mu_{,2} \\
+  B_{45} &=& -2\fact\dmu S_{32} \\
+%
+  B_{52} &=& -\ff\left(4\mu S_{12}\right) \\
+  B_{53} &=& \gammam T - \ff\left(2\lambda\divu + 4\mu S_{22}\right) \\
+  B_{54} &=& -\ff\left(4\mu S_{32}\right) \\
+  B_{55} &=&  u_2  - 
+             \frac{\gamma}{\rho\Pr\Re}\left( \kappa_{,2} + 
+             \dcon  T_{,2} \right)
+\end{eqnarray}
+\bigskip
+\noindent{\fbox{$\bC$ matrix}}
+%
+\begin{eqnarray} 
+  C_{11} &=&  u_3 \\
+  C_{13} &=& \rho \\
+%
+  C_{22} &=&  u_3 - \fact\mu_{,3}  \\
+  C_{24} &=& -\fact\lambda_{,1}\\
+  C_{25} &=& -2\fact\dmu S_{13} \\
+%
+  C_{33} &=&  u_3 -\fact\mu_{,3} \\
+  C_{34} &=& -\fact\lambda_{,2} \\
+  C_{35} &=& -2\fact\dmu S_{23} \\
+%
+  C_{41} &=& \frac{ T}{\rho\gamma \M^2} \\
+  C_{42} &=& -\fact\left(\mu_{,1}\right) \\
+  C_{43} &=& -\fact\left(\mu_{,2}\right) \\
+  C_{44} &=&  u_3 -\fact\left(\lambda_{,3} + 
+             2\mu_{,3}\right) \\
+  C_{45} &=& \frac{1}{\gamma \M^2} - 
+             \fact\left(\dlm \divu + 2\dmu S_{33} \right ) \\
+%
+  C_{52} &=& -\ff\left(4\mu S_{13}\right) \\
+  C_{53} &=& -\ff\left(4\mu S_{23}\right) \\
+  C_{54} &=& \gammam T - \ff\left(2\lambda\divu + 4\mu S_{33}\right) \\
+  C_{55} &=&  u_3 - 
+             \frac{\gamma}{\rho\Pr\Re}\left( \kappa_{,3} + 
+             \dcon  T_{,3} \right)
+\end{eqnarray}
+\bigskip
+\noindent{\fbox{$\bD$ matrix}}
+%
+\begin{eqnarray} 
+  D_{11} &=& \divu \\
+  D_{12} &=& \rho_{,1} \\
+  D_{13} &=& \rho_{,2} \\
+  D_{14} &=& \rho_{,3} \\
+%
+  D_{21} &=& \frac{1}{\rho} \left[ u_{i}  u_{1,i} + 
+              \frac{T_{,1}}{\gamma \M^2} \right]\\
+  D_{22} &=&  u_{1,1}  \\
+  D_{23} &=&  u_{1,2}  \\
+  D_{24} &=&  u_{1,3}  \\
+  D_{25} &=& \frac{\rho_{,1}}{\rho \gamma \M^2} - 
+             \fact\Bigg\{ \left[\dlm\right]_{,1} \divu + \dlm  u_{i,i1} +
+	     \nonumber \\
+         & & 2\left[\dmu\right]_{,i}  S_{1i} + 2\dmu  S_{1i,i}\Bigg\} \\
+%
+  D_{31} &=& \frac{1}{\rho} \left[  u_{i}  u_{2,i} + 
+             \frac{T_{,2}}{\gamma \M^2} \right]\\
+  D_{32} &=&  u_{2,1}  \\
+  D_{33} &=&  u_{2,2}  \\
+  D_{34} &=&  u_{2,3}  \\
+  D_{35} &=& \frac{\rho_{,2}}{\rho \gamma \M^2} - 
+             \fact\Bigg\{ \left[\dlm\right]_{,2} \divu + \dlm  u_{i,i2} +
+	     \nonumber \\
+         & &  2\left[\dmu\right]_{,i}  S_{2i} + 2\dmu  S_{2i,i}\Bigg\} \\
+%
+  D_{41} &=& \frac{1}{\rho} \left[  u_{i}  u_{3,i} + 
+             \frac{T_{,3}}{\gamma \M^2} \right]\\
+  D_{42} &=&  u_{3,1}  \\
+  D_{43} &=&  u_{3,2}  \\
+  D_{44} &=&  u_{3,3}  \\
+  D_{45} &=& \frac{\rho_{,3}}{\rho \gamma \M^2} - 
+             \fact\Bigg\{ \left[\dlm\right]_{,3} \divu + \dlm  u_{i,i3} +
+	     \nonumber \\
+         & & 2\left[\dmu\right]_{,i}  S_{3i} + 2\dmu  S_{3i,i} \Bigg\} \\
+%
+  D_{51} &=& \frac{1}{\rho} \left( u_{i}  T_{,i} + 
+             \gammam T \divu \right) \\
+  D_{52} &=&  T_{,1} \\
+  D_{53} &=&  T_{,2} \\
+  D_{54} &=&  T_{,3} \\
+  D_{55} &=& \gammam \divu - \frac{\gamma}{\rho\Pr\Re} \left\{ 
+             \left[\dcon\right]_{,i} T_{,i} + \dcon  T_{,ii} \right\} - 
+             \nonumber \\
+	 & & \ff \left\{ \dlm  u_{i,i}  u_{j,j} + 
+                        2 \dmu  S_{ij}  S_{ij} \right\}
+\end{eqnarray}
+\bigskip
+\noindent{\fbox{$\bVxx$ matrix}}
+%
+\begin{eqnarray} 
+  V_{22} &=& (\lambda + 2 \mu) / (\rho \Re) \\
+  V_{33} &=& \mu / (\rho \Re) \\
+  V_{44} &=& \mu / (\rho \Re) \\
+  V_{55} &=& \gamma\kappa / (\rho \Pr \Re)
+\end{eqnarray}
+\bigskip
+\noindent{\fbox{$\bVxy$ matrix}}
+%
+\begin{eqnarray} 
+  V_{23} &=& (\lambda + \mu) / (\rho \Re) \\
+  V_{32} &=& (\lambda + \mu) / (\rho \Re)
+\end{eqnarray}
+\bigskip
+\noindent{\fbox{$\bVxz$ matrix}}
+%
+\begin{eqnarray} 
+  V_{24} &=& (\lambda + \mu) / (\rho \Re) \\
+  V_{42} &=& (\lambda + \mu) / (\rho \Re)
+\end{eqnarray}
+
+\pagebreak
+\noindent{\fbox{$\bVyy$ matrix}}
+%
+\begin{eqnarray} 
+  V_{22} &=& \mu / (\rho \Re) \\
+  V_{33} &=& (\lambda + 2 \mu) / (\rho \Re) \\
+  V_{44} &=& \mu / (\rho \Re) \\
+  V_{55} &=& \gamma\kappa / (\rho \Pr \Re)
+\end{eqnarray}
+\noindent{\fbox{$\bVyz$ matrix}}
+%
+\begin{eqnarray} 
+  V_{34} &=& (\lambda + \mu) / (\rho \Re) \\
+  V_{43} &=& (\lambda + \mu) / (\rho \Re)
+\end{eqnarray}
+\bigskip
+\noindent{\fbox{$\bVzz$ matrix}}
+%
+\begin{eqnarray} 
+  V_{22} &=& \mu / (\rho \Re) \\
+  V_{33} &=& \mu / (\rho \Re) \\
+  V_{44} &=& (\lambda + 2 \mu) / (\rho \Re) \\
+  V_{55} &=& \gamma\kappa / (\rho \Pr \Re)
+\end{eqnarray}
+
+%=============================================================================
+
+\pagebreak
+\section[Matrices for the Nonlinear Navier--Stokes Equations]{Matrices 
+for the Nonlinear \protect\\ Navier--Stokes Equations \label{a:nlinmat}}
+
+When forming the LHS for the nonlinear solver, the matrices are the same as
+given in Appendix~\ref{s:linmat} except that instead of evaluating them at
+$\bar\bU$, they are evaluated at the previous iteration, $\bU_{i}$.  In
+addition, since the nonlinear solver is linearized at each iteration about an
+unsteady flow field the unsteady terms must be retained in the LHS.  These
+terms only influence the definition of the $\bD$ matrix and the altered terms
+are
+
+\bigskip
+\noindent{\fbox{Nonlinear $\bD$ matrix}}
+%
+\begin{eqnarray} 
+  D_{21} &=& \frac{1}{\rho} \Bigg[ \frac{ T_{,1}}{\gamma \M^2} -
+             \frac{ p_{,1}}{\rho} + 
+             \fact\big( \lambda_{,1} \divu + \lambda  u_{i,i1} + 
+             2\mu_{,1}  S_{1i} + 2\mu  S_{1i,i}\big) \Bigg] \\[0.1in]
+  D_{31} &=& \frac{1}{\rho} \Bigg[ \frac{ T_{,2}}{\gamma \M^2} -
+             \frac{ p_{,2}}{\rho} + 
+             \fact\big( \lambda_{,2} \divu + \lambda  u_{i,i2} + 
+             2\mu_{,2}  S_{2i} + 2\mu  S_{2i,i}\big) \Bigg] \\[0.1in]
+  D_{41} &=& \frac{1}{\rho} \Bigg[ \frac{ T_{,3}}{\gamma \M^2} -
+             \frac{ p_{,3}}{\rho} + 
+             \fact\big( \lambda_{,3} \divu + \lambda  u_{i,i3} + 
+             2\mu_{,3}  S_{3i} + 2\mu  S_{3i,i}\big) \Bigg] \\[0.1in]
+  D_{51} &=& \frac{\gamma}{\rho\Pr\Re} \left( \kappa_{,i} 
+              T_{,i} + \kappa  T_{,ii} \right) + 
+	     \frac{\gamma(\gamma-1)\M^2}{\rho^2\Re} 
+	     \left( \lambda  u_{i,i} 
+	      u_{j,j} + 2 \mu  S_{ij}  S_{ij} \right)
+\end{eqnarray}
+
+%=============================================================================
+
+\pagebreak
+\section[Matrices for the Linearized Navier--Stokes Equations with 
+\protect\\ Surface Curvature]{Matrices for the Linearized \protect\\ 
+Navier--Stokes Equations with \protect\\ Surface Curvature 
+\label{a:curvmat}}
+
+This appendix lists the nonzero elements of the matrices defined in equation
+(\ref{e:cNS}) for the linearized Navier--Stokes equations in a body-fitted
+coordinate system.  These matrices are used in Appendices \ref{a:LST} and
+\ref{a:FRNT} to construct a linear stability theory and receptivity theory
+which account for surface curvature.  We begin by defining the values of
+several operators which appear in the linearized Navier--Stokes equations for
+the case where the only nontrivial metric, $h(s,n)$, is in the $s$-direction.
+These operators are defined with reference to Appendix A of Sherman
+\cite{Sherman:90}.
+
+The divergence operator can be written as
+%
+\renewcommand{\divu}{{\nabla \cdot \bu}}
+%
+\begin{equation}
+  \divu = \frac{1}{h}( \vvss + \vn \hn ) + \vnn + \wz \period
+\end{equation}
+%
+The strain-rate tensor, required for the viscous terms, is given by
+%
+\begin{equation}
+  \bS = \frac{1}{2} \left[\matrix{ \frac{2}{h}(\vvss + \vn\hn) &
+        \frac{1}{h}(\vns - \vs\hn) + \vsn & \frac{\wsn}{h} + \vsz \cr
+        & 2 \vnn & w_{,n} + \vnz \cr
+        {\rm sym}& & 2 w_{,z} } \right] \period
+\end{equation}
+%
+The convective derivative in the body-fitted coordinate system is given by the
+vector
+%
+\begin{equation}
+  \bc = (\bu \cdot \nabla) \bu  = 
+       \left\{ \matrix{ \frac{\vs}{h}(\vvss + \vn\hn) + \vn\vsn + w\vsz \cr
+                        \frac{\vs}{h}(\vns - \vs\hn) + \vn\vnn + w\vnz \cr
+                        \frac{\vs \ws}{h} + \vn\wn + w\wz } \right\} \period
+\end{equation}
+%
+The gradient of the divergence is required for the viscous terms, and the
+three components are
+%
+\begin{eqnarray}
+ \nabla_s (\nabla \cdot \bu) &=& -\frac{\hs}{h^3}(\vvss + \vn\hn) + 
+                                 \frac{1}{h^2}(\vsss + \vns\hn + \vn\hsn) +
+				 \nonumber \\
+                             & & \frac{1}{h}(\vnsn + \wsz) \comma
+\end{eqnarray}
+%
+\begin{eqnarray}
+  \nabla_n (\nabla \cdot \bu) &=& -\frac{\hn}{h^2}(\vvss + \vn\hn) + 
+                                   \frac{1}{h}(\vssn + \vnn\hn + \vn\hnn) +
+				   \nonumber \\
+                              & &  (\vnnn + \wnz) \comma
+\end{eqnarray}
+%
+\begin{equation}
+  \nabla_z (\nabla \cdot \bu) = \frac{1}{h}(\vssz + \vnz\hn) + 
+                                (\vnnz + \wzz) \period
+\end{equation}
+%
+The Laplacian of the temperature is required in the energy equation, and can
+be written as
+%
+\begin{equation}
+  \nabla^2 T = \frac{1}{h^3} \left[ -\hs\Ts + h \Tss + 
+                                  h^2 \Tn\hn + h^3 (\Tnn + \Tzz) 
+                             \right] \period
+\end{equation}
+%
+The final quantity required is the divergence of the strain-rate tensor, which
+is a vector with components
+%
+\begin{eqnarray}
+(\nabla \cdot \bS)_s &=& \frac{\vsnn+\vszz}{2} +
+                         \frac{\vnsn+\vnsz+\vsn\hn}{2h} + \nonumber \\
+		     & & \frac{3\hn\vns-\vs(\hn^2 + \hnn h)+2\vsss}{2 h^2} +
+			 \nonumber \\
+                     & & \frac{\vn(h\hsn - \hn\hs) - \hs\vvss}{h^3} \comma
+\end{eqnarray}
+%
+\begin{eqnarray}
+(\nabla \cdot \bS)_n &=& \frac{\vnzz + \wnz + 2\vnnn}{2} + 
+			 \frac{\vssn + 2\hn\vnn}{2h} + \nonumber\\[0.05in]
+		     & & \frac{\vnss - 3\hn\vvss - 2\vn\hn^2}{2h^2} +
+			 \nonumber \\ 
+                     & & \frac{\vs(\hn\hs - h\hsn) - \hs\vns}{2h^3} \comma
+\end{eqnarray}
+%
+\begin{eqnarray}
+(\nabla \cdot \bS)_z &=& \frac{2\wzz + \vnnz + \wnn}{2} +
+ 			 \frac{\vssz+\hn\vnz+\hn\wn}{2h} + \nonumber \\
+		     & & \frac{\wss}{2h^2} - 
+		         \frac{\hs\ws}{2h^3} \period
+\end{eqnarray}
+%
+With these definitions, the matrix operators for the linearized Navier--Stokes
+equations are listed below, where all terms are evaluated at the base-flow
+condition, $\bU = \bar\bU$.  
+
+\pagebreak
+\noindent{\fbox{$\bA$ matrix}}
+%
+\begin{eqnarray} 
+  A_{11} &=& \vs / h \\
+  A_{12} &=& \rho / h \\
+%
+  A_{21} &=& \frac{ T}{\rho \gamma \M^2 h} \\
+  A_{22} &=& \frac{\vs}{h} - 
+             \facth\left( \frac{\lambda_{,s} + 2 \mu_{,s}}{h} - 
+             \frac{(\lambda + 2\mu)\hs}{h^2} \right) \\
+  A_{23} &=& -\facth\left( \mu_{,n} + 
+             \frac{(\lambda + 3\mu)\hn}{h} \right) \\
+  A_{24} &=& -\facth\left( \mu_{,z} \right) \\
+  A_{25} &=& \frac{1}{\gamma h \M^2} - \facth \left( \dlm \divu + 
+             2 \dmu S_{11} \right) \\
+%
+  A_{32} &=& -\facth \left( \lambda_{,n} - 
+                           \frac{(\lambda + 3\mu)\hn}{h} \right) \\
+  A_{33} &=& \vs / h - \facth\left( \frac{\mu_{,s}}{h} - 
+                                   \frac{\mu\hs}{h^2} \right) \\
+  A_{35} &=& -2\facth\dmu S_{21} \\
+%
+  A_{42} &=& -\facth\lambda_{,z} \\
+  A_{44} &=&  \vs / h - \facth\left( \frac{\mu_{,s}}{h} - 
+                                     \frac{\mu\hs}{h^2} \right) \\
+  A_{45} &=& -2\facth\dmu S_{31} \\
+%
+  A_{52} &=& \gammam T / h - \ffh\left(2\lambda\divu + 
+                                      4\mu S_{11}\right) \\
+  A_{53} &=& -\ffh\left(4\mu S_{21}\right) \\
+  A_{54} &=& -\ffh\left(4\mu S_{31}\right) \\
+  A_{55} &=& \vs / h - 
+             \frac{\gamma}{\rho h \Pr\Re}\left( \frac{\kappa_{,s} + 
+             \dcon T_{,s}}{h} - \frac{\kappa\hs}{h^2} \right)
+\end{eqnarray}
+
+\pagebreak
+\noindent{\fbox{$\bB$ matrix}}
+%
+\begin{eqnarray} 
+  B_{11} &=& \vn \\
+  B_{13} &=& \rho \\
+%
+  B_{22} &=& \vn - \facth\left( h \mu_{,n} + \mu \hn \right) \\
+  B_{23} &=& -\fact\frac{\lambda_{,s}}{h} \\
+  B_{25} &=& -2\fact\dmu S_{12} \\
+%
+  B_{31} &=& \frac{ T}{\rho\gamma \M^2} \\
+  B_{32} &=& -\facth \mu_{,s} \\
+  B_{33} &=& \vn -\fact\left( \lambda_{,n} + \frac{\lambda \hn}{h} + 
+             2 \mu_{,n} + \frac{2 \mu \hn}{h} \right) \\
+  B_{34} &=& -\fact\mu_{,z} \\
+  B_{35} &=& \frac{1}{\gamma \M^2} - 
+             \fact\left(\dlm \divu + 2 \dmu S_{22} \right ) \\
+%
+  B_{43} &=& -\fact\lambda_{,z} \\
+  B_{44} &=& \vn - \fact\left( \mu_{,n} + \frac{\mu \hn}{h} \right) \\
+  B_{45} &=& -2 \fact\dmu S_{32} \\
+%
+  B_{52} &=& -\ff\left(4\mu S_{12}\right) \\
+  B_{53} &=& \gammam T - \ff\left(2\lambda\divu + 4\mu S_{22}\right) \\
+  B_{54} &=& -\ff\left(4\mu S_{32}\right) \\
+  B_{55} &=& \vn - 
+             \frac{\gamma}{\rho\Pr\Re}\left( \kappa_{,n} + 
+             \dcon T_{,n} + \frac{\kappa \hn}{h} \right)
+\end{eqnarray}
+
+\pagebreak
+\noindent{\fbox{$\bC$ matrix}}
+%
+\begin{eqnarray} 
+  C_{11} &=& w \\
+  C_{13} &=& \rho \\
+%
+  C_{22} &=&  w - \fact\mu_{,z}  \\
+  C_{24} &=& -\facth\lambda_{,s}\\
+  C_{25} &=& -2\fact\dmu S_{13} \\
+%
+  C_{33} &=&  w - \fact\mu_{,z} \\
+  C_{34} &=& -\fact\lambda_{,n} \\
+  C_{35} &=& -2\fact\dmu S_{23} \\
+%
+  C_{41} &=& \frac{T}{\rho\gamma \M^2} \\
+  C_{42} &=& -\facth\left(\mu_{,s}\right) \\
+  C_{43} &=& -\fact\left( \frac{(\lambda + \mu)\hn}{h} + \mu_{,n}\right) \\
+  C_{44} &=&  w - \fact\left(\lambda_{,z} + 2\mu_{,z}\right) \\
+  C_{45} &=& \frac{1}{\gamma \M^2} - 
+             \fact\left(\dlm \divu + 2\dmu S_{33} \right ) \\
+%
+  C_{52} &=& -\ff\left(4\mu S_{13}\right) \\
+  C_{53} &=& -\ff\left(4\mu S_{23}\right) \\
+  C_{54} &=& \gammam T - \ff\left(2\lambda\divu + 4\mu S_{33}\right) \\
+  C_{55} &=& w - 
+             \frac{\gamma}{\rho\Pr\Re}\left( \kappa_{,z} + 
+             \dcon T_{,z} \right)
+\end{eqnarray}
+
+\pagebreak
+\noindent{\fbox{$\bD$ matrix}}
+%
+\begin{eqnarray} 
+  D_{11} &=& \divu \\
+  D_{12} &=& \rho_{,s} / h \\
+  D_{13} &=& \rho_{,n} + \rho \hn / h \\
+  D_{14} &=& \rho_{,z} \\
+%
+  D_{21} &=& \frac{1}{\rho} \left[ \bc_1 + 
+             \frac{T_{,s}}{\gamma h \M^2} \right] \\
+  D_{22} &=& \frac{\vvss + \vn\hn}{h} + \facth\left( \mu_n\hn + 
+             \frac{\mu}{h} ( \hn^2 + \hnn h ) \right) \\
+  D_{23} &=& \vsn + \frac{\vs\hn}{h} - \facth\Bigg\{\frac{(\lambda_{,s}+ 
+             2\mu_{,s})\hn}{h} - \frac{(\lambda + 2\mu)\hs\hn}{h^2} + 
+             \nonumber \\
+         & & \frac{(\lambda+2\mu)\hsn}{h} \Bigg\} \\
+  D_{24} &=& \vsz \\
+  D_{25} &=& \frac{\rho_{,s}}{\rho h \gamma \M^2} - 
+             \fact\Bigg\{ \frac{\left[\dlm\right]_{,s} \divu}{h} + 
+             \dlm \nabla_s (\nabla \cdot \bu) + \nonumber \\
+         & & \frac{2}{h}\left[\dmu\right]_{,s} S_{11} + 
+             2\left[\dmu\right]_{,n} S_{12} + 2\left[\dmu\right]_{,z} S_{13} +
+             2\dmu (\nabla \cdot \bS)_s \Bigg\} \\
+%
+  D_{31} &=& \frac{1}{\rho} \left[ \bc_2 + \frac{T_{,n}}{\gamma \M^2} \right]\\
+  D_{32} &=& (\vns - 2 \vs \hn) / h - \facth\left\{ \frac{\mu}{h^2} 
+             (\hs\hn - h \hsn) - \mu_{,s} \frac{\hn}{h} \right\} \\
+  D_{33} &=& \vnn - \facth\left\{ \lambda_{,n} \hn - 
+             \lambda\left( \frac{\hn^2}{h} - \hnn\right ) - 
+             2 \mu\frac{\hn^2}{h} \right\} \\
+  D_{34} &=& \vnz \\
+  D_{35} &=& \frac{\rho_{,n}}{\rho \gamma \M^2} - 
+             \fact\Bigg\{ \left[\dlm\right]_{,n} \divu + 
+             \dlm \nabla_n (\nabla \cdot \bu) + \nonumber \\
+         & & \frac{2}{h}\left[\dmu\right]_{,s} S_{21} +
+             2\left[\dmu\right]_{,n} S_{22} + 2\left[\dmu\right]_{,z} S_{23} +
+             2\dmu (\nabla \cdot \bS)_n \Bigg\} \\
+%
+  D_{41} &=& \frac{1}{\rho} \left[ \bc_3 + \frac{T_{,z}}{\gamma \M^2} \right]\\
+  D_{42} &=& \ws / h  \\
+  D_{43} &=& \wn - \facth\left\{ \lambda_{,n} \hn \right\} \\
+  D_{44} &=& \wz \\
+  D_{45} &=& \frac{\rho_{,z}}{\rho \gamma \M^2} - 
+             \fact\Bigg\{ \left[\dlm\right]_{,z} \divu + 
+             \dlm \nabla_z (\nabla \cdot \bu) + \nonumber \\
+         & & \frac{2}{h}\left[\dmu\right]_{,s} S_{31} +
+             2\left[\dmu\right]_{,n} S_{32} + 2\left[\dmu\right]_{,z} S_{33} +
+             2\dmu (\nabla \cdot \bS)_z \Bigg\} \\
+%
+  D_{51} &=& \frac{1}{\rho} \left( \frac{\vs\Ts}{h} + \vn\Tn + w\Tz + 
+             \gammam T \divu \right) \\
+  D_{52} &=&  T_{,s} / h + \ff\left\{ 4\mu S_{21}\frac{\hn}{h} \right\}\\
+  D_{53} &=&  T_{,n} + \rho \gammam T \frac{\hn}{h} - 
+              \ff\left\{(2\lambda\divu + 4\mu S_{11})\frac{\hn}{h} \right\}\\
+  D_{54} &=&  T_{,z} \\
+  D_{55} &=& \gammam \divu - \nonumber \frac{\gamma}{\rho\Pr\Re} 
+             \Bigg\{ \left[\dcon\right]_{,s} \frac{\Ts}{h^2} + 
+             \left[\dcon\right]_{,n} \Tn + \left[\dcon\right]_{,z} \Tz + 
+             \nonumber \\ 
+         & & \dcon \nabla^2 T \Bigg\} - \ff \left\{ \dlm (\divu)^2 + 
+             2 \dmu S_{ij} S_{ij} \right\}
+\end{eqnarray}
+
+\medskip
+\noindent{\fbox{$\bVss$ matrix}}
+%
+\begin{eqnarray} 
+  V_{22} &=& (\lambda + 2 \mu) / (\rho h^2 \Re) \\
+  V_{33} &=& \mu / (\rho h^2 \Re) \\
+  V_{44} &=& \mu / (\rho h^2 \Re) \\
+  V_{55} &=& \gamma\kappa / (\rho h^2 \Pr \Re)
+\end{eqnarray}
+\bigskip
+\noindent{\fbox{$\bVsn$ matrix}}
+%
+\begin{eqnarray} 
+  V_{23} &=& (\lambda + \mu) / (\rho h \Re) \\
+  V_{32} &=& (\lambda + \mu) / (\rho h \Re)
+\end{eqnarray}
+\bigskip
+\noindent{\fbox{$\bVsz$ matrix}}
+%
+\begin{eqnarray} 
+  V_{24} &=& (\lambda + \mu) / (\rho h \Re) \\
+  V_{42} &=& (\lambda + \mu) / (\rho h \Re)
+\end{eqnarray}
+
+\pagebreak
+\noindent{\fbox{$\bVnn$ matrix}}
+%
+\begin{eqnarray} 
+  V_{22} &=& \mu / (\rho \Re) \\
+  V_{33} &=& (\lambda + 2 \mu) / (\rho \Re) \\
+  V_{44} &=& \mu / (\rho \Re) \\
+  V_{55} &=& \gamma\kappa / (\rho \Pr \Re)
+\end{eqnarray}
+\noindent{\fbox{$\bVnz$ matrix}}
+%
+\begin{eqnarray} 
+  V_{34} &=& (\lambda + \mu) / (\rho \Re) \\
+  V_{43} &=& (\lambda + \mu) / (\rho \Re)
+\end{eqnarray}
+\noindent{\fbox{${\bf V}_{zz}$ matrix}}
+%
+\begin{eqnarray} 
+  V_{22} &=& \mu / (\rho \Re) \\
+  V_{33} &=& \mu / (\rho \Re) \\
+  V_{44} &=& (\lambda + 2 \mu) / (\rho \Re) \\
+  V_{55} &=& \gamma\kappa / (\rho \Pr \Re)
+\end{eqnarray}
+
+\section[Matrices for the Nonparallel Stability Analysis]{Matrices for the 
+Nonparallel Stability \protect\\ Analysis \label{a:NPmat}}
+
+To perform the nonparallel stability analysis in Appendix \ref{s:NPLST}, it is
+convenient to convert equation (\ref{e:npOS}) to a system of first-order
+ordinary differential equations of the form given by equation (\ref{e:eOS}).
+To accomplish this, the continuity equation is used to remove the explicit
+dependence on $v'_{n,nn}$ (see Mack \cite{Mack:84a}).  This results in changes
+to the definitions of the matrices ($\bA$, $\bB$, \etc) and in the following
+expressions, a tilde is used to indicate the modified matrices.  The new
+(tilde) matrices are identical to the matrices defined in Appendix
+\ref{a:curvmat} except for the following modifications:
+
+\bigskip
+\noindent{\fbox{$\tilde\bA$ matrix}}
+\begin{eqnarray}
+  \tilde A_{31} &=& A_{31} + \frac{\lambda + 2 \mu}{\rho \Re} 
+                    \left[ \frac{\vsn}{h} - \frac{\vs\hn}{h^2} \right] \\
+  \tilde A_{32} &=& A_{32} + \frac{\lambda + 2 \mu}{\rho \Re}
+                    \left[ \frac{\rho_{,n}}{h} - \frac{\rho\hn}{h^2} \right]
+\end{eqnarray}
+%
+\noindent{\fbox{$\tilde\bB$ matrix}}
+\begin{eqnarray}
+  \tilde B_{31} &=& B_{31} + \frac{\lambda + 2 \mu}{\rho \Re} 
+                    \left[ \divu + \vnn - i\omega \right] \\
+  \tilde B_{32} &=& B_{32} + \frac{\lambda + 2 \mu}{\rho \Re}
+                    \frac{\rho_{,s}}{h} \\
+  \tilde B_{33} &=& B_{33} + \frac{\lambda + 2 \mu}{\rho \Re}
+                    \left[ 2 \rho_{,n} + \frac{\rho\hn}{h} \right] \\
+  \tilde B_{34} &=& B_{34} + \frac{\lambda + 2 \mu}{\rho \Re} \rho_{,z}
+\end{eqnarray}
+%
+\noindent{\fbox{$\tilde\bC$ matrix}}
+\begin{eqnarray}
+  \tilde C_{31} &=& C_{31} + \frac{\lambda + 2 \mu}{\rho \Re} \wn \\
+  \tilde C_{34} &=& C_{34} + \frac{\lambda + 2 \mu}{\rho \Re} \rho_{,n}
+\end{eqnarray}
+%
+\noindent{\fbox{$\tilde\bD$ matrix}}
+\begin{eqnarray}
+  \tilde D_{31} &=& D_{31} + \frac{\lambda + 2 \mu}{\rho \Re} 
+                    \nabla_n (\nabla \cdot \bu) \\
+  \tilde D_{32} &=& D_{32} + \frac{\lambda + 2 \mu}{\rho \Re}
+                    \left[ \frac{\rho_{,sn}}{h} - \frac{\rho_{,s}\hn}{h^2}
+                    \right] \\
+  \tilde D_{33} &=& D_{33} + \frac{\lambda + 2 \mu}{\rho \Re}
+                    \left[ \frac{\rho_{,n}\hn}{h} - \rho 
+                    \left( \frac{\hn^2}{h^2} + \frac{\hnn}{h} \right) +
+                    \rho_{,nn} \right] \\
+  \tilde D_{34} &=& D_{34} + \frac{\lambda + 2 \mu}{\rho \Re} \rho_{,nz}
+\end{eqnarray}
+%
+\noindent{\fbox{${\tilde {\bf V}}_{sn}$ matrix}}
+\begin{eqnarray} 
+  \tilde V_{31} &=& -\frac{\lambda + 2 \mu}{\rho \Re} \frac{\vs}{h}\\
+  \tilde V_{32} &=& V_{32} - \frac{\lambda + 2 \mu}{\rho \Re} \frac{\rho}{h}
+\end{eqnarray}
+%
+\noindent{\fbox{${\tilde {\bf V}}_{nn}$ matrix}}
+\begin{eqnarray} 
+  \tilde V_{31} &=& -\frac{\lambda + 2 \mu}{\rho \Re} \vn
+\end{eqnarray}
+%
+\noindent{\fbox{${\tilde {\bf V}}_{nz}$ matrix}}
+\begin{eqnarray} 
+  \tilde V_{31} &=& -\frac{\lambda + 2 \mu}{\rho \Re} w \\
+  \tilde V_{34} &=& V_{34} - \frac{\lambda + 2 \mu}{\rho \Re} \rho
+\end{eqnarray}
+
+Using these new matrices, we can define the matrix operators used in equation
+(\ref{e:eOS}).  Toward that goal, equation (\ref{e:eOS}) is written in a
+slightly different form
+%
+\begin{equation} \label{e:heOS}
+  \tilde\bE \bhQ_{,n} + \tilde\bF \bhQ = \tilde\bG \frac{dA}{ds_1} + 
+  \tilde\bH A \period
+\end{equation}
+%
+The $\tilde\bE$ matrix is given by
+%
+\begin{equation}
+ \tilde\bE = \left[ \begin{array}{cc} \tilde\bE_{11} & \tilde\bE_{12} \\ 
+                                    \tilde\bE_{21} & {\bf 0} 
+                  \end{array} 
+           \right]
+\end{equation}
+%
+where ${\bf 0}$ is the null matrix, 
+%
+\begin{equation}
+  \tilde\bE_{11} = \tilde\bB_0 - i k_s {\tilde {\bf V}}_{sn} - i k_z 
+                   {\tilde {\bf V}}_{nz} \comma
+\end{equation}
+%
+\begin{equation}
+  \tilde\bE_{12} = \left[ \begin{array}{ccc} 0 & 0 & 0 \\
+                                        -{\tilde {\bf V}}_{nn}(2,2) & 0 & 0 \\
+                                        0 & 0 & 0 \\
+                                        0 & -{\tilde {\bf V}}_{nn}(4,4) & 0 \\
+                                        0 & 0 & -{\tilde {\bf V}}_{nn}(5,5)
+                        \end{array}
+                 \right] \comma
+\end{equation}
+%
+and
+%
+\begin{equation}
+  \tilde\bE_{21} = \left[ \begin{array}{ccccc} 0 & 1 & 0 & 0 & 0 \\
+                                             0 & 0 & 0 & 1 & 0 \\
+                                             0 & 0 & 0 & 0 & 1 
+                        \end{array}
+                 \right] \period
+\end{equation}
+%
+The $\tilde\bF$ matrix can be written as
+%
+\begin{equation}
+ \tilde\bF = \left[ \begin{array}{cc} \tilde\bF_{11} & {\bf 0} \\ 
+                                 {\bf 0} & -{\bf I} 
+                  \end{array} 
+           \right]
+\end{equation}
+%
+where ${\bf I}$ is the identity matrix and
+%
+\begin{equation}
+  \tilde\bF_{11} = \tilde\bD_0 + i k_s \tilde\bA_0 + i k_z \tilde\bC_0 + 
+       k_s^2{\tilde {\bf V}}_{ss} + k_s k_z {\tilde {\bf V}}_{sz} + 
+       k_z^2 {\tilde {\bf V}}_{zz} - i\omega \period
+\end{equation}
+
+Beginning with $\tilde\bG$, the vectors on the RHS of equation (\ref{e:heOS})
+are given by
+%
+\begin{equation}
+  \tilde\bG = \left\{ \begin{array}{c} 
+                     \tilde\bG_{1} \\
+                     {\bf 0}
+                   \end{array}
+            \right\} 
+\end{equation}
+%
+where
+%
+\begin{equation}
+  \tilde\bG_{1} = \bigl(2 i k_s {\tilde {\bf V}}_{ss} + 
+                  i k_z {\tilde {\bf V}}_{sz} - \tilde\bA_0 \bigr) \bhU_0 + 
+                  {\tilde {\bf V}}_{sn} \bhU_{0,n} \period
+\end{equation}
+%
+Finally, the $\tilde\bH$ vector is given by
+%
+\begin{equation}
+  \tilde\bH = \left\{ \begin{array}{c} 
+                     \tilde\bH_{1} \\
+                     {\bf 0}
+                   \end{array}
+            \right\}
+\end{equation}
+%
+where
+%
+\begin{eqnarray}
+  \tilde\bH_{1} &=& {\tilde {\bf V}}_{ss}\left( - \frac{dk_s}{ds_1} \bhU_0 + 
+                    2 i k_s \bhU_{0,s_1} \right) + 
+                    {\tilde {\bf V}}_{sn} \bhU_{0,s_1 n} + 
+  \nonumber\\
+                & & (i k_z {\tilde {\bf V}}_{sz} - 
+                    \tilde\bA_0) \bhU_{0,s_1} - \L_1(\bhU_0) \period
+\end{eqnarray}
+
+As long as $\Re \ne 0$, the matrix $\tilde\bE^{-1}$ can be inverted.
+Multiplying through by $\tilde\bE^{-1}$, equation (\ref{e:heOS}) can be
+converted to
+%
+\begin{equation}
+  \bhQ_{,n} + \tilde\bE^{-1} \tilde\bF \bhQ = \tilde\bE^{-1} \tilde\bG 
+  \frac{dA}{ds_1} + \tilde\bE^{-1}\tilde\bH A
+\end{equation}
+%
+which is of the form given by equation (\ref{e:eOS}).

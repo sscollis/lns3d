@@ -1,0 +1,10 @@
+README:		September 5, 1995
+
+Finalized:	March 10, 1997
+
+Author:		S. Scott Collis
+
+This directory contains my Ph.D. thesis in latex format.
+
+The utility script "clean" automatically removes all
+latex intermediate files.

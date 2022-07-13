@@ -1,0 +1,961 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: efun.SP  -  /u/collis/iris2/aiaa
+%%Creator: SciPlot
+%%CreationDate: Tue Jan  9 15:56:36 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 1
+%%BoundingBox: 0 0 640 427
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -9 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 640 427 rectclip
+0 0 640 427 rectclip
+0 setgray
+2 setlinecap
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+0 setgray
+70 50 moveto
+0.1 setlinewidth
+0 8 rlineto
+70 417 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+/Helvetica findfont
+20 scalefont setfont
+70 40 moveto
+0 -15.6 rmoveto
+/Helvetica findfont
+20 scalefont setfont
+(0) show
+0 setgray
+210 50 moveto
+0.1 setlinewidth
+0 8 rlineto
+210 417 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+/Helvetica findfont
+20 scalefont setfont
+210 40 moveto
+-13.9 0 rmoveto
+0 -15.6 rmoveto
+/Helvetica findfont
+20 scalefont setfont
+(0.5) show
+0 setgray
+350 50 moveto
+0.1 setlinewidth
+0 8 rlineto
+350 417 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+/Helvetica findfont
+20 scalefont setfont
+350 40 moveto
+-5.56 0 rmoveto
+0 -15.6 rmoveto
+/Helvetica findfont
+20 scalefont setfont
+(1) show
+0 setgray
+490 50 moveto
+0.1 setlinewidth
+0 8 rlineto
+490 417 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+/Helvetica findfont
+20 scalefont setfont
+490 40 moveto
+-13.9 0 rmoveto
+0 -15.6 rmoveto
+/Helvetica findfont
+20 scalefont setfont
+(1.5) show
+0 setgray
+630 50 moveto
+0.1 setlinewidth
+0 8 rlineto
+630 417 moveto
+0 -8 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+/Helvetica findfont
+20 scalefont setfont
+630 40 moveto
+-11.12 0 rmoveto
+0 -15.6 rmoveto
+/Helvetica findfont
+20 scalefont setfont
+(2) show
+0 setgray
+98 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+98 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+126 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+126 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+154 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+154 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+182 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+182 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+238 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+238 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+266 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+266 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+294 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+294 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+322 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+322 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+378 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+378 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+406 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+406 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+434 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+434 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+462 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+462 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+518 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+518 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+546 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+546 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+574 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+574 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+602 50 moveto
+0.1 setlinewidth
+0 5 rlineto
+602 417 moveto
+0 -5 rlineto
+stroke
+0 setgray
+0 setgray
+350 14.4 moveto
+0 0 rmoveto
+0 -14.04 rmoveto
+0 setgray
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+0 setgray
+70 131.424988 moveto
+0.1 setlinewidth
+8 0 rlineto
+630 131.424988 moveto
+-8 0 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+60 131.424988 moveto
+-34.459999 0 rmoveto
+0 -7.8 rmoveto
+/Helvetica findfont
+20 scalefont setfont
+(-0.5) show
+0 setgray
+70 222.124954 moveto
+0.1 setlinewidth
+8 0 rlineto
+630 222.124954 moveto
+-8 0 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+60 222.124954 moveto
+-11.12 0 rmoveto
+0 -7.8 rmoveto
+/Helvetica findfont
+20 scalefont setfont
+(0) show
+0 setgray
+70 312.824921 moveto
+0.1 setlinewidth
+8 0 rlineto
+630 312.824921 moveto
+-8 0 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+60 312.824921 moveto
+-27.799999 0 rmoveto
+0 -7.8 rmoveto
+/Helvetica findfont
+20 scalefont setfont
+(0.5) show
+0 setgray
+70 403.524902 moveto
+0.1 setlinewidth
+8 0 rlineto
+630 403.524902 moveto
+-8 0 rlineto
+stroke
+0 setgray
+/Helvetica findfont
+20 scalefont setfont
+60 403.524902 moveto
+-11.12 0 rmoveto
+0 -7.8 rmoveto
+/Helvetica findfont
+20 scalefont setfont
+(1) show
+0 setgray
+70 58.865017 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 58.865017 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 77.005013 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 77.005013 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 95.145004 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 95.145004 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 113.284996 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 113.284996 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 149.564987 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 149.564987 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 167.704971 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 167.704971 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 185.844971 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 185.844971 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 203.98497 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 203.98497 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 240.264954 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 240.264954 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 258.404938 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 258.404938 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 276.544952 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 276.544952 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 294.684937 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 294.684937 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 330.964935 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 330.964935 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 349.104919 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 349.104919 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 367.244904 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 367.244904 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+70 385.384888 moveto
+0.1 setlinewidth
+5 0 rlineto
+630 385.384888 moveto
+-5 0 rlineto
+stroke
+0 setgray
+0 setgray
+10.540001 233.5 moveto
+0 0 rmoveto
+90 rotate
+270 rotate
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+[] 0 setdash
+1.8 setlinewidth
+0 setgray
+70 50 moveto
+70 417 lineto
+stroke
+70 50 moveto
+630 50 lineto
+stroke
+630 50 moveto
+630 417 lineto
+stroke
+70 417 moveto
+630 417 lineto
+stroke
+0 setgray
+0 setgray
+1 setlinewidth
+0 setlinecap
+[] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+70 167.783142 620.272339 406.523621 setbbox
+70 222.124954 moveto
+70.046394 221.773666 lineto
+70.096916 221.396652 lineto
+70.151932 220.992599 lineto
+70.211838 220.560272 lineto
+70.277077 220.098511 lineto
+70.348122 219.606293 lineto
+70.425484 219.082764 lineto
+70.509735 218.527298 lineto
+70.601471 217.939606 lineto
+70.701378 217.319748 lineto
+70.810165 216.668335 lineto
+70.928635 215.986511 lineto
+71.05764 215.276184 lineto
+71.19812 214.540161 lineto
+71.351097 213.782272 lineto
+71.517685 213.007614 lineto
+71.699089 212.222733 lineto
+71.896629 211.435898 lineto
+72.11174 210.657303 lineto
+72.345985 209.899429 lineto
+72.601067 209.177216 lineto
+72.878838 208.508453 lineto
+73.181313 207.913986 lineto
+73.510681 207.418045 lineto
+73.869354 207.04834 lineto
+74.259918 206.836319 lineto
+74.685211 206.817017 lineto
+75.148323 207.029083 lineto
+75.652618 207.514297 lineto
+76.201759 208.316956 lineto
+76.799713 209.483002 lineto
+77.450836 211.058594 lineto
+78.159843 213.088364 lineto
+78.931877 215.613205 lineto
+79.77253 218.667618 lineto
+80.687904 222.276642 lineto
+81.684624 226.452698 lineto
+82.76992 231.19252 lineto
+83.951645 236.474594 lineto
+85.238358 242.258011 lineto
+86.639366 248.483017 lineto
+88.164818 255.074921 lineto
+89.825729 261.951569 lineto
+91.634117 269.036133 lineto
+93.603043 276.27478 lineto
+95.746719 283.65979 lineto
+98.080627 291.255096 lineto
+100.62159 299.2211 lineto
+103.387917 307.827362 lineto
+106.399536 317.43927 lineto
+109.678116 328.449524 lineto
+113.247231 341.1362 lineto
+117.1325 355.46106 lineto
+121.361809 370.870575 lineto
+125.965446 386.099579 lineto
+130.976364 398.99411 lineto
+136.430389 406.523621 lineto
+142.366409 405.240234 lineto
+148.826736 392.219666 lineto
+155.857285 366.286316 lineto
+163.50798 329.045959 lineto
+171.832977 285.333435 lineto
+180.891083 243.401962 lineto
+190.74617 208.997589 lineto
+201.467468 183.896027 lineto
+213.130096 171.50647 lineto
+225.815521 167.783142 lineto
+239.612 168.424088 lineto
+254.615143 170.643082 lineto
+270.928528 173.26799 lineto
+288.664185 175.979919 lineto
+307.943359 178.724991 lineto
+328.897095 181.483414 lineto
+351.666931 184.236374 lineto
+376.40567 186.955292 lineto
+403.278229 189.614517 lineto
+432.462189 192.179199 lineto
+464.148865 194.61937 lineto
+498.544006 196.896149 lineto
+535.868652 198.977676 lineto
+576.360046 200.826508 lineto
+620.272339 202.417511 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+1 setlinewidth
+0 setlinecap
+[8 8] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+70 60.803738 620.272339 260.817108 setbbox
+70 222.124954 moveto
+70.046394 221.223541 lineto
+70.096916 220.244507 lineto
+70.151932 219.181458 lineto
+70.211838 218.027512 lineto
+70.277077 216.775299 lineto
+70.348122 215.416931 lineto
+70.425484 213.94397 lineto
+70.509735 212.347458 lineto
+70.601471 210.617828 lineto
+70.701378 208.745026 lineto
+70.810165 206.718384 lineto
+70.928635 204.526733 lineto
+71.05764 202.158401 lineto
+71.19812 199.601288 lineto
+71.351097 196.842911 lineto
+71.517685 193.870544 lineto
+71.699089 190.671387 lineto
+71.896629 187.232712 lineto
+72.11174 183.542114 lineto
+72.345985 179.58786 lineto
+72.601067 175.359268 lineto
+72.878838 170.847153 lineto
+73.181313 166.044449 lineto
+73.510681 160.946854 lineto
+73.869354 155.553741 lineto
+74.259918 149.869095 lineto
+74.685211 143.902588 lineto
+75.148323 137.670929 lineto
+75.652618 131.19931 lineto
+76.201759 124.522842 lineto
+76.799713 117.688316 lineto
+77.450836 110.755814 lineto
+78.159843 103.800323 lineto
+78.931877 96.913162 lineto
+79.77253 90.203026 lineto
+80.687904 83.796555 lineto
+81.684624 77.838104 lineto
+82.76992 72.488533 lineto
+83.951645 67.922844 lineto
+85.238358 64.326477 lineto
+86.639366 61.890186 lineto
+88.164818 60.803738 lineto
+89.825729 61.248348 lineto
+91.634117 63.388596 lineto
+93.603043 67.363609 lineto
+95.746719 73.278076 lineto
+98.080627 81.192039 lineto
+100.62159 91.108986 lineto
+103.387917 102.960014 lineto
+106.399536 116.582802 lineto
+109.678116 131.6884 lineto
+113.247231 147.803589 lineto
+117.1325 164.185593 lineto
+121.361809 179.793503 lineto
+125.965446 193.446121 lineto
+130.976364 204.177063 lineto
+136.430389 211.637924 lineto
+142.366409 216.387634 lineto
+148.826736 219.831848 lineto
+155.857285 223.690857 lineto
+163.50798 229.137161 lineto
+171.832977 236.077896 lineto
+180.891083 243.25174 lineto
+190.74617 253.15625 lineto
+201.467468 258.82663 lineto
+213.130096 260.817108 lineto
+225.815521 260.186584 lineto
+239.612 257.945618 lineto
+254.615143 254.993454 lineto
+270.928528 251.83194 lineto
+288.664185 248.648239 lineto
+307.943359 245.494263 lineto
+328.897095 242.395111 lineto
+351.666931 239.373032 lineto
+376.40567 236.451141 lineto
+403.278229 233.649261 lineto
+432.462189 230.982773 lineto
+464.148865 228.460556 lineto
+498.544006 226.080551 lineto
+535.868652 223.82901 lineto
+576.360046 221.671753 lineto
+620.272339 219.555374 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+1 setlinewidth
+0 setlinecap
+[4 4] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+70 172.479767 620.272339 403.524902 setbbox
+70 222.124954 moveto
+70.096916 221.456665 lineto
+70.211838 220.691086 lineto
+70.348122 219.820358 lineto
+70.509735 218.839081 lineto
+70.701378 217.746002 lineto
+70.928635 216.546509 lineto
+71.19812 215.255997 lineto
+71.517685 213.904373 lineto
+71.896629 212.54184 lineto
+72.345985 211.245987 lineto
+72.878838 210.130157 lineto
+73.510681 209.352127 lineto
+74.259918 209.122253 lineto
+75.148323 209.707718 lineto
+76.201759 211.429886 lineto
+77.450836 214.647446 lineto
+78.931877 219.720261 lineto
+80.687904 226.945679 lineto
+82.76992 236.471664 lineto
+85.238358 248.198532 lineto
+88.164818 261.721619 lineto
+91.634117 276.386566 lineto
+95.746719 291.572693 lineto
+100.62159 307.230225 lineto
+106.399536 324.509216 lineto
+113.247231 345.697327 lineto
+121.361809 371.972168 lineto
+130.976364 397.501282 lineto
+142.366409 403.524902 lineto
+155.857285 366.744049 lineto
+171.832977 289.167419 lineto
+190.74617 213.094086 lineto
+213.130096 176.53717 lineto
+239.612 172.479767 lineto
+270.928528 177.751419 lineto
+307.943359 183.597687 lineto
+351.666931 189.489822 lineto
+403.278229 195.33551 lineto
+464.148865 200.972717 lineto
+535.868652 206.162338 lineto
+620.272339 210.728134 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+1 setlinewidth
+0 setlinecap
+[1 3] 0 setdash
+1 setlinejoin
+gsave
+newpath
+systemdict
+begin
+70 65.741669 620.272339 264.35733 setbbox
+70 222.124954 moveto
+70.096916 220.275009 lineto
+70.211838 218.09465 lineto
+70.348122 215.528198 lineto
+70.509735 212.512039 lineto
+70.701378 208.974106 lineto
+70.928635 204.834 lineto
+71.19812 200.003372 lineto
+71.517685 194.387863 lineto
+71.896629 187.889847 lineto
+72.345985 180.414719 lineto
+72.878838 171.878998 lineto
+73.510681 162.225479 lineto
+74.259918 151.441528 lineto
+75.148323 139.589676 lineto
+76.201759 126.840782 lineto
+77.450836 113.523918 lineto
+78.931877 100.167953 lineto
+80.687904 87.554817 lineto
+82.76992 76.726059 lineto
+85.238358 68.978188 lineto
+88.164818 65.741669 lineto
+91.634117 68.450249 lineto
+95.746719 78.256752 lineto
+100.62159 95.843399 lineto
+106.399536 120.943153 lineto
+113.247231 151.749878 lineto
+121.361809 183.52359 lineto
+130.976364 208.811905 lineto
+142.366409 222.124954 lineto
+155.857285 228.872253 lineto
+171.832977 240.176575 lineto
+190.74617 255.747818 lineto
+213.130096 264.35733 lineto
+239.612 262.829376 lineto
+270.928528 257.020447 lineto
+307.943359 250.737274 lineto
+351.666931 244.713135 lineto
+403.278229 239.137405 lineto
+464.148865 234.217361 lineto
+535.868652 230.118225 lineto
+620.272339 226.940506 lineto
+end
+stroke
+grestore
+stroke
+[] 0 setdash
+0 setlinejoin
+0 setgray
+[] 0 setdash
+2 setlinecap
+0 setgray
+2 setlinecap
+1.8 setlinewidth
+stroke
+grestore
+%%Trailer

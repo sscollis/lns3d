@@ -1,0 +1,639 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Chapter 1:  Introduction
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 7-18-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction \label{c:intro}}
+
+Receptivity is the process by which environmental disturbances are converted
+into instability waves in a boundary or shear layer.  In this manner,
+receptivity provides the initial amplitudes of instability waves which
+eventually lead to transition from laminar to turbulent flow.  An
+understanding of receptivity is fundamental to the development of reliable
+transition prediction schemes which, in turn, are necessary for the
+development of laminar-flow-wing technology.
+
+The research described in this \thesis\ focuses on the receptivity of the
+three-dimensional boundary layer near the leading-edge of a high-speed
+swept-wing.  In particular, the influence of surface roughness near the
+leading-edge on the formation of crossflow (CF) vortices is examined.  Recent
+experiments \cite{ReSaCaCh:96,DeBi:96} have demonstrated that surface
+roughness is the primary cause of stationary CF vortices and that stationary
+vortices dominate the transition process, near the leading-edge, in
+low-disturbance environments---such as the cruise condition for an aircraft in
+flight.  Recently, the linear and nonlinear evolution of CF vortices has been
+well-predicted by analysis based on the Parabolized-Stability-Equations
+\cite{HaRe:96,MaLiCh:94}.  However, the receptivity process for CF vortices
+remains an open issue mainly because experimental studies of receptivity due
+to surface roughness are hampered by several factors: (1) the complete
+disturbance environment is generally unknown, (2) the amplitudes of the
+crossflow vortices near the source of receptivity are not measurable, and (3)
+at downstream stations where measurements are possible, nonlinear effects may
+have already occurred.  Through the numerical simulations presented here, each
+of these limitations are overcome and receptivity results are obtained that
+can be used to test recent theoretical predictions
+\cite{Choudhari:94,Crouch:93}.
+
+This chapter begins with the general motivation for the study of receptivity
+along with a description of the laminar-to-turbulent transition process on a
+swept-wing and a summary of transition prediction techniques used in wing
+design.  Included is a brief review of the voluminous literature on
+receptivity including theoretical, experimental, and computational studies.
+An attempt is made to focus the review on the receptivity of three-dimensional
+boundary layers to surface roughness, and where appropriate, references are
+provided to the many review articles in the literature.  The chapter closes
+with a summary of the accomplishments of this research and an overview of the
+material discussed herein.
+
+\section{Motivation: Laminar Flow Technology \label{s:motive}}
+
+Research on laminar-flow technology has been underway for over 50 years.
+However, as fuel resources become more scarce and manufacturing techniques
+improve, both the incentive and practicality of incorporating laminar-flow
+technology in new aircraft designs has increased.  Possible applications of
+laminar-flow wings run the gamut of aircraft types---from general aviation to
+super-sonic passenger aircraft \cite{BrMaBaWaCo:90}.  The primary incentive in
+applying laminar-flow technology stems from projections that maintaining
+laminar flow over a large portion of a wing can provide as much as a 25\% to
+30\% fuel savings on long-range flights \cite{ReHoKoQu:86}.
+
+Laminar-flow wings can be broadly classified into two categories:
+Natural Laminar Flow (NLF) wings for which the pressure distribution is
+carefully tailored to delay transition, and Laminar Flow Control (LFC) wings
+which use surface suction to delay transition.  Examples of both types of
+laminar-flow wings are shown in figure \ref{f:lfc}. The wing-type used depends
+on the particular application with NLF advocated for small, low-speed aircraft
+with small wing-sweep and LFC used for large, high-speed, swept-wing aircraft.
+For medium-sized aircraft with moderate wing-sweep ($\sim 20^\circ$), recent
+designs take a hybrid approach by incorporating LFC near the leading-edge with
+NLF in the mid-chord region in an effort to achieve drag reduction more
+economically \cite{BrMaBaWaCo:90}.
+
+Regardless of the particular type, the success of a laminar-flow wing depends
+critically on the designer's ability to predict the location of
+laminar-to-turbulent transition.  The transition process typically begins with
+the conversion of environmental disturbances into the instability waves of the
+flow by a process called receptivity \cite{Morkovin:69}.  This \thesis\ is
+motivated by the need to increase the understanding of receptivity and to use
+this knowledge to improve transition prediction.
+
+\section{Transition Mechanisms on a Swept Wing \label{s:transition}}
+
+Transition in many practical situations can be modeled as a three-stage
+process: receptivity, linear amplification, and non-linear breakdown.
+Receptivity involves the conversion of environmental disturbances into the
+instability waves of the flow.  The receptivity process typically occurs in
+the ``subcritical'' region, upstream of the location where instabilities begin
+to grow.  Because of this, the waves excited in the receptivity phase often
+decay before undergoing amplification.  Both the decay and subsequent
+amplification are generally linear processes that are well predicted by
+quasi-parallel Linear-Stability-Theory (LST).  As the instability waves
+continue to amplify downstream, they eventually reach sufficiently large
+magnitudes such that nonlinear effects become important.  These nonlinearities
+manifest themselves, at least initially, as secondary and tertiary
+instabilities.  This final phase, non-linear breakdown, usually occurs
+rapidly, over a short streamwise length.  In fact, the length of the linear
+amplification region is often an order-of-magnitude greater than the length of
+the nonlinear region (at least for two-dimensional instabilities).  This fact
+is the rationale behind current transition prediction schemes which are based
+solely on the linear amplification stage, see \S\ref{s:prediction}.  Recently,
+a new transition prediction technique based on the Parabolized Stability
+Equations (PSE) \cite{Herbert:91} has been developed which yields accurate
+predictions for both the linear amplification and early nonlinear stages of
+transition.  We will return to the topic of PSE methods in
+\S\ref{s:prediction}.  Transition phenomena which do not fit into this
+three-stage model are called by-pass transition and are characterized by
+nonlinearities from the onset.  Examples of by-pass transition include
+attachment-line contamination and transition due to large surface
+protuberances or high-intensity free-stream turbulence.
+
+The transition process in the three-dimensional boundary layer on a swept-wing
+typically involves one or more of the following phenomena:
+%
+\begin{enumerate}
+  \item {Attachment-line instabilities and contamination}
+  \item {Crossflow vortices: stationary and non-stationary}
+  \item {Streamwise instabilities (\ie\ Tollmien--Schlichting waves)}
+  \item {G\"ortler (centrifugal) instabilities }
+\end{enumerate}
+%
+A schematic of possible transition routes for a swept-wing aircraft is given
+in figure \ref{f:transition}.
+
+Transition can begin on the attachment-line due to contamination from the
+turbulent fuselage boundary layer at the wing/fuselage junction.  This by-pass
+mode of transition is due to a subcritical (\ie\ finite amplitude) instability
+of the attachment-line flow which can be catastrophic since it results in a
+turbulent boundary layer over the entire wing surface.  However, contamination
+can be prevented using a leading-edge notch or a Gaster bump \cite{Gaster:65}
+and, in the following discussion, we assume that such a device is employed.
+
+In addition to contamination, the attachment-line boundary layer is
+susceptible to a viscous, Tollmien--Schlichting (TS) type, instability.  Thus,
+on a laminar-flow wing, the attachment-line boundary-layer must be maintained
+subcritical by careful selection of the leading-edge radius or by surface
+suction.  Assuming this to be the case, transition on the upper (convex)
+surface of a swept-wing is typically initiated by crossflow vortices in the
+favorable pressure gradient region near the leading-edge.  The crossflow
+vortices result from an inviscid instability of the inflectional crossflow
+velocity profile (see figure \ref{f:transition}), called the crossflow (CF)
+instability.  If transition is delayed near the leading-edge (typically by
+surface suction) then transition typically occurs in the mid-chord region due
+to the TS instability.  This fact motivates the Hybrid Laminar-Flow-Control
+(HLFC) approach, with suction used near the leading-edge to control the CF
+vortices and a favorable pressure gradient used in the mid-chord region to
+weaken the TS instability.
+
+On the lower surface of the wing, an additional instability mechanism comes
+into play due to the concave curvature of the surface and streamlines.  This
+centrifugal instability, called the G\"ortler instability, results in the
+formation of counter-rotating streamwise vortex pairs (in contrast to the
+crossflow instability which results in vortices with the same sense of
+rotation).  Recently, there has been a number of investigations dealing with
+the combined effects of G\"ortler and CF vortices
+\cite{BaHa:91,Bassom:92,ZuMa:95}.  In the current investigation only convex
+surfaces are considered thereby avoiding the G\"ortler instability.
+
+\section{Transition Prediction Techniques \label{s:prediction}}
+
+Current transition prediction schemes (\eton\ methods) are based solely on the
+linear instability phase of transition, ignoring both the external disturbance
+environment and nonlinear effects.  Both Malik \cite{Malik:90a} and Redeker
+\etal \cite{ReHoKoQu:86} outline the origins of the \eton\ method (dating back
+to 1952) which has since been used extensively in laminar-flow-wing design.
+
+%These methods have been widely used in laminar-flow-wing design dating back to
+%1952 and the history and development of the \eton\ method is outlined by Malik
+%\cite{Malik:90a} and Redeker \etal \cite{ReHoKoQu:86}.  The origins of the
+%\eton\ method date back to 1952 when the method was first used by Smith
+%\cite{Smith:52} in studying the G{\"o}rtler instability and later applied to
+%the TS instability by Smith \& Gamberoni \cite{SmGa:56} and Van Ingen
+%\cite{VanIngen:56}.
+
+The basic premise of the \eton\ method is that the transition location can be
+correlated with the amount of linear amplification of disturbances in the
+boundary layer.  The $N$ factor is given by the the integral of the spatial
+amplification rate, $\sigma$, from the point where disturbances first become
+unstable (Branch I, denoted by $x_I$) to the transition location $x_{tr}$:
+%
+\begin{equation}
+  N = \int_{x_I}^{x_{tr}} \sigma(x) \ dx .
+\end{equation}
+%
+Thus, the ratio of the amplitude of disturbances at transition to that at
+Branch I is given by \eton.  By comparing experimental transition results in
+low disturbance environments with $N$-factors computed using LST, it was found
+for two-dimensional flows that transition occurs when $N=10$ \cite{JaOkSm:70}.
+Because the $N$-factor represents a ratio of amplitudes, this method is
+insensitive to the external disturbance environment, thereby requiring
+different values of $N$ for different levels and types of environmental
+disturbances.  In addition, different values of $N$ are expected for each type
+of instability mechanism: TS, CF, and G\"ortler instabilities.  However, Malik
+\cite{Malik:90a}, in providing a comprehensive review of the \eton\ results in
+the literature (as of 1990), finds that a value of $N=10$ correlates
+reasonably well with the majority of the data, regardless of the instability
+mechanism.  It is this ``robustness'' which helps make the method a useful
+design tool.
+
+Given the apparent success of the \eton\ method, there is, however, a large
+amount of scatter in the values of $N$ given in the literature.  It is not
+unusual for $N$-factors to be reported in the range of $6-13$ depending on the
+instability mechanisms, test environment, and flow geometry.  To put this in
+perspective, this range of $N$-factors corresponds to a three
+order-of-magnitude range of amplitude ratios.  Thus, large safety factors are
+required in laminar flow wing design to account for this considerable
+uncertainty in the $N$-factor.
+
+The success of the \eton\ method is hampered by the assumptions of linearity,
+parallel flow, and by the exclusion of the receptivity process which
+determines the initial amplitude of disturbances within the boundary layer.
+By including only the linear amplification stage of transition, the \eton\
+method tacitly assumes that disturbances are of sufficiently low amplitude so
+that there is a long region of linear growth which dominates the transition
+process.  By ignoring the receptivity phase, the \eton\ method misses a
+fundamental characteristic of the transition process: the transition location
+moves upstream with increased disturbance levels.  Furthermore, nonlinear
+effects in the form of nonlinear receptivity and nonlinear interactions are
+not accounted for.  Thus, situations involving large initial disturbances
+and/or modal (\eg\ TS and CF) interactions and mean flow modification are not
+captured in the \eton\ predictions.
+
+There are currently numerous research efforts underway to address the
+limitations of the \eton\ method by developing an amplitude based transition
+criterion which uses the PSE approach developed by Herbert and coworkers
+\cite{Herbert:91}.  These efforts include studies of both nonlinear effects
+and receptivity to address the deficiencies of the \eton\ method.  The
+research discussed in this \thesis\ focuses on the numerical simulation of the
+linear receptivity phase of transition with the hope that the results and
+methodology discussed here can be used toward the development of an
+amplitude-based transition prediction technique.
+
+\section{Synopsis of Previous Receptivity Results \label{s:previous}}
+
+Since 1969, when Morkovin \cite{Morkovin:69} first coined the term
+``receptivity,'' there has been a tremendous amount of research to discover
+and identify the mechanisms which lead to the formation of instability waves
+in a boundary layer.  In this section, salient receptivity and transition
+research is summarized including experimental, theoretical, and computational
+results.  The discussion begins with a general overview of receptivity
+research and then specializes to research involving the generation of
+crossflow vortices in three-dimensional boundary layers.
+
+Kerschen \cite{Kerschen:89} has identified two categories of receptivity:
+forced and natural.  In forced receptivity, the external disturbance has the
+appropriate length and time scales so that it can couple directly with an
+instability wave in the boundary layer.  An early example of forced
+receptivity is the landmark experiment of Schubauer \& Skramstad
+\cite{ScSk:47} in which TS waves were generated by a vibrating ribbon placed
+in the boundary layer.  Other examples include surface suction/blowing,
+surface heating/cooling, and surface roughness.  We note in passing that both
+the length and time scales of the disturbance must match that of the
+instability wave such that surface roughness, which is generally regarded as
+steady, may only directly excite stationary modes such as stationary crossflow
+vortices or G\"ortler vortices.
+
+In contrast to the forced case, natural receptivity involves external
+disturbances which have the correct time-scale but require some form of
+wavelength conversion to couple with an instability wave.  Examples include
+freestream acoustic waves and freestream turbulence, which typically have
+longer wavelengths then boundary-layer instability waves at the same
+frequency.  The wavelength reduction process was first clarified in the
+seminal work of Goldstein \cite{Goldstein:83} who showed, using high Reynolds
+number asymptotic expansions, that the nonparallel mean flow near a
+leading-edge can lead to the transfer of energy from long wavelength
+freestream acoustic waves to Tollmien--Schlichting waves in the boundary layer.
+Since then, natural receptivity has been found to occur near other forms of
+nonparallel mean flows including: surface roughness
+\cite{Ruban:84,Goldstein:85,ZhFe:87,ChKe:90}, marginal separation
+\cite{GoLeCo:87}, sudden changes in surface curvature \cite{GoHu:87}, and
+variations in surface admittance to pressure waves \cite{Choudhari:93}.  In
+general, the results of experiments and the asymptotic theory have been in
+good agreement \cite{Kerschen:89,KoRy:90}.  Most importantly, both have
+demonstrated that regions of meanflow distortion which have a spatial spectrum
+consonant with an instability wave are the key to the transfer of energy from
+freestream disturbances to instability waves.
+
+Readers interested in a more detailed view of receptivity research may wish to
+consult the many available review articles.  In particular, the reviews by
+Goldstein \& Hultgren \cite{GoHu:89} and Kerschen \cite{Kerschen:89} provide
+excellent summaries of the high Reynolds number asymptotic theory results.
+The recently popular finite Reynolds number theory is reviewed by Choudhari \&
+Streett \cite{ChSt:94} and Crouch \cite{Crouch:94}, while, experimental
+research as of 1986 is reviewed by Nishioka \& Morkovin \cite{NiMo:86} and
+includes a summary of the extensive Soviet receptivity research.  The Soviet
+experimental and theoretical research is also discussed in the paper by Kozlov
+\& Ryzhov \cite{KoRy:90}.  More recent reviews of experimental research are
+given by Wlezien \cite{Wlezien:94} and Saric \etal\ \cite{SaWeRa:95}.  Several
+recent computational studies of natural receptivity have also been reported,
+including the work of Reed and her colleagues \cite{SaReKe:94} and Corke \&
+Haddad \cite{CoHa:95}.
+
+Although most flows of practical relevance contain three-dimensional boundary
+layers, the majority of receptivity and transition research, including most of
+the work cited above, has been conducted for two-dimensional boundary layers.
+This restriction was made necessary by the complex physical phenomenon which
+occur during transition, even for two-dimensional boundary layers.
+Fortunately, many of the observations made for two-dimensional boundary layers
+also apply for three-dimensional boundary layers, including the importance of
+meanflow distortion on receptivity.  As alluded to in \S\ref{s:motive}, the
+renewed interest in laminar-flow technology has prompted considerable research
+in the areas of receptivity, stability, and transition of three-dimensional
+boundary layers.  Saric \& Reed \cite{SaRe:89} provide a review of the
+research in stability and transition for three-dimensional boundary-layers up
+to 1989.  Since then, considerable advances have been made both in the
+receptivity of three-dimensional boundary layers and in the nonlinear
+evolution of crossflow vortices.  In the remainder of this section, the recent
+advances in the study of receptivity and transition for three-dimensional
+boundary layers are discussed.
+
+%
+% Give a sense of size and Reynolds number for Saric's experiments,
+% Indicate, later on, that your calculations are at about the same \Re
+%
+The early experiments of Saric and coworkers \cite{RaReSa:93} examined the
+effects of micron-sized roughness elements on the transition location when the
+roughness is placed near the leading-edge of a $45^\circ$ swept NLF(2)-0415
+airfoil with a 1~m chord.  Their experimental results show that the transition
+location is very sensitive to roughness near the leading-edge and that the
+crossflow vortex pattern formed downstream of the roughness is directly
+related to the applied surface roughness distribution.  By placing artificial
+($6~\mu m$) roughness at different chordwise locations, it was demonstrated
+that the transition location moved furthest upstream for roughness placed near
+the point of first instability of the stationary crossflow vortices.
+Variations in roughness height were also considered with the transition
+location further upstream for larger roughness sizes.  Although these results
+showed a strong influence of surface roughness on the generated crossflow
+vortices, they did not provide a clear indication of the receptivity process
+since measurements of the transition location are not a particularly sensitive
+measure of the initial level of instability waves in the boundary
+layer.\footnote{The transition location depends on the linear and nonlinear
+evolution of instability waves in the boundary layer making it difficult to
+infer receptivity characteristics directly from measurements of the transition
+location.}  In particular, there was no observed effect on the transition
+location when roughness was placed downstream of 4\% chord.  In subsequent
+work \cite{RaReSa:94} measurement techniques were refined and the influence of
+artificial roughness was detected from the attachment line all the way to 20\%
+chord.  Their most recent experiments \cite{ReSaCaCh:96} demonstrate that the
+transition process is still dominated by stationary crossflow vortices for a
+surface that is polished to $0.25~\mu m$ RMS.  However, the focus of these
+recent experiments has been to study the downstream evolution of crossflow
+vortices in order to document and explain the failure of linear theory to
+predict the growth rate.  We return to this issue of early nonlinear
+development of crossflow vortices below.
+
+Recently, Deyhle \& Bippes \cite{DeBi:96} have performed a detailed
+experimental study of the receptivity characteristics of a three-dimensional
+boundary layer to roughness of varying shape, size, location, and
+distribution.  By considering swept flat-plate models with different surface
+finishes, they find that the overall level of stationary CF vortices is
+directly related to the average peak-to-peak roughness amplitude.  High levels
+of initial roughness lead to high initial amplitudes of the stationary
+crossflow vortices and to an earlier saturation at higher amplitudes.  In
+comparison, the effect of roughness level on traveling crossflow vortices was
+minor with the primary effect related to earlier nonlinear interaction (see
+below) due to the enhanced stationary vortices at high roughness levels.  For
+all roughness levels the crossflow vortices observed in the experiment had
+wavelengths corresponding to the most amplified linear mode.
+
+Deyhle \& Bippes \cite{DeBi:96} also considered the effect of discrete
+artificial roughness elements to ascertain whether different wavelengths could
+be excited.  The discrete roughness elements had a circular planform with a
+height of $10~\mu m$ and were added to the polished surface ($1.8~\mu m$
+peak-to-peak) of the plate at fixed chordwise locations near the leading edge.
+Unfortunately, measurements where taken far downstream, well after the
+vortices had saturated so that the results are extensively influenced by
+nonlinearities.  Given this, however, the greatest crossflow response was
+measured for roughness placed near the upstream neutral point and for
+roughness with a spanwise spacing close to the most amplified wavelength
+predicted by stability analysis.  These results are consistent both with the
+experiments of Saric and coworkers \cite{RaReSa:93,RaReSa:94,ReSaCaCh:96} and
+with theoretical receptivity predictions \cite{Crouch:93}, discussed in detail
+below.  For roughness spacing of half the most unstable wavelength, enhanced
+crossflow vortices were still observed at the most unstable wavelength but
+with roughly half the amplitude.
+%
+% Could do a little Fourier analysis here to verify the response amplitudes
+%
+% Lele wants to be sure that the recent conference papers on 3-D 
+% boundary layers stability, transition and nonparallel flow stability 
+% are referenced.  These include:
+%
+%	Transition, turbulence and combustion:  TA357.T713
+%	Numerical simulation of unsteady flows and transition to turbulence
+%		TA357.5.U57
+%	IUTAM Laminar-Turbulent transition
+%
+
+The recent experiments by both Saric's group \cite{ReSaCaCh:96} and Bippe and
+coworkers \cite{DeBi:96} have established that surface roughness is of primary
+importance in the generation of stationary CF vortices.  These experiments,
+along with complementary PSE analyses \cite{MaLiCh:94,HaRe:96}, have focused
+on the nonlinear evolution of CF vortices.  The results of these
+investigations show that nonlinearity is primarily due to the interaction of
+stationary CF vortices with the meanflow.  This interaction leads to meanflow
+distortion which alters the stability characteristics of the boundary layer,
+resulting in lower growth-rates and eventual saturation of the stationary
+crossflow modes.
+%
+%Furthermore, nonlinearity is observed, in the experiments, to occur at the 
+%furthest upstream stations where measuremenst are possible.
+%
+Deyhle \& Bippes \cite{DeBi:96} have also shown that the nonlinear interaction
+of stationary and traveling modes can lead to an additional reduction in the
+growth-rate of the stationary modes.  This nonlinearity is most pronounced for
+wind tunnel experiments with modest to high free-stream turbulence, indicating
+that the traveling modes are generated by a receptivity process which converts
+the freestream turbulence into traveling CF vortices.
+%
+%Although this receptivity process has not, to date, been studied 
+%theoretically, it is certainly a plausible receptivity path that has been 
+%analyzed for two-dimensional boundary layers \cite{Saric_aps,Kendall}.  
+%
+Most importantly, however, is the fact that freestream turbulence levels are
+generally much lower under flight conditions than in wind tunnels.  Because of
+this, the stationary crossflow vortices are expected to be the dominant
+instability mechanism in low disturbance environments such as a wing in
+flight.
+
+Comparisons of the experimental results \cite{ReSaCaCh:96,DeBi:96} with
+nonlinear PSE \cite{HaRe:96,MaLiCh:94} have shown that the nonlinear effects,
+including the saturation amplitude, are well predicted by PSE and, according
+to Deyhle \& Bippes \cite{DeBi:96}, it is the saturation amplitude that
+determines the transition location.  In forming a complete amplitude-based
+transition prediction method, it remains to reliably predict the receptivity
+process for stationary crossflow modes due to surface roughness.  It should be
+pointed out that in performing the PSE calculations which have been compared
+to experiments, the initial condition for the PSE marching procedure is based
+empirically on the experimental results at the furthest upstream station
+\cite{HaRe:96}.  These comparisons are hampered by that fact that the
+disturbance environment is not completely known and that the flow evolution
+may already be nonlinear at the first measurement station.  Recently there
+have been attempts to include the receptivity process in the PSE analysis
+\cite{HeLi:93}.  However, this approach is still in its infancy and, due to
+the approximate nature involved in starting the PSE marching procedure, the
+current results are only qualitative and further refinement is required to
+incorporate quantitative receptivity predictions in PSE analysis.
+
+%
+% theory
+%
+In addition to the experimental work described above, there has also been
+considerable theoretical research on the prediction of receptivity in
+three-dimensional boundary layers.  A useful review of receptivity in
+three-dimensional and high-speed boundary layers is given by Choudhari \&
+Streett \cite{ChSt:90}.  In this article, the different receptivity mechanisms
+for the generation of stationary and traveling crossflow vortices are
+discussed.  In particular it is suggested that although the traveling
+crossflow vortices have larger linear growth-rates then stationary modes,
+local receptivity mechanisms preferentially excite stationary vortices.  This
+hypothesis has been recently verified by Choudhari \cite{Choudhari:94} and
+Crouch \cite{Crouch:93} who have independently shown that the initial
+amplitude of traveling CF vortices due to the interaction of freestream
+acoustic waves with surface roughness is much smaller then that of stationary
+modes which are generated by the direct scattering of the meanflow by the
+roughness.  This conclusion is directly related to the fact that the amplitude
+of unsteady freestream disturbances (both sound and turbulence) is very low
+under flight conditions.  In passing, it should be noted that both the
+experiments of Radeztsky \etal\ \cite{RaReSa:93} and Deyhle \& Bippes
+\cite{DeBi:96} show that freestream acoustic disturbances have no measurable
+influence on the level of traveling crossflow modes or on the transition
+location.
+
+The analysis used by both Choudhari \cite{Choudhari:94} and Crouch
+\cite{Crouch:93} is done in the same framework as the asymptotic theories of
+Goldstein \cite{Goldstein:85} and Ruban \cite{Ruban:84}.  However, instead of
+approximating the Navier--Stokes equations using high Reynolds number
+expansions, the equations are replaced by the locally parallel equations in
+the vicinity of the surface disturbance.  This approach was first used by
+Zavol'skii \etal\ \cite{ZaReRy:83} to study the generation of TS waves in the
+boundary layer over a wavy surface and several recent review articles
+\cite{ChSt:94,Crouch:94} summarize the various applications of this technique.
+The advantage of, what has been called Finite Reynolds Number Theory (FRNT),
+is that solutions can be more easily obtained for a wide range of physical
+problems at moderate Reynolds numbers.  Furthermore, FRNT is not limited to
+the vicinity of the first neutral point as is the asymptotic theory.  As
+indicated above, FRNT has been used to demonstrate that the initial amplitudes
+of traveling crossflow modes due to the interaction of sound with roughness is
+much smaller than that of stationary modes generated directly by surface
+roughness.  Both of these studies where conducted for incompressible flow,
+with the mean boundary layer flow given by the family of Falkner--Skan--Cooke
+\cite{Cooke:50} swept-wedge flows.  Consistent with the experimental results
+discussed above, the greatest effective receptivity is found to occur just
+upstream of the first neutral point.  Although the receptivity increases
+upstream of the neutral point, the actual amplitude of a generated instability
+wave in the unstable region is reduced because the flow is highly damped
+upstream of the neutral point.  As pointed out by Choudhari
+\cite{Choudhari:94}, however, the results of the FRNT require numerical and/or
+experimental verification in the vicinity of the first neutral point because
+nonparallel effects may be important.  Additionally, in practical situations,
+such as the leading-edge of a wing, the first neutral point for stationary
+crossflow vortices will occur in a region of large surface curvature.
+Recently the effects of both nonparallelism and surface curvature on the
+stability characteristics of stationary crossflow vortices has been examined
+by Malik and coworkers \cite{MaMa:94,MaBa:93,MaLi:93} using both PSE and
+perturbation theory to account for the nonparallel effects.  These results
+have generally shown that while curvature effects are stabilizing, nonparallel
+effects are destabilizing for crossflow modes.  However, the impact of
+non-parallelism and curvature remain open issues with regard to receptivity.
+
+The present research aims to close the gap in transition prediction by
+predicting the receptivity of crossflow vortices through numerical simulation
+of the linearized Navier--Stokes equations.  In this way, the disturbance
+environment can be carefully controlled and both the physical mechanisms of
+the receptivity process and the success and limitations of the theoretical
+approaches \cite{Choudhari:94,Crouch:93} can be established.  In particular,
+both the effects of body curvature and nonparallel mean flow will be examined
+in the context of a simplified model of a wing leading-edge.  Although beyond
+the scope of the current study, our results can also be compared to PSE
+receptivity predictions to evaluate the viability of that approach.
+
+\section{Accomplishments and Overview \label{s:accomplishments}}
+
+The accomplishments of this research include:
+
+\begin{itemize}
+
+\item A computational method for the simulation of receptivity phenomena near
+the leading-edge of a swept-wing at high subsonic speeds has been developed.
+To make the numerical simulation of receptivity problems more economical, only
+the region in the immediate vicinity of the leading-edge is included in the
+computational domain.  When computing mean-flow solutions, an outflow boundary
+condition based on the parabolized Navier--Stokes equations has been
+implemented which gives high-quality solutions up to the outflow boundary.
+For disturbance calculations, extensive tests are reported on nonreflecting
+outflow boundary conditions for problems where instability waves exit the
+boundary.  Conditions based on the damping sponge \cite{IsOr:81} are found to
+be adequate although more refined techniques are desirable.
+
+\item A suite of model problems which represent the physical phenomena
+expected in receptivity calculations have been solved.  These problems
+include: unstable Tollmien--Schlichting waves in a two-dimensional boundary
+layer, unstable crossflow vortices in a three-dimensional boundary layer, and
+acoustic scattering from a circular cylinder.  Results from each of these
+problems are in excellent agreement with exact solutions.
+
+\item As further validation, a limited investigation of acoustic leading-edge
+receptivity is performed for a flat-plate with a super-ellipse
+leading-edge.  Results are compared to the incompressible calculation of Lin
+\etal \cite{LiReSa:90} and the amplitude of the instability waves are
+predicted to within 10\% of the incompressible solutions.
+
+\item A series of two- and three-dimensional meanflow solutions are obtained
+for a parabolic cylinder.  Low Mach number, two-dimensional results compare
+favorably to a reference incompressible solution by Davis \cite{Davis:72}.  A
+three-dimensional, high-speed boundary-layer over a swept parabolic-cylinder
+is computed and thoroughly documented.
+
+\item The development of stationary crossflow vortices in the
+three-dimensional \linebreak boundary layer on the swept parabolic-cylinder is
+compared to compressible, linear-stability-theory which incorporates the
+effects of curvature and nonparallelism.  Curvature is included by writing the
+Navier--Stokes equations in a curvilinear coordinate system.
+%Unlike recent analysis on a circular cylinder, the metric terms for a general
+%airfoil shape must account for the derivative in the body tangent direction 
+%and these terms are included in our formulation.  
+Nonparallel effects are included using a perturbation approach where the
+solution is written in terms of a slowly varying chordwise coordinate.
+
+\item Stability results indicate that surface curvature and nonparallel flow
+are both important factors over the entire length of the unstable crossflow
+region.  These results are in qualitative agreement with recent PSE and
+stability analysis for a swept circular cylinder \cite{MaMa:94,MaBa:93}.  When
+measured by the integrated disturbance kinetic energy, convex surface
+curvature is found to be stabilizing while nonparallel effects are
+destabilizing.  Including both effects in the stability theory leads to
+growth-rate predictions which are in excellent agreement with linearized
+Navier--Stokes solutions for relatively short spanwise wavelengths.  However,
+it is demonstrated for a longer spanwise wavelength that the perturbation
+approach is inadequate near the leading-edge.  This is unfortunate since this
+longer wavelength mode has a larger $N$-factor making it considerably more
+``dangerous.''  An approximate criterion for the failure of the nonparallel
+perturbation approach is presented based on the normalized growth of the mean
+boundary layer.
+
+\item The impact of both curvature and nonparallel effects on the receptivity
+of this flow to surface roughness are established by solutions of the
+linearized Navier--Stokes equations.  When the results are compared to Finite
+Reynolds Number Theory (FRNT), they indicate that curvature enhances
+receptivity while nonparallel flow attenuates receptivity.  The net effect for
+the conditions of this study are that the nonparallel attenuation dominates.
+In a region near the leading-edge, the FRNT predictions are found to generally
+over-predict the crossflow amplitude, with errors as large as $77\%$ when
+curvature is included.  Although these predictions are conservative,
+additional refinement of the theory to include nonparallel effects is
+warranted.
+
+\end{itemize}
+
+We begin in Chapter \ref{c:eqn} with a summary of the governing equations for
+an ideal, compressible fluid including nondimensionalization, and
+linearization suitable for receptivity problems.  Chapter \ref{c:method}
+details the numerical methods used to obtain high-accuracy meanflow solutions
+and linearized disturbance solutions.  This chapter includes a discussion of
+the potential flow solver, used to compute initial conditions, and boundary
+conditions for both mean and disturbance equations.  Extensive validation of
+the numerical method is performed in Chapter \ref{c:valid} using model
+problems based on the physical phenomena observed during the early phases of
+laminar-turbulent transition.  As further validation, a limited study of
+leading-edge receptivity to sound is presented in \S\ref{c:2dle} including
+comparisons to previous incompressible solutions.  The main focus of this
+research is detailed in Chapter \ref{c:pcyl} where an extensive study of
+instability and receptivity characteristics of the three-dimensional boundary
+layer on a swept parabolic cylinder is performed.  Finally, the results of
+this \thesis\ are summarized in Chapter \ref{c:conclude} with conclusions and
+avenues for further investigation highlighted.
+
+%==============================================================================
+%
+%  Tables and Figures
+%
+%==============================================================================
+
+\begin{figure}[p]
+\centering 
+\figlab 0.25in 0.75in {(a)}
+\epsfxsize=5.0in \epsfbox{figures/ch1/lfc.ai}
+\vskip 1.0in
+\figlab -0.1in 3.5in {(b)}
+\epsfxsize=4.25in \epsfbox{figures/ch1/lv2.ai}
+\vskip 0.25in
+\caption [Laminar flow wing sections]{Laminar flow wing sections: (a) is a
+full chord Laminar-Flow-Control airfoil (after \cite{HaHaBr:88}) showing the
+ducting required to remove the suction air, while (b) is a
+Natural-Laminar-Flow airfoil (after \cite{ReHoKoQu:86}) with the predicted
+pressure distribution and transition locations on the upper and lower
+surfaces. \label{f:lfc} }
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\epsfxsize=6.0in \epsfbox{figures/ch1/transition.ai}
+\vskip 0.5in
+\caption {Routes to transition on a swept wing. \label{f:transition} }
+\end{figure}

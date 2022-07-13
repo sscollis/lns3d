@@ -1,0 +1,1475 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Chapter 3:  Numerical Method
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 7-19-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter [Numerical Method] {Numerical Method for \protect\\ 
+Receptivity Calculations \label{c:method}}
+
+This chapter presents the numerical methods developed to simulate receptivity
+phenomena near a swept leading-edge.  We begin with a discussion of the issues
+and challenges faced when undertaking receptivity calculations.
+
+\section{Computational Issues and Challenges \label{s:issues} }
+
+The computational simulation of receptivity requires a numerical scheme
+capable of accurately and efficiently computing both the mean boundary-layer
+flow about an arbitrary leading-edge and the evolution of unsteady
+disturbances on that mean flow. The unsteady disturbances include inviscid
+(acoustic, entropy, vorticity) waves in the far-field and viscous instability
+waves in the boundary layer.  The dispersion relations for all types of waves
+and the dynamics of their interaction (\ie\ receptivity) must be accurately
+represented.  Although accurate and efficient numerical methods have been
+developed to compute mean-flow and wave-propagation phenomena individually,
+there is no method readily available for the simultaneous solution of both
+types of problems in complex geometries.
+
+For computing mean boundary-layer flows, there are a wide range of methods
+available \cite{BeWa:76,Steger:77,vanLeer:77,StWa:81,Shakib:88} to name just a
+few.  In general, these methods are second-order-accurate in space with
+second-order-accurate, implicit time-advancement and incorporate some form of
+(spatial) numerical dissipation to control spurious oscillations in the
+solution.  These spurious oscillations arise for a host of reasons including,
+but not limited to, insufficient resolution, approximate boundary conditions,
+incomplete residual reduction when using iterative solvers, and mesh
+stretching.  The type of numerical dissipation used depends on the particular
+scheme but can take the form of an artificial viscosity term, upwind
+differencing, or ``least-squares'' stabilization.  In certain limiting cases
+each of these forms of numerical dissipation can be shown to be
+equivalent. Although these flow solvers are generally found to converge
+rapidly to accurate mean-flow solutions, their use for unsteady,
+wave-propagation problems is relatively untested.
+%
+%.... TTD: check out the CAA workshop
+%
+
+Recently Fenno \etal \cite{Fenno:93} used a second-order finite-volume scheme
+with artificial viscosity to study the receptivity of a two-dimensional
+parabolic-cylinder to freestream acoustic waves at low Mach numbers.  They
+found that the numerical dissipation of the code damped the incoming acoustic
+waves by 56\% before the waves struck the leading-edge, even when using a
+costly anisotropic dissipation technique.  Furthermore, instability wave
+amplitudes and neutral point locations were in significant error when compared
+to previous incompressible results obtained using a spectral method.  This was
+also the case when resolution was increased to over 50 points per instability
+wavelength---a value which resulted in prohibitively high CPU times.
+
+Similar, although not as pessimistic, results were found when evaluating a
+finite-element flow solver using the ``Galerkin Least-Squares'' method
+\cite{Shakib:88} for computation of boundary layer instability waves
+\cite{CoLe:96}.  When this method was properly formulated, by including the
+full residual of the Navier--Stokes equations in the Least-Squares term, it was
+found that 60 bilinear-elements per Tollmien--Schlichting wavelength and 250
+elements normal to the wall are required to achieve sufficient accuracy in the
+growth-rate.\footnote{With reference to \protect\S\ref{s:TS} we have defined a
+growth-rate error of less than $0.2\%$ as sufficient for the receptivity
+problems under consideration.}  For comparison, the method presented below,
+achieves sufficient accuracy using 20 nodes per wavelength with 128 normal to
+the wall.  To take full advantage of the finite-element method, an
+unstructured grid is desirable to cluster elements in regions of high
+gradients.  However, the error in the growth-rate for linear triangles is 3.5
+times greater than that of bilinear elements using the same node distribution.
+This loss in accuracy offsets the advantage of the unstructured grid.
+Investigations were also made using bi-quadratic and bi-cubic elements and, as
+expected, a significant reduction in the number elements was obtained with
+increasing order for the same level of accuracy.  However, the greater expense
+in terms of code complexity and computer time renders these higher-order
+methods unsuitable for the present investigation.
+
+In recent years, there has also been considerable method development for
+computing wave-propagation problems.  These methods typically make use of
+high-order finite-difference spatial discretization with a high-order explicit
+time advancement scheme.  Examples include the sixth-order-accurate compact
+scheme of Lele \cite{Lele:92} with fourth-order Runge-Kutta time advancement
+used by Colonius \etal \cite{CoMoLe:95} and Mitchell \etal \cite{MiLeMo:96}
+and the {\sf DRP} scheme of Tam and Webb \cite{TamWeb:93} which uses an
+optimized 7-point finite-difference stencil in space with a multi-step,
+explicit time-advancement scheme.  Although these schemes have excellent wave
+propagation characteristics, they typically suffer from poor convergence to
+steady-state since they rely on explicit time-advancement schemes with strict
+stability limits.  Furthermore, converting to an implicit time-advancement
+scheme for computing steady-states is complicated by the large stencils used
+in computing spatial derivatives.
+
+In an effort to develop a method suitable for both mean-flow and wave
+propagation problems, we have retained a fully implicit time-advancement
+scheme, but with a 5-point (up to 4th-order-accurate) finite difference
+stencil in space.  With approximate factorization, this results in a series of
+block penta-diagonal matrices which must be solved at each time-step or
+iteration.  We have found that even with the rather large, block
+penta-diagonal matrices, an efficient code results.  Furthermore, when
+computing mean-flow solutions the block, penta-diagonal matrices can be
+approximated by block, tri-diagonal matrices, thereby reducing expense while
+retaining numerical stability.
+
+In the following sections, details of the numerical method are presented
+including the generalized coordinate system, spatial discretization, time
+advancement, iterative solvers for both nonlinear and linearized equations,
+and boundary treatments for mean and disturbance solutions.  But first, a
+brief description of the receptivity problem and computational domain is
+presented.
+
+\section{Problem Description \label{s:problem} }
+
+To render the discussion concrete, the numerical method is discussed in the
+context of the swept leading-edge, receptivity problem; although the method is
+generally applicable to a much wider set of problems.  Figure \ref{f:domain}
+shows a schematic of the leading-edge geometry where the chordwise direction
+is denoted by $x$, the vertical direction by $y$, and the spanwise direction
+by $z$.  The arc-length along the surface of the wing is given by $s$ and
+the distance normal to the wing surface is $n$.  The wing has an
+angle-of-attack, $\alpha$, and sweep angle, $\theta$, and is idealized as
+having infinite span with no taper.  This avoids fuselage and tip effects and
+renders all $z$-derivatives zero in the mean.  The chordwise component of the
+freestream velocity is denoted as $u_\infty$, the spanwise component as
+$w_\infty$, and the magnitude of the freestream velocity is $U_\infty$.
+
+In constructing the computational domain, only the region in the immediate
+vicinity of the leading-edge is included.  By truncating the downstream
+portion of the wing we avoid the unsteady and complicated flow features often
+present near the trailing-edge: shock waves, flow separation, and the unsteady
+wake.  In a subsonic flow, pressure disturbances associated with these
+phenomena travel upstream and exert some influence on the flow near the
+leading-edge.  To the extent that such upstream influence is important, the
+current solutions are only an approximation of the flow near an actual wing
+leading-edge.  For the problems presented in this \thesis, the impact of
+domain truncation will be assessed by comparing solutions computed with
+different domain lengths.
+
+\section{Generalized Coordinates \label{s:gencoord} }
+
+To represent the airfoil geometry and to cluster points in regions of high
+spatial gradients (such as the boundary layer and the attachment-line), a
+global, two-dimensional mapping is constructed from physical space $(x,y,z)$
+to a uniform, Cartesian computational space $(\xi,\eta,z)$ with both $\xi$ and
+$\eta$ in the range $[0,1]$.
+
+Evaluation of first-derivatives in physical space in terms of derivatives in
+computational space utilizes the Jacobian of the mapping
+%
+\begin{equation} \label{e:jacobian}
+  \left\{ \matrix{\frac{\partial}{\partial x} \cr \noalign{\smallskip} 
+                  \frac{\partial}{\partial y} \cr} \right\} = {\bf J}
+  \left\{ \matrix{\frac{\partial}{\partial\xi} \cr \noalign{\smallskip} 
+                  \frac{\partial}{\partial\eta} \cr} \right\} ,
+\end{equation}
+%
+where the Jacobian, ${\bf J}$, is defined as
+%
+\begin{equation}
+{\bf J} = \left [ \matrix{\xi_{,x} & \eta_{,x} \cr
+                  \noalign{\smallskip}
+                  \xi_{,y} & \eta_{,y} \cr } \right ]
+\end{equation}
+%
+and $\xi_{,x}$, $\eta_{,x}$, $\xi_{,y}$, and $\eta_{,y}$ are the metrics of
+the mapping transformation.  Similarly, second-derivatives in physical space
+are computed using the Hessian of the mapping,
+%
+\begin{equation} \label{e:hessian}
+  \left\{ \matrix{\frac{\partial^2}{\partial x^2} \cr 
+                  \noalign{\smallskip}
+                  \frac{\partial^2}{\partial x \partial y} \cr 
+                  \noalign{\smallskip} 
+                  \frac{\partial^2}{\partial y^2} \cr} \right\} = 
+  \left [ \matrix{(\xi_{,x})^2 & \xi_{,x}\eta_{,x} & (\eta_{,x})^2 \cr
+                  \noalign{\smallskip}
+                  \xi_{,x}\xi_{,y} & \xi_{,x}\eta_{,y} + 
+                  \xi_{,y}\eta_{,x} & \eta_{,x}\eta_{,y} \cr 
+                  \noalign{\smallskip}
+                  (\xi_{,y})^2 & \xi_{,y}\eta_{,y} & (\eta_{,y})^2 \cr} 
+                  \right ]
+  \left\{ \matrix{\frac{\partial^2}{\partial\xi^2} \cr 
+                  \noalign{\smallskip} 
+                  \frac{\partial^2}{\partial\xi\partial\eta} \cr
+                  \noalign{\smallskip}
+                  \frac{\partial^2}{\partial\eta^2} \cr} \right\} +
+  \left [ \matrix{\xi_{,xx} & \eta_{,xx} \cr
+                  \noalign{\smallskip}
+                  \xi_{,xy} & \eta_{,xy} \cr 
+                  \noalign{\smallskip}
+                  \xi_{,yy} & \eta_{,yy} \cr} \right ]
+  \left\{ \matrix{\frac{\partial}{\partial\xi} \cr 
+                  \noalign{\smallskip} 
+                  \frac{\partial}{\partial\eta} \cr} \right\} .
+\end{equation}
+%
+The actual form of the mapping function depends on the particular problem
+under investigation.
+
+Typically, in CFD applications, the governing equations are converted to a
+generalized coordinate space.  In so doing, the mapping metrics ($\xi_{,x}$,
+$\eta_{,x}$, \ldots) are computed approximately using the same derivative
+scheme used for the flow variables.  Errors in the mapping metrics can lead to
+an increase in numerical errors.  To circumvent this, we use analytically
+defined metrics whenever possible, which includes all of the problems
+presented here. For geometries where analytical metrics are not possible, we
+have developed a preprocessing routine which uses a high resolution mesh to
+compute the mapping metrics.  Although the preprocessor computes finite
+difference approximations to the metrics, the mesh spacing for the metric
+computation can be selected to virtually eliminate errors in the metric
+evaluation.  These `pseudo-analytical' metrics can then be used as input data
+to the flow solver.
+
+It is important to note that the numerical method presented here is based on
+the primitive form of the governing equations (\ref{e:con})--(\ref{e:eng}).
+As such, the numerical method is not conservative and therefore is not
+appropriate for computations with shocks where shock-capturing is used.
+However, since the equations are in primitive form, we are guaranteed that the
+uniform freestream condition will be preserved regardless of the mesh metrics.
+Overall conservation with this type of approach is only approximate but the
+errors are small---on the order of the truncation error.
+
+\section{Spatial Discretization \label{s:spacedisc}}
+
+Consider derivative operators in the uniform computational space $(\xi,\eta)$
+where $\xi_i,\eta_j$ represent the nodal locations with $\xi_i = \Delta \xi
+(i-1)$ for $1 \leq i \leq N_\xi$ and $\eta_j = \Delta \eta (j-1)$ for $1 \leq
+j \leq N_\eta$.  In presenting the spatial discretization, the difference
+operators are given only for the $\xi$ direction since the $\eta$ operators
+are completely analogous.
+
+At interior nodes, the fourth-order-accurate central difference scheme is used
+for first- and second-derivatives.  First-derivatives are approximated by the
+expression
+%
+\begin{equation} \label{e:1st}
+ \left( \frac{\partial f}{\partial \xi} \right)_i \approx 
+ \frac{1}{12\Delta\xi} \Big[   \left( f_{i-2} - f_{i+2} \right) -
+                             8 \left( f_{i-1} - f_{i+1} \right) \Big] ,
+\end{equation}
+%
+while second-derivatives are computed using
+%
+\begin{equation} \label{e:2nd}
+ \left( \frac{\partial^2 f}{\partial \xi^2} \right)_i \approx 
+ \frac{1}{12 (\Delta\xi)^2} 
+ \Big[  - \left( f_{i-2} - 2 f_{i} + f_{i+2} \right) +
+       16 \left( f_{i-1} - 2 f_{i} + f_{i+1} \right) \Big] .
+\end{equation}
+
+Near the computational boundaries, finite difference operators that are biased
+toward the interior are required.  Since the interior scheme uses a 5-point
+stencil, biased difference operators are required at the boundary point and at
+the first node in the interior, \ie\ nodes $(1,2,N_\xi-1,N_\xi)$.
+
+First derivatives at $\xi_1$ are computed using the 4th-order-accurate
+one-sided difference scheme
+%
+\begin{equation}
+ \left( \frac{\partial f}{\partial \xi} \right)_1 \approx 
+ \frac{1}{12\Delta\xi} \Big[ -25 f_{1} + 48 f_{2} - 
+                              36 f_{3} + 16 f_{4} -
+                               3 f_{5} \Big] ,
+\end{equation}
+%
+while at node $\xi_2$ the 4th-order-accurate biased difference stencil is used
+%
+\begin{equation}
+ \left( \frac{\partial f}{\partial \xi} \right)_2 \approx 
+ \frac{1}{12\Delta\xi} \Big[ -3 f_{1} - 10 f_{2} + 
+                             18 f_{3} -  6 f_{4} + f_{5} \Big] .
+\end{equation}
+%
+Second derivatives at $\xi_1$ are computed using the 3rd-order-accurate
+expression
+%
+\begin{equation}
+ \left( \frac{\partial^2 f}{\partial \xi^2} \right)_1 \approx 
+ \frac{1}{12(\Delta\xi)^2} \Big[ 11 f_{1} - 20 f_{2} + 
+                                  6 f_{3} +  4 f_{4} - f_{5} \Big] ,
+\end{equation}
+%
+while a 3rd-order-accurate one-side expression is used at node $\xi_2$
+%
+\begin{equation}
+ \left( \frac{\partial^2 f}{\partial \xi^2} \right)_2 \approx 
+ \frac{1}{12(\Delta\xi)^2} \Big[  35 f_{1} - 104 f_{2} +
+                                 114 f_{3} -  56 f_{4} + 11 f_{5} \Big] .
+\end{equation}
+%
+Similar expressions hold for the derivatives at nodes $N_\xi-1$ and $N_\xi$
+but with the stencils reversed and the signs switched on the coefficients for
+the first derivatives.
+
+Notice that we have retained a 5-point stencil for all derivatives, even at
+the boundaries.  This ensures that first-derivatives are computed to
+4th-order-accuracy at every point in the domain, while second derivatives drop
+only one-order near the boundary.  Although retaining 4th-order-accurate first
+derivatives near the boundary is not required to obtain global 4th-order
+convergence \cite{Gustafsson:75}, we have found, through numerical
+experimentation, that the added accuracy is desirable especially near the
+wall.  The use of 5-point stencils near the boundary does alter the structure
+of the matrices used in the implicit solver and the impact of these changes is
+discussed in sections \ref{s:base} and \ref{s:dist}.
+
+\section{Temporal Discretization \label{s:temporal} }
+
+For computing steady-state solutions (both nonlinear and linearized) we march
+the unsteady equations to the steady-state using the implicit Euler scheme,
+where the time derivative is approximated by
+%
+\begin{equation} \label{e:ieuler}
+\left(\frac{\partial u}{\partial t}\right)^{(n+1)} =  
+\frac{u^{(n+1)}-u^{(n)}}{\Delta t} + {\cal O}(\Delta t) \period
+\end{equation}
+%
+This first-order accurate scheme has significant temporal dissipation which
+helps speed the convergence to the steady-state solution.  Since time-accuracy
+is not an issue for steady-state calculations, local-time-stepping is used to
+further accelerate convergence.  With local-time-stepping, $\Delta t$ in
+equation (\ref{e:ieuler}) is replaced by $\Delta t(x,y)$ which is a function
+of the $(x,y)$ coordinates.  The value of the time-step is chosen to be
+proportional to a measure of the local Courant--Friedrichs--Lewy ($\CFL$)
+condition.  The techniques for estimating the $\CFL$ for base flow and
+linearized calculations are presented in \S\ref{s:base} and \S\ref{s:dist}
+respectively.  It is important to remember that the $\CFL$ is only used to
+compute the local time-step as a means of enhancing convergence to the
+steady-state solution.  In this context, the $\CFL$ has no relevance to
+numerical stability since the time-advancement scheme is unconditionally
+stable.
+
+For unsteady calculations, we use the second-order accurate, two-step implicit
+scheme given by
+%
+\begin{equation}
+  \left(\frac{\partial u}{\partial t}\right)^{(n+1)} = 
+  \frac{3u^{(n+1)}-4u^{(n)}+u^{(n-1)}}{2\Delta t} + {\cal O}(\Delta t^2)
+\end{equation}
+%
+Since this time-advancement scheme requires two previous time-levels, the
+integration is started at $t=0$ with one step of implicit Euler, equation
+(\ref{e:ieuler}).  The two-step implicit scheme has been recently used to
+study transitional flows by Rai \& Moin \cite{RaMo:93}.  Unlike the
+Crank--Nicholson scheme which is the most accurate second-order accurate
+implicit scheme, the two-step implicit scheme does introduce temporal
+dissipation due to the biased stencil.  When coupled with the
+central-difference operators used in space, we have found that the
+Crank--Nicholson scheme eventually leads to numerical oscillations in the
+solution which arise due to the variety of factors discussed in
+\S\ref{s:issues}.  Using the two-step implicit scheme prevents the
+accumulation of these numerical oscillations at the expense of slightly
+reduced accuracy for a given time-step.
+
+\section{Base Flow Solver \label{s:base}}
+
+The base flow is given by solution of the steady, nonlinear Navier--Stokes
+equations (\ref{e:bcon})--(\ref{e:bideal}) subject to appropriate boundary
+conditions.  Since the wing is idealized as having infinite span the problem
+is reduced to a two-dimensional problem in the $(x,y)$ plane but with three
+nonzero components of velocity due to wing sweep.
+
+To solve (\ref{e:bcon})--(\ref{e:bideal}) we retain the time terms and march
+the unsteady NS equations to the steady-state using the implicit-Euler
+time-integrator, equation (\ref{e:ieuler}).  With the time terms added,
+equations (\ref{e:bcon})--(\ref{e:bideal}) can be written in the form
+%
+\begin{equation} \label{e:base}
+  \bUm_{,t} + \bF(\bUm) = 0 ,
+\end{equation}
+%
+where 
+%
+\begin{equation}
+  {\bUm} = \left\{\matrix{\rhom\cr \um_1\cr \um_2\cr \um_3\cr \Tm\cr}\right\} .
+\end{equation}
+%
+Applying backward Euler time discretization yields
+%
+\begin{equation}
+  -\bUm^{(n+1)} + \bUm^{(n)} + \Delta t \bUm^{(n+1)}_{,t} \equiv 
+  \bG\left(\bUm^{(n+1)};\bUm^{(n)}\right) = 0
+\end{equation}
+%
+and applying Newton's method to solve this nonlinear problem leads to the
+iteration
+%
+\begin{eqnarray}
+  \bUm^{(n+1)}_1  &=& \bUm^{(n)} \\
+  \delta \bUm_{i} &=& \bUm^{(n+1)}_{i+1} - \bUm^{(n+1)}_{i} \label{e:var} \\
+  -\bigg(\frac{\partial \bG}{\partial \bUm}\bigg)_{i} \delta \bUm_{i} &=& 
+  \bG(\bUm^{(n+1)}_{i};\bUm^{(n)}) \label{e:newt} ,
+\end{eqnarray}
+%
+where (\ref{e:newt}) can be simplified to
+%
+\begin{equation} \label{e:newton}
+  \bigg[ \bI + \Delta t \frac{\partial \bF}{\partial \bUm} \bigg]_{i} 
+  \delta \bUm_{i} = \bG(\bUm^{(n+1)}_{i};\bUm^{(n)}) .
+\end{equation}
+%
+The process of linearization in the Newton iteration is nearly the same as
+that done in \S\ref{c:eqn} when deriving the disturbance equations.  The only
+difference is that the linearization is now done about an unsteady field thus
+requiring a slight modification to the definitions of the matrices in equation
+(\ref{e:pNS}).  The required modifications are detailed in Appendix
+\ref{a:nlinmat}.  With the understanding that the matrices are modified to
+account for the unsteady flow, the tangent in the Newton iteration can be
+obtained from (\ref{e:pNS}) by evaluating the matrices at the previous
+iteration.
+
+Converting to the generalized coordinate system the tangent becomes
+%
+\begin{equation} \label{e:tangent}
+  -\bigg(\frac{\partial \bG}{\partial \bUm}\bigg)_{i} =
+   \bigg[ \bI + \Delta t \Big (\check\bA \Delta_{\xi} + 
+                               \check\bB \Delta_{\eta} + 
+                               \check\bD -
+                               \check{\bf V}_{\xi\xi}   \Delta_{\xi\xi}  - 
+                               \check{\bf V}_{\xi\eta}  \Delta_{\xi\eta} -
+                               \check{\bf V}_{\eta\eta} \Delta_{\eta\eta} \Big)
+  \bigg]_{i} .
+\end{equation}
+%
+In this equation the matrices are denoted with a check to indicate that the
+mapping metrics are included in their definitions, \eg,\ 
+%
+\begin{equation} \label{e:ss}
+\check\bA = \xi_{,x} \bA + \xi_{,y} \bB + \xi_{,xx} {\bf V}_{11} +
+            \xi_{,xy} {\bf V}_{12} + \xi_{,yy} {\bf V}_{22} .
+\end{equation}
+%
+The symbols ($\Delta_{\xi}$, $\Delta_{\eta}$, \ldots) in equation
+(\ref{e:tangent}) represent finite difference operators in computational
+space.  In computing the mean flow, it is computationally attractive to
+approximate the tangent using second-order finite difference operators instead
+of the full fourth-order operators used to form the residual.  This
+approximation decreases the bandwidth of the tangent, reducing memory storage
+and floating point operations.  However, from computational experience we have
+found that convergence is degraded if the boundary differences are
+approximated in the tangent.  So, in practice, second-order differences are
+used in the tangent only for interior nodes and 5-point stencils are retained
+at the three nodes nearest the boundaries.  It should be noted that the
+approximation of the LHS finite difference operators with reduced-order
+finite-differences has been used previously by Rai \& Moin \cite{RaMo:93} and
+Beaudan \& Moin \cite{BeMo:94}.  However, in both these applications, the
+interior scheme used upwind biased differencing and the LHS was approximated
+by first-order upwind differencing with no report of poor convergence near the
+boundaries.  However, it is well known that the use of biased differencing
+introduces numerical dissipation.  The lack of numerical dissipation in the
+present scheme may contribute to the sensitivity of convergence on the
+boundary approximation in the LHS.
+
+As a further approximation, (\ref{e:newton}) is approximately factored into
+%
+\begin{eqnarray}
+  \bigg[ \bI + \Delta t \Big ( \check\bA \Delta_{\xi} + \check\bD - 
+                               \check{\bf V}_{\xi\xi} \Delta_{\xi\xi} 
+  \Big) \bigg]_{i} \bZ_{i} &=& \bG(\bUm^{n+1}_{i};\bUm^{n}) , \\
+  \bigg[ {\bf I} + \Delta t \Big ( \check\bB \Delta_{\eta} - 
+                                   \check{\bf V}_{\eta\eta} \Delta_{\eta\eta}
+  \Big) \bigg]_{i} \Delta \bUm_{i} &=& \bZ_{i} , 
+\end{eqnarray}
+%
+which greatly reduces the amount of memory required at the expense of
+introducing errors of ${\cal O}(\Delta t^2)$ in the tangent.  The use of the
+higher-order boundary closure in the tangent spoils the block tri-diagonal
+structure of the approximately factored system near the boundaries resulting
+in a matrix with a profile as shown in figure~\ref{f:tri}.  A special purpose
+routine based on Gaussian elimination \cite{GoLo:89} has been written to
+efficiently solve this, nearly, block tri-diagonal system on a vector
+supercomputer.
+
+By introducing the approximations described above into the tangent, the
+quadratic convergence of the Newton iteration is sacrificed.  Assuming that
+the iteration converges, the errors due to these approximations can be driven
+to zero.  By analysis of the one-dimensional convection-diffusion equation and
+by computational experimentation of the full equations we have found that
+these approximations yield a stable and convergent scheme.
+
+As discussed in \S\ref{s:temporal}, local time-stepping, based on the local
+$\CFL$, is used to speed convergence to the steady-state solution.  To
+estimate the local $\CFL$ we use the following approximate expression
+\cite{Pulliam:94} which follows from a physical argument of enclosing the
+physical domain of dependence within a computational cell \cite{MacCormack:88}
+%
+\begin{eqnarray} \label{e:cfl}
+\CFL &=& \frac{\Delta t}{\Delta\xi \Delta\eta}
+         \biggl\{ |{\bf J}_{1i} \bar u_i| \Delta\eta + 
+                  |{\bf J}_{2i} \bar u_i| \Delta\xi +  \nonumber \\
+  & &   \bar c \left[ ( {\bf J}_{11}^2 + {\bf J}_{12}^2 ) \Delta\eta^2 + 
+                 ( {\bf J}_{21}^2 + {\bf J}_{22}^2 ) \Delta\xi^2  
+          \right]^{1/2} \biggr\} \period
+\end{eqnarray}
+%
+In this expression, ${\bf J}$ is the Jacobian of the mapping and $\bar c$ is
+the local sound-speed.  By specifying a value of $\CFL$, equation
+(\ref{e:cfl}) is solved for the local value of $\Delta t(x,y)$.  The $\CFL$
+defined in equation (\ref{e:cfl}) includes convective and acoustic phenomena
+but ignores viscous diffusion.  A similar expression can be derived to include
+viscous effects, but we have found the current equation (\ref{e:cfl}) adequate
+for accelerating convergence to steady-state.
+
+\section{Linear Disturbance Solver \label{s:dist} }
+
+Two approaches are used to obtain solutions to the linearized disturbance
+equations (\ref{e:pNS}).  In the first method, the unsteady equations are
+advanced in time using the second-order accurate, implicit, time-advancement
+scheme presented in \S\ref{s:temporal}.  This technique is suitable for the
+solution of problems in which the transient temporal evolution of disturbances
+is desired.  In the second method, the equations are converted to the
+frequency domain and are marched to a steady-state solution using a technique
+similar to that used for the base-flow solution.  This method is ideal when a
+time asymptotic solution is desired.
+
+\subsection{Unsteady Approach \label{ss:unsteady} }
+
+In the unsteady approach, the disturbance equations are solved using a
+time-accurate technique to determine the transient evolution of disturbances.
+Given a mean flow solution, the solution to the disturbance equations follows
+using a combination of high-order finite difference and spectral schemes to
+accurately compute spatial derivatives.  In the $(x,y)$ plane, derivatives are
+computed in the same manner as for the base flow.  Since the spanwise
+direction, $z$, is periodic, we write the solution as
+%
+\begin{equation}
+  \bU' = \bhU(x,y,t) \: e^{i k_z z }
+\end{equation}
+%
+where $k_z = 2\pi/\lambda_z$ is the spanwise wavenumber and the real-part
+convention is used.  Substituting this expression into the linearized
+Navier--Stokes equation (\ref{e:pNS}) one obtains
+%
+\begin{eqnarray} \label{e:fNS}
+  \bhU_{,t} + \bA \bhU_{,1} + \bB \bhU_{,2} + i k_z \bC \bhU + \bD \bhU =
+  \nonumber \\
+  \bVxx \bhU_{,11} + \bVxy \bhU_{,12} +
+  i k_z \bVxz \bhU_{,1} + \bVyy \bhU_{,22} +
+  i k_z \bVyz \bhU_{,2} - k_z^2 \bVzz \bhU .
+\end{eqnarray}
+%
+Converting to computational space produces the equation
+%
+\begin{eqnarray}
+  \bhU_{,t} + \bigg[ 
+              \check\bA \Delta_{\xi} + 
+              \check\bB \Delta_{\eta} + 
+              \check\bD -
+              \check{\bf V}_{\xi\xi}   \Delta_{\xi\xi}  - 
+              \check{\bf V}_{\xi\eta}  \Delta_{\xi\eta} -
+              \check{\bf V}_{\eta\eta} \Delta_{\eta\eta} 
+              \bigg] \bhU = 0
+\end{eqnarray}
+%
+where the check on the matrices indicates that they include the mapping
+metrics and contributions from the spanwise direction.  In this equation, the
+derivative operators in computational space are given by the fourth-order
+interior scheme with fourth-order boundary closure for the first-derivatives
+and third-order boundary closure for second derivatives (see
+\S\ref{s:spacedisc}).  It is useful to rewrite this equation using operator
+notation as
+%
+\begin{equation}
+  \bhU_{,t} + \bL(\bhU) = 0 .
+\end{equation}
+%
+The time derivative is discretized with the second-order, two-step implicit
+scheme, giving
+%
+\begin{eqnarray}
+  - \bhU^{n+1} + \frac{4}{3} \bhU^{n} - \frac{1}{3} \bhU^{n-1} + 
+    \frac{2\Delta t}{3} \bhU^{n+1}_{,t} \equiv
+    \bG(\bhU^{n+1};\bhU^{n},\bhU^{n-1}) = 0 . \label{e:2step}
+\end{eqnarray}
+%
+Although (\ref{e:2step}) is a linear equation, we formally apply Newton's
+method to solve it, leading to the iteration
+%
+\begin{eqnarray}
+  \bhU^{n+1}_1 &=& \bhU^{n} \\
+  \delta \bhU_{i} &=& \bhU^{n+1}_{i+1} - \bhU^{n+1}_{i} \\
+  \bigg[ \bI + \frac{2\Delta t}{3} \frac{\partial \bL}{\partial \bhU} 
+  \bigg]_{i} \delta \bhU_{i} &=& \bG(\bhU^{n+1}_{i};\bhU^{n},\bhU^{n-1})  .
+  \label{e:pnewton}
+\end{eqnarray}
+%
+If (\ref{e:pnewton}) is solved exactly then only one iteration is required.
+However, for computational efficiency the disturbance equations are
+approximately factored to obtain
+%
+\begin{eqnarray}
+  \bigg[ \bI + \frac{2\Delta t}{3} \Big ( \check\bA \Delta_{\xi} + 
+                               \check\bD - 
+                               \check{\bf V}_{\xi\xi} \Delta_{\xi\xi} 
+  \Big) \bigg]_{i} \bZ_{i} = 
+  \bG(\bhU^{n+1}_{i};\bhU^{n},\bhU^{n-1}) \label{e:itera} \\
+  \bigg[ {\bf I} + \frac{2\Delta t}{3} \Big ( \check\bB \Delta_{\eta} - 
+                               \check{\bf V}_{\eta\eta} \Delta_{\eta\eta}
+  \Big) \bigg]_{i} \delta \bhU_{i} = \bZ_{i} . \label{e:iterb}
+\end{eqnarray}
+%
+The approximate factorization introduces an ${\cal O}(\Delta t^2)$ error in
+the tangent which is consistent with the second-order-accurate time
+advancement scheme. By taking additional iterations, the factorization error
+can be eliminated thus recovering the solution to equation (\ref{e:2step}).
+
+In contrast to the base-flow solver, the fourth-order spatial differences for
+the interior nodes are retained in the tangent.  This ensures second-order
+temporal accuracy in one iteration per time-step while also accelerating
+convergence when multiple iterations are used.  With the exception of the
+boundaries, the approximate factorization of this system of equations results
+in a series of block, penta-diagonal linear systems.  Near the boundaries the
+penta-diagonal structure is spoiled due to the high-order boundary closure
+(see figure~\ref{f:penta}) and a special solver has been developed to
+efficiently obtain solutions to this system on vector supercomputers.  Since
+the matrices depend only on the mean-flow, a single LU factorization is
+performed for the first time-step and subsequent time-steps only require
+forward and backward substitutions.  This renders the disturbance code roughly
+six times faster then the nonlinear base-flow solver.
+
+\subsection{Frequency-Domain Approach \label{ss:frequency} }
+
+The frequency-domain approach is used when only the time-asymptotic behavior
+of the solution is required.  This includes cases when the disturbance
+solution is steady or when the solution is periodic with a single frequency,
+$\omega$.  In this case, the solution is assumed to be of the form
+%
+\begin{equation}
+  \bU' = \bhU(x,y) \: e^{i (k_z z - \omega t)} .
+\end{equation}
+%
+Substituting this expression into equation (\ref{e:pNS}) yields
+%
+\def\bhU{{\hat{\bf U}}}
+\begin{eqnarray} \label{e:omegaNS}
+  -i \omega \bhU + \bA \bhU_{,1} + \bB \bhU_{,2} + i k_z \bC \bhU + \bD \bhU =
+  \nonumber \\
+  \bVxx \bhU_{,11} + \bVxy \bhU_{,12} +
+  i k_z \bVxz \bhU_{,1} + \bVyy \bhU_{,22} +
+  i k_z \bVyz \bhU_{,2} - k_z^2 \bVzz \bhU .
+\end{eqnarray}
+%
+When converted to computational space, this equation takes the form
+%
+\begin{eqnarray}
+  \bigg[ 
+  \check\bA \Delta_{\xi} + 
+  \check\bB \Delta_{\eta} + 
+  \check\bD -
+  \check{\bf V}_{\xi\xi}   \Delta_{\xi\xi}  - 
+  \check{\bf V}_{\xi\eta}  \Delta_{\xi\eta} -
+  \check{\bf V}_{\eta\eta} \Delta_{\eta\eta} 
+  \bigg] \bhU = 0
+\end{eqnarray}
+%
+where the check on the matrices indicates that they include the mapping
+metrics and contributions from the spanwise direction and time-derivative.  As
+in the unsteady approach, the derivative operators in computational space are
+given by the fourth-order interior scheme with fourth-order boundary closure
+for the first-derivatives and third-order boundary closure for second
+derivatives.  Rewriting this equation using operator notation and introducing
+a pseudo-time, $\tau$-derivative leads to
+%
+\begin{equation}
+  \frac{\partial\bhU}{\partial\tau} + \bL_\omega (\bhU) = 0 .
+\end{equation}
+%
+The solution to this equation is obtained using the same technique described
+for the unsteady approach (see \S\ref{ss:unsteady}) but with the second-order
+time advancement replaced with implicit Euler.  
+
+To speed convergence to the steady-state solution, local-time-stepping is used
+as discussed in \S\ref{s:temporal}.  In this case, we approximate the local
+$\CFL$ by the following expression
+%
+\begin{eqnarray} \label{e:cfllinear}
+  \CFL &=& \frac{\Delta\tau}{\Delta\xi \Delta\eta}
+           \biggl\{ |{\bf J}_{1i} \bar u_i| \Delta\eta + 
+                  |{\bf J}_{2i} \bar u_i| \Delta\xi +  
+                  \frac{\bar w}{\lambda_z} \Delta\xi \Delta\eta \nonumber \\
+       & & \bar c \left[ ( {\bf J}_{11}^2 + {\bf J}_{12}^2 ) \Delta\eta^2 + 
+                      ( {\bf J}_{21}^2 + {\bf J}_{22}^2 ) \Delta\xi^2  +
+                      \frac{\Delta\xi^2\Delta\eta^2}{\lambda_z^2}
+                  \right]^{1/2} \biggr\} \comma
+\end{eqnarray}
+%
+where the velocities and sound-speed are based on mean-flow quantities and
+$\lambda_z = 2\pi/k_z$ is the wavelength of disturbances in the $z$-direction.
+Letting $\lambda_z \rightarrow \infty$ yields the form appropriate for
+two-dimensional linear disturbances.  By specifying a value of $\CFL$,
+equation (\ref{e:cfllinear}) is solved for the local value of
+$\Delta\tau(x,y)$.  Although this estimate of $\CFL$ does not include viscous
+effects, we have found it to be adequate for accelerating convergence to
+steady-state.
+
+\section{Potential Flow Solutions \label{s:initial} }
+
+The initial conditions for the base-flow calculations can significantly
+influence the convergence to the steady state.  For the base-flow computations
+presented here, a potential flow solution is used for the initial condition.
+Since we are considering only infinite-span wings, the spanwise component of
+velocity, $w$, is constant.  Therefore the steady, three-dimensional potential
+equation in nonconservative form reduces to the two-dimensional equation
+%
+\begin{equation} \label{e:potential}
+(1-\M_x^2) \phi_{,xx} + (1-\M_y^2) \phi_{,yy} - 2\M_x\M_y \phi_{,xy} = 0
+\end{equation}
+%
+where $\phi$ is the velocity potential function defined as
+%
+\begin{equation}
+u = \phi_{,x} \qquad v = \phi_{,y} ,
+\end{equation}
+%
+with $\M_x = u / c$, and $\M_y = v / c$.  In these expressions, $c = \sqrt{T}
+/ \M$ with $T$ computed from the isentropic relation
+%
+\begin{equation}
+  T = 1 + \frac{(\gamma-1)\M^2}{2} \left( 1 - u^2 - v^2 \right)
+\end{equation}
+%
+and with the reference Mach number given by $\M = u_\infty / c_\infty$ which
+corresponds to the chordwise Mach number.  The freestream Mach number is
+related to the chordwise Mach number by $\M_\infty = \M \sqrt{1 +
+\tan^2(\theta)}$ where $\theta$ is the sweep angle.  In these expressions, the
+reference velocity is $u^*_r = u^*_\infty$ such that the nondimensional
+spanwise component of velocity in the freestream is given by $w_\infty =
+\tan(\theta)$.  The advantage of this approach is that an unswept potential
+solution at $\M_\infty = \M$ is identical to a swept solution at $\M_\infty =
+\M \sqrt{1 + \tan^2(\theta)}$ except with $w = \tan(\theta)$.
+
+The method used to solve equation (\ref{e:potential}) is similar to that used
+for the Navier--Stokes equations above.  Fourth-order accurate finite
+differences (see \S\ref{s:spacedisc}) are used to approximate the spatial
+derivatives and the solution is marched to the steady-state using implicit
+Euler time-advancement.  At each time-step the system of equations is
+approximately factored resulting in a series of (nearly) block, penta-diagonal
+systems.
+
+On the wall and symmetry boundaries the normal derivative of the velocity
+potential function is enforced to be zero,
+%
+\begin{equation}
+  \frac{\partial \phi}{\partial n} = 0
+\end{equation}
+%
+corresponding to the no-penetration condition, $\vn = 0$, where $n$ is the
+coordinate normal to the boundary under consideration.  On the inflow and
+outflow boundaries, the potential function is set to the value corresponding
+to the freestream solution.  Specific details on boundary conditions, mesh
+generation, and solution accuracy are given in \S\ref{s:pcylpot} for the
+parabolic-cylinder geometry.  In addition to using the potential solution as
+an initial condition, we also use it to specify inflow and outflow boundary
+conditions for the base-flow NS calculation.  Details are provided in
+section~\ref{ss:meanbc}.
+
+\section{Boundary Treatments}
+
+In this section, the various boundary treatments used to obtain mean and
+disturbance solutions are discussed.  Before doing so, however, the general
+framework used to implement boundary constraints in the implicit solver is
+presented.  For this purpose, we adopt an approach which is based on a direct
+application of Newton's method to linearize the boundary constraints in terms
+of the primitive variables which results in linearized expressions for
+the boundary conditions that are compatible with Newton's method used to
+solve the Navier--Stokes equations [see equation (\ref{e:newton}) and
+(\ref{e:pnewton})].  The advantage of this technique is that it provides a
+consistent framework for deriving the appropriate implicit boundary constraints
+given any desired boundary condition.  Of course, the resulting constraints
+will be identical to those obtained using the so-called ``delta-form''
+\cite{Hirsch:90}, however we feel that the present approach is easier to
+apply and more intuitive, especially for complicated boundary conditions.
+
+\subsection{Implicit Boundary Constraints}
+
+To preserve convergence of the implicit solver, linearized expressions for all
+boundary constraints are required in terms of $\delta\bU$.  Consider an
+arbitrary constraint, 
+%
+\begin{equation}
+  g_k(\bU^{(n+1)}) = 0 \comma
+\end{equation}
+%
+which is some function (possibly nonlinear) of the primitive variables at
+time-step, $n+1$.  In this expression, $k$ denotes the particular primitive
+variable under constraint and can take the values: $\rho$, $u$, $v$, $w$, $T$.
+Applying Newton's method to the constraint equation yields
+%
+\begin{equation} \label{e:bnewt}
+  \bigg(\frac{\partial g_k}{\partial \bU}\bigg)_{i} \delta \bU_{i} = 
+  -g_k\big(\bU^{(n+1)}_{i}\big)
+\end{equation}
+%
+where $\delta \bU_{i} = \bU^{(n+1)}_{i+1} - \bU^{(n+1)}_{i}$.  When applying a
+boundary constraint, equation (\ref{e:bnewt}) is used in place of the
+discrete, linearized equations-of-motion for the constrained quantity.  In
+presenting the boundary conditions, we define the constraints, $g_k$, and the
+variation of the constraints,
+%
+\begin{equation}
+  \delta g_k \equiv \bigg(\frac{\partial g_k}{\partial \bU}\bigg)_{i} 
+                    \delta \bU_{i}
+\end{equation}
+%
+in terms of the primitive variables.
+
+For example, consider the application of the no-slip condition on the first
+velocity component, $u = u_w$, where, for generality, the wall has velocity
+$u_w$.  For this case
+%
+\begin{equation}
+  g_u(\bU) = u - u_w = 0
+\end{equation}
+%
+and
+%
+\begin{equation}
+  \delta g_u = \delta u \period
+\end{equation}
+%
+Thus, equation (\ref{e:bnewt}) simply becomes
+%
+\begin{equation}
+  \delta g_u = -g_u \comma
+\end{equation}
+%
+which in terms of the primitive variables is just
+%
+\begin{equation}
+  \delta u = -(u - u_w) \period
+\end{equation}
+
+\subsection{Base Flow Boundary Treatments \label{ss:meanbc}}
+
+The base-flow solutions are obtained using no-slip boundary conditions on the
+wall with either isothermal or adiabatic temperature boundary conditions,
+symmetry conditions upstream of the leading edge, Riemann extrapolation on the
+inflow boundary, and a parabolic approximation on the outflow boundary.  In
+the following, the detailed implementation of each of these boundary
+treatments is presented.
+
+\subsubsection{Wall boundary conditions \label{sss:wallbc}}
+
+On the wall, $(n=\eta=0)$, the no-slip boundary conditions are implemented by
+replacing the momentum equations with constraints on the velocities: $\um_i =
+0$. Likewise, the energy equation is replaced by either the isothermal
+condition, $\Tm = \Tm_w$, or the adiabatic condition ${\partial \Tm}/{\partial
+n} = 0$.  For the body orthogonal meshes used here, the adiabatic condition
+can be written in computational space as ${\partial \Tm}/{\partial
+\eta}(\eta=0) = 0$ and the derivative is approximated by a fourth-order
+accurate one-sided difference (see \S\ref{s:spacedisc}).  In all cases the
+density at the wall is determined using the continuity equation.
+
+For the implicit solver, the boundary constraints at the wall, $(\eta=0)$, can
+be written as:
+%
+\begin{equation}
+  g_{u_i} = \um_{i} = 0 \comma
+\end{equation}
+%
+\begin{equation}
+  g_T = \Tm - \Tm_w = 0 \comma \quad \mbox{or} \quad g_T = \Delta_\eta \Tm = 0
+\end{equation}
+%
+and the variation of the constraints with the primitive variables are
+%
+\begin{equation}
+  \delta g_{u_i} = \delta \um_i \comma
+\end{equation}
+%
+\begin{equation}
+  \delta g_T = \delta \Tm \comma \quad \mbox{or} \quad 
+               \delta g_T = \Delta_\eta (\delta \Tm) \period
+\end{equation}
+
+\subsubsection{Symmetry boundary}
+
+Near the symmetry boundary, $(\xi=0$), the finite difference stencil used in
+the interior is adjusted to account for the symmetry (or antisymmetry for the
+boundary normal velocity) of the variables at the boundary.  Since a
+five-point stencil is used, modification is required for the three rows of
+nodes adjacent to the boundary when computing both the RHS and LHS.
+
+\subsubsection{Inflow boundary \label{s:inflow} }
+
+On the inflow boundary, $(\eta=1)$, the boundary conditions are based on the
+locally one-dimen\-sional Riemann invariants.  On a subsonic inflow, four
+quantities must be specified.  Here we constrain the entropy, spanwise and
+tangential velocities, and the incoming Riemann invariant and each of these
+quantities are determined from the potential flow solution (see
+\S\ref{s:initial}).
+
+The locally one-dimensional Riemann invariants are defined as
+%
+\begin{equation}
+  R_1 = \vn - \frac{2 c}{\gamma - 1} , \quad R_2 = \vn + \frac{2 c}{\gamma-1}
+\end{equation}
+%
+where $c$ is the local sound-speed and $\vn$ is the velocity normal to the
+boundary.  Then, on the inflow boundary
+%
+\begin{equation} \label{e:Riemann}
+  \frac{p}{\rho^\gamma} = \left(\frac{p}{\rho^\gamma}\right)_\infty \equiv 
+                          \frac{1}{\gamma\M_\infty^2} \comma \quad
+  w = w_p \comma \quad
+  V_t = {V_t}_p \comma \quad
+  R_1 = {R_1}_p \comma \quad
+  R_2 = {R_2}_{int}
+\end{equation}
+%
+where $V_t$ is the velocity tangent to the boundary, the subscript ``$p$''
+refers to the potential flow solution, and the subscript ``$int$'' refers to a
+quantity extrapolated from the interior.
+
+The conditions (\ref{e:Riemann}) are used to form the following constraints on
+the primitive variables at the boundary:
+%
+\begin{equation}
+  g_\rho = \rho - \left( \frac{(\gamma-1)\M_\infty}{4}
+        \left[ {R_2}_{int} - {R_1}_p \right] \right)^\frac{2}{\gamma-1} 
+	= 0\comma
+\end{equation}
+%
+\begin{equation}
+  g_u = u - n_1 \left(\frac{{R_1}_{p} + {R_2}_{int}}{2}\right) + 
+            n_2 {V_t}_p = 0 \comma
+\end{equation}
+%
+\begin{equation}
+  g_v = v - n_2 \left(\frac{{R_1}_{p} + {R_2}_{int}}{2}\right) - 
+            n_1 {V_t}_p = 0 \comma
+\end{equation}
+%
+\begin{equation}
+  g_w = w - w_p = 0 \comma
+\end{equation}
+%
+\begin{equation}
+  g_T = T - \left(\frac{(\gamma-1)\M_\infty}{4}
+            \left[ {R_2}_{int} - {R_1}_p \right ] \right)^2 = 0 \comma
+\end{equation}
+%
+where $\{n_1,n_2\}^{\rm T}$ is the unit, boundary-normal vector.  
+
+In Beaudan \& Moin \cite{BeMo:94}, zeroth-order extrapolation is used to
+determine ${R_2}_{int}$ from the interior values.  We have found that
+first-order (\ie\ linear) extrapolation yields an improved boundary
+approximation and, since we use a block penta-diagonal matrix structure, this
+is easily incorporated in the LHS.  With the modified block penta-diagonal LHS
+discussed in \S\ref{s:base} we can actually implement up to cubic
+extrapolation.  However, numerical experiments show that quadratic and cubic
+extrapolation are both highly unstable.  Even linear extrapolation has been
+found to be slightly unstable for large \CFL\ and techniques to remove this
+instability are discussed below.  Assuming the boundary to be at node $N$, the
+outgoing Riemann invariant is given by
+%
+\begin{equation}
+  {R_2}_{int} = 2 {R_2}_{N-1} - {R_2}_{N-2} \period
+\end{equation}
+
+In constructing the implicit LHS operator at the boundary, the variation of
+the outgoing Riemann variable with-respect-to the primitive variables is
+required:
+%
+\begin{equation}
+  \delta R_2 = n_1 \delta u + n_2 \delta v + \frac{\delta T}{(\gamma-1)
+               \M_\infty \sqrt{T}} \period
+\end{equation}
+%
+With this expression, the variation of the boundary constraints becomes
+%
+\begin{equation}
+  \delta g_\rho = 
+  \delta\rho - \left( \frac{(\gamma-1)\M_\infty}{4} \right)^\frac{2}{\gamma-1}
+               \left( \frac{2}{\gamma-1} \right) 
+	       \left( {R_2}_{int} - {R_1}_p \right)^\frac{3-\gamma}{\gamma-1} 
+	       \\ \left( 2 \delta{R_2}_{N-1} - \delta{R_2}_{N-2} \right) \comma
+\end{equation}
+%
+\begin{equation}
+  \delta g_u = 
+  \delta u - \frac{n_1}{2} \left( 2 \delta{R_2}_{N-1} - 
+                                    \delta{R_2}_{N-2} \right) \comma
+\end{equation}
+%
+\begin{equation}
+  \delta g_v = 
+  \delta v - \frac{n_2}{2} \left( 2 \delta{R_2}_{N-1} - 
+                                    \delta{R_2}_{N-2} \right) \comma
+\end{equation}
+%
+\begin{equation}
+  \delta g_w = \delta w \comma
+\end{equation}
+%
+\begin{equation}
+  \delta g_T = 
+  \delta T - 2 \left( \frac{(\gamma-1)\M_\infty}{4} \right)^2
+             \left( {R_2}_{int} - {R_1}_p \right)
+	     \left( 2 \delta{R_2}_{N-1} - \delta{R_2}_{N-2} \right) \period
+\end{equation}
+
+\subsubsection{Boundary damping \label{sss:damping} }
+
+As indicated in the previous section, the use of the Riemann extrapolation
+inflow condition results is a slight instability and the generation of
+numerical noise at the inflow boundary.  This noise can eventually corrupt the
+entire solution, even near the wall.  To control the instability and prevent
+numerical noise from affecting the rest of the field, a boundary damping term
+is added to the RHS of equation (\ref{e:base}).  This term takes the form of a
+fourth-derivative dissipation term in computational space and can be written
+as
+%
+\begin{equation} \label{e:fourth_diss}
+  \bD_b = -\epsilon_d \sigma_d(\eta) \left( 
+          \Delta_\xi^4  \frac{\partial^4 \bU}{\partial \xi^4} + 
+          \Delta_\eta^4 \frac{\partial^4 \bU}{\partial \eta^4} \right) 
+\end{equation}
+%
+where $\epsilon_d$ controls the level of dissipation and $\sigma_d(\eta)$
+takes the form \cite{GuAd:93}
+%
+\begin{equation} \label{e:sigma}
+  \sigma_d(\eta) = 1 - 10^{-\left[a_d \left( \frac{\eta - \eta_s}
+                           {1 - \eta_s} \right) \right]^{n_d} }
+\end{equation}
+%
+with $a_d = 2.57$, $n_d = 4$, and $\eta_s = 0.8$.  Using these parameters,
+$\sigma_d$ varies smoothly from one at the inflow boundary to zero at $\eta_s$
+such that the dissipation term acts over 20\% of the domain in $\eta$.  It is
+important to note that the $\sigma_d$ term is constructed so that the
+dissipation term only affects the flow near the inflow, Riemann boundary.
+This guarantees that the dissipation term is zero inside the actual viscous
+boundary layer.  A typically value of $\epsilon_d$ is $0.0125$ and this is the
+value used for the mean-flow calculations described in Chapter \ref{c:pcyl}.
+
+Considering the $\eta$ direction (analogous expressions hold for $\xi$), the
+fourth-de\-riv\-a\-tive operator is approximated in the interior of the domain
+by the fourth-order accurate equation
+%
+\begin{equation}
+ (\Delta\eta)^4 \left( \frac{\partial^4 f}{\partial \eta^4} \right)_i \approx 
+ \frac{1}{6} 
+ \Big[  - \left( f_{i+3} + f_{i-3} \right) +
+       12 \left( f_{i+2} + f_{i-2} \right) -
+       39 \left( f_{i+1} + f_{i-1} \right) +
+       56 f_{i} \Big] \period
+\end{equation}
+%
+This expression has a seven-point stencil which requires boundary closures for
+the boundary node and the two nodes adjacent to the boundary.  
+
+On the second node in from the boundary, the second-order accurate
+fourth-derivative is used:
+%
+\begin{equation} \label{e:fourth}
+ (\Delta\eta)^4 \left( \frac{\partial^4 f}{\partial \eta^4} \right)_3 \approx 
+ \Big[   \left( f_{5} + f_{1} \right) -
+       4 \left( f_{4} + f_{2} \right) +
+       6 f_{3} \Big] \period
+\end{equation}
+%
+On the first node in from the boundary, the fourth-derivative dissipation term
+(\ref{e:fourth_diss}) is replaced, locally, with a second-derivative
+dissipation term of the form
+%
+\begin{equation}
+  \bD_b = -\epsilon_d \sigma_d(\eta) \left( 
+          \Delta_\xi^2  \frac{\partial^2 \bU}{\partial \xi^2} + 
+          \Delta_\eta^2 \frac{\partial^2 \bU}{\partial \eta^2} \right) \comma
+\end{equation}
+%
+where $\epsilon_d$ and $\sigma_d(\eta)$ are the same as that used in equation
+(\ref{e:fourth_diss}).  The second derivative operators are then approximated
+by second-order accurate differences, where, for example
+%
+\begin{equation} 
+ (\Delta\eta)^2 \left( \frac{\partial^2 f}{\partial \eta^2} \right)_2 \approx  
+ \Big[ \left( f_{3} - f_{1} \right) + 2 f_{2} \Big] \period
+\end{equation}
+%
+Finally, on the actual boundary node, no dissipation term is used.
+
+The seven-point stencil, used for the dissipation term (\ref{e:fourth_diss}) in
+the interior, is not compatible with the block penta-diagonal structure of the
+implicit LHS.  Because of this, we use the the second-order, fourth-derivative
+stencil (\ref{e:fourth}) for the interior nodes in the LHS and with this
+approximation, we have experienced no noticeable reduction in convergence of
+the iterative solver.
+
+As an example of the success of the boundary damping term in stabilizing the
+Riemann extrapolation inflow boundary condition, figures \ref{f:M=0.1p3} and
+\ref{f:M=0.1p4} show contours of the pressure coefficient [see equation
+(\ref{e:Cp})] in the far-field and near the wall boundary for an unswept
+parabolic-cylinder at $\M=0.1$ and $\Re=1000$ (see \S\ref{s:pcylmean} for
+details) without boundary damping.  For such low Mach number flows, the
+pressure field is a sensitive indicator of numerical oscillations.  Because of
+the approximate nature of the Riemann extrapolation used on the inflow
+boundary, numerical oscillations are generated that corrupt the entire
+solution.  These oscillations are particularly acute near the wall, where the
+mesh is highly stretched and oscillations inside the boundary layer are
+particularly deleterious since first and second derivatives of the mean
+boundary-layer profiles are required for linear stability analysis.  Figures
+\ref{f:M=0.1p1} and \ref{f:M=0.1p2} show the pressure field for the same
+conditions with boundary damping turned on [$\epsilon_d = 0.0125$ and
+$\sigma_d$ given by (\ref{e:sigma})].  The pressure field is now smooth in both
+regions with no sign of numerical oscillations.  Figure \ref{f:uderiv} shows a
+streamwise velocity profile from the same simulation along with the
+derivatives needed for stability analysis.  With boundary damping, both first
+and second derivatives are smooth.
+
+%Another quantity that is very sensitive to numerical oscillations is the
+%divergence of the velocity field, or dilatation.  Figure \ref{f:M=0.1dil}
+%shows contours of dilatation, both in the far-field and near the wall.  Near
+%the wall the dilatation is smooth with no signs of numerical noise.  In the
+%far-field, the dilatation is generally smooth except for a wiggle near the
+%inflow boundary.  This wiggle is likely due to a combination of the one-sided
+%differencing used to compute the divergence, and the approximate Riemann
+%boundary condition.  In either case, the wiggle is local to the inflow
+%boundary and the magnitude of the dilatation in that region is very
+%small---less than $1\times 10^{-8}$.
+
+In summary, the boundary damping term kills numerical oscillations at their
+source and prevents them from corrupting the solution near the wall.  Since
+the boundary damping term is nonzero only near the inflow boundary, no
+noticeable effects on boundary-layer properties have been observed.
+
+\subsubsection{Parabolized outflow boundary \label{sss:ParabolicBC} }
+
+In constructing the computational domain for leading-edge receptivity
+problems, the computational expense can be significantly reduced by truncating
+the downstream portion of the domain (\eg\ the trailing edge of a wing).
+Doing so, however, introduces difficulties in specifying accurate and stable
+boundary conditions on the downstream, outflow boundary.  This difficulty is
+particularly acute, since the outflow boundary intersects not only a potential
+flow region, but also the viscously dominated boundary layer.  Use of
+inviscid, nonreflecting boundary conditions, such those based on Riemann
+invariants (similar to \S\ref{s:inflow}) or characteristics
+\cite{PoLe:92,Giles:90,Thompson:90}, work well for the outer potential flow;
+but cause large errors in the viscous layer even when viscous corrections
+\cite{PoLe:92} are employed.  In a similar context, Fenno \cite{Fenno:93}
+recently used zeroth- and first-order extrapolation on an outflow boundary.
+However, numerical tests using these boundary conditions with the current
+low-dissipation numerical scheme show them to be highly unstable with large
+numerical errors generated.
+
+These difficulties motived the development of a new, outflow
+boundary-condition (for steady-state flows) in which the Parabolized
+Navier--Stokes (PNS) equations are used to predict the flow on the outflow
+boundary.  The PNS equations are derived from the NS equations by removing the
+streamwise viscous derivatives and suppressing the upstream propagating
+acoustic waves in subsonic regions.  The PNS were first used by Vigeron \etal
+\cite{ViRaTa:78} who modified the pressure gradient in the streamwise
+direction to remove the upstream propagating acoustic wave.  More recently,
+\cite{ChMe:89} show that flux vector splitting naturally leads to a family of
+parabolized Navier--Stokes equations.  Regardless of the approach, the PNS
+equations have been shown to yield accurate solutions for high Reynolds number
+flow as long as the freestream Mach number is supersonic \cite{ViRaTa:78}.
+However, when applied to fully subsonic flow, poor solutions can be obtained
+since the external inviscid field (which drives the boundary layer) is often
+inaccurate.\footnote{The inaccuracies are greatest for geometries with curved
+walls where the streamwise pressure gradient is significant.  Accurate
+solutions can be obtained for flat-plate, zero pressure-gradient
+boundary-layers since Vigeron's method naturally removes the streamwise
+pressure-gradient in subsonic flow.}
+
+The basic weakness of the PNS is that the streamwise pressure gradient is
+incorrectly predicted when the equations are parabolized.  Thus, directly
+applying the PNS on the outflow boundary can lead to large errors since the
+local streamwise pressure gradient is incorrect.  However, if the streamwise
+pressure gradient on the boundary can be reasonably estimated {\it a priori},
+then it can be treated as a known source term in the equations.  This is the
+technique used here to implement a parabolized outflow boundary condition.
+The streamwise pressure gradient is estimated from the potential solution
+about the body and used as a source term in the PNS at the outflow
+boundary.\footnote{A better estimate of the pressure gradient would require
+viscous/inviscid interaction to be accounted for.  However, for high Reynolds
+number flows with thin boundary layers, relative to a characteristic body
+length scale, the displacement thickness is small.}  This method is very
+successful in providing an accurate boundary treatment for both the inviscid
+and viscous regions of the flow.
+
+This is demonstrated in figure \ref{f:Cp-outBC} which shows contours of the
+pressure coefficient [see equation (\ref{e:Cp})] near the outflow boundary for
+a typical meanflow over a parabolic cylinder (see \S\ref{s:pcylmean} for more
+details).  There is no indication of numerical oscillations in the far-field.
+Note that this solution does use boundary damping (discussed in the previous
+section) on the inflow boundary, but this does not affect the lower half of
+the outflow boundary.  Figure \ref{f:d2-outBC} shows the evolution of the
+displacement thickness squared plotted as a function of the arc-length along
+the parabola.  Eventually a nearly linear distribution is established
+downstream and there is no indication of upstream influence due to the outflow
+boundary.  This result is to be compared with figure \ref{delta} which shows a
+similar plot (although for a different geometry and nondimensionalization)
+which shows significant upstream influence when a characteristic based
+boundary condition \cite{PoLe:92} with viscous corrections is used.
+
+For most of the computations reported here, we have noticed no instability or
+convergence problems associated with the parabolic outflow boundary treatment.
+However, for the high Reynolds number cases reported in Chapter \ref{c:pcyl}, a
+slight instability was present when the residual approached $1\times 10^{-7}$
+in magnitude.  However, the solution at this point was judged to be
+sufficiently converged so that further investigation of the instability was
+not performed.
+
+\subsection{Disturbance Boundary Treatments \label{ss:distbc}}
+
+Disturbance-flow solutions are obtained using no-slip boundary conditions on
+the wall with either isothermal or adiabatic temperature boundary conditions,
+symmetry conditions upstream of the leading edge, and sponge layer boundary
+treatments on the inflow and outflow boundaries.  The symmetry conditions are
+implemented in the finite-difference stencil in the same manner used for the
+base-flow.  The detailed implementation of each of the other boundary
+treatments is presented below.
+
+\subsubsection{Wall boundary conditions \label{sss:distwallbc} }
+
+For disturbance calculations we consider both undisturbed surface boundaries
+and surface boundaries with small perturbations to model surface roughness.
+The undisturbed surface boundary conditions follow directly from the wall
+boundary conditions used for the mean-flow in \S\ref{sss:wallbc}.
+
+When the wall boundary is perturbed to model roughness, the no-slip and
+temperature boundary conditions must be applied on the perturbed surface.
+Denoting the smooth wall by $n(s,z)=0$ the rough wall is obtained by adding a
+small, spanwise-periodic perturbation given by
+%
+\begin{equation}
+  \tilde n(s,z) = \ew h_w(s) e^{i \bw z}
+\end{equation}
+%
+where $\ew = \ew^* / L^* \ll 1$ is the nondimensional roughness height,
+$h_w(s)$ is the streamwise shape of the bump, and $\bw = \bw L^*$ is the
+spanwise wavenumber of the bump.
+
+Similar to the expansions used in section~\ref{s:linNS}, the flow variables
+can be written as
+%
+\begin{eqnarray}
+    u_j(x_i) &=& \bar u_j(x_i) + \ew \tilde u_j(x_i) + 
+                 \O(\ew^2) \comma \\
+      T(x_i) &=& \bar T(x_i)   + \ew \tilde T(x_i) +   
+                 \O(\ew^2) \comma
+\end{eqnarray}
+%
+where perturbations are denoted with a tilde.  For all the cases considered
+here, we assume that $\ew$ is sufficiently small such that the $\O(\ew^2)$ and
+higher terms can be neglected and that the surface boundary conditions can be
+transfered by Taylor series expansion to inhomogeneous boundary conditions on
+the undisturbed surface.  The detailed derivation of these inhomogeneous
+boundary conditions is given in appendix~\ref{a:bumpbc}.  Summarizing those
+results for an isothermal boundary, the appropriate linearized wall boundary
+conditions for both the mean and disturbances quantities are given by
+%
+\begin{eqnarray}
+  \bar u_j(s,0,z) &=& 0, \\
+  \bar T(s,0,z)   &=& T_w, \\
+  u'_j(s,0,z)     &=& -h_w(s) e^{i \bw z} 
+                       \frac{\partial \bar u_j}{\partial n}(s,0,z), \\
+  T'(s,0,z)       &=& -h_w(s) e^{i \bw z} 
+                       \frac{\partial \bar T}{\partial n}(s,0,z) .
+\end{eqnarray}
+%
+Not surprisingly, the mean boundary conditions are unchanged from the
+unperturbed case, while the disturbance boundary conditions are now
+inhomogeneous and depend on the wall-normal gradients of the mean flow.  The
+linearized temperature boundary condition for an adiabatic wall is
+considerably more complicated then the isothermal condition and is given by
+equation (\ref{e:bump.tn}) in Appendix \ref{a:bumpbc}.  The constraint
+equations for the implicit LHS are formed similar to \S\ref{sss:wallbc}.
+
+\subsubsection{Sponge Boundary Treatment \label{sss:sponge} }
+
+When performing receptivity calculations one often encounters situations where
+waves of some type (inviscid and/or viscous) must pass through a computational
+boundary without producing significant reflections.  Much work has been
+performed to develop nonreflecting boundary conditions for hyperbolic systems
+of equations such as the Euler equations, and the interested reader is
+referred to the review article by Givoli \cite{Givoli:91} and the references
+therein for further information.  However, these boundary conditions are
+typically only valid in regions where the mean flow is uniform. Furthermore,
+when used with the Navier--Stokes equations, these nonreflecting conditions are
+only useful away from viscous regions (like boundary layers and free-shear
+layers).  For receptivity calculations the viscous layers typically contain
+instability waves which also must exit the computational domain.
+%
+%.... Could use another reference to a NRBC review article.
+%
+
+For boundary layer instability waves, various outflow conditions have been
+used in the past with varying degree of effectiveness.  Many of these
+conditions have been developed for incompressible flow.  Recently Guo and
+Adams \cite{GuAd:93} have reported results for compressible flow in which they
+attempted a variety of outflow boundary conditions and determined the impact of
+these conditions on the growth of TS waves in a boundary layer.  They find
+that the sponge-layer boundary treatment gives adequate results compared to
+buffer regions and characteristic-based conditions.  Given this, and the fact
+that the sponge layer has proven to be rather robust, we have adopted the
+sponge layer as our primary outflow boundary treatment.  We have also
+implemented the sponge layer on inflow boundaries and details are provided
+below.
+
+Following Orszag \& Israeli \cite{IsOr:81}, the sponge layer is implemented by
+adding the following term to the RHS of the NS equations
+%
+\begin{equation} \label{e:sponge}
+  \bF_s = \sigma_s(x,y) \left[ \bU(x,y,z,t) - \bU_{ref}(x,y,z,t) \right]
+\end{equation}
+%
+where $\bU_{ref}$ is an arbitrary reference state which can be a function of
+the spatial coordinates and of time.
+
+The sponge function is designed to vary smoothly from zero in the interior to
+a finite value, $A_s$, on the boundary.  For this purpose, we use the
+following function which was suggested by Mahesh \cite{Mahesh:96} as a
+simplification to the functions used by Adams \cite{Adams:94}:
+%
+\begin{equation} \label{e:spgfun}
+  \sigma_s(x) = \left\{ \begin{array}{ll}
+                A_s \left( {{x - x_s}\over{x_t - x_s}} \right )^{N_s} & 
+                x \in (x_s,x_t] \\
+	        0 & \mbox{otherwise}
+	        \end{array}
+	        \right. \label{spgfun} \period
+\end{equation}
+%
+In this expression, $x_s$ denotes the start of the sponge, $x_t$ the end of
+the sponge, and $N_s$ is the exponent (generally taken to be 3) which
+determines the rate at which the function transitions from 0 to $A_s$.  The
+effectiveness of this sponge is documented in \S\ref{ss:TSspace} for
+Tollmien--Schlichting waves, \S\ref{ss:CFspace} for cross-flow vortices, and
+\S\ref{s:scat} for acoustic waves.
+
+We note in passing that recent work by Colonius \etal \cite{CoMoLe:95} makes
+use of a ``sponge-layer'' outflow boundary treatment to damp reflections due
+to the passage of large vortical disturbances.  Instead of adding a damping
+term to the equations, this technique uses an exit zone comprised of a
+stretched mesh combined with explicit filtering to damp disturbances before
+they reach the outflow boundary.  Although shown to produce acceptable
+results, this method has the disadvantage of coupling the mesh point
+distribution to the boundary treatment.  With the current method, the mesh can
+be constructed independent of the form of the sponge term, with the caveat that
+the spatial gradients which occur in the sponge region must be adequately
+resolved.
+%
+%.... TTD: Could show some plane-wave acoustic tests here ?
+%
+
+%==============================================================================
+%
+%  Tables and Figures
+%
+%==============================================================================
+%
+%.... Computational domain
+%
+\begin{figure}[p]
+\centering \epsfxsize=5.0in \epsfbox{figures/ch3/schematic.ai}
+\caption {Generic geometry for leading-edge receptivity
+calculations. \label{f:domain}}
+\end{figure}
+%
+%.... Block matrix structure
+%
+\begin{figure}[p]
+\centering
+\epsfxsize=4.0in \epsfbox{figures/ch3/tri.ai}
+\caption[Modified, block tri-diagonal matrix structure.] {Modified, block
+tri-diagonal structure for mean-flow LHS matrix.  Each block is a $5 \times 5$
+dense matrix and the shaded blocks denote the boundary nodes which spoil the
+interior block, tri-diagonal structure. \label{f:tri}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\epsfxsize=4.0in \epsfbox{figures/ch3/penta.ai}
+\caption[Modified block, penta-diagonal matrix structure] {Modified block,
+penta-diagonal structure for disturbance-flow LHS matrix. Each block is a $5
+\times 5$ dense matrix and the shaded blocks denote the boundary nodes which
+spoil the interior block, penta-diagonal structure. \label{f:penta}}
+\end{figure}
+%
+%.... Pressure without boundary damping
+%
+\begin{figure}[p]
+\centering
+\figlab 3.3in 0in {$x$}
+\figlab -0.1in 3.225in {$y$}
+\epsfxsize=3.25in \epsfbox{figures/ch5/cp_nd.eps}
+\caption[Contours of the pressure coefficient for the unswept parabolic
+cylinder with no boundary damping] {Contours of $C_p$ for the unswept
+parabolic cylinder with no boundary damping at $\M=0.1$, $\Re=1000$,
+$\Pr=0.7$.  The contours range from 0 to 1.04 with increments of 0.04; tics
+every 100 nose radii. \label{f:M=0.1p3}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\figlab 3in 0in {$x$}
+\figlab -0.1in 2.9in {$y$}
+\epsfxsize=5.5in \epsfbox{figures/ch5/cp_nd_le_cu.ai}
+\caption[Contours of the pressure coefficient near the leading-edge for the
+unswept parabolic cylinder without boundary damping] {Contours of $C_p$ near
+the leading-edge for the unswept parabolic cylinder without boundary damping
+at $\M=0.1$, $\Re=1000$, $\Pr=0.7$.  The contours range from 0 to 1.04 with
+increments of 0.04; tics every nose radii. \label{f:M=0.1p4}}
+\end{figure}
+%
+%.... Pressure with boundary damping
+%
+\begin{figure}[p]
+\centering
+\figlab 3.3in 0in {$x$}
+\figlab -0.1in 3.225in {$y$}
+\epsfxsize=3.25in \epsfbox{figures/ch5/cp.eps}
+\caption[Contours of the pressure coefficient for the unswept parabolic
+cylinder] {Contours of $C_p$ for the unswept parabolic cylinder at $\M=0.1$,
+$\Re=1000$, $\Pr=0.7$.  The contours range from 0 to 1.04 with increments of
+0.04; tics every 100 nose radii. \label{f:M=0.1p1}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering 
+\figlab 3in 0in {$x$} 
+\figlab -0.1in 2.9in {$y$} 
+\epsfxsize=5.5in
+\epsfbox{figures/ch5/cp_le_cu.ai}
+\caption[Contours of the pressure coefficient near the leading-edge for the
+unswept parabolic cylinder] {Contours of $C_p$ near the leading-edge for the
+unswept parabolic cylinder at $\M=0.1$, $\Re=1000$, $\Pr=0.7$.  The contours
+range from 0 to 1.04 with increments of 0.04; tics every nose
+radii. \label{f:M=0.1p2}}
+\end{figure}
+%
+%.... Boundary layer derivative examples
+%
+\begin{figure}[p]
+\centering \sethlabel{$x$} 
+\setvlabel{$u, u_{,n}, u_{,nn}$} 
+\epsfxsize=5.5in
+\epsfbox{figures/ch3/uderiv.eps}
+\caption[Derivatives of the streamwise velocity at $x = 172$ for the unswept
+parabolic cylinder] {Derivatives of the streamwise velocity at $x = 172$ for
+the unswept parabolic cylinder with boundary damping at $\M=0.1$, $\Re=1000$,
+$\Pr=0.7$: \solid $u$, \dashed $u_{,n}$, \dotted $u_{,nn}$.  \label{f:uderiv}}
+\end{figure}
+%
+%.... Parabolic outflow boundary condition
+%
+\begin{figure}[p]
+\centering
+\figlab 3.3in 0in {$x$}
+\figlab -0.1in 3.225in {$y$}
+\epsfxsize=3.25in 
+\epsfbox{figures/ch3/pcyl-ns.eps}
+\caption[Contours of the pressure coefficient for $\M=0.1$, $\Re=1000$ flow
+over a parabolic cylinder] {Contours of $C_p$ for $\M=0.1$, $\Re=1000$ flow
+over a parabolic cylinder. Contours are from 0 to 1.2 in increments of 0.01;
+tics every $100$ nose radii. \label{f:Cp-outBC}}
+\end{figure}
+%
+\begin{figure}[p]
+\centering
+\sethlabel{$s$}
+\setvlabel{$\delta_1^2$}
+\epsfxsize=5.5in \epsfbox{figures/ch3/pcyl-d2.eps}
+\caption {Evolution of the displacement thickness squared for a $\M=0.1$ and
+$\Re=1000$ boundary layer on a parabolic cylinder. \label{f:d2-outBC}}
+\end{figure}
+

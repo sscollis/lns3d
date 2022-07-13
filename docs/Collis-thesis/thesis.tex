@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Ph.D. Thesis
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 2-15-97
+%
+%  Label notation:	c:*	chapter label
+%			s:*	section label
+%			ss:*	subsection label
+%			e:*	equation label
+%			t:*	table label
+%			f:*	figure label
+%			a:*	appendix label
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% LaTeX command
+%
+% \documentstyle[12pt,suthesis,cite,rotating]{report}
+%
+% LaTeX2e command
+%
+\documentclass[12pt,twoside]{report}
+\usepackage{suthesis}
+\usepackage{cite}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage[dvips,linkcolor=black,citecolor=black,urlcolor=black,hidelinks]{hyperref}
+
+\input{macros}
+\input{epsf}
+%
+% what to include?
+%
+%\includeonly{appendix1}
+\includefigs
+%
+% Hyphenation patterns
+%
+\hyphenation{iso-ther-mal un-swept}
+%
+\begin{document}
+%
+\include{title}
+%
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+\include{chapter5}
+\include{chapter6}
+%
+\appendix
+\include{appendix1}
+\include{appendix2}
+\include{appendix3}
+\include{appendix4}
+\include{appendix5}
+\include{appendix6}
+%
+\bibliography{thesis}
+\bibliographystyle{thesis}
+%
+\end{document}
+

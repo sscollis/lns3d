@@ -1,0 +1,684 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Appendix 4
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 9-18-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Compressible Stability Solver \label{a:LST}}
+
+The Linear Stability Theory (LST) solver described in this appendix is based
+on the compressible, linearized-disturbance-equations developed in Chapter
+\ref{c:eqn}.  Here, these equations are extended to account for surface
+curvature in the context of an infinite-span swept-wing.  The quasi-parallel
+assumption is then used to form the stability equations and the numerical
+methods utilized to obtain the eigensolutions to the stability equations are
+presented.  Finally, a perturbation method is introduced to correct the
+stability results for nonparallel effects and the numerical method implemented
+to solve for the nonparallel correction is discussed.  With both surface
+curvature and nonparallel effects included, the stability solver described in
+this appendix represents the state-of-the-art in local linear stability
+analysis.
+
+For further information on linear stability, the reader is referred to the
+very thorough review of the compressible stability equations and their
+solution by Mack \cite{Mack:84a}.  Another useful review of stability
+analysis, especially as applied to three-dimensional boundary layers, is given
+by Malik \cite{Malik:90a}.
+
+\section{Disturbance Equations on a Curved Surface \label{s:LSTeqn} }
+
+Recent stability analyses \cite{MaMa:94,MaBa:93} have shown that surface
+curvature has a significant quantitative effect on the growth-rates of
+stationary crossflow vortices.  To account for this effect, we introduce the
+body-fitted, orthogonal coordinate system where, $s$ is the coordinate tangent
+to the body, $n$ is normal to the body, and $z$ is the spanwise coordinate.
+The disturbance equations (\ref{e:pcon})--(\ref{e:peng}) corresponding to the
+linearized Navier--Stokes (LNS) equations are then rewritten using
+coordinate-system independent, vector notation
+%
+\begin{equation} \label{e:vcon}
+  \rho'_{,t} + \nabla \rhom \cdot \bu' + \nabla \rho' \cdot \bum +
+  \rhom \nabla \cdot \bu' + \rho' \nabla \cdot \bum = 0 \comma
+\end{equation}
+%
+\begin{eqnarray} \label{e:vmom}
+  \rhom \bu'_{,t} + \rho' ( \bum \cdot \nabla ) \bum + 
+  \rhom ( \bu' \cdot \nabla ) \bum + \rhom ( \bum \cdot \nabla ) \bu' +
+  \nabla p' = \\ \nonumber 
+  \frac{1}{\Re}\Big[ \nabla ( \bar\lambda \nabla \cdot \bu' +
+                              \lambda' \nabla \cdot \bum ) + 
+                   2 \nabla \cdot ( \bar\mu {\bf S'} + 
+		                    \mu' \bar{\bf S} ) \Big] \comma
+\end{eqnarray}
+%
+\begin{eqnarray} \label{e:veng}
+  \rhom T'_{,t} + \rho' ( \bum \cdot \nabla ) \Tm + 
+  \rhom ( \bu' \cdot \nabla ) \Tm + \rhom ( \bum \cdot \nabla ) T' + 
+  \\ \nonumber \rhom(\gamma-1) \Tm \nabla \cdot \bu' + 
+  \rhom (\gamma-1) T' \nabla \cdot \bum + 
+  \rho' (\gamma-1) \Tm \nabla \cdot \bum = \\ \nonumber
+  \frac{\gamma}{\Pr\Re} \Big[ \nabla\bar\kappa \cdot \nabla T' +
+  \nabla\kappa' \cdot \nabla\Tm + \bar\kappa\nabla^2 T' + 
+  \kappa'\nabla^2\Tm \Big] + \\ \nonumber
+  \frac{\gamma(\gamma-1)\M^2}{\Re} \Big[ (2 \bar\lambda \nabla \cdot \bum)
+  \nabla \cdot \bu' + \lambda' (\nabla \cdot \bum)^2 + 
+  2 \mu' \bar{\bf S} \cdot \bar{\bf S} + 
+  4 \bar\mu \bar{\bf S} \cdot {\bf S'} \Big] \comma
+\end{eqnarray}
+%
+where $\bu$ denotes the velocity vector $\{v_s,v_n,w\}^{\rm T}$ (in the
+body-fitted coordinate system), and $\nabla$ is the generalized gradient
+operator.  Differential distances in the $s$-direction are given by $h(s,n)
+ds$ where $h(s,n)$ is the coordinate system metric and metrics in the other
+coordinate directions are unity.  Each of the differential operators in
+equations (\ref{e:vcon})--(\ref{e:veng}) can be written as a combination of
+partial derivatives with respect to $(s,n,z)$ and additional terms involving
+the metric and its derivatives.  For example, the gradient of a scalar
+function, $f$, is given by
+%
+\begin{equation}
+  \nabla f = \frac{1}{h} f_{,s} \hat s + f_{,n} \hat n + f_{,z} \hat z
+\end{equation}
+%
+where $\hat s$, $\hat n$, $\hat z$ are unit vectors in the coordinate
+directions.  Likewise, the divergence of a vector is written as
+%
+\begin{equation}
+  \nabla \cdot \bu = \frac{1}{h} ( v_{s,s} + v_n h_{,n} ) + v_{n,n} + u_{z,z} .
+\end{equation}
+%
+A complete description of all the generalized, differential operators required
+for the Navier--Stokes equations is given in Appendix~A of Sherman
+\cite{Sherman:90}.  Using these expressions, the LNS equations can be converted
+to a compact matrix form, analogous to equation (\ref{e:pNS}),
+%
+\begin{eqnarray} \label{e:cNS}
+  \bU'_{,t} + \bA \bU'_{,s} + \bB \bU'_{,n} + \bC \bU'_{,z} + \bD \bU' =
+  \bVss \bU'_{,ss} + \bVsn \bU'_{,sn} + \nonumber \\
+  \bVsz \bU'_{,sz} + \bVnn \bU'_{,nn} + \bVnz \bU'_{,nz} + 
+  {\bf V}_{zz} \bU'_{,zz}
+  \period 
+\end{eqnarray}
+%
+The matrices appearing in equation (\ref{e:cNS}) are defined in Appendix
+\ref{a:curvmat}.  When curvature is removed, by setting $h=1$, there is a
+direct correspondence between $(s,n,z)$ and $(x,y,z)$ and equations
+(\ref{e:cNS}) and (\ref{e:pNS}) are equivalent.  The reader should note that
+unlike recent stability analysis of the flow over the circular cylinder
+\cite{MaMa:94}, our formulation allows for the mesh metric, $h$, to vary in
+both $n$ and $s$, not just $n$.  This greatly complicates the structure of the
+matrices given in Appendix \ref{a:curvmat} but with the benefit that arbitrary
+two-dimensional bodies can be analyzed.
+
+\section[Quasi-Parallel Stability Analysis for an Infinite-Span 
+Swept-Wing] {Quasi-Parallel Stability Analysis for an \protect \\
+Infinite-Span Swept-Wing \label{s:QPLST} }
+
+Given the body-fitted coordinate system described in the previous section,
+additional coordinate systems used for stability analysis of an infinite-span
+swept-wing are shown in figure \ref{f:LSTcoord} where it is assumed that all
+quantities are nondimensionalized as in \S\ref{s:eqn}.  The external
+freestream velocity makes an angle $\theta$ with the $s$-axis.  The coordinate
+system aligned with the local edge-velocity is called the streamline
+coordinates, $(s_s,n,z_s)$, and the local streamwise direction, $s_s$, makes
+an angle $\theta_e$ with the chordwise direction.  The angle between the local
+streamwise direction and the freestream velocity is $\theta_p = \theta_e -
+\theta$.
+
+For an infinite-span swept-wing, all mean $z$-gradients are zero by
+definition.  By further making the parallel flow assumption, all mean
+$s$-derivatives are neglected and the disturbance solution can be written in
+terms of normal modes
+%
+\begin{equation} \label{e:normalmode}
+   \bU'(s,n,z,t) = \bhU(n) \: e^{i( k_s s + k_z z - \omega t)}
+\end{equation}
+%
+where $\bhU(n) = \{ \hat\rho, \hat v_s, \hat v_n, \hat w, \hat T\}^{\rm T}$ is
+the complex valued eigenfunction which is a function only of the wall normal
+coordinate, $k_s$ is the chordwise wavenumber, $k_z$ is the spanwise
+wavenumber, and $\omega$ is the angular frequency.  In writing equation
+(\ref{e:normalmode}) it is understood that the actual solution is given by the
+real part of the left-hand-side.  Substituting the normal-mode expression into
+the LNS equations (\ref{e:cNS}) results in the following ordinary differential
+equation
+%
+\begin{eqnarray} \label{e:OS}
+  -i \omega \bhU + i k_s \bA \bhU + \bB \bhU_{,n} + i k_z \bC \bhU + \bD \bhU
+  k_s^2 \bVss \bhU \ - & &\cr i k_s \bVsn \bhU_{,n} +
+  k_s k_z \bVsz \bhU - \bVnn \bhU_{,nn} -
+  i k_z \bVnz \bhU_{,n} + k_z^2 \bVzz \bhU  &=& 0 \period
+\end{eqnarray}
+%
+Given a mean-flow profile $\bar\bU(n) = \{\bar\rho,\bar v_s,\bar v_n,\bar
+w,\bar T\}^{\rm T}$, and its first and second derivatives in the wall-normal
+direction, $\bar\bU_{,n}$, $\bar\bU_{,nn}$, the matrices in equation
+(\ref{e:OS}) are determined with the streamwise and spanwise derivatives of
+the mean flow set explicitly to zero.  Equation (\ref{e:OS}) is solved subject
+to the homogeneous boundary conditions
+%
+\begin{equation}  \label{e:LST-BC-u-wall}
+  \hat v_s(0) = 0 \comma \quad \hat v_n(0) = 0 \comma \quad 
+  \hat w(0) = 0 \comma
+\end{equation}
+\begin{equation} \label{e:LST-BC-t-wall}
+  \hat T(0) = 0 \quad \mbox{or} \quad \hat T_{,n}(0) = 0 \comma
+\end{equation} 
+\begin{equation} \label{e:LST-BC-infty}
+  \hat v_s, \hat v_n, \hat w, \hat T \rightarrow 0 \quad \mbox{as} 
+  \quad n \rightarrow \infty \period
+\end{equation}
+
+The wavenumbers and frequency, $(k_s, k_z, \omega)$, form a set of six real
+parameters since they are complex quantities in general.  With the homogeneous
+boundary conditions (also mapped to computational space), equation
+(\ref{e:OS}) reduces to an eigenvalue problem for any two of the six
+parameters, given the other four.  Typically the eigenproblems are formulated
+in either a temporal or spatial approach.  For the temporal problem the
+wavenumbers are specified real values and the eigenvalue is the complex
+frequency, $\omega$.  Thus a temporal eigenmode has fixed spatial wavelengths
+and evolves in time with the growth rate, $\sigma$, given by the imaginary
+part of $\omega$:
+%
+\begin{equation}
+  \sigma = {\rm Im}(\omega) \period
+\end{equation}
+%
+In the spatial problem, the frequency and one of the wavenumbers ($k_z$
+herein) are specified real values and the other wavenumber ($k_s$) is the
+eigenvalue.  In this case, the waves evolve in space with the growth-rate
+given by
+%
+\begin{equation}
+  \sigma = -{\rm Im}(k_s) 
+\end{equation}
+%
+and the local chordwise wavenumber is given by $\alpha = {\rm Re}(k_s)$.
+
+Before proceeding, the reader should note that fixing $k_z$ is a natural and
+reasonable constraint for the problems at hand.  This is because we are
+interested in comparing the LST predictions with LNS solutions which have a
+value of $k_z$ prescribed through a receptivity process (either direct or
+indirect).  The instability waves that result from this receptivity process
+will have fixed $k_z$ and grow only in the chordwise direction.  This approach
+is in contrast to the methods used in transition prediction where the value of
+$k_z$ (possibly complex) varies in the downstream direction in such a way as
+to maximize the growth-rate \cite{Malik:90,Nayfeh:80}.
+
+With the real parts of the spatial wavenumbers denoted by $\alpha={\rm
+Re}(k_s)$ and $\beta={\rm Re}(k_z)$ some useful relations can be summarized.
+The magnitude of the wavenumber vector is
+%
+\begin{equation}
+  k = \sqrt{ \alpha^2 + \beta^2 } \comma
+\end{equation}
+%
+the angle between the $s$-axis and the wave-vector is given by
+%
+\begin{equation}
+  \psi = \tan^{-1}\left( \frac{\beta}{\alpha} \right) \comma
+\end{equation}
+%
+and the phase velocity is
+%
+\begin{equation}
+  c_p = \frac{\omega}{k} \period
+\end{equation}
+
+%
+%.... \section{Discrete Eigen-Solutions}
+%
+
+Before solving, equation (\ref{e:OS}) is converted to computational space
+using the mapping $n \mapsto \eta$ which yields
+%
+\begin{eqnarray} \label{e:dOS}
+  \bigg[ 
+  (\bB - i k_s \bVsn - i k_z \bVnz ) \eta_{,n} \Delta_{\eta} + 
+  i k_s \bA + i k_z \bC + \bD \ + & & \nonumber \\
+  k_s^2 \bVss + k_z^2 \bVzz - i \omega - \bVnn ( \eta_{,n}^2 
+  \Delta_{\eta\eta} + \eta_{,nn} \Delta_{\eta} ) 
+  \bigg] \bhU &=& 0 \comma
+\end{eqnarray}
+%
+where the derivatives in $\eta$ have been replaced with discrete
+approximations.  We have implemented two different discretizations for the
+wall normal derivatives: fourth-order accurate finite differences and
+spectrally accurate Chebyshev collocation.
+
+The finite difference operators are the same fourth-order accurate
+approximations described in \S\ref{s:spacedisc} for the LNS solver.  This
+method is useful when a LST solution is desired using the same or similar mesh
+as used in a NS calculation.  Usually when using the finite difference method
+the infinite domain in $n$ is truncated to a finite domain and the far-field
+boundary condition is enforced at the finite domain boundary.  This is only an
+approximation, but we have found that when the boundary is at least $25
+\delta_1$ above the wall, the eigensolutions are not adversely affected.  The
+finite domain in $n$ is then mapped to uniform computational space using the
+algebraic mapping function defined by
+%
+\begin{equation}  
+  a = {{(n_{max} n_s)}\over{(n_{max} - 2 n_s)}} \comma
+\end{equation}
+\begin{equation}
+  b = 1 + {a \over n_{max}} \comma
+\end{equation}
+\begin{equation}  \label{e:tsmap}
+  n(\eta) = {{a \eta}\over{b - \eta}} \period
+\end{equation}
+%
+In these expressions, $n_{max}$ is the maximum vertical distance above the
+wall and $n_s$ controls the minimum node spacing at the wall.  As a general
+rule for subsonic mean boundary-layer profiles, we have found that $n_s
+\approx 2.5 \delta_1$ provides an adequate point distribution when $n_{max}
+\approx 40 \delta_1$.  In practice, the actual values of $n_s$ and $n_{max}$
+are set to ensure that the eigenfunction is adequately resolved since the
+quality of the solution is rather sensitive to the value of $n_s$.
+
+Equation (\ref{e:dOS}) can also be discretized using the spectrally accurate
+Chebyshev collocation operators (see Canuto \etal \cite{CaHuQuZa:88} on
+page~69).  This method is used to provide reference eigensolutions for
+comparison with LNS calculations (see Chapter~\ref{c:valid}) and also to
+provide accurate solutions which are more economical then the FD method since
+fewer points are required for the same level of accuracy.  Typically the
+Chebyshev solutions are obtained by mapping the semi-infinite domain in $n$ to
+a finite domain in $\eta$ using the transformation
+%
+\begin{equation}
+  n(\eta) = n_s \frac{1+\eta}{1-\eta} \comma
+\end{equation}
+%
+where $n_s$ again controls the minimum node spacing at the wall and a typical
+value of $n_s = 2 \delta_1$.  Unlike the FD method, the Chebyshev solutions
+are not particularly sensitive to the value of $n_s$ which makes this method
+more robust.
+
+Regardless of the particular discretization, the boundary conditions are
+applied to the discrete equations in the same manner.  At the wall, the
+momentum equations are replaced with equations (\ref{e:LST-BC-u-wall}) and for
+the case of an isothermal wall, the energy equation is replaced with $\hat
+T(0) = 0$.  If, instead, an adiabatic wall is used, the energy equation is
+modified by explicitly setting the wall-normal derivative of both the mean and
+disturbance temperature to zero.  For the disturbances, this amounts to
+removing terms which multiply $\hat T_{,n}$ at the wall.  Although this
+``weak'' formulation for the adiabatic constraint does not guarantee that
+$\hat T_{,n}$ is strictly zero, the deviation from zero will be on the order
+of the truncation error of the scheme.  In all cases, the discrete continuity
+equation is used at the wall to obtain density.  At the far-field boundary,
+all disturbance quantities are set to zero by replacing the equations of
+motion with the constraint $\bhU = 0$.
+
+With the boundary conditions applied to the discrete equation (\ref{e:dOS})
+and the appropriate parameters set, the resulting problem is reduced to a
+matrix eigenvalue problem.  If the temporal approach is used then the
+eigenvalue problem can be written as
+%
+\begin{equation}
+  \bM \bhU = \omega \bhU
+\end{equation}
+%
+which is a $(5N_\eta \times 5N_\eta)$ regular, complex eigenvalue problem that
+is solved using the IMSL routine {\tt EVCCG} \cite{IMSL:91}.
+
+For the spatial problem, the eigenvalue, $k_s$, appears nonlinearly and the
+eigenvalue problem can be written in the form
+%
+\begin{equation}
+  ( \bC_0 + k_s \bC_1 + k_s^2 \bC_2 ) \bhU = 0 \period
+\end{equation}
+%
+Bridges \& Morris \cite{BrMo:84a} show that this can be converted to the
+following extended problem
+%
+\begin{equation} \label{e:extend}
+  \left[ \matrix{ -\bC_0^{-1} \bC_1 & -\bC_0^{-1} \bC_2 \cr
+                  \bI & {\bf 0} \cr } \right ] 
+  \left\{ \matrix{\bhU_1 \cr \bhU} \right\} = 
+  k_s \left\{ \matrix{\bhU_1 \cr \bhU} \right\}
+\end{equation}
+%
+where $\bhU_1 = k_s \bhU$.  In practice, the inverse $\bC_0^{-1}$ is not
+directly computed.  Instead, the $LU$-factorization of $\bC_0$ is computed
+using the LAPACK routine {\tt CGETRF} \cite{Lapack:92}, and the products,
+$\bC_0^{-1} \bC_1$ and $\bC_0^{-1} \bC_2$, are obtained by forward-solve and
+back-substitution using the routine {\tt CGETRS} \cite{Lapack:92}.
+
+Equation \ref{e:extend} is a $(10 N_\eta \times 10 N_\eta)$ regular, complex
+eigenvalue problem which is again solved using the {\tt EVCCG} routine
+\cite{IMSL:91}.  The computational expense of the $QR$ algorithm, which is the
+basis of IMSL eigenvalue routine, is on the order of $N^3$, where $N$ is the
+dimension of the matrix \cite{GoLo:89}.  Thus the spatial eigensystem is eight
+times as expensive to solve as the temporal eigensystem and this fact
+motivates the need for high-order accurate spatial differencing.
+%
+%.... TTD: Could put in a couple of validation cases: 
+%
+%   (1) Nearly incompressible, Blasius
+%   (2) One of Malik's supersonic cases
+%
+
+\section{Nonparallel Effects \label{s:NPLST} }
+
+Along with surface curvature, nonparallel effects are also found to have a
+significant impact on the stability characteristics of stationary crossflow
+vortices \cite{MaMa:94}.  We have included nonparallelism in our stability
+calculations using a perturbation approach, pioneered by Ling \& Reynolds
+\cite{LiRe:73} and Saric \& Nayfeh \cite{SaNa:75}.  Here, we follow the
+approach of Saric \& Nayfeh \cite{SaNa:75} applied to the compressible linear
+stability equations in curvilinear coordinates.
+
+For high Reynolds numbers, the mean boundary layer flow, $\bar\bU$, can be
+considered a slowly varying function of the streamwise coordinate, $s$.
+Defining a slow coordinate, $s_1 = \enp s$, the base flow can be written as an
+expansion in the parameter $\enp$
+%
+\begin{equation} \label{e:npbase}
+  \bar\bU(s,n) = \bar\bU_0(s_1,n) + \enp \bar\bU_1(s_1,n) + \dots
+\end{equation}
+%
+where $\enp$ is a small dimensionless parameter representing the
+nonparallelism of the base flow.  Here, $\bar\bU_0(s_1,n)$ is the
+quasi-parallel base flow, and $\bar\bU_1(s_1,n)$ is the first-order
+nonparallel correction which, for the class of flows considered here, consists
+only of the scaled, wall-normal velocity, $\bar\bU_1 = \{0, 0, \bar v_n /
+\enp, 0, 0\}^{\rm T}$.
+
+Utilizing the method of multiple scales, linear disturbances about the base
+flow can be expanded in $\enp$ as
+%
+\begin{eqnarray} \label{e:npdist}
+  \bU'(s,n,z,t) &=& \left\{ A(s_1) \bhU_0(s_1,n) + 
+     \enp \bhU_1(s_1,n) + \dots\right\} \cr 
+     & & \exp\left( \int i k_s(s_1) ds + i k_z z - i \omega t \right) \period
+\end{eqnarray}
+%
+From the following analysis, we will show that $\bhU_0(s_1,n)$ is the same
+quasi-parallel eigenfunction discussed is \S\ref{s:QPLST}, $A(s_1)$ is the
+local wave amplitude, and $\bhU_1(s_1,n)$ is the nonparallel correction at
+$\cal{O}(\enp)$.
+
+Equations (\ref{e:npbase}) and (\ref{e:npdist}) are substituted into the
+linearized Navier--Stokes equations in curvilinear coordinates (\ref{e:cNS})
+and terms are grouped in powers of $\enp$.  In so doing, we note that the
+matrices ($\bA$, $\bB$, $\bC$, $\bD$) can be split into parallel and
+nonparallel portions, \ie
+%
+\begin{equation}
+  \bA(\bar \bU) = \bA_0(\bar\bU_0) + \enp \bA_1\left( \frac{\partial \bar\bU_0}
+                {\partial s_1},\bar\bU_1 \right) + \dots \comma
+\end{equation}
+%
+whereas, the matrices due to viscous effects ($\bVss$, $\bVsn$, \etc) only
+contain parallel flow contributions.  To $\O(\enp^0)$ we obtain the parallel
+linear stability equations (\ref{e:OS})
+%
+\begin{eqnarray} \label{e:para}
+  \L_0( \bhU_0 ) &=& -i \omega \bhU_0 + i k_s \bA_0 \bhU_0 + 
+      \bB_0 \bhU_{0,n} + i k_z \bC_0 \bhU_0 + \bD_0 \bhU_0 + \nonumber \\
+  & & k_s^2 \bVss \bhU_0 - i k_s \bVsn \bhU_{0,n} +
+      k_s k_z \bVsz \bhU_0 - \bVnn \bhU_{0,nn} - \\
+  & & i k_z \bVnz \bhU_{0,n} + k_z^2 \bVzz \bhU_0 \nonumber \\ 
+  &=& 0 \nonumber \period
+\end{eqnarray}
+%
+This equation is subject to the homogeneous boundary conditions
+(\ref{e:LST-BC-u-wall})--(\ref{e:LST-BC-infty}) leading to an eigenvalue
+problem for ($k_s$,$\bhU_0$) which is identical to that discussed in
+\S\ref{s:QPLST}.
+
+At $\O(\enp^1)$ the following equation is obtained
+%
+\begin{eqnarray} \label{e:npOS}
+  \L_0(\bhU_1) &=& \Biggl\{ \bigl(2 i k_s \bVss + i k_z \bVsz - \bA_0 \bigr) 
+       \bhU_0 + \bVsn \bhU_{0,n} \Biggr\} \frac{dA}{ds_1} + \nonumber \\
+  & &  \Biggl\{ \bVss\left( - \frac{dk_s}{ds_1} \bhU_0 + 
+       2 i k_s \bhU_{0,s_1} \right) + \bVsn \bhU_{0,s_1 n} + \\
+  & & (i k_z \bVsz - \bA_0) \bhU_{0,s_1} - \L_1(\bhU_0) \Biggr\} A  \period
+\end{eqnarray}
+%
+Here, $\L_0$ is the parallel-flow operator introduced in equation
+(\ref{e:para}) and $\L_1$ an operator due to the nonparallel meanflow which
+takes the form
+%
+\begin{eqnarray} \label{e:npcorr}
+  \L_1(\bhU_0) &=& i k_s \bA_1 \bhU_0 + \bB_1 \bhU_{0,n} + 
+                   i k_z \bC_1 \bhU_0 + \bD_1 \bhU_0  \period
+\end{eqnarray}
+%
+Equation (\ref{e:npOS}) is also subject to the homogeneous boundary conditions
+(\ref{e:LST-BC-u-wall})--(\ref{e:LST-BC-infty}) which are now written in terms
+of the $\bhU_1$ variables.  Thus, the equations at $\O(\enp^1)$ for $\bhU_1$
+are an inhomogeneous version of the parallel-flow stability equations where
+the RHS forcing term depends on the eigensolution to the homogeneous problem
+(\ref{e:para}) and an as-yet undetermined amplitude function $A(s_1)$.  Since
+the homogeneous problem given by $\L_0(\bhU_1) = 0$ has a nontrivial
+solution (\ie\ the quasi-parallel eigensolutions) the solution to the
+inhomogeneous problem (\ref{e:npOS}) only has a solution if a solvability
+condition is met \cite{SaNa:75}.
+
+To simplify the construction of the solvability condition, we first convert
+the equations (\ref{e:npOS}) to a system of first-order equations.  This is
+accomplished using the linearized continuity equation to remove the explicit
+dependence on $v'_{n,nn}$ (see Appendix \ref{a:NPmat}).  Doing so in equation
+(\ref{e:npOS}) and introducing additional unknowns for first-derivatives of
+$\bhU_1$ in the wall-normal direction, leads to a system of eight, first-order
+ordinary differential equations of the form
+%
+\begin{equation} \label{e:eOS}
+  \bhQ_{,n} + \bF \bhQ = \bG \frac{dA}{ds_1} + \bH A
+\end{equation}
+%
+where 
+%
+\begin{equation}
+  \bhQ =\left\{ \matrix{ \hat Q_1\cr \hat Q_2\cr \hat Q_3\cr \hat Q_4\cr \hat
+         Q_5\cr \hat Q_6\cr \hat Q_7\cr \hat Q_8 } \right\} = 
+        \left\{ \matrix{ \hat\rho\cr \hat v_s\cr \hat v_n\cr \hat w\cr \hat
+         T\cr \hat v_{s,n}\cr \hat w_{,n}\cr \hat T_{,n} } \right\}_1
+\end{equation}
+%
+is the extended vector of unknowns (note that we have dropped the subscript 1
+on the definition of $\bhQ$ for brevity).  The RHS has two vector
+coefficients, $\bG$ and $\bH$, where the nonparallel meanflow terms,
+$\L_1(\bhU_0)$, contribute to $\bH$.  The definitions of the matrices
+appearing in equation (\ref{e:eOS}) are given in Appendix \ref{a:NPmat}. The
+boundary conditions for (\ref{e:eOS}) are given by
+%
+\begin{equation}  \label{e:npLST-BC-u-wall}
+  \hat Q_2(0) = 0 \comma \quad \hat Q_3(0) = 0 \comma \quad 
+  \hat Q_4(0) = 0 \comma
+\end{equation}
+\begin{equation} \label{e:npLST-BC-t-wall}
+  \hat Q_5(0) = 0 \quad \mbox{or} \quad \hat Q_{8}(0) = 0 \comma
+\end{equation} 
+\begin{equation} \label{e:npLST-BC-infty}
+  \hat Q_2, \hat Q_3, \hat Q_4, \hat Q_5 \rightarrow 0 \quad \mbox{as} 
+  \quad n \rightarrow \infty \period
+\end{equation}
+
+The solvability condition is constructed by multiplying equation (\ref{e:eOS})
+by the vector $\bhZ^{\rm T} = \{\hat Z_1,\hat Z_2,\hat Z_3,\hat Z_4,\hat
+Z_5,\hat Z_6,\hat Z_7,\hat Z_8\}$ (later identified as the adjoint
+eigenfunction) and integrating in the normal direction
+%
+\begin{equation}
+  \int_0^\infty \bhZ^{\rm T} \bhQ_{,n} dn + \int_0^\infty \bhZ^{\rm T} \bF
+  \bhQ dn = \frac{dA}{ds_1} 
+            \int_0^\infty \bhZ^{\rm T} \bG dn + 
+	    A \int_0^\infty \bhZ^{\rm T} \bH dn \period
+\end{equation}
+%
+Integrating by parts leads to
+%
+\begin{equation} \label{e:ibyp}
+  -\int_0^\infty ( \bhZ^{\rm T}_{,n} - \bhZ^{\rm T} \bF ) \bhQ dn +
+  \bhZ^{\rm T} \bhQ \Big |_0^\infty = \frac{dA}{ds_1} 
+            \int_0^\infty \bhZ^{\rm T} \bG dn + 
+	    A \int_0^\infty \bhZ^{\rm T} \bH dn \period
+\end{equation}
+%
+The solvability condition follows by requiring that both terms on the LHS of
+(\ref{e:ibyp}) be zero.  Thus, we arrive at the adjoint equation (after
+transposing),
+%
+\begin{equation} \label{e:adjoint}
+  \bhZ_{,n} - \bF^{\rm T} \bhZ  = 0
+\end{equation}
+%
+and the adjoint boundary conditions which follow from
+%
+\begin{equation} \label{e:adjoint2}
+  \bhZ^{\rm T} \bhQ \Big |_0^\infty = 0 \period
+\end{equation}
+%
+Since each term in (\ref{e:adjoint2}) must be zero, the boundary conditions on
+$\bhQ$ require that the following conditions be imposed on the adjoint problem
+%
+\begin{equation}  \label{e:aLST-BC-u-wall}
+  \hat Z_1(0) = 0 \comma \quad \hat Z_6(0) = 0 \comma \quad \hat Z_7(0) = 0
+\end{equation}
+\begin{equation} \label{e:aLST-BC-t-wall}
+  \hat Z_8(0) = 0 \quad \mbox{or} \quad \hat Z_5(0) = 0 \comma
+\end{equation} 
+\begin{equation} \label{e:aLST-BC-infty}
+  \hat Z_1, \hat Z_6, \hat Z_7, \hat Z_8 \rightarrow 0 \quad \mbox{as} 
+  \quad n \rightarrow \infty \period
+\end{equation}
+%
+Thus, equations (\ref{e:adjoint}) and boundary conditions
+(\ref{e:aLST-BC-u-wall})--(\ref{e:aLST-BC-infty}) constitute the adjoint
+eigenvalue problem and when these equations are used in equation
+(\ref{e:ibyp}) the solvability condition becomes
+%
+\begin{equation} \label{e:solvability}
+  h_1(s_1) \frac{dA}{ds_1} + h_2(s_1) A = 0
+\end{equation}
+%
+where
+\begin{equation}
+  h_1(s_1) = \int_0^\infty \bhZ^{\rm T} \bG dn
+\end{equation}
+%
+and
+%
+\begin{equation}
+  h_2(s_1) = \int_0^\infty \bhZ^{\rm T} \bH dn \period
+\end{equation}
+%
+In practice, before solving equation (\ref{e:solvability}), we convert back
+from the slow variable $s_1$ to $s$ by multiplying both sides by $\enp$,
+leading to
+%
+\begin{equation} \label{e:solve}
+  h_1(s) \frac{dA}{ds} + h_2(s) A = 0 \period
+\end{equation}
+%
+In transforming back to $s$, all the terms requiring derivatives with respect
+to $s_1$ are converted to derivatives in the physical coordinate $s$, and the
+nonparallel meanflow terms are now of the form $\enp\bar\bU_1 = \{0,0,\bar
+v_n,0,0\}$.  Thus, all quantities are returned to their unscaled values and
+the solution to equation (\ref{e:solve}) is simply
+%
+\begin{equation}
+  \frac{A(s)}{A(s_0)} = \exp\left( -\int_{s_0}^{s} \frac{h_2}{h_1} ds \right)
+\end{equation}
+%
+where $s_0$ is an arbitrary  reference location.  Using this result in equation
+(\ref{e:npdist}), yields to lowest order
+%
+\begin{equation}
+  \bU'(s,n,z,t) = A(s_0) \bhU_0(s,n) \: \exp\left[  \int_{s_0}^s 
+                  \left(i k_s(s) - \frac{h_2}{h_1} \right) ds +
+                  i k_z z - i \omega t \right] \period
+\end{equation}
+%
+The nonparallel growth-rate and chordwise wavenumber are defined as
+%
+\begin{equation}
+  \sigma = {\rm Re} \left[ \frac{\partial}{\partial s} \ln( U' ) \right] \comma
+\end{equation}
+%
+\begin{equation}
+  \alpha = {\rm Im} \left[ \frac{\partial}{\partial s} \ln( U' ) \right]
+\end{equation}
+%
+where $U'$ is any desired disturbance quantity.  Using these expressions, one
+obtains
+%
+\begin{equation} \label{e:NPsigma}
+  \sigma = -{\rm Im}( k_s ) - {\rm Re}\left(\frac{h_2}{h_1}\right) +
+            {\rm Re}\left( \frac{\partial}{\partial s} \ln (\hat U) \right)
+  \comma
+\end{equation}
+%
+\begin{equation} \label{e:NPalpha}
+  \alpha = {\rm Re}( k_s ) - {\rm Im}\left(\frac{h_2}{h_1}\right) +
+           {\rm Im}\left( \frac{\partial}{\partial s} \ln (\hat U) \right)
+  \period
+\end{equation}
+%
+Note that $\hat U$ is any particular disturbance eigenfunction which can be a
+function of both $s$ and $n$.  Thus, both $\sigma$ and $\alpha$ depend on the
+particular disturbance quantity used and the wall normal coordinate.  The
+three terms which contribute to the nonparallel growth-rate in equation
+(\ref{e:NPsigma}) are, in order of appearance: the quasi-parallel growth-rate
+with curvature, the nonparallel meanflow term, and the eigenfunction growth
+term.
+
+%
+%.... Solution of nonparallel problem
+%
+The adjoint eigenfunction must be computed in order to construct the
+solvability condition and to determine the nonparallel corrections to the
+growth-rate and wavenumber.  Since the eigenvalues for the regular and adjoint
+problems are the same, the first-step is to solve the regular eigenvalue
+problem (\ie\ equation \ref{e:para}) using the techniques described in
+\S\ref{s:QPLST}.  Given the appropriate eigenvalue, the adjoint eigenfunction
+is obtained by direct integration of equation (\ref{e:adjoint}) subject to
+boundary conditions (\ref{e:aLST-BC-u-wall})--(\ref{e:aLST-BC-infty}) with no
+iteration required on the eigenvalue.  The integration is started at a fixed
+height above the wall, $n=n_{max}$, and the initial condition at $n_{max}$ is
+constructed by solving the uniform-flow version of equation (\ref{e:adjoint}).
+Mack \cite{Mack:84a} describes the analytical procedure used to determine the
+initial condition for the compressible equations without curvature.  For
+simplicity, we formulate the problem numerically by substituting the
+uniform-flow conditions at $n_{max}$ into (\ref{e:adjoint}) and solving the
+resulting $(8\times 8)$ eigensystem using the LAPACK routine {\tt CGEEV}
+\cite{Lapack:92}.  Doing so, one obtains 8 eigensolutions, four that are
+damped for large $n$ and four that are unbounded for large $n$.  Consistent
+with the farfield boundary conditions (\ref{e:aLST-BC-infty}), the bounded
+solutions are used as four linearly-independent initial-conditions at
+$n_{max}$.  Each of these initial conditions are integrated to the wall using
+standard fourth-order accurate, fixed-step Runge-Kutta integration with the
+orthonormalization procedure of Conte \cite{Conte:66} used to prevent
+contamination from the undamped solutions.  At the wall, a linear
+superposition is constructed that satisfies the wall boundary conditions.
+With curvature, the metric terms vary over the entire wall-normal domain so
+that the initial condition described above is only approximate.  However, in
+practice, $n_{max} \ge 2$ is found to be adequate for cases with and without
+curvature.  Once the adjoint is obtained, $h_1$ and $h_2$ are constructed
+given the full (nonparallel) meanflow, and the parallel eigenfunctions.  Note
+that in determining $h_1$ and $h_2$, chordwise derivatives of both the
+meanflow and the regular eigenfunctions are required.  The chordwise
+derivatives of the meanflow come directly from the full mean solution, while
+the streamwise derivatives of the eigenfunctions are computed by solving the
+regular eigensystem over a range in $s$ and forming fourth-order-accurate
+finite difference approximations (see \S\ref{s:spacedisc}) for the chordwise
+derivatives.
+
+%==============================================================================
+%
+%  Tables and Figures
+%
+%==============================================================================
+%
+\begin{figure}[p]
+\centering \epsfxsize=5.0in \epsfbox{figures/ap4/coord.ai}
+\caption {Coordinate systems for LST analysis of an infinite-span swept
+wing\label{f:LSTcoord}}
+\end{figure}

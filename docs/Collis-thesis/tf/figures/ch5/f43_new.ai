@@ -1,0 +1,6268 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Adobe Illustrator(TM) 5.5
+%%For: () ()
+%%Title: (f43_new.ai)
+%%CreationDate: (1/31/97) ( 7:49 AM)
+%%BoundingBox: 78 45 475 693
+%%HiResBoundingBox: 78.9375 45 474.4375 692.7518
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentFonts: Times-Roman
+%%DocumentFiles:collis:tex:thesis:figures:ch6:f42.eps
+%%+collis:tex:thesis:figures:ch6:f41.eps
+%%+collis:tex:thesis:figures:ch6:f40.eps
+%%DocumentSuppliedResources: procset Adobe_level2_AI5 1.0 0
+%%+ procset Adobe_IllustratorA_AI5 1.0 0
+%AI5_FileFormat 3.0
+%AI3_ColorUsage: Color
+%AI3_IncludePlacedImages
+%AI3_TemplateBox: 306 396 306 396
+%AI3_TileBox: 0 0 552 728
+%AI3_DocumentPreview: Header
+%AI5_ArtSize: 612 792
+%AI5_RulerUnits: 0
+%AI5_ArtFlags: 1 0 0 1 0 0 1 1 0
+%AI5_TargetResolution: 800
+%AI5_NumLayers: 1
+%AI5_OpenToView: -30 780 1 685 805 18 0 1 187 200
+%AI5_OpenViewLayers: 7
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Adobe_level2_AI5 1.0 0
+%%Title: (Adobe Illustrator (R) Version 5.0 Level 2 Emulation)
+%%Version: 1.0 
+%%CreationDate: (04/10/93) ()
+%%Copyright: ((C) 1987-1993 Adobe Systems Incorporated All Rights Reserved)
+userdict /Adobe_level2_AI5 21 dict dup begin
+	put
+	/packedarray where not
+	{
+		userdict begin
+		/packedarray
+		{
+			array astore readonly
+		} bind def
+		/setpacking /pop load def
+		/currentpacking false def
+	 end
+		0
+	} if
+	pop
+	userdict /defaultpacking currentpacking put true setpacking
+	/initialize
+	{
+		Adobe_level2_AI5 begin
+	} bind def
+	/terminate
+	{
+		currentdict Adobe_level2_AI5 eq
+		{
+		 end
+		} if
+	} bind def
+	mark
+	/setcustomcolor where not
+	{
+		/findcmykcustomcolor
+		{
+			5 packedarray
+		} bind def
+		/setcustomcolor
+		{
+			exch aload pop pop
+			4
+			{
+				4 index mul 4 1 roll
+			} repeat
+			5 -1 roll pop
+			setcmykcolor
+		}
+		def
+	} if
+	
+	/gt38? mark {version cvx exec} stopped {cleartomark true} {38 gt exch pop} ifelse def
+	userdict /deviceDPI 72 0 matrix defaultmatrix dtransform dup mul exch dup mul add sqrt put
+	userdict /level2?
+	systemdict /languagelevel known dup
+	{
+		pop systemdict /languagelevel get 2 ge
+	} if
+	put
+	level2? not
+	{
+		/setcmykcolor where not
+		{
+			/setcmykcolor
+			{
+				exch .11 mul add exch .59 mul add exch .3 mul add
+				1 exch sub setgray
+			} def
+		} if
+		/currentcmykcolor where not
+		{
+			/currentcmykcolor
+			{
+				0 0 0 1 currentgray sub
+			} def
+		} if
+		/setoverprint where not
+		{
+			/setoverprint /pop load def
+		} if
+		/selectfont where not
+		{
+			/selectfont
+			{
+				exch findfont exch
+				dup type /arraytype eq
+				{
+					makefont
+				}
+				{
+					scalefont
+				} ifelse
+				setfont
+			} bind def
+		} if
+		/cshow where not
+		{
+			/cshow
+			{
+				[
+				0 0 5 -1 roll aload pop
+				] cvx bind forall
+			} bind def
+		} if
+	} if
+	cleartomark
+	/anyColor?
+	{
+		add add add 0 ne
+	} bind def
+	/testColor
+	{
+		gsave
+		setcmykcolor currentcmykcolor
+		grestore
+	} bind def
+	/testCMYKColorThrough
+	{
+		testColor anyColor?
+	} bind def
+	userdict /composite?
+	level2?
+	{
+		gsave 1 1 1 1 setcmykcolor currentcmykcolor grestore
+		add add add 4 eq
+	}
+	{
+		1 0 0 0 testCMYKColorThrough
+		0 1 0 0 testCMYKColorThrough
+		0 0 1 0 testCMYKColorThrough
+		0 0 0 1 testCMYKColorThrough
+		and and and
+	} ifelse
+	put
+	composite? not
+	{
+		userdict begin
+		gsave
+		/cyan? 1 0 0 0 testCMYKColorThrough def
+		/magenta? 0 1 0 0 testCMYKColorThrough def
+		/yellow? 0 0 1 0 testCMYKColorThrough def
+		/black? 0 0 0 1 testCMYKColorThrough def
+		grestore
+		/isCMYKSep? cyan? magenta? yellow? black? or or or def
+		/customColor? isCMYKSep? not def
+	 end
+	} if
+ end defaultpacking setpacking
+%%EndResource
+%%BeginResource: procset Adobe_IllustratorA_AI5 1.1 0
+%%Title: (Adobe Illustrator (R) Version 5.0 Abbreviated Prolog)
+%%Version: 1.1 
+%%CreationDate: (3/7/1994) ()
+%%Copyright: ((C) 1987-1994 Adobe Systems Incorporated All Rights Reserved)
+currentpacking true setpacking
+userdict /Adobe_IllustratorA_AI5_vars 70 dict dup begin
+put
+/_lp /none def
+/_pf
+{
+} def
+/_ps
+{
+} def
+/_psf
+{
+} def
+/_pss
+{
+} def
+/_pjsf
+{
+} def
+/_pjss
+{
+} def
+/_pola 0 def
+/_doClip 0 def
+/cf currentflat def
+/_tm matrix def
+/_renderStart
+[
+/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0
+] def
+/_renderEnd
+[
+null null null null /i1 /i1 /i1 /i1
+] def
+/_render -1 def
+/_rise 0 def
+/_ax 0 def
+/_ay 0 def
+/_cx 0 def
+/_cy 0 def
+/_leading
+[
+0 0
+] def
+/_ctm matrix def
+/_mtx matrix def
+/_sp 16#020 def
+/_hyphen (-) def
+/_fScl 0 def
+/_cnt 0 def
+/_hs 1 def
+/_nativeEncoding 0 def
+/_useNativeEncoding 0 def
+/_tempEncode 0 def
+/_pntr 0 def
+/_tDict 2 dict def
+/_wv 0 def
+/Tx
+{
+} def
+/Tj
+{
+} def
+/CRender
+{
+} def
+/_AI3_savepage
+{
+} def
+/_gf null def
+/_cf 4 array def
+/_if null def
+/_of false def
+/_fc
+{
+} def
+/_gs null def
+/_cs 4 array def
+/_is null def
+/_os false def
+/_sc
+{
+} def
+/discardSave null def
+/buffer 256 string def
+/beginString null def
+/endString null def
+/endStringLength null def
+/layerCnt 1 def
+/layerCount 1 def
+/perCent (%) 0 get def
+/perCentSeen? false def
+/newBuff null def
+/newBuffButFirst null def
+/newBuffLast null def
+/clipForward? false def
+end
+userdict /Adobe_IllustratorA_AI5 74 dict dup begin
+put
+/initialize
+{
+	Adobe_IllustratorA_AI5 dup begin
+	Adobe_IllustratorA_AI5_vars begin
+	discardDict
+	{
+		bind pop pop
+	} forall
+	dup /nc get begin
+	{
+		dup xcheck 1 index type /operatortype ne and
+		{
+			bind
+		} if
+		pop pop
+	} forall
+ end
+	newpath
+} def
+/terminate
+{
+ end
+ end
+} def
+/_
+null def
+/ddef
+{
+	Adobe_IllustratorA_AI5_vars 3 1 roll put
+} def
+/xput
+{
+	dup load dup length exch maxlength eq
+	{
+		dup dup load dup
+		length 2 mul dict copy def
+	} if
+	load begin
+	def
+ end
+} def
+/npop
+{
+	{
+		pop
+	} repeat
+} def
+/sw
+{
+	dup length exch stringwidth
+	exch 5 -1 roll 3 index mul add
+	4 1 roll 3 1 roll mul add
+} def
+/swj
+{
+	dup 4 1 roll
+	dup length exch stringwidth
+	exch 5 -1 roll 3 index mul add
+	4 1 roll 3 1 roll mul add
+	6 2 roll /_cnt 0 ddef
+	{
+		1 index eq
+		{
+			/_cnt _cnt 1 add ddef
+		} if
+	} forall
+	pop
+	exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} def
+/ss
+{
+	4 1 roll
+	{
+		2 npop
+		(0) exch 2 copy 0 exch put pop
+		gsave
+		false charpath currentpoint
+		4 index setmatrix
+		stroke
+		grestore
+		moveto
+		2 copy rmoveto
+	} exch cshow
+	3 npop
+} def
+/jss
+{
+	4 1 roll
+	{
+		2 npop
+		(0) exch 2 copy 0 exch put
+		gsave
+		_sp eq
+		{
+			exch 6 index 6 index 6 index 5 -1 roll widthshow
+			currentpoint
+		}
+		{
+			false charpath currentpoint
+			4 index setmatrix stroke
+		} ifelse
+		grestore
+		moveto
+		2 copy rmoveto
+	} exch cshow
+	6 npop
+} def
+/sp
+{
+	{
+		2 npop (0) exch
+		2 copy 0 exch put pop
+		false charpath
+		2 copy rmoveto
+	} exch cshow
+	2 npop
+} def
+/jsp
+{
+	{
+		2 npop
+		(0) exch 2 copy 0 exch put
+		_sp eq
+		{
+			exch 5 index 5 index 5 index 5 -1 roll widthshow
+		}
+		{
+			false charpath
+		} ifelse
+		2 copy rmoveto
+	} exch cshow
+	5 npop
+} def
+/pl
+{
+	transform
+	0.25 sub round 0.25 add exch
+	0.25 sub round 0.25 add exch
+	itransform
+} def
+/setstrokeadjust where
+{
+	pop true setstrokeadjust
+	/c
+	{
+		curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+		currentpoint 6 2 roll curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+		2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+		lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+		moveto
+	} def
+}
+{
+	/c
+	{
+		pl curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+		currentpoint 6 2 roll pl curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+		pl 2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+		pl lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+		pl moveto
+	} def
+} ifelse
+/d
+{
+	setdash
+} def
+/cf
+{
+} def
+/i
+{
+	dup 0 eq
+	{
+		pop cf
+	} if
+	setflat
+} def
+/j
+{
+	setlinejoin
+} def
+/J
+{
+	setlinecap
+} def
+/M
+{
+	setmiterlimit
+} def
+/w
+{
+	setlinewidth
+} def
+/H
+{
+} def
+/h
+{
+	closepath
+} def
+/N
+{
+	_pola 0 eq
+	{
+		_doClip 1 eq
+		{
+			clip /_doClip 0 ddef
+		} if
+		newpath
+	}
+	{
+		/CRender
+		{
+			N
+		} ddef
+	} ifelse
+} def
+/n
+{
+	N
+} def
+/F
+{
+	_pola 0 eq
+	{
+		_doClip 1 eq
+		{
+			gsave _pf grestore clip newpath /_lp /none ddef _fc
+			/_doClip 0 ddef
+		}
+		{
+			_pf
+		} ifelse
+	}
+	{
+		/CRender
+		{
+			F
+		} ddef
+	} ifelse
+} def
+/f
+{
+	closepath
+	F
+} def
+/S
+{
+	_pola 0 eq
+	{
+		_doClip 1 eq
+		{
+			gsave _ps grestore clip newpath /_lp /none ddef _sc
+			/_doClip 0 ddef
+		}
+		{
+			_ps
+		} ifelse
+	}
+	{
+		/CRender
+		{
+			S
+		} ddef
+	} ifelse
+} def
+/s
+{
+	closepath
+	S
+} def
+/B
+{
+	_pola 0 eq
+	{
+		_doClip 1 eq
+		gsave F grestore
+		{
+			gsave S grestore clip newpath /_lp /none ddef _sc
+			/_doClip 0 ddef
+		}
+		{
+			S
+		} ifelse
+	}
+	{
+		/CRender
+		{
+			B
+		} ddef
+	} ifelse
+} def
+/b
+{
+	closepath
+	B
+} def
+/W
+{
+	/_doClip 1 ddef
+} def
+/*
+{
+	count 0 ne
+	{
+		dup type /stringtype eq
+		{
+			pop
+		} if
+	} if
+	newpath
+} def
+/u
+{
+} def
+/U
+{
+} def
+/q
+{
+	_pola 0 eq
+	{
+		gsave
+	} if
+} def
+/Q
+{
+	_pola 0 eq
+	{
+		grestore
+	} if
+} def
+/*u
+{
+	_pola 1 add /_pola exch ddef
+} def
+/*U
+{
+	_pola 1 sub /_pola exch ddef
+	_pola 0 eq
+	{
+		CRender
+	} if
+} def
+/D
+{
+	pop
+} def
+/*w
+{
+} def
+/*W
+{
+} def
+/`
+{
+	/_i save ddef
+	clipForward?
+	{
+		nulldevice
+	} if
+	6 1 roll 4 npop
+	concat pop
+	userdict begin
+	/showpage
+	{
+	} def
+	0 setgray
+	0 setlinecap
+	1 setlinewidth
+	0 setlinejoin
+	10 setmiterlimit
+	[] 0 setdash
+	/setstrokeadjust where {pop false setstrokeadjust} if
+	newpath
+	0 setgray
+	false setoverprint
+} def
+/~
+{
+ end
+	_i restore
+} def
+/O
+{
+	0 ne
+	/_of exch ddef
+	/_lp /none ddef
+} def
+/R
+{
+	0 ne
+	/_os exch ddef
+	/_lp /none ddef
+} def
+/g
+{
+	/_gf exch ddef
+	/_fc
+	{
+		_lp /fill ne
+		{
+			_of setoverprint
+			_gf setgray
+			/_lp /fill ddef
+		} if
+	} ddef
+	/_pf
+	{
+		_fc
+		fill
+	} ddef
+	/_psf
+	{
+		_fc
+		ashow
+	} ddef
+	/_pjsf
+	{
+		_fc
+		awidthshow
+	} ddef
+	/_lp /none ddef
+} def
+/G
+{
+	/_gs exch ddef
+	/_sc
+	{
+		_lp /stroke ne
+		{
+			_os setoverprint
+			_gs setgray
+			/_lp /stroke ddef
+		} if
+	} ddef
+	/_ps
+	{
+		_sc
+		stroke
+	} ddef
+	/_pss
+	{
+		_sc
+		ss
+	} ddef
+	/_pjss
+	{
+		_sc
+		jss
+	} ddef
+	/_lp /none ddef
+} def
+/k
+{
+	_cf astore pop
+	/_fc
+	{
+		_lp /fill ne
+		{
+			_of setoverprint
+			_cf aload pop setcmykcolor
+			/_lp /fill ddef
+		} if
+	} ddef
+	/_pf
+	{
+		_fc
+		fill
+	} ddef
+	/_psf
+	{
+		_fc
+		ashow
+	} ddef
+	/_pjsf
+	{
+		_fc
+		awidthshow
+	} ddef
+	/_lp /none ddef
+} def
+/K
+{
+	_cs astore pop
+	/_sc
+	{
+		_lp /stroke ne
+		{
+			_os setoverprint
+			_cs aload pop setcmykcolor
+			/_lp /stroke ddef
+		} if
+	} ddef
+	/_ps
+	{
+		_sc
+		stroke
+	} ddef
+	/_pss
+	{
+		_sc
+		ss
+	} ddef
+	/_pjss
+	{
+		_sc
+		jss
+	} ddef
+	/_lp /none ddef
+} def
+/x
+{
+	/_gf exch ddef
+	findcmykcustomcolor
+	/_if exch ddef
+	/_fc
+	{
+		_lp /fill ne
+		{
+			_of setoverprint
+			_if _gf 1 exch sub setcustomcolor
+			/_lp /fill ddef
+		} if
+	} ddef
+	/_pf
+	{
+		_fc
+		fill
+	} ddef
+	/_psf
+	{
+		_fc
+		ashow
+	} ddef
+	/_pjsf
+	{
+		_fc
+		awidthshow
+	} ddef
+	/_lp /none ddef
+} def
+/X
+{
+	/_gs exch ddef
+	findcmykcustomcolor
+	/_is exch ddef
+	/_sc
+	{
+		_lp /stroke ne
+		{
+			_os setoverprint
+			_is _gs 1 exch sub setcustomcolor
+			/_lp /stroke ddef
+		} if
+	} ddef
+	/_ps
+	{
+		_sc
+		stroke
+	} ddef
+	/_pss
+	{
+		_sc
+		ss
+	} ddef
+	/_pjss
+	{
+		_sc
+		jss
+	} ddef
+	/_lp /none ddef
+} def
+/A
+{
+	pop
+} def
+/annotatepage
+{
+userdict /annotatepage 2 copy known {get exec} {pop pop} ifelse
+} def
+/discard
+{
+	save /discardSave exch store
+	discardDict begin
+	/endString exch store
+	gt38?
+	{
+		2 add
+	} if
+	load
+	stopped
+	pop
+ end
+	discardSave restore
+} bind def
+userdict /discardDict 7 dict dup begin
+put
+/pre38Initialize
+{
+	/endStringLength endString length store
+	/newBuff buffer 0 endStringLength getinterval store
+	/newBuffButFirst newBuff 1 endStringLength 1 sub getinterval store
+	/newBuffLast newBuff endStringLength 1 sub 1 getinterval store
+} def
+/shiftBuffer
+{
+	newBuff 0 newBuffButFirst putinterval
+	newBuffLast 0
+	currentfile read not
+	{
+	stop
+	} if
+	put
+} def
+0
+{
+	pre38Initialize
+	mark
+	currentfile newBuff readstring exch pop
+	{
+		{
+			newBuff endString eq
+			{
+				cleartomark stop
+			} if
+			shiftBuffer
+		} loop
+	}
+	{
+	stop
+	} ifelse
+} def
+1
+{
+	pre38Initialize
+	/beginString exch store
+	mark
+	currentfile newBuff readstring exch pop
+	{
+		{
+			newBuff beginString eq
+			{
+				/layerCount dup load 1 add store
+			}
+			{
+				newBuff endString eq
+				{
+					/layerCount dup load 1 sub store
+					layerCount 0 eq
+					{
+						cleartomark stop
+					} if
+				} if
+			} ifelse
+			shiftBuffer
+		} loop
+	}
+	{
+	stop
+	} ifelse
+} def
+2
+{
+	mark
+	{
+		currentfile buffer readline not
+		{
+		stop
+		} if
+		endString eq
+		{
+			cleartomark stop
+		} if
+	} loop
+} def
+3
+{
+	/beginString exch store
+	/layerCnt 1 store
+	mark
+	{
+		currentfile buffer readline not
+		{
+		stop
+		} if
+		dup beginString eq
+		{
+			pop /layerCnt dup load 1 add store
+		}
+		{
+			endString eq
+			{
+				layerCnt 1 eq
+				{
+					cleartomark stop
+				}
+				{
+					/layerCnt dup load 1 sub store
+				} ifelse
+			} if
+		} ifelse
+	} loop
+} def
+end
+userdict /clipRenderOff 15 dict dup begin
+put
+{
+	/n /N /s /S /f /F /b /B
+}
+{
+	{
+		_doClip 1 eq
+		{
+			/_doClip 0 ddef clip
+		} if
+		newpath
+	} def
+} forall
+/Tr /pop load def
+/Bb {} def
+/BB /pop load def
+/Bg {12 npop} def
+/Bm {6 npop} def
+/Bc /Bm load def
+/Bh {4 npop} def
+end
+/Lb
+{
+	4 npop
+	6 1 roll
+	pop
+	4 1 roll
+	pop pop pop
+	0 eq
+	{
+		0 eq
+		{
+			(%AI5_BeginLayer) 1 (%AI5_EndLayer--) discard
+		}
+		{
+			/clipForward? true def
+			
+			/Tx /pop load def
+			/Tj /pop load def
+			currentdict end clipRenderOff begin begin
+		} ifelse
+	}
+	{
+		0 eq
+		{
+			save /discardSave exch store
+		} if
+	} ifelse
+} bind def
+/LB
+{
+	discardSave dup null ne
+	{
+		restore
+	}
+	{
+		pop
+		clipForward?
+		{
+			currentdict
+		 end
+		 end
+		 begin
+			
+			/clipForward? false ddef
+		} if
+	} ifelse
+} bind def
+/Pb
+{
+	pop pop
+	0 (%AI5_EndPalette) discard
+} bind def
+/Np
+{
+	0 (%AI5_End_NonPrinting--) discard
+} bind def
+/Ln /pop load def
+/Ap
+/pop load def
+/Ar
+{
+	72 exch div
+	0 dtransform dup mul exch dup mul add sqrt
+	dup 1 lt
+	{
+		pop 1
+	} if
+	setflat
+} def
+/Mb
+{
+	q
+} def
+/Md
+{
+} def
+/MB
+{
+	Q
+} def
+/nc 3 dict def
+nc begin
+/setgray
+{
+	pop
+} bind def
+/setcmykcolor
+{
+	4 npop
+} bind def
+/setcustomcolor
+{
+	2 npop
+} bind def
+currentdict readonly pop
+end
+currentdict readonly pop
+end
+setpacking
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeFont: Times-Roman
+Adobe_level2_AI5 /initialize get exec
+Adobe_IllustratorA_AI5 /initialize get exec
+%AI5_Begin_NonPrinting
+Np
+%AI3_BeginPattern: (Yellow Stripe)
+(Yellow Stripe) 8.4499 4.6 80.4499 76.6 [
+%AI3_Tile
+(0 O 0 R 0 0.4 1 0 k 0 0.4 1 0 K) @
+(
+800 Ar
+0 J 0 j 3.6 w 4 M []0 d
+%AI3_Note:
+0 D
+8.1999 8.1999 m
+80.6999 8.1999 L
+S
+8.1999 22.6 m
+80.6999 22.6 L
+S
+8.1999 37.0001 m
+80.6999 37.0001 L
+S
+8.1999 51.3999 m
+80.6999 51.3999 L
+S
+8.1999 65.8 m
+80.6999 65.8 L
+S
+8.1999 15.3999 m
+80.6999 15.3999 L
+S
+8.1999 29.8 m
+80.6999 29.8 L
+S
+8.1999 44.1999 m
+80.6999 44.1999 L
+S
+8.1999 58.6 m
+80.6999 58.6 L
+S
+8.1999 73.0001 m
+80.6999 73.0001 L
+S
+) &
+] E
+%AI3_EndPattern
+%AI5_End_NonPrinting--
+%AI5_Begin_NonPrinting
+Np
+3 Bn
+%AI5_BeginGradient: (Black & White)
+(Black & White) 0 2 Bd
+[
+<
+FFFEFDFCFBFAF9F8F7F6F5F4F3F2F1F0EFEEEDECEBEAE9E8E7E6E5E4E3E2E1E0DFDEDDDCDBDAD9D8
+D7D6D5D4D3D2D1D0CFCECDCCCBCAC9C8C7C6C5C4C3C2C1C0BFBEBDBCBBBAB9B8B7B6B5B4B3B2B1B0
+AFAEADACABAAA9A8A7A6A5A4A3A2A1A09F9E9D9C9B9A999897969594939291908F8E8D8C8B8A8988
+87868584838281807F7E7D7C7B7A797877767574737271706F6E6D6C6B6A69686766656463626160
+5F5E5D5C5B5A595857565554535251504F4E4D4C4B4A494847464544434241403F3E3D3C3B3A3938
+37363534333231302F2E2D2C2B2A292827262524232221201F1E1D1C1B1A19181716151413121110
+0F0E0D0C0B0A09080706050403020100
+>
+0 %_Br
+[
+0 0 50 100 %_Bs
+1 0 50 0 %_Bs
+BD
+%AI5_EndGradient
+%AI5_BeginGradient: (Red & Yellow)
+(Red & Yellow) 0 2 Bd
+[
+0
+<
+000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F2021222324252627
+28292A2B2C2D2E2F303132333435363738393A3B3C3D3E3F404142434445464748494A4B4C4D4E4F
+505152535455565758595A5B5C5D5E5F606162636465666768696A6B6C6D6E6F7071727374757677
+78797A7B7C7D7E7F808182838485868788898A8B8C8D8E8F909192939495969798999A9B9C9D9E9F
+A0A1A2A3A4A5A6A7A8A9AAABACADAEAFB0B1B2B3B4B5B6B7B8B9BABBBCBDBEBFC0C1C2C3C4C5C6C7
+C8C9CACBCCCDCECFD0D1D2D3D4D5D6D7D8D9DADBDCDDDEDFE0E1E2E3E4E5E6E7E8E9EAEBECEDEEEF
+F0F1F2F3F4F5F6F7F8F9FAFBFCFDFEFF
+>
+<
+FFFFFEFEFDFDFDFCFCFBFBFBFAFAF9F9F9F8F8F7F7F7F6F6F5F5F5F4F4F3F3F3F2F2F1F1F1F0F0EF
+EFEFEEEEEDEDEDECECEBEBEBEAEAE9E9E9E8E8E7E7E7E6E6E5E5E5E4E4E3E3E3E2E2E1E1E1E0E0DF
+DFDFDEDEDDDDDDDCDCDBDBDBDADAD9D9D9D8D8D7D7D7D6D6D5D5D5D4D4D3D3D3D2D2D1D1D1D0D0CF
+CFCFCECECDCDCDCCCCCBCBCBCACAC9C9C9C8C8C7C7C7C6C6C5C5C5C4C4C3C3C3C2C2C1C1C1C0C0BF
+BFBFBEBEBDBDBDBCBCBBBBBBBABAB9B9B9B8B8B7B7B7B6B6B5B5B5B4B4B3B3B3B2B2B1B1B1B0B0AF
+AFAFAEAEADADADACACABABABAAAAA9A9A9A8A8A7A7A7A6A6A5A5A5A4A4A3A3A3A2A2A1A1A1A0A09F
+9F9F9E9E9D9D9D9C9C9B9B9B9A9A9999
+>
+0
+1 %_Br
+[
+0 1 0.6 0 1 50 100 %_Bs
+0 0 1 0 1 50 0 %_Bs
+BD
+%AI5_EndGradient
+%AI5_BeginGradient: (Yellow & Blue Radial)
+(Yellow & Blue Radial) 1 2 Bd
+[
+<
+000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F2021222324252627
+28292A2B2C2D2E2F303132333435363738393A3B3C3D3E3F404142434445464748494A4B4C4D4E4F
+505152535455565758595A5B5C5D5E5F606162636465666768696A6B6C6D6E6F7071727374757677
+78797A7B7C7D7E7F808182838485868788898A8B8C8D8E8F909192939495969798999A9B9C9D9E9F
+A0A1A2A3A4A5A6A7A8A9AAABACADAEAFB0B1B2B3B4B5B6B7B8B9BABBBCBDBEBFC0C1C2C3C4C5C6C7
+C8C9CACBCCCDCECFD0D1D2D3D4D5D6D7D8D9DADBDCDDDEDFE0E1E2E3E4E5E6E7E8E9EAEBECEDEEEF
+F0F1F2F3F4F5F6F7F8F9FAFBFCFDFEFF
+>
+<
+1415161718191A1B1C1D1E1F1F202122232425262728292A2A2B2C2D2E2F30313233343536363738
+393A3B3C3D3E3F40414142434445464748494A4B4C4D4D4E4F50515253545556575858595A5B5C5D
+5E5F60616263646465666768696A6B6C6D6E6F6F707172737475767778797A7B7B7C7D7E7F808182
+83848586868788898A8B8C8D8E8F90919292939495969798999A9B9C9D9D9E9FA0A1A2A3A4A5A6A7
+A8A9A9AAABACADAEAFB0B1B2B3B4B4B5B6B7B8B9BABBBCBDBEBFC0C0C1C2C3C4C5C6C7C8C9CACBCB
+CCCDCECFD0D1D2D3D4D5D6D7D7D8D9DADBDCDDDEDFE0E1E2E2E3E4E5E6E7E8E9EAEBECEDEEEEEFF0
+F1F2F3F4F5F6F7F8F9F9FAFBFCFDFEFF
+>
+<
+ABAAAAA9A8A7A7A6A5A5A4A3A3A2A1A1A09F9F9E9D9D9C9B9B9A9999989797969595949393929191
+908F8F8E8D8D8C8B8B8A8989888787868585848383828181807F7F7E7D7D7C7B7B7A797978777776
+7575747373727171706F6F6E6D6D6C6B6B6A6969686767666565646362626160605F5E5E5D5C5C5B
+5A5A5958585756565554545352525150504F4E4E4D4C4C4B4A4A4948484746464544444342424140
+403F3E3E3D3C3C3B3A3A3938383736363534343332323130302F2E2E2D2C2C2B2A2A292828272626
+25242423222121201F1F1E1D1D1C1B1B1A1919181717161515141313121111100F0F0E0D0D0C0B0B
+0A090908070706050504030302010100
+>
+0
+1 %_Br
+[
+0 0.08 0.67 0 1 50 14 %_Bs
+1 1 0 0 1 50 100 %_Bs
+BD
+%AI5_EndGradient
+%AI5_End_NonPrinting--
+%AI5_BeginPalette
+0 0 Pb
+Pn
+Pc
+1 g
+Pc
+0 g
+Pc
+0 0 0 0 k
+Pc
+0.75 g
+Pc
+0.5 g
+Pc
+0.25 g
+Pc
+0 g
+Pc
+Bb
+2 (Black & White) -4014 4716 0 0 1 0 0 1 0 0 Bg
+0 BB
+Pc
+0.25 0 0 0 k
+Pc
+0.5 0 0 0 k
+Pc
+0.75 0 0 0 k
+Pc
+1 0 0 0 k
+Pc
+0.25 0.25 0 0 k
+Pc
+0.5 0.5 0 0 k
+Pc
+0.75 0.75 0 0 k
+Pc
+1 1 0 0 k
+Pc
+Bb
+2 (Red & Yellow) -4014 4716 0 0 1 0 0 1 0 0 Bg
+0 BB
+Pc
+0 0.25 0 0 k
+Pc
+0 0.5 0 0 k
+Pc
+0 0.75 0 0 k
+Pc
+0 1 0 0 k
+Pc
+0 0.25 0.25 0 k
+Pc
+0 0.5 0.5 0 k
+Pc
+0 0.75 0.75 0 k
+Pc
+0 1 1 0 k
+Pc
+Bb
+0 0 0 0 Bh
+2 (Yellow & Blue Radial) -4014 4716 0 0 1 0 0 1 0 0 Bg
+0 BB
+Pc
+0 0 0.25 0 k
+Pc
+0 0 0.5 0 k
+Pc
+0 0 0.75 0 k
+Pc
+0 0 1 0 k
+Pc
+0.25 0 0.25 0 k
+Pc
+0.5 0 0.5 0 k
+Pc
+0.75 0 0.75 0 k
+Pc
+1 0 1 0 k
+Pc
+(Yellow Stripe) 0 0 1 1 0 0 0 0 0 [1 0 0 1 0 0] p
+Pc
+0.25 0.125 0 0 k
+Pc
+0.5 0.25 0 0 k
+Pc
+0.75 0.375 0 0 k
+Pc
+1 0.5 0 0 k
+Pc
+0.125 0.25 0 0 k
+Pc
+0.25 0.5 0 0 k
+Pc
+0.375 0.75 0 0 k
+Pc
+0.5 1 0 0 k
+Pc
+0 0 0 0 k
+Pc
+0 0.25 0.125 0 k
+Pc
+0 0.5 0.25 0 k
+Pc
+0 0.75 0.375 0 k
+Pc
+0 1 0.5 0 k
+Pc
+0 0.125 0.25 0 k
+Pc
+0 0.25 0.5 0 k
+Pc
+0 0.375 0.75 0 k
+Pc
+0 0.5 1 0 k
+Pc
+0 0 0 0 k
+Pc
+0.125 0 0.25 0 k
+Pc
+0.25 0 0.5 0 k
+Pc
+0.375 0 0.75 0 k
+Pc
+0.5 0 1 0 k
+Pc
+0.25 0 0.125 0 k
+Pc
+0.5 0 0.25 0 k
+Pc
+0.75 0 0.375 0 k
+Pc
+1 0 0.5 0 k
+Pc
+0 0 0 0 k
+Pc
+0.25 0.125 0.125 0 k
+Pc
+0.5 0.25 0.25 0 k
+Pc
+0.75 0.375 0.375 0 k
+Pc
+1 0.5 0.5 0 k
+Pc
+0.25 0.25 0.125 0 k
+Pc
+0.5 0.5 0.25 0 k
+Pc
+0.75 0.75 0.375 0 k
+Pc
+1 1 0.5 0 k
+Pc
+0 0 0 0 k
+Pc
+0.125 0.25 0.125 0 k
+Pc
+0.25 0.5 0.25 0 k
+Pc
+0.375 0.75 0.375 0 k
+Pc
+0.5 1 0.5 0 k
+Pc
+0.125 0.25 0.25 0 k
+Pc
+0.25 0.5 0.5 0 k
+Pc
+0.375 0.75 0.75 0 k
+Pc
+0.5 1 1 0 k
+Pc
+0 0 0 0 k
+Pc
+0.125 0.125 0.25 0 k
+Pc
+0.25 0.25 0.5 0 k
+Pc
+0.375 0.375 0.75 0 k
+Pc
+0.5 0.5 1 0 k
+Pc
+0.25 0.125 0.25 0 k
+Pc
+0.5 0.25 0.5 0 k
+Pc
+0.75 0.375 0.75 0 k
+Pc
+1 0.5 1 0 k
+Pc
+PB
+%AI5_EndPalette
+%%EndSetup
+%AI5_BeginLayer
+1 1 1 1 0 0 0 79 128 255 Lb
+(Layer 1) Ln
+0 A
+%AI5_BeginPlace
+[0.625 0 0 0.625 78.9375 460.2518] 0 0 631 372
+(collis:tex:thesis:figures:ch6:f40.eps)`
+%%BeginDocument: collis:tex:thesis:figures:ch6:f40.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: fort.10  -  /u/collis/mesh
+%%Creator: nxyplot
+%%CreationDate: Thu Oct 24 17:13:01 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 -1
+%%BoundingBox: 0 0 631 372
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -4 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 631 372 rectclip
+0 0 631 372 rectclip
+1 setgray
+0 0 631 372 rectfill
+0.4 setlinewidth
+0 setgray
+/Times-Roman findfont 20 scalefont
+119
+exch
+defineuserobject
+119 execuserobject setfont
+294 8 moveto
+() show
+119 execuserobject setfont
+26 182.834 moveto
+gsave
+90 rotate
+() show
+grestore
+119 execuserobject setfont
+209 348 moveto
+() show
+gsave
+100 50 translate
+0 0 translate
+1 setlinewidth
+newpath
+0 0 moveto
+477.899994 0 lineto
+477.899994 289.799988 lineto
+0 289.799988 lineto
+closepath
+stroke
+0.4 setlinewidth
+119 execuserobject setfont
+newpath
+1 setlinewidth
+0 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+0 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+-5 -25 moveto
+(0) show
+11.9475 3 moveto
+0 -3 rlineto
+stroke
+11.9475 289.799988 moveto
+0 -3 rlineto
+stroke
+23.895 3 moveto
+0 -3 rlineto
+stroke
+23.895 289.799988 moveto
+0 -3 rlineto
+stroke
+35.842499 3 moveto
+0 -3 rlineto
+stroke
+35.842499 289.799988 moveto
+0 -3 rlineto
+stroke
+47.790001 3 moveto
+0 -3 rlineto
+stroke
+47.790001 289.799988 moveto
+0 -3 rlineto
+stroke
+59.737499 3 moveto
+0 -3 rlineto
+stroke
+59.737499 289.799988 moveto
+0 -3 rlineto
+stroke
+71.684998 3 moveto
+0 -3 rlineto
+stroke
+71.684998 289.799988 moveto
+0 -3 rlineto
+stroke
+83.6325 3 moveto
+0 -3 rlineto
+stroke
+83.6325 289.799988 moveto
+0 -3 rlineto
+stroke
+95.580002 3 moveto
+0 -3 rlineto
+stroke
+95.580002 289.799988 moveto
+0 -3 rlineto
+stroke
+107.527496 3 moveto
+0 -3 rlineto
+stroke
+107.527496 289.799988 moveto
+0 -3 rlineto
+stroke
+119.474998 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+119.474998 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+101.974998 -25 moveto
+(0.25) show
+131.422501 3 moveto
+0 -3 rlineto
+stroke
+131.422501 289.799988 moveto
+0 -3 rlineto
+stroke
+143.369995 3 moveto
+0 -3 rlineto
+stroke
+143.369995 289.799988 moveto
+0 -3 rlineto
+stroke
+155.317505 3 moveto
+0 -3 rlineto
+stroke
+155.317505 289.799988 moveto
+0 -3 rlineto
+stroke
+167.264999 3 moveto
+0 -3 rlineto
+stroke
+167.264999 289.799988 moveto
+0 -3 rlineto
+stroke
+179.212494 3 moveto
+0 -3 rlineto
+stroke
+179.212494 289.799988 moveto
+0 -3 rlineto
+stroke
+191.160004 3 moveto
+0 -3 rlineto
+stroke
+191.160004 289.799988 moveto
+0 -3 rlineto
+stroke
+203.107498 3 moveto
+0 -3 rlineto
+stroke
+203.107498 289.799988 moveto
+0 -3 rlineto
+stroke
+215.054993 3 moveto
+0 -3 rlineto
+stroke
+215.054993 289.799988 moveto
+0 -3 rlineto
+stroke
+227.002502 3 moveto
+0 -3 rlineto
+stroke
+227.002502 289.799988 moveto
+0 -3 rlineto
+stroke
+238.949997 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+238.949997 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+221.449997 -25 moveto
+(0.50) show
+250.897491 3 moveto
+0 -3 rlineto
+stroke
+250.897491 289.799988 moveto
+0 -3 rlineto
+stroke
+262.845001 3 moveto
+0 -3 rlineto
+stroke
+262.845001 289.799988 moveto
+0 -3 rlineto
+stroke
+274.792511 3 moveto
+0 -3 rlineto
+stroke
+274.792511 289.799988 moveto
+0 -3 rlineto
+stroke
+286.73999 3 moveto
+0 -3 rlineto
+stroke
+286.73999 289.799988 moveto
+0 -3 rlineto
+stroke
+298.6875 3 moveto
+0 -3 rlineto
+stroke
+298.6875 289.799988 moveto
+0 -3 rlineto
+stroke
+310.63501 3 moveto
+0 -3 rlineto
+stroke
+310.63501 289.799988 moveto
+0 -3 rlineto
+stroke
+322.582489 3 moveto
+0 -3 rlineto
+stroke
+322.582489 289.799988 moveto
+0 -3 rlineto
+stroke
+334.529999 3 moveto
+0 -3 rlineto
+stroke
+334.529999 289.799988 moveto
+0 -3 rlineto
+stroke
+346.477509 3 moveto
+0 -3 rlineto
+stroke
+346.477509 289.799988 moveto
+0 -3 rlineto
+stroke
+358.424988 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+358.424988 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+340.924988 -25 moveto
+(0.75) show
+370.372498 3 moveto
+0 -3 rlineto
+stroke
+370.372498 289.799988 moveto
+0 -3 rlineto
+stroke
+382.319977 3 moveto
+0 -3 rlineto
+stroke
+382.319977 289.799988 moveto
+0 -3 rlineto
+stroke
+394.267487 3 moveto
+0 -3 rlineto
+stroke
+394.267487 289.799988 moveto
+0 -3 rlineto
+stroke
+406.214996 3 moveto
+0 -3 rlineto
+stroke
+406.214996 289.799988 moveto
+0 -3 rlineto
+stroke
+418.162476 3 moveto
+0 -3 rlineto
+stroke
+418.162476 289.799988 moveto
+0 -3 rlineto
+stroke
+430.109985 3 moveto
+0 -3 rlineto
+stroke
+430.109985 289.799988 moveto
+0 -3 rlineto
+stroke
+442.057495 3 moveto
+0 -3 rlineto
+stroke
+442.057495 289.799988 moveto
+0 -3 rlineto
+stroke
+454.004974 3 moveto
+0 -3 rlineto
+stroke
+454.004974 289.799988 moveto
+0 -3 rlineto
+stroke
+465.952484 3 moveto
+0 -3 rlineto
+stroke
+465.952484 289.799988 moveto
+0 -3 rlineto
+stroke
+477.899994 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+460.399994 -25 moveto
+(1.00) show
+6 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-20 -8 moveto
+(0) show
+3 5.796 moveto
+-3 0 rlineto
+stroke
+477.899994 5.796 moveto
+-3 0 rlineto
+stroke
+3 11.592 moveto
+-3 0 rlineto
+stroke
+477.899994 11.592 moveto
+-3 0 rlineto
+stroke
+3 17.388 moveto
+-3 0 rlineto
+stroke
+477.899994 17.388 moveto
+-3 0 rlineto
+stroke
+3 23.184 moveto
+-3 0 rlineto
+stroke
+477.899994 23.184 moveto
+-3 0 rlineto
+stroke
+3 28.98 moveto
+-3 0 rlineto
+stroke
+477.899994 28.98 moveto
+-3 0 rlineto
+stroke
+3 34.776001 moveto
+-3 0 rlineto
+stroke
+477.899994 34.776001 moveto
+-3 0 rlineto
+stroke
+3 40.571999 moveto
+-3 0 rlineto
+stroke
+477.899994 40.571999 moveto
+-3 0 rlineto
+stroke
+3 46.368 moveto
+-3 0 rlineto
+stroke
+477.899994 46.368 moveto
+-3 0 rlineto
+stroke
+3 52.164001 moveto
+-3 0 rlineto
+stroke
+477.899994 52.164001 moveto
+-3 0 rlineto
+stroke
+6 57.959999 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 57.959999 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-25 49.959999 moveto
+( 5) show
+3 63.756001 moveto
+-3 0 rlineto
+stroke
+477.899994 63.756001 moveto
+-3 0 rlineto
+stroke
+3 69.552002 moveto
+-3 0 rlineto
+stroke
+477.899994 69.552002 moveto
+-3 0 rlineto
+stroke
+3 75.348 moveto
+-3 0 rlineto
+stroke
+477.899994 75.348 moveto
+-3 0 rlineto
+stroke
+3 81.143997 moveto
+-3 0 rlineto
+stroke
+477.899994 81.143997 moveto
+-3 0 rlineto
+stroke
+3 86.940002 moveto
+-3 0 rlineto
+stroke
+477.899994 86.940002 moveto
+-3 0 rlineto
+stroke
+3 92.736 moveto
+-3 0 rlineto
+stroke
+477.899994 92.736 moveto
+-3 0 rlineto
+stroke
+3 98.531998 moveto
+-3 0 rlineto
+stroke
+477.899994 98.531998 moveto
+-3 0 rlineto
+stroke
+3 104.328003 moveto
+-3 0 rlineto
+stroke
+477.899994 104.328003 moveto
+-3 0 rlineto
+stroke
+3 110.124001 moveto
+-3 0 rlineto
+stroke
+477.899994 110.124001 moveto
+-3 0 rlineto
+stroke
+6 115.919998 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 115.919998 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-30 107.919998 moveto
+(10) show
+3 121.715996 moveto
+-3 0 rlineto
+stroke
+477.899994 121.715996 moveto
+-3 0 rlineto
+stroke
+3 127.512001 moveto
+-3 0 rlineto
+stroke
+477.899994 127.512001 moveto
+-3 0 rlineto
+stroke
+3 133.307999 moveto
+-3 0 rlineto
+stroke
+477.899994 133.307999 moveto
+-3 0 rlineto
+stroke
+3 139.104004 moveto
+-3 0 rlineto
+stroke
+477.899994 139.104004 moveto
+-3 0 rlineto
+stroke
+3 144.899994 moveto
+-3 0 rlineto
+stroke
+477.899994 144.899994 moveto
+-3 0 rlineto
+stroke
+3 150.695999 moveto
+-3 0 rlineto
+stroke
+477.899994 150.695999 moveto
+-3 0 rlineto
+stroke
+3 156.492004 moveto
+-3 0 rlineto
+stroke
+477.899994 156.492004 moveto
+-3 0 rlineto
+stroke
+3 162.287994 moveto
+-3 0 rlineto
+stroke
+477.899994 162.287994 moveto
+-3 0 rlineto
+stroke
+3 168.084 moveto
+-3 0 rlineto
+stroke
+477.899994 168.084 moveto
+-3 0 rlineto
+stroke
+6 173.880005 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 173.880005 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-30 165.880005 moveto
+(15) show
+3 179.67601 moveto
+-3 0 rlineto
+stroke
+477.899994 179.67601 moveto
+-3 0 rlineto
+stroke
+3 185.472 moveto
+-3 0 rlineto
+stroke
+477.899994 185.472 moveto
+-3 0 rlineto
+stroke
+3 191.268005 moveto
+-3 0 rlineto
+stroke
+477.899994 191.268005 moveto
+-3 0 rlineto
+stroke
+3 197.064011 moveto
+-3 0 rlineto
+stroke
+477.899994 197.064011 moveto
+-3 0 rlineto
+stroke
+3 202.860001 moveto
+-3 0 rlineto
+stroke
+477.899994 202.860001 moveto
+-3 0 rlineto
+stroke
+3 208.656006 moveto
+-3 0 rlineto
+stroke
+477.899994 208.656006 moveto
+-3 0 rlineto
+stroke
+3 214.452011 moveto
+-3 0 rlineto
+stroke
+477.899994 214.452011 moveto
+-3 0 rlineto
+stroke
+3 220.248001 moveto
+-3 0 rlineto
+stroke
+477.899994 220.248001 moveto
+-3 0 rlineto
+stroke
+3 226.044006 moveto
+-3 0 rlineto
+stroke
+477.899994 226.044006 moveto
+-3 0 rlineto
+stroke
+6 231.839996 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 231.839996 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-30 223.839996 moveto
+(20) show
+3 237.636002 moveto
+-3 0 rlineto
+stroke
+477.899994 237.636002 moveto
+-3 0 rlineto
+stroke
+3 243.431992 moveto
+-3 0 rlineto
+stroke
+477.899994 243.431992 moveto
+-3 0 rlineto
+stroke
+3 249.227997 moveto
+-3 0 rlineto
+stroke
+477.899994 249.227997 moveto
+-3 0 rlineto
+stroke
+3 255.024002 moveto
+-3 0 rlineto
+stroke
+477.899994 255.024002 moveto
+-3 0 rlineto
+stroke
+3 260.820007 moveto
+-3 0 rlineto
+stroke
+477.899994 260.820007 moveto
+-3 0 rlineto
+stroke
+3 266.615997 moveto
+-3 0 rlineto
+stroke
+477.899994 266.615997 moveto
+-3 0 rlineto
+stroke
+3 272.411987 moveto
+-3 0 rlineto
+stroke
+477.899994 272.411987 moveto
+-3 0 rlineto
+stroke
+3 278.208008 moveto
+-3 0 rlineto
+stroke
+477.899994 278.208008 moveto
+-3 0 rlineto
+stroke
+3 284.003998 moveto
+-3 0 rlineto
+stroke
+477.899994 284.003998 moveto
+-3 0 rlineto
+stroke
+6 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-30 281.799988 moveto
+(25) show
+0 0 477.899994 289.799988 rectclip
+newpath
+0.4 setlinewidth
+0 setgray
+[] 0 setdash
+0 0 moveto
+0.623077 0.011592 lineto
+1.246154 0.023196 lineto
+1.869231 0.034819 lineto
+2.492308 0.046469 lineto
+3.115385 0.058155 lineto
+3.738461 0.069895 lineto
+4.361538 0.081684 lineto
+4.984615 0.093544 lineto
+5.607692 0.105477 lineto
+6.230769 0.1175 lineto
+6.853846 0.129612 lineto
+7.476923 0.141827 lineto
+8.1 0.154169 lineto
+8.723077 0.166621 lineto
+9.346153 0.179216 lineto
+9.969231 0.191942 lineto
+10.592307 0.204832 lineto
+11.215384 0.217878 lineto
+11.838461 0.231097 lineto
+12.461538 0.244499 lineto
+13.084615 0.2581 lineto
+13.707691 0.271891 lineto
+14.330769 0.285903 lineto
+14.953846 0.300132 lineto
+15.576923 0.31459 lineto
+16.200001 0.329294 lineto
+16.823076 0.344241 lineto
+17.446154 0.359464 lineto
+18.069231 0.374957 lineto
+18.692307 0.390726 lineto
+19.315384 0.406791 lineto
+19.938461 0.423153 lineto
+20.561539 0.439832 lineto
+21.184614 0.456844 lineto
+21.807692 0.474182 lineto
+22.430769 0.491866 lineto
+23.053844 0.509918 lineto
+23.676922 0.528318 lineto
+24.299999 0.547104 lineto
+24.923077 0.566283 lineto
+25.546152 0.585857 lineto
+26.16923 0.605852 lineto
+26.792307 0.626259 lineto
+27.415382 0.647097 lineto
+28.03846 0.668387 lineto
+28.661537 0.690131 lineto
+29.284615 0.712346 lineto
+29.907692 0.735041 lineto
+30.530767 0.758212 lineto
+31.153847 0.781899 lineto
+31.77692 0.806099 lineto
+32.400002 0.830827 lineto
+33.023075 0.856096 lineto
+33.646152 0.881905 lineto
+34.26923 0.908285 lineto
+34.892307 0.935237 lineto
+35.515381 0.962783 lineto
+36.138462 0.990924 lineto
+36.761536 1.019684 lineto
+37.384613 1.049053 lineto
+38.00769 1.07909 lineto
+38.630768 1.109749 lineto
+39.253841 1.141083 lineto
+39.876923 1.173106 lineto
+40.5 1.20581 lineto
+41.123077 1.239216 lineto
+41.746155 1.273349 lineto
+42.369228 1.308201 lineto
+42.99231 1.343812 lineto
+43.615383 1.380173 lineto
+44.238461 1.417302 lineto
+44.861538 1.455233 lineto
+45.484615 1.493954 lineto
+46.107689 1.533501 lineto
+46.73077 1.573865 lineto
+47.353844 1.615066 lineto
+47.976921 1.657142 lineto
+48.599998 1.70009 lineto
+49.223076 1.743924 lineto
+49.846153 1.788657 lineto
+50.469231 1.834314 lineto
+51.092304 1.880895 lineto
+51.715385 1.928437 lineto
+52.338459 1.976924 lineto
+52.961536 2.026411 lineto
+53.584614 2.076877 lineto
+54.207691 2.128367 lineto
+54.830765 2.180871 lineto
+55.453846 2.234419 lineto
+56.07692 2.28903 lineto
+56.699997 2.344706 lineto
+57.323074 2.401475 lineto
+57.946152 2.459345 lineto
+58.569229 2.518349 lineto
+59.192307 2.578475 lineto
+59.815384 2.63978 lineto
+60.438461 2.702234 lineto
+61.061535 2.765884 lineto
+61.684616 2.830739 lineto
+62.307693 2.896815 lineto
+62.930767 2.964139 lineto
+63.553841 3.032703 lineto
+64.176926 3.102546 lineto
+64.800003 3.17367 lineto
+65.423073 3.246118 lineto
+66.04615 3.319878 lineto
+66.669235 3.394977 lineto
+67.292305 3.471439 lineto
+67.915382 3.549277 lineto
+68.53846 3.628507 lineto
+69.161537 3.709144 lineto
+69.784615 3.791218 lineto
+70.407692 3.874727 lineto
+71.030762 3.959709 lineto
+71.653847 4.046159 lineto
+72.276924 4.134118 lineto
+72.899994 4.223584 lineto
+73.523071 4.314597 lineto
+74.146156 4.407146 lineto
+74.769226 4.501262 lineto
+75.392303 4.59697 lineto
+76.015381 4.69429 lineto
+76.638458 4.793226 lineto
+77.261536 4.893795 lineto
+77.884613 4.99602 lineto
+78.507683 5.099914 lineto
+79.130768 5.205509 lineto
+79.753845 5.312814 lineto
+80.376915 5.421834 lineto
+81 5.532606 lineto
+81.623077 5.645127 lineto
+82.246155 5.75944 lineto
+82.869225 5.87554 lineto
+83.49231 5.993451 lineto
+84.115387 6.113177 lineto
+84.738457 6.234762 lineto
+85.361534 6.358209 lineto
+85.984619 6.483539 lineto
+86.607689 6.610751 lineto
+87.230766 6.739872 lineto
+87.853844 6.870929 lineto
+88.476921 7.003919 lineto
+89.099998 7.13888 lineto
+89.723076 7.275806 lineto
+90.346146 7.414725 lineto
+90.969231 7.555651 lineto
+91.592308 7.698589 lineto
+92.215378 7.84357 lineto
+92.838455 7.990605 lineto
+93.46154 8.139688 lineto
+94.08461 8.290861 lineto
+94.707687 8.444123 lineto
+95.330765 8.599497 lineto
+95.953842 8.756987 lineto
+96.57692 8.916622 lineto
+97.199997 9.078388 lineto
+97.823067 9.242313 lineto
+98.446152 9.408432 lineto
+99.069229 9.576724 lineto
+99.692307 9.747215 lineto
+100.315384 9.919913 lineto
+100.938461 10.094833 lineto
+101.561539 10.271976 lineto
+102.184608 10.451379 lineto
+102.807693 10.633031 lineto
+103.430771 10.816946 lineto
+104.053841 11.003131 lineto
+104.676918 11.191599 lineto
+105.300003 11.382378 lineto
+105.923073 11.575446 lineto
+106.54615 11.770828 lineto
+107.169228 11.968519 lineto
+107.792305 12.168541 lineto
+108.415382 12.370912 lineto
+109.03846 12.575618 lineto
+109.66153 12.782678 lineto
+110.284615 12.992091 lineto
+110.907692 13.203863 lineto
+111.530762 13.418001 lineto
+112.153839 13.634521 lineto
+112.776924 13.853414 lineto
+113.399994 14.074693 lineto
+114.023071 14.298366 lineto
+114.646149 14.52442 lineto
+115.269226 14.752867 lineto
+115.892303 14.983723 lineto
+116.515381 15.216986 lineto
+117.138458 15.45263 lineto
+117.761536 15.690697 lineto
+118.384613 15.931155 lineto
+119.00769 16.174036 lineto
+119.630768 16.419327 lineto
+120.253838 16.667009 lineto
+120.876923 16.917107 lineto
+121.5 17.169615 lineto
+122.12307 17.424526 lineto
+122.746155 17.68185 lineto
+123.369232 17.941574 lineto
+123.992302 18.203697 lineto
+124.615387 18.468222 lineto
+125.238449 18.735147 lineto
+125.861534 19.004467 lineto
+126.484619 19.276161 lineto
+127.107681 19.550236 lineto
+127.730766 19.8267 lineto
+128.353851 20.105551 lineto
+128.976913 20.386751 lineto
+129.600006 20.670324 lineto
+130.223068 20.956263 lineto
+130.846146 21.244558 lineto
+131.469238 21.535194 lineto
+132.0923 21.828165 lineto
+132.715378 22.123461 lineto
+133.33847 22.421087 lineto
+133.961533 22.721018 lineto
+134.58461 23.023258 lineto
+135.207687 23.327787 lineto
+135.830765 23.634615 lineto
+136.453842 23.943729 lineto
+137.07692 24.25511 lineto
+137.699997 24.568735 lineto
+138.323074 24.884623 lineto
+138.946152 25.202738 lineto
+139.569229 25.523081 lineto
+140.192307 25.845644 lineto
+140.815384 26.170391 lineto
+141.438461 26.497345 lineto
+142.061523 26.826468 lineto
+142.684616 27.157759 lineto
+143.307693 27.491213 lineto
+143.930756 27.826807 lineto
+144.553848 28.164526 lineto
+145.176926 28.504358 lineto
+145.799988 28.846291 lineto
+146.42308 29.190304 lineto
+147.046143 29.5364 lineto
+147.66922 29.884562 lineto
+148.292313 30.234753 lineto
+148.915375 30.58695 lineto
+149.538452 30.941196 lineto
+150.161545 31.29744 lineto
+150.784607 31.655659 lineto
+151.407684 32.015842 lineto
+152.030762 32.378002 lineto
+152.653839 32.742085 lineto
+153.276917 33.108097 lineto
+153.899994 33.475986 lineto
+154.523071 33.845791 lineto
+155.146149 34.217461 lineto
+155.769226 34.590992 lineto
+156.392303 34.966366 lineto
+157.015366 35.343563 lineto
+157.638458 35.722576 lineto
+158.261536 36.103386 lineto
+158.884598 36.48597 lineto
+159.50769 36.870308 lineto
+160.130768 37.256382 lineto
+160.75383 37.644173 lineto
+161.376923 38.033703 lineto
+162 38.424904 lineto
+162.623062 38.817764 lineto
+163.246155 39.212322 lineto
+163.869217 39.608513 lineto
+164.49231 40.00631 lineto
+165.115387 40.405727 lineto
+165.738449 40.806728 lineto
+166.361542 41.209301 lineto
+166.984619 41.613441 lineto
+167.607681 42.0191 lineto
+168.230774 42.426296 lineto
+168.853836 42.834988 lineto
+169.476913 43.245186 lineto
+170.100006 43.656864 lineto
+170.723068 44.069969 lineto
+171.346146 44.484531 lineto
+171.969238 44.900528 lineto
+172.5923 45.317913 lineto
+173.215378 45.736679 lineto
+173.838455 46.156818 lineto
+174.461533 46.578331 lineto
+175.08461 47.001171 lineto
+175.707687 47.425339 lineto
+176.330765 47.850811 lineto
+176.953842 48.277584 lineto
+177.57692 48.705627 lineto
+178.199997 49.134933 lineto
+178.823059 49.565468 lineto
+179.446152 49.99725 lineto
+180.069229 50.430244 lineto
+180.692291 50.864403 lineto
+181.315384 51.299782 lineto
+181.938461 51.736309 lineto
+182.561523 52.173973 lineto
+183.184616 52.612793 lineto
+183.807693 53.052734 lineto
+184.430756 53.493767 lineto
+185.053848 53.935902 lineto
+185.67691 54.379116 lineto
+186.299988 54.823391 lineto
+186.92308 55.2687 lineto
+187.546143 55.71505 lineto
+188.16922 56.162415 lineto
+188.792313 56.610798 lineto
+189.415375 57.060139 lineto
+190.038452 57.510475 lineto
+190.66153 57.961773 lineto
+191.284607 58.414043 lineto
+191.907684 58.867229 lineto
+192.530762 59.321358 lineto
+193.153839 59.776367 lineto
+193.776917 60.232292 lineto
+194.399994 60.689079 lineto
+195.023071 61.146751 lineto
+195.646133 61.605267 lineto
+196.269226 62.064651 lineto
+196.892303 62.52486 lineto
+197.515366 62.985886 lineto
+198.138458 63.44772 lineto
+198.761536 63.910374 lineto
+199.384613 64.373787 lineto
+200.00769 64.83799 lineto
+200.630768 65.302956 lineto
+201.253845 65.768631 lineto
+201.876923 66.2351 lineto
+202.499985 66.702255 lineto
+203.123077 67.170143 lineto
+203.746155 67.638741 lineto
+204.369217 68.10804 lineto
+204.99231 68.578033 lineto
+205.615387 69.048691 lineto
+206.238449 69.519989 lineto
+206.861542 69.991966 lineto
+207.484604 70.464569 lineto
+208.107681 70.937813 lineto
+208.730774 71.411682 lineto
+209.353836 71.886139 lineto
+209.976913 72.361244 lineto
+210.600006 72.836937 lineto
+211.223068 73.313194 lineto
+211.846146 73.790039 lineto
+212.469223 74.267448 lineto
+213.0923 74.74543 lineto
+213.715378 75.223938 lineto
+214.338455 75.70298 lineto
+214.961533 76.182564 lineto
+215.58461 76.662689 lineto
+216.207687 77.143311 lineto
+216.830765 77.624443 lineto
+217.453827 78.106079 lineto
+218.07692 78.588196 lineto
+218.699997 79.070816 lineto
+219.323059 79.553902 lineto
+219.946152 80.037437 lineto
+220.569229 80.521446 lineto
+221.192291 81.005898 lineto
+221.815384 81.490807 lineto
+222.438461 81.976151 lineto
+223.061523 82.461899 lineto
+223.684616 82.948097 lineto
+224.307678 83.434708 lineto
+224.930756 83.92173 lineto
+225.553848 84.409149 lineto
+226.17691 84.896957 lineto
+226.799988 85.385162 lineto
+227.42308 85.873764 lineto
+228.046143 86.362717 lineto
+228.66922 86.852043 lineto
+229.292297 87.341736 lineto
+229.915375 87.831795 lineto
+230.538452 88.322205 lineto
+231.16153 88.812958 lineto
+231.784607 89.304047 lineto
+232.407684 89.795479 lineto
+233.030762 90.287254 lineto
+233.653839 90.77932 lineto
+234.276917 91.271713 lineto
+234.899994 91.764427 lineto
+235.523071 92.257446 lineto
+236.146149 92.750748 lineto
+236.769226 93.244362 lineto
+237.392303 93.738266 lineto
+238.015381 94.232468 lineto
+238.638458 94.726952 lineto
+239.261536 95.221725 lineto
+239.884613 95.716743 lineto
+240.507675 96.212036 lineto
+241.130753 96.707581 lineto
+241.753845 97.2034 lineto
+242.376923 97.699471 lineto
+243 98.195793 lineto
+243.623062 98.692368 lineto
+244.24614 99.189163 lineto
+244.869217 99.686218 lineto
+245.49231 100.183495 lineto
+246.115387 100.681015 lineto
+246.738464 101.178757 lineto
+247.361526 101.676689 lineto
+247.984604 102.174866 lineto
+248.607681 102.673233 lineto
+249.230774 103.171844 lineto
+249.853851 103.670647 lineto
+250.476898 104.169647 lineto
+251.099991 104.668846 lineto
+251.723068 105.168266 lineto
+252.346146 105.667862 lineto
+252.969238 106.167648 lineto
+253.592285 106.66758 lineto
+254.215363 107.16774 lineto
+254.838455 107.668091 lineto
+255.461533 108.168594 lineto
+256.084625 108.669281 lineto
+256.707703 109.170128 lineto
+257.33075 109.671158 lineto
+257.953827 110.172333 lineto
+258.576904 110.673676 lineto
+259.200012 111.175163 lineto
+259.82309 111.676849 lineto
+260.446136 112.178635 lineto
+261.069214 112.680603 lineto
+261.692291 113.182732 lineto
+262.315369 113.684998 lineto
+262.938477 114.187393 lineto
+263.561554 114.689919 lineto
+264.184601 115.192589 lineto
+264.807678 115.695396 lineto
+265.430756 116.198357 lineto
+266.053833 116.701431 lineto
+266.676941 117.204636 lineto
+267.299988 117.707954 lineto
+267.923065 118.211411 lineto
+268.546143 118.715012 lineto
+269.16922 119.218712 lineto
+269.792297 119.722511 lineto
+270.415375 120.22641 lineto
+271.038452 120.730461 lineto
+271.66153 121.234619 lineto
+272.284607 121.738884 lineto
+272.907684 122.243233 lineto
+273.530762 122.747742 lineto
+274.153839 123.252304 lineto
+274.776917 123.756996 lineto
+275.399994 124.261765 lineto
+276.023071 124.766655 lineto
+276.646149 125.271629 lineto
+277.269196 125.776688 lineto
+277.892303 126.281845 lineto
+278.515381 126.787094 lineto
+279.138458 127.29245 lineto
+279.761536 127.79789 lineto
+280.384613 128.303421 lineto
+281.00766 128.80899 lineto
+281.630768 129.314682 lineto
+282.253845 129.820465 lineto
+282.876923 130.326309 lineto
+283.5 130.83226 lineto
+284.123047 131.338257 lineto
+284.746124 131.84433 lineto
+285.369232 132.35051 lineto
+285.99231 132.856735 lineto
+286.615387 133.363037 lineto
+287.238434 133.8694 lineto
+287.861511 134.375839 lineto
+288.484589 134.882385 lineto
+289.107697 135.388947 lineto
+289.730774 135.89563 lineto
+290.353851 136.402328 lineto
+290.976898 136.909103 lineto
+291.599976 137.415909 lineto
+292.223083 137.922836 lineto
+292.846161 138.429794 lineto
+293.469238 138.936844 lineto
+294.092285 139.443909 lineto
+294.715363 139.951019 lineto
+295.33844 140.458252 lineto
+295.961548 140.965469 lineto
+296.584625 141.472794 lineto
+297.207672 141.980118 lineto
+297.83075 142.487549 lineto
+298.453827 142.99501 lineto
+299.076904 143.502533 lineto
+299.700012 144.010101 lineto
+300.32309 144.5177 lineto
+300.946136 145.025345 lineto
+301.569214 145.533035 lineto
+302.192291 146.040802 lineto
+302.815369 146.548599 lineto
+303.438477 147.056442 lineto
+304.061523 147.564331 lineto
+304.684601 148.072235 lineto
+305.307678 148.580231 lineto
+305.930756 149.088211 lineto
+306.553833 149.596298 lineto
+307.176941 150.10437 lineto
+307.799988 150.612488 lineto
+308.423065 151.120651 lineto
+309.046143 151.628876 lineto
+309.66922 152.1371 lineto
+310.292297 152.645416 lineto
+310.915375 153.153702 lineto
+311.538452 153.662048 lineto
+312.16153 154.170456 lineto
+312.784607 154.678864 lineto
+313.407684 155.187332 lineto
+314.030731 155.69577 lineto
+314.653839 156.204315 lineto
+315.276917 156.71286 lineto
+315.899994 157.221466 lineto
+316.523071 157.730042 lineto
+317.146149 158.238724 lineto
+317.769196 158.747391 lineto
+318.392303 159.256058 lineto
+stroke
+newpath
+318.392303 159.256058 moveto
+319.015381 159.764786 lineto
+319.638458 160.273544 lineto
+320.261536 160.782349 lineto
+320.884583 161.291122 lineto
+321.50766 161.799973 lineto
+322.130768 162.308838 lineto
+322.753845 162.817734 lineto
+323.376923 163.326645 lineto
+324 163.835571 lineto
+324.623047 164.344513 lineto
+325.246124 164.8535 lineto
+325.869232 165.362549 lineto
+326.49231 165.871552 lineto
+327.115387 166.38063 lineto
+327.738434 166.889679 lineto
+328.361511 167.398773 lineto
+328.984619 167.907898 lineto
+329.607697 168.417038 lineto
+330.230774 168.926208 lineto
+330.853821 169.435318 lineto
+331.476898 169.944565 lineto
+332.099976 170.453751 lineto
+332.723083 170.962997 lineto
+333.346161 171.472229 lineto
+333.969238 171.981537 lineto
+334.592285 172.490814 lineto
+335.215363 173.000122 lineto
+335.83844 173.50946 lineto
+336.461548 174.018768 lineto
+337.084625 174.528183 lineto
+337.707672 175.037491 lineto
+338.33075 175.546906 lineto
+338.953827 176.05629 lineto
+339.576904 176.56575 lineto
+340.200012 177.075195 lineto
+340.82309 177.584656 lineto
+341.446136 178.094116 lineto
+342.069214 178.603561 lineto
+342.692291 179.113098 lineto
+343.315369 179.622589 lineto
+343.938477 180.132126 lineto
+344.561523 180.641647 lineto
+345.184601 181.151199 lineto
+345.807678 181.660782 lineto
+346.430756 182.170334 lineto
+347.053833 182.679947 lineto
+347.67691 183.189514 lineto
+348.299988 183.699158 lineto
+348.923065 184.20874 lineto
+349.546143 184.718399 lineto
+350.16922 185.228043 lineto
+350.792297 185.737717 lineto
+351.415375 186.247375 lineto
+352.038452 186.75705 lineto
+352.66153 187.266754 lineto
+353.284607 187.776459 lineto
+353.907684 188.286179 lineto
+354.530731 188.795868 lineto
+355.153839 189.305634 lineto
+355.776917 189.815353 lineto
+356.399994 190.325119 lineto
+357.023071 190.834885 lineto
+357.646118 191.344635 lineto
+358.269196 191.854401 lineto
+358.892303 192.364197 lineto
+359.515381 192.874008 lineto
+360.138458 193.383835 lineto
+360.761536 193.893631 lineto
+361.384583 194.403442 lineto
+362.00769 194.913269 lineto
+362.630768 195.423111 lineto
+363.253845 195.932968 lineto
+363.876923 196.442825 lineto
+364.499969 196.952652 lineto
+365.123047 197.462509 lineto
+365.746155 197.972412 lineto
+366.369232 198.482285 lineto
+366.99231 198.992188 lineto
+367.615387 199.502075 lineto
+368.238434 200.011963 lineto
+368.861511 200.521896 lineto
+369.484619 201.031799 lineto
+370.107697 201.541718 lineto
+370.730774 202.051666 lineto
+371.353821 202.561554 lineto
+371.976898 203.071533 lineto
+372.599976 203.581467 lineto
+373.223083 204.0914 lineto
+373.846161 204.601379 lineto
+374.469208 205.111328 lineto
+375.092285 205.621323 lineto
+375.715363 206.131287 lineto
+376.33844 206.641266 lineto
+376.961548 207.15126 lineto
+377.584625 207.661255 lineto
+378.207672 208.171234 lineto
+378.83075 208.681198 lineto
+379.453827 209.191238 lineto
+380.076904 209.701248 lineto
+380.700012 210.211288 lineto
+381.323059 210.721252 lineto
+381.946136 211.231308 lineto
+382.569214 211.741333 lineto
+383.192291 212.251373 lineto
+383.815369 212.761398 lineto
+384.438477 213.271454 lineto
+385.061523 213.781494 lineto
+385.684601 214.291504 lineto
+386.307678 214.801575 lineto
+386.930756 215.31163 lineto
+387.553833 215.821716 lineto
+388.17691 216.331741 lineto
+388.799988 216.841843 lineto
+389.423065 217.351883 lineto
+390.046143 217.861984 lineto
+390.66922 218.37204 lineto
+391.292267 218.882111 lineto
+391.915375 219.392212 lineto
+392.538452 219.902267 lineto
+393.16153 220.412415 lineto
+393.784607 220.922485 lineto
+394.407684 221.432632 lineto
+395.030731 221.942688 lineto
+395.653839 222.452789 lineto
+396.276917 222.962891 lineto
+396.899994 223.473007 lineto
+397.523071 223.983154 lineto
+398.146118 224.493225 lineto
+398.769226 225.003372 lineto
+399.392303 225.513443 lineto
+400.015381 226.023621 lineto
+400.638458 226.533707 lineto
+401.261536 227.043884 lineto
+401.884583 227.553955 lineto
+402.50769 228.064117 lineto
+403.130768 228.574265 lineto
+403.753845 229.084381 lineto
+404.376923 229.594559 lineto
+404.999969 230.10466 lineto
+405.623047 230.614838 lineto
+406.246155 231.124939 lineto
+406.869232 231.635147 lineto
+407.49231 232.145233 lineto
+408.115356 232.655411 lineto
+408.738434 233.165588 lineto
+409.361511 233.67572 lineto
+409.984619 234.185913 lineto
+410.607697 234.69606 lineto
+411.230774 235.206223 lineto
+411.853821 235.716339 lineto
+412.476898 236.226562 lineto
+413.099976 236.736694 lineto
+413.723083 237.246887 lineto
+414.346161 237.75705 lineto
+414.969208 238.267212 lineto
+415.592285 238.777435 lineto
+416.215363 239.287598 lineto
+416.83844 239.797806 lineto
+417.461548 240.307953 lineto
+418.084595 240.818161 lineto
+418.707672 241.328308 lineto
+419.33075 241.838486 lineto
+419.953827 242.348694 lineto
+420.576904 242.858887 lineto
+421.200012 243.369095 lineto
+421.823059 243.879242 lineto
+422.446136 244.38945 lineto
+423.069214 244.899643 lineto
+423.692291 245.409851 lineto
+424.315369 245.920059 lineto
+424.938446 246.430222 lineto
+425.561523 246.940414 lineto
+426.184601 247.450668 lineto
+426.807678 247.960861 lineto
+427.430756 248.471069 lineto
+428.053833 248.981247 lineto
+428.67691 249.49144 lineto
+429.299988 250.001678 lineto
+429.923065 250.511856 lineto
+430.546143 251.022064 lineto
+431.16922 251.532288 lineto
+431.792297 252.042511 lineto
+432.415375 252.552704 lineto
+433.038452 253.062912 lineto
+433.66153 253.573135 lineto
+434.284607 254.083359 lineto
+434.907654 254.593567 lineto
+435.530762 255.103775 lineto
+436.153839 255.613983 lineto
+436.776917 256.124207 lineto
+437.399994 256.63446 lineto
+438.023071 257.144684 lineto
+438.646118 257.654877 lineto
+439.269226 258.1651 lineto
+439.892303 258.675323 lineto
+440.515381 259.185547 lineto
+441.138458 259.69577 lineto
+441.761505 260.205994 lineto
+442.384583 260.716187 lineto
+443.00769 261.226471 lineto
+443.630768 261.736694 lineto
+444.253845 262.246918 lineto
+444.876923 262.757141 lineto
+445.499969 263.267365 lineto
+446.123047 263.777557 lineto
+446.746155 264.287811 lineto
+447.369232 264.798065 lineto
+447.99231 265.308289 lineto
+448.615356 265.818542 lineto
+449.238434 266.328766 lineto
+449.861511 266.838989 lineto
+450.484619 267.349243 lineto
+451.107697 267.859436 lineto
+451.730743 268.36969 lineto
+452.353821 268.879913 lineto
+452.976898 269.390167 lineto
+453.599976 269.900391 lineto
+454.223083 270.410645 lineto
+454.846161 270.920868 lineto
+455.469208 271.431122 lineto
+456.092285 271.941376 lineto
+456.715363 272.451599 lineto
+457.33844 272.961853 lineto
+457.961548 273.472076 lineto
+458.584595 273.9823 lineto
+459.207672 274.492554 lineto
+459.83075 275.002808 lineto
+460.453827 275.513092 lineto
+461.076904 276.023285 lineto
+461.700012 276.533569 lineto
+462.323059 277.043732 lineto
+462.946136 277.554016 lineto
+463.569214 278.06427 lineto
+464.192291 278.574524 lineto
+464.815369 279.084778 lineto
+465.438446 279.595001 lineto
+466.061523 280.105255 lineto
+466.684601 280.615479 lineto
+467.307678 281.125763 lineto
+467.930756 281.635986 lineto
+468.553833 282.14624 lineto
+469.17691 282.656464 lineto
+469.799988 283.166748 lineto
+470.423065 283.676971 lineto
+471.046143 284.187225 lineto
+471.66922 284.697479 lineto
+472.292297 285.207703 lineto
+472.915375 285.717987 lineto
+473.538452 286.22821 lineto
+474.16153 286.738464 lineto
+474.784607 287.248718 lineto
+475.407654 287.759003 lineto
+476.030762 288.269226 lineto
+476.653839 288.77948 lineto
+477.276917 289.289734 lineto
+477.899994 289.799988 lineto
+stroke
+0 setgray
+0 setgray
+0 setgray
+[] 0 setdash
+gsave
+newpath
+0.4 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+grestore
+gsave
+grestore
+grestore
+grestore
+%%Trailer
+%%DocumentFonts: Times-Roman
+
+%%EndDocument
+~
+%AI5_EndPlace
+%AI5_BeginPlace
+[0.6239 0 0 0.6239 79.9387 252] 0 0 631 372
+(collis:tex:thesis:figures:ch6:f41.eps)`
+%%BeginDocument: collis:tex:thesis:figures:ch6:f41.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: fort.10  -  /u/collis/mesh
+%%Creator: nxyplot
+%%CreationDate: Thu Oct 24 17:13:13 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 -1
+%%BoundingBox: 0 0 631 372
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -4 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 631 372 rectclip
+0 0 631 372 rectclip
+1 setgray
+0 0 631 372 rectfill
+0.4 setlinewidth
+0 setgray
+/Times-Roman findfont 20 scalefont
+119
+exch
+defineuserobject
+119 execuserobject setfont
+294 8 moveto
+() show
+119 execuserobject setfont
+26 182.834 moveto
+gsave
+90 rotate
+() show
+grestore
+119 execuserobject setfont
+209 348 moveto
+() show
+gsave
+100 50 translate
+0 0 translate
+1 setlinewidth
+newpath
+0 0 moveto
+477.899994 0 lineto
+477.899994 289.799988 lineto
+0 289.799988 lineto
+closepath
+stroke
+0.4 setlinewidth
+119 execuserobject setfont
+newpath
+1 setlinewidth
+0 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+0 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+-5 -25 moveto
+(0) show
+11.9475 3 moveto
+0 -3 rlineto
+stroke
+11.9475 289.799988 moveto
+0 -3 rlineto
+stroke
+23.895 3 moveto
+0 -3 rlineto
+stroke
+23.895 289.799988 moveto
+0 -3 rlineto
+stroke
+35.842499 3 moveto
+0 -3 rlineto
+stroke
+35.842499 289.799988 moveto
+0 -3 rlineto
+stroke
+47.790001 3 moveto
+0 -3 rlineto
+stroke
+47.790001 289.799988 moveto
+0 -3 rlineto
+stroke
+59.737499 3 moveto
+0 -3 rlineto
+stroke
+59.737499 289.799988 moveto
+0 -3 rlineto
+stroke
+71.684998 3 moveto
+0 -3 rlineto
+stroke
+71.684998 289.799988 moveto
+0 -3 rlineto
+stroke
+83.6325 3 moveto
+0 -3 rlineto
+stroke
+83.6325 289.799988 moveto
+0 -3 rlineto
+stroke
+95.580002 3 moveto
+0 -3 rlineto
+stroke
+95.580002 289.799988 moveto
+0 -3 rlineto
+stroke
+107.527496 3 moveto
+0 -3 rlineto
+stroke
+107.527496 289.799988 moveto
+0 -3 rlineto
+stroke
+119.474998 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+119.474998 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+101.974998 -25 moveto
+(0.25) show
+131.422501 3 moveto
+0 -3 rlineto
+stroke
+131.422501 289.799988 moveto
+0 -3 rlineto
+stroke
+143.369995 3 moveto
+0 -3 rlineto
+stroke
+143.369995 289.799988 moveto
+0 -3 rlineto
+stroke
+155.317505 3 moveto
+0 -3 rlineto
+stroke
+155.317505 289.799988 moveto
+0 -3 rlineto
+stroke
+167.264999 3 moveto
+0 -3 rlineto
+stroke
+167.264999 289.799988 moveto
+0 -3 rlineto
+stroke
+179.212494 3 moveto
+0 -3 rlineto
+stroke
+179.212494 289.799988 moveto
+0 -3 rlineto
+stroke
+191.160004 3 moveto
+0 -3 rlineto
+stroke
+191.160004 289.799988 moveto
+0 -3 rlineto
+stroke
+203.107498 3 moveto
+0 -3 rlineto
+stroke
+203.107498 289.799988 moveto
+0 -3 rlineto
+stroke
+215.054993 3 moveto
+0 -3 rlineto
+stroke
+215.054993 289.799988 moveto
+0 -3 rlineto
+stroke
+227.002502 3 moveto
+0 -3 rlineto
+stroke
+227.002502 289.799988 moveto
+0 -3 rlineto
+stroke
+238.949997 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+238.949997 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+221.449997 -25 moveto
+(0.50) show
+250.897491 3 moveto
+0 -3 rlineto
+stroke
+250.897491 289.799988 moveto
+0 -3 rlineto
+stroke
+262.845001 3 moveto
+0 -3 rlineto
+stroke
+262.845001 289.799988 moveto
+0 -3 rlineto
+stroke
+274.792511 3 moveto
+0 -3 rlineto
+stroke
+274.792511 289.799988 moveto
+0 -3 rlineto
+stroke
+286.73999 3 moveto
+0 -3 rlineto
+stroke
+286.73999 289.799988 moveto
+0 -3 rlineto
+stroke
+298.6875 3 moveto
+0 -3 rlineto
+stroke
+298.6875 289.799988 moveto
+0 -3 rlineto
+stroke
+310.63501 3 moveto
+0 -3 rlineto
+stroke
+310.63501 289.799988 moveto
+0 -3 rlineto
+stroke
+322.582489 3 moveto
+0 -3 rlineto
+stroke
+322.582489 289.799988 moveto
+0 -3 rlineto
+stroke
+334.529999 3 moveto
+0 -3 rlineto
+stroke
+334.529999 289.799988 moveto
+0 -3 rlineto
+stroke
+346.477509 3 moveto
+0 -3 rlineto
+stroke
+346.477509 289.799988 moveto
+0 -3 rlineto
+stroke
+358.424988 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+358.424988 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+340.924988 -25 moveto
+(0.75) show
+370.372498 3 moveto
+0 -3 rlineto
+stroke
+370.372498 289.799988 moveto
+0 -3 rlineto
+stroke
+382.319977 3 moveto
+0 -3 rlineto
+stroke
+382.319977 289.799988 moveto
+0 -3 rlineto
+stroke
+394.267487 3 moveto
+0 -3 rlineto
+stroke
+394.267487 289.799988 moveto
+0 -3 rlineto
+stroke
+406.214996 3 moveto
+0 -3 rlineto
+stroke
+406.214996 289.799988 moveto
+0 -3 rlineto
+stroke
+418.162476 3 moveto
+0 -3 rlineto
+stroke
+418.162476 289.799988 moveto
+0 -3 rlineto
+stroke
+430.109985 3 moveto
+0 -3 rlineto
+stroke
+430.109985 289.799988 moveto
+0 -3 rlineto
+stroke
+442.057495 3 moveto
+0 -3 rlineto
+stroke
+442.057495 289.799988 moveto
+0 -3 rlineto
+stroke
+454.004974 3 moveto
+0 -3 rlineto
+stroke
+454.004974 289.799988 moveto
+0 -3 rlineto
+stroke
+465.952484 3 moveto
+0 -3 rlineto
+stroke
+465.952484 289.799988 moveto
+0 -3 rlineto
+stroke
+477.899994 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+460.399994 -25 moveto
+(1.00) show
+6 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-20 -8 moveto
+(0) show
+3 7.245 moveto
+-3 0 rlineto
+stroke
+477.899994 7.245 moveto
+-3 0 rlineto
+stroke
+3 14.49 moveto
+-3 0 rlineto
+stroke
+477.899994 14.49 moveto
+-3 0 rlineto
+stroke
+3 21.735001 moveto
+-3 0 rlineto
+stroke
+477.899994 21.735001 moveto
+-3 0 rlineto
+stroke
+3 28.98 moveto
+-3 0 rlineto
+stroke
+477.899994 28.98 moveto
+-3 0 rlineto
+stroke
+3 36.224998 moveto
+-3 0 rlineto
+stroke
+477.899994 36.224998 moveto
+-3 0 rlineto
+stroke
+3 43.470001 moveto
+-3 0 rlineto
+stroke
+477.899994 43.470001 moveto
+-3 0 rlineto
+stroke
+3 50.715 moveto
+-3 0 rlineto
+stroke
+477.899994 50.715 moveto
+-3 0 rlineto
+stroke
+3 57.959999 moveto
+-3 0 rlineto
+stroke
+477.899994 57.959999 moveto
+-3 0 rlineto
+stroke
+3 65.205002 moveto
+-3 0 rlineto
+stroke
+477.899994 65.205002 moveto
+-3 0 rlineto
+stroke
+6 72.449997 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 72.449997 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-30 64.449997 moveto
+(10) show
+3 79.695 moveto
+-3 0 rlineto
+stroke
+477.899994 79.695 moveto
+-3 0 rlineto
+stroke
+3 86.939995 moveto
+-3 0 rlineto
+stroke
+477.899994 86.939995 moveto
+-3 0 rlineto
+stroke
+3 94.184998 moveto
+-3 0 rlineto
+stroke
+477.899994 94.184998 moveto
+-3 0 rlineto
+stroke
+3 101.429993 moveto
+-3 0 rlineto
+stroke
+477.899994 101.429993 moveto
+-3 0 rlineto
+stroke
+3 108.674995 moveto
+-3 0 rlineto
+stroke
+477.899994 108.674995 moveto
+-3 0 rlineto
+stroke
+3 115.919998 moveto
+-3 0 rlineto
+stroke
+477.899994 115.919998 moveto
+-3 0 rlineto
+stroke
+3 123.164993 moveto
+-3 0 rlineto
+stroke
+477.899994 123.164993 moveto
+-3 0 rlineto
+stroke
+3 130.410004 moveto
+-3 0 rlineto
+stroke
+477.899994 130.410004 moveto
+-3 0 rlineto
+stroke
+3 137.654999 moveto
+-3 0 rlineto
+stroke
+477.899994 137.654999 moveto
+-3 0 rlineto
+stroke
+6 144.899994 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 144.899994 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-30 136.899994 moveto
+(20) show
+3 152.144989 moveto
+-3 0 rlineto
+stroke
+477.899994 152.144989 moveto
+-3 0 rlineto
+stroke
+3 159.389999 moveto
+-3 0 rlineto
+stroke
+477.899994 159.389999 moveto
+-3 0 rlineto
+stroke
+3 166.634995 moveto
+-3 0 rlineto
+stroke
+477.899994 166.634995 moveto
+-3 0 rlineto
+stroke
+3 173.87999 moveto
+-3 0 rlineto
+stroke
+477.899994 173.87999 moveto
+-3 0 rlineto
+stroke
+3 181.125 moveto
+-3 0 rlineto
+stroke
+477.899994 181.125 moveto
+-3 0 rlineto
+stroke
+3 188.369995 moveto
+-3 0 rlineto
+stroke
+477.899994 188.369995 moveto
+-3 0 rlineto
+stroke
+3 195.61499 moveto
+-3 0 rlineto
+stroke
+477.899994 195.61499 moveto
+-3 0 rlineto
+stroke
+3 202.859985 moveto
+-3 0 rlineto
+stroke
+477.899994 202.859985 moveto
+-3 0 rlineto
+stroke
+3 210.104996 moveto
+-3 0 rlineto
+stroke
+477.899994 210.104996 moveto
+-3 0 rlineto
+stroke
+6 217.349991 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 217.349991 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-30 209.349991 moveto
+(30) show
+3 224.594986 moveto
+-3 0 rlineto
+stroke
+477.899994 224.594986 moveto
+-3 0 rlineto
+stroke
+3 231.839996 moveto
+-3 0 rlineto
+stroke
+477.899994 231.839996 moveto
+-3 0 rlineto
+stroke
+3 239.084991 moveto
+-3 0 rlineto
+stroke
+477.899994 239.084991 moveto
+-3 0 rlineto
+stroke
+3 246.329987 moveto
+-3 0 rlineto
+stroke
+477.899994 246.329987 moveto
+-3 0 rlineto
+stroke
+3 253.574997 moveto
+-3 0 rlineto
+stroke
+477.899994 253.574997 moveto
+-3 0 rlineto
+stroke
+3 260.819977 moveto
+-3 0 rlineto
+stroke
+477.899994 260.819977 moveto
+-3 0 rlineto
+stroke
+3 268.065002 moveto
+-3 0 rlineto
+stroke
+477.899994 268.065002 moveto
+-3 0 rlineto
+stroke
+3 275.309998 moveto
+-3 0 rlineto
+stroke
+477.899994 275.309998 moveto
+-3 0 rlineto
+stroke
+3 282.554993 moveto
+-3 0 rlineto
+stroke
+477.899994 282.554993 moveto
+-3 0 rlineto
+stroke
+6 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-30 281.799988 moveto
+(40) show
+0 0 477.899994 289.799988 rectclip
+newpath
+0.4 setlinewidth
+0 setgray
+0 setgray
+[] 0 setdash
+0 5.556944 moveto
+0.623077 5.55921 lineto
+1.246154 5.565974 lineto
+1.869231 5.577339 lineto
+2.492308 5.593218 lineto
+3.115385 5.613613 lineto
+3.738461 5.63854 lineto
+4.361538 5.668051 lineto
+4.984615 5.702146 lineto
+5.607692 5.740807 lineto
+6.230769 5.783914 lineto
+6.853846 5.831709 lineto
+7.476923 5.88414 lineto
+8.1 5.941086 lineto
+8.723077 6.002703 lineto
+9.346153 6.068886 lineto
+9.969231 6.139774 lineto
+10.592307 6.215315 lineto
+11.215384 6.295458 lineto
+11.838461 6.380393 lineto
+12.461538 6.470032 lineto
+13.084615 6.564342 lineto
+13.707691 6.66341 lineto
+14.330769 6.767251 lineto
+14.953846 6.875901 lineto
+15.576923 6.989378 lineto
+16.200001 7.107646 lineto
+16.823076 7.230827 lineto
+17.446154 7.358903 lineto
+18.069231 7.491892 lineto
+18.692307 7.629794 lineto
+19.315384 7.772626 lineto
+19.938461 7.920578 lineto
+20.561539 8.073512 lineto
+21.184614 8.231514 lineto
+21.807692 8.394549 lineto
+22.430769 8.562845 lineto
+23.053844 8.736138 lineto
+23.676922 8.914726 lineto
+24.299999 9.098502 lineto
+24.923077 9.287572 lineto
+25.546152 9.481901 lineto
+26.16923 9.681609 lineto
+26.792307 9.886698 lineto
+27.415382 10.097252 lineto
+28.03846 10.313238 lineto
+28.661537 10.534656 lineto
+29.284615 10.761643 lineto
+29.907692 10.994236 lineto
+30.530767 11.232415 lineto
+31.153847 11.476286 lineto
+31.77692 11.725865 lineto
+32.400002 11.981188 lineto
+33.023075 12.242374 lineto
+33.646152 12.509373 lineto
+34.26923 12.782252 lineto
+34.892307 13.0611 lineto
+35.515381 13.345882 lineto
+36.138462 13.636717 lineto
+36.761536 13.933642 lineto
+37.384613 14.236742 lineto
+38.00769 14.545948 lineto
+38.630768 14.861417 lineto
+39.253841 15.1832 lineto
+39.876923 15.511312 lineto
+40.5 15.845757 lineto
+41.123077 16.186707 lineto
+41.746155 16.534105 lineto
+42.369228 16.888044 lineto
+42.99231 17.248541 lineto
+43.615383 17.615698 lineto
+44.238461 17.989548 lineto
+44.861538 18.370127 lineto
+45.484615 18.757521 lineto
+46.107689 19.151766 lineto
+46.73077 19.552929 lineto
+47.353844 19.961029 lineto
+47.976921 20.376118 lineto
+48.599998 20.7983 lineto
+49.223076 21.227556 lineto
+49.846153 21.663975 lineto
+50.469231 22.107605 lineto
+51.092304 22.558535 lineto
+51.715385 23.016682 lineto
+52.338459 23.482229 lineto
+52.961536 23.955233 lineto
+53.584614 24.435638 lineto
+54.207691 24.92359 lineto
+54.830765 25.419096 lineto
+55.453846 25.922216 lineto
+56.07692 26.43293 lineto
+56.699997 26.951393 lineto
+57.323074 27.477573 lineto
+57.946152 28.011585 lineto
+58.569229 28.553349 lineto
+59.192307 29.103035 lineto
+59.815384 29.660576 lineto
+60.438461 30.22616 lineto
+61.061535 30.799721 lineto
+61.684616 31.38125 lineto
+62.307693 31.970861 lineto
+62.930767 32.56852 lineto
+63.553841 33.174389 lineto
+64.176926 33.788391 lineto
+64.800003 34.410645 lineto
+65.423073 35.040993 lineto
+66.04615 35.679695 lineto
+66.669235 36.326721 lineto
+67.292305 36.981926 lineto
+67.915382 37.645519 lineto
+68.53846 38.317455 lineto
+69.161537 38.997795 lineto
+69.784615 39.686371 lineto
+70.407692 40.383507 lineto
+71.030762 41.088982 lineto
+71.653847 41.802917 lineto
+72.276924 42.525135 lineto
+72.899994 43.255852 lineto
+73.523071 43.995018 lineto
+74.146156 44.742634 lineto
+74.769226 45.498722 lineto
+75.392303 46.2631 lineto
+76.015381 47.035931 lineto
+76.638458 47.817135 lineto
+77.261536 48.606873 lineto
+77.884613 49.404896 lineto
+78.507683 50.211254 lineto
+79.130768 51.025948 lineto
+79.753845 51.848984 lineto
+80.376915 52.680355 lineto
+81 53.519909 lineto
+81.623077 54.367695 lineto
+82.246155 55.223663 lineto
+82.869225 56.087765 lineto
+83.49231 56.959961 lineto
+84.115387 57.840302 lineto
+84.738457 58.72855 lineto
+85.361534 59.624756 lineto
+85.984619 60.52887 lineto
+86.607689 61.440781 lineto
+87.230766 62.360508 lineto
+87.853844 63.287937 lineto
+88.476921 64.22303 lineto
+89.099998 65.165558 lineto
+89.723076 66.115631 lineto
+90.346146 67.073105 lineto
+90.969231 68.037918 lineto
+91.592308 69.009941 lineto
+92.215378 69.98909 lineto
+92.838455 70.975212 lineto
+93.46154 71.968391 lineto
+94.08461 72.968369 lineto
+94.707687 73.975075 lineto
+95.330765 74.988411 lineto
+95.953842 76.008217 lineto
+96.57692 77.03447 lineto
+97.199997 78.066933 lineto
+97.823067 79.105621 lineto
+98.446152 80.150276 lineto
+99.069229 81.200851 lineto
+99.692307 82.257172 lineto
+100.315384 83.319092 lineto
+100.938461 84.386536 lineto
+101.561539 85.459358 lineto
+102.184608 86.537331 lineto
+102.807693 87.620354 lineto
+103.430771 88.708282 lineto
+104.053841 89.800941 lineto
+104.676918 90.898262 lineto
+105.300003 91.999931 lineto
+105.923073 93.105888 lineto
+106.54615 94.215897 lineto
+107.169228 95.329903 lineto
+107.792305 96.44767 lineto
+108.415382 97.569 lineto
+109.03846 98.693748 lineto
+109.66153 99.821709 lineto
+110.284615 100.952759 lineto
+110.907692 102.086685 lineto
+111.530762 103.223343 lineto
+112.153839 104.362442 lineto
+112.776924 105.503944 lineto
+113.399994 106.647545 lineto
+114.023071 107.793114 lineto
+114.646149 108.940414 lineto
+115.269226 110.089363 lineto
+115.892303 111.239647 lineto
+116.515381 112.391098 lineto
+117.138458 113.543587 lineto
+117.761536 114.696877 lineto
+118.384613 115.850777 lineto
+119.00769 117.005035 lineto
+119.630768 118.159584 lineto
+120.253838 119.314156 lineto
+120.876923 120.468559 lineto
+121.5 121.62262 lineto
+122.12307 122.776085 lineto
+122.746155 123.928825 lineto
+123.369232 125.080635 lineto
+123.992302 126.231277 lineto
+124.615387 127.380615 lineto
+125.238449 128.528366 lineto
+125.861534 129.6745 lineto
+126.484619 130.818756 lineto
+127.107681 131.960938 lineto
+127.730766 133.1008 lineto
+128.353851 134.238251 lineto
+128.976913 135.373047 lineto
+129.600006 136.505066 lineto
+130.223068 137.634018 lineto
+130.846146 138.759903 lineto
+131.469238 139.882385 lineto
+132.0923 141.001328 lineto
+132.715378 142.116669 lineto
+133.33847 143.228119 lineto
+133.961533 144.335541 lineto
+134.58461 145.438828 lineto
+135.207687 146.537766 lineto
+135.830765 147.632202 lineto
+136.453842 148.72197 lineto
+137.07692 149.806915 lineto
+137.699997 150.886948 lineto
+138.323074 151.961899 lineto
+138.946152 153.031555 lineto
+139.569229 154.095886 lineto
+140.192307 155.154694 lineto
+140.815384 156.207855 lineto
+141.438461 157.255234 lineto
+142.061523 158.296707 lineto
+142.684616 159.332199 lineto
+143.307693 160.361526 lineto
+143.930756 161.384491 lineto
+144.553848 162.40123 lineto
+145.176926 163.411423 lineto
+145.799988 164.415009 lineto
+146.42308 165.411926 lineto
+147.046143 166.402069 lineto
+147.66922 167.385345 lineto
+148.292313 168.361633 lineto
+148.915375 169.330872 lineto
+149.538452 170.292953 lineto
+150.161545 171.247787 lineto
+150.784607 172.195343 lineto
+151.407684 173.135559 lineto
+152.030762 174.068283 lineto
+152.653839 174.99353 lineto
+153.276917 175.911194 lineto
+153.899994 176.821243 lineto
+154.523071 177.723618 lineto
+155.146149 178.618271 lineto
+155.769226 179.505066 lineto
+156.392303 180.384079 lineto
+157.015366 181.255203 lineto
+157.638458 182.118454 lineto
+158.261536 182.97374 lineto
+158.884598 183.821014 lineto
+159.50769 184.660339 lineto
+160.130768 185.491653 lineto
+160.75383 186.31488 lineto
+161.376923 187.130051 lineto
+162 187.937134 lineto
+162.623062 188.73613 lineto
+163.246155 189.526978 lineto
+163.869217 190.309723 lineto
+164.49231 191.084396 lineto
+165.115387 191.850937 lineto
+165.738449 192.609299 lineto
+166.361542 193.359619 lineto
+166.984619 194.101807 lineto
+167.607681 194.835861 lineto
+168.230774 195.561874 lineto
+168.853836 196.279785 lineto
+169.476913 196.989639 lineto
+170.100006 197.691483 lineto
+170.723068 198.385269 lineto
+171.346146 199.071091 lineto
+171.969238 199.748917 lineto
+172.5923 200.418793 lineto
+173.215378 201.08078 lineto
+173.838455 201.734879 lineto
+174.461533 202.381104 lineto
+175.08461 203.019562 lineto
+175.707687 203.650223 lineto
+176.330765 204.273148 lineto
+176.953842 204.888351 lineto
+177.57692 205.49588 lineto
+178.199997 206.09581 lineto
+178.823059 206.688141 lineto
+179.446152 207.272995 lineto
+180.069229 207.850342 lineto
+180.692291 208.420273 lineto
+181.315384 208.982834 lineto
+181.938461 209.538025 lineto
+182.561523 210.085953 lineto
+183.184616 210.626648 lineto
+183.807693 211.160187 lineto
+184.430756 211.686584 lineto
+185.053848 212.205917 lineto
+185.67691 212.718231 lineto
+186.299988 213.223618 lineto
+186.92308 213.722122 lineto
+187.546143 214.213791 lineto
+188.16922 214.698669 lineto
+188.792313 215.176834 lineto
+189.415375 215.648361 lineto
+190.038452 216.113297 lineto
+190.66153 216.571671 lineto
+191.284607 217.023605 lineto
+191.907684 217.469131 lineto
+192.530762 217.908295 lineto
+193.153839 218.341171 lineto
+193.776917 218.767868 lineto
+194.399994 219.18837 lineto
+195.023071 219.602814 lineto
+195.646133 220.01123 lineto
+196.269226 220.413651 lineto
+196.892303 220.810181 lineto
+197.515366 221.200897 lineto
+198.138458 221.585831 lineto
+198.761536 221.965057 lineto
+199.384613 222.338638 lineto
+200.00769 222.706619 lineto
+200.630768 223.069138 lineto
+201.253845 223.426163 lineto
+201.876923 223.777832 lineto
+202.499985 224.124161 lineto
+203.123077 224.46524 lineto
+203.746155 224.801132 lineto
+204.369217 225.131851 lineto
+204.99231 225.45752 lineto
+205.615387 225.778198 lineto
+206.238449 226.093918 lineto
+206.861542 226.40477 lineto
+207.484604 226.71077 lineto
+208.107681 227.012039 lineto
+208.730774 227.308609 lineto
+209.353836 227.600525 lineto
+209.976913 227.887863 lineto
+210.600006 228.1707 lineto
+211.223068 228.449066 lineto
+211.846146 228.723053 lineto
+212.469223 228.992676 lineto
+213.0923 229.258041 lineto
+213.715378 229.519165 lineto
+214.338455 229.776138 lineto
+214.961533 230.028992 lineto
+215.58461 230.277832 lineto
+216.207687 230.522629 lineto
+216.830765 230.763504 lineto
+217.453827 231.000488 lineto
+218.07692 231.233643 lineto
+218.699997 231.463028 lineto
+219.323059 231.688675 lineto
+219.946152 231.91066 lineto
+220.569229 232.129059 lineto
+221.192291 232.343887 lineto
+221.815384 232.555176 lineto
+222.438461 232.763031 lineto
+223.061523 232.967438 lineto
+223.684616 233.168503 lineto
+224.307678 233.366241 lineto
+224.930756 233.56073 lineto
+225.553848 233.752045 lineto
+226.17691 233.94014 lineto
+226.799988 234.125153 lineto
+227.42308 234.307053 lineto
+228.046143 234.485947 lineto
+228.66922 234.661865 lineto
+229.292297 234.834854 lineto
+229.915375 235.004959 lineto
+230.538452 235.172195 lineto
+231.16153 235.33667 lineto
+231.784607 235.498337 lineto
+232.407684 235.657318 lineto
+233.030762 235.813629 lineto
+233.653839 235.9673 lineto
+234.276917 236.118362 lineto
+234.899994 236.266891 lineto
+235.523071 236.412918 lineto
+236.146149 236.556473 lineto
+236.769226 236.697556 lineto
+237.392303 236.836304 lineto
+238.015381 236.972641 lineto
+238.638458 237.106674 lineto
+239.261536 237.238419 lineto
+239.884613 237.367966 lineto
+240.507675 237.495255 lineto
+241.130753 237.620377 lineto
+241.753845 237.743332 lineto
+242.376923 237.864243 lineto
+243 237.983063 lineto
+243.623062 238.099808 lineto
+244.24614 238.214584 lineto
+244.869217 238.327393 lineto
+245.49231 238.438278 lineto
+246.115387 238.547195 lineto
+246.738464 238.654297 lineto
+247.361526 238.759506 lineto
+247.984604 238.86293 lineto
+248.607681 238.964523 lineto
+249.230774 239.064407 lineto
+249.853851 239.162552 lineto
+250.476898 239.258972 lineto
+251.099991 239.353745 lineto
+251.723068 239.446854 lineto
+252.346146 239.538391 lineto
+252.969238 239.628296 lineto
+253.592285 239.716644 lineto
+254.215363 239.803467 lineto
+254.838455 239.888809 lineto
+255.461533 239.972595 lineto
+256.084625 240.054962 lineto
+256.707703 240.13588 lineto
+257.33075 240.215393 lineto
+257.953827 240.293503 lineto
+258.576904 240.37027 lineto
+259.200012 240.445679 lineto
+259.82309 240.519791 lineto
+260.446136 240.59256 lineto
+261.069214 240.664124 lineto
+261.692291 240.734375 lineto
+262.315369 240.803406 lineto
+262.938477 240.871231 lineto
+263.561554 240.937866 lineto
+264.184601 241.003311 lineto
+264.807678 241.067657 lineto
+265.430756 241.130798 lineto
+266.053833 241.192902 lineto
+266.676941 241.253876 lineto
+267.299988 241.313766 lineto
+267.923065 241.372635 lineto
+268.546143 241.43042 lineto
+269.16922 241.487213 lineto
+269.792297 241.543015 lineto
+270.415375 241.597794 lineto
+271.038452 241.651657 lineto
+271.66153 241.704529 lineto
+272.284607 241.75647 lineto
+272.907684 241.80751 lineto
+273.530762 241.857651 lineto
+274.153839 241.906891 lineto
+274.776917 241.955231 lineto
+275.399994 242.002762 lineto
+276.023071 242.049423 lineto
+276.646149 242.095291 lineto
+277.269196 242.140289 lineto
+277.892303 242.18454 lineto
+278.515381 242.227982 lineto
+279.138458 242.270691 lineto
+279.761536 242.312592 lineto
+280.384613 242.353729 lineto
+281.00766 242.394196 lineto
+281.630768 242.433914 lineto
+282.253845 242.472931 lineto
+282.876923 242.511246 lineto
+283.5 242.548889 lineto
+284.123047 242.585892 lineto
+284.746124 242.622208 lineto
+285.369232 242.657837 lineto
+285.99231 242.692871 lineto
+286.615387 242.72728 lineto
+287.238434 242.761063 lineto
+287.861511 242.79425 lineto
+288.484589 242.826859 lineto
+289.107697 242.858887 lineto
+289.730774 242.89035 lineto
+290.353851 242.921219 lineto
+290.976898 242.951569 lineto
+291.599976 242.981354 lineto
+292.223083 243.01059 lineto
+292.846161 243.039337 lineto
+293.469238 243.067581 lineto
+294.092285 243.095306 lineto
+294.715363 243.122498 lineto
+295.33844 243.149246 lineto
+295.961548 243.175507 lineto
+296.584625 243.201324 lineto
+297.207672 243.226639 lineto
+297.83075 243.251511 lineto
+298.453827 243.27594 lineto
+299.076904 243.299927 lineto
+299.700012 243.323502 lineto
+300.32309 243.346634 lineto
+300.946136 243.369354 lineto
+301.569214 243.391693 lineto
+302.192291 243.413605 lineto
+302.815369 243.435135 lineto
+303.438477 243.456299 lineto
+304.061523 243.477036 lineto
+304.684601 243.497437 lineto
+305.307678 243.517471 lineto
+305.930756 243.537125 lineto
+306.553833 243.556442 lineto
+307.176941 243.575394 lineto
+307.799988 243.594055 lineto
+308.423065 243.61232 lineto
+309.046143 243.63028 lineto
+309.66922 243.647949 lineto
+310.292297 243.665253 lineto
+310.915375 243.682266 lineto
+311.538452 243.69899 lineto
+312.16153 243.715378 lineto
+312.784607 243.731491 lineto
+313.407684 243.74733 lineto
+314.030731 243.762863 lineto
+314.653839 243.778122 lineto
+315.276917 243.793121 lineto
+315.899994 243.807861 lineto
+316.523071 243.822281 lineto
+317.146149 243.836487 lineto
+317.769196 243.850418 lineto
+318.392303 243.86409 lineto
+stroke
+newpath
+318.392303 243.86409 moveto
+319.015381 243.877563 lineto
+319.638458 243.890747 lineto
+320.261536 243.903732 lineto
+320.884583 243.916443 lineto
+321.50766 243.92894 lineto
+322.130768 243.941208 lineto
+322.753845 243.953278 lineto
+323.376923 243.965088 lineto
+324 243.976715 lineto
+324.623047 243.988129 lineto
+325.246124 243.999359 lineto
+325.869232 244.010361 lineto
+326.49231 244.021164 lineto
+327.115387 244.031769 lineto
+327.738434 244.042191 lineto
+328.361511 244.052444 lineto
+328.984619 244.0625 lineto
+329.607697 244.072372 lineto
+330.230774 244.082047 lineto
+330.853821 244.091583 lineto
+331.476898 244.100922 lineto
+332.099976 244.110092 lineto
+332.723083 244.11911 lineto
+333.346161 244.127975 lineto
+333.969238 244.136658 lineto
+334.592285 244.145203 lineto
+335.215363 244.15358 lineto
+335.83844 244.161804 lineto
+336.461548 244.169876 lineto
+337.084625 244.177811 lineto
+337.707672 244.185638 lineto
+338.33075 244.193253 lineto
+338.953827 244.200775 lineto
+339.576904 244.20816 lineto
+340.200012 244.215393 lineto
+340.82309 244.222534 lineto
+341.446136 244.229523 lineto
+342.069214 244.236374 lineto
+342.692291 244.243118 lineto
+343.315369 244.249695 lineto
+343.938477 244.25621 lineto
+344.561523 244.262604 lineto
+345.184601 244.268845 lineto
+345.807678 244.274979 lineto
+346.430756 244.281067 lineto
+347.053833 244.286972 lineto
+347.67691 244.292786 lineto
+348.299988 244.298538 lineto
+348.923065 244.304138 lineto
+349.546143 244.309647 lineto
+350.16922 244.315063 lineto
+350.792297 244.320389 lineto
+351.415375 244.325623 lineto
+352.038452 244.33075 lineto
+352.66153 244.335754 lineto
+353.284607 244.340698 lineto
+353.907684 244.345566 lineto
+354.530731 244.350357 lineto
+355.153839 244.355026 lineto
+355.776917 244.359604 lineto
+356.399994 244.36412 lineto
+357.023071 244.36853 lineto
+357.646118 244.37291 lineto
+358.269196 244.377182 lineto
+358.892303 244.381363 lineto
+359.515381 244.385513 lineto
+360.138458 244.389542 lineto
+360.761536 244.393524 lineto
+361.384583 244.397415 lineto
+362.00769 244.40123 lineto
+362.630768 244.405014 lineto
+363.253845 244.408691 lineto
+363.876923 244.412338 lineto
+364.499969 244.415909 lineto
+365.123047 244.419388 lineto
+365.746155 244.422821 lineto
+366.369232 244.426193 lineto
+366.99231 244.429504 lineto
+367.615387 244.432739 lineto
+368.238434 244.435944 lineto
+368.861511 244.439102 lineto
+369.484619 244.442169 lineto
+370.107697 244.445175 lineto
+370.730774 244.448166 lineto
+371.353821 244.451065 lineto
+371.976898 244.453934 lineto
+372.599976 244.456726 lineto
+373.223083 244.459457 lineto
+373.846161 244.462204 lineto
+374.469208 244.464859 lineto
+375.092285 244.467484 lineto
+375.715363 244.470047 lineto
+376.33844 244.472565 lineto
+376.961548 244.475052 lineto
+377.584625 244.477463 lineto
+378.207672 244.479858 lineto
+378.83075 244.482178 lineto
+379.453827 244.484482 lineto
+380.076904 244.48674 lineto
+380.700012 244.488983 lineto
+381.323059 244.491135 lineto
+381.946136 244.493271 lineto
+382.569214 244.495392 lineto
+383.192291 244.497437 lineto
+383.815369 244.499451 lineto
+384.438477 244.50145 lineto
+385.061523 244.503403 lineto
+385.684601 244.50531 lineto
+386.307678 244.507187 lineto
+386.930756 244.509048 lineto
+387.553833 244.510864 lineto
+388.17691 244.512634 lineto
+388.799988 244.514374 lineto
+389.423065 244.516098 lineto
+390.046143 244.517807 lineto
+390.66922 244.51944 lineto
+391.292267 244.521072 lineto
+391.915375 244.522675 lineto
+392.538452 244.524246 lineto
+393.16153 244.525772 lineto
+393.784607 244.527283 lineto
+394.407684 244.528748 lineto
+395.030731 244.530243 lineto
+395.653839 244.531647 lineto
+396.276917 244.533066 lineto
+396.899994 244.534439 lineto
+397.523071 244.535797 lineto
+398.146118 244.537125 lineto
+398.769226 244.538422 lineto
+399.392303 244.539719 lineto
+400.015381 244.54097 lineto
+400.638458 244.542206 lineto
+401.261536 244.543427 lineto
+401.884583 244.544647 lineto
+402.50769 244.545807 lineto
+403.130768 244.546936 lineto
+403.753845 244.548065 lineto
+404.376923 244.549179 lineto
+404.999969 244.550247 lineto
+405.623047 244.551331 lineto
+406.246155 244.552414 lineto
+406.869232 244.553436 lineto
+407.49231 244.554459 lineto
+408.115356 244.55542 lineto
+408.738434 244.556412 lineto
+409.361511 244.557358 lineto
+409.984619 244.558289 lineto
+410.607697 244.559235 lineto
+411.230774 244.56012 lineto
+411.853821 244.561035 lineto
+412.476898 244.56189 lineto
+413.099976 244.562744 lineto
+413.723083 244.563599 lineto
+414.346161 244.564438 lineto
+414.969208 244.565231 lineto
+415.592285 244.56604 lineto
+416.215363 244.566803 lineto
+416.83844 244.567581 lineto
+417.461548 244.568359 lineto
+418.084595 244.569077 lineto
+418.707672 244.569824 lineto
+419.33075 244.570511 lineto
+419.953827 244.571228 lineto
+420.576904 244.571915 lineto
+421.200012 244.572617 lineto
+421.823059 244.573273 lineto
+422.446136 244.573914 lineto
+423.069214 244.574539 lineto
+423.692291 244.57518 lineto
+424.315369 244.575821 lineto
+424.938446 244.576431 lineto
+425.561523 244.577011 lineto
+426.184601 244.577621 lineto
+426.807678 244.578171 lineto
+427.430756 244.57872 lineto
+428.053833 244.579269 lineto
+428.67691 244.579819 lineto
+429.299988 244.580383 lineto
+429.923065 244.580872 lineto
+430.546143 244.581406 lineto
+431.16922 244.581894 lineto
+431.792297 244.582397 lineto
+432.415375 244.582886 lineto
+433.038452 244.583389 lineto
+433.66153 244.583862 lineto
+434.284607 244.584305 lineto
+434.907654 244.584747 lineto
+435.530762 244.58522 lineto
+436.153839 244.585632 lineto
+436.776917 244.586075 lineto
+437.399994 244.586487 lineto
+438.023071 244.586899 lineto
+438.646118 244.587311 lineto
+439.269226 244.587723 lineto
+439.892303 244.588089 lineto
+440.515381 244.588501 lineto
+441.138458 244.588867 lineto
+441.761505 244.589249 lineto
+442.384583 244.589615 lineto
+443.00769 244.589966 lineto
+443.630768 244.590302 lineto
+444.253845 244.590652 lineto
+444.876923 244.590988 lineto
+445.499969 244.591324 lineto
+446.123047 244.59166 lineto
+446.746155 244.59198 lineto
+447.369232 244.592285 lineto
+447.99231 244.59259 lineto
+448.615356 244.592896 lineto
+449.238434 244.593201 lineto
+449.861511 244.593506 lineto
+450.484619 244.59375 lineto
+451.107697 244.594086 lineto
+451.730743 244.59433 lineto
+452.353821 244.594604 lineto
+452.976898 244.594864 lineto
+453.599976 244.595139 lineto
+454.223083 244.595413 lineto
+454.846161 244.595657 lineto
+455.469208 244.595886 lineto
+456.092285 244.59613 lineto
+456.715363 244.596375 lineto
+457.33844 244.596603 lineto
+457.961548 244.596848 lineto
+458.584595 244.597076 lineto
+459.207672 244.597321 lineto
+459.83075 244.597519 lineto
+460.453827 244.597733 lineto
+461.076904 244.597961 lineto
+461.700012 244.598145 lineto
+462.323059 244.598343 lineto
+462.946136 244.598541 lineto
+463.569214 244.598755 lineto
+464.192291 244.598953 lineto
+464.815369 244.599121 lineto
+465.438446 244.599304 lineto
+466.061523 244.599503 lineto
+466.684601 244.59967 lineto
+467.307678 244.599869 lineto
+467.930756 244.600006 lineto
+468.553833 244.600189 lineto
+469.17691 244.600357 lineto
+469.799988 244.600525 lineto
+470.423065 244.600662 lineto
+471.046143 244.60083 lineto
+471.66922 244.600998 lineto
+472.292297 244.601135 lineto
+472.915375 244.601303 lineto
+473.538452 244.60144 lineto
+474.16153 244.601578 lineto
+474.784607 244.601746 lineto
+475.407654 244.601883 lineto
+476.030762 244.60199 lineto
+476.653839 244.602127 lineto
+477.276917 244.602264 lineto
+477.899994 244.602371 lineto
+stroke
+0 setgray
+0 setgray
+[] 0 setdash
+gsave
+newpath
+0.4 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+grestore
+gsave
+grestore
+grestore
+grestore
+%%Trailer
+%%DocumentFonts: Times-Roman
+
+%%EndDocument
+~
+%AI5_EndPlace
+%AI5_BeginPlace
+[0.625 0 0 0.625 80.0625 45] 0 0 631 372
+(collis:tex:thesis:figures:ch6:f42.eps)`
+%%BeginDocument: collis:tex:thesis:figures:ch6:f42.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: fort.10  -  /u/collis/mesh
+%%Creator: nxyplot
+%%CreationDate: Thu Oct 24 17:13:27 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 -1
+%%BoundingBox: 0 0 631 372
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -4 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 631 372 rectclip
+0 0 631 372 rectclip
+1 setgray
+0 0 631 372 rectfill
+0.4 setlinewidth
+0 setgray
+/Times-Roman findfont 20 scalefont
+119
+exch
+defineuserobject
+119 execuserobject setfont
+294 8 moveto
+() show
+119 execuserobject setfont
+26 182.834 moveto
+gsave
+90 rotate
+() show
+grestore
+119 execuserobject setfont
+209 348 moveto
+() show
+gsave
+100 50 translate
+0 0 translate
+1 setlinewidth
+newpath
+0 0 moveto
+477.899994 0 lineto
+477.899994 289.799988 lineto
+0 289.799988 lineto
+closepath
+stroke
+0.4 setlinewidth
+119 execuserobject setfont
+newpath
+1 setlinewidth
+0 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+0 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+-5 -25 moveto
+(0) show
+11.9475 3 moveto
+0 -3 rlineto
+stroke
+11.9475 289.799988 moveto
+0 -3 rlineto
+stroke
+23.895 3 moveto
+0 -3 rlineto
+stroke
+23.895 289.799988 moveto
+0 -3 rlineto
+stroke
+35.842499 3 moveto
+0 -3 rlineto
+stroke
+35.842499 289.799988 moveto
+0 -3 rlineto
+stroke
+47.790001 3 moveto
+0 -3 rlineto
+stroke
+47.790001 289.799988 moveto
+0 -3 rlineto
+stroke
+59.737499 3 moveto
+0 -3 rlineto
+stroke
+59.737499 289.799988 moveto
+0 -3 rlineto
+stroke
+71.684998 3 moveto
+0 -3 rlineto
+stroke
+71.684998 289.799988 moveto
+0 -3 rlineto
+stroke
+83.6325 3 moveto
+0 -3 rlineto
+stroke
+83.6325 289.799988 moveto
+0 -3 rlineto
+stroke
+95.580002 3 moveto
+0 -3 rlineto
+stroke
+95.580002 289.799988 moveto
+0 -3 rlineto
+stroke
+107.527496 3 moveto
+0 -3 rlineto
+stroke
+107.527496 289.799988 moveto
+0 -3 rlineto
+stroke
+119.474998 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+119.474998 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+101.974998 -25 moveto
+(0.25) show
+131.422501 3 moveto
+0 -3 rlineto
+stroke
+131.422501 289.799988 moveto
+0 -3 rlineto
+stroke
+143.369995 3 moveto
+0 -3 rlineto
+stroke
+143.369995 289.799988 moveto
+0 -3 rlineto
+stroke
+155.317505 3 moveto
+0 -3 rlineto
+stroke
+155.317505 289.799988 moveto
+0 -3 rlineto
+stroke
+167.264999 3 moveto
+0 -3 rlineto
+stroke
+167.264999 289.799988 moveto
+0 -3 rlineto
+stroke
+179.212494 3 moveto
+0 -3 rlineto
+stroke
+179.212494 289.799988 moveto
+0 -3 rlineto
+stroke
+191.160004 3 moveto
+0 -3 rlineto
+stroke
+191.160004 289.799988 moveto
+0 -3 rlineto
+stroke
+203.107498 3 moveto
+0 -3 rlineto
+stroke
+203.107498 289.799988 moveto
+0 -3 rlineto
+stroke
+215.054993 3 moveto
+0 -3 rlineto
+stroke
+215.054993 289.799988 moveto
+0 -3 rlineto
+stroke
+227.002502 3 moveto
+0 -3 rlineto
+stroke
+227.002502 289.799988 moveto
+0 -3 rlineto
+stroke
+238.949997 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+238.949997 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+221.449997 -25 moveto
+(0.50) show
+250.897491 3 moveto
+0 -3 rlineto
+stroke
+250.897491 289.799988 moveto
+0 -3 rlineto
+stroke
+262.845001 3 moveto
+0 -3 rlineto
+stroke
+262.845001 289.799988 moveto
+0 -3 rlineto
+stroke
+274.792511 3 moveto
+0 -3 rlineto
+stroke
+274.792511 289.799988 moveto
+0 -3 rlineto
+stroke
+286.73999 3 moveto
+0 -3 rlineto
+stroke
+286.73999 289.799988 moveto
+0 -3 rlineto
+stroke
+298.6875 3 moveto
+0 -3 rlineto
+stroke
+298.6875 289.799988 moveto
+0 -3 rlineto
+stroke
+310.63501 3 moveto
+0 -3 rlineto
+stroke
+310.63501 289.799988 moveto
+0 -3 rlineto
+stroke
+322.582489 3 moveto
+0 -3 rlineto
+stroke
+322.582489 289.799988 moveto
+0 -3 rlineto
+stroke
+334.529999 3 moveto
+0 -3 rlineto
+stroke
+334.529999 289.799988 moveto
+0 -3 rlineto
+stroke
+346.477509 3 moveto
+0 -3 rlineto
+stroke
+346.477509 289.799988 moveto
+0 -3 rlineto
+stroke
+358.424988 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+358.424988 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+340.924988 -25 moveto
+(0.75) show
+370.372498 3 moveto
+0 -3 rlineto
+stroke
+370.372498 289.799988 moveto
+0 -3 rlineto
+stroke
+382.319977 3 moveto
+0 -3 rlineto
+stroke
+382.319977 289.799988 moveto
+0 -3 rlineto
+stroke
+394.267487 3 moveto
+0 -3 rlineto
+stroke
+394.267487 289.799988 moveto
+0 -3 rlineto
+stroke
+406.214996 3 moveto
+0 -3 rlineto
+stroke
+406.214996 289.799988 moveto
+0 -3 rlineto
+stroke
+418.162476 3 moveto
+0 -3 rlineto
+stroke
+418.162476 289.799988 moveto
+0 -3 rlineto
+stroke
+430.109985 3 moveto
+0 -3 rlineto
+stroke
+430.109985 289.799988 moveto
+0 -3 rlineto
+stroke
+442.057495 3 moveto
+0 -3 rlineto
+stroke
+442.057495 289.799988 moveto
+0 -3 rlineto
+stroke
+454.004974 3 moveto
+0 -3 rlineto
+stroke
+454.004974 289.799988 moveto
+0 -3 rlineto
+stroke
+465.952484 3 moveto
+0 -3 rlineto
+stroke
+465.952484 289.799988 moveto
+0 -3 rlineto
+stroke
+477.899994 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+460.399994 -25 moveto
+(1.00) show
+6 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-20 -8 moveto
+(0) show
+3 5.796 moveto
+-3 0 rlineto
+stroke
+477.899994 5.796 moveto
+-3 0 rlineto
+stroke
+3 11.591999 moveto
+-3 0 rlineto
+stroke
+477.899994 11.591999 moveto
+-3 0 rlineto
+stroke
+3 17.387999 moveto
+-3 0 rlineto
+stroke
+477.899994 17.387999 moveto
+-3 0 rlineto
+stroke
+3 23.183998 moveto
+-3 0 rlineto
+stroke
+477.899994 23.183998 moveto
+-3 0 rlineto
+stroke
+3 28.98 moveto
+-3 0 rlineto
+stroke
+477.899994 28.98 moveto
+-3 0 rlineto
+stroke
+3 34.775997 moveto
+-3 0 rlineto
+stroke
+477.899994 34.775997 moveto
+-3 0 rlineto
+stroke
+3 40.571999 moveto
+-3 0 rlineto
+stroke
+477.899994 40.571999 moveto
+-3 0 rlineto
+stroke
+3 46.367996 moveto
+-3 0 rlineto
+stroke
+477.899994 46.367996 moveto
+-3 0 rlineto
+stroke
+3 52.163998 moveto
+-3 0 rlineto
+stroke
+477.899994 52.163998 moveto
+-3 0 rlineto
+stroke
+6 57.959999 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 57.959999 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-35 49.959999 moveto
+( 25) show
+3 63.756001 moveto
+-3 0 rlineto
+stroke
+477.899994 63.756001 moveto
+-3 0 rlineto
+stroke
+3 69.552002 moveto
+-3 0 rlineto
+stroke
+477.899994 69.552002 moveto
+-3 0 rlineto
+stroke
+3 75.348 moveto
+-3 0 rlineto
+stroke
+477.899994 75.348 moveto
+-3 0 rlineto
+stroke
+3 81.143997 moveto
+-3 0 rlineto
+stroke
+477.899994 81.143997 moveto
+-3 0 rlineto
+stroke
+3 86.939995 moveto
+-3 0 rlineto
+stroke
+477.899994 86.939995 moveto
+-3 0 rlineto
+stroke
+3 92.736 moveto
+-3 0 rlineto
+stroke
+477.899994 92.736 moveto
+-3 0 rlineto
+stroke
+3 98.531998 moveto
+-3 0 rlineto
+stroke
+477.899994 98.531998 moveto
+-3 0 rlineto
+stroke
+3 104.327995 moveto
+-3 0 rlineto
+stroke
+477.899994 104.327995 moveto
+-3 0 rlineto
+stroke
+3 110.124001 moveto
+-3 0 rlineto
+stroke
+477.899994 110.124001 moveto
+-3 0 rlineto
+stroke
+6 115.919998 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 115.919998 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-35 107.919998 moveto
+( 50) show
+3 121.715996 moveto
+-3 0 rlineto
+stroke
+477.899994 121.715996 moveto
+-3 0 rlineto
+stroke
+3 127.512001 moveto
+-3 0 rlineto
+stroke
+477.899994 127.512001 moveto
+-3 0 rlineto
+stroke
+3 133.307999 moveto
+-3 0 rlineto
+stroke
+477.899994 133.307999 moveto
+-3 0 rlineto
+stroke
+3 139.104004 moveto
+-3 0 rlineto
+stroke
+477.899994 139.104004 moveto
+-3 0 rlineto
+stroke
+3 144.899994 moveto
+-3 0 rlineto
+stroke
+477.899994 144.899994 moveto
+-3 0 rlineto
+stroke
+3 150.695999 moveto
+-3 0 rlineto
+stroke
+477.899994 150.695999 moveto
+-3 0 rlineto
+stroke
+3 156.491989 moveto
+-3 0 rlineto
+stroke
+477.899994 156.491989 moveto
+-3 0 rlineto
+stroke
+3 162.287994 moveto
+-3 0 rlineto
+stroke
+477.899994 162.287994 moveto
+-3 0 rlineto
+stroke
+3 168.084 moveto
+-3 0 rlineto
+stroke
+477.899994 168.084 moveto
+-3 0 rlineto
+stroke
+6 173.87999 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 173.87999 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-35 165.87999 moveto
+( 75) show
+3 179.675995 moveto
+-3 0 rlineto
+stroke
+477.899994 179.675995 moveto
+-3 0 rlineto
+stroke
+3 185.471985 moveto
+-3 0 rlineto
+stroke
+477.899994 185.471985 moveto
+-3 0 rlineto
+stroke
+3 191.26799 moveto
+-3 0 rlineto
+stroke
+477.899994 191.26799 moveto
+-3 0 rlineto
+stroke
+3 197.063995 moveto
+-3 0 rlineto
+stroke
+477.899994 197.063995 moveto
+-3 0 rlineto
+stroke
+3 202.859985 moveto
+-3 0 rlineto
+stroke
+477.899994 202.859985 moveto
+-3 0 rlineto
+stroke
+3 208.655991 moveto
+-3 0 rlineto
+stroke
+477.899994 208.655991 moveto
+-3 0 rlineto
+stroke
+3 214.451981 moveto
+-3 0 rlineto
+stroke
+477.899994 214.451981 moveto
+-3 0 rlineto
+stroke
+3 220.247986 moveto
+-3 0 rlineto
+stroke
+477.899994 220.247986 moveto
+-3 0 rlineto
+stroke
+3 226.043991 moveto
+-3 0 rlineto
+stroke
+477.899994 226.043991 moveto
+-3 0 rlineto
+stroke
+6 231.839996 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 231.839996 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-40 223.839996 moveto
+(100) show
+3 237.636002 moveto
+-3 0 rlineto
+stroke
+477.899994 237.636002 moveto
+-3 0 rlineto
+stroke
+3 243.431992 moveto
+-3 0 rlineto
+stroke
+477.899994 243.431992 moveto
+-3 0 rlineto
+stroke
+3 249.227997 moveto
+-3 0 rlineto
+stroke
+477.899994 249.227997 moveto
+-3 0 rlineto
+stroke
+3 255.024002 moveto
+-3 0 rlineto
+stroke
+477.899994 255.024002 moveto
+-3 0 rlineto
+stroke
+3 260.820007 moveto
+-3 0 rlineto
+stroke
+477.899994 260.820007 moveto
+-3 0 rlineto
+stroke
+3 266.615997 moveto
+-3 0 rlineto
+stroke
+477.899994 266.615997 moveto
+-3 0 rlineto
+stroke
+3 272.411987 moveto
+-3 0 rlineto
+stroke
+477.899994 272.411987 moveto
+-3 0 rlineto
+stroke
+3 278.208008 moveto
+-3 0 rlineto
+stroke
+477.899994 278.208008 moveto
+-3 0 rlineto
+stroke
+3 284.003998 moveto
+-3 0 rlineto
+stroke
+477.899994 284.003998 moveto
+-3 0 rlineto
+stroke
+6 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-40 281.799988 moveto
+(125) show
+0 0 477.899994 289.799988 rectclip
+newpath
+0.4 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+[] 0 setdash
+0 0 moveto
+0.623077 1.112402 lineto
+1.246154 2.225115 lineto
+1.869231 3.338292 lineto
+2.492308 4.4522 lineto
+3.115385 5.567105 lineto
+3.738461 6.683205 lineto
+4.361538 7.800788 lineto
+4.984615 8.920054 lineto
+5.607692 10.041269 lineto
+6.230769 11.164699 lineto
+6.853846 12.290497 lineto
+7.476923 13.419019 lineto
+8.1 14.550441 lineto
+8.723077 15.685052 lineto
+9.346153 16.823029 lineto
+9.969231 17.964636 lineto
+10.592307 19.110096 lineto
+11.215384 20.259672 lineto
+11.838461 21.413614 lineto
+12.461538 22.572094 lineto
+13.084615 23.735378 lineto
+13.707691 24.903753 lineto
+14.330769 26.077402 lineto
+14.953846 27.256517 lineto
+15.576923 28.441389 lineto
+16.200001 29.632195 lineto
+16.823076 30.829226 lineto
+17.446154 32.03265 lineto
+18.069231 33.242699 lineto
+18.692307 34.45961 lineto
+19.315384 35.683563 lineto
+19.938461 36.914799 lineto
+20.561539 38.153542 lineto
+21.184614 39.400036 lineto
+21.807692 40.654457 lineto
+22.430769 41.916958 lineto
+23.053844 43.187851 lineto
+23.676922 44.467247 lineto
+24.299999 45.755322 lineto
+24.923077 47.05241 lineto
+25.546152 48.358643 lineto
+26.16923 49.674103 lineto
+26.792307 50.999134 lineto
+27.415382 52.333843 lineto
+28.03846 53.678398 lineto
+28.661537 55.033035 lineto
+29.284615 56.397808 lineto
+29.907692 57.773029 lineto
+30.530767 59.15884 lineto
+31.153847 60.555298 lineto
+31.77692 61.962631 lineto
+32.400002 63.380993 lineto
+33.023075 64.810532 lineto
+33.646152 66.251404 lineto
+34.26923 67.703636 lineto
+34.892307 69.16748 lineto
+35.515381 70.643005 lineto
+36.138462 72.130379 lineto
+36.761536 73.629662 lineto
+37.384613 75.140991 lineto
+38.00769 76.664436 lineto
+38.630768 78.200157 lineto
+39.253841 79.748138 lineto
+39.876923 81.308601 lineto
+40.5 82.881485 lineto
+41.123077 84.466927 lineto
+41.746155 86.064987 lineto
+42.369228 87.675667 lineto
+42.99231 89.299049 lineto
+43.615383 90.935158 lineto
+44.238461 92.584099 lineto
+44.861538 94.24572 lineto
+45.484615 95.920174 lineto
+46.107689 97.607399 lineto
+46.73077 99.307381 lineto
+47.353844 101.020157 lineto
+47.976921 102.745613 lineto
+48.599998 104.483757 lineto
+49.223076 106.23455 lineto
+49.846153 107.997917 lineto
+50.469231 109.77375 lineto
+51.092304 111.56208 lineto
+51.715385 113.362648 lineto
+52.338459 115.175499 lineto
+52.961536 117.000412 lineto
+53.584614 118.837296 lineto
+54.207691 120.686043 lineto
+54.830765 122.546394 lineto
+55.453846 124.418289 lineto
+56.07692 126.301537 lineto
+56.699997 128.195892 lineto
+57.323074 130.101212 lineto
+57.946152 132.017136 lineto
+58.569229 133.943665 lineto
+59.192307 135.880386 lineto
+59.815384 137.826996 lineto
+60.438461 139.78334 lineto
+61.061535 141.749039 lineto
+61.684616 143.723846 lineto
+62.307693 145.707382 lineto
+62.930767 147.699478 lineto
+63.553841 149.699539 lineto
+64.176926 151.707382 lineto
+64.800003 153.722458 lineto
+65.423073 155.744583 lineto
+66.04615 157.773132 lineto
+66.669235 159.807877 lineto
+67.292305 161.84816 lineto
+67.915382 163.893707 lineto
+68.53846 165.944 lineto
+69.161537 167.998489 lineto
+69.784615 170.056732 lineto
+70.407692 172.118134 lineto
+71.030762 174.18219 lineto
+71.653847 176.248444 lineto
+72.276924 178.316177 lineto
+72.899994 180.384903 lineto
+73.523071 182.453949 lineto
+74.146156 184.522797 lineto
+74.769226 186.59079 lineto
+75.392303 188.657227 lineto
+76.015381 190.721481 lineto
+76.638458 192.782944 lineto
+77.261536 194.840866 lineto
+77.884613 196.894485 lineto
+78.507683 198.943298 lineto
+79.130768 200.986359 lineto
+79.753845 203.023071 lineto
+80.376915 205.052612 lineto
+81 207.07431 lineto
+81.623077 209.087296 lineto
+82.246155 211.09079 lineto
+82.869225 213.084076 lineto
+83.49231 215.066299 lineto
+84.115387 217.036682 lineto
+84.738457 218.994354 lineto
+85.361534 220.938553 lineto
+85.984619 222.868378 lineto
+86.607689 224.783066 lineto
+87.230766 226.681671 lineto
+87.853844 228.5634 lineto
+88.476921 230.427429 lineto
+89.099998 232.272812 lineto
+89.723076 234.098801 lineto
+90.346146 235.904373 lineto
+90.969231 237.688812 lineto
+91.592308 239.451126 lineto
+92.215378 241.190536 lineto
+92.838455 242.906128 lineto
+93.46154 244.597061 lineto
+94.08461 246.262405 lineto
+94.707687 247.901428 lineto
+95.330765 249.513138 lineto
+95.953842 251.096771 lineto
+96.57692 252.651443 lineto
+97.199997 254.176331 lineto
+97.823067 255.67067 lineto
+98.446152 257.133545 lineto
+99.069229 258.564148 lineto
+99.692307 259.961731 lineto
+100.315384 261.325531 lineto
+100.938461 262.654663 lineto
+101.561539 263.948456 lineto
+102.184608 265.206207 lineto
+102.807693 266.427094 lineto
+103.430771 267.610443 lineto
+104.053841 268.755585 lineto
+104.676918 269.861755 lineto
+105.300003 270.928406 lineto
+105.923073 271.954834 lineto
+106.54615 272.94046 lineto
+107.169228 273.884613 lineto
+107.792305 274.786865 lineto
+108.415382 275.646545 lineto
+109.03846 276.463165 lineto
+109.66153 277.236237 lineto
+110.284615 277.965271 lineto
+110.907692 278.649841 lineto
+111.530762 279.28949 lineto
+112.153839 279.883881 lineto
+112.776924 280.432617 lineto
+113.399994 280.935303 lineto
+114.023071 281.391754 lineto
+114.646149 281.801605 lineto
+115.269226 282.164642 lineto
+115.892303 282.480591 lineto
+116.515381 282.749329 lineto
+117.138458 282.970673 lineto
+117.761536 283.14447 lineto
+118.384613 283.27066 lineto
+119.00769 283.349152 lineto
+119.630768 283.379974 lineto
+120.253838 283.363037 lineto
+120.876923 283.298431 lineto
+121.5 283.186188 lineto
+122.12307 283.026459 lineto
+122.746155 282.819275 lineto
+123.369232 282.56485 lineto
+123.992302 282.263306 lineto
+124.615387 281.915009 lineto
+125.238449 281.52005 lineto
+125.861534 281.078735 lineto
+126.484619 280.591461 lineto
+127.107681 280.058472 lineto
+127.730766 279.480133 lineto
+128.353851 278.856873 lineto
+128.976913 278.189117 lineto
+129.600006 277.477264 lineto
+130.223068 276.721893 lineto
+130.846146 275.92334 lineto
+131.469238 275.082245 lineto
+132.0923 274.199158 lineto
+132.715378 273.274628 lineto
+133.33847 272.309235 lineto
+133.961533 271.30365 lineto
+134.58461 270.258392 lineto
+135.207687 269.174286 lineto
+135.830765 268.05188 lineto
+136.453842 266.891907 lineto
+137.07692 265.69519 lineto
+137.699997 264.462341 lineto
+138.323074 263.194061 lineto
+138.946152 261.891296 lineto
+139.569229 260.554688 lineto
+140.192307 259.185059 lineto
+140.815384 257.783264 lineto
+141.438461 256.350067 lineto
+142.061523 254.886337 lineto
+142.684616 253.392853 lineto
+143.307693 251.870529 lineto
+143.930756 250.32019 lineto
+144.553848 248.742706 lineto
+145.176926 247.138916 lineto
+145.799988 245.509796 lineto
+146.42308 243.856018 lineto
+147.046143 242.178696 lineto
+147.66922 240.478592 lineto
+148.292313 238.756546 lineto
+148.915375 237.013596 lineto
+149.538452 235.250488 lineto
+150.161545 233.46817 lineto
+150.784607 231.667526 lineto
+151.407684 229.849396 lineto
+152.030762 228.014709 lineto
+152.653839 226.164307 lineto
+153.276917 224.299042 lineto
+153.899994 222.41983 lineto
+154.523071 220.527451 lineto
+155.146149 218.622833 lineto
+155.769226 216.706863 lineto
+156.392303 214.780197 lineto
+157.015366 212.843811 lineto
+157.638458 210.898453 lineto
+158.261536 208.944931 lineto
+158.884598 206.984116 lineto
+159.50769 205.016708 lineto
+160.130768 203.043518 lineto
+160.75383 201.065369 lineto
+161.376923 199.082886 lineto
+162 197.096893 lineto
+162.623062 195.108124 lineto
+163.246155 193.117233 lineto
+163.869217 191.125 lineto
+164.49231 189.131973 lineto
+165.115387 187.138992 lineto
+165.738449 185.146637 lineto
+166.361542 183.155533 lineto
+166.984619 181.166336 lineto
+167.607681 179.179718 lineto
+168.230774 177.196152 lineto
+168.853836 175.21637 lineto
+169.476913 173.240814 lineto
+170.100006 171.270081 lineto
+170.723068 169.304779 lineto
+171.346146 167.345306 lineto
+171.969238 165.392258 lineto
+172.5923 163.446167 lineto
+173.215378 161.507416 lineto
+173.838455 159.576584 lineto
+174.461533 157.654022 lineto
+175.08461 155.740173 lineto
+175.707687 153.835495 lineto
+176.330765 151.940338 lineto
+176.953842 150.055161 lineto
+177.57692 148.180359 lineto
+178.199997 146.316162 lineto
+178.823059 144.463058 lineto
+179.446152 142.621292 lineto
+180.069229 140.791214 lineto
+180.692291 138.973114 lineto
+181.315384 137.167297 lineto
+181.938461 135.374039 lineto
+182.561523 133.593613 lineto
+183.184616 131.826279 lineto
+183.807693 130.072205 lineto
+184.430756 128.331696 lineto
+185.053848 126.604904 lineto
+185.67691 124.892128 lineto
+186.299988 123.193428 lineto
+186.92308 121.508995 lineto
+187.546143 119.839157 lineto
+188.16922 118.183861 lineto
+188.792313 116.543327 lineto
+189.415375 114.917824 lineto
+190.038452 113.307259 lineto
+190.66153 111.711853 lineto
+191.284607 110.131638 lineto
+191.907684 108.566826 lineto
+192.530762 107.01738 lineto
+193.153839 105.483368 lineto
+193.776917 103.964996 lineto
+194.399994 102.462219 lineto
+195.023071 100.975029 lineto
+195.646133 99.503624 lineto
+196.269226 98.047806 lineto
+196.892303 96.607788 lineto
+197.515366 95.183548 lineto
+198.138458 93.774994 lineto
+198.761536 92.382225 lineto
+199.384613 91.005264 lineto
+200.00769 89.643936 lineto
+200.630768 88.298363 lineto
+201.253845 86.968552 lineto
+201.876923 85.65432 lineto
+202.499985 84.355713 lineto
+203.123077 83.072662 lineto
+203.746155 81.805199 lineto
+204.369217 80.553177 lineto
+204.99231 79.316551 lineto
+205.615387 78.095261 lineto
+206.238449 76.889267 lineto
+206.861542 75.698494 lineto
+207.484604 74.522858 lineto
+208.107681 73.362236 lineto
+208.730774 72.216591 lineto
+209.353836 71.085838 lineto
+209.976913 69.969826 lineto
+210.600006 68.868538 lineto
+211.223068 67.78186 lineto
+211.846146 66.709648 lineto
+212.469223 65.651878 lineto
+213.0923 64.608307 lineto
+213.715378 63.578938 lineto
+214.338455 62.563667 lineto
+214.961533 61.562328 lineto
+215.58461 60.574802 lineto
+216.207687 59.601059 lineto
+216.830765 58.640923 lineto
+217.453827 57.694187 lineto
+218.07692 56.760868 lineto
+218.699997 55.840786 lineto
+219.323059 54.933796 lineto
+219.946152 54.039818 lineto
+220.569229 53.158646 lineto
+221.192291 52.290287 lineto
+221.815384 51.434509 lineto
+222.438461 50.591175 lineto
+223.061523 49.760212 lineto
+223.684616 48.941456 lineto
+224.307678 48.13483 lineto
+224.930756 47.340164 lineto
+225.553848 46.557251 lineto
+226.17691 45.786125 lineto
+226.799988 45.026478 lineto
+227.42308 44.27829 lineto
+228.046143 43.541412 lineto
+228.66922 42.815716 lineto
+229.292297 42.101067 lineto
+229.915375 41.397293 lineto
+230.538452 40.704346 lineto
+231.16153 40.021954 lineto
+231.784607 39.350128 lineto
+232.407684 38.688686 lineto
+233.030762 38.037498 lineto
+233.653839 37.396427 lineto
+234.276917 36.765411 lineto
+234.899994 36.144222 lineto
+235.523071 35.532688 lineto
+236.146149 34.930897 lineto
+236.769226 34.338539 lineto
+237.392303 33.755524 lineto
+238.015381 33.181789 lineto
+238.638458 32.617172 lineto
+239.261536 32.061478 lineto
+239.884613 31.514778 lineto
+240.507675 30.976776 lineto
+241.130753 30.447369 lineto
+241.753845 29.926527 lineto
+242.376923 29.414011 lineto
+243 28.909819 lineto
+243.623062 28.413801 lineto
+244.24614 27.925838 lineto
+244.869217 27.445717 lineto
+245.49231 26.973499 lineto
+246.115387 26.508966 lineto
+246.738464 26.052027 lineto
+247.361526 25.60257 lineto
+247.984604 25.160488 lineto
+248.607681 24.725668 lineto
+249.230774 24.298021 lineto
+249.853851 23.877439 lineto
+250.476898 23.463787 lineto
+251.099991 23.056999 lineto
+251.723068 22.656919 lineto
+252.346146 22.263548 lineto
+252.969238 21.876667 lineto
+253.592285 21.496271 lineto
+254.215363 21.122206 lineto
+254.838455 20.754385 lineto
+255.461533 20.392725 lineto
+256.084625 20.037149 lineto
+256.707703 19.687508 lineto
+257.33075 19.343801 lineto
+257.953827 19.005806 lineto
+258.576904 18.673571 lineto
+259.200012 18.346891 lineto
+259.82309 18.02577 lineto
+260.446136 17.710093 lineto
+261.069214 17.39971 lineto
+261.692291 17.094597 lineto
+262.315369 16.794687 lineto
+262.938477 16.499889 lineto
+263.561554 16.210098 lineto
+264.184601 15.925267 lineto
+264.807678 15.645264 lineto
+265.430756 15.370019 lineto
+266.053833 15.099513 lineto
+266.676941 14.833633 lineto
+267.299988 14.572317 lineto
+267.923065 14.315516 lineto
+268.546143 14.063079 lineto
+269.16922 13.814958 lineto
+269.792297 13.571133 lineto
+270.415375 13.33147 lineto
+271.038452 13.095992 lineto
+271.66153 12.864544 lineto
+272.284607 12.637082 lineto
+272.907684 12.413561 lineto
+273.530762 12.193915 lineto
+274.153839 11.978099 lineto
+274.776917 11.765959 lineto
+275.399994 11.557493 lineto
+276.023071 11.352704 lineto
+276.646149 11.151436 lineto
+277.269196 10.953644 lineto
+277.892303 10.75935 lineto
+278.515381 10.568377 lineto
+279.138458 10.38077 lineto
+279.761536 10.196395 lineto
+280.384613 10.015254 lineto
+281.00766 9.837255 lineto
+281.630768 9.662401 lineto
+282.253845 9.490582 lineto
+282.876923 9.321773 lineto
+283.5 9.155865 lineto
+284.123047 8.992924 lineto
+284.746124 8.832794 lineto
+285.369232 8.675521 lineto
+285.99231 8.520972 lineto
+286.615387 8.369123 lineto
+287.238434 8.219954 lineto
+287.861511 8.073442 lineto
+288.484589 7.929477 lineto
+289.107697 7.788013 lineto
+289.730774 7.649051 lineto
+290.353851 7.512569 lineto
+290.976898 7.378457 lineto
+291.599976 7.246713 lineto
+292.223083 7.117294 lineto
+292.846161 6.990156 lineto
+293.469238 6.865277 lineto
+294.092285 6.742567 lineto
+294.715363 6.622049 lineto
+295.33844 6.503635 lineto
+295.961548 6.387325 lineto
+296.584625 6.273073 lineto
+297.207672 6.160859 lineto
+297.83075 6.050614 lineto
+298.453827 5.942319 lineto
+299.076904 5.835972 lineto
+299.700012 5.731463 lineto
+300.32309 5.628836 lineto
+300.946136 5.528047 lineto
+301.569214 5.429007 lineto
+302.192291 5.331716 lineto
+302.815369 5.236196 lineto
+303.438477 5.14236 lineto
+304.061523 5.050161 lineto
+304.684601 4.959601 lineto
+305.307678 4.87068 lineto
+305.930756 4.783352 lineto
+306.553833 4.697509 lineto
+307.176941 4.613282 lineto
+307.799988 4.530494 lineto
+308.423065 4.449211 lineto
+309.046143 4.369346 lineto
+309.66922 4.29092 lineto
+310.292297 4.213867 lineto
+310.915375 4.138208 lineto
+311.538452 4.063922 lineto
+312.16153 3.990943 lineto
+312.784607 3.919248 lineto
+313.407684 3.848837 lineto
+314.030731 3.779711 lineto
+314.653839 3.711735 lineto
+315.276917 3.645022 lineto
+315.899994 3.579527 lineto
+316.523071 3.515205 lineto
+317.146149 3.452013 lineto
+317.769196 3.389927 lineto
+318.392303 3.328993 lineto
+stroke
+newpath
+318.392303 3.328993 moveto
+319.015381 3.269121 lineto
+319.638458 3.210335 lineto
+320.261536 3.152611 lineto
+320.884583 3.095862 lineto
+321.50766 3.040153 lineto
+322.130768 2.985485 lineto
+322.753845 2.931769 lineto
+323.376923 2.879005 lineto
+324 2.827216 lineto
+324.623047 2.776312 lineto
+325.246124 2.726338 lineto
+325.869232 2.677272 lineto
+326.49231 2.629047 lineto
+327.115387 2.581708 lineto
+327.738434 2.535233 lineto
+328.361511 2.489598 lineto
+328.984619 2.444717 lineto
+329.607697 2.400699 lineto
+330.230774 2.357456 lineto
+330.853821 2.314988 lineto
+331.476898 2.273318 lineto
+332.099976 2.232333 lineto
+332.723083 2.192124 lineto
+333.346161 2.152623 lineto
+333.969238 2.11383 lineto
+334.592285 2.075724 lineto
+335.215363 2.038327 lineto
+335.83844 2.001572 lineto
+336.461548 1.965547 lineto
+337.084625 1.930076 lineto
+337.707672 1.895291 lineto
+338.33075 1.861104 lineto
+338.953827 1.827604 lineto
+339.576904 1.794635 lineto
+340.200012 1.762219 lineto
+340.82309 1.730446 lineto
+341.446136 1.69927 lineto
+342.069214 1.668626 lineto
+342.692291 1.638557 lineto
+343.315369 1.608998 lineto
+343.938477 1.579948 lineto
+344.561523 1.551474 lineto
+345.184601 1.523486 lineto
+345.807678 1.495986 lineto
+346.430756 1.468996 lineto
+347.053833 1.442492 lineto
+347.67691 1.416497 lineto
+348.299988 1.390879 lineto
+348.923065 1.365815 lineto
+349.546143 1.341171 lineto
+350.16922 1.316948 lineto
+350.792297 1.29319 lineto
+351.415375 1.269875 lineto
+352.038452 1.246936 lineto
+352.66153 1.224418 lineto
+353.284607 1.202364 lineto
+353.907684 1.180643 lineto
+354.530731 1.159343 lineto
+355.153839 1.138397 lineto
+355.776917 1.117849 lineto
+356.399994 1.097634 lineto
+357.023071 1.077861 lineto
+357.646118 1.058399 lineto
+358.269196 1.039312 lineto
+358.892303 1.020536 lineto
+359.515381 1.002114 lineto
+360.138458 0.984024 lineto
+360.761536 0.966222 lineto
+361.384583 0.948775 lineto
+362.00769 0.931681 lineto
+362.630768 0.914809 lineto
+363.253845 0.898336 lineto
+363.876923 0.882084 lineto
+364.499969 0.866186 lineto
+365.123047 0.85051 lineto
+365.746155 0.835143 lineto
+366.369232 0.820065 lineto
+366.99231 0.80523 lineto
+367.615387 0.790705 lineto
+368.238434 0.776445 lineto
+368.861511 0.762408 lineto
+369.484619 0.748613 lineto
+370.107697 0.735107 lineto
+370.730774 0.721844 lineto
+371.353821 0.708802 lineto
+371.976898 0.695982 lineto
+372.599976 0.683428 lineto
+373.223083 0.671073 lineto
+373.846161 0.658917 lineto
+374.469208 0.647027 lineto
+375.092285 0.635358 lineto
+375.715363 0.623889 lineto
+376.33844 0.612596 lineto
+376.961548 0.601525 lineto
+377.584625 0.590654 lineto
+378.207672 0.580004 lineto
+378.83075 0.569508 lineto
+379.453827 0.559213 lineto
+380.076904 0.549094 lineto
+380.700012 0.539174 lineto
+381.323059 0.529454 lineto
+381.946136 0.519911 lineto
+382.569214 0.510478 lineto
+383.192291 0.501245 lineto
+383.815369 0.492212 lineto
+384.438477 0.483311 lineto
+385.061523 0.474565 lineto
+385.684601 0.465996 lineto
+386.307678 0.457604 lineto
+386.930756 0.449301 lineto
+387.553833 0.441175 lineto
+388.17691 0.433204 lineto
+388.799988 0.42541 lineto
+389.423065 0.417682 lineto
+390.046143 0.410132 lineto
+390.66922 0.402714 lineto
+391.292267 0.39543 lineto
+391.915375 0.388322 lineto
+392.538452 0.381303 lineto
+393.16153 0.374395 lineto
+393.784607 0.36762 lineto
+394.407684 0.360977 lineto
+395.030731 0.354423 lineto
+395.653839 0.348069 lineto
+396.276917 0.341758 lineto
+396.899994 0.335581 lineto
+397.523071 0.32947 lineto
+398.146118 0.323558 lineto
+398.769226 0.31769 lineto
+399.392303 0.311978 lineto
+400.015381 0.306353 lineto
+400.638458 0.300796 lineto
+401.261536 0.295327 lineto
+401.884583 0.290035 lineto
+402.50769 0.284765 lineto
+403.130768 0.279606 lineto
+403.753845 0.274558 lineto
+404.376923 0.269598 lineto
+404.999969 0.264727 lineto
+405.623047 0.259944 lineto
+406.246155 0.25525 lineto
+406.869232 0.250601 lineto
+407.49231 0.246084 lineto
+408.115356 0.241611 lineto
+408.738434 0.237293 lineto
+409.361511 0.232976 lineto
+409.984619 0.228769 lineto
+410.607697 0.224628 lineto
+411.230774 0.220576 lineto
+411.853821 0.216591 lineto
+412.476898 0.212694 lineto
+413.099976 0.208819 lineto
+413.723083 0.205033 lineto
+414.346161 0.201357 lineto
+414.969208 0.197682 lineto
+415.592285 0.194139 lineto
+416.215363 0.190596 lineto
+416.83844 0.187142 lineto
+417.461548 0.183799 lineto
+418.084595 0.180433 lineto
+418.707672 0.177178 lineto
+419.33075 0.173946 lineto
+419.953827 0.170802 lineto
+420.576904 0.167746 lineto
+421.200012 0.164757 lineto
+421.823059 0.161768 lineto
+422.446136 0.158823 lineto
+423.069214 0.155989 lineto
+423.692291 0.153132 lineto
+424.315369 0.150387 lineto
+424.938446 0.147641 lineto
+425.561523 0.144962 lineto
+426.184601 0.142349 lineto
+426.807678 0.139781 lineto
+427.430756 0.137235 lineto
+428.053833 0.134755 lineto
+428.67691 0.132319 lineto
+429.299988 0.129928 lineto
+429.923065 0.127581 lineto
+430.546143 0.125278 lineto
+431.16922 0.12302 lineto
+431.792297 0.120783 lineto
+432.415375 0.118613 lineto
+433.038452 0.116444 lineto
+433.66153 0.11434 lineto
+434.284607 0.112259 lineto
+434.907654 0.110222 lineto
+435.530762 0.108229 lineto
+436.153839 0.106303 lineto
+436.776917 0.104376 lineto
+437.399994 0.102472 lineto
+438.023071 0.100612 lineto
+438.646118 0.098797 lineto
+439.269226 0.097025 lineto
+439.892303 0.095254 lineto
+440.515381 0.093527 lineto
+441.138458 0.091888 lineto
+441.761505 0.090228 lineto
+442.384583 0.088589 lineto
+443.00769 0.086995 lineto
+443.630768 0.085401 lineto
+444.253845 0.083873 lineto
+444.876923 0.082345 lineto
+445.499969 0.080862 lineto
+446.123047 0.0794 lineto
+446.746155 0.077939 lineto
+447.369232 0.076566 lineto
+447.99231 0.075171 lineto
+448.615356 0.073821 lineto
+449.238434 0.072448 lineto
+449.861511 0.071164 lineto
+450.484619 0.069879 lineto
+451.107697 0.068595 lineto
+451.730743 0.067377 lineto
+452.353821 0.06616 lineto
+452.976898 0.06492 lineto
+453.599976 0.063768 lineto
+454.223083 0.062617 lineto
+454.846161 0.061466 lineto
+455.469208 0.060358 lineto
+456.092285 0.059274 lineto
+456.715363 0.058211 lineto
+457.33844 0.057126 lineto
+457.961548 0.056107 lineto
+458.584595 0.055111 lineto
+459.207672 0.054137 lineto
+459.83075 0.053162 lineto
+460.453827 0.052166 lineto
+461.076904 0.051214 lineto
+461.700012 0.050306 lineto
+462.323059 0.049398 lineto
+462.946136 0.048513 lineto
+463.569214 0.047627 lineto
+464.192291 0.046786 lineto
+464.815369 0.045922 lineto
+465.438446 0.045081 lineto
+466.061523 0.044261 lineto
+466.684601 0.043464 lineto
+467.307678 0.042667 lineto
+467.930756 0.041892 lineto
+468.553833 0.041139 lineto
+469.17691 0.040409 lineto
+469.799988 0.039656 lineto
+470.423065 0.038947 lineto
+471.046143 0.038239 lineto
+471.66922 0.037552 lineto
+472.292297 0.036888 lineto
+472.915375 0.036202 lineto
+473.538452 0.03556 lineto
+474.16153 0.034918 lineto
+474.784607 0.034275 lineto
+475.407654 0.033655 lineto
+476.030762 0.033036 lineto
+476.653839 0.032438 lineto
+477.276917 0.031862 lineto
+477.899994 0.031286 lineto
+stroke
+0 setgray
+[] 0 setdash
+gsave
+newpath
+0.4 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+grestore
+gsave
+grestore
+grestore
+grestore
+%%Trailer
+%%DocumentFonts: Times-Roman
+
+%%EndDocument
+~
+%AI5_EndPlace
+LB
+%AI5_EndLayer--
+%%PageTrailer
+gsave annotatepage grestore showpage
+%%Trailer
+Adobe_IllustratorA_AI5 /terminate get exec
+Adobe_level2_AI5 /terminate get exec
+%%EOF

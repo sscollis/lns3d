@@ -1,0 +1,2036 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Adobe Illustrator(TM) 3.0.1.
+%%For: () ()
+%%Title: (/u/collis/iris2/lin_reed/vorticity.ai)
+%%CreationDate: (11/9/95) (16:58)
+%%BoundingBox: 80 264 510 535
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentFonts: Helvetica
+%%DocumentFiles:/u/collis/iris2/lin_reed/vorticity_mine.eps
+%%DocumentSuppliedResources: procset Adobe_packedarray 2.0 0
+%%+ procset Adobe_cmykcolor 1.1 0
+%%+ procset Adobe_cshow 1.1 0
+%%+ procset Adobe_customcolor 1.0 0
+%%+ procset Adobe_IllustratorA_AI3 1.0 1
+%AI3_ColorUsage: Color
+%AI3_IncludePlacedImages
+%AI3_TemplateBox: 99 271.92 512.28 522
+%AI3_TemplateFile: /u/collis/iris2/lin_reed/vorticity.tif
+%AI3_TileBox: 30 31 582 761
+%AI3_DocumentPreview: Header
+%%Template:/u/collis/iris2/lin_reed/vorticity.tif
+%%PageOrigin:30 31
+%%AI3_PaperRect:0 792 612 0
+%%AI3_Margin:30 31 30 31
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Adobe_packedarray 2.0 0
+%%Title: (Packed Array Operators)
+%%Version: 2.0 
+%%CreationDate: (8/2/90) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+userdict /Adobe_packedarray 5 dict dup begin put
+/initialize			% - initialize -
+{
+/packedarray where
+	{
+	pop
+	}
+	{
+	Adobe_packedarray begin
+	Adobe_packedarray
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/packedarray		% arguments count packedarray array
+{
+array astore readonly
+} def
+/setpacking			% boolean setpacking -
+{
+pop
+} def
+/currentpacking		% - setpacking boolean
+{
+false
+} def
+currentdict readonly pop end
+%%EndResource
+Adobe_packedarray /initialize get exec
+
+%%BeginResource: procset Adobe_cmykcolor 1.1 0
+%%Title: (CMYK Color Operators)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cmykcolor 4 dict dup begin put
+/initialize			% - initialize -
+{
+/setcmykcolor where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cmykcolor_vars 2 dict dup begin put
+	/_setrgbcolor
+		/setrgbcolor load def
+	/_currentrgbcolor
+		/currentrgbcolor load def
+	Adobe_cmykcolor begin
+	Adobe_cmykcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	end
+	Adobe_cmykcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_cmykcolor eq
+	{
+	end
+	} if
+} def
+/setcmykcolor		% cyan magenta yellow black setcmykcolor -
+{
+1 sub 4 1 roll
+3
+	{
+	3 index add neg dup 0 lt
+		{
+		pop 0
+		} if
+	3 1 roll
+	} repeat
+Adobe_cmykcolor_vars /_setrgbcolor get exec
+pop
+} def 
+/currentcmykcolor	% - currentcmykcolor cyan magenta yellow black
+{
+Adobe_cmykcolor_vars /_currentrgbcolor get exec
+3
+	{
+	1 sub neg 3 1 roll
+	} repeat
+0
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_cshow 1.1 0
+%%Title: (cshow Operator)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cshow 3 dict dup begin put
+/initialize			% - initialize -
+{
+/cshow where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cshow_vars 1 dict dup begin put
+	/_cshow		% - _cshow proc
+		{} def
+	Adobe_cshow begin
+	Adobe_cshow
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/cshow				% proc string cshow -
+{
+exch
+Adobe_cshow_vars
+	exch /_cshow
+	exch put
+	{
+	0 0 Adobe_cshow_vars /_cshow get exec
+	} forall
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_customcolor 1.0 0
+%%Title: (Custom Color Operators)
+%%Version: 1.0 
+%%CreationDate: (5/9/88) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_customcolor 5 dict dup begin put
+/initialize			% - initialize -
+{
+/setcustomcolor where
+	{
+	pop
+	}
+	{
+	Adobe_customcolor begin
+	Adobe_customcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	Adobe_customcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_customcolor eq
+	{
+	end
+	} if
+} def
+/findcmykcustomcolor	% cyan magenta yellow black name findcmykcustomcolor object
+{
+5 packedarray
+}  def
+/setcustomcolor		% object tint setcustomcolor -
+{
+exch
+aload pop pop
+4
+	{
+	4 index mul 4 1 roll
+	} repeat
+5 -1 roll pop
+setcmykcolor
+} def
+/setoverprint		% boolean setoverprint -
+{
+pop
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_IllustratorA_AI3 1.0 1
+%%Title: (Adobe Illustrator (R) Version 3.0 Abbreviated Prolog)
+%%Version: 1.0 
+%%CreationDate: (7/22/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_IllustratorA_AI3 61 dict dup begin put
+% initialization
+/initialize				% - initialize -
+{
+% 47 vars, but leave slack of 10 entries for custom Postscript fragments
+userdict /Adobe_IllustratorA_AI3_vars 57 dict dup begin put
+
+% paint operands
+/_lp /none def
+/_pf {} def
+/_ps {} def
+/_psf {} def
+/_pss {} def
+/_pjsf {} def
+/_pjss {} def
+/_pola 0 def
+/_doClip 0 def
+
+% paint operators
+/cf	currentflat def	% - cf flatness
+
+% typography operands
+/_tm matrix def
+/_renderStart [/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0] def 
+/_renderEnd [null null null null /i1 /i1 /i1 /i1] def
+/_render -1 def
+/_rise 0 def
+/_ax 0 def			% x character spacing	(_ax, _ay, _cx, _cy follows awidthshow naming convention)
+/_ay 0 def			% y character spacing
+/_cx 0 def			% x word spacing
+/_cy 0 def			% y word spacing
+/_leading [0 0] def
+/_ctm matrix def
+/_mtx matrix def
+/_sp 16#020 def
+/_hyphen (-) def
+/_fScl 0 def
+/_cnt 0 def
+/_hs 1 def
+/_nativeEncoding 0 def
+/_useNativeEncoding 0 def
+/_tempEncode 0 def
+/_pntr 0 def
+/_tDict 2 dict def
+
+% typography operators
+/Tx {} def
+/Tj {} def
+
+% compound path operators
+/CRender {} def
+
+% printing
+/_AI3_savepage {} def
+
+% color operands
+/_gf null def
+/_cf 4 array def
+/_if null def
+/_of false def
+/_fc {} def
+/_gs null def
+/_cs 4 array def
+/_is null def
+/_os false def
+/_sc {} def
+/_i null def
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3
+	{
+	dup xcheck
+		{
+		bind
+		} if
+	pop pop
+	} forall
+end
+end
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3_vars begin
+newpath
+} def
+/terminate				% - terminate -
+{
+end
+end
+} def
+% definition operators
+/_					% - _ null
+null def
+/ddef				% key value ddef -
+{
+Adobe_IllustratorA_AI3_vars 3 1 roll put
+} def
+/xput				% key value literal xput -
+{
+dup load dup length exch maxlength eq
+	{
+	dup dup load dup
+	length 2 mul dict copy def
+	} if
+load begin def end
+} def
+/npop				% integer npop -
+{
+	{
+	pop
+	} repeat
+} def
+% marking operators
+/sw					% ax ay string sw x y 
+{
+dup length exch stringwidth
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add
+} def
+/swj				% cx cy fillchar ax ay string swj x y
+{
+dup 4 1 roll
+dup length exch stringwidth 
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add 
+6 2 roll /_cnt 0 ddef
+{1 index eq {/_cnt _cnt 1 add ddef} if} forall pop
+exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} def
+/ss					% ax ay string matrix ss -
+{
+4 1 roll
+	{				% matrix ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put pop
+	gsave
+	false charpath currentpoint
+	4 index setmatrix
+	stroke
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+3 npop
+} def
+/jss				% cx cy fillchar ax ay string matrix jss -
+{
+4 1 roll
+	{				% cx cy fillchar matrix ax ay char 0 0 {proc} -   
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	gsave
+	_sp eq 
+		{
+		exch 6 index 6 index 6 index 5 -1 roll widthshow  
+		currentpoint
+		}
+		{
+		false charpath currentpoint
+		4 index setmatrix stroke
+		}ifelse
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+6 npop
+} def
+
+% path operators
+/sp					% ax ay string sp -
+{
+	{
+	2 npop (0) exch
+	2 copy 0 exch put pop
+	false charpath
+	2 copy rmoveto
+	} exch cshow
+2 npop
+} def
+/jsp					% cx cy fillchar ax ay string jsp -
+{
+	{					% cx cy fillchar ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	_sp eq 
+		{
+		exch 5 index 5 index 5 index 5 -1 roll widthshow  
+		}
+		{
+		false charpath
+		}ifelse
+	2 copy rmoveto
+	} exch cshow
+5 npop
+} def
+
+% path construction operators
+/pl				% x y pl x y
+{
+transform
+0.25 sub round 0.25 add exch
+0.25 sub round 0.25 add exch
+itransform
+} def
+/setstrokeadjust where
+	{
+	pop true setstrokeadjust
+	/c				% x1 y1 x2 y2 x3 y3 c -
+	{
+	curveto
+	} def
+	/C
+	/c load def
+	/v				% x2 y2 x3 y3 v -
+	{
+	currentpoint 6 2 roll curveto
+	} def
+	/V
+	/v load def
+	/y				% x1 y1 x2 y2 y -
+	{
+	2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l				% x y l -
+	{
+	lineto
+	} def
+	/L
+	/l load def
+	/m				% x y m -
+	{
+	moveto
+	} def
+	}
+	{%else
+	/c
+	{
+	pl curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+	currentpoint 6 2 roll pl curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+	pl 2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+	pl lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+	pl moveto
+	} def
+	}ifelse
+
+% graphic state operators
+/d					% array phase d -
+{
+setdash
+} def
+/cf	{} def			% - cf flatness
+/i					% flatness i -
+{
+dup 0 eq
+	{
+	pop cf
+	} if
+setflat
+} def
+/j					% linejoin j -
+{
+setlinejoin
+} def
+/J					% linecap J -
+{
+setlinecap
+} def
+/M					% miterlimit M -
+{
+setmiterlimit
+} def
+/w					% linewidth w -
+{
+setlinewidth
+} def
+
+% path painting operators
+/H					% - H -
+{} def
+/h					% - h -
+{
+closepath
+} def
+/N					% - N -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq {clip /_doClip 0 ddef} if 
+	newpath
+	} 
+	{
+	/CRender {N} ddef
+	}ifelse
+} def
+/n					% - n -
+{N} def
+/F					% - F -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _pf grestore clip newpath /_lp /none ddef _fc 
+		/_doClip 0 ddef
+		}
+		{
+		_pf
+		}ifelse
+	} 
+	{
+	/CRender {F} ddef
+	}ifelse
+} def
+/f					% - f -
+{
+closepath
+F
+} def
+/S					% - S -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _ps grestore clip newpath /_lp /none ddef _sc 
+		/_doClip 0 ddef
+		}
+		{
+		_ps
+		}ifelse
+	} 
+	{
+	/CRender {S} ddef
+	}ifelse
+} def
+/s					% - s -
+{
+closepath
+S
+} def
+/B					% - B -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 	% F clears _doClip
+	gsave F grestore 
+		{
+		gsave S grestore clip newpath /_lp /none ddef _sc
+		/_doClip 0 ddef
+		} 
+		{
+		S
+		}ifelse
+	}
+	{
+	/CRender {B} ddef
+	}ifelse
+} def
+/b					% - b -
+{
+closepath
+B
+} def
+/W					% - W -
+{
+/_doClip 1 ddef
+} def
+/*					% - [string] * -
+{
+count 0 ne 
+	{
+	dup type (stringtype) eq {pop} if
+	} if 
+_pola 0 eq {newpath} if
+} def
+
+% group operators
+/u					% - u -
+{} def
+/U					% - U -
+{} def
+/q					% - q -
+{
+_pola 0 eq {gsave} if
+} def
+/Q					% - Q -
+{
+_pola 0 eq {grestore} if
+} def
+/*u					% - *u -
+{
+_pola 1 add /_pola exch ddef
+} def
+/*U					% - *U -
+{
+_pola 1 sub /_pola exch ddef 
+_pola 0 eq {CRender} if
+} def
+/D					% polarized D -
+{pop} def
+/*w					% - *w -
+{} def
+/*W					% - *W -
+{} def
+
+% place operators
+/`					% matrix llx lly urx ury string ` -
+{
+/_i save ddef
+6 1 roll 4 npop
+concat
+userdict begin
+/showpage {} def
+false setoverprint
+pop
+} def
+/~					% - ~ -
+{
+end
+_i restore
+} def
+
+% color operators
+/O					% flag O -
+{
+0 ne
+/_of exch ddef
+/_lp /none ddef
+} def
+/R					% flag R -
+{
+0 ne
+/_os exch ddef
+/_lp /none ddef
+} def
+/g					% gray g -
+{
+/_gf exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_gf setgray
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/G					% gray G -
+{
+/_gs exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_gs setgray
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/k					% cyan magenta yellow black k -
+{
+_cf astore pop
+/_fc
+{
+_lp /fill ne
+	{
+	_of setoverprint
+	_cf aload pop setcmykcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/K					% cyan magenta yellow black K -
+{
+_cs astore pop
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_cs aload pop setcmykcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/x					% cyan magenta yellow black name gray x -
+{
+/_gf exch ddef
+findcmykcustomcolor
+/_if exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_if _gf 1 exch sub setcustomcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/X					% cyan magenta yellow black name gray X -
+{
+/_gs exch ddef
+findcmykcustomcolor
+/_is exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_is _gs 1 exch sub setcustomcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+
+% locked object operator
+/A					% value A -
+{
+pop
+} def
+
+currentdict readonly pop end
+setpacking
+
+% annotate page operator
+/annotatepage
+{
+} def
+%%EndResource
+%AI3-Grid.0 18 18 3 0 0 0 3
+%%EndProlog
+%%BeginSetup
+%%IncludeFont: Helvetica
+Adobe_cmykcolor /initialize get exec
+
+Adobe_cshow /initialize get exec
+
+Adobe_customcolor /initialize get exec
+
+Adobe_IllustratorA_AI3 /initialize get exec
+
+%%EndSetup
+0 A
+u
+[0.7615 0 0 0.729 60.3495 263.1861] 0 0 631 374
+(/u/collis/iris2/lin_reed/vorticity_mine.eps)`
+%%BeginDocument: /u/collis/iris2/lin_reed/vorticity_mine.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: wall.org  -  /u/collis/recep
+%%Creator: nxyplot
+%%CreationDate: Thu Nov  9 16:36:17 1995
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 1
+%%BoundingBox: 0 0 631 374
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -4 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+%0 0 631 374 rectclip
+%0 0 631 374 rectclip
+%1 setgray
+%0 0 631 374 rectfill
+1.0 setlinewidth
+0 setgray
+/Helvetica findfont 14 scalefont
+15
+exch
+defineuserobject
+15 execuserobject setfont
+324.834015 10.086021 moveto
+() show
+15 execuserobject setfont
+18 183.849228 moveto
+gsave
+90 rotate
+() show
+grestore
+/Helvetica findfont 16 scalefont
+16
+exch
+defineuserobject
+16 execuserobject setfont
+310.161987 357.951599 moveto
+() show
+gsave
+100 50 translate
+15.93 0 translate
+1 setlinewidth
+newpath
+-15.93 0 moveto
+461.970001 0 lineto
+461.970001 291.600006 lineto
+-15.93 291.600006 lineto
+closepath
+stroke
+1.0 setlinewidth
+/Helvetica findfont 16 scalefont
+151
+exch
+defineuserobject
+151 execuserobject setfont
+newpath
+1 setlinewidth
+0 4 moveto
+[] 0 setdash
+0 -4 rlineto
+stroke
+0 291.600006 moveto
+[] 0 setdash
+0 -4 rlineto
+stroke
+-4.448 -21 moveto
+(0) show
+15.93 2 moveto
+0 -2 rlineto
+stroke
+15.93 291.600006 moveto
+0 -2 rlineto
+stroke
+31.860001 2 moveto
+0 -2 rlineto
+stroke
+31.860001 291.600006 moveto
+0 -2 rlineto
+stroke
+47.790001 2 moveto
+0 -2 rlineto
+stroke
+47.790001 291.600006 moveto
+0 -2 rlineto
+stroke
+63.720001 2 moveto
+0 -2 rlineto
+stroke
+63.720001 291.600006 moveto
+0 -2 rlineto
+stroke
+79.650002 2 moveto
+0 -2 rlineto
+stroke
+79.650002 291.600006 moveto
+0 -2 rlineto
+stroke
+95.580002 2 moveto
+0 -2 rlineto
+stroke
+95.580002 291.600006 moveto
+0 -2 rlineto
+stroke
+111.510002 2 moveto
+0 -2 rlineto
+stroke
+111.510002 291.600006 moveto
+0 -2 rlineto
+stroke
+127.440002 2 moveto
+0 -2 rlineto
+stroke
+127.440002 291.600006 moveto
+0 -2 rlineto
+stroke
+143.369995 2 moveto
+0 -2 rlineto
+stroke
+143.369995 291.600006 moveto
+0 -2 rlineto
+stroke
+159.300003 4 moveto
+[] 0 setdash
+0 -4 rlineto
+stroke
+159.300003 291.600006 moveto
+[] 0 setdash
+0 -4 rlineto
+stroke
+148.180008 -21 moveto
+(2.5) show
+175.230011 2 moveto
+0 -2 rlineto
+stroke
+175.230011 291.600006 moveto
+0 -2 rlineto
+stroke
+191.160004 2 moveto
+0 -2 rlineto
+stroke
+191.160004 291.600006 moveto
+0 -2 rlineto
+stroke
+207.089996 2 moveto
+0 -2 rlineto
+stroke
+207.089996 291.600006 moveto
+0 -2 rlineto
+stroke
+223.020004 2 moveto
+0 -2 rlineto
+stroke
+223.020004 291.600006 moveto
+0 -2 rlineto
+stroke
+238.950012 2 moveto
+0 -2 rlineto
+stroke
+238.950012 291.600006 moveto
+0 -2 rlineto
+stroke
+254.880005 2 moveto
+0 -2 rlineto
+stroke
+254.880005 291.600006 moveto
+0 -2 rlineto
+stroke
+270.809998 2 moveto
+0 -2 rlineto
+stroke
+270.809998 291.600006 moveto
+0 -2 rlineto
+stroke
+286.73999 2 moveto
+0 -2 rlineto
+stroke
+286.73999 291.600006 moveto
+0 -2 rlineto
+stroke
+302.670013 2 moveto
+0 -2 rlineto
+stroke
+302.670013 291.600006 moveto
+0 -2 rlineto
+stroke
+318.600006 4 moveto
+[] 0 setdash
+0 -4 rlineto
+stroke
+318.600006 291.600006 moveto
+[] 0 setdash
+0 -4 rlineto
+stroke
+307.480011 -21 moveto
+(5.0) show
+334.529999 2 moveto
+0 -2 rlineto
+stroke
+334.529999 291.600006 moveto
+0 -2 rlineto
+stroke
+350.460022 2 moveto
+0 -2 rlineto
+stroke
+350.460022 291.600006 moveto
+0 -2 rlineto
+stroke
+366.390015 2 moveto
+0 -2 rlineto
+stroke
+366.390015 291.600006 moveto
+0 -2 rlineto
+stroke
+382.320007 2 moveto
+0 -2 rlineto
+stroke
+382.320007 291.600006 moveto
+0 -2 rlineto
+stroke
+398.25 2 moveto
+0 -2 rlineto
+stroke
+398.25 291.600006 moveto
+0 -2 rlineto
+stroke
+414.179993 2 moveto
+0 -2 rlineto
+stroke
+414.179993 291.600006 moveto
+0 -2 rlineto
+stroke
+430.110016 2 moveto
+0 -2 rlineto
+stroke
+430.110016 291.600006 moveto
+0 -2 rlineto
+stroke
+446.040009 2 moveto
+0 -2 rlineto
+stroke
+446.040009 291.600006 moveto
+0 -2 rlineto
+stroke
+-11.93 0 moveto
+[] 0 setdash
+-4 0 rlineto
+stroke
+461.970001 0 moveto
+[] 0 setdash
+-4 0 rlineto
+stroke
+-34.826 -6 moveto
+(0) show
+-13.93 8.1 moveto
+-2 0 rlineto
+stroke
+461.970001 8.1 moveto
+-2 0 rlineto
+stroke
+-13.93 16.200001 moveto
+-2 0 rlineto
+stroke
+461.970001 16.200001 moveto
+-2 0 rlineto
+stroke
+-13.93 24.299999 moveto
+-2 0 rlineto
+stroke
+461.970001 24.299999 moveto
+-2 0 rlineto
+stroke
+-13.93 32.400002 moveto
+-2 0 rlineto
+stroke
+461.970001 32.400002 moveto
+-2 0 rlineto
+stroke
+-13.93 40.5 moveto
+-2 0 rlineto
+stroke
+461.970001 40.5 moveto
+-2 0 rlineto
+stroke
+-13.93 48.599998 moveto
+-2 0 rlineto
+stroke
+461.970001 48.599998 moveto
+-2 0 rlineto
+stroke
+-13.93 56.700001 moveto
+-2 0 rlineto
+stroke
+461.970001 56.700001 moveto
+-2 0 rlineto
+stroke
+-13.93 64.800003 moveto
+-2 0 rlineto
+stroke
+461.970001 64.800003 moveto
+-2 0 rlineto
+stroke
+-13.93 72.900002 moveto
+-2 0 rlineto
+stroke
+461.970001 72.900002 moveto
+-2 0 rlineto
+stroke
+-11.93 81 moveto
+[] 0 setdash
+-4 0 rlineto
+stroke
+461.970001 81 moveto
+[] 0 setdash
+-4 0 rlineto
+stroke
+-43.722 75 moveto
+(25) show
+-13.93 89.099998 moveto
+-2 0 rlineto
+stroke
+461.970001 89.099998 moveto
+-2 0 rlineto
+stroke
+-13.93 97.199997 moveto
+-2 0 rlineto
+stroke
+461.970001 97.199997 moveto
+-2 0 rlineto
+stroke
+-13.93 105.300003 moveto
+-2 0 rlineto
+stroke
+461.970001 105.300003 moveto
+-2 0 rlineto
+stroke
+-13.93 113.400002 moveto
+-2 0 rlineto
+stroke
+461.970001 113.400002 moveto
+-2 0 rlineto
+stroke
+-13.93 121.5 moveto
+-2 0 rlineto
+stroke
+461.970001 121.5 moveto
+-2 0 rlineto
+stroke
+-13.93 129.600006 moveto
+-2 0 rlineto
+stroke
+461.970001 129.600006 moveto
+-2 0 rlineto
+stroke
+-13.93 137.699997 moveto
+-2 0 rlineto
+stroke
+461.970001 137.699997 moveto
+-2 0 rlineto
+stroke
+-13.93 145.800003 moveto
+-2 0 rlineto
+stroke
+461.970001 145.800003 moveto
+-2 0 rlineto
+stroke
+-13.93 153.899994 moveto
+-2 0 rlineto
+stroke
+461.970001 153.899994 moveto
+-2 0 rlineto
+stroke
+-11.93 162 moveto
+[] 0 setdash
+-4 0 rlineto
+stroke
+461.970001 162 moveto
+[] 0 setdash
+-4 0 rlineto
+stroke
+-43.722 156 moveto
+(50) show
+-13.93 170.100006 moveto
+-2 0 rlineto
+stroke
+461.970001 170.100006 moveto
+-2 0 rlineto
+stroke
+-13.93 178.199997 moveto
+-2 0 rlineto
+stroke
+461.970001 178.199997 moveto
+-2 0 rlineto
+stroke
+-13.93 186.300003 moveto
+-2 0 rlineto
+stroke
+461.970001 186.300003 moveto
+-2 0 rlineto
+stroke
+-13.93 194.399994 moveto
+-2 0 rlineto
+stroke
+461.970001 194.399994 moveto
+-2 0 rlineto
+stroke
+-13.93 202.5 moveto
+-2 0 rlineto
+stroke
+461.970001 202.5 moveto
+-2 0 rlineto
+stroke
+-13.93 210.600006 moveto
+-2 0 rlineto
+stroke
+461.970001 210.600006 moveto
+-2 0 rlineto
+stroke
+-13.93 218.699997 moveto
+-2 0 rlineto
+stroke
+461.970001 218.699997 moveto
+-2 0 rlineto
+stroke
+-13.93 226.800003 moveto
+-2 0 rlineto
+stroke
+461.970001 226.800003 moveto
+-2 0 rlineto
+stroke
+-13.93 234.899994 moveto
+-2 0 rlineto
+stroke
+461.970001 234.899994 moveto
+-2 0 rlineto
+stroke
+-11.93 243 moveto
+[] 0 setdash
+-4 0 rlineto
+stroke
+461.970001 243 moveto
+[] 0 setdash
+-4 0 rlineto
+stroke
+-43.722 237 moveto
+(75) show
+-13.93 251.100006 moveto
+-2 0 rlineto
+stroke
+461.970001 251.100006 moveto
+-2 0 rlineto
+stroke
+-13.93 259.200012 moveto
+-2 0 rlineto
+stroke
+461.970001 259.200012 moveto
+-2 0 rlineto
+stroke
+-13.93 267.299988 moveto
+-2 0 rlineto
+stroke
+461.970001 267.299988 moveto
+-2 0 rlineto
+stroke
+-13.93 275.399994 moveto
+-2 0 rlineto
+stroke
+461.970001 275.399994 moveto
+-2 0 rlineto
+stroke
+-13.93 283.5 moveto
+-2 0 rlineto
+stroke
+461.970001 283.5 moveto
+-2 0 rlineto
+stroke
+-15.93 0 477.899994 291.600006 rectclip
+newpath
+1.0 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+[] 0 setdash
+0 1.252332e-32 moveto
+0.000515 3.222421 lineto
+0.00206 6.444005 lineto
+0.004635 9.663919 lineto
+0.008242 12.881329 lineto
+0.012882 16.0954 lineto
+0.018555 19.305298 lineto
+0.025264 22.510197 lineto
+0.033012 25.709265 lineto
+0.0418 28.901674 lineto
+0.051633 32.086605 lineto
+0.062512 35.263237 lineto
+0.074441 38.430756 lineto
+0.087425 41.588341 lineto
+0.101469 44.735191 lineto
+0.116575 47.870491 lineto
+0.132751 50.99345 lineto
+0.150001 54.103264 lineto
+0.168331 57.19915 lineto
+0.187748 60.280315 lineto
+0.208258 63.345989 lineto
+0.229868 66.395393 lineto
+0.252586 69.427757 lineto
+0.27642 72.442322 lineto
+0.301378 75.438339 lineto
+0.32747 78.415054 lineto
+0.354703 81.371727 lineto
+0.383089 84.307625 lineto
+0.412638 87.222031 lineto
+0.443359 90.114212 lineto
+0.475266 92.983475 lineto
+0.508368 95.829094 lineto
+0.54268 98.650398 lineto
+0.578213 101.446701 lineto
+0.614982 104.217308 lineto
+0.653 106.961555 lineto
+0.692282 109.678787 lineto
+0.732843 112.368355 lineto
+0.7747 115.029617 lineto
+0.81787 117.661919 lineto
+0.862368 120.264656 lineto
+0.908215 122.837196 lineto
+0.955428 125.378952 lineto
+1.004027 127.889305 lineto
+1.054033 130.367676 lineto
+1.105467 132.813477 lineto
+1.158351 135.226135 lineto
+1.212709 137.605087 lineto
+1.268564 139.949783 lineto
+1.325941 142.259659 lineto
+1.384866 144.534195 lineto
+1.445367 146.772858 lineto
+1.507472 148.975113 lineto
+1.571209 151.140457 lineto
+1.63661 153.268387 lineto
+1.703706 155.358383 lineto
+1.77253 157.409988 lineto
+1.843117 159.422668 lineto
+1.915502 161.395996 lineto
+1.989724 163.329468 lineto
+2.06582 165.222656 lineto
+2.143831 167.075058 lineto
+2.2238 168.886261 lineto
+2.30577 170.655792 lineto
+2.389788 172.383224 lineto
+2.4759 174.06813 lineto
+2.564157 175.710052 lineto
+2.654611 177.308594 lineto
+2.747316 178.863327 lineto
+2.842327 180.373825 lineto
+2.939705 181.839691 lineto
+3.039511 183.260468 lineto
+3.141809 184.635818 lineto
+3.246666 185.965271 lineto
+3.354151 187.248459 lineto
+3.46434 188.484955 lineto
+3.577307 189.674393 lineto
+3.693133 190.816315 lineto
+3.811901 191.910385 lineto
+3.9337 192.956131 lineto
+4.05862 193.953217 lineto
+4.186758 194.901184 lineto
+4.318213 195.799667 lineto
+4.453091 196.648224 lineto
+4.591502 197.446487 lineto
+4.733561 198.194 lineto
+4.879388 198.890381 lineto
+5.029111 199.535156 lineto
+5.182862 200.127975 lineto
+5.340781 200.66835 lineto
+5.503014 201.155899 lineto
+5.669713 201.590134 lineto
+5.841039 201.970657 lineto
+6.017162 202.296982 lineto
+6.198258 202.56868 lineto
+6.384514 202.785309 lineto
+6.576124 202.946396 lineto
+6.773293 203.051468 lineto
+6.976236 203.100082 lineto
+7.18518 203.091751 lineto
+7.400361 203.026031 lineto
+7.622027 202.902435 lineto
+7.85044 202.720505 lineto
+8.085873 202.479782 lineto
+8.328613 202.17981 lineto
+8.57896 201.820129 lineto
+8.83723 201.400345 lineto
+9.10375 200.919983 lineto
+9.378867 200.378693 lineto
+9.662939 199.776077 lineto
+9.956343 199.111801 lineto
+10.259466 198.385544 lineto
+10.57272 197.597046 lineto
+10.896523 196.746109 lineto
+11.231316 195.83255 lineto
+11.577551 194.856308 lineto
+11.935696 193.817337 lineto
+12.306232 192.715759 lineto
+12.689654 191.551697 lineto
+13.086467 190.325485 lineto
+13.497184 189.037476 lineto
+13.922327 187.688263 lineto
+14.362424 186.278534 lineto
+14.818004 184.809113 lineto
+15.289596 183.281036 lineto
+15.777723 181.695526 lineto
+16.282904 180.053955 lineto
+16.805645 178.357925 lineto
+17.346437 176.609222 lineto
+17.90575 174.809875 lineto
+18.484037 172.962036 lineto
+19.081717 171.068176 lineto
+19.699184 169.130829 lineto
+20.3368 167.152786 lineto
+20.99489 165.136978 lineto
+21.673746 163.086426 lineto
+22.373619 161.004333 lineto
+23.09473 158.893951 lineto
+23.837261 156.758591 lineto
+24.601362 154.601562 lineto
+25.387156 152.426224 lineto
+26.194742 150.235825 lineto
+27.024193 148.033585 lineto
+27.875576 145.822586 lineto
+28.748945 143.60582 lineto
+29.64435 141.386124 lineto
+30.561853 139.166122 lineto
+31.50152 136.948303 lineto
+32.46344 134.734924 lineto
+33.44772 132.528061 lineto
+34.454502 130.329559 lineto
+35.483971 128.141083 lineto
+36.536343 125.964088 lineto
+37.611889 123.799782 lineto
+38.710922 121.649231 lineto
+39.833828 119.513313 lineto
+40.981041 117.392715 lineto
+42.153072 115.287941 lineto
+43.350498 113.199402 lineto
+44.573967 111.127304 lineto
+45.824215 109.071747 lineto
+47.102062 107.032722 lineto
+48.408424 105.010109 lineto
+49.744297 103.003654 lineto
+51.110794 101.013054 lineto
+52.50914 99.037895 lineto
+53.94067 97.077705 lineto
+55.406849 95.131927 lineto
+56.909283 93.199959 lineto
+58.44973 91.281105 lineto
+60.030098 89.374672 lineto
+61.652485 87.479858 lineto
+63.319172 85.595856 lineto
+65.032661 83.721771 lineto
+66.795685 81.856712 lineto
+68.611229 79.999695 lineto
+70.48259 78.149757 lineto
+72.413353 76.305809 lineto
+74.407478 74.46682 lineto
+76.469345 72.631599 lineto
+78.603737 70.799042 lineto
+80.815964 68.967865 lineto
+83.111931 67.136864 lineto
+85.498154 65.30468 lineto
+87.981895 63.470024 lineto
+90.571259 61.631428 lineto
+93.275276 59.787537 lineto
+96.10408 57.936798 lineto
+99.069031 56.077816 lineto
+102.182899 54.208988 lineto
+105.460068 52.32893 lineto
+108.916733 50.436096 lineto
+112.571198 48.529251 lineto
+116.444092 46.607079 lineto
+120.558685 44.668766 lineto
+124.941109 42.713604 lineto
+129.620636 40.741703 lineto
+134.629745 38.753639 lineto
+140.004135 36.751331 lineto
+145.782349 34.737808 lineto
+152.005081 32.718212 lineto
+158.713684 30.699694 lineto
+165.948166 28.692423 lineto
+173.744095 26.709387 lineto
+182.128815 24.766989 lineto
+191.117432 22.884184 lineto
+200.709167 21.082058 lineto
+210.885162 19.38187 lineto
+221.608688 17.803648 lineto
+232.827988 16.363932 lineto
+244.481186 15.074725 lineto
+256.502167 13.942497 lineto
+268.826111 12.96853 lineto
+281.393372 12.149415 lineto
+294.1521 11.478177 lineto
+307.05896 10.945212 lineto
+320.078888 10.53912 lineto
+333.184265 10.247332 lineto
+346.353638 10.056217 lineto
+359.57074 9.951329 lineto
+372.823181 9.916877 lineto
+386.101807 9.935806 lineto
+399.39975 9.989847 lineto
+412.711853 10.065469 lineto
+426.034393 10.153673 lineto
+439.364563 10.247867 lineto
+452.700378 10.34364 lineto
+466.040314 10.437672 lineto
+479.38327 10.527868 lineto
+492.728424 10.612645 lineto
+506.075226 10.691161 lineto
+519.423157 10.762787 lineto
+532.772034 10.827361 lineto
+546.121521 10.884775 lineto
+559.471436 10.935225 lineto
+572.821777 10.978868 lineto
+586.172302 11.016073 lineto
+599.523071 11.047122 lineto
+612.87384 11.072445 lineto
+626.224792 11.092369 lineto
+639.575867 11.107327 lineto
+652.926941 11.117646 lineto
+666.278076 11.123736 lineto
+679.62915 11.125896 lineto
+692.980347 11.124497 lineto
+706.331543 11.119805 lineto
+719.682739 11.112149 lineto
+733.033875 11.101758 lineto
+746.385132 11.088917 lineto
+759.736328 11.073819 lineto
+773.087585 11.056714 lineto
+786.438782 11.037759 lineto
+799.789978 11.017169 lineto
+813.141174 10.995075 lineto
+826.492432 10.971661 lineto
+839.843689 10.947031 lineto
+853.194885 10.921345 lineto
+866.546082 10.894687 lineto
+879.897278 10.867192 lineto
+893.248535 10.838929 lineto
+906.599792 10.810013 lineto
+919.950928 10.780499 lineto
+933.302185 10.750484 lineto
+946.653442 10.720015 lineto
+960.004639 10.689174 lineto
+973.355896 10.657994 lineto
+986.707031 10.626551 lineto
+1000.058289 10.594868 lineto
+1013.409546 10.56301 lineto
+1026.760742 10.530995 lineto
+1040.112061 10.49888 lineto
+1053.463135 10.466677 lineto
+1066.814453 10.434435 lineto
+1080.165649 10.402163 lineto
+1093.516846 10.369902 lineto
+1106.868164 10.33766 lineto
+1120.219238 10.305473 lineto
+1133.570435 10.273344 lineto
+1146.921753 10.241304 lineto
+1160.272949 10.209359 lineto
+1173.624268 10.177531 lineto
+1186.975464 10.145824 lineto
+1200.326538 10.114261 lineto
+1213.677856 10.082841 lineto
+1227.029053 10.051582 lineto
+1240.380371 10.020489 lineto
+1253.731567 9.989573 lineto
+1267.082642 9.958838 lineto
+1280.43396 9.928293 lineto
+1293.785156 9.897943 lineto
+1307.136475 9.867794 lineto
+1320.487671 9.837851 lineto
+1333.838867 9.808116 lineto
+1347.190063 9.778597 lineto
+1360.54126 9.749291 lineto
+1373.892578 9.720213 lineto
+1387.243774 9.69135 lineto
+1400.594971 9.66272 lineto
+1413.946167 9.63431 lineto
+1427.297363 9.606141 lineto
+1440.64856 9.578191 lineto
+1453.999878 9.550488 lineto
+1467.351074 9.523005 lineto
+1480.702393 9.495775 lineto
+1494.053467 9.468764 lineto
+1507.404663 9.442012 lineto
+1520.755981 9.415476 lineto
+1534.107178 9.389205 lineto
+1547.458496 9.363146 lineto
+1560.80957 9.337359 lineto
+1574.160767 9.311781 lineto
+1587.512085 9.286481 lineto
+1600.863281 9.261386 lineto
+1614.2146 9.236574 lineto
+1627.565796 9.211963 lineto
+1640.91687 9.187643 lineto
+1654.268188 9.163517 lineto
+1667.619385 9.139692 lineto
+1680.970703 9.116054 lineto
+1694.321899 9.092725 lineto
+1707.672974 9.069576 lineto
+1721.024292 9.046747 lineto
+1734.375488 9.024091 lineto
+1747.726807 9.001765 lineto
+1761.078003 8.979606 lineto
+1774.429199 8.957787 lineto
+1787.780396 8.936129 lineto
+1801.131592 8.914824 lineto
+1814.482788 8.893672 lineto
+1827.834106 8.872886 lineto
+1841.185303 8.852249 lineto
+1854.536499 8.831988 lineto
+1867.887695 8.811874 lineto
+1881.238892 8.79215 lineto
+1894.59021 8.77257 lineto
+1907.941406 8.753391 lineto
+1921.292725 8.734358 lineto
+1934.643799 8.715738 lineto
+1947.994995 8.697267 lineto
+1961.346313 8.679222 lineto
+1974.69751 8.661332 lineto
+1988.048828 8.643879 lineto
+2001.399902 8.626594 lineto
+2014.751099 8.609754 lineto
+2028.102417 8.593098 lineto
+2041.453491 8.576897 lineto
+2054.804688 8.560904 lineto
+2068.156006 8.54537 lineto
+2081.507324 8.530078 lineto
+2094.858398 8.515247 lineto
+2108.209717 8.5007 lineto
+2121.561035 8.486616 lineto
+2134.912109 8.472868 lineto
+2148.263428 8.459579 lineto
+2161.614746 8.446694 lineto
+2174.966064 8.434262 lineto
+2188.316895 8.422318 lineto
+2201.668213 8.410815 lineto
+2215.019531 8.399903 lineto
+2228.370605 8.38942 lineto
+2241.721924 8.379653 lineto
+2255.073242 8.370298 lineto
+2268.424316 8.361812 lineto
+2281.775635 8.353723 lineto
+2295.126953 8.346685 lineto
+2308.478027 8.340034 lineto
+2321.829346 8.334656 lineto
+2335.18042 8.329654 lineto
+2348.531738 8.326202 lineto
+2361.882812 8.323132 lineto
+2375.234131 8.321948 lineto
+2388.585449 8.32117 lineto
+2401.936523 8.322701 lineto
+2415.287842 8.324705 lineto
+2428.63916 8.329549 lineto
+2441.990234 8.335 lineto
+2455.341553 8.343971 lineto
+2468.692871 8.353792 lineto
+2482.043945 8.367996 lineto
+2495.39502 8.383396 lineto
+2508.746338 8.40391 lineto
+2522.097656 8.424928 lineto
+2535.44873 8.446086 lineto
+2548.800049 8.428246 lineto
+stroke
+0 setgray
+0 setgray
+0 setgray
+newpath
+1.0 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+[] 0 setdash
+gsave
+newpath
+1.0 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+newpath
+1.0 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+0 setgray
+grestore
+gsave
+grestore
+grestore
+grestore
+%%Trailer
+%%DocumentFonts: Helvetica
+%%EndDocument
+~
+u
+0 R
+0 G
+0 i 0 J 0 j 0.5 w 4 M [5 4 ]0 d
+%AI3_Note:
+0 D
+500.4994 512.5002 m
+500.4994 300 L
+136.5 300 L
+136.5 512.5002 L
+500.4994 512.5002 L
+s
+318.4997 406.2501 m
+S
+U
+U
+148.5 300.5 m
+150.25 419.25 150.75 431.25 v
+151.25 443.25 152.5 447.75 153.75 447.75 c
+155 447.75 156 447.25 158.5 437.5 c
+160.8374 428.3841 169.6225 402.6752 177 390.25 c
+191.25 366.25 203.8613 350.5691 235.75 335.25 c
+261.25 323 281.1705 318.7735 314.25 313.5 c
+331.5 310.75 371.7323 308.2754 385.5 308 c
+410.5 307.5 407.5 307 425.25 307 c
+436 307 501 307.5 y
+S
+%%PageTrailer
+%%Trailer
+Adobe_IllustratorA_AI3 /terminate get exec
+
+Adobe_customcolor /terminate get exec
+
+Adobe_cshow /terminate get exec
+
+Adobe_cmykcolor /terminate get exec
+
+Adobe_packedarray /terminate get exec
+
+%%EOF

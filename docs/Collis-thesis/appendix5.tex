@@ -1,0 +1,212 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Appendix 5
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 9-18-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[Finite Reynolds-Number Receptivity Theory]
+{Compressible, Finite Reynolds-Number Receptivity Theory \label{a:FRNT}}
+
+Finite Reynolds-Number Theory (FRNT) is based on the work of Zavol'skii \etal\
+\cite{ZaReRy:83} who approximated the linearized Navier-Stokes equations
+locally using the quasi-parallel disturbance equations.  This was done within
+the same receptivity framework used by Goldstein \cite{Goldstein:85} and Ruban
+\cite{Ruban:84} (who themselves used high Reynolds number asymptotics).
+Recently FRNT has been applied by Crouch \cite{Crouch:92,Crouch:93} and
+Choudhari \& Streett \cite{ChSt:92,ChSt:94} to investigate receptivity
+phenomena under a variety of situations.  However, most applications of FRNT
+have been for incompressible flow with the notable exception of the work of
+Zhigulev \& Fedorov \cite{ZhFe:87} for two-dimensional roughness.  In the
+following, we outline the straightforward extension of FRNT to compressible
+flow for three-dimensional boundary layers. The development follows the
+exposition given by Choudhari \cite{Choudhari:94} with appropriate extensions.
+
+In FRNT, the linearized Navier-Stokes equations are approximated by the
+quasi-parallel disturbance equations.  Towards that end, two length scales are
+defined: $l^*$ corresponding to the streamwise location of the wall
+disturbance downstream of the leading-edge and $L^*$ which is proportional to
+the undisturbed boundary layer thickness at $s^* = l^*$.  $L^*$ is defined
+relative to $l^*$ through the relation
+%
+\begin{equation}
+  L^* = \frac{l^*}{\sqrt{\Re_l}} ,
+\end{equation}
+%
+where $\Re_l \equiv U^*_e(s^* = l^*) l^* / \nu^*$ is the Reynolds number based
+of the local, slip-velocity tangent to the surface at the wall disturbance
+location.  The length-scale $L^*$ is used to scale both the height of the bump
+and its variations in the streamwise and spanwise directions.  With this
+scaling, the streamwise direction is given by $S = (s^* - l^*) / L^*$, the
+wall normal direction by $N = n^* / L^*$, and the scaled spanwise direction by
+$Z = z^*/L^*$.  The global coordinates $(s^*,n^*,z^*)$ when scaled by $l^*$
+are denoted as $(s,n,z)$.
+
+Our primary focus is on the generation of stationary cross-flow vortices so
+that we consider small-amplitude, spanwise periodic wall disturbances
+(relative to the undisturbed wall, $N=0$) of the form
+%
+\begin{equation} \label{e:bump}
+  N_w(S,Z) = \ew h_w(S) e^{i \bw Z}
+\end{equation}
+%
+where $\ew = \ew^* / L^* \ll 1$ is the scaled roughness height, $h_w(S)$ is
+the streamwise shape of the roughness, and $\bw = \bw^* L^*$ is the spanwise
+wavenumber of the bump.  Since the analysis is linear, the current results can
+be thought of as the response of the boundary layer to a single Fourier mode
+of a more complicated spanwise distribution.
+
+The flow is denoted by the vector field $\bU = \{\rho,u,v,w,T\}^{\rm T}$ and,
+if the amplitude of the wall disturbance is sufficiently small, the dependent
+variables can be expanded as a regular perturbation series in $\ew$
+%
+\begin{equation}
+  \bU(S,N,Z) = \bUm(N) + \ew \bU_w(S,N) e^{i \bw Z} + \O(\ews) .
+\end{equation}
+%
+Consistent with FRNT, in writing this expression we utilized the fact that
+$L^*/l^* \ll 1$ so that the undisturbed mean boundary layer flow $\bUm(s,N)$
+can be replaced with the local, quasi-parallel approximation $\bUm(N) \equiv
+\bUm(s=1,N)$.
+
+The mean-flow disturbance, $\bU_w$, is obtained by solving the Navier-Stokes
+equations linearized about the parallel mean flow, $\bUm(N)$.  The boundary
+conditions for this problem are the usual no-slip, no-penetration conditions
+applied at the perturbed wall location, $N(S,Z) = \ew h_w(S) e^{i \bw Z}$.  A
+detailed derivation of the linearized boundary conditions (transfered to
+$N=0$) for compressible flow over curved surfaces is given in
+Appendix~\ref{a:bumpbc}.  In addition, the solutions also satisfy
+zero-disturbance conditions as $N \rightarrow \infty$.
+
+After taking the Fourier transform $(S \rightarrow \alpha)$ the linearized
+Navier-Stokes equations with the quasi-parallel approximation take the form of
+the compressible stability equations which are the compressible analogue to
+the Orr-Sommerfeld equation.  These equations can be formally written as
+%
+\begin{equation}
+  {\cal L}^{(\alpha,\bw,\Re,\Pr,\M)} \hat \bU_w = 0
+\end{equation}
+%
+where the hat denotes the Fourier transform
+%
+\begin{equation}
+  \hat \bU_w(\alpha,N) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} 
+                         \bU_w(S,N) e^{-i \alpha S} dS .
+\end{equation}
+%
+Appendix~\ref{a:LST} presents the compressible stability equations in detail
+and describes the methods used to obtain eigensolutions for the homogeneous
+problem.  In the present case, we require solutions to the same equations, but
+with inhomogeneous boundary conditions at the wall.  These solutions are
+obtained with the same Chebyschev spatial discretization used in
+Appendix~\ref{a:LST} but by including the boundary conditions in the discrete
+approximation and using Gaussian elimination to solve the resulting linear
+system.
+
+As discussed in detail by Choudhari \cite{Choudhari:94}, the solution of the
+compressible stability equations in Fourier space can be obtained without
+regard for causality.  However, when the Fourier inversion,
+%
+\begin{equation} \label{e:finv}
+  \bU_w(x,N) = \frac{1}{\sqrt{2\pi}} \int_{\Gamma} 
+                        \hat \bU_w(\alpha,N) e^{i \alpha S} d\alpha ,
+\end{equation}
+%
+is performed to return the solution to physical space, causality must be
+accounted for in choosing the inversion contour, $\Gamma$.  Herein, we assume
+that the crossflow instability is convective in nature without applying a
+rigorous causality condition (\ie\ the Briggs-Bers criterion \cite{Bers:83}).
+This same assumption has been used by several researchers in the context of
+FRNT \cite{Choudhari:94,Crouch:94}.
+
+The contribution of the integral in (\ref{e:finv}) to a particular
+CF-instability mode is given by the residue of the integrand at the complex
+streamwise wavenumber of the CF-mode, $\acf$.  The residue theorem states that
+%
+\begin{equation}
+  \int_C f(z) dz = 2\pi i {\rm Res}_{z=z_0}[f(z)] = 2\pi i b_1
+\end{equation}
+%
+where the function $f(z)$ is analytic in $C$ except at $z_0$ which is an
+isolated singular point.  If $f(z)$ is written as
+%
+\begin{equation}
+  f(z) = \frac{p(z)}{q(z)}
+\end{equation}
+%
+where both $p$ and $q$ are analytic at $z_0$ and
+%
+\begin{equation}
+  p(z_0) \ne 0, \qquad q(z_0) = 0, \qquad {\rm and} \qquad q'(z_0) \ne 0
+\end{equation}
+%
+then the residue at $z_0$ is
+%
+\begin{equation}
+  b_1 = \frac{p(z_0)}{q'(z_0)} .
+\end{equation}
+%
+Returning to equation (\ref{e:finv}), we have
+%
+\begin{eqnarray}
+  p(\alpha) = e^{i \alpha S} \comma \\
+  q(\alpha) = \hat U_n^{-1}(\alpha,N)
+\end{eqnarray}
+%
+Where $\hat U_n$ is a particular component of $\hat \bU_w$.  With these
+expressions, the residue at $\acf$ is given by
+%
+\begin{equation} \label{e:residue}
+  U_n(S,N) = \frac{ i \sqrt{2\pi} }
+                  { \frac{\partial \hat U_n^{-1}}
+                         {\partial \alpha}(\acf,N) } e^{i \acf S} \period
+\end{equation}
+%
+The value of $\frac{\partial \hat U_n^{-1}}{\partial \alpha}(\acf,N)$ is
+determined by computing $\hat U_n^{-1} (\alpha,N)$ at $\alpha = \acf \pm
+\Delta\alpha$ and using a central difference to approximate the
+derivative.
+
+The form of the perturbation corresponding to the residue at $(\acf,\bw)$ is
+then given by \cite{Goldstein:85}
+%
+\begin{equation}
+  \bU_{cf} = \hat h_w(\acf) \: \Lambda(\bw,\Re,\Pr,\M) \: 
+             \bE(N,\bw,\Re,\Pr,\M) \: e^{i(\acf S + \bw Z)}
+\end{equation}
+%
+where $\hat h_w(\acf)$ is the amplitude of the Fourier component of the
+roughness shape-function which is resonant with the crossflow vortex mode. The
+factor $\Lambda(\bw,\Re,\Pr,\M)$ is called the ``efficiency'' function which
+characterizes the local receptivity process independent of the geometry of the
+roughness, and $\bE(N,\bw,\Re,\Pr,\M)$ is the vector of eigenfunctions for the
+stationary crossflow vortex under consideration.  Similar to
+\cite{Choudhari:94}, the eigenfunctions are normalized such that maximum of
+the eigenfunction for the velocity perturbation in the direction of the local
+inviscid streamline is unity.  Thus, the initial, complex amplitude of the
+crossflow vortex based on this quantity is
+%
+\begin{equation} \label{e:ampcf}
+  A_{cf} = \ew \: \hat h_w(\acf) \: \Lambda(\bw,\Re,\Pr,\M) .
+\end{equation}
+%
+For the purpose of comparing the effectiveness of various parameters on the
+receptivity of CF vortices, it is sufficient to examine the magnitude of
+$\Lambda(\bw,\Re,\Pr,\M)$.  However, when directly comparing to the results of
+experiments or computations, equation (\ref{e:ampcf}) must be used.
+
+To test our implementation of the FRNT, we have examined the receptivity of
+the compressible Falkner-Skan-Cooke profile (see Appendix~\ref{a:FSC}) to
+surface roughness.  The parameters were chosen to match the incompressible
+results of Choudhari \cite{Choudhari:94}.  We use $\M=0.1$, $\Re_l=80,000$,
+$\theta=45^\circ$, and $\Pr=1$ with the isothermal boundary condition, $T_w =
+T_0$.  Under these conditions, the Branch I neutral point for stationary
+crossflow-vortices is found to be at $\bw=0.1589$, $\acf = -0.1169$.  Solving
+for the residue yields $\Lambda = -0.01955 + 0.03889 i$ which has a magnitude
+of $|\Lambda| = 0.04352$.  This value agrees with Choudhari's
+\cite{Choudhari:94} incompressible result to at least two significant figures.
+

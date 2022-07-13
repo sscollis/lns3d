@@ -1,0 +1,176 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Chapter 6:  Conclusions
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 11-8-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Conclusions and Recommendations\label{c:conclude}}
+
+\section{Conclusions}
+
+The receptivity of the three-dimensional boundary-layer on a high-speed,
+swept, parabolic-cylinder with surface roughness has been investigated using
+numerical simulation.  Taking advantage of the linearity of the receptivity
+process, a numerical method is developed to accurately and efficiently solve
+receptivity problems near a swept leading-edge.  In this method, the
+Navier--Stokes equations are written in terms of a nonlinear meanflow
+solution and a linear disturbance about the meanflow.  Equations are
+developed for both the meanflow and disturbances and these equations are
+solved in terms of primitive variables using a generalized coordinate system
+to represent an arbitrary, infinite-span, leading-edge geometry.
+%
+% By using primitive variables, the mesh metrics, associated with the
+% generalized coordinate system, can be implemented exactly, thereby improving
+% accuracy on highly stretched meshes.
+%
+Spatial derivatives in the plane of the leading-edge are approximated with a
+fourth-order central-difference scheme.  For the linearized disturbance
+equations, a single Fourier mode is used in the spanwise direction.  Due to
+the high spatial resolution required near the leading edge and in the boundary
+layer, a fully implicit time-advancement scheme is implemented.  To improve
+efficiency for unsteady disturbances, the linearized equations are solved in
+the frequency domain.  The implicit equations are solved at every iteration
+using approximate factorization with a specially optimized
+block-penta-diagonal matrix solver.  All boundary conditions are implemented
+fully implicitly to preserve convergence of the iterative solver.
+
+The numerical method has been extensively validated for model problems that
+represent the physical phenomena expected in receptivity calculations.  These
+include Tollmien-Schlichting waves in a parallel boundary-layer, crossflow
+vortices in a parallel boundary-layer, and acoustic scattering from a circular
+cylinder.  Exact solutions are available for each of these problems and the
+current numerical solutions are shown to converge to the exact solutions.  In
+performing these model calculations, the resolution required to adequately
+resolve each physical phenomena is established.  As a further test of the
+method, the problem of leading-edge receptivity to sound is investigated for a
+flat-plate with a super-ellipse leading-edge.  The geometry and flow
+conditions are modeled after an incompressible calculation performed by Lin
+\cite{Lin:92}.  Our meanflow solution at $\M=0.1$ is shown to be in very good
+agreement with the incompressible solution.  Furthermore, our acoustic
+receptivity results qualitatively agree with Lin's solution, and the amplitude
+of the Tollmien-Schlichting wave at the first neutral-point is within 10\% of
+Lin's value.
+
+With the computational method validated, the receptivity of a
+three-dimensional boundary-layer on a swept, infinite-span parabolic-cylinder
+subject to surface roughness is investigated.  This geometry serves as a
+first-order approximation to the leading-edge of a swept-wing.  Both two- and
+three-dimensional mean solutions are obtained.  The two-dimensional solutions
+at low Mach numbers compare well with the reference incompressible solutions
+of Davis \cite{Davis:72}.  The three-dimensional meanflow over a swept
+parabolic cylinder is obtained for conditions which are modeled after a
+transonic commercial airliner in cruise condition.  In particular, the
+Reynolds number, when converted to an equivalent wing-chord takes the value of
+$10^7$, which is in the realm of flight Reynolds numbers.  The characteristics
+of this three-dimensional boundary-layer are documented including linear
+stability predictions incorporating curvature and nonparallel effects.  The
+linear stability code solves the full, compressible, stability-equations in
+curvilinear coordinates.  Unlike recent stability analyses for swept circular
+cylinders, we allow for chordwise variations of the surface curvature in our
+formulation.  Nonparallel effects are accounted for using a perturbation
+approach by allowing the solution to vary slowly in the chordwise direction.
+By including compressibility, curvature, and nonparallel effects our
+linear-stability-code represents the current ``state-of-the-art'' in local
+stability analysis.
+
+The stability analysis for the swept parabolic-cylinder shows that convex
+surface curvature reduces the growth-rate, while nonparallel effects increase
+the growth-rate of stationary crossflow vortices.  These results are in
+qualitative agreement with recent analysis for a swept circular-cylinder
+\cite{MaMa:94}.  Stability calculations performed using the full Linearized
+Navier--Stokes (LNS) equations are used to provide reference solutions which
+have an exact account of nonparallel effects.  Comparing the nonparallel
+stability results to the LNS solutions shows that for short wavelength modes,
+$\beta=100$, the nonparallel theory agrees well with the LNS solutions.
+However, for longer wavelengths, $\beta=35$, the nonparallel theory breaks
+down near the leading-edge causing qualitative, as well as quantitative,
+errors in the stability characteristics.
+
+Receptivity to surface roughness is investigated by modeling a roughness
+element as a spanwise periodic, linear perturbation of the wall boundary with
+a Gaussian distribution in the chordwise direction.  Receptivity results are
+obtained both from LNS solutions with surface-roughness boundary-conditions
+and from Finite Reynolds Number Theory (FRNT) predictions.  The theoretical
+predictions are determined both with and without surface curvature to identify
+the effect of curvature on receptivity.  Based on the theoretical predictions,
+curvature is shown to enhance the receptivity efficiency over the entire
+unstable region and the curvature effect is greatest near the lower branch of
+the neutral curve.  The impact of nonparallel flow on the receptivity of
+crossflow vortices is established by a series of LNS calculations with surface
+roughness placed at various locations on the wall.  Comparison to the FRNT
+shows that nonparallel flow significantly attenuates the initial amplitude of
+stationary crossflow vortices downstream of a roughness element near the
+leading-edge.  The effect is most severe for the long wavelength $\beta=35$
+case, where FRNT over-predicts the amplitude of the crossflow mode by as much
+as $77\%$.  For the shorter wavelength case, $\beta=100$, the maximum error in
+the FRNT prediction is $29\%$.  Sufficiently far from the leading-edge, the
+theoretical predictions approach the LNS solution and are within $5\%$ of the
+LNS solution at the furthest downstream stations considered here.
+
+By considering a range of bump widths, we have verified the FRNT result that
+the receptivity amplitude can be written as the product of the Fourier
+coefficient of the chordwise roughness distribution at the local crossflow
+wavenumber and a function representing the efficiency of the receptivity
+process.  Based on this form of the solution, the receptivity efficiency
+function is extracted from the linearized Navier--Stokes solutions.  The
+results indicate conclusively that nonparallel effects dramatically reduce
+receptivity near the leading-edge.  For the cases considered here, the FRNT
+over-predicts the efficiency function by as much as a factor of 3 near the
+first neutral point.  These results clearly indicate that the prediction of
+crossflow receptivity near a realistic leading-edge must account for the
+strongly nonparallel flow near the upstream neutral point.
+
+\section{Recommendations for Future Research}
+
+The most pressing need for future research is in the addition of nonparallel
+corrections to the FRNT receptivity predictions.  Based on the current
+results, the inclusion of nonparallel effects is vital for the accurate
+prediction of crossflow receptivity for realistic geometries.  The current
+solutions provide a basis upon which enhanced theories can be evaluated.
+
+Another area for future research is the investigation of nonlinear receptivity
+mechanisms for surface roughness in a three-dimensional boundary layer.  A
+recent theoretical investigation by Choudhari \& Duck \cite{ChDu:96} suggests
+that receptivity is likely to become nonlinear even before the stability
+characteristics of the boundary layer are modified by the surface roughness.
+This early nonlinear effect may be partially responsible for the extreme
+sensitivity to surface roughness observed by Radeztsky \etal\ \cite{RaReSa:93}
+in their experiments.  Numerical simulations of nonlinear receptivity due to
+surface roughness would provide valuable information on this relatively
+unexplored phenomenon including: the critical bump height for the onset of
+nonlinearity receptivity; the possibly nonlinear wavelength selection
+processes; and the early onset of nonlinear, modal interactions.
+
+The application of Parabolized Stability Equations (PSE) to the study of
+receptivity is also an avenue for future research.  Recent work with the PSE
+method for the prediction of receptivity \cite{HeLi:93} has involved the
+imposition of inhomogeneous boundary conditions on the initial condition for
+the PSE marching procedure.  Unfortunately, this method appears to rely on the
+approximate transient behavior during the startup of PSE marching.  Therefore,
+the relationship of the boundary condition to the final instability waves
+downstream is unclear.  Comparisons to linearized Navier--Stokes solutions,
+such as those presented here, are required to determine the capabilities and
+limitations of PSE for receptivity investigations.  A related area for
+research involves the coupling of PSE to the LNS calculations performed here.
+This offers the advantage of computing LNS solutions on short domains to
+capture the receptivity process, and then feeding the established boundary
+layer disturbances into a PSE code for subsequent linear and nonlinear
+evolution.
+
+Finally, recent research by Lingwood \cite{Lingwood:95,Lingwood:96} on the
+nature of the crossflow instability on the rotating disk has shown that
+absolute instability is possible for this flow.  However, the
+absolute/convective nature of the crossflow instability for the infinite-span
+swept-wing is currently unknown, although all current evidence indicates that
+it is purely convective.  As suggested by Tobak \cite{Tobak:96}, the
+absolute/convective nature of this flow can be investigated using the
+techniques developed in this \thesis\ by performing a transient calculation
+where the surface roughness boundary condition is applied impulsively at the
+start of the calculation.  The development of the resulting wave packet can
+then be tracked similar to that done in the experiments of Lingwood
+\cite{Lingwood:96}.

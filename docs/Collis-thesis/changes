@@ -1,0 +1,10 @@
+#!/bin/csh -f
+#
+#.... This script finds Latex files in the current directory that have
+#.... been modified 
+#
+#.... Author: Scott Collis
+#
+#.... Revised: 9-9-96
+#
+find . -newer .start \( -name '*.tex' -o -name '*.eps' -o -name '*.ai' -o -name '*.mac' -o -name '*.bib' -o -name '*.sty' \) -print

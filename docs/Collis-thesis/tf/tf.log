@@ -1,0 +1,290 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 2002.4.12)  13 MAY 2003 09:00
+**tf
+(tf.tex
+LaTeX2e <2000/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, i
+talian, nohyphenation, loaded.
+(/usr/share/texmf/tex/latex/base/report.cls
+Document Class: report 2000/05/19 v1.4b Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size12.clo
+File: size12.clo 2000/05/19 v1.4b Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (tfreport.sty
+Document Style Option `tfreport' <5 Apr 1997>.
+) (cite.sty
+Package: cite 1995/03/17  v 3.5x
+) (rotating.sty
+Style option: rotating.sty, v1.9 <93/11/1> (SPQR / LMB)
+\rot@box=\box26
+\rot@tempbox=\box27
+\rot@temp=\dimen103
+\rot@width=\dimen104
+\rot@height=\dimen105
+\rot@depth=\dimen106
+\rot@right=\dimen107
+\rot@left=\dimen108
+\rot@angle=\count88
+\rot@count=\count89
+\rot@circle=\count90
+) (macros.tex) (epsf.tex
+\epsfvertlab=\box28
+\epsfhorlab=\box29
+\epsffiglab=\box30
+\epsfvlabsize=\dimen109
+\scott=\dimen110
+\fighor=\dimen111
+\figver=\dimen112
+\rotbox=\box31
+\epsffilein=\read1
+\epsfxsize=\dimen113
+\epsfysize=\dimen114
+\epsftsize=\dimen115
+\epsfrsize=\dimen116
+\epsftmp=\dimen117
+\pspoints=\dimen118
+\ndots=\count91
+\xorigon=\dimen119
+\yorigon=\dimen120
+\scaleval=\dimen121
+\scaleorigon=\dimen122
+) (tf.aux (title.aux) (chapter1.aux) (chapter2.aux)
+(chapter3.aux) (chapter4.aux) (chapter5.aux) (chapter6.aux) (appendix1.aux)
+(appendix2.aux) (appendix3.aux) (appendix4.aux) (appendix5.aux) (appendix6.aux)
+)
+\openout1 = `tf.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+\openout2 = `title.aux'.
+
+ (title.tex [1
+
+
+
+] [2
+
+] (abstract.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 46.
+) [3
+
+] [4] (preface.tex) [5
+
+
+] [6
+
+] (tf.toc
+[7
+
+] [8])
+\tf@toc=\write3
+\openout3 = `tf.toc'.
+
+ [9] [10
+
+] (tf.lot)
+\tf@lot=\write4
+\openout4 = `tf.lot'.
+
+ [11
+
+] [12
+
+] (tf.lof [13
+
+] [14] [15])
+\tf@lof=\write5
+\openout5 = `tf.lof'.
+
+ [16] (symbols.tex
+[17
+
+
+
+] [18] [19] [20] [21]) [22])
+\openout2 = `chapter1.aux'.
+
+ (chapter1.tex
+Chapter 1.
+[1
+
+
+
+
+] [2] [3] [4] [5] [6] [7]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 338.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 338.
+ [8] [9] [10] [11]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 522.
+
+
+(/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 522.
+ [12] [13]) [14] [15] [16]
+\openout2 = `chapter2.aux'.
+
+
+(chapter2.tex
+Chapter 2.
+[17
+
+
+
+] [18] [19] [20]) [21]
+\openout2 = `chapter3.aux'.
+
+ (chapter3.tex [22
+
+
+
+]
+Chapter 3.
+[23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
+[38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48]) [49] [50] [51] [52]
+[53] [54] [55]
+\openout2 = `chapter4.aux'.
+
+ (chapter4.tex [56
+
+
+
+]
+Chapter 4.
+[57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71]
+[72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86]
+[87] [88] [89] [90] [91] [92] [93] [94]) [95] [96]
+\openout2 = `chapter5.aux'.
+
+ (chapter5.tex
+Chapter 5.
+[97
+
+
+
+
+
+] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109]
+[110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121]
+[122] [123] [124] [125] [126] (chp5fig.tex [127] [128] [129] [130] [131]
+[132] [133] [134] [135] [136] [137] [138] [139] [140] [141] [142] [143]
+[144] [145] [146] [147] [148] [149] [150] [151] [152] [153] [154] [155]
+[156] [157] [158] [159] [160] [161] [162] [163]))
+\openout2 = `chapter6.aux'.
+
+ (chapter6.tex [164
+
+
+
+
+
+
+
+
+
+]
+Chapter 6.
+[165] [166] [167]) [168] [169]
+\openout2 = `appendix1.aux'.
+
+ (appendix1.tex [170
+
+
+
+]
+Appendix A.
+[171] [172] [173] [174] [175] [176] [177] [178] [179] [180] [181] [182]
+[183] [184] [185] [186] [187]) [188]
+\openout2 = `appendix2.aux'.
+
+ (appendix2.tex
+Appendix B.
+[189
+
+
+
+]) [190]
+\openout2 = `appendix3.aux'.
+
+ (appendix3.tex
+Appendix C.
+[191
+
+
+
+] [192] [193] [194] [195]) [196] [197] [198]
+\openout2 = `appendix4.aux'.
+
+ (appendix4.tex
+Appendix D.
+[199
+
+
+
+] [200] [201] [202] [203] [204] [205] [206] [207] [208] [209] [210])
+[211] [212]
+\openout2 = `appendix5.aux'.
+
+ (appendix5.tex
+Appendix E.
+[213
+
+
+
+] [214] [215] [216]) [217]
+\openout2 = `appendix6.aux'.
+
+ (appendix6.tex [218
+
+
+
+]
+Appendix F.
+[219] [220] [221] [222] [223]) [224] [225] (tf.bbl [226
+
+
+] [227] [228] [229]
+[230] [231] [232] [233] [234] [235] [236]) [237] (tf.aux (title.aux)
+(chapter1.aux) (chapter2.aux) (chapter3.aux) (chapter4.aux) (chapter5.aux)
+(chapter6.aux) (appendix1.aux) (appendix2.aux) (appendix3.aux) (appendix4.aux)
+(appendix5.aux) (appendix6.aux)) ) 
+Here is how much of TeX's memory you used:
+ 1397 strings out of 20887
+ 12376 string characters out of 196274
+ 92009 words of memory out of 350001
+ 4195 multiletter control sequences out of 10000+15000
+ 13429 words of font info for 46 fonts, out of 400000 for 1000
+ 16 hyphenation exceptions out of 10000
+ 27i,11n,22p,259b,455s stack positions out of 3000i,100n,1500p,50000b,4000s
+
+Output written on tf.dvi (259 pages, 687552 bytes).

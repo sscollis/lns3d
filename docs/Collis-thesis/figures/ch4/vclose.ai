@@ -1,0 +1,7754 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Adobe Illustrator(TM) 3.0.1.
+%%For: () ()
+%%Title: (/u/collis/iris2/aiaa/vclose.ai)
+%%CreationDate: (1/12/96) (11:57)
+%%BoundingBox: 42 272 570 479
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentFonts: Helvetica
+%%DocumentFiles:
+%%+/u/collis/iris2/present/APS95/cu_v_5.75p_M=0.1.eps
+%%DocumentSuppliedResources: procset Adobe_packedarray 2.0 0
+%%+ procset Adobe_cmykcolor 1.1 0
+%%+ procset Adobe_cshow 1.1 0
+%%+ procset Adobe_customcolor 1.0 0
+%%+ procset Adobe_typography_AI3 1.0 1
+%%+ procset Adobe_IllustratorA_AI3 1.0 1
+%AI3_ColorUsage: Color
+%AI3_IncludePlacedImages
+%AI3_TemplateBox: 306 396 306 396
+%AI3_TileBox: 30 31 582 761
+%AI3_DocumentPreview: Header
+%%Template:
+%%PageOrigin:30 31
+%%AI3_PaperRect:0 792 612 0
+%%AI3_Margin:30 31 30 31
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Adobe_packedarray 2.0 0
+%%Title: (Packed Array Operators)
+%%Version: 2.0 
+%%CreationDate: (8/2/90) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+userdict /Adobe_packedarray 5 dict dup begin put
+/initialize			% - initialize -
+{
+/packedarray where
+	{
+	pop
+	}
+	{
+	Adobe_packedarray begin
+	Adobe_packedarray
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/packedarray		% arguments count packedarray array
+{
+array astore readonly
+} def
+/setpacking			% boolean setpacking -
+{
+pop
+} def
+/currentpacking		% - setpacking boolean
+{
+false
+} def
+currentdict readonly pop end
+%%EndResource
+Adobe_packedarray /initialize get exec
+
+%%BeginResource: procset Adobe_cmykcolor 1.1 0
+%%Title: (CMYK Color Operators)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cmykcolor 4 dict dup begin put
+/initialize			% - initialize -
+{
+/setcmykcolor where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cmykcolor_vars 2 dict dup begin put
+	/_setrgbcolor
+		/setrgbcolor load def
+	/_currentrgbcolor
+		/currentrgbcolor load def
+	Adobe_cmykcolor begin
+	Adobe_cmykcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	end
+	Adobe_cmykcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_cmykcolor eq
+	{
+	end
+	} if
+} def
+/setcmykcolor		% cyan magenta yellow black setcmykcolor -
+{
+1 sub 4 1 roll
+3
+	{
+	3 index add neg dup 0 lt
+		{
+		pop 0
+		} if
+	3 1 roll
+	} repeat
+Adobe_cmykcolor_vars /_setrgbcolor get exec
+pop
+} def 
+/currentcmykcolor	% - currentcmykcolor cyan magenta yellow black
+{
+Adobe_cmykcolor_vars /_currentrgbcolor get exec
+3
+	{
+	1 sub neg 3 1 roll
+	} repeat
+0
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_cshow 1.1 0
+%%Title: (cshow Operator)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cshow 3 dict dup begin put
+/initialize			% - initialize -
+{
+/cshow where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cshow_vars 1 dict dup begin put
+	/_cshow		% - _cshow proc
+		{} def
+	Adobe_cshow begin
+	Adobe_cshow
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/cshow				% proc string cshow -
+{
+exch
+Adobe_cshow_vars
+	exch /_cshow
+	exch put
+	{
+	0 0 Adobe_cshow_vars /_cshow get exec
+	} forall
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_customcolor 1.0 0
+%%Title: (Custom Color Operators)
+%%Version: 1.0 
+%%CreationDate: (5/9/88) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_customcolor 5 dict dup begin put
+/initialize			% - initialize -
+{
+/setcustomcolor where
+	{
+	pop
+	}
+	{
+	Adobe_customcolor begin
+	Adobe_customcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	Adobe_customcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_customcolor eq
+	{
+	end
+	} if
+} def
+/findcmykcustomcolor	% cyan magenta yellow black name findcmykcustomcolor object
+{
+5 packedarray
+}  def
+/setcustomcolor		% object tint setcustomcolor -
+{
+exch
+aload pop pop
+4
+	{
+	4 index mul 4 1 roll
+	} repeat
+5 -1 roll pop
+setcmykcolor
+} def
+/setoverprint		% boolean setoverprint -
+{
+pop
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_typography_AI3 1.0 1
+%%Title: (Typography Operators)
+%%Version: 1.0 
+%%CreationDate:(5/31/90) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_typography_AI3 47 dict dup begin put
+/initialize			% - initialize -
+{
+/TZ
+ where
+	{
+	pop
+	}
+	{
+	Adobe_typography_AI3 begin
+	Adobe_typography_AI3
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	Adobe_typography_AI3 begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_typography_AI3 eq
+	{
+	end
+	} if
+} def
+
+% [ number value stream [ array for encoding modification ] modifyEncoding ==> [ modified array ]
+/modifyEncoding
+{
+	/_tempEncode exch ddef
+	
+	% pointer for sequential encodings
+	/_pntr 0 ddef
+	
+	{
+		% get bottom object
+		counttomark -1 roll
+
+		% is it a mark ?
+		dup type dup /marktype eq 		
+		{
+			% exit
+			pop pop exit
+		}
+		{
+			% ... object ... type ....
+
+			% insert if a nametype
+			/nametype eq
+			{
+				% insert the name at _pntr and increment pointer
+				_tempEncode /_pntr dup load dup 3 1 roll 1 add ddef 3 -1 roll
+				put
+			}
+			{
+				% reset _pntr if it's a number
+				/_pntr exch ddef					
+			}
+			ifelse
+		}
+		ifelse
+	}
+	loop	
+	
+	% return the modified encoding
+	_tempEncode
+}
+def
+
+/TE	% Set std platform encoding 	% (encoding pairs) TE -
+{
+	StandardEncoding 256 array copy modifyEncoding 
+	/_nativeEncoding exch def
+} def
+
+% re-define font
+% expected arguments
+% for 'normal fonts : 
+%	[ /_Helvetica-Bold/Helvetica-Bold direction fontScript defaultEncoding TZ
+%
+% for cartographic, pictographic, and expert fonts :
+% 	[ ... number value stream ... /_Helvetica-Bold/Helvetica-Bold 
+%	direction fontScript defaultEncoding TZ
+/TZ		
+{
+	% platform dependent coding flag
+	/_useNativeEncoding exch def
+
+	% pop fontScript & direction
+	pop pop
+	
+	% create a new dictionary with length
+	% equal to original dictionary length + 2
+	% copy all the key/value pairs except FID
+	findfont dup length 2 add dict
+	
+	begin
+	
+		% copy all the values but the FID
+		% into the new dictionary
+		mark exch
+		{
+			1 index /FID ne { def } if cleartomark mark
+		}
+		forall
+		% discard last mark
+		pop
+		
+		% define FontName
+		/FontName exch def
+		
+		% if no re-encoding stream is present
+		% then if the use platform encoding flag is true
+		% install AI platform encoding
+		% else leave the base encoding in effect
+
+		counttomark 0 eq
+		{
+			1 _useNativeEncoding eq
+			{
+				/Encoding _nativeEncoding def
+			}
+			if
+			% clean up
+			cleartomark
+		}
+		{	
+			% custom encoding to be done
+			% start off with a copy of the font's standard encoding
+			/Encoding load 256 array copy 
+			modifyEncoding /Encoding exch def
+		}
+		ifelse		
+		FontName currentdict
+	end
+	
+	% register the new font
+	definefont pop
+}
+def
+
+% text painting operators
+/tr					% string tr ax ay string 
+{
+_ax _ay 3 2 roll
+} def
+/trj				% string trj cx cy fillchar ax ay string 
+{
+_cx _cy _sp _ax _ay 6 5 roll
+} def
+
+/a0
+{
+/Tx	% text							% textString Tx -
+	{
+	dup 
+	currentpoint 3 2 roll
+	tr _psf
+	newpath moveto
+	tr _ctm _pss
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	dup
+	currentpoint 3 2 roll
+	trj _pjsf
+	newpath moveto
+	trj _ctm _pjss
+	} ddef
+	
+} def
+/a1
+{
+/Tx	% text							% textString Tx -
+	{
+	dup currentpoint 4 2 roll gsave
+	dup currentpoint 3 2 roll
+	tr _psf
+	newpath moveto
+	tr _ctm _pss
+	grestore 3 1 roll moveto tr sp
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	dup currentpoint 4 2 roll gsave
+	dup currentpoint 3 2 roll
+	trj _pjsf
+	newpath moveto
+	trj _ctm _pjss
+	grestore 3 1 roll moveto tr sp
+	} ddef
+	
+} def
+
+/e0
+{
+/Tx	% text							% textString Tx -
+	{
+	tr _psf
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	trj _pjsf
+	} ddef
+} def
+
+/e1
+{
+/Tx	% text							% textString Tx -
+	{
+	dup currentpoint 4 2 roll gsave 
+	tr _psf  
+	grestore 3 1 roll moveto tr sp 
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	dup currentpoint 4 2 roll gsave 
+	trj _pjsf
+	grestore 3 1 roll moveto tr sp 
+	} ddef
+} def
+
+/i0
+{
+/Tx	% text							% textString Tx -
+	{
+	tr sp
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	trj jsp
+	} ddef
+} def
+
+/i1
+{
+W N
+} def
+
+/o0
+{
+/Tx	% text							% textString Tx -
+	{
+	tr sw rmoveto
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	trj swj rmoveto
+	} ddef
+} def
+
+/r0
+{
+/Tx	% text							% textString Tx -
+	{
+	tr _ctm _pss
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	trj _ctm _pjss
+	} ddef
+} def
+
+/r1
+{
+/Tx	% text							% textString Tx -
+	{
+	dup currentpoint 4 2 roll currentpoint gsave newpath moveto
+	tr _ctm _pss 
+	grestore 3 1 roll moveto tr sp 
+	} ddef
+/Tj	% justified text				% textString Tj -
+	{
+	dup currentpoint 4 2 roll currentpoint gsave newpath moveto
+	trj _ctm _pjss
+	grestore 3 1 roll moveto tr sp 
+	} ddef
+} def
+
+% font operators
+
+% Binding
+/To	% begin text 					% bindType To -
+{
+	pop _ctm currentmatrix pop
+} def
+
+/TO	% end text					% TO -
+{
+	Te _ctm setmatrix newpath
+} def
+
+% Text paths
+/Tp	% begin text path				% a b c d tx ty startPt Tp -
+{
+	pop _tm astore pop _ctm setmatrix 
+	_tDict begin /W {} def /h {} def
+} def
+
+/TP	% end text path					% TP -
+{
+	end
+	iTm 0 0 moveto
+} def
+
+% Render mode & matrix operators
+/Tr	% begin render					% render Tr - 
+{
+	_render 3 le {currentpoint newpath moveto} if
+	dup 8 eq {pop 0} {dup 9 eq {pop 1} if} ifelse
+	dup /_render exch ddef
+	_renderStart exch get load exec
+} def
+
+/iTm % internal set text matrix		% - iTm -	(uses _tm as implicit argument)
+{
+_ctm setmatrix _tm concat 0 _rise translate _hs 1 scale
+} def
+
+/Tm % set text matrix				% a b c d tx ty Tm -
+{
+_tm astore pop iTm 0 0 moveto
+} def
+
+/Td % translate text matrix 		% tx ty Td -
+{
+_mtx translate _tm _tm concatmatrix pop iTm 0 0 moveto
+} def
+
+/Te	% end render					% - Te -
+{
+	_render -1 eq {} {_renderEnd _render get dup null ne {load exec} {pop} ifelse} ifelse
+	/_render -1 ddef
+} def
+
+
+% Attributes
+/Ta	% set alignment					% alignment Ta -
+{
+pop
+} def
+
+/Tf	% set font name and size		% fontname size Tf -
+{
+dup 1000 div /_fScl exch ddef
+exch findfont exch scalefont setfont
+} def
+
+/Tl	% set leading					% leading paragraphLeading Tl -
+{
+pop
+0 exch _leading astore pop
+} def
+
+/Tt	% set user tracking				% userTracking Tt -
+{
+pop
+} def
+
+/TW % set word spacing				% minSpace optSpace maxSpace TW -
+{
+3 npop
+} def
+
+/Tw	% set computed word spacing		% wordSpace Tw
+{
+/_cx exch ddef
+} def
+
+/TC % set character spacing			% minSpace optSpace maxSpace TC -
+{
+3 npop
+} def
+
+/Tc	% set computed char spacing 	% charSpace Tc -
+{
+/_ax exch ddef
+} def
+
+/Ts % set super/subscripting (rise)	% rise Ts -
+{
+/_rise exch ddef
+currentpoint
+iTm
+moveto
+} def
+
+/Ti	% set indentation				% firstStartIndent otherStartIndent stopIndent Ti -
+{
+3 npop
+} def
+
+/Tz % set horizontal scaling		% scalePercent Tz -
+{
+100 div /_hs exch ddef
+iTm
+} def
+
+/TA % set pairwise kerning			% autoKern TA -
+									%	autoKern = 0 -> no pair kerning
+									%			 = 1 -> automatic pair kerning
+{
+pop
+} def
+
+/Tq % set hanging quotes			% hangingQuotes Tq -
+									%	hangingQuotes 	= 0 -> no hanging quotes
+									%			 		= 1 -> hanging quotes
+{
+pop
+} def
+
+
+% Text Bodies
+/TX {pop} def
+
+%/Tx	% non-justified text			% textString Tx -
+%/Tj	% justified text				% textString Tj -
+
+/Tk	% kern							% autoKern kernValue Tk -
+									%  	autoKern = 0 -> manual kern, = 1 -> auto kern
+									%	kernValue = kern value in em/1000 space
+{
+exch pop _fScl mul neg 0 rmoveto
+} def
+/TK	% non-printing kern				% autoKern kernValue TK -
+{
+2 npop
+} def
+
+/T* % carriage return & line feed	% - T* -
+{
+_leading aload pop neg Td
+} def
+
+/T*- % carriage return & negative line feed	% - T*- -
+{
+_leading aload pop Td
+} def
+
+/T-	% print a discretionary hyphen	% - T- -
+{
+_hyphen Tx
+} def
+
+/T+	% discretionary hyphen hyphen	% - T+ -
+{} def
+
+/TR	% reset pattern matrix 			% a b c d tx ty TR -
+{
+_ctm currentmatrix pop 	
+_tm astore pop 
+iTm 0 0 moveto 
+} def
+
+/TS	% special chars					% textString justified TS -
+{
+0 eq {Tx} {Tj} ifelse
+} def
+
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+
+%%BeginResource: procset Adobe_IllustratorA_AI3 1.0 1
+%%Title: (Adobe Illustrator (R) Version 3.0 Abbreviated Prolog)
+%%Version: 1.0 
+%%CreationDate: (7/22/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_IllustratorA_AI3 61 dict dup begin put
+% initialization
+/initialize				% - initialize -
+{
+% 47 vars, but leave slack of 10 entries for custom Postscript fragments
+userdict /Adobe_IllustratorA_AI3_vars 57 dict dup begin put
+
+% paint operands
+/_lp /none def
+/_pf {} def
+/_ps {} def
+/_psf {} def
+/_pss {} def
+/_pjsf {} def
+/_pjss {} def
+/_pola 0 def
+/_doClip 0 def
+
+% paint operators
+/cf	currentflat def	% - cf flatness
+
+% typography operands
+/_tm matrix def
+/_renderStart [/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0] def 
+/_renderEnd [null null null null /i1 /i1 /i1 /i1] def
+/_render -1 def
+/_rise 0 def
+/_ax 0 def			% x character spacing	(_ax, _ay, _cx, _cy follows awidthshow naming convention)
+/_ay 0 def			% y character spacing
+/_cx 0 def			% x word spacing
+/_cy 0 def			% y word spacing
+/_leading [0 0] def
+/_ctm matrix def
+/_mtx matrix def
+/_sp 16#020 def
+/_hyphen (-) def
+/_fScl 0 def
+/_cnt 0 def
+/_hs 1 def
+/_nativeEncoding 0 def
+/_useNativeEncoding 0 def
+/_tempEncode 0 def
+/_pntr 0 def
+/_tDict 2 dict def
+
+% typography operators
+/Tx {} def
+/Tj {} def
+
+% compound path operators
+/CRender {} def
+
+% printing
+/_AI3_savepage {} def
+
+% color operands
+/_gf null def
+/_cf 4 array def
+/_if null def
+/_of false def
+/_fc {} def
+/_gs null def
+/_cs 4 array def
+/_is null def
+/_os false def
+/_sc {} def
+/_i null def
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3
+	{
+	dup xcheck
+		{
+		bind
+		} if
+	pop pop
+	} forall
+end
+end
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3_vars begin
+newpath
+} def
+/terminate				% - terminate -
+{
+end
+end
+} def
+% definition operators
+/_					% - _ null
+null def
+/ddef				% key value ddef -
+{
+Adobe_IllustratorA_AI3_vars 3 1 roll put
+} def
+/xput				% key value literal xput -
+{
+dup load dup length exch maxlength eq
+	{
+	dup dup load dup
+	length 2 mul dict copy def
+	} if
+load begin def end
+} def
+/npop				% integer npop -
+{
+	{
+	pop
+	} repeat
+} def
+% marking operators
+/sw					% ax ay string sw x y 
+{
+dup length exch stringwidth
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add
+} def
+/swj				% cx cy fillchar ax ay string swj x y
+{
+dup 4 1 roll
+dup length exch stringwidth 
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add 
+6 2 roll /_cnt 0 ddef
+{1 index eq {/_cnt _cnt 1 add ddef} if} forall pop
+exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} def
+/ss					% ax ay string matrix ss -
+{
+4 1 roll
+	{				% matrix ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put pop
+	gsave
+	false charpath currentpoint
+	4 index setmatrix
+	stroke
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+3 npop
+} def
+/jss				% cx cy fillchar ax ay string matrix jss -
+{
+4 1 roll
+	{				% cx cy fillchar matrix ax ay char 0 0 {proc} -   
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	gsave
+	_sp eq 
+		{
+		exch 6 index 6 index 6 index 5 -1 roll widthshow  
+		currentpoint
+		}
+		{
+		false charpath currentpoint
+		4 index setmatrix stroke
+		}ifelse
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+6 npop
+} def
+
+% path operators
+/sp					% ax ay string sp -
+{
+	{
+	2 npop (0) exch
+	2 copy 0 exch put pop
+	false charpath
+	2 copy rmoveto
+	} exch cshow
+2 npop
+} def
+/jsp					% cx cy fillchar ax ay string jsp -
+{
+	{					% cx cy fillchar ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	_sp eq 
+		{
+		exch 5 index 5 index 5 index 5 -1 roll widthshow  
+		}
+		{
+		false charpath
+		}ifelse
+	2 copy rmoveto
+	} exch cshow
+5 npop
+} def
+
+% path construction operators
+/pl				% x y pl x y
+{
+transform
+0.25 sub round 0.25 add exch
+0.25 sub round 0.25 add exch
+itransform
+} def
+/setstrokeadjust where
+	{
+	pop true setstrokeadjust
+	/c				% x1 y1 x2 y2 x3 y3 c -
+	{
+	curveto
+	} def
+	/C
+	/c load def
+	/v				% x2 y2 x3 y3 v -
+	{
+	currentpoint 6 2 roll curveto
+	} def
+	/V
+	/v load def
+	/y				% x1 y1 x2 y2 y -
+	{
+	2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l				% x y l -
+	{
+	lineto
+	} def
+	/L
+	/l load def
+	/m				% x y m -
+	{
+	moveto
+	} def
+	}
+	{%else
+	/c
+	{
+	pl curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+	currentpoint 6 2 roll pl curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+	pl 2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+	pl lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+	pl moveto
+	} def
+	}ifelse
+
+% graphic state operators
+/d					% array phase d -
+{
+setdash
+} def
+/cf	{} def			% - cf flatness
+/i					% flatness i -
+{
+dup 0 eq
+	{
+	pop cf
+	} if
+setflat
+} def
+/j					% linejoin j -
+{
+setlinejoin
+} def
+/J					% linecap J -
+{
+setlinecap
+} def
+/M					% miterlimit M -
+{
+setmiterlimit
+} def
+/w					% linewidth w -
+{
+setlinewidth
+} def
+
+% path painting operators
+/H					% - H -
+{} def
+/h					% - h -
+{
+closepath
+} def
+/N					% - N -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq {clip /_doClip 0 ddef} if 
+	newpath
+	} 
+	{
+	/CRender {N} ddef
+	}ifelse
+} def
+/n					% - n -
+{N} def
+/F					% - F -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _pf grestore clip newpath /_lp /none ddef _fc 
+		/_doClip 0 ddef
+		}
+		{
+		_pf
+		}ifelse
+	} 
+	{
+	/CRender {F} ddef
+	}ifelse
+} def
+/f					% - f -
+{
+closepath
+F
+} def
+/S					% - S -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _ps grestore clip newpath /_lp /none ddef _sc 
+		/_doClip 0 ddef
+		}
+		{
+		_ps
+		}ifelse
+	} 
+	{
+	/CRender {S} ddef
+	}ifelse
+} def
+/s					% - s -
+{
+closepath
+S
+} def
+/B					% - B -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 	% F clears _doClip
+	gsave F grestore 
+		{
+		gsave S grestore clip newpath /_lp /none ddef _sc
+		/_doClip 0 ddef
+		} 
+		{
+		S
+		}ifelse
+	}
+	{
+	/CRender {B} ddef
+	}ifelse
+} def
+/b					% - b -
+{
+closepath
+B
+} def
+/W					% - W -
+{
+/_doClip 1 ddef
+} def
+/*					% - [string] * -
+{
+count 0 ne 
+	{
+	dup type (stringtype) eq {pop} if
+	} if 
+_pola 0 eq {newpath} if
+} def
+
+% group operators
+/u					% - u -
+{} def
+/U					% - U -
+{} def
+/q					% - q -
+{
+_pola 0 eq {gsave} if
+} def
+/Q					% - Q -
+{
+_pola 0 eq {grestore} if
+} def
+/*u					% - *u -
+{
+_pola 1 add /_pola exch ddef
+} def
+/*U					% - *U -
+{
+_pola 1 sub /_pola exch ddef 
+_pola 0 eq {CRender} if
+} def
+/D					% polarized D -
+{pop} def
+/*w					% - *w -
+{} def
+/*W					% - *W -
+{} def
+
+% place operators
+/`					% matrix llx lly urx ury string ` -
+{
+/_i save ddef
+6 1 roll 4 npop
+concat
+userdict begin
+/showpage {} def
+false setoverprint
+pop
+} def
+/~					% - ~ -
+{
+end
+_i restore
+} def
+
+% color operators
+/O					% flag O -
+{
+0 ne
+/_of exch ddef
+/_lp /none ddef
+} def
+/R					% flag R -
+{
+0 ne
+/_os exch ddef
+/_lp /none ddef
+} def
+/g					% gray g -
+{
+/_gf exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_gf setgray
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/G					% gray G -
+{
+/_gs exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_gs setgray
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/k					% cyan magenta yellow black k -
+{
+_cf astore pop
+/_fc
+{
+_lp /fill ne
+	{
+	_of setoverprint
+	_cf aload pop setcmykcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/K					% cyan magenta yellow black K -
+{
+_cs astore pop
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_cs aload pop setcmykcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/x					% cyan magenta yellow black name gray x -
+{
+/_gf exch ddef
+findcmykcustomcolor
+/_if exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_if _gf 1 exch sub setcustomcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/X					% cyan magenta yellow black name gray X -
+{
+/_gs exch ddef
+findcmykcustomcolor
+/_is exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_is _gs 1 exch sub setcustomcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+
+% locked object operator
+/A					% value A -
+{
+pop
+} def
+
+currentdict readonly pop end
+setpacking
+
+% annotate page operator
+/annotatepage
+{
+} def
+%%EndResource
+%AI3-Grid.0 18 18 3 0 0 0 3
+%%EndProlog
+%%BeginSetup
+%%IncludeFont: Helvetica
+Adobe_cmykcolor /initialize get exec
+
+Adobe_cshow /initialize get exec
+
+Adobe_customcolor /initialize get exec
+
+Adobe_typography_AI3 /initialize get exec
+
+
+Adobe_IllustratorA_AI3 /initialize get exec
+
+[
+129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply
+/divide/copyright 176/registered 181/brokenbar 190/logicalnot 
+192/onesuperior 201/twosuperior 204/threesuperior 209/plusminus
+/onequarter/onehalf/threequarters/agrave/aacute/acircumflex
+/atilde/adieresis/aring/ccedilla/egrave/eacute/ecircumflex
+/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth/ntilde 
+236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis
+TE
+%AI3_BeginEncoding: _Helvetica Helvetica
+[/_Helvetica/Helvetica 0 0 1 TZ
+%AI3_EndEncoding
+%%EndSetup
+0 A
+[0.6791 0 0 0.6781 26.9189 216.3957] 23 155 768 388
+(/u/collis/iris2/present/APS95/cu_v_5.75p_M=0.1.eps)`
+%%BeginDocument: /u/collis/iris2/present/APS95/cu_v_5.75p_M=0.1.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 23 155 768 388                                              
+%%%%%%BoundingBox: 223 23 456 768                                                   
+%%Orientation: Landscape
+%%Title: PostScript_file
+%%Creator: PSLIB
+%%CreationDate: Tue Nov 14 09:41:11 1995
+%%EndComments
+%
+% Begin page 1 ...
+%
+save
+mark
+100 dict begin
+/nosym
+{}
+def
+/plussym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup
+-.4 mul 0 rmoveto
+.8 mul 0 rlineto
+-.4 mul exch -.4 mul rmoveto
+.8 mul 0 exch rlineto
+stroke
+setdash
+}
+def
+/xsym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup dup dup
+-.325 mul exch -.325 mul rmoveto
+.65 mul exch .65 mul rlineto
+-.65 mul 0 rmoveto
+.65 mul exch -.65 mul rlineto
+stroke
+setdash
+}
+def
+/squaresym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup
+-.35 mul exch -.35 mul rmoveto
+.7 mul 0 rlineto
+0 exch .7 mul rlineto
+-.7 mul 0 rlineto
+closepath
+stroke
+setdash
+}
+def
+/circlesym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+5 -1 roll .4 mul 0 360 arc
+closepath
+stroke
+setdash
+}
+def
+/diamondsym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup dup dup
+-.475 mul 0 rmoveto
+.475 mul exch -.475 mul rlineto
+.475 mul exch .475 mul rlineto
+-.475 mul exch .475 mul rlineto
+closepath
+stroke
+setdash
+}
+def
+/deltasym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup
+-.35 mul exch -.35 mul rmoveto
+.7 mul 0 rlineto
+-.35 mul exch .7 mul rlineto
+closepath
+stroke
+setdash
+}
+def
+/nablasym
+{
+currentdash
+[] 0 setdash
+currentpoint
+newpath
+moveto
+3 -1 roll dup dup dup dup
+-.35 mul exch .35 mul rmoveto
+.7 mul 0 rlineto
+-.35 mul exch -.7 mul rlineto
+closepath
+stroke
+setdash
+}
+def
+/fsquaresym
+{
+currentpoint
+newpath
+moveto
+dup dup dup dup
+-.35 mul exch -.35 mul rmoveto
+.7 mul 0 rlineto
+0 exch .7 mul rlineto
+-.7 mul 0 rlineto
+closepath
+fill
+}
+def
+/fcirclesym
+{
+currentpoint
+newpath
+3 -1 roll .4 mul 0 360 arc
+closepath
+fill
+}
+def
+/fdiamondsym
+{
+currentpoint
+newpath
+moveto
+dup dup dup dup dup dup
+-.475 mul 0 rmoveto
+.475 mul exch -.475 mul rlineto
+.475 mul exch .475 mul rlineto
+-.475 mul exch .475 mul rlineto
+closepath
+fill
+}
+def
+/fdeltasym
+{
+currentpoint
+newpath
+moveto
+dup dup dup dup
+-.35 mul exch -.35 mul rmoveto
+.7 mul 0 rlineto
+-.35 mul exch .7 mul rlineto
+closepath
+fill
+}
+def
+/fnablasym
+{
+currentpoint
+newpath
+moveto
+dup dup dup dup
+-.35 mul exch .35 mul rmoveto
+.7 mul 0 rlineto
+-.35 mul exch -.7 mul rlineto
+closepath
+fill
+}
+def
+0.180000 0.180000 scale
+131 50 translate
+/m { moveto } bind def
+/l { lineto } bind def
+/S { setrgbcolor } bind def
+/G { setgray } bind def
+/f { fill } bind def
+/s { stroke } bind def
+/c { closepath } bind def
+/C { currentpoint } bind def
+/drawpoint { % stack: ... x y
+   currentlinecap
+   currentdash
+   currentlinewidth
+   6 -2 roll
+   2 setlinecap
+   [] 0 setdash
+   4.90342 setlinewidth
+   2 copy
+   moveto
+   lineto
+   stroke
+   setlinewidth
+   setdash
+   setlinecap
+} bind def
+/dashadj { % stack: ... int
+   5 mul
+} bind def
+0 0 m
+4138 0 l
+4138 3300 l
+0 3300 l
+c
+clip
+newpath
+/TRfont-0 /Times-Roman findfont 73.551262 scalefont def
+TRfont-0 setfont
+gsave
+grestore
+gsave
+0 0 m
+4134 0 l
+4134 3295 l
+0 3295 l
+c
+clip
+newpath
+1.000000 1.000000 1.000000 S
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+4 setlinewidth
+1152 817 m
+1152 818 l
+1152 819 l
+1152 820 l
+1153 821 l
+1153 822 l
+1153 823 l
+1153 824 l
+1153 825 l
+1153 826 l
+1153 827 l
+1154 827 l
+1154 828 l
+1154 829 l
+1154 830 l
+1154 831 l
+1155 831 l
+1155 832 l
+1155 833 l
+1155 834 l
+1156 834 l
+1156 835 l
+1156 836 l
+1156 837 l
+1157 837 l
+1157 838 l
+1157 839 l
+1158 839 l
+1158 840 l
+1158 841 l
+1159 841 l
+1159 842 l
+1159 843 l
+1160 843 l
+1160 844 l
+1161 845 l
+1161 846 l
+1162 847 l
+1162 848 l
+1163 848 l
+1163 849 l
+1164 850 l
+1164 851 l
+1165 851 l
+1165 852 l
+1166 853 l
+1167 854 l
+1168 855 l
+1169 856 l
+1169 857 l
+1170 858 l
+1171 858 l
+1171 859 l
+1172 859 l
+1172 860 l
+1173 861 l
+1174 862 l
+1175 863 l
+1176 864 l
+1177 865 l
+1178 865 l
+1178 866 l
+1179 867 l
+1180 867 l
+1181 868 l
+1182 869 l
+1183 870 l
+1184 871 l
+1185 871 l
+1186 872 l
+1187 873 l
+1188 874 l
+1189 875 l
+1190 876 l
+1191 876 l
+1193 877 l
+1194 878 l
+1195 879 l
+1197 880 l
+1198 881 l
+1199 882 l
+1201 883 l
+1203 884 l
+1204 885 l
+1206 886 l
+1208 887 l
+1209 888 l
+1211 889 l
+1213 890 l
+1215 891 l
+1217 892 l
+1219 893 l
+1221 894 l
+1223 895 l
+1225 896 l
+1228 897 l
+1230 898 l
+1232 899 l
+1235 900 l
+1237 901 l
+1240 902 l
+1242 904 l
+1245 905 l
+1247 906 l
+1250 907 l
+1253 908 l
+1256 909 l
+1259 910 l
+1261 911 l
+1265 912 l
+1268 913 l
+1271 914 l
+1274 915 l
+1277 916 l
+1281 917 l
+1284 918 l
+1288 919 l
+1291 920 l
+1295 921 l
+1299 922 l
+1303 924 l
+1307 925 l
+1311 926 l
+1316 927 l
+1320 928 l
+1325 929 l
+1330 930 l
+1334 931 l
+1340 932 l
+1345 933 l
+1350 934 l
+1356 935 l
+1362 937 l
+1368 938 l
+1375 939 l
+1382 940 l
+1389 941 l
+1397 942 l
+1405 943 l
+1413 945 l
+1422 946 l
+1432 947 l
+1442 948 l
+1453 949 l
+1464 950 l
+1477 952 l
+1490 953 l
+1505 954 l
+1520 955 l
+1537 956 l
+1555 957 l
+1574 958 l
+1595 959 l
+1617 960 l
+1641 961 l
+1666 962 l
+1692 962 l
+1719 963 l
+1747 963 l
+1775 964 l
+1804 964 l
+1834 964 l
+1864 964 l
+1894 964 l
+1924 964 l
+1955 964 l
+1986 964 l
+2016 964 l
+2047 964 l
+2078 964 l
+2109 964 l
+2140 964 l
+2170 964 l
+2201 964 l
+2232 964 l
+2263 964 l
+2294 964 l
+2325 964 l
+2356 964 l
+2387 964 l
+2418 964 l
+2449 964 l
+2480 964 l
+2511 964 l
+2542 964 l
+2573 964 l
+2603 964 l
+2634 964 l
+2665 964 l
+2696 964 l
+2727 964 l
+2758 964 l
+2789 964 l
+2820 964 l
+2851 964 l
+2882 964 l
+2913 964 l
+2944 964 l
+2975 964 l
+3006 964 l
+3037 964 l
+3068 964 l
+3098 964 l
+3129 964 l
+3160 964 l
+3191 964 l
+3222 964 l
+3253 964 l
+3284 964 l
+3315 964 l
+3346 964 l
+3377 964 l
+3408 964 l
+3439 964 l
+3470 964 l
+3501 964 l
+3532 964 l
+3563 964 l
+3593 964 l
+3624 964 l
+3655 964 l
+3686 964 l
+3717 964 l
+3748 964 l
+3779 964 l
+3810 964 l
+3841 964 l
+3872 964 l
+3903 964 l
+3934 964 l
+3965 964 l
+3996 964 l
+4027 964 l
+4058 964 l
+4088 964 l
+4119 964 l
+4134 964 l
+C s
+m
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+4 setlinewidth
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+4 setlinewidth
+1152 817 m
+1151 817 l
+1150 817 l
+1149 817 l
+1148 817 l
+1147 817 l
+1146 817 l
+1145 817 l
+1144 817 l
+1143 817 l
+1142 817 l
+1141 817 l
+1140 817 l
+1139 817 l
+1138 817 l
+1136 817 l
+1135 817 l
+1133 817 l
+1131 817 l
+1130 817 l
+1127 817 l
+1125 817 l
+1123 817 l
+1120 817 l
+1117 817 l
+1114 817 l
+1111 817 l
+1107 817 l
+1103 817 l
+1099 817 l
+1094 817 l
+1089 817 l
+1083 817 l
+1077 817 l
+1070 817 l
+1063 817 l
+1055 817 l
+1046 817 l
+1037 817 l
+1027 817 l
+1016 817 l
+1004 817 l
+991 817 l
+977 817 l
+961 817 l
+945 817 l
+926 817 l
+907 817 l
+885 817 l
+862 817 l
+837 817 l
+810 817 l
+780 817 l
+748 817 l
+714 817 l
+677 817 l
+636 817 l
+593 817 l
+546 817 l
+495 817 l
+440 817 l
+381 817 l
+318 817 l
+249 817 l
+176 817 l
+97 817 l
+13 817 l
+0 817 l
+C s
+m
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+4 setlinewidth
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+4 setlinewidth
+4119 964 m
+4119 965 l
+4119 966 l
+4119 967 l
+4119 968 l
+4119 969 l
+4119 970 l
+4119 971 l
+4119 972 l
+4119 973 l
+4119 974 l
+4119 975 l
+4119 976 l
+4119 977 l
+4119 978 l
+4119 979 l
+4119 980 l
+4119 982 l
+4119 983 l
+4119 985 l
+4119 987 l
+4119 989 l
+4119 991 l
+4119 994 l
+4119 996 l
+4119 999 l
+4119 1002 l
+4119 1006 l
+4119 1009 l
+4119 1013 l
+4119 1018 l
+4119 1023 l
+4119 1028 l
+4119 1033 l
+4119 1040 l
+4119 1046 l
+4119 1054 l
+4119 1061 l
+4119 1070 l
+4119 1079 l
+4119 1090 l
+4119 1101 l
+4119 1113 l
+4119 1126 l
+4119 1140 l
+4119 1155 l
+4119 1172 l
+4119 1190 l
+4119 1210 l
+4119 1231 l
+4119 1254 l
+4119 1279 l
+4119 1306 l
+4119 1336 l
+4119 1368 l
+4119 1402 l
+4119 1440 l
+4119 1480 l
+4119 1524 l
+4119 1571 l
+4119 1622 l
+4119 1676 l
+4119 1735 l
+4119 1799 l
+4119 1867 l
+4119 1940 l
+4119 2019 l
+4119 2103 l
+C s
+m
+0.000000 0.000000 0.000000 S
+[] 0 setdash
+4 setlinewidth
+13 817 m
+13 825 l
+13 833 l
+14 841 l
+14 850 l
+14 858 l
+14 866 l
+15 874 l
+15 883 l
+16 891 l
+16 899 l
+17 907 l
+17 916 l
+18 924 l
+19 932 l
+20 940 l
+21 949 l
+22 957 l
+23 965 l
+24 973 l
+25 982 l
+26 990 l
+27 998 l
+28 1006 l
+30 1014 l
+31 1022 l
+33 1031 l
+34 1039 l
+36 1047 l
+37 1055 l
+39 1063 l
+41 1071 l
+43 1079 l
+45 1088 l
+47 1096 l
+48 1104 l
+51 1112 l
+53 1120 l
+55 1128 l
+57 1136 l
+59 1144 l
+62 1152 l
+64 1160 l
+66 1168 l
+69 1176 l
+72 1184 l
+74 1192 l
+77 1200 l
+80 1208 l
+82 1216 l
+85 1224 l
+88 1232 l
+91 1240 l
+94 1247 l
+97 1255 l
+100 1263 l
+104 1271 l
+107 1279 l
+110 1287 l
+114 1295 l
+117 1302 l
+121 1310 l
+124 1318 l
+128 1326 l
+131 1333 l
+135 1341 l
+139 1349 l
+143 1357 l
+147 1364 l
+151 1372 l
+155 1380 l
+159 1387 l
+163 1395 l
+168 1403 l
+172 1410 l
+176 1418 l
+181 1426 l
+185 1433 l
+190 1441 l
+195 1448 l
+199 1456 l
+204 1463 l
+209 1471 l
+214 1479 l
+219 1486 l
+224 1494 l
+229 1501 l
+235 1509 l
+240 1516 l
+246 1524 l
+251 1531 l
+257 1539 l
+262 1546 l
+268 1554 l
+274 1561 l
+280 1568 l
+286 1576 l
+292 1583 l
+298 1591 l
+305 1598 l
+311 1606 l
+318 1613 l
+324 1620 l
+331 1628 l
+338 1635 l
+345 1643 l
+352 1650 l
+359 1657 l
+366 1665 l
+374 1672 l
+381 1679 l
+389 1687 l
+396 1694 l
+404 1701 l
+412 1709 l
+420 1716 l
+428 1723 l
+437 1730 l
+445 1738 l
+454 1745 l
+463 1752 l
+471 1759 l
+480 1766 l
+489 1773 l
+499 1780 l
+508 1787 l
+517 1794 l
+527 1801 l
+537 1808 l
+546 1815 l
+556 1822 l
+566 1829 l
+576 1835 l
+587 1842 l
+597 1848 l
+607 1855 l
+618 1861 l
+628 1867 l
+639 1873 l
+649 1879 l
+660 1885 l
+670 1891 l
+681 1897 l
+692 1902 l
+702 1908 l
+713 1913 l
+724 1919 l
+735 1924 l
+745 1929 l
+756 1934 l
+767 1939 l
+777 1943 l
+788 1948 l
+799 1953 l
+810 1957 l
+820 1961 l
+831 1966 l
+841 1970 l
+852 1974 l
+863 1978 l
+873 1982 l
+884 1985 l
+895 1989 l
+905 1993 l
+916 1996 l
+927 2000 l
+937 2003 l
+948 2006 l
+959 2010 l
+970 2013 l
+980 2016 l
+991 2019 l
+1002 2022 l
+1014 2025 l
+1025 2028 l
+1036 2031 l
+1047 2033 l
+1059 2036 l
+1071 2039 l
+1083 2042 l
+1095 2044 l
+1107 2047 l
+1119 2049 l
+1132 2052 l
+1145 2054 l
+1158 2057 l
+1172 2059 l
+1185 2062 l
+1200 2064 l
+1214 2066 l
+1229 2069 l
+1245 2071 l
+1261 2073 l
+1277 2075 l
+1295 2077 l
+1313 2079 l
+1332 2082 l
+1351 2084 l
+1372 2086 l
+1393 2087 l
+1416 2089 l
+1439 2091 l
+1464 2093 l
+1490 2094 l
+1518 2096 l
+1546 2097 l
+1576 2098 l
+1606 2099 l
+1637 2100 l
+1669 2101 l
+1701 2101 l
+1733 2102 l
+1765 2102 l
+1797 2102 l
+1829 2103 l
+1861 2103 l
+1892 2103 l
+1924 2103 l
+1955 2103 l
+1985 2103 l
+2016 2103 l
+2047 2103 l
+2078 2103 l
+2109 2103 l
+2140 2103 l
+2170 2103 l
+2201 2103 l
+2232 2103 l
+2263 2103 l
+2294 2103 l
+2325 2103 l
+2356 2103 l
+2387 2103 l
+2418 2103 l
+2449 2103 l
+2480 2103 l
+2511 2103 l
+2542 2103 l
+2573 2103 l
+2603 2103 l
+2634 2103 l
+2665 2103 l
+2696 2103 l
+2727 2103 l
+2758 2103 l
+2789 2103 l
+2820 2103 l
+2851 2103 l
+2882 2103 l
+2913 2103 l
+2944 2103 l
+2975 2103 l
+3006 2103 l
+3037 2103 l
+3068 2103 l
+3098 2103 l
+3129 2103 l
+3160 2103 l
+3191 2103 l
+3222 2103 l
+3253 2103 l
+3284 2103 l
+3315 2103 l
+3346 2103 l
+3377 2103 l
+3408 2103 l
+3439 2103 l
+3470 2103 l
+3501 2103 l
+3532 2103 l
+3563 2103 l
+3593 2103 l
+3624 2103 l
+3655 2103 l
+3686 2103 l
+3717 2103 l
+3748 2103 l
+3779 2103 l
+3810 2103 l
+3841 2103 l
+3872 2103 l
+3903 2103 l
+3934 2103 l
+3965 2103 l
+3996 2103 l
+4027 2103 l
+4058 2103 l
+4088 2103 l
+4119 2103 l
+C s
+m
+[ 1 dashadj 3 dashadj 1 dashadj 3 dashadj 1 dashadj 3 dashadj 1 dashadj 3 dashadj ] 0 setdash
+4 setlinewidth
+0.000000 0.000000 0.000000 S
+2047 994 m
+2078 996 l
+2080 996 l
+2092 999 l
+2096 1002 l
+2094 1006 l
+2084 1009 l
+2078 1011 l
+2047 1012 l
+2032 1009 l
+2019 1006 l
+2016 1005 l
+2009 1002 l
+2004 999 l
+2005 996 l
+2016 994 l
+2026 994 l
+2047 994 l
+s
+2065 991 m
+2078 992 l
+2093 994 l
+2108 996 l
+2109 996 l
+2117 999 l
+2121 1002 l
+2121 1006 l
+2118 1009 l
+2111 1013 l
+2109 1015 l
+2101 1018 l
+2086 1023 l
+2078 1024 l
+2047 1025 l
+2031 1023 l
+2016 1018 l
+2006 1013 l
+1998 1009 l
+1990 1006 l
+1986 1003 l
+1984 1002 l
+1979 999 l
+1976 996 l
+1979 994 l
+1986 992 l
+1994 991 l
+2016 990 l
+2047 990 l
+2065 991 l
+s
+2069 989 m
+2078 989 l
+2099 991 l
+2109 992 l
+2117 994 l
+2128 996 l
+2136 999 l
+2140 1002 l
+2141 1006 l
+2140 1008 l
+2139 1009 l
+2135 1013 l
+2129 1018 l
+2123 1023 l
+2114 1028 l
+2109 1030 l
+2102 1033 l
+2083 1040 l
+2078 1041 l
+2047 1042 l
+2034 1040 l
+2016 1034 l
+2014 1033 l
+2003 1028 l
+1994 1023 l
+1987 1018 l
+1986 1017 l
+1981 1013 l
+1975 1009 l
+1970 1006 l
+1964 1002 l
+1959 999 l
+1955 996 l
+1955 994 l
+1955 993 l
+1960 991 l
+1978 989 l
+1986 989 l
+2016 988 l
+2047 988 l
+2069 989 l
+s
+3341 1009 m
+3346 1011 l
+3349 1013 l
+3347 1018 l
+3346 1019 l
+3332 1023 l
+3315 1023 l
+3298 1018 l
+3295 1013 l
+3300 1009 l
+3315 1007 l
+3341 1009 l
+s
+4008 1009 m
+4018 1013 l
+4022 1018 l
+4021 1023 l
+4016 1028 l
+3999 1033 l
+3996 1034 l
+3971 1033 l
+3965 1032 l
+3954 1028 l
+3948 1023 l
+3947 1018 l
+3951 1013 l
+3961 1009 l
+3965 1009 l
+3996 1008 l
+4008 1009 l
+s
+2070 987 m
+2078 987 l
+2102 989 l
+2109 990 l
+2121 991 l
+2135 994 l
+2140 995 l
+2145 996 l
+2152 999 l
+2156 1002 l
+2157 1006 l
+2156 1009 l
+2154 1013 l
+2150 1018 l
+2146 1023 l
+2140 1028 l
+2133 1033 l
+2125 1040 l
+2115 1046 l
+2109 1049 l
+2099 1054 l
+2078 1059 l
+2047 1061 l
+2016 1054 l
+2016 1053 l
+2001 1046 l
+1990 1040 l
+1986 1036 l
+1982 1033 l
+1975 1028 l
+1970 1023 l
+1965 1018 l
+1961 1013 l
+1957 1009 l
+1955 1008 l
+1952 1006 l
+1947 1002 l
+1942 999 l
+1938 996 l
+1935 994 l
+1936 991 l
+1943 989 l
+1955 988 l
+1965 987 l
+1986 986 l
+2016 986 l
+2047 986 l
+2070 987 l
+s
+3328 999 m
+3346 1000 l
+3359 1002 l
+3372 1006 l
+3377 1008 l
+3379 1009 l
+3382 1013 l
+3382 1018 l
+3379 1023 l
+3377 1025 l
+3372 1028 l
+3360 1033 l
+3346 1038 l
+3315 1039 l
+3289 1033 l
+3284 1032 l
+3276 1028 l
+3268 1023 l
+3263 1018 l
+3261 1013 l
+3262 1009 l
+3268 1006 l
+3279 1002 l
+3284 1001 l
+3310 999 l
+3315 999 l
+3328 999 l
+s
+4021 1002 m
+4027 1003 l
+4035 1006 l
+4043 1009 l
+4048 1013 l
+4050 1018 l
+4049 1023 l
+4047 1028 l
+4041 1033 l
+4032 1040 l
+4027 1042 l
+4017 1046 l
+3996 1051 l
+3965 1049 l
+3953 1046 l
+3938 1040 l
+3934 1037 l
+3928 1033 l
+3922 1028 l
+3919 1023 l
+3919 1018 l
+3921 1013 l
+3925 1009 l
+3933 1006 l
+3934 1006 l
+3947 1002 l
+3965 1000 l
+3996 1000 l
+4021 1002 l
+s
+1336 941 m
+1338 942 l
+1343 943 l
+1349 944 l
+1354 945 l
+1360 946 l
+1367 948 l
+1373 949 l
+1380 950 l
+1387 952 l
+1395 953 l
+1403 954 l
+1412 956 l
+1413 956 l
+1421 957 l
+1430 959 l
+1435 960 l
+1440 961 l
+1445 962 l
+1440 963 l
+1430 962 l
+1420 961 l
+1411 960 l
+1405 960 l
+1402 959 l
+1394 958 l
+1387 957 l
+1379 956 l
+1372 955 l
+1368 954 l
+1366 953 l
+1359 952 l
+1353 951 l
+1347 949 l
+1342 948 l
+1337 947 l
+1336 946 l
+1331 945 l
+1326 944 l
+1322 942 l
+1319 942 l
+1317 941 l
+1313 939 l
+1308 938 l
+1304 936 l
+1300 935 l
+1299 934 l
+1296 933 l
+1294 932 l
+1297 932 l
+1298 932 l
+1301 933 l
+1305 934 l
+1309 935 l
+1313 936 l
+1318 937 l
+1323 938 l
+1327 939 l
+1332 940 l
+1336 941 l
+s
+2072 985 m
+2078 985 l
+2104 987 l
+2109 987 l
+2125 989 l
+2140 991 l
+2152 994 l
+2160 996 l
+2167 999 l
+2170 1002 l
+2172 1006 l
+2172 1009 l
+2170 1013 l
+2168 1018 l
+2164 1023 l
+2161 1028 l
+2156 1033 l
+2151 1040 l
+2145 1046 l
+2140 1051 l
+2137 1054 l
+2127 1061 l
+2113 1070 l
+2109 1072 l
+2089 1079 l
+2078 1082 l
+2047 1084 l
+2025 1079 l
+2016 1077 l
+2002 1070 l
+1988 1061 l
+1986 1060 l
+1977 1054 l
+1969 1046 l
+1963 1040 l
+1958 1033 l
+1955 1030 l
+1953 1028 l
+1950 1023 l
+1946 1018 l
+1943 1013 l
+1940 1009 l
+1937 1006 l
+1932 1002 l
+1927 999 l
+1924 998 l
+1922 996 l
+1918 994 l
+1916 991 l
+1918 989 l
+1924 987 l
+1928 987 l
+1953 985 l
+1955 985 l
+1986 984 l
+2016 984 l
+2047 984 l
+2072 985 l
+s
+3361 996 m
+3377 999 l
+3378 999 l
+3389 1002 l
+3397 1006 l
+3401 1009 l
+3404 1013 l
+3404 1018 l
+3402 1023 l
+3398 1028 l
+3392 1033 l
+3384 1040 l
+3377 1044 l
+3372 1046 l
+3353 1054 l
+3346 1055 l
+3315 1057 l
+3296 1054 l
+3284 1050 l
+3277 1046 l
+3265 1040 l
+3256 1033 l
+3253 1031 l
+3249 1028 l
+3244 1023 l
+3241 1018 l
+3239 1013 l
+3240 1009 l
+3243 1006 l
+3249 1002 l
+3253 1001 l
+3260 999 l
+3277 996 l
+3284 995 l
+3315 994 l
+3346 995 l
+3361 996 l
+s
+4024 996 m
+4027 997 l
+4041 999 l
+4053 1002 l
+4058 1004 l
+4060 1006 l
+4065 1009 l
+4068 1013 l
+4070 1018 l
+4069 1023 l
+4068 1028 l
+4064 1033 l
+4059 1040 l
+4058 1041 l
+4051 1046 l
+4040 1054 l
+4027 1060 l
+4024 1061 l
+3996 1069 l
+3965 1067 l
+3945 1061 l
+3934 1056 l
+3929 1054 l
+3918 1046 l
+3911 1040 l
+3905 1033 l
+3903 1031 l
+3901 1028 l
+3899 1023 l
+3899 1018 l
+3900 1013 l
+3903 1010 l
+3903 1009 l
+3909 1006 l
+3916 1002 l
+3928 999 l
+3934 998 l
+3946 996 l
+3965 995 l
+3996 994 l
+4024 996 l
+s
+2703 1002 m
+2706 1006 l
+2704 1009 l
+2697 1013 l
+2696 1014 l
+2665 1015 l
+2661 1013 l
+2654 1009 l
+2652 1006 l
+2656 1002 l
+2665 1000 l
+2696 1000 l
+2703 1002 l
+s
+1309 933 m
+1314 935 l
+1318 936 l
+1323 937 l
+1328 938 l
+1333 939 l
+1338 940 l
+1343 942 l
+1349 943 l
+1351 943 l
+1355 944 l
+1361 945 l
+1367 947 l
+1374 948 l
+1380 949 l
+1388 950 l
+1391 951 l
+1395 952 l
+1403 953 l
+1412 954 l
+1421 956 l
+1428 957 l
+1430 957 l
+1441 959 l
+1452 960 l
+1460 962 l
+1463 962 l
+1476 964 l
+1483 965 l
+1489 966 l
+1495 967 l
+1494 968 l
+1489 968 l
+1481 968 l
+1475 968 l
+1463 968 l
+1457 967 l
+1451 967 l
+1440 966 l
+1429 966 l
+1428 966 l
+1420 965 l
+1410 965 l
+1406 965 l
+1402 965 l
+1393 965 l
+1392 965 l
+1385 965 l
+1382 965 l
+1378 965 l
+1372 966 l
+1370 966 l
+1364 966 l
+1357 965 l
+1352 965 l
+1351 964 l
+1345 963 l
+1339 962 l
+1336 962 l
+1334 961 l
+1328 959 l
+1323 957 l
+1319 955 l
+1314 953 l
+1310 951 l
+1306 948 l
+1304 947 l
+1302 946 l
+1299 944 l
+1298 943 l
+1295 941 l
+1294 941 l
+1291 939 l
+1291 938 l
+1287 936 l
+1284 934 l
+1281 933 l
+1280 932 l
+1277 930 l
+1276 930 l
+1273 929 l
+1270 927 l
+1267 925 l
+1264 924 l
+1261 922 l
+1259 921 l
+1258 921 l
+1255 919 l
+1253 917 l
+1255 917 l
+1256 917 l
+1259 918 l
+1262 919 l
+1265 920 l
+1268 921 l
+1272 922 l
+1275 923 l
+1278 925 l
+1282 926 l
+1286 927 l
+1289 928 l
+1293 929 l
+1297 930 l
+1301 931 l
+1305 932 l
+1309 933 l
+s
+2078 983 m
+2109 985 l
+2129 987 l
+2140 988 l
+2145 989 l
+2157 991 l
+2167 994 l
+2170 995 l
+2175 996 l
+2180 999 l
+2184 1002 l
+2186 1006 l
+2186 1009 l
+2185 1013 l
+2184 1018 l
+2181 1023 l
+2179 1028 l
+2176 1033 l
+2172 1040 l
+2170 1043 l
+2168 1046 l
+2163 1054 l
+2157 1061 l
+2150 1070 l
+2140 1079 l
+2140 1080 l
+2127 1090 l
+2109 1100 l
+2108 1101 l
+2078 1110 l
+2047 1112 l
+2016 1105 l
+2005 1101 l
+1986 1090 l
+1986 1089 l
+1973 1079 l
+1963 1070 l
+1956 1061 l
+1955 1060 l
+1950 1054 l
+1945 1046 l
+1940 1040 l
+1937 1033 l
+1934 1028 l
+1932 1023 l
+1929 1018 l
+1927 1013 l
+1925 1009 l
+1924 1009 l
+1922 1006 l
+1917 1002 l
+1912 999 l
+1907 996 l
+1902 994 l
+1898 991 l
+1896 989 l
+1899 987 l
+1911 985 l
+1924 984 l
+1938 983 l
+1955 983 l
+1986 982 l
+2016 982 l
+2047 982 l
+2078 983 l
+s
+2700 991 m
+2722 994 l
+2727 995 l
+2732 996 l
+2738 999 l
+2741 1002 l
+2742 1006 l
+2741 1009 l
+2738 1013 l
+2734 1018 l
+2727 1023 l
+2718 1028 l
+2703 1033 l
+2696 1035 l
+2665 1036 l
+2654 1033 l
+2639 1028 l
+2634 1026 l
+2629 1023 l
+2623 1018 l
+2619 1013 l
+2617 1009 l
+2616 1006 l
+2617 1002 l
+2621 999 l
+2627 996 l
+2634 994 l
+2638 994 l
+2661 991 l
+2665 991 l
+2696 991 l
+2700 991 l
+s
+3359 991 m
+3377 993 l
+3380 994 l
+3394 996 l
+3403 999 l
+3408 1001 l
+3411 1002 l
+3416 1006 l
+3420 1009 l
+3422 1013 l
+3422 1018 l
+3421 1023 l
+3419 1028 l
+3415 1033 l
+3409 1040 l
+3408 1041 l
+3402 1046 l
+3394 1054 l
+3383 1061 l
+3377 1065 l
+3366 1070 l
+3346 1076 l
+3315 1078 l
+3284 1071 l
+3282 1070 l
+3266 1061 l
+3255 1054 l
+3253 1052 l
+3246 1046 l
+3239 1040 l
+3234 1033 l
+3229 1028 l
+3225 1023 l
+3223 1018 l
+3222 1017 l
+3221 1013 l
+3221 1009 l
+3222 1007 l
+3223 1006 l
+3228 1002 l
+3234 999 l
+3244 996 l
+3253 994 l
+3258 994 l
+3281 991 l
+3284 991 l
+3315 990 l
+3346 990 l
+3359 991 l
+s
+4023 991 m
+4027 992 l
+4045 994 l
+4058 996 l
+4067 999 l
+4074 1002 l
+4079 1006 l
+4083 1009 l
+4085 1013 l
+4086 1018 l
+4086 1023 l
+4085 1028 l
+4082 1033 l
+4079 1040 l
+4074 1046 l
+4067 1054 l
+4058 1061 l
+4058 1062 l
+4047 1070 l
+4031 1079 l
+4027 1081 l
+3996 1090 l
+3972 1090 l
+3965 1088 l
+3937 1079 l
+3934 1078 l
+3921 1070 l
+3910 1061 l
+3903 1055 l
+3902 1054 l
+3895 1046 l
+3890 1040 l
+3886 1033 l
+3884 1028 l
+3882 1023 l
+3882 1018 l
+3883 1013 l
+3885 1009 l
+3889 1006 l
+3894 1002 l
+3902 999 l
+3903 999 l
+3912 996 l
+3926 994 l
+3934 993 l
+3950 991 l
+3965 990 l
+3996 990 l
+4023 991 l
+s
+1276 923 m
+1279 924 l
+1282 925 l
+1286 926 l
+1290 927 l
+1293 928 l
+1297 929 l
+1301 930 l
+1305 932 l
+1310 933 l
+1313 934 l
+1314 934 l
+1318 935 l
+1323 936 l
+1328 937 l
+1333 939 l
+1338 940 l
+1343 941 l
+1349 942 l
+1351 943 l
+1355 943 l
+1361 945 l
+1367 946 l
+1374 947 l
+1381 948 l
+1388 950 l
+1390 950 l
+1395 951 l
+1403 952 l
+1412 954 l
+1421 955 l
+1431 956 l
+1432 957 l
+1441 958 l
+1452 959 l
+1463 961 l
+1472 962 l
+1476 962 l
+1489 964 l
+1504 965 l
+1506 966 l
+1519 967 l
+1529 968 l
+1536 969 l
+1540 970 l
+1539 971 l
+1536 972 l
+1526 972 l
+1519 972 l
+1505 972 l
+1503 972 l
+1489 971 l
+1480 971 l
+1475 971 l
+1462 971 l
+1460 971 l
+1450 971 l
+1447 972 l
+1439 973 l
+1435 975 l
+1431 976 l
+1428 978 l
+1427 979 l
+1422 981 l
+1417 984 l
+1411 986 l
+1407 988 l
+1405 989 l
+1398 991 l
+1396 992 l
+1389 994 l
+1386 995 l
+1381 996 l
+1373 997 l
+1372 997 l
+1365 998 l
+1358 999 l
+1351 999 l
+1349 999 l
+1344 999 l
+1338 998 l
+1332 997 l
+1326 996 l
+1321 995 l
+1316 993 l
+1310 991 l
+1307 990 l
+1306 989 l
+1301 987 l
+1297 985 l
+1292 983 l
+1288 980 l
+1284 978 l
+1280 975 l
+1277 972 l
+1273 969 l
+1270 966 l
+1270 965 l
+1267 962 l
+1265 960 l
+1264 959 l
+1261 955 l
+1260 954 l
+1258 952 l
+1257 950 l
+1256 948 l
+1254 945 l
+1253 944 l
+1252 942 l
+1251 940 l
+1250 938 l
+1249 936 l
+1248 935 l
+1247 932 l
+1246 930 l
+1245 928 l
+1245 927 l
+1244 925 l
+1244 924 l
+1243 923 l
+1243 921 l
+1242 920 l
+1242 919 l
+1240 917 l
+1238 915 l
+1237 915 l
+1236 913 l
+1235 913 l
+1233 911 l
+1231 909 l
+1230 909 l
+1228 908 l
+1227 906 l
+1226 906 l
+1225 905 l
+1224 904 l
+1225 904 l
+1227 904 l
+1227 905 l
+1229 905 l
+1232 906 l
+1234 907 l
+1237 908 l
+1240 909 l
+1242 911 l
+1245 912 l
+1248 913 l
+1251 914 l
+1253 915 l
+1256 916 l
+1259 917 l
+1262 918 l
+1266 919 l
+1269 920 l
+1272 921 l
+1275 923 l
+1276 923 l
+s
+2090 982 m
+2109 983 l
+2117 983 l
+2136 985 l
+2140 985 l
+2151 987 l
+2163 989 l
+2170 991 l
+2173 991 l
+2181 994 l
+2188 996 l
+2193 999 l
+2197 1002 l
+2199 1006 l
+2200 1009 l
+2199 1013 l
+2198 1018 l
+2197 1023 l
+2195 1028 l
+2193 1033 l
+2191 1040 l
+2189 1046 l
+2186 1054 l
+2182 1061 l
+2178 1070 l
+2172 1079 l
+2170 1082 l
+2165 1090 l
+2157 1101 l
+2146 1113 l
+2140 1118 l
+2130 1126 l
+2109 1138 l
+2105 1140 l
+2078 1148 l
+2047 1149 l
+2016 1143 l
+2008 1140 l
+1986 1128 l
+1983 1126 l
+1966 1113 l
+1955 1101 l
+1955 1100 l
+1946 1090 l
+1939 1079 l
+1934 1070 l
+1929 1061 l
+1926 1054 l
+1924 1051 l
+1923 1046 l
+1920 1040 l
+1918 1033 l
+1916 1028 l
+1914 1023 l
+1913 1018 l
+1911 1013 l
+1910 1009 l
+1907 1006 l
+1903 1002 l
+1898 999 l
+1894 997 l
+1892 996 l
+1886 994 l
+1880 991 l
+1876 989 l
+1874 987 l
+1877 985 l
+1889 983 l
+1894 983 l
+1917 982 l
+1924 981 l
+1955 981 l
+1986 980 l
+2016 980 l
+2047 981 l
+2078 981 l
+2090 982 l
+s
+2717 987 m
+2727 988 l
+2737 989 l
+2748 991 l
+2755 994 l
+2758 995 l
+2760 996 l
+2763 999 l
+2765 1002 l
+2765 1006 l
+2764 1009 l
+2762 1013 l
+2759 1018 l
+2758 1019 l
+2756 1023 l
+2751 1028 l
+2745 1033 l
+2737 1040 l
+2727 1046 l
+2712 1054 l
+2696 1058 l
+2665 1060 l
+2642 1054 l
+2634 1050 l
+2628 1046 l
+2618 1040 l
+2611 1033 l
+2605 1028 l
+2603 1026 l
+2600 1023 l
+2597 1018 l
+2595 1013 l
+2593 1009 l
+2593 1006 l
+2594 1002 l
+2596 999 l
+2599 996 l
+2603 994 l
+2605 994 l
+2613 991 l
+2626 989 l
+2634 988 l
+2646 987 l
+2665 986 l
+2696 986 l
+2717 987 l
+s
+3361 987 m
+3377 988 l
+3384 989 l
+3398 991 l
+3408 993 l
+3409 994 l
+3417 996 l
+3424 999 l
+3429 1002 l
+3433 1006 l
+3436 1009 l
+3438 1013 l
+3438 1018 l
+3438 1023 l
+3436 1028 l
+3433 1033 l
+3429 1040 l
+3425 1046 l
+3420 1054 l
+3413 1061 l
+3408 1067 l
+3405 1070 l
+3395 1079 l
+3380 1090 l
+3377 1091 l
+3356 1101 l
+3346 1103 l
+3315 1105 l
+3292 1101 l
+3284 1098 l
+3268 1090 l
+3253 1080 l
+3253 1079 l
+3243 1070 l
+3235 1061 l
+3228 1054 l
+3223 1046 l
+3222 1045 l
+3218 1040 l
+3215 1033 l
+3211 1028 l
+3209 1023 l
+3206 1018 l
+3205 1013 l
+3205 1009 l
+3206 1006 l
+3209 1002 l
+3214 999 l
+3221 996 l
+3222 996 l
+3230 994 l
+3242 991 l
+3253 990 l
+3259 989 l
+3284 987 l
+3285 987 l
+3315 986 l
+3346 986 l
+3361 987 l
+s
+4026 987 m
+4027 987 l
+4050 989 l
+4058 990 l
+4064 991 l
+4074 994 l
+4082 996 l
+4088 999 l
+4093 1002 l
+4096 1006 l
+4099 1009 l
+4100 1013 l
+4101 1018 l
+4101 1023 l
+4100 1028 l
+4098 1033 l
+4096 1040 l
+4092 1046 l
+4088 1053 l
+4088 1054 l
+4082 1061 l
+4075 1070 l
+4067 1079 l
+4058 1088 l
+4056 1090 l
+4040 1101 l
+4027 1107 l
+4012 1113 l
+3996 1116 l
+3965 1115 l
+3954 1113 l
+3934 1105 l
+3927 1101 l
+3911 1090 l
+3903 1082 l
+3900 1079 l
+3892 1070 l
+3885 1061 l
+3880 1054 l
+3876 1046 l
+3872 1040 l
+3872 1039 l
+3869 1033 l
+3868 1028 l
+3867 1023 l
+3867 1018 l
+3868 1013 l
+3869 1009 l
+3872 1006 l
+3876 1002 l
+3881 999 l
+3888 996 l
+3897 994 l
+3903 992 l
+3909 991 l
+3926 989 l
+3934 988 l
+3953 987 l
+3965 986 l
+3996 986 l
+4026 987 l
+s
+1248 912 m
+1251 913 l
+1254 914 l
+1257 915 l
+1260 916 l
+1263 918 l
+1266 919 l
+1269 920 l
+1272 921 l
+1276 922 l
+1279 923 l
+1282 924 l
+1286 925 l
+1290 926 l
+1294 928 l
+1297 929 l
+1301 930 l
+1305 931 l
+1310 932 l
+1311 932 l
+1314 933 l
+1319 934 l
+1323 936 l
+1328 937 l
+1333 938 l
+1338 939 l
+1343 940 l
+1346 941 l
+1349 942 l
+1355 943 l
+1361 944 l
+1367 945 l
+1374 946 l
+1381 948 l
+1385 949 l
+1388 949 l
+1396 950 l
+1404 952 l
+1412 953 l
+1421 954 l
+1430 956 l
+1431 956 l
+1441 957 l
+1452 958 l
+1463 960 l
+1476 961 l
+1479 961 l
+1489 963 l
+1504 964 l
+1519 966 l
+1525 966 l
+1536 967 l
+1554 969 l
+1561 969 l
+1574 970 l
+1584 971 l
+1593 973 l
+1588 974 l
+1574 974 l
+1571 974 l
+1554 975 l
+1547 975 l
+1536 975 l
+1520 974 l
+1519 974 l
+1503 974 l
+1498 974 l
+1488 975 l
+1483 975 l
+1474 976 l
+1469 978 l
+1466 980 l
+1463 983 l
+1461 985 l
+1458 988 l
+1455 991 l
+1452 995 l
+1448 998 l
+1447 998 l
+1443 1002 l
+1438 1006 l
+1435 1009 l
+1432 1011 l
+1426 1016 l
+1423 1018 l
+1418 1021 l
+1412 1025 l
+1409 1027 l
+1402 1031 l
+1398 1033 l
+1392 1036 l
+1384 1039 l
+1382 1039 l
+1373 1043 l
+1366 1045 l
+1365 1045 l
+1357 1047 l
+1349 1048 l
+1342 1049 l
+1340 1050 l
+1335 1050 l
+1328 1050 l
+1321 1050 l
+1315 1050 l
+1309 1050 l
+1303 1049 l
+1298 1048 l
+1292 1047 l
+1287 1045 l
+1282 1044 l
+1277 1042 l
+1272 1040 l
+1268 1038 l
+1264 1035 l
+1259 1033 l
+1255 1030 l
+1254 1030 l
+1252 1028 l
+1248 1025 l
+1244 1022 l
+1241 1019 l
+1238 1015 l
+1236 1014 l
+1234 1012 l
+1231 1008 l
+1229 1005 l
+1227 1002 l
+1226 1001 l
+1223 997 l
+1221 992 l
+1220 991 l
+1219 988 l
+1217 984 l
+1216 982 l
+1215 979 l
+1213 974 l
+1213 973 l
+1212 969 l
+1211 966 l
+1210 964 l
+1209 959 l
+1209 958 l
+1208 953 l
+1208 952 l
+1208 947 l
+1208 946 l
+1208 942 l
+1207 940 l
+1207 938 l
+1207 934 l
+1207 930 l
+1207 927 l
+1208 926 l
+1208 923 l
+1208 920 l
+1208 918 l
+1208 915 l
+1209 913 l
+1209 911 l
+1209 909 l
+1209 908 l
+1210 906 l
+1210 905 l
+1210 904 l
+1210 902 l
+1210 901 l
+1209 901 l
+1209 899 l
+1208 899 l
+1207 898 l
+1207 897 l
+1206 896 l
+1205 895 l
+1204 894 l
+1203 892 l
+1202 892 l
+1202 891 l
+1203 891 l
+1205 892 l
+1206 892 l
+1207 893 l
+1209 894 l
+1210 895 l
+1212 896 l
+1214 897 l
+1217 898 l
+1219 899 l
+1221 900 l
+1223 901 l
+1225 902 l
+1228 903 l
+1230 904 l
+1232 905 l
+1235 906 l
+1237 908 l
+1240 909 l
+1243 910 l
+1245 911 l
+1248 912 l
+s
+2077 979 m
+2078 979 l
+2109 980 l
+2111 980 l
+2132 982 l
+2140 982 l
+2147 983 l
+2160 985 l
+2170 987 l
+2180 989 l
+2188 991 l
+2195 994 l
+2201 996 l
+2206 999 l
+2210 1002 l
+2212 1006 l
+2213 1009 l
+2213 1013 l
+2213 1018 l
+2212 1023 l
+2212 1028 l
+2211 1033 l
+2209 1040 l
+2208 1046 l
+2207 1054 l
+2205 1061 l
+2202 1070 l
+2201 1073 l
+2200 1079 l
+2196 1090 l
+2192 1101 l
+2187 1113 l
+2180 1126 l
+2171 1140 l
+2170 1141 l
+2159 1155 l
+2142 1172 l
+2140 1174 l
+2114 1190 l
+2109 1193 l
+2078 1202 l
+2047 1203 l
+2016 1197 l
+1999 1190 l
+1986 1183 l
+1970 1172 l
+1955 1158 l
+1953 1155 l
+1940 1140 l
+1931 1126 l
+1924 1114 l
+1924 1113 l
+1918 1101 l
+1914 1090 l
+1910 1079 l
+1907 1070 l
+1905 1061 l
+1903 1053 l
+1902 1046 l
+1900 1040 l
+1899 1033 l
+1898 1028 l
+1898 1023 l
+1897 1018 l
+1896 1013 l
+1895 1009 l
+1894 1007 l
+1893 1006 l
+1889 1002 l
+1884 999 l
+1878 996 l
+1871 994 l
+1864 991 l
+1863 991 l
+1856 989 l
+1850 987 l
+1847 985 l
+1848 983 l
+1858 982 l
+1864 981 l
+1883 980 l
+1894 980 l
+1924 979 l
+1937 979 l
+1955 979 l
+1986 978 l
+2016 978 l
+2047 978 l
+2077 979 l
+s
+2705 982 m
+2727 983 l
+2737 983 l
+2752 985 l
+2758 986 l
+2763 987 l
+2770 989 l
+2776 991 l
+2780 994 l
+2782 996 l
+2784 999 l
+2784 1002 l
+2784 1006 l
+2783 1009 l
+2781 1013 l
+2779 1018 l
+2777 1023 l
+2774 1028 l
+2771 1033 l
+2766 1040 l
+2761 1046 l
+2758 1050 l
+2754 1054 l
+2747 1061 l
+2736 1070 l
+2727 1076 l
+2722 1079 l
+2696 1089 l
+2695 1090 l
+2665 1091 l
+2654 1090 l
+2634 1083 l
+2628 1079 l
+2615 1070 l
+2605 1061 l
+2603 1060 l
+2598 1054 l
+2592 1046 l
+2588 1040 l
+2584 1033 l
+2581 1028 l
+2578 1023 l
+2576 1018 l
+2575 1013 l
+2574 1009 l
+2574 1006 l
+2575 1002 l
+2576 999 l
+2578 996 l
+2581 994 l
+2586 991 l
+2593 989 l
+2602 987 l
+2603 987 l
+2614 985 l
+2633 983 l
+2634 983 l
+2665 982 l
+2668 982 l
+2696 982 l
+2705 982 l
+s
+3377 983 m
+3396 985 l
+3408 987 l
+3409 987 l
+3418 989 l
+3426 991 l
+3432 994 l
+3437 996 l
+3439 997 l
+3442 999 l
+3445 1002 l
+3449 1006 l
+3451 1009 l
+3452 1013 l
+3453 1018 l
+3453 1023 l
+3452 1028 l
+3450 1033 l
+3448 1040 l
+3445 1046 l
+3441 1054 l
+3439 1058 l
+3437 1061 l
+3432 1070 l
+3426 1079 l
+3419 1090 l
+3410 1101 l
+3408 1103 l
+3397 1113 l
+3379 1126 l
+3377 1127 l
+3346 1139 l
+3342 1140 l
+3315 1141 l
+3304 1140 l
+3284 1134 l
+3267 1126 l
+3253 1116 l
+3249 1113 l
+3237 1101 l
+3228 1090 l
+3222 1082 l
+3221 1079 l
+3215 1070 l
+3210 1061 l
+3206 1054 l
+3203 1046 l
+3200 1040 l
+3198 1033 l
+3195 1028 l
+3193 1023 l
+3191 1018 l
+3190 1013 l
+3190 1009 l
+3191 1006 l
+3191 1004 l
+3193 1002 l
+3196 999 l
+3200 996 l
+3207 994 l
+3215 991 l
+3222 989 l
+3225 989 l
+3238 987 l
+3253 985 l
+3254 985 l
+3278 983 l
+3284 983 l
+3315 982 l
+3346 982 l
+3377 983 l
+s
+4043 983 m
+4058 985 l
+4062 985 l
+4075 987 l
+4084 989 l
+4088 990 l
+4091 991 l
+4097 994 l
+4102 996 l
+4106 999 l
+4109 1002 l
+4112 1006 l
+4113 1009 l
+4114 1013 l
+4115 1018 l
+4115 1023 l
+4114 1028 l
+4113 1033 l
+4112 1040 l
+4109 1046 l
+4106 1054 l
+4103 1061 l
+4098 1070 l
+4093 1079 l
+4088 1086 l
+4086 1090 l
+4078 1101 l
+4068 1113 l
+4058 1122 l
+4054 1126 l
+4032 1140 l
+4027 1142 l
+3996 1151 l
+3965 1151 l
+3934 1141 l
+3932 1140 l
+3911 1126 l
+3903 1118 l
+3897 1113 l
+3887 1101 l
+3879 1090 l
+3873 1079 l
+3872 1077 l
+3868 1070 l
+3864 1061 l
+3861 1054 l
+3858 1046 l
+3856 1040 l
+3854 1033 l
+3853 1028 l
+3853 1023 l
+3853 1018 l
+3853 1013 l
+3855 1009 l
+3856 1006 l
+3859 1002 l
+3863 999 l
+3867 996 l
+3872 994 l
+3873 994 l
+3881 991 l
+3891 989 l
+3903 987 l
+3904 987 l
+3921 985 l
+3934 984 l
+3945 983 l
+3965 982 l
+3996 982 l
+4027 982 l
+4043 983 l
+s
+4119 1066 m
+4118 1070 l
+4115 1079 l
+4112 1090 l
+4107 1101 l
+4102 1113 l
+4095 1126 l
+4088 1137 l
+4087 1140 l
+4076 1155 l
+4061 1172 l
+4058 1175 l
+4038 1190 l
+4027 1196 l
+3996 1206 l
+3965 1206 l
+3934 1196 l
+3923 1190 l
+3903 1174 l
+3900 1172 l
+3886 1155 l
+3876 1140 l
+3872 1134 l
+3868 1126 l
+3862 1113 l
+3857 1101 l
+3853 1090 l
+3850 1079 l
+3847 1070 l
+3845 1061 l
+3843 1054 l
+3841 1046 l
+3841 1044 l
+3840 1040 l
+3839 1033 l
+3839 1028 l
+3839 1023 l
+3839 1018 l
+3840 1013 l
+3840 1009 l
+3841 1008 l
+3842 1006 l
+3843 1002 l
+3846 999 l
+3849 996 l
+3853 994 l
+3858 991 l
+3864 989 l
+3872 987 l
+3882 985 l
+3893 983 l
+3903 982 l
+3907 982 l
+3925 980 l
+3934 980 l
+3948 979 l
+3965 978 l
+3996 978 l
+4027 978 l
+4057 979 l
+4058 979 l
+4074 980 l
+4086 982 l
+4088 982 l
+4095 983 l
+4101 985 l
+4107 987 l
+4111 989 l
+4115 991 l
+4118 994 l
+4119 995 l
+s
+1226 902 m
+1228 903 l
+1230 904 l
+1233 905 l
+1235 906 l
+1238 907 l
+1240 908 l
+1243 909 l
+1245 910 l
+1248 911 l
+1251 913 l
+1252 913 l
+1254 914 l
+1257 915 l
+1260 916 l
+1263 917 l
+1266 918 l
+1269 919 l
+1272 920 l
+1276 921 l
+1278 922 l
+1279 923 l
+1283 924 l
+1286 925 l
+1290 926 l
+1294 927 l
+1298 928 l
+1302 929 l
+1306 931 l
+1307 931 l
+1310 932 l
+1314 933 l
+1319 934 l
+1323 935 l
+1328 936 l
+1333 937 l
+1338 939 l
+1339 939 l
+1344 940 l
+1349 941 l
+1355 942 l
+1361 943 l
+1367 945 l
+1374 946 l
+1378 947 l
+1381 947 l
+1388 948 l
+1396 950 l
+1404 951 l
+1412 952 l
+1421 954 l
+1425 954 l
+1431 955 l
+1441 956 l
+1452 958 l
+1463 959 l
+1476 960 l
+1483 961 l
+1489 962 l
+1504 963 l
+1519 964 l
+1536 966 l
+1550 967 l
+1554 967 l
+1574 968 l
+1595 970 l
+1608 970 l
+1617 971 l
+1641 972 l
+1647 973 l
+1666 974 l
+1670 974 l
+1678 976 l
+1665 977 l
+1664 977 l
+1641 977 l
+1631 977 l
+1617 977 l
+1594 977 l
+1593 977 l
+1573 977 l
+1559 977 l
+1554 977 l
+1536 977 l
+1532 977 l
+1519 977 l
+1513 978 l
+1503 979 l
+1497 981 l
+1494 983 l
+1492 985 l
+1490 988 l
+1489 991 l
+1487 994 l
+1487 995 l
+1485 998 l
+1482 1002 l
+1480 1006 l
+1477 1010 l
+1474 1015 l
+1471 1021 l
+1470 1021 l
+1467 1027 l
+1463 1033 l
+1458 1040 l
+1455 1043 l
+1452 1047 l
+1446 1055 l
+1441 1062 l
+1439 1064 l
+1431 1073 l
+1427 1077 l
+1421 1083 l
+1414 1090 l
+1410 1094 l
+1402 1101 l
+1398 1105 l
+1391 1111 l
+1383 1118 l
+1380 1120 l
+1369 1127 l
+1365 1131 l
+1359 1134 l
+1349 1140 l
+1343 1144 l
+1340 1146 l
+1331 1150 l
+1322 1155 l
+1316 1158 l
+1314 1159 l
+1306 1162 l
+1298 1165 l
+1290 1168 l
+1283 1171 l
+1282 1171 l
+1276 1173 l
+1269 1175 l
+1262 1176 l
+1255 1178 l
+1248 1179 l
+1242 1180 l
+1236 1180 l
+1231 1181 l
+1229 1181 l
+1223 1181 l
+1217 1181 l
+1212 1181 l
+1206 1181 l
+1200 1180 l
+1195 1180 l
+1190 1179 l
+1184 1178 l
+1179 1176 l
+1174 1175 l
+1169 1173 l
+1165 1171 l
+1160 1169 l
+1156 1166 l
+1151 1164 l
+1147 1161 l
+1143 1158 l
+1139 1154 l
+1135 1151 l
+1132 1147 l
+1131 1146 l
+1128 1143 l
+1125 1139 l
+1122 1134 l
+1119 1129 l
+1116 1124 l
+1114 1119 l
+1112 1114 l
+1112 1113 l
+1110 1108 l
+1108 1102 l
+1106 1095 l
+1105 1089 l
+1105 1088 l
+1104 1082 l
+1104 1075 l
+1103 1068 l
+1103 1067 l
+1103 1060 l
+1104 1052 l
+1104 1048 l
+1104 1044 l
+1105 1036 l
+1106 1031 l
+1107 1027 l
+1109 1018 l
+1109 1016 l
+1111 1009 l
+1113 1003 l
+1114 998 l
+1117 991 l
+1118 988 l
+1121 980 l
+1123 976 l
+1125 971 l
+1130 963 l
+1130 961 l
+1134 955 l
+1138 948 l
+1142 942 l
+1144 939 l
+1145 936 l
+1149 931 l
+1152 927 l
+1155 923 l
+1158 919 l
+1160 917 l
+1161 915 l
+1164 912 l
+1166 909 l
+1168 907 l
+1170 904 l
+1172 902 l
+1174 900 l
+1175 898 l
+1177 897 l
+1178 895 l
+1179 893 l
+1180 892 l
+1181 891 l
+1182 890 l
+1183 889 l
+1184 888 l
+1185 887 l
+1185 886 l
+1186 885 l
+1186 884 l
+1186 883 l
+1185 882 l
+1185 881 l
+1185 880 l
+1184 879 l
+1183 878 l
+1183 877 l
+1184 878 l
+1185 878 l
+1186 879 l
+1187 879 l
+1188 880 l
+1189 880 l
+1190 881 l
+1191 882 l
+1193 883 l
+1194 884 l
+1196 885 l
+1197 886 l
+1199 887 l
+1200 888 l
+1202 889 l
+1204 890 l
+1205 891 l
+1207 892 l
+1209 893 l
+1211 894 l
+1213 895 l
+1215 896 l
+1217 897 l
+1219 898 l
+1221 899 l
+1223 900 l
+1226 901 l
+1226 902 l
+s
+2097 977 m
+2109 977 l
+2124 978 l
+2140 979 l
+2141 979 l
+2154 980 l
+2164 982 l
+2170 983 l
+2173 983 l
+2181 985 l
+2189 987 l
+2196 989 l
+2201 991 l
+2203 991 l
+2209 994 l
+2214 996 l
+2219 999 l
+2222 1002 l
+2225 1006 l
+2226 1009 l
+2227 1013 l
+2227 1018 l
+2227 1023 l
+2227 1028 l
+2227 1033 l
+2227 1040 l
+2227 1046 l
+2227 1054 l
+2226 1061 l
+2226 1070 l
+2225 1079 l
+2225 1090 l
+2224 1101 l
+2222 1113 l
+2221 1126 l
+2218 1140 l
+2215 1155 l
+2211 1172 l
+2204 1190 l
+2201 1198 l
+2196 1210 l
+2183 1231 l
+2170 1247 l
+2164 1254 l
+2140 1274 l
+2131 1279 l
+2109 1289 l
+2078 1297 l
+2047 1297 l
+2016 1292 l
+1987 1279 l
+1986 1279 l
+1955 1257 l
+1952 1254 l
+1932 1231 l
+1924 1220 l
+1918 1210 l
+1908 1190 l
+1901 1172 l
+1895 1155 l
+1894 1149 l
+1891 1140 l
+1888 1126 l
+1886 1113 l
+1885 1101 l
+1883 1089 l
+1883 1079 l
+1882 1070 l
+1881 1061 l
+1881 1053 l
+1881 1046 l
+1881 1039 l
+1881 1033 l
+1881 1028 l
+1881 1023 l
+1881 1018 l
+1881 1013 l
+1880 1009 l
+1879 1006 l
+1875 1002 l
+1871 999 l
+1864 996 l
+1856 993 l
+1846 991 l
+1836 989 l
+1834 988 l
+1826 987 l
+1816 985 l
+1806 983 l
+1804 983 l
+1799 981 l
+1797 980 l
+1804 979 l
+1811 979 l
+1834 978 l
+1857 978 l
+1864 977 l
+1894 977 l
+1924 977 l
+1930 977 l
+1955 976 l
+1986 976 l
+2016 976 l
+2047 976 l
+2078 976 l
+2097 977 l
+s
+2729 978 m
+2753 979 l
+2758 979 l
+2766 980 l
+2776 982 l
+2783 983 l
+2789 985 l
+2794 987 l
+2797 989 l
+2799 991 l
+2801 994 l
+2802 996 l
+2802 999 l
+2802 1002 l
+2801 1006 l
+2800 1009 l
+2799 1013 l
+2797 1018 l
+2796 1023 l
+2794 1028 l
+2792 1033 l
+2789 1040 l
+2786 1046 l
+2783 1054 l
+2779 1061 l
+2774 1070 l
+2768 1079 l
+2761 1090 l
+2758 1093 l
+2751 1101 l
+2739 1113 l
+2727 1122 l
+2722 1126 l
+2696 1137 l
+2686 1140 l
+2665 1141 l
+2654 1140 l
+2634 1134 l
+2620 1126 l
+2605 1113 l
+2603 1112 l
+2594 1101 l
+2586 1090 l
+2580 1079 l
+2575 1070 l
+2573 1064 l
+2571 1061 l
+2568 1054 l
+2565 1046 l
+2563 1040 l
+2561 1033 l
+2560 1028 l
+2558 1023 l
+2557 1018 l
+2557 1013 l
+2557 1009 l
+2557 1006 l
+2557 1002 l
+2558 999 l
+2559 996 l
+2561 994 l
+2564 991 l
+2567 989 l
+2572 987 l
+2573 987 l
+2579 985 l
+2588 983 l
+2598 982 l
+2603 981 l
+2612 980 l
+2630 979 l
+2634 979 l
+2658 978 l
+2665 978 l
+2696 977 l
+2727 978 l
+2729 978 l
+s
+3355 978 m
+3377 978 l
+3392 979 l
+3408 980 l
+3420 982 l
+3428 983 l
+3435 985 l
+3439 986 l
+3440 987 l
+3445 989 l
+3449 991 l
+3452 994 l
+3456 996 l
+3458 999 l
+3461 1002 l
+3463 1006 l
+3465 1009 l
+3466 1013 l
+3467 1018 l
+3467 1023 l
+3467 1028 l
+3466 1033 l
+3464 1040 l
+3463 1046 l
+3461 1054 l
+3458 1061 l
+3456 1070 l
+3453 1079 l
+3449 1090 l
+3444 1101 l
+3439 1112 l
+3438 1113 l
+3431 1126 l
+3422 1140 l
+3410 1155 l
+3408 1157 l
+3392 1172 l
+3377 1182 l
+3361 1190 l
+3346 1195 l
+3315 1198 l
+3284 1191 l
+3283 1190 l
+3253 1172 l
+3235 1155 l
+3223 1140 l
+3222 1138 l
+3214 1126 l
+3207 1113 l
+3202 1101 l
+3198 1090 l
+3194 1079 l
+3191 1071 l
+3191 1070 l
+3188 1061 l
+3186 1054 l
+3184 1046 l
+3183 1040 l
+3181 1033 l
+3180 1028 l
+3178 1023 l
+3177 1018 l
+3176 1013 l
+3175 1009 l
+3176 1006 l
+3177 1002 l
+3179 999 l
+3182 996 l
+3186 994 l
+3191 991 l
+3198 989 l
+3206 987 l
+3215 985 l
+3222 984 l
+3227 983 l
+3240 982 l
+3253 981 l
+3257 980 l
+3280 979 l
+3284 979 l
+3315 978 l
+3323 978 l
+3346 978 l
+3355 978 l
+s
+4119 1167 m
+4118 1172 l
+4113 1190 l
+4106 1210 l
+4098 1231 l
+4088 1250 l
+4086 1254 l
+4070 1279 l
+4058 1295 l
+4045 1306 l
+4027 1320 l
+3996 1332 l
+3965 1333 l
+3934 1324 l
+3908 1306 l
+3903 1302 l
+3883 1279 l
+3872 1261 l
+3868 1254 l
+3857 1231 l
+3850 1210 l
+3844 1190 l
+3841 1176 l
+3840 1172 l
+3837 1155 l
+3834 1140 l
+3832 1126 l
+3831 1113 l
+3829 1101 l
+3828 1090 l
+3828 1079 l
+3827 1070 l
+3826 1061 l
+3826 1054 l
+3825 1046 l
+3825 1040 l
+3825 1033 l
+3825 1028 l
+3825 1023 l
+3826 1018 l
+3826 1013 l
+3827 1009 l
+3827 1006 l
+3828 1002 l
+3830 999 l
+3831 996 l
+3833 994 l
+3836 991 l
+3840 989 l
+3841 988 l
+3844 987 l
+3850 985 l
+3856 983 l
+3863 982 l
+3871 980 l
+3872 980 l
+3880 979 l
+3891 978 l
+3903 977 l
+3916 976 l
+3933 975 l
+3934 975 l
+3954 974 l
+3965 973 l
+3986 973 l
+3996 973 l
+4027 973 l
+4056 973 l
+4058 973 l
+4082 974 l
+4088 974 l
+4097 975 l
+4107 976 l
+4114 977 l
+4119 978 l
+s
+2679 2103 m
+2677 2019 l
+2684 1940 l
+2696 1880 l
+2700 1867 l
+2727 1799 l
+2727 1798 l
+2758 1775 l
+2789 1762 l
+2820 1754 l
+2851 1748 l
+2882 1744 l
+2913 1741 l
+2944 1740 l
+2975 1739 l
+3006 1739 l
+3037 1740 l
+3068 1742 l
+3098 1745 l
+3129 1749 l
+3160 1754 l
+3191 1762 l
+3222 1770 l
+3253 1781 l
+3284 1793 l
+3297 1799 l
+3315 1807 l
+3346 1821 l
+3377 1837 l
+3408 1852 l
+3437 1867 l
+3439 1868 l
+3470 1883 l
+3501 1899 l
+3532 1914 l
+3563 1929 l
+3586 1940 l
+3593 1943 l
+3624 1957 l
+3655 1971 l
+3686 1983 l
+3717 1995 l
+3748 2005 l
+3779 2014 l
+3795 2019 l
+3810 2022 l
+3841 2029 l
+3872 2034 l
+3903 2038 l
+3934 2040 l
+3965 2039 l
+3996 2037 l
+4027 2032 l
+4058 2025 l
+4076 2019 l
+4088 2014 l
+4119 2001 l
+s
+147 1365 m
+171 1362 l
+197 1357 l
+227 1350 l
+234 1349 l
+262 1340 l
+309 1323 l
+310 1322 l
+376 1291 l
+435 1257 l
+489 1224 l
+517 1206 l
+539 1192 l
+585 1162 l
+592 1158 l
+628 1135 l
+668 1110 l
+669 1110 l
+705 1088 l
+740 1067 l
+763 1054 l
+773 1049 l
+803 1032 l
+830 1016 l
+856 1002 l
+880 989 l
+884 987 l
+902 977 l
+922 966 l
+941 956 l
+959 946 l
+975 938 l
+990 930 l
+1003 923 l
+1011 919 l
+1016 917 l
+1028 912 l
+1039 906 l
+1043 904 l
+1049 902 l
+1058 898 l
+1060 897 l
+1067 894 l
+1071 892 l
+1075 891 l
+1080 889 l
+1082 888 l
+1087 886 l
+1089 885 l
+1093 884 l
+1095 883 l
+1098 882 l
+1101 881 l
+1102 881 l
+1107 879 l
+1110 878 l
+1112 878 l
+1114 877 l
+1117 876 l
+1120 876 l
+1121 875 l
+1122 875 l
+1125 874 l
+1126 874 l
+1127 874 l
+1130 873 l
+1132 873 l
+1133 873 l
+1134 872 l
+1136 872 l
+1137 872 l
+1138 872 l
+1140 871 l
+1142 871 l
+1143 871 l
+1144 871 l
+1145 870 l
+1146 870 l
+1147 870 l
+1148 870 l
+1149 870 l
+1150 870 l
+1151 869 l
+1152 869 l
+1153 869 l
+1154 869 l
+1155 869 l
+1156 869 l
+1156 868 l
+1158 868 l
+1159 868 l
+1160 868 l
+1161 868 l
+1162 867 l
+1163 867 l
+1164 867 l
+1165 866 l
+1166 866 l
+1167 866 l
+1167 865 l
+1167 864 l
+1167 863 l
+1167 862 l
+1168 862 l
+1169 863 l
+1170 863 l
+1171 864 l
+1171 865 l
+1172 865 l
+1173 866 l
+1173 867 l
+1174 867 l
+1175 868 l
+1176 869 l
+1177 869 l
+1178 870 l
+1178 871 l
+1179 872 l
+1180 873 l
+1181 873 l
+1182 874 l
+1183 875 l
+1184 876 l
+1186 877 l
+1187 878 l
+1188 878 l
+1189 879 l
+1190 880 l
+1192 881 l
+1193 882 l
+1195 883 l
+1196 884 l
+1197 885 l
+1199 886 l
+1201 887 l
+1202 888 l
+1204 889 l
+1206 890 l
+1207 891 l
+1209 892 l
+1211 893 l
+1213 894 l
+1215 896 l
+1217 897 l
+1219 898 l
+1221 899 l
+1224 900 l
+1226 901 l
+1228 902 l
+1230 903 l
+1232 904 l
+1233 904 l
+1235 905 l
+1238 907 l
+1240 908 l
+1243 909 l
+1246 910 l
+1248 911 l
+1251 912 l
+1253 913 l
+1254 913 l
+1257 914 l
+1260 915 l
+1263 917 l
+1266 918 l
+1269 919 l
+1272 920 l
+1276 921 l
+1279 922 l
+1283 923 l
+1286 924 l
+1290 926 l
+1294 927 l
+1298 928 l
+1302 929 l
+1306 930 l
+1310 931 l
+1314 932 l
+1319 934 l
+1323 935 l
+1328 936 l
+1333 937 l
+1338 938 l
+1344 939 l
+1349 941 l
+1355 942 l
+1361 943 l
+1367 944 l
+1370 945 l
+1374 945 l
+1381 947 l
+1388 948 l
+1396 949 l
+1404 950 l
+1412 952 l
+1417 953 l
+1421 953 l
+1431 954 l
+1441 956 l
+1452 957 l
+1464 958 l
+1476 960 l
+1488 961 l
+1489 961 l
+1504 962 l
+1520 963 l
+1536 965 l
+1554 966 l
+1574 967 l
+1595 968 l
+1617 969 l
+1641 970 l
+1653 970 l
+1666 971 l
+1692 971 l
+1719 972 l
+1747 973 l
+1767 973 l
+1775 973 l
+1804 974 l
+1834 974 l
+1864 974 l
+1892 974 l
+1894 974 l
+1924 973 l
+1955 973 l
+1965 973 l
+1986 973 l
+2016 972 l
+2034 972 l
+2047 972 l
+2078 972 l
+2097 972 l
+2109 972 l
+2132 973 l
+2140 973 l
+2149 974 l
+2160 975 l
+2168 976 l
+2170 976 l
+2174 977 l
+2180 978 l
+2185 979 l
+2189 980 l
+2193 982 l
+2198 983 l
+2201 985 l
+2203 985 l
+2208 987 l
+2213 989 l
+2218 991 l
+2223 994 l
+2227 996 l
+2232 999 l
+2232 1000 l
+2235 1002 l
+2238 1006 l
+2240 1009 l
+2241 1013 l
+2242 1018 l
+2242 1023 l
+2243 1028 l
+2244 1033 l
+2245 1040 l
+2246 1046 l
+2247 1054 l
+2248 1061 l
+2250 1070 l
+2251 1079 l
+2253 1090 l
+2255 1101 l
+2258 1113 l
+2261 1126 l
+2263 1136 l
+2264 1140 l
+2268 1155 l
+2272 1172 l
+2277 1190 l
+2283 1210 l
+2290 1231 l
+2294 1244 l
+2298 1254 l
+2306 1279 l
+2315 1306 l
+2325 1336 l
+2325 1337 l
+2334 1368 l
+2341 1402 l
+2344 1440 l
+2340 1480 l
+2325 1522 l
+2324 1524 l
+2294 1565 l
+2289 1571 l
+2263 1590 l
+2232 1607 l
+2201 1621 l
+2200 1622 l
+2170 1633 l
+2140 1643 l
+2109 1651 l
+2078 1659 l
+2047 1666 l
+2016 1674 l
+2007 1676 l
+1986 1683 l
+1955 1698 l
+1927 1735 l
+1929 1799 l
+1948 1867 l
+1955 1886 l
+1980 1940 l
+1985 1951 l
+2016 1999 l
+2029 2019 l
+2047 2047 l
+2078 2092 l
+2085 2103 l
+s
+2736 972 m
+2758 973 l
+2767 973 l
+2782 974 l
+2789 974 l
+2793 975 l
+2800 976 l
+2806 977 l
+2810 978 l
+2813 979 l
+2815 980 l
+2817 982 l
+2819 983 l
+2820 985 l
+2820 986 l
+2820 987 l
+2821 989 l
+2821 991 l
+2821 994 l
+2820 996 l
+2820 997 l
+2819 999 l
+2818 1002 l
+2817 1006 l
+2816 1009 l
+2815 1013 l
+2814 1018 l
+2813 1023 l
+2812 1028 l
+2811 1033 l
+2810 1040 l
+2808 1046 l
+2807 1054 l
+2805 1061 l
+2803 1070 l
+2800 1079 l
+2798 1090 l
+2795 1101 l
+2791 1113 l
+2789 1117 l
+2786 1126 l
+2781 1140 l
+2775 1155 l
+2767 1172 l
+2758 1188 l
+2757 1190 l
+2744 1210 l
+2728 1231 l
+2727 1232 l
+2704 1254 l
+2696 1260 l
+2665 1275 l
+2634 1276 l
+2603 1262 l
+2595 1254 l
+2579 1231 l
+2573 1217 l
+2569 1210 l
+2563 1190 l
+2558 1172 l
+2555 1155 l
+2552 1140 l
+2550 1126 l
+2548 1113 l
+2546 1101 l
+2545 1090 l
+2544 1079 l
+2543 1070 l
+2542 1061 l
+2542 1054 l
+2542 1052 l
+2541 1046 l
+2541 1040 l
+2540 1033 l
+2540 1028 l
+2540 1023 l
+2540 1018 l
+2540 1013 l
+2540 1009 l
+2540 1006 l
+2541 1002 l
+2541 999 l
+2542 996 l
+2542 994 l
+2543 991 l
+2545 989 l
+2547 987 l
+2551 985 l
+2555 983 l
+2560 982 l
+2565 980 l
+2572 979 l
+2573 979 l
+2580 978 l
+2589 977 l
+2600 976 l
+2603 975 l
+2613 975 l
+2628 974 l
+2634 973 l
+2649 973 l
+2665 972 l
+2684 972 l
+2696 972 l
+2727 972 l
+2736 972 l
+s
+3400 973 m
+3408 973 l
+3421 974 l
+3434 975 l
+3439 975 l
+3443 976 l
+3450 977 l
+3455 978 l
+3458 979 l
+3461 980 l
+3463 982 l
+3465 983 l
+3467 985 l
+3468 987 l
+3469 989 l
+3470 990 l
+3470 991 l
+3472 994 l
+3473 996 l
+3475 999 l
+3476 1002 l
+3478 1006 l
+3479 1009 l
+3480 1013 l
+3481 1018 l
+3481 1023 l
+3481 1028 l
+3481 1033 l
+3480 1040 l
+3480 1046 l
+3479 1054 l
+3478 1061 l
+3477 1070 l
+3476 1079 l
+3475 1090 l
+3474 1101 l
+3472 1113 l
+3470 1126 l
+3467 1140 l
+3464 1155 l
+3460 1172 l
+3455 1190 l
+3449 1210 l
+3441 1231 l
+3439 1235 l
+3429 1254 l
+3414 1279 l
+3408 1287 l
+3389 1306 l
+3377 1316 l
+3346 1332 l
+3331 1336 l
+3315 1337 l
+3302 1336 l
+3284 1331 l
+3253 1312 l
+3247 1306 l
+3225 1279 l
+3222 1276 l
+3211 1254 l
+3200 1231 l
+3193 1210 l
+3191 1204 l
+3187 1190 l
+3183 1172 l
+3179 1155 l
+3177 1140 l
+3175 1126 l
+3173 1113 l
+3171 1101 l
+3170 1090 l
+3169 1079 l
+3168 1070 l
+3168 1061 l
+3167 1054 l
+3167 1046 l
+3166 1040 l
+3166 1033 l
+3165 1028 l
+3164 1023 l
+3163 1018 l
+3162 1013 l
+3161 1009 l
+3161 1006 l
+3162 1002 l
+3163 999 l
+3164 996 l
+3167 994 l
+3170 991 l
+3174 989 l
+3178 987 l
+3184 985 l
+3190 983 l
+3191 983 l
+3197 982 l
+3205 980 l
+3213 979 l
+3222 978 l
+3223 978 l
+3234 977 l
+3247 976 l
+3253 975 l
+3262 975 l
+3281 974 l
+3284 974 l
+3308 973 l
+3315 973 l
+3346 972 l
+3377 972 l
+3400 973 l
+s
+1605 979 m
+1594 979 l
+1573 979 l
+1566 979 l
+1554 979 l
+1543 980 l
+1535 980 l
+1529 981 l
+1522 982 l
+1519 985 l
+1518 985 l
+1517 987 l
+1516 990 l
+1515 993 l
+1514 996 l
+1513 1000 l
+1512 1004 l
+1511 1008 l
+1509 1013 l
+1508 1018 l
+1506 1024 l
+1505 1030 l
+1503 1036 l
+1501 1043 l
+1499 1051 l
+1497 1060 l
+1496 1062 l
+1494 1069 l
+1492 1079 l
+1489 1090 l
+1487 1102 l
+1483 1114 l
+1481 1128 l
+1478 1144 l
+1475 1160 l
+1472 1178 l
+1471 1198 l
+1469 1219 l
+1469 1242 l
+1471 1268 l
+1475 1295 l
+1477 1306 l
+1482 1325 l
+1492 1353 l
+1494 1358 l
+1509 1387 l
+1514 1394 l
+1529 1417 l
+1541 1433 l
+1550 1443 l
+1573 1464 l
+1588 1476 l
+1598 1484 l
+1624 1502 l
+1652 1517 l
+1661 1521 l
+1680 1529 l
+1710 1535 l
+1740 1535 l
+1769 1523 l
+1770 1522 l
+1791 1480 l
+1801 1444 l
+1802 1439 l
+1807 1402 l
+1811 1368 l
+1815 1336 l
+1819 1306 l
+1823 1279 l
+1826 1254 l
+1830 1231 l
+1833 1209 l
+1833 1207 l
+1836 1190 l
+1839 1172 l
+1842 1155 l
+1844 1140 l
+1847 1125 l
+1849 1112 l
+1851 1100 l
+1852 1089 l
+1854 1079 l
+1856 1070 l
+1857 1061 l
+1858 1053 l
+1860 1046 l
+1861 1039 l
+1862 1033 l
+1863 1028 l
+1864 1022 l
+1864 1018 l
+1865 1013 l
+1865 1009 l
+1864 1006 l
+1864 1005 l
+1861 1002 l
+1856 999 l
+1849 996 l
+1840 993 l
+1834 992 l
+1829 991 l
+1816 989 l
+1804 987 l
+1801 987 l
+1782 985 l
+1775 984 l
+1757 983 l
+1747 982 l
+1719 981 l
+1692 980 l
+1665 980 l
+1640 979 l
+1617 979 l
+1605 979 l
+C s
+m
+[] 0 setdash
+4 setlinewidth
+0.000000 0.000000 0.000000 S
+1177 865 m
+1176 864 l
+1175 863 l
+1174 862 l
+1173 861 l
+1172 860 l
+1171 859 l
+1170 858 l
+1169 857 l
+1168 856 l
+1168 855 l
+1167 855 l
+1167 854 l
+1166 853 l
+1165 852 l
+1165 851 l
+1164 851 l
+1164 850 l
+1163 850 l
+1163 849 l
+1162 848 l
+1162 847 l
+1161 846 l
+1161 845 l
+1160 845 l
+1160 844 l
+1159 843 l
+1159 842 l
+1158 842 l
+1158 841 l
+1158 840 l
+1157 839 l
+1157 838 l
+1156 837 l
+1156 836 l
+1155 835 l
+1155 834 l
+1155 833 l
+1154 833 l
+1154 832 l
+1154 831 l
+1154 832 l
+1154 833 l
+1154 834 l
+1154 835 l
+1155 835 l
+1155 836 l
+1155 837 l
+1155 838 l
+1156 838 l
+1156 839 l
+1156 840 l
+1157 841 l
+1157 842 l
+1157 843 l
+1158 843 l
+1158 844 l
+1159 845 l
+1159 846 l
+1159 847 l
+1160 847 l
+1160 848 l
+1161 849 l
+1161 850 l
+1162 850 l
+1162 851 l
+1163 852 l
+1164 853 l
+1164 854 l
+1165 854 l
+1165 855 l
+1166 855 l
+1166 856 l
+1166 857 l
+1167 857 l
+1167 858 l
+1168 858 l
+1168 859 l
+1169 860 l
+1170 860 l
+1170 861 l
+1171 861 l
+1171 862 l
+1172 863 l
+1173 863 l
+1173 864 l
+1174 865 l
+1175 866 l
+1176 867 l
+1177 868 l
+1178 868 l
+1178 869 l
+1179 870 l
+1180 871 l
+1181 872 l
+1182 872 l
+1183 873 l
+1184 874 l
+1185 875 l
+1186 876 l
+1187 877 l
+1189 878 l
+1190 878 l
+1191 879 l
+1192 880 l
+1194 881 l
+1195 882 l
+1196 883 l
+1197 883 l
+1198 884 l
+1200 885 l
+1201 886 l
+1203 887 l
+1204 888 l
+1206 889 l
+1208 890 l
+1209 891 l
+1210 891 l
+1212 893 l
+1214 894 l
+1216 895 l
+1218 896 l
+1220 897 l
+1222 898 l
+1224 899 l
+1226 900 l
+1228 901 l
+1231 902 l
+1233 904 l
+1236 905 l
+1238 906 l
+1241 907 l
+1243 908 l
+1246 909 l
+1249 910 l
+1251 911 l
+1254 912 l
+1255 913 l
+1257 914 l
+1260 915 l
+1263 916 l
+1266 917 l
+1269 918 l
+1273 919 l
+1274 920 l
+1276 920 l
+1279 921 l
+1283 923 l
+1287 924 l
+1290 925 l
+1294 926 l
+1296 927 l
+1298 927 l
+1302 928 l
+1306 929 l
+1310 930 l
+1314 932 l
+1319 933 l
+1323 934 l
+1324 934 l
+1328 935 l
+1333 936 l
+1339 937 l
+1344 939 l
+1349 940 l
+1355 941 l
+1357 941 l
+1361 942 l
+1367 943 l
+1374 945 l
+1381 946 l
+1388 947 l
+1396 948 l
+1404 949 l
+1405 950 l
+1412 951 l
+1421 952 l
+1431 953 l
+1441 954 l
+1452 956 l
+1464 957 l
+1476 958 l
+1490 959 l
+1504 961 l
+1520 962 l
+1536 963 l
+1555 964 l
+1557 964 l
+1574 964 l
+1595 965 l
+1617 966 l
+1619 966 l
+1636 966 l
+1641 966 l
+1648 966 l
+1656 965 l
+1662 965 l
+1666 965 l
+1668 965 l
+1667 964 l
+1666 964 l
+1665 964 l
+1662 964 l
+1658 963 l
+1653 963 l
+1647 963 l
+1641 962 l
+1633 962 l
+1625 962 l
+1617 961 l
+1616 961 l
+1605 961 l
+1595 960 l
+1594 960 l
+1582 960 l
+1574 959 l
+1568 959 l
+1555 958 l
+1552 958 l
+1537 957 l
+1535 957 l
+1520 956 l
+1516 955 l
+1505 954 l
+1493 954 l
+1490 953 l
+1477 952 l
+1468 951 l
+1464 951 l
+1453 950 l
+1442 948 l
+1437 948 l
+1432 947 l
+1422 946 l
+1413 945 l
+1405 944 l
+1397 942 l
+1389 941 l
+1382 940 l
+1375 939 l
+1368 938 l
+1362 937 l
+1356 936 l
+1350 934 l
+1345 933 l
+1342 933 l
+1340 932 l
+1334 931 l
+1330 930 l
+1325 929 l
+1320 928 l
+1316 927 l
+1311 926 l
+1307 925 l
+1303 924 l
+1299 923 l
+1295 922 l
+1291 921 l
+1288 919 l
+1284 918 l
+1281 917 l
+1277 916 l
+1274 915 l
+1271 914 l
+1268 913 l
+1264 912 l
+1261 911 l
+1258 910 l
+1256 909 l
+1253 908 l
+1250 907 l
+1247 906 l
+1245 905 l
+1242 904 l
+1239 903 l
+1237 902 l
+1235 900 l
+1232 899 l
+1230 898 l
+1228 897 l
+1225 896 l
+1223 895 l
+1221 894 l
+1219 893 l
+1217 892 l
+1215 891 l
+1213 890 l
+1211 889 l
+1209 888 l
+1208 887 l
+1206 886 l
+1204 885 l
+1202 884 l
+1201 883 l
+1199 882 l
+1198 881 l
+1196 880 l
+1195 879 l
+1194 878 l
+1192 877 l
+1191 877 l
+1190 876 l
+1189 875 l
+1188 874 l
+1187 873 l
+1186 872 l
+1185 871 l
+1184 871 l
+1183 870 l
+1182 869 l
+1181 868 l
+1180 868 l
+1179 867 l
+1178 866 l
+1177 865 l
+s
+2336 975 m
+2325 975 l
+2310 976 l
+2294 976 l
+2292 977 l
+2278 978 l
+2267 979 l
+2263 979 l
+2259 980 l
+2253 982 l
+2249 983 l
+2247 985 l
+2246 987 l
+2247 989 l
+2249 991 l
+2252 994 l
+2255 996 l
+2258 999 l
+2262 1002 l
+2263 1004 l
+2265 1006 l
+2267 1009 l
+2270 1013 l
+2272 1018 l
+2274 1023 l
+2277 1028 l
+2280 1033 l
+2283 1040 l
+2287 1046 l
+2292 1054 l
+2294 1057 l
+2297 1061 l
+2304 1070 l
+2313 1079 l
+2324 1090 l
+2325 1090 l
+2339 1101 l
+2356 1109 l
+2365 1113 l
+2387 1117 l
+2418 1114 l
+2424 1113 l
+2449 1101 l
+2449 1100 l
+2462 1090 l
+2472 1079 l
+2479 1070 l
+2480 1069 l
+2485 1061 l
+2489 1054 l
+2493 1046 l
+2496 1040 l
+2499 1033 l
+2501 1028 l
+2503 1023 l
+2504 1018 l
+2506 1013 l
+2507 1009 l
+2508 1006 l
+2509 1002 l
+2508 999 l
+2508 996 l
+2506 994 l
+2505 991 l
+2503 989 l
+2501 987 l
+2498 985 l
+2495 983 l
+2492 982 l
+2488 980 l
+2482 979 l
+2480 978 l
+2476 978 l
+2466 977 l
+2454 976 l
+2449 975 l
+2433 975 l
+2418 974 l
+2387 974 l
+2356 974 l
+2336 975 l
+s
+3008 975 m
+3006 975 l
+2975 975 l
+2965 976 l
+2944 976 l
+2943 977 l
+2926 978 l
+2913 979 l
+2902 980 l
+2892 982 l
+2884 983 l
+2882 984 l
+2878 985 l
+2872 987 l
+2867 989 l
+2863 991 l
+2859 994 l
+2856 996 l
+2853 999 l
+2851 1002 l
+2848 1006 l
+2847 1009 l
+2846 1013 l
+2845 1018 l
+2846 1023 l
+2846 1028 l
+2847 1033 l
+2848 1040 l
+2849 1046 l
+2851 1054 l
+2853 1061 l
+2855 1070 l
+2858 1079 l
+2861 1090 l
+2865 1101 l
+2871 1113 l
+2878 1126 l
+2882 1132 l
+2888 1140 l
+2901 1155 l
+2913 1165 l
+2922 1172 l
+2944 1183 l
+2972 1190 l
+2975 1190 l
+3000 1190 l
+3006 1189 l
+3037 1179 l
+3050 1172 l
+3068 1159 l
+3072 1155 l
+3086 1140 l
+3096 1126 l
+3098 1123 l
+3105 1113 l
+3111 1101 l
+3116 1090 l
+3120 1079 l
+3124 1070 l
+3126 1061 l
+3129 1054 l
+3129 1052 l
+3131 1046 l
+3133 1040 l
+3134 1033 l
+3135 1028 l
+3135 1023 l
+3135 1018 l
+3134 1013 l
+3133 1009 l
+3132 1006 l
+3131 1002 l
+3130 999 l
+3129 997 l
+3129 996 l
+3128 994 l
+3128 991 l
+3127 989 l
+3125 987 l
+3124 985 l
+3122 983 l
+3119 982 l
+3115 980 l
+3110 979 l
+3102 978 l
+3098 977 l
+3092 977 l
+3076 976 l
+3068 975 l
+3038 975 l
+3037 975 l
+3008 975 l
+s
+3635 975 m
+3624 975 l
+3608 976 l
+3593 976 l
+3589 977 l
+3573 978 l
+3563 979 l
+3561 979 l
+3550 980 l
+3541 982 l
+3533 983 l
+3532 984 l
+3526 985 l
+3520 987 l
+3516 989 l
+3512 991 l
+3509 994 l
+3507 996 l
+3506 999 l
+3506 1002 l
+3506 1006 l
+3506 1009 l
+3507 1013 l
+3508 1018 l
+3509 1023 l
+3510 1028 l
+3511 1033 l
+3512 1040 l
+3514 1046 l
+3515 1054 l
+3517 1061 l
+3520 1070 l
+3523 1079 l
+3526 1090 l
+3531 1101 l
+3532 1102 l
+3537 1113 l
+3544 1126 l
+3553 1140 l
+3563 1152 l
+3565 1155 l
+3583 1172 l
+3593 1179 l
+3617 1190 l
+3624 1192 l
+3655 1196 l
+3686 1190 l
+3688 1190 l
+3717 1175 l
+3721 1172 l
+3739 1155 l
+3748 1145 l
+3752 1140 l
+3761 1126 l
+3769 1113 l
+3774 1101 l
+3779 1090 l
+3783 1079 l
+3786 1070 l
+3789 1061 l
+3791 1054 l
+3793 1046 l
+3795 1040 l
+3796 1033 l
+3797 1028 l
+3798 1023 l
+3799 1018 l
+3799 1013 l
+3799 1009 l
+3799 1006 l
+3798 1002 l
+3798 999 l
+3796 996 l
+3795 994 l
+3794 991 l
+3793 989 l
+3791 987 l
+3790 985 l
+3788 983 l
+3785 982 l
+3782 980 l
+3779 979 l
+3778 979 l
+3771 978 l
+3763 977 l
+3750 976 l
+3748 975 l
+3730 975 l
+3717 974 l
+3686 974 l
+3655 974 l
+3635 975 l
+s
+1612 983 m
+1594 983 l
+1584 984 l
+1573 985 l
+1571 985 l
+1565 988 l
+1563 990 l
+1563 993 l
+1563 996 l
+1563 1000 l
+1564 1003 l
+1565 1007 l
+1566 1012 l
+1567 1017 l
+1569 1022 l
+1570 1028 l
+1571 1029 l
+1573 1034 l
+1575 1041 l
+1578 1048 l
+1582 1056 l
+1587 1065 l
+1590 1071 l
+1593 1075 l
+1602 1085 l
+1612 1097 l
+1613 1097 l
+1630 1109 l
+1636 1113 l
+1662 1123 l
+1663 1123 l
+1689 1126 l
+1707 1124 l
+1716 1122 l
+1743 1112 l
+1745 1110 l
+1762 1100 l
+1774 1090 l
+1775 1089 l
+1786 1079 l
+1794 1070 l
+1801 1061 l
+1804 1057 l
+1807 1053 l
+1812 1046 l
+1816 1039 l
+1820 1033 l
+1823 1028 l
+1826 1022 l
+1828 1018 l
+1831 1013 l
+1832 1009 l
+1832 1005 l
+1830 1002 l
+1826 999 l
+1818 996 l
+1806 993 l
+1804 993 l
+1791 991 l
+1775 989 l
+1769 988 l
+1746 987 l
+1736 986 l
+1719 985 l
+1691 984 l
+1665 983 l
+1640 983 l
+1617 983 l
+1612 983 l
+s
+1201 883 m
+1199 882 l
+1198 881 l
+1196 880 l
+1195 879 l
+1194 878 l
+1192 878 l
+1191 877 l
+1190 876 l
+1189 875 l
+1188 874 l
+1186 873 l
+1185 872 l
+1184 872 l
+1183 871 l
+1182 870 l
+1182 869 l
+1181 869 l
+1180 868 l
+1179 867 l
+1178 866 l
+1177 866 l
+1177 865 l
+1176 864 l
+1175 864 l
+1174 863 l
+1174 862 l
+1173 862 l
+1172 861 l
+1172 860 l
+1171 860 l
+1171 859 l
+1170 859 l
+1170 858 l
+1169 857 l
+1168 856 l
+1167 855 l
+1166 854 l
+1166 853 l
+1165 853 l
+1165 852 l
+1164 852 l
+1164 851 l
+1163 851 l
+1163 850 l
+1163 851 l
+1164 852 l
+1165 853 l
+1165 854 l
+1166 854 l
+1166 855 l
+1167 856 l
+1167 857 l
+1168 857 l
+1168 858 l
+1169 859 l
+1170 860 l
+1171 860 l
+1171 861 l
+1172 862 l
+1173 863 l
+1174 864 l
+1175 865 l
+1176 866 l
+1176 867 l
+1177 867 l
+1178 868 l
+1179 869 l
+1180 870 l
+1181 870 l
+1181 871 l
+1182 872 l
+1183 873 l
+1184 874 l
+1185 875 l
+1187 875 l
+1188 876 l
+1189 877 l
+1190 878 l
+1191 879 l
+1193 880 l
+1194 881 l
+1195 882 l
+1196 882 l
+1197 883 l
+1198 884 l
+1200 885 l
+1201 886 l
+1203 887 l
+1205 888 l
+1206 889 l
+1208 890 l
+1210 891 l
+1212 892 l
+1214 893 l
+1216 894 l
+1218 895 l
+1220 897 l
+1222 898 l
+1224 899 l
+1226 900 l
+1228 901 l
+1229 901 l
+1231 902 l
+1233 903 l
+1236 904 l
+1238 905 l
+1241 907 l
+1243 908 l
+1246 909 l
+1249 910 l
+1252 911 l
+1254 912 l
+1257 913 l
+1260 914 l
+1263 915 l
+1266 917 l
+1270 918 l
+1273 919 l
+1275 919 l
+1276 920 l
+1280 921 l
+1283 922 l
+1287 923 l
+1290 924 l
+1294 926 l
+1296 926 l
+1298 927 l
+1302 928 l
+1306 929 l
+1310 930 l
+1315 931 l
+1319 932 l
+1321 933 l
+1324 933 l
+1329 935 l
+1333 936 l
+1339 937 l
+1344 938 l
+1349 939 l
+1354 940 l
+1355 940 l
+1361 942 l
+1368 943 l
+1374 944 l
+1381 945 l
+1388 946 l
+1396 948 l
+1404 949 l
+1406 949 l
+1412 950 l
+1421 951 l
+1431 953 l
+1441 954 l
+1452 955 l
+1464 956 l
+1476 957 l
+1490 959 l
+1501 959 l
+1504 960 l
+1520 961 l
+1537 962 l
+1540 962 l
+1555 962 l
+1561 962 l
+1574 963 l
+1583 963 l
+1588 963 l
+1592 963 l
+1593 962 l
+1592 962 l
+1590 962 l
+1587 961 l
+1582 961 l
+1576 960 l
+1574 960 l
+1569 960 l
+1562 959 l
+1555 959 l
+1553 959 l
+1542 958 l
+1537 958 l
+1531 957 l
+1520 956 l
+1518 956 l
+1505 955 l
+1504 955 l
+1490 954 l
+1489 954 l
+1477 952 l
+1471 952 l
+1464 951 l
+1453 950 l
+1451 950 l
+1442 949 l
+1432 947 l
+1429 947 l
+1422 946 l
+1413 945 l
+1405 944 l
+1402 943 l
+1397 943 l
+1389 941 l
+1382 940 l
+1375 939 l
+1368 938 l
+1362 937 l
+1356 936 l
+1350 935 l
+1345 934 l
+1340 932 l
+1334 931 l
+1329 930 l
+1325 929 l
+1321 928 l
+1320 928 l
+1316 927 l
+1311 926 l
+1307 925 l
+1303 924 l
+1299 923 l
+1295 922 l
+1291 921 l
+1288 920 l
+1284 919 l
+1281 918 l
+1277 916 l
+1274 915 l
+1271 914 l
+1268 913 l
+1264 912 l
+1261 911 l
+1258 910 l
+1256 909 l
+1253 908 l
+1250 907 l
+1247 906 l
+1245 905 l
+1242 904 l
+1239 903 l
+1237 902 l
+1234 901 l
+1232 900 l
+1230 899 l
+1227 898 l
+1225 896 l
+1223 895 l
+1221 894 l
+1219 893 l
+1217 892 l
+1215 891 l
+1213 890 l
+1211 889 l
+1209 888 l
+1207 887 l
+1206 886 l
+1204 885 l
+1202 884 l
+1201 883 l
+s
+2328 979 m
+2325 979 l
+2304 980 l
+2294 981 l
+2289 982 l
+2279 983 l
+2272 985 l
+2268 987 l
+2266 989 l
+2266 991 l
+2267 994 l
+2270 996 l
+2273 999 l
+2276 1002 l
+2280 1006 l
+2283 1009 l
+2286 1013 l
+2289 1018 l
+2292 1023 l
+2294 1025 l
+2296 1028 l
+2301 1033 l
+2306 1040 l
+2313 1046 l
+2321 1054 l
+2325 1057 l
+2332 1061 l
+2347 1070 l
+2356 1074 l
+2377 1079 l
+2387 1080 l
+2404 1079 l
+2418 1076 l
+2434 1070 l
+2448 1061 l
+2449 1061 l
+2458 1054 l
+2465 1046 l
+2471 1040 l
+2476 1033 l
+2480 1028 l
+2483 1023 l
+2486 1018 l
+2488 1013 l
+2490 1009 l
+2491 1006 l
+2492 1002 l
+2492 999 l
+2490 996 l
+2488 994 l
+2485 991 l
+2481 989 l
+2480 988 l
+2476 987 l
+2470 985 l
+2463 983 l
+2453 982 l
+2449 981 l
+2440 980 l
+2420 979 l
+2418 979 l
+2387 978 l
+2356 978 l
+2328 979 l
+s
+3651 979 m
+3624 980 l
+3610 980 l
+3593 981 l
+3588 982 l
+3572 983 l
+3563 985 l
+3559 985 l
+3549 987 l
+3541 989 l
+3534 991 l
+3532 992 l
+3529 994 l
+3525 996 l
+3523 999 l
+3521 1002 l
+3520 1006 l
+3520 1009 l
+3521 1013 l
+3522 1018 l
+3523 1023 l
+3524 1028 l
+3526 1033 l
+3528 1040 l
+3531 1046 l
+3532 1047 l
+3534 1054 l
+3538 1061 l
+3543 1070 l
+3548 1079 l
+3555 1090 l
+3563 1099 l
+3564 1101 l
+3576 1113 l
+3593 1126 l
+3624 1140 l
+3655 1144 l
+3682 1140 l
+3686 1139 l
+3713 1126 l
+3717 1123 l
+3730 1113 l
+3742 1101 l
+3748 1094 l
+3751 1090 l
+3758 1079 l
+3764 1070 l
+3769 1061 l
+3773 1054 l
+3776 1046 l
+3779 1040 l
+3779 1039 l
+3781 1033 l
+3783 1028 l
+3784 1023 l
+3785 1018 l
+3786 1013 l
+3785 1009 l
+3785 1006 l
+3783 1002 l
+3781 999 l
+3779 997 l
+3778 996 l
+3775 994 l
+3772 991 l
+3768 989 l
+3763 987 l
+3756 985 l
+3748 983 l
+3738 982 l
+3722 980 l
+3717 980 l
+3687 979 l
+3686 979 l
+3655 979 l
+3651 979 l
+s
+2967 980 m
+2944 982 l
+2942 982 l
+2924 983 l
+2913 985 l
+2911 985 l
+2901 987 l
+2892 989 l
+2885 991 l
+2882 993 l
+2880 994 l
+2875 996 l
+2870 999 l
+2867 1002 l
+2864 1006 l
+2863 1009 l
+2862 1013 l
+2861 1018 l
+2862 1023 l
+2863 1028 l
+2865 1033 l
+2867 1040 l
+2870 1046 l
+2873 1054 l
+2877 1061 l
+2882 1070 l
+2888 1079 l
+2895 1090 l
+2905 1101 l
+2913 1108 l
+2918 1113 l
+2939 1126 l
+2944 1128 l
+2975 1136 l
+3006 1136 l
+3037 1127 l
+3039 1126 l
+3060 1113 l
+3068 1107 l
+3074 1101 l
+3084 1090 l
+3092 1079 l
+3098 1071 l
+3099 1070 l
+3104 1061 l
+3108 1054 l
+3112 1046 l
+3115 1040 l
+3117 1033 l
+3119 1028 l
+3120 1023 l
+3120 1018 l
+3120 1013 l
+3118 1009 l
+3117 1006 l
+3115 1002 l
+3113 999 l
+3111 996 l
+3108 994 l
+3105 991 l
+3101 989 l
+3098 988 l
+3096 987 l
+3089 985 l
+3081 983 l
+3069 982 l
+3068 982 l
+3049 980 l
+3037 980 l
+3006 979 l
+2975 980 l
+2967 980 l
+s
+1619 985 m
+1617 985 l
+1598 987 l
+1594 987 l
+1589 989 l
+1586 991 l
+1586 994 l
+1587 997 l
+1588 1001 l
+1590 1005 l
+1592 1009 l
+1593 1011 l
+1594 1013 l
+1597 1018 l
+1600 1023 l
+1604 1029 l
+1609 1036 l
+1614 1042 l
+1615 1042 l
+1623 1050 l
+1633 1058 l
+1638 1062 l
+1648 1067 l
+1663 1074 l
+1677 1077 l
+1690 1079 l
+1712 1078 l
+1717 1077 l
+1743 1069 l
+1745 1068 l
+1759 1061 l
+1771 1053 l
+1775 1050 l
+1780 1046 l
+1788 1039 l
+1794 1033 l
+1799 1027 l
+1804 1022 l
+1807 1017 l
+1811 1013 l
+1813 1009 l
+1814 1005 l
+1813 1002 l
+1809 999 l
+1804 997 l
+1800 996 l
+1787 993 l
+1775 991 l
+1768 991 l
+1746 989 l
+1737 988 l
+1718 987 l
+1691 986 l
+1665 985 l
+1640 985 l
+1619 985 l
+s
+1252 908 m
+1250 907 l
+1247 906 l
+1244 905 l
+1242 904 l
+1239 903 l
+1237 902 l
+1234 901 l
+1232 900 l
+1230 899 l
+1227 898 l
+1225 897 l
+1223 896 l
+1221 895 l
+1219 894 l
+1217 892 l
+1215 891 l
+1213 890 l
+1211 889 l
+1210 889 l
+1209 888 l
+1207 887 l
+1206 886 l
+1204 885 l
+1202 884 l
+1201 883 l
+1199 883 l
+1198 882 l
+1197 881 l
+1196 881 l
+1195 880 l
+1193 879 l
+1192 878 l
+1191 877 l
+1190 876 l
+1188 875 l
+1187 874 l
+1186 874 l
+1185 873 l
+1186 874 l
+1187 875 l
+1188 876 l
+1189 877 l
+1190 878 l
+1191 878 l
+1192 879 l
+1193 879 l
+1194 880 l
+1196 881 l
+1197 882 l
+1199 883 l
+1200 884 l
+1201 885 l
+1202 885 l
+1203 886 l
+1205 888 l
+1207 889 l
+1208 889 l
+1208 890 l
+1210 891 l
+1212 892 l
+1214 893 l
+1215 894 l
+1216 894 l
+1218 895 l
+1220 896 l
+1222 897 l
+1224 898 l
+1225 898 l
+1227 899 l
+1229 901 l
+1231 902 l
+1233 903 l
+1235 904 l
+1236 904 l
+1238 905 l
+1241 906 l
+1244 907 l
+1246 908 l
+1247 909 l
+1249 910 l
+1252 911 l
+1255 912 l
+1257 913 l
+1260 914 l
+1262 914 l
+1263 915 l
+1267 916 l
+1270 917 l
+1273 918 l
+1276 920 l
+1278 920 l
+1280 921 l
+1283 922 l
+1287 923 l
+1290 924 l
+1294 925 l
+1298 926 l
+1302 927 l
+1306 929 l
+1310 930 l
+1315 931 l
+1319 932 l
+1323 933 l
+1324 933 l
+1329 934 l
+1334 935 l
+1339 937 l
+1344 938 l
+1350 939 l
+1355 940 l
+1356 940 l
+1361 941 l
+1368 942 l
+1374 944 l
+1381 945 l
+1388 946 l
+1396 947 l
+1404 948 l
+1413 950 l
+1422 951 l
+1431 952 l
+1441 953 l
+1452 954 l
+1464 955 l
+1476 957 l
+1490 958 l
+1494 958 l
+1504 959 l
+1514 959 l
+1520 959 l
+1525 960 l
+1532 960 l
+1536 960 l
+1537 959 l
+1536 959 l
+1533 959 l
+1529 958 l
+1523 957 l
+1520 957 l
+1516 957 l
+1507 956 l
+1504 956 l
+1497 955 l
+1490 954 l
+1486 954 l
+1477 953 l
+1473 953 l
+1464 952 l
+1459 951 l
+1453 950 l
+1443 949 l
+1442 949 l
+1432 948 l
+1424 947 l
+1422 947 l
+1413 945 l
+1405 944 l
+1402 944 l
+1397 943 l
+1389 942 l
+1382 941 l
+1376 940 l
+1375 939 l
+1368 938 l
+1362 937 l
+1356 936 l
+1350 935 l
+1345 934 l
+1342 933 l
+1339 933 l
+1334 932 l
+1329 931 l
+1325 929 l
+1320 928 l
+1316 927 l
+1311 926 l
+1307 925 l
+1303 924 l
+1299 923 l
+1295 922 l
+1291 921 l
+1288 920 l
+1284 919 l
+1281 918 l
+1277 917 l
+1274 916 l
+1271 915 l
+1267 914 l
+1264 912 l
+1261 911 l
+1258 910 l
+1255 909 l
+1253 908 l
+1252 908 l
+s
+2320 983 m
+2303 985 l
+2294 987 l
+2293 987 l
+2288 989 l
+2285 991 l
+2285 994 l
+2286 996 l
+2289 999 l
+2292 1002 l
+2294 1004 l
+2296 1006 l
+2300 1009 l
+2304 1013 l
+2308 1018 l
+2313 1023 l
+2319 1028 l
+2325 1032 l
+2327 1033 l
+2337 1040 l
+2350 1046 l
+2356 1048 l
+2381 1054 l
+2387 1054 l
+2395 1054 l
+2418 1049 l
+2426 1046 l
+2439 1040 l
+2448 1033 l
+2449 1033 l
+2455 1028 l
+2460 1023 l
+2465 1018 l
+2469 1013 l
+2471 1009 l
+2473 1006 l
+2474 1002 l
+2473 999 l
+2471 996 l
+2468 994 l
+2463 991 l
+2457 989 l
+2449 987 l
+2448 987 l
+2437 985 l
+2420 983 l
+2418 983 l
+2387 982 l
+2356 982 l
+2325 983 l
+2320 983 l
+s
+3644 983 m
+3624 984 l
+3605 985 l
+3593 986 l
+3584 987 l
+3570 989 l
+3563 990 l
+3559 991 l
+3551 994 l
+3545 996 l
+3540 999 l
+3537 1002 l
+3536 1006 l
+3535 1009 l
+3535 1013 l
+3536 1018 l
+3538 1023 l
+3540 1028 l
+3543 1033 l
+3546 1040 l
+3550 1046 l
+3555 1054 l
+3561 1061 l
+3563 1063 l
+3569 1070 l
+3578 1079 l
+3592 1090 l
+3593 1091 l
+3612 1101 l
+3624 1105 l
+3655 1109 l
+3686 1104 l
+3695 1101 l
+3716 1090 l
+3717 1088 l
+3729 1079 l
+3739 1070 l
+3746 1061 l
+3748 1059 l
+3753 1054 l
+3758 1046 l
+3762 1040 l
+3765 1033 l
+3768 1028 l
+3770 1023 l
+3771 1018 l
+3771 1013 l
+3771 1009 l
+3769 1006 l
+3767 1002 l
+3763 999 l
+3759 996 l
+3754 994 l
+3748 992 l
+3747 991 l
+3738 989 l
+3727 987 l
+3717 986 l
+3711 985 l
+3686 984 l
+3676 983 l
+3655 983 l
+3644 983 l
+s
+2961 985 m
+2944 986 l
+2938 987 l
+2923 989 l
+2913 991 l
+2911 991 l
+2902 994 l
+2895 996 l
+2889 999 l
+2884 1002 l
+2882 1005 l
+2881 1006 l
+2879 1009 l
+2878 1013 l
+2878 1018 l
+2879 1023 l
+2881 1028 l
+2882 1029 l
+2884 1033 l
+2888 1040 l
+2893 1046 l
+2898 1054 l
+2905 1061 l
+2913 1070 l
+2925 1079 l
+2941 1090 l
+2944 1091 l
+2975 1100 l
+3006 1100 l
+3037 1091 l
+3041 1090 l
+3057 1079 l
+3068 1072 l
+3069 1070 l
+3078 1061 l
+3085 1054 l
+3091 1046 l
+3096 1040 l
+3098 1035 l
+3100 1033 l
+3102 1028 l
+3104 1023 l
+3105 1018 l
+3104 1013 l
+3103 1009 l
+3101 1006 l
+3098 1003 l
+3098 1002 l
+3095 999 l
+3091 996 l
+3086 994 l
+3079 991 l
+3070 989 l
+3068 988 l
+3058 987 l
+3039 985 l
+3037 985 l
+3006 984 l
+2975 984 l
+2961 985 l
+s
+1632 988 m
+1617 990 l
+1616 990 l
+1612 992 l
+1611 995 l
+1613 998 l
+1615 1002 l
+1616 1003 l
+1618 1006 l
+1622 1010 l
+1626 1014 l
+1632 1019 l
+1639 1025 l
+1647 1031 l
+1660 1037 l
+1664 1039 l
+1682 1044 l
+1690 1046 l
+1718 1045 l
+1721 1045 l
+1744 1039 l
+1746 1038 l
+1758 1033 l
+1767 1027 l
+1775 1022 l
+1781 1017 l
+1787 1013 l
+1791 1009 l
+1793 1005 l
+1793 1002 l
+1789 999 l
+1779 996 l
+1775 995 l
+1763 993 l
+1746 991 l
+1736 990 l
+1718 989 l
+1691 988 l
+1665 987 l
+1640 988 l
+1632 988 l
+s
+1240 904 m
+1239 903 l
+1237 902 l
+1234 901 l
+1232 900 l
+1229 899 l
+1227 898 l
+1225 897 l
+1223 896 l
+1221 895 l
+1218 894 l
+1216 893 l
+1215 892 l
+1216 893 l
+1218 894 l
+1219 895 l
+1220 896 l
+1222 897 l
+1224 897 l
+1225 898 l
+1227 899 l
+1229 900 l
+1230 900 l
+1231 901 l
+1234 902 l
+1236 903 l
+1237 904 l
+1239 905 l
+1241 906 l
+1244 907 l
+1246 908 l
+1249 909 l
+1252 910 l
+1255 911 l
+1257 912 l
+1258 912 l
+1261 914 l
+1264 915 l
+1267 916 l
+1270 917 l
+1273 918 l
+1276 919 l
+1280 920 l
+1283 921 l
+1286 922 l
+1287 922 l
+1291 924 l
+1294 925 l
+1298 926 l
+1302 927 l
+1305 928 l
+1306 928 l
+1310 929 l
+1315 930 l
+1319 931 l
+1324 933 l
+1329 934 l
+1330 934 l
+1334 935 l
+1339 936 l
+1344 937 l
+1350 938 l
+1355 940 l
+1361 941 l
+1368 942 l
+1369 942 l
+1374 943 l
+1381 944 l
+1388 945 l
+1396 947 l
+1404 948 l
+1413 949 l
+1422 950 l
+1431 951 l
+1441 952 l
+1444 953 l
+1452 953 l
+1464 954 l
+1468 955 l
+1476 955 l
+1479 956 l
+1485 956 l
+1487 956 l
+1486 955 l
+1483 955 l
+1478 954 l
+1477 954 l
+1471 953 l
+1464 952 l
+1462 952 l
+1453 951 l
+1452 951 l
+1442 950 l
+1439 949 l
+1432 948 l
+1425 947 l
+1422 947 l
+1413 946 l
+1408 945 l
+1405 945 l
+1397 943 l
+1389 942 l
+1388 942 l
+1382 941 l
+1375 940 l
+1368 939 l
+1363 938 l
+1362 937 l
+1356 936 l
+1350 935 l
+1345 934 l
+1339 933 l
+1334 932 l
+1329 931 l
+1325 930 l
+1320 929 l
+1315 928 l
+1311 926 l
+1307 925 l
+1303 924 l
+1299 923 l
+1295 922 l
+1291 921 l
+1288 920 l
+1284 919 l
+1280 918 l
+1277 917 l
+1274 916 l
+1271 915 l
+1267 914 l
+1264 913 l
+1261 912 l
+1258 911 l
+1255 910 l
+1253 909 l
+1250 907 l
+1247 906 l
+1244 905 l
+1242 904 l
+1240 904 l
+s
+2331 987 m
+2325 988 l
+2316 989 l
+2309 991 l
+2306 994 l
+2306 996 l
+2308 999 l
+2311 1002 l
+2315 1006 l
+2320 1009 l
+2325 1013 l
+2326 1013 l
+2333 1018 l
+2342 1023 l
+2355 1028 l
+2356 1028 l
+2387 1033 l
+2418 1028 l
+2430 1023 l
+2439 1018 l
+2445 1013 l
+2449 1010 l
+2450 1009 l
+2453 1006 l
+2454 1002 l
+2453 999 l
+2450 996 l
+2449 995 l
+2445 994 l
+2437 991 l
+2426 989 l
+2418 988 l
+2408 987 l
+2387 986 l
+2356 986 l
+2331 987 l
+s
+2974 989 m
+2946 991 l
+2944 991 l
+2930 994 l
+2918 996 l
+2913 998 l
+2910 999 l
+2904 1002 l
+2899 1006 l
+2897 1009 l
+2895 1013 l
+2896 1018 l
+2898 1023 l
+2901 1028 l
+2906 1033 l
+2911 1040 l
+2913 1041 l
+2919 1046 l
+2928 1054 l
+2941 1061 l
+2944 1063 l
+2962 1070 l
+2975 1073 l
+3006 1074 l
+3022 1070 l
+3037 1065 l
+3044 1061 l
+3057 1054 l
+3066 1046 l
+3068 1045 l
+3074 1040 l
+3080 1033 l
+3084 1028 l
+3086 1023 l
+3088 1018 l
+3087 1013 l
+3086 1009 l
+3083 1006 l
+3079 1002 l
+3074 999 l
+3068 996 l
+3067 996 l
+3058 994 l
+3044 991 l
+3037 990 l
+3018 989 l
+3006 989 l
+2975 989 l
+2974 989 l
+s
+3611 989 m
+3593 991 l
+3590 991 l
+3576 994 l
+3566 996 l
+3563 998 l
+3560 999 l
+3555 1002 l
+3552 1006 l
+3551 1009 l
+3551 1013 l
+3552 1018 l
+3554 1023 l
+3557 1028 l
+3561 1033 l
+3563 1036 l
+3565 1040 l
+3572 1046 l
+3579 1054 l
+3589 1061 l
+3593 1064 l
+3603 1070 l
+3624 1079 l
+3627 1079 l
+3655 1083 l
+3681 1079 l
+3686 1078 l
+3705 1070 l
+3717 1063 l
+3719 1061 l
+3729 1054 l
+3737 1046 l
+3743 1040 l
+3748 1033 l
+3751 1028 l
+3754 1023 l
+3755 1018 l
+3756 1013 l
+3755 1009 l
+3753 1006 l
+3749 1002 l
+3748 1002 l
+3744 999 l
+3737 996 l
+3728 994 l
+3717 991 l
+3716 991 l
+3697 989 l
+3686 988 l
+3655 987 l
+3624 988 l
+3611 989 l
+s
+1656 991 m
+1644 993 l
+1642 996 l
+1644 999 l
+1648 1003 l
+1654 1007 l
+1662 1011 l
+1665 1012 l
+1674 1016 l
+1691 1020 l
+1718 1021 l
+1740 1017 l
+1746 1015 l
+1752 1013 l
+1760 1009 l
+1765 1005 l
+1767 1002 l
+1763 998 l
+1752 995 l
+1746 995 l
+1728 993 l
+1718 992 l
+1691 991 l
+1665 991 l
+1656 991 l
+s
+1291 921 m
+1287 920 l
+1284 919 l
+1280 918 l
+1277 917 l
+1274 916 l
+1270 915 l
+1267 914 l
+1264 913 l
+1261 912 l
+1258 911 l
+1255 910 l
+1254 910 l
+1253 909 l
+1254 910 l
+1255 911 l
+1258 912 l
+1259 912 l
+1261 913 l
+1264 914 l
+1266 915 l
+1267 915 l
+1270 916 l
+1273 917 l
+1275 918 l
+1277 919 l
+1280 920 l
+1283 921 l
+1287 922 l
+1291 923 l
+1294 924 l
+1298 925 l
+1302 926 l
+1306 928 l
+1311 929 l
+1315 930 l
+1319 931 l
+1322 932 l
+1324 932 l
+1329 933 l
+1334 934 l
+1339 935 l
+1344 937 l
+1350 938 l
+1356 939 l
+1362 940 l
+1368 941 l
+1374 942 l
+1381 944 l
+1389 945 l
+1396 946 l
+1404 947 l
+1408 947 l
+1413 948 l
+1422 949 l
+1427 950 l
+1431 950 l
+1433 950 l
+1434 950 l
+1431 949 l
+1425 948 l
+1422 948 l
+1417 947 l
+1413 946 l
+1406 945 l
+1404 945 l
+1396 944 l
+1392 943 l
+1389 943 l
+1382 941 l
+1375 940 l
+1374 940 l
+1368 939 l
+1362 938 l
+1356 937 l
+1350 936 l
+1345 935 l
+1339 933 l
+1334 932 l
+1329 931 l
+1324 930 l
+1320 929 l
+1315 928 l
+1311 927 l
+1307 926 l
+1303 925 l
+1299 924 l
+1295 923 l
+1291 922 l
+1291 921 l
+s
+2349 991 m
+2336 994 l
+2332 996 l
+2332 999 l
+2336 1002 l
+2342 1006 l
+2350 1009 l
+2356 1011 l
+2363 1013 l
+2387 1016 l
+2406 1013 l
+2418 1010 l
+2419 1009 l
+2425 1006 l
+2427 1002 l
+2427 999 l
+2422 996 l
+2418 995 l
+2414 994 l
+2396 991 l
+2387 991 l
+2356 991 l
+2349 991 l
+s
+3612 994 m
+3594 996 l
+3593 996 l
+3583 999 l
+3575 1002 l
+3571 1006 l
+3569 1009 l
+3568 1013 l
+3569 1018 l
+3572 1023 l
+3576 1028 l
+3581 1033 l
+3589 1040 l
+3593 1043 l
+3599 1046 l
+3613 1054 l
+3624 1058 l
+3645 1061 l
+3655 1062 l
+3663 1061 l
+3686 1057 l
+3696 1054 l
+3710 1046 l
+3717 1042 l
+3720 1040 l
+3727 1033 l
+3733 1028 l
+3736 1023 l
+3738 1018 l
+3738 1013 l
+3737 1009 l
+3734 1006 l
+3729 1002 l
+3721 999 l
+3717 998 l
+3710 996 l
+3692 994 l
+3686 993 l
+3655 992 l
+3624 993 l
+3612 994 l
+s
+2951 996 m
+2944 998 l
+2936 999 l
+2927 1002 l
+2921 1006 l
+2917 1009 l
+2915 1013 l
+2916 1018 l
+2919 1023 l
+2924 1028 l
+2931 1033 l
+2941 1040 l
+2944 1041 l
+2956 1046 l
+2975 1051 l
+3006 1052 l
+3030 1046 l
+3037 1044 l
+3045 1040 l
+3055 1033 l
+3062 1028 l
+3066 1023 l
+3068 1020 l
+3068 1018 l
+3068 1013 l
+3068 1011 l
+3066 1009 l
+3062 1006 l
+3057 1002 l
+3048 999 l
+3037 997 l
+3034 996 l
+3006 994 l
+2975 994 l
+2951 996 l
+s
+3616 999 m
+3602 1002 l
+3594 1006 l
+3593 1006 l
+3590 1009 l
+3589 1013 l
+3590 1018 l
+3593 1022 l
+3594 1023 l
+3600 1028 l
+3609 1033 l
+3624 1040 l
+3655 1044 l
+3685 1040 l
+3686 1039 l
+3700 1033 l
+3709 1028 l
+3714 1023 l
+3717 1018 l
+3718 1013 l
+3717 1011 l
+3716 1009 l
+3711 1006 l
+3702 1002 l
+3687 999 l
+3686 999 l
+3655 997 l
+3624 998 l
+3616 999 l
+s
+2962 1002 m
+2949 1006 l
+2944 1009 l
+2943 1009 l
+2941 1013 l
+2942 1018 l
+2944 1020 l
+2948 1023 l
+2957 1028 l
+2975 1033 l
+2978 1033 l
+3006 1034 l
+3009 1033 l
+3029 1028 l
+3037 1024 l
+3038 1023 l
+3043 1018 l
+3043 1013 l
+3041 1009 l
+3037 1007 l
+3034 1006 l
+3022 1002 l
+3006 1000 l
+2975 1001 l
+2962 1002 l
+s
+3634 1006 m
+3624 1008 l
+3622 1009 l
+3618 1013 l
+3620 1018 l
+3624 1021 l
+3628 1023 l
+3655 1027 l
+3680 1023 l
+3686 1019 l
+3687 1018 l
+3688 1013 l
+3686 1011 l
+3684 1009 l
+3671 1006 l
+3655 1004 l
+3634 1006 l
+showpage
+grestore
+end
+cleartomark
+restore
+%
+% End page 1 ...
+%
+%%EndDocument
+~
+0 R
+0 G
+0 i 0 J 0 j 1 w 4 M []0 d
+%AI3_Note:
+0 D
+46.2559 309.2749 m
+544.256 309.0249 l
+S
+183.756 318.2749 m
+183.756 309.2749 l
+S
+u
+273.881 309.2124 m
+273.881 318.2124 L
+S
+364.006 309.1499 m
+364.006 318.1499 L
+S
+454.131 309.0874 m
+454.131 318.0874 L
+S
+U
+544.256 318.0249 m
+544.256 309.0249 l
+S
+0 To
+1 0 0 1 184.7671 288.7749 0 Tp
+TP
+-5.004 0 Td
+0 Tr
+0 O
+0 g
+/_Helvetica 18 Tf
+0 Ts
+100 Tz
+0 Tt
+0 TA
+0 0 5 TC
+100 100 200 TW
+0 0 0 Ti
+1 Ta
+0 Tq
+0 0 Tl
+0 Tc
+0 Tw
+(0\r) Tx 
+TO
+0 To
+1 0 0 1 361.7501 288.7749 0 Tp
+TP
+-10.008 0 Td
+0 Tr
+(10\r) Tx 
+TO
+0 To
+1 0 0 1 541.7361 288.7749 0 Tp
+TP
+-10.008 0 Td
+0 Tr
+(20\r) Tx 
+TO
+0 R
+0 G
+94.2559 318.2749 m
+94.2559 309.2749 l
+S
+0 To
+1 0 0 1 91.7257 288.7749 0 Tp
+TP
+-8.0009 0 Td
+0 Tr
+0 O
+0 g
+(-5\r) Tx 
+TO
+0 To
+1 0 0 1 273.747 288.7749 0 Tp
+TP
+-5.004 0 Td
+0 Tr
+(5\r) Tx 
+TO
+0 To
+1 0 0 1 453.7559 288.7749 0 Tp
+TP
+-10.008 0 Td
+0 Tr
+(15\r) Tx 
+TO
+[1 0 0 1 -322.5 -394.5] 626 666 644 679
+()`
+%%BeginDocument:
+%!PS-Adobe-2.0 EPSF-2.0
+%%Creator: dvips 5.483 Copyright 1986-92 Radical Eye Software
+%%Title: TeXice027187.dvi
+%%Pages: 1 1
+%%BoundingBox: 626 666 644 679
+%%EndComments
+%DVIPSCommandLine: dvips -x 2400 -D 300 -E -o TeXice027187.eps TeXice027187.dvi
+%%BeginProcSet: tex.pro
+/TeXDict 250 dict def TeXDict begin /N{def}def /B{bind def}N /S{exch}N /X{S N}
+B /TR{translate}N /isls false N /vsize 11 72 mul N /@rigin{isls{[0 -1 1 0 0 0]
+concat}if 72 Resolution div 72 VResolution div neg scale isls{Resolution hsize
+-72 div mul 0 TR}if Resolution VResolution vsize -72 div 1 add mul TR matrix
+currentmatrix dup dup 4 get round 4 exch put dup dup 5 get round 5 exch put
+setmatrix}N /@landscape{/isls true N}B /@manualfeed{statusdict /manualfeed
+true put}B /@copies{/#copies X}B /FMat[1 0 0 -1 0 0]N /FBB[0 0 0 0]N /nn 0 N
+/IE 0 N /ctr 0 N /df-tail{/nn 8 dict N nn begin /FontType 3 N /FontMatrix
+fntrx N /FontBBox FBB N string /base X array /BitMaps X /BuildChar{
+CharBuilder}N /Encoding IE N end dup{/foo setfont}2 array copy cvx N load 0 nn
+put /ctr 0 N[}B /df{/sf 1 N /fntrx FMat N df-tail}B /dfs{div /sf X /fntrx[sf 0
+0 sf neg 0 0]N df-tail}B /E{pop nn dup definefont setfont}B /ch-width{ch-data
+dup length 5 sub get}B /ch-height{ch-data dup length 4 sub get}B /ch-xoff{128
+ch-data dup length 3 sub get sub}B /ch-yoff{ch-data dup length 2 sub get 127
+sub}B /ch-dx{ch-data dup length 1 sub get}B /ch-image{ch-data dup type
+/stringtype ne{ctr get /ctr ctr 1 add N}if}B /id 0 N /rw 0 N /rc 0 N /gp 0 N
+/cp 0 N /G 0 N /sf 0 N /CharBuilder{save 3 1 roll S dup /base get 2 index get
+S /BitMaps get S get /ch-data X pop /ctr 0 N ch-dx 0 ch-xoff ch-yoff ch-height
+sub ch-xoff ch-width add ch-yoff setcachedevice ch-width ch-height true[1 0 0
+-1 -.1 ch-xoff sub ch-yoff .1 add]{ch-image}imagemask restore}B /D{/cc X dup
+type /stringtype ne{]}if nn /base get cc ctr put nn /BitMaps get S ctr S sf 1
+ne{dup dup length 1 sub dup 2 index S get sf div put}if put /ctr ctr 1 add N}
+B /I{cc 1 add D}B /bop{userdict /bop-hook known{bop-hook}if /SI save N @rigin
+0 0 moveto}N /eop{SI restore showpage userdict /eop-hook known{eop-hook}if}N
+/@start{userdict /start-hook known{start-hook}if /VResolution X /Resolution X
+1000 div /DVImag X /IE 256 array N 0 1 255{IE S 1 string dup 0 3 index put cvn
+put}for 65781.76 div /vsize X 65781.76 div /hsize X}N /p{show}N /RMat[1 0 0 -1
+0 0]N /BDot 260 string N /rulex 0 N /ruley 0 N /v{/ruley X /rulex X V}B /V
+statusdict begin /product where{pop product dup length 7 ge{0 7 getinterval
+(Display)eq}{pop false}ifelse}{false}ifelse end{{gsave TR -.1 -.1 TR 1 1 scale
+rulex ruley false RMat{BDot}imagemask grestore}}{{gsave TR -.1 -.1 TR rulex
+ruley scale 1 1 false RMat{BDot}imagemask grestore}}ifelse B /a{moveto}B
+/delta 0 N /tail{dup /delta X 0 rmoveto}B /M{S p delta add tail}B /b{S p tail}
+B /c{-4 M}B /d{-3 M}B /e{-2 M}B /f{-1 M}B /g{0 M}B /h{1 M}B /i{2 M}B /j{3 M}B
+/k{4 M}B /w{0 rmoveto}B /l{p -4 w}B /m{p -3 w}B /n{p -2 w}B /o{p -1 w}B /q{p 1
+w}B /r{p 2 w}B /s{p 3 w}B /t{p 4 w}B /x{0 S rmoveto}B /y{3 2 roll p a}B /bos{
+/SS save N}B /eos{SS restore}B end
+%%EndProcSet
+TeXDict begin 40258437 52099154 2400 300 300 @start /Fa 1 121
+df<0000FE0003F8000003FF800FFE00000703C01C0700001C01E0300F80003800F0601FC00060
+00F8C03FC0006000FD807FC000C000FD807FC0018000FF007FC0018000FF007F80030000FE003F
+00060000FE001E00060000FE000000060000FE0000000C0001FC0000000C0001FC000000000001
+FC000000000001FC000000000003F8000000000003F8000000000003F8000000000003F8000000
+000007F0000000000007F0000000000007F0000000000007F000000000000FE000000000000FE0
+00000000000FE000000000000FE000040000001FC0000C0000001FC0000C0000001FC0000C000F
+001FC00018001F803FC00018003FC03FC00030007FC03F800030007FC06FC0006000FF806FC000
+C0007F80C7C00180007F0183C00300007C0301E00E00003C0E00F03C00000FFC007FF0000003F0
+001FC00000322D7EAB39>120 D E end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 300
+TeXDict begin
+
+%%EndSetup
+%%Page: 1 1
+bop 2312 219 a Fa(x)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
+%%EndDocument
+~
+%%PageTrailer
+%%Trailer
+Adobe_IllustratorA_AI3 /terminate get exec
+
+Adobe_typography_AI3 /terminate get exec
+
+
+Adobe_customcolor /terminate get exec
+
+Adobe_cshow /terminate get exec
+
+Adobe_cmykcolor /terminate get exec
+
+Adobe_packedarray /terminate get exec
+
+%%EOF

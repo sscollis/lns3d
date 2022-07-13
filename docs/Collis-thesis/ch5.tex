@@ -1,0 +1,1475 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Chapter 5:  Three-Dimensional Leading-Edge Receptivity
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 11-8-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Receptivity on a Swept Parabolic-Cylinder \label{c:pcyl} }
+
+This chapter focuses on the receptivity of the three-dimensional
+boundary-layer on a swept parabolic-cylinder subject to surface roughness.
+The discussion begins with a description of the geometry followed by the
+potential flow solution, mesh generation for Navier--Stokes calculations, and
+mean boundary-layer flow characteristics---both for two-dimensional and
+three-dimensional boundary layers.  The linear stability characteristics are
+then documented for a three-dimensional boundary-layer which serves as a model
+of the flow near the leading-edge of a swept-wing in flight.  Finally, forced
+receptivity calculations are presented for surface roughness located near the
+leading-edge including results from Linearized Navier--Stokes (LNS)
+calculations and comparisons to receptivity predictions based on Finite
+Reynolds Number Theory (FRNT).
+
+\section{Geometry: the Parabolic Cylinder}
+
+The leading-edge geometry is given by a swept parabolic-cylinder shown in
+figure \ref{f:pcyl}.  The reference length-scale is the leading-edge radius,
+$L^*=r_n^*$ and the reference velocity is the chordwise component of the
+freestream velocity, $u^*_r = u^*_\infty$ where the total magnitude of the
+freestream velocity is denoted by $U_\infty$.  Unless otherwise indicated,
+free-stream values are used for all other reference quantities.
+
+In many previous experimental and computational investigations of receptivity,
+the geometry consists of a flat-plate with some type of smooth leading-edge
+attached in front.  The parabolic cylinder has several advantages over these
+types of geometries: (1) the surface is continuous and infinitely
+differentiable, (2) a conformal map to a rectangular domain exists, (3) a
+theoretical investigation \cite{HaKe:96} of two-dimensional, acoustic
+receptivity is available, and (4) the pressure gradient is everywhere
+favorable and relatively insensitive to Mach number (see \S\ref{s:pcylmean}).
+
+For hybrid flat-plate/leading-edge geometries, there is often a lack of
+continuity (\ie\ smoothness) between the plate and leading-edge.  This can
+lead to an additional source of receptivity \cite{GoHu:87} which may cloud the
+receptivity mechanisms actually under investigation.  Attempts to rectify this
+situation have been made \cite{LiReSa:92} including polynomial smoothing at
+the junction and the so-called Modified-Super-Ellipse which can be designed to
+mimic the pressure distribution of an elliptical leading-edge while retained
+higher continuity at the junction.  The parabolic cylinder avoids these
+difficulties by providing a continuous geometry (with no arbitrary junction)
+that serves as a first-order approximation \cite{vanDyke:64} to the
+leading-edge of an airfoil.  Use of this geometry for receptivity
+investigations dates back to the work of Murdock \cite{Murdock:81} who
+performed two-dimensional, acoustic receptivity computations.  More recently,
+Hammerton and Kerschen \cite{HaKe:96} have investigated the same problem using
+high Reynolds number asymptotic theory.  Their results show that TS-wave
+response is reduced as the nose radius becomes more blunt.  These results have
+been qualitatively validated by the recent numerical simulations of Corke \&
+Haddad \cite{CoHa:95}.
+
+Here, we investigate receptivity of the three-dimensional boundary-layer on a
+swept parabolic-cylinder due to surface roughness and our discussion begins
+with the computation of potential flow solutions.
+
+\section{Potential Flow Solutions \label{s:pcylpot} }
+
+Before computing the base-flow solutions, a potential flow solution is
+required both as an initial condition to the NS solver and to supply
+information for the farfield boundary conditions as described in
+\S\ref{ss:meanbc}. The potential flow solution is determined using the method
+presented in \S\ref{s:initial}.  The no-penetration condition is used on the
+wall and on the symmetry boundary upstream of the leading-edge.  On the inflow
+and outflow boundaries, the velocity potential function is set to the value
+corresponding to the exact incompressible solution given by van Dyke
+\cite{vanDyke:64}
+%
+\begin{equation}
+\tilde\eta = \left( \frac{1}{2} - x + \frac{1}{2} 
+                    \sqrt{(2x-1)^2 + 4 y^2} \right)^{1/2},
+\end{equation}
+\begin{equation}
+\tilde\xi  = \frac{y}{\sqrt{2} \tilde\eta} ,
+\end{equation}
+\begin{equation}
+\phi = \tilde\xi^2 - \frac{1}{2} \tilde\eta^2 + \tilde\eta ,
+\end{equation} 
+%
+where $(\tilde\xi,\tilde\eta)$ are the parabolic coordinates and $\phi$ is the
+velocity potential.  Use of this solution on the inflow and outflow boundaries
+is obviously only an approximation for $\M \ne 0$.  To overcome this, we
+typically solve for the potential flow solution on a mesh that is much larger
+than the mesh used in our receptivity calculations.
+
+In constructing the mesh for the potential flow solution, an exponential
+mapping of the conformal coordinates to the uniform coordinates $(\xi,\eta)$
+is used to place the inflow/outflow boundaries far away from the leading-edge.
+Given the minimum mesh spacing, $\Delta\tilde\xi_{min}$ and the number of node
+points, $N_\xi$, the exponential mapping is given by
+%
+\begin{equation} \label{e:expmap}
+  \tilde\xi = \frac{1}{c_1} \exp\left( c_1 \xi + c_2 \right) - 
+              \exp\left( c_2 \right) ,
+\end{equation}
+%
+where $c_2 = \log\left( \Delta\tilde\xi_{min} (N_\xi - 1) \right)$ and 
+%
+\begin{equation}
+  c_1 = (N_\xi - 1) \left[ \log\left( s_\xi \Delta\tilde\xi_{min} 
+                                      (N_\xi-1) \right) - c_2 \right] .
+\end{equation}
+%
+The stretching factor, $s_\xi$, is determined from equation (\ref{e:expmap})
+by requiring that $\tilde\xi = \tilde\xi_{max}$ at $\xi=1$.  A detailed
+derivation of the metrics required by the potential flow solver is provided in
+Appendix \ref{a:metrics}.  With this mapping, we have constructed meshes for
+potential flow solutions that extend to $x = \pm 10^8$ which prevents the
+boundary approximation from corrupting the solution near the body.
+
+To demonstrate this, figure \ref{f:Cp-pot} shows contours of the pressure
+coefficient, $C_p$, defined as
+%
+\begin{equation} \label{e:Cp}
+  C_p \equiv \frac{p^* - p_\infty^*}{\frac{1}{2}\rho_\infty^* {u_\infty^*}^2} =
+             2 \left( p - \frac{1}{\gamma \M^2} \right) \comma  
+\end{equation}
+%
+for the potential flow over a parabolic cylinder at $\M=0.8$, $\theta=0^\circ$
+in the region $x \in [-500,500]$.  Solutions from three domains are shown: $x
+\in \pm 10^8$, $x \in \pm 10^7$, and $x \in \pm 10^6$.  The results for the
+two larger domains are identical, to graphical accuracy, indicating that the
+solution is independent of the farfield boundary.  In figure \ref{f:pg-pot},
+the pressure gradient along the wall is plotted for the solutions from the two
+largest meshes and, again, the results are in excellent agreement.  It is
+important to point out that the domain size required to obtain a converged
+solution is quite large.  This is, of course, due to the approximate
+boundary-condition imposed on the farfield boundary.  Compared to a closed
+body with a similar nose radius (\eg\ an airfoil or circular cylinder) the
+parabolic cylinder requires a much larger domain to obtain a mesh independent
+potential flow solution given a similar farfield boundary-condition.  This is
+due to the fact that domain truncation at some finite location results in a
+disregard of the upstream influence associated with the ever expanding
+parabola downstream.
+
+To convert the potential flow solutions to a mesh suitable for NS calculations
+we use fourth-order accurate B-splines \cite{IMSL:91} to interpolate the
+solutions in computational space.  Then using the mapping functions, the
+interpolated solution is converted to physical space on the new grid.  After
+interpolating to a typical NS mesh, we have re-plotted the pressure contours
+from the original and interpolated fields in figure \ref{f:Cp-interp}
+demonstrating excellent agreement.
+
+%
+%.... This is not quite correct!  I really map 
+%     (\xi,\eta) -> (s,n) -> (\tilde\xi,\tilde\eta) -> (x,y)
+%
+\section{Mesh Generation for Navier--Stokes Solutions \label{s:meshmap} }
+
+The conformal mapping of the parabolic-cylinder to the half-plane is also used
+in forming a mesh suitable for Navier--Stokes solutions.  The conformal mapping
+can be written as
+%
+\begin{eqnarray}
+  x &=& \tilde\xi^2 + \frac{1 - \tilde\eta^2}{2} \comma \\
+  y &=& \sqrt{2} \tilde\xi \tilde\eta \comma
+\end{eqnarray}
+%
+% On the body: y = \sqrt{2} \xi
+%
+% s = sqrt{2}/2 \xi \sqrt{1+2\xi^2} + 1/2 \log{\sqrt{2}\xi + \sqrt{1+2\xi^2}
+%
+where $(x,y)$ are the nondimensional physical coordinates and $(\tilde\xi,
+\tilde\eta)$ are the nondimensional conformal coordinates.  In this
+expression, the body is given by the curve $\tilde\eta=1$.  The conformal
+coordinates are further transformed to computational coordinates $(\xi,\eta)$
+using hyperbolic mapping functions \cite{MaMoLe:96} designed to cluster points
+near the leading-edge and in the boundary layer.  An example of a typical mesh
+that results from these transformations is shown in figure~\ref{f:pcylmesh}.
+
+The same mapping function is used for both the $\xi$- and $\eta$ directions.
+Considering the $\xi$-direction, the transformation takes the form
+%
+\begin{equation} \label{e:map}
+\tilde\xi = \frac{\tilde\xi_{max}}{\Xi} \left\{
+            c_m \xi + \log\left( \frac{\cosh[b(\xi-\xi_c)]}
+                                      {\cosh[b(\xi+\xi_c)]} \right) \right\},
+\end{equation}
+%
+where
+%
+\begin{equation}
+  \Xi = c_m + \log\left( \frac{\cosh[b(1-\xi_c)]}
+                              {\cosh[b(1+\xi_c)]} \right) ,
+\end{equation}
+%
+and
+%
+\begin{equation} \label{e:cm}
+c_m = \frac{ 2b\tanh(b\xi_c) +
+             \frac{(N_\xi-1)\Delta\tilde\xi_{min}}{\tilde\xi_{max}} \log\left(
+             \frac{\cosh[b(1-\xi_c)]}{\cosh[b(1+\xi_c)]} \right) } {1 -
+             \frac{(N_\xi-1)\Delta\tilde\xi_{min}}{\tilde\xi_{max}}} .
+\end{equation}
+%
+In these equations, $\Delta\tilde\xi_{min}$ is the minimum desired mesh
+spacing in $\tilde\xi$, $N_\xi$ is the number of nodes in the $\xi$-direction,
+$\tilde\xi_{max}$ is the maximum $\tilde\xi$ node location, $\xi_c$ is the
+location of the transition point in computational space, and $b$ controls the
+rate of stretching at the transition.  The derivatives of the mapping function
+which are required to compute the mesh metrics (see Appendix \ref{a:metrics})
+are given by
+%
+\begin{equation} \label{e:d1map}
+\frac{\partial \tilde\xi}{\partial \xi} = \frac{\tilde\xi_{max}}{\Xi}
+      \left( c_m + b\tanh[b(\xi-\xi_c)] - b\tanh[b(\xi+\xi_c)] \right)
+\end{equation}
+%
+and
+%
+\begin{equation} \label{e:d2map}
+\frac{\partial^2 \tilde\xi}{\partial \xi^2} = \frac{\tilde\xi_{max}}{\Xi}
+      \left( -b^2\tanh^2[b(\xi-\xi_c)] + b^2\tanh^2[b(\xi+\xi_c)] \right)
+\end{equation}
+%
+Figure~\ref{f:map} shows the mapping function and its derivatives for
+parameters typical of those used in the wall-tangent direction (see the figure
+caption for the parameter values).  The node spacing near the leading-edge is
+small to resolve the viscously dominated stagnation region.  The first
+derivative of the mapping, which is proportional to the local mesh spacing, is
+approximately constant at the leading-edge, indicating that the mesh is nearly
+uniform there.  The second derivative at the leading-edge is exactly zero
+which ensures that the mesh metrics are symmetric about the $(-x)$-axis.
+Downstream of the leading-edge, the mesh transitions smoothly to a second
+region of uniform spacing, but with a spacing roughly 32 times larger than
+that at the leading-edge.  Note that a uniform spacing in the conformal
+coordinate, $\tilde\xi$, still grows like $\sqrt{s}$ in the chordwise
+direction so that the mesh spacing in the physical space continues to grow
+downstream in a manner consistent with the growing boundary layer.  As
+indicated above, the same mapping function is also used in the wall-normal
+direction.  For this application, the transition point, $\eta_c$, is set to
+$3/4$ instead of $1/4$.  For an appropriate value of $\Delta\eta_{min}$, this
+has the effect of shifting approximately half of the mesh points into the
+boundary layer.  Using the mapping functions presented above, the metrics
+required by the Navier--Stokes solver can be determined using the equations in
+Appendix \ref{a:metrics}.
+
+Before closing this section, we point out that the mapping function given by
+equation (\ref{e:map}) has several advantages over the algebraic, hyperbolic
+tangent \cite{Lin:92}, and exponential \cite{FeStHa:92,Fenno:93} mappings used
+previously.  In particular, the first derivative of the mapping function
+approaches a constant at the boundaries implying that the mesh is nearly
+uniform there.  This ensures that the mesh and its metrics are smooth at the
+boundaries and that the mesh has the proper symmetry characteristics for both
+solid walls and symmetry boundaries.  With a region of nearly uniform mesh
+near the boundaries, second derivative metrics are also better scaled in these
+regions.  In our applications, this is important at both the wall and in the
+stagnation region on the symmetry-line boundary where viscous effects are
+important.
+%
+%.... Demonstrate the advantages of the current the mapping function?
+%
+
+\section{Base Flow Results \label{s:pcylmean}}
+
+Mean-flow results for the parabolic cylinder have been obtained for a variety
+of conditions.  For unswept cases at low Mach numbers, the results are
+compared to the reference incompressible solutions of Davis \cite{Davis:72}.
+After doing so, the influence of compressibility and wing sweep are examined.
+%
+% Aside:  the adiabatic wall temperature for a flat-plate is given by
+%
+% \begin{equation}
+%   T_{aw} = T_e + r U_e^2/(2 c_p)
+% \end{equation}
+%
+% where $r = \sqrt{\Pr}$ for $0.1 < \Pr < 3.0$.
+
+\subsection{Two-Dimensional Solutions \label{ss:2Dmean} }
+
+Our discussion begins with the mean-flow solution at $\M=0.1$, $\Re=1000$, and
+$\Pr=0.7$ using constant fluid-properties with an adiabatic wall-temperature
+boundary-condition.  A Mach number of 0.1 was selected to mimic the reference
+incompressible solutions, and the appropriateness of this choice will be
+assessed below.  The mean flow is computed using the method discussed in
+\S\ref{s:base} with the boundary conditions of \S\ref{ss:meanbc}.  Figure
+\ref{f:conv} shows the convergence history for a steady-state calculation on a
+$(384 \times 127)$ mesh with a potential flow solution as the initial
+condition.  Points where a rapid change in the residual occurs correspond to
+times during the computation when the timestep was altered to improve
+convergence.  The norm of the residual at the end of the computation is
+approximately $1.4\times 10^{-7}$ and this is typical of the convergence
+achieved for all the mean-flow computations presented here.  The computation
+required 4234 iterations using $1.15$~hr of CPU time on a single Cray C-90
+processor which corresponds to $20~\mu$-sec/node/iteration.
+
+%
+%.... For low mach number flows, global time stepping at very large
+%.... CFL is the best road to convergence.
+%
+
+%The primary goal of our mean-flow solver is to obtain accurate, clean
+%steady-stage solutions using the same spatial differencing technique used for
+%disturbance calculations.  By ``clean'' we mean that numerical errors present
+%in the solution must be sufficiently small so that they do not adversely
+%affect the accuracy of the solution.  This goal is particularly difficult to
+%achieve using high-order central difference methods with no inherent numerical
+%dissipation, since these schemes are known to possess spurious numerical
+%solutions which can be generated by a variety of sources: insufficient
+%resolution, approximate boundary conditions, and rapid mesh stretching.  In
+%\S\ref{sss:damping}, pressure contours---a very sensitive indicator for low
+%Mach number flows---were shown for this mean solution, demonstrating that the
+%solutions are free of numerical oscillations using the boundary conditions
+%described in \S\ref{ss:meanbc}.
+
+To assess accuracy, the mean solutions are compared to the incompressible
+results of Davis \cite{Davis:72}.  Davis solves for the mean flow over an
+infinitely long parabolic cylinder by mapping the infinite conformal space to
+a finite domain.  In this manner, his method treats the farfield boundaries
+exactly.  The equations are cast in streamfunction/vorticity form and
+solutions are obtained with a iterative scheme based on a parabolic
+approximation.  Davis' results are presented using a scaled wall vorticity
+defined as
+%
+\begin{equation} \label{e:omegaD}
+  \omega_D \equiv  -\frac{(2 x + 1)}{\sqrt{2 x \Re}} \omega_w
+\end{equation}
+%
+where $\omega_w$ is the wall vorticity.  This quantity is plotted versus a
+viscously-scaled, streamwise, conformal-coordinate defined as
+%
+\begin{equation} 
+  \xi_D \equiv \sqrt{2 x \Re} \period
+\end{equation}
+
+By scaling the wall vorticity by the factor in equation (\ref{e:omegaD}), the
+first-order variation of the incompressible solution near the leading-edge and
+far downstream is accounted for.  Thus $\omega_D$ approaches a constant both
+near the leading-edge and far downstream, making it a very sensitive measure
+of solution accuracy.  Figure \ref{f:davis} shows a comparison of results
+using the current method, at $\M=0.1$ and $\Pr=0.7$, compared to Davis'
+incompressible solutions for $\Re=100$ and $1000$.  The current results agree
+well with the incompressible solutions for both Reynolds numbers.  This
+indicates that both the inflow and outflow boundary conditions are quite
+successful even for very thick viscous layers.  That this isn't surprising is
+demonstrated by Davis' figure~3 which shows that for $\xi_d > 50$ the
+parabolized Navier--Stokes equations are a good approximation to the full
+Navier--Stokes equations (also see figure \ref{f:parabolic} discussed below).
+
+% What is somewhat surprising is the fact
+% that the inflow boundary condition is also able to adjust to the rather large
+% displacement thickness of the low Reynolds number boundary layers.  However,
+% even when $\Re=1$ the inflow boundary is at least $30 \delta_1$ above the 
+% wall so that it is always well away from the boundary layer.
+
+%
+%.... The vorticity function at the LE goes as g = 1.146 - 0.248 M^2
+%
+%	M^2	g(0)
+%=========================
+%	0.01	1.141805
+%	0.25	1.083930
+%	0.64	0.988099
+
+A close examination of the vorticity function near the leading-edge shows that
+the current results slightly under-predict the incompressible results.  To
+determine if this difference is due to compressibility, mean flow solutions
+have been obtained over a range of subsonic Mach numbers at $\Re=1000$,
+$\Pr=0.7$, again using constant fluid-properties and an adiabatic wall
+temperature condition.  The use of constant fluid properties at high subsonic
+Mach numbers is obviously an approximation, but doing so is not expected to
+have a qualitative impact on the present results.  The scaled wall vorticity
+from these solutions is shown in figure \ref{f:mach} which gives results for
+Mach numbers of 0.1, 0.5 and 0.8 along with Davis' incompressible solution.
+As the Mach number is decreased, $\omega_D$ near the leading-edge increases,
+approaching the incompressible solution.  In figure \ref{f:attach}, $\omega_D$
+at the attachment-line is plotted as a function of Mach number squared.  The
+relationship is linear and extrapolating to zero Mach number gives a value
+1.146, which is in very good agreement with Davis' value of 1.15.
+
+Returning to figure \ref{f:mach}, we see that $\omega_D$ also approaches the
+incompressible solution over the entire domain as Mach number is lowered.
+But, near the end of the computational domain, there is a slight difference
+between the current solution at $M=0.1$ and Davis' incompressible solution.
+However, the symbols plotted corresponding to Davis' solution were extracted
+from a rather small and crowded graph in \cite{Davis:72} so that there could
+be some error in the deduced incompressible values.  This is particularly the
+case for high $\xi_D$ where many solutions overlap on Davis' plot.  However,
+Davis demonstrated that beyond $\xi_D \approx 50$ a fully parabolic
+approximation to the governing equations agrees very well with the full
+Navier--Stokes solutions.  In figure \ref{f:parabolic} the incompressible
+parabolic solution is compared to our $\M=0.1$ solution.  The parabolic result
+was obtained using a method identical to that presented by Davis.  Our
+solution compares very well with the parabolic solution downstream of $\xi_D =
+50$, but, as expected, the parabolic solution near the leading-edge is poor
+\cite{Davis:72}.
+
+As the final result for two-dimensional boundary layers, figure
+\ref{f:pg_mach} shows the evolution of the wall-tangent pressure gradient,
+evaluated at the wall, for a range of Mach numbers.  As Mach number is
+increased, the favorable pressure gradient, which exists over the entire
+surface, increases slightly over most of the chordwise extent.  This is in
+contrast to the results presented in \S\ref{s:recep} for the super-ellipse
+which showed a dramatic increase in the magnitude and length of the region of
+adverse pressure gradient, associated with the leading-edge/plate junction, as
+Mach number was increased.  As alluded to earlier, the more benign influence
+of Mach number on the pressure gradient (and therefore stability
+characteristics) for the parabolic cylinder makes it a more useful geometry
+for the study of receptivity at high subsonic Mach numbers.
+
+To summarize the two-dimensional results, it is concluded that the current
+mean-flow solutions converge to the reference incompressible solution of Davis
+as Mach number is reduced.  Furthermore, at $\M=0.1$ the current solution is
+in good agreement with the incompressible solution over the full length of the
+parabolic-cylinder, and, as Mach number is increased, the vorticity at the
+leading-edge varies like $\omega_D(0) = 1.146 - 0.248 \M^{2}$.
+
+\subsection{Three-Dimensional Solutions \label{ss:3Dmean} }
+
+To create a three-dimensional boundary layer, the parabolic-cylinder is swept
+with respect to the incoming uniform flow.  The conditions are selected to
+generate a flow which, in the vicinity of the leading-edge, roughly models
+that of a subsonic transport-aircraft in cruise.  For this purpose, we use a
+sweep-angle of $\theta = 35^\circ$ with $\M_\infty = 0.977$ and $\Pr = 1$.
+Using the chordwise component of the freestream velocity as the reference
+velocity gives a Mach number of $\M = 0.8$ and Reynolds number of $\Re =
+1\times 10^5$, where the nose radius is the reference length-scale.  Assuming
+that the nose radius of a typical airfoil section is approximately 1\% chord
+\cite{AbDo:59}, these conditions correspond to a chord Reynolds number of
+approximately $1\times 10^7$, which is in the realm of flight Reynolds
+numbers.
+
+Unlike the two-dimensional results presented above, an isothermal
+wall-temp\-er\-ature boundary-condition of the form $T_w = T_0$ is now used,
+where
+%
+\begin{equation}
+  T_0 = 1 + \frac{\gamma-1}{2} \M^2 ( 1 + \tan^2(\theta) ) 
+\end{equation}
+%
+is the freestream stagnation temperature.  For $\Pr = 1$, this corresponds to
+the adiabatic wall temperature for a flat-plate boundary layer.  Since the
+boundary layer flow over a parabolic cylinder approaches a flat-plat boundary
+layer downstream, the wall temperature boundary condition asymptotically
+approaches an adiabatic condition downstream.  The use of the isothermal
+boundary-condition greatly simplifies the wall-roughness boundary condition
+(see below), while using $\Pr=1$ allows more direct comparisons to available
+similarity solutions (see Appendix \ref{a:FSC}).  As before, the meanflow
+is computed using constant fluid properties since variations in fluid
+properties are not expected to cause qualitative differences in receptivity
+results.
+%
+% The computational parameters are summarized in table~\ref{t:swept}.
+%
+
+To extract boundary layer profiles and non-dimensional parameters
+characteristic of its state from the Navier--Stokes solution, the original
+solution on the conformal mesh, described in \S\ref{s:meshmap}, is
+interpolated onto a body-fitted coordinate system.  Recall that the
+body-fitted coordinate system is denoted by $(s,n,z)$ where $s$ is the
+arc-length in the chordwise direction, $n$ is the distance normal to the body,
+and $z$ is the spanwise direction.  The body-fitted mesh is constructed by
+forming level-sets off the parabolic body.  To cluster points near the
+leading-edge and in the viscous layer, the mesh mapping presented in equation
+(\ref{e:map}) is used in both the body normal and tangent directions.  Since
+the body-fitted mesh is used only for analysis, the top boundary can be placed
+much closer to the wall to reduce the number of points in the far-field.  To
+interpolate the solution from the conformal to body-fitted mesh, fourth-order
+accurate B-spline interpolation is used in computational space.  Each point,
+in the body-fitted mesh, is converted using the mapping of \S\ref{s:meshmap}
+to the uniform computational space where the IMSL\ B-spline routines
+\cite{IMSL:91} are used to determine the interpolated value for each of the
+primitive variables.  This interpolation procedure, which is similar to that
+used to interpolate the potential flow solution, has been found to yield
+excellent results and is also used to convert solutions to different grids
+when performing mesh resolution studies and when computing local quantities
+such as $\delta_{0.999}$ and local profile maxima.
+
+Given the meanflow solution on a body-fitted mesh, the first step in analyzing
+the boundary layer is to determine the edge conditions.  Conceptually, the
+edge conditions are given by the local inviscid-flow outside of the boundary
+layer.  Figure \ref{f:3dbl} is a schematic of a three-dimensional boundary
+layer near a swept leading-edge which aids in the definition of the various
+boundary layer parameters.  In this study, the boundary-layer edge is defined
+as the point where the spanwise, $w$, component of velocity reaches $99.9\%$
+of its freestream value.  Since the wing has infinite span, the $w$-velocity
+profile increases monotonically from zero at the wall to its freestream value,
+$\tan(\theta)$.  This is in contrast to the more traditionally used $\vs$
+velocity.  Recall that $\vs$ is the velocity locally tangent to the body at a
+given station while $\vn$ is the body-normal velocity.  These velocity
+components are related to the global Cartesian velocity components by
+%
+\begin{equation}
+  \vs = n_2 u - n_1 v \comma
+\end{equation}
+%
+\begin{equation}
+  \vn = n_1 u + n_2 v \comma
+\end{equation}
+%
+where the outward unit-normal to the body is ${\bf n} = \{n_1,n_2,0\}^{\rm
+T}$.  Since the flow is accelerated in the chordwise direction, the $v_s$
+velocity over-accelerates near the leading-edge making an unambiguous
+definition of the boundary-layer edge difficult.  Although the particular
+choice of edge-conditions does have an influence on the reported
+boundary-layer parameters, the effects are minor and the current approach
+yields adequate results.  Throughout the following discussion, the reader may
+wish to consult table \ref{t:results} which itemizes the boundary-layer
+edge-conditions and parameters for selected stations near the leading-edge.
+
+The magnitude of the edge-velocity, projected to the plane tangent to the
+body, is given by $U_e = \sqrt{ \vs^2_e + w_e^2}$.  In practice, $U_e$ is
+referred to as the total edge-velocity since $v_n$ is negligible except in the
+immediate vicinity of the attachment-line.  The edge-velocity makes an angle
+$\theta_e$ with respect to the $x$-axis and this angle is called the local
+sweep-angle.  When presenting boundary-layer profiles, it is useful to convert
+the velocity to a coordinate system that is locally aligned with the
+edge-velocity. Velocity components in this ``streamwise'' coordinate system
+are denoted by $(u_s,v_n,w_s)$, where $u_s$ is the local, streamwise velocity;
+$v_n$ is the body-normal velocity; and $w_s$ is the crossflow velocity.  These
+components are related to the velocities in the boundary-fitted coordinate
+system by
+%
+\begin{equation}
+  u_s = \cos(\theta_e) \vs + \sin(\theta_e) w \comma
+\end{equation}
+%
+\begin{equation}
+  w_s = -\sin(\theta_e) \vs + \cos(\theta_e) w \period
+\end{equation}
+
+With these definitions we can begin to examine the characteristics of this
+three-dimensional boundary-layer.  Figures \ref{f:pro1}--\ref{f:pro3} show
+streamwise, $u_s$, and crossflow, $w_s$, velocity profiles at three stations
+near the leading-edge where the profiles have been nondimensionalized by
+$U_e$.  The streamwise profile is ``Blasius-like'' while the crossflow profile
+is inflectional with a maximum, crossflow velocity of $\approx 11\%$ of the
+local edge velocity at $s=0.802$. The inflectional crossflow profile gives
+rise to the inviscid, crossflow instability.
+
+For this flow, the standard attachment-line length-scale $\delta^*_l \equiv
+\sqrt{\nu_e^* / (\partial U^*_e / \partial s^*)}$ is $0.00353 \, r^*_n$ and
+this yields an attachment-line Reynolds number $\bar R \equiv \delta^*_l
+w^*_\infty / \nu^*_\infty$ of 247.  This value of $\bar R$ is less than the
+critical value of $\bar R_{crit} = 583$, which ensures that the flow is
+linearly stable along the attachment-line \cite{Spalart:89}.
+
+Figure \ref{f:r4.wmax} shows the chordwise evolution of the maximum crossflow
+component of velocity normalized relative the local edge-velocity.  The
+crossflow component is everywhere negative and reaches its greatest magnitude
+of $-0.107$ at $s=0.802$.  At the point of maximum crossflow, the crossflow
+Reynolds number
+%
+\begin{equation} \label{e:chi}
+  \chi \equiv \delta^*_{0.999} {w_s^*}_{max} / \nu^*
+\end{equation}
+%
+is 161.  The results of Poll \cite{Poll:85} for a swept circular-cylinder
+indicate that the critical crossflow Reynolds number is 125 and our value of
+161 suggests that significant crossflow instability will be present.  Table
+\ref{t:results} shows the crossflow Reynolds number reaches a maximum of 256
+at $s \approx 20.3$.
+
+The variation of the local sweep-angle, $\theta_e$, of the edge-velocity is
+shown in figure \ref{f:r4.thetae}.  At the point of maximum crossflow, the
+local sweep-angle is $54.5^\circ$ relative to the chord compared to a value of
+$90^\circ$ at the attachment-line.  Downstream, the local sweep-angle
+asymptotes to the global sweep-angle $\theta=35^\circ$ as the chordwise
+pressure gradient decays.  The pressure gradient along the parabola is
+documented using the Hartree pressure-gradient parameter which is defined as
+%
+\begin{equation} \label{e:betah}
+  \beta_h = \frac{2 m}{m+1} 
+\end{equation}
+%
+where
+%
+\begin{equation}
+  m = \frac{s}{u_s} \frac{\partial u_s}{\partial s} \period
+\end{equation}
+%
+Figure \ref{f:r4.betah} shows the evolution of $\beta_h$ along the length of
+the plate.  At the attachment line, $\beta_h = 1$ corresponding to a
+stagnation region while downstream of the leading edge, $\beta_h$ decays
+monotonically to zero.  At the point of maximum crossflow, $\beta_h = 0.765$
+and by 30 nose radii downstream $\beta_h$ is reduced to $0.042$ indicating
+that the flow is approaching a zero-pressure gradient boundary layer.
+%
+% For M=0.8, R=1e5, th=35,  M_\infty = 0.97661967
+%
+% \partial U_e / \partial s = 0.80276598
+%
+% \delta_l = 0.0035294377,     \bar \Re = 247.13389
+%
+% Spalart says that at the attachment line, \theta_z = 0.404
+%
+% I get \delta_2 / \delta_l = 0.33774
+%
+% \delta_2 = 0.00119
+%
+% For M=0.73, R=1e5, th=35,  M_\infty = 0.8911655
+%
+% \partial U_e / \partial s = 0.83242
+%
+% \delta_l = 0.003466,     \bar \Re = 242.7
+%
+% \delta_2 / \delta_l = 0.3494021
+%
+% \delta_2 = 0.00121
+%
+% For M=0.5, R=1000, th=45,  M_\infty = 0.70710678
+%
+% \partial U_e / \partial s = 0.820
+%
+% \delta_l = 0.03492,     \bar \Re = 34.9
+%
+% \delta_2 / \delta_l = 0.3695
+%
+% If you plot \delta_2 / \delta_l vs (total Mach)^2 you get a linear
+% relationship.  In fact, if you extrapolate back against M^2 you get
+% \delta_2 / \delta_l = 0.407 at M=0
+
+Figure \ref{f:r4.thick} shows the displacement and momentum thickness
+evolution for the local streamwise velocity profile.  The displacement
+thickness is defined by
+%
+\begin{equation}
+  \delta_1 \equiv \int_0^{\delta_{0.999}} \left( 1 - 
+  \frac{ \rho u_s }{\rho_e U_e } \right) \, dn
+\end{equation}
+%
+while the momentum thickness is given by
+%
+\begin{equation}
+  \delta_2 \equiv \int_0^{\delta_{0.999}} \frac{ \rho u_s }{\rho_e U_e} 
+                           \left( 1 - \frac{u_s}{U_e} \right) \, dn \period
+\end{equation}
+%
+For incompressible flow at the attachment-line, Spalart gives a value of
+$\delta_2 / \delta_l $ = 0.404 \cite{Spalart:89}.  From the current data, we
+get a value of $0.337$ which suggests that this quantity decreases with Mach
+number.  To verify this, a separate calculation at $\M=0.73$, with all other
+conditions the same, was performed which gives a value of $\delta_2/\delta_l =
+0.349$.  Linearly extrapolating these results against the {\it freestream}
+Mach number squared gives a value of 0.407 at $\M_\infty = 0$ which is in good
+agreement with the incompressible value.  The evolution of the boundary-layer
+shape-factor, defined as $H = \delta_2 / \delta_1$, is shown in figure
+\ref{f:r4.shape}.  At the attachment-line $H = 0.368$ and quickly increases to
+a maximum of $H = 0.377$ at $s = 0.63$ before beginning a slow decay,
+eventually asymptoting to $H = 0.317$.
+
+%The final base-flow result is given in figure \ref{f:r4.epsi} which presents
+%$\epsilon_i$, the flow angle at the inflection point of the crossflow velocity
+%profile relative to the local sweep-angle.  At the attachment line
+%$\epsilon_i$ is zero by definition.  Downstream, $\epsilon_i$ decreases and
+%reaches a minimum value of $-4.72^\circ$ at the point of maximum crossflow.
+%Further downstream, $\epsilon_i$ increases and eventually asymptotes to zero.
+%The inflection point flow-angle is approximately related to the wave-angle of
+%the most unstable crossflow mode as described by Mack \cite{Mack:84a}, and, as
+%such, provides a useful means of estimating the crossflow vortex wavenumbers
+%for stability analysis.
+
+\section{Linear Stability Analysis \label{s:LSTpcyl} }
+
+Before performing receptivity calculations, it is necessary to determine the
+stability characteristics of the mean flow.  This is accomplished by using the
+spatial, Linear Stability Theory (LST) solver described in Appendix
+\ref{a:LST} in conjunction with several LNS stability calculations.  Recent
+investigations \cite{MaMa:94,MaBa:93} have shown that the growth of stationary
+crossflow vortices is significantly influenced by nonparallel and curvature
+effects. The boundary-layer over a parabolic cylinder is an ideal flow for
+studying these effects since both curvature and nonparallelism occur naturally
+and are attenuated downstream.  In this section, we examine the influence of
+curvature and nonparallel flow on the stability characteristics of stationary
+crossflow vortices, since these effects are also likely to impact the
+receptivity characteristics.
+
+Our discussion begins by considering the boundary-layer profiles at the
+location of maximum crossflow velocity, $s=0.802$.  These profiles are shown
+in figure \ref{f:profile} and are extracted using a body-fitted mesh as
+described in \S\ref{s:pcylmean}.  Since we are interested in comparing the LST
+results with LNS calculations, we break with the traditional
+nondimensionalization of LST and instead retain the global
+nondimensionalization used in the LNS solutions. In particular, the reference
+velocity is the chordwise component of the freestream velocity and the
+reference length is the leading-edge nose radius. Use of the global
+nondimensionalization makes comparison of results at different stations more
+convenient.  However, our results can be easily converted to the local
+nondimensionalization based on the displacement thickness and edge-velocity
+using the data supplied in Table \ref{t:results}.
+
+Growth-rate predictions from quasi-parallel LST at $s=0.802$ are given in
+figure \ref{f:sigma} for zero-frequency crossflow vortices.  The range of
+amplified spanwise wavenumbers is from roughly 32 to 160 and the maximum
+predicted growth-rate at this station occurs for $\beta = 90$.  The predicted
+chordwise wavenumber for stationary modes is shown in figure \ref{f:alpha}
+where it is seen that $\alpha$ varies almost linearly with $\beta$ in the
+unstable range. In figure \ref{f:psi}, the wave-angle, $\psi$, with respect to
+the body-fixed coordinate system is shown as a function of the spanwise
+wavenumber, demonstrating that across the unstable range the wave-angle is
+nearly fixed at $140^\circ$.  This means that the axis of the crossflow
+vortices is at approximately $50^\circ$ and remains within $6^\circ$ of the
+local streamwise direction.
+
+Considering the spanwise wavenumber, $\beta = 35$, figure \ref{f:QPNCsigma}
+shows the variation in the LST growth-rate and wavenumber as a function of the
+distance along the plate.  The growth-rate of this crossflow mode quickly
+increases from the first neutral-point at $s = 0.65$ reaching a maximum at $s
+= 2.05$ before slowly decaying to zero with the second neutral-point located
+at $s = 27.7$.  This extended region (about 27 nose radii) of crossflow
+amplification is due to the slowly decaying favorable pressure gradient (see
+figure \ref{f:r4.betah}) of the meanflow.  We note that typical airfoil
+sections have a pressure minimum on the upper surface followed by an adverse
+pressure gradient that destabilizes TS waves.  The relatively simpler
+situation here, combined with the extended region of crossflow amplification,
+makes the parabolic-cylinder an ideal geometry for the study of crossflow
+vortex receptivity.  For a discussion of combined crossflow/TS instability
+modes for a flow with both favorable and adverse pressure gradients, the
+reader is referred to the recent computations by Spalart \etal\
+\cite{SpCrNg:94}.
+
+To verify the accuracy of the quasi-parallel LST prediction, several LNS
+calculations have been performed in order to determine the actual stability
+characteristics including nonparallel and curvature effects.  These stability
+calculations are performed using the techniques introduced in
+\S\ref{s:CFtest}.  To decrease the cost of the calculations, conformal grids
+are constructed that truncate the extensive inviscid region used in the
+meanflow calculations.  The steady-state meanflow is then interpolated using
+fourth-order-accurate B-splines to the new mesh.
+%
+% An example of a mesh used for stability calculations is shown in figure 
+% \ref{f:stabmesh}.  
+%
+Consistent with the findings of \S\ref{s:CFtest}, the chordwise mesh spacing
+is chosen to ensure at least 20 node points per wavelength based on the
+chordwise wavenumber predicted by LST.  The LST eigenfunction is forced on the
+inflow boundary using the same technique discussed in \S\ref{ss:CFspace}.
+This eigenfunction is only an approximation, since curvature and
+nonparallelism are not accounted for, and we therefore expect a small
+transient before a dominant mode is established.  The nonparallel meanflow
+introduces another complication since the growth-rate is now a function of
+both the quantity measured and the wall normal location, $n$.  In general, the
+growth-rate for any linear disturbance quantity, $\hat f$, is given by
+%
+\begin{equation}
+  \sigma = {\rm Re} \left[ \frac{d \ln( \hat f(s,n) )}{ds} \right]
+\end{equation}
+%
+while the wavenumber is determined from
+%
+\begin{equation}
+  \alpha = {\rm Im} \left[ \frac{d \ln( \hat f(s,n) )}{ds} \right] \period
+\end{equation}
+%
+To remove the $n$ dependence from the growth-rate, experimental investigations
+often define the growth-rate based on the (first) maximum, in $n$, of the
+chordwise velocity, $\vs$.  Similar quantities can be computed based on other
+disturbance variables.  Another way to remove the variation in the wall-normal
+location is to base the growth-rate on the integrated disturbance kinetic
+energy, defined as
+%
+\begin{equation}
+  E'_k \equiv \int_0^{n_{max}} \frac{1}{2} \left( |\hat u|^2 + 
+                                     |\hat v|^2 + |\hat w|^2 \right) dn
+\end{equation}
+%
+where $n_{max}$ is sufficiently large so that additional contributions to the
+integral are negligible.  Here, $n_{max}$ is taken to be the the maximum
+wall-normal location in the computational domain.  The growth-rate, based on
+$E'_k$, is obtained from
+%
+\begin{equation}
+  \sigma = \frac{1}{2} \frac{d \ln(E'_k) }{ds} \period
+\end{equation}
+
+The first LNS calculation is performed for a domain starting at $s=5.6$ and
+extending to $s=25.8$.  This domain covers the later portion of the unstable
+region, and, since it is located far from the leading-edge, offers the best
+chance that curvature and nonparallel effects will be small.  Figure
+\ref{f:x5gr} shows the growth-rate extracted from the calculation, based on
+$E'_k$, compared to the quasi-parallel LST prediction.  As expected, there is
+a slight transient in the LNS solution since the function forced on the inflow
+is only an approximation to the actual eigenfunction.  After approximately two
+nose radii downstream, the transient is no longer noticeable and a single
+instability wave dominates the flow.  Interestingly, the LNS and LST
+growth-rates cross-over at $s = 13$ and the errors in the LST prediction
+increase upstream and downstream of this point.  This implies that there may
+be competing errors in the quasi-parallel LST prediction.
+
+To identify the source of this discrepancy, we have incorporated both surface
+curvature and nonparallel effects in the LST predictions.  Surface curvature
+is accounted for by solving the stability equations in a general orthogonal
+coordinate system that is coincident with a body-fitted mesh.  Nonparallel
+effects are included through a perturbation approach where the meanflow,
+chordwise wavenumber, and eigenfunction are allowed to vary slowly in the
+chordwise direction.  The detailed implementation of curvature and nonparallel
+effects is discussed in Appendix \ref{a:LST}.
+
+Figure \ref{f:QPWC} compares the growth-rate for $\beta=35$ from the LNS
+calculation with two predictions from LST.  These two LST predictions are
+denoted by QPNC, which stands for Quasi-Parallel with No Curvature, and QPWC,
+which is short for Quasi-Parallel With Curvature.  The growth-rate for the
+QPWC case shows that curvature is stabilizing which is consistent with recent
+analysis of the flow over a circular cylinder \cite{MaMa:94}.  However the
+stabilization due to curvature leads to a greater discrepancy between LST and
+LNS, as compared to QPNC.  As expected, the effect of curvature increases
+upstream as the surface curvature increases.  Figure \ref{f:radius} shows the
+normalized curvature $K \delta_1$,
+%
+% K = K^* \delta_1^* = ( 2 x + 1 )^{-3/2} \delta_1
+%
+where $K$ is the surface curvature, which demonstrates that the curvature
+decays as $1/s$ downstream of $s=1$.  Upstream of $s=1$, the normalized
+curvature plateaus at a value of $K\delta_1 = 3.23\times 10^{-3}$.  This
+behavior is in contrast to results using a circular cylinder where the
+normalized curvature increases downstream of the leading-edge since the radius
+of curvature for that geometry remains constant.  However, based on the
+results from QPNC, even a very small normalized curvature on the order of
+$10^{-4}$ still has a significant effect on the predicted growth-rates.  This
+result is qualitatively consistent with recent PSE analysis \cite{HaRe:96} of
+the crossflow experiments performed by Saric's group \cite{ReSaCaCh:96} which
+indicate that curvature continues to influence the growth-rate of stationary
+CF vortices over the entire upper surface of an airfoil up to transition.
+
+The influence of nonparallel effects are shown in figure \ref{f:NPWC} which
+includes the nonparallel correction with curvature (NPWC) in addition to the
+previous results.  It is obvious from the figure that including both
+nonparallel and curvature effects leads to growth-rate predictions that are in
+excellent agreement with the LNS solution.  This level of agreement gives
+further confidence that both the LNS and LST implementations are free of
+errors.  In general, nonparallelism is seen to destabilize the flow, returning
+the growth-rate to a level similar to quasi-parallel theory over most of the
+plate.  Near the leading-edge, the flow becomes highly nonparallel causing a
+qualitative change in the shape of the NPWC growth-rate distribution when
+compared to the quasi-parallel results.  This difference is in the form of a
+local maxima in the NPWC growth-rate which occurs at $s = 0.7$.
+
+Based on the analysis in Appendix \ref{a:LST}, there are three contributions
+to the nonparallel growth-rate: the quasi-parallel growth-rate with curvature
+(QPWC), the eigenfunction distortion term, and the nonparallel meanflow term.
+These contributions are shown in figure \ref{f:NPterms} both in an expanded
+view near the leading-edge and over the entire unstable region.  Downstream of
+$13 r^*_n$, the nonparallel meanflow term becomes negligible in comparison to
+the other contributions indicating that the meanflow is, for all practical
+purposes, parallel.  However, the eigenfunction distortion term remains
+significant beyond the second neutral-point resulting in a downstream shift of
+the neutral-point (relative to QPWC) to $s = 30.54$.  As shown in
+Appendix~\ref{a:LST}, the eigenfunction distortion term can be computed
+directly from the quasi-parallel eigenfunctions so that it can be accounted
+for without resorting to the full perturbation approach.  However, the small
+influence of the nonparallel meanflow term at the second neutral-point is not
+a general result, and conditions (either $\beta$ or $\Re$) could be selected
+such that this is not the case.  The second frame of figure \ref{f:NPterms}
+shows the contributions to the nonparallel growth-rate near the leading-edge.
+Upstream of $s \approx 5$, the eigenfunction distortion term begins to
+increase slowly to a maximum at $s=1$; decaying further upstream.  Upstream of
+$s \approx 1$, (which, coincidently, is the approximate location of the first
+neutral-point for QPWC) the nonparallel meanflow term undergoes a sudden
+increase, quickly dominating the other terms.  The increase in both
+nonparallel terms causes the local maxima in the total NPWC growth-rate and
+results in an upstream shift (relative to QP theory) in the first
+neutral-point to $s = 0.471$.  Since the nonparallel correction is based on a
+perturbation expansion, the results near the leading-edge may be inaccurate.
+This is addressed below by comparison to LNS calculations.
+
+But first, the effect of curvature and nonparallelism on the chordwise
+wavenumber is shown in figure \ref{f:NPwavenumber} (note that a log scale is
+used in $s$ to more clearly show the leading-edge behavior).  The NPWC
+wavenumber is computed based on the maximum in the wall-normal direction of
+the $|\hat\vs|$ velocity.  As seen in the figure, both QPNC and QPWC give
+almost identical results, indicating that curvature has little influence on
+the wavenumber.  However, NPWC shows that nonparallel effects tend to decrease
+the wavenumber magnitude---when based on $|\hat\vs|_{max}$.  This effect is
+most pronounced near the leading-edge, but it also occurs to a lesser degree
+over the entire unstable range.  This is demonstrated in figure
+\ref{f:NPwaveLNS} which shows a comparison of the wavenumber extracted from
+LNS (also based on $|\hat\vs|_{max}$) with the QPWC and NPWC predictions.
+After a brief transient in the LNS solution, the NPWC wavenumber is in good
+agreement with LNS while QPWC slightly over-predicts the wavenumber magnitude.
+
+As indicated above, nonparallel effects in the LST are accounted for using a
+perturbation expansion so that the results may become inaccurate near the
+leading-edge where the meanflow is highly nonparallel.  To evaluate this, a
+second LNS calculation is performed on a domain from $s = 0.2$ to $s=5.25$ in
+which the QPWC eigenfunction is forced on the inflow.  The measured
+growth-rate from this calculation is shown in figure \ref{f:LNSle} compared to
+the NPWC prediction where both are based on $E'_k$.  Clearly, the NPWC results
+do not agree with the LNS solution near the leading-edge indicating that the
+perturbation approach is inaccurate under these conditions.  However, by $s=3$
+the two approaches are in excellent agreement.  The failure of the nonparallel
+perturbation approach leads to both qualitative and quantitative errors in the
+predicted growth-rate near the leading-edge.  The peak growth-rate is grossly
+under-predicted and there is the appearance of a spurious local maxima.  In
+addition, the first neutral point is also in error with a predicted value of
+$0.471$ compared to the actual value of $0.395$.
+
+The failure of the perturbation approach, at first, appears at odds with
+recent stability analysis which have shown the nonparallel perturbation
+results to be in good agreement with PSE for a swept circular cylinder
+\cite{MaMa:94}.  Likewise, PSE has been demonstrated to compare well with LNS
+calculations \cite{MaLiCh:94} for the swept Hiemenz flow.  Compared to the
+current results, the stability characteristics in these studies are, by
+necessity, limited to the immediate vicinity of the attachment-line.  For this
+reason, the spanwise wavenumbers used were large compared to the present value
+of $\beta = 35$ in order to limit the chordwise extent of the unstable region.
+In particular, Masad \& Malik \cite{MaMa:94}, in their investigation of the
+stability characteristics of the boundary layer on a swept circular-cylinder
+under conditions similar to those studied here ($\Re=1.675\times 10^5$,
+$\Lambda=60^\circ$) used $\beta^* r^*_n = 150$ compared to the current value
+of $35$.  For large $\beta$, the downstream extent of the region of
+instability is reduced and nonparallel effects are weakened since the
+chordwise instability wavelength is reduced.  To demonstrate this effect,
+Figure \ref{f:Beta100} compares the predicted growth-rate from NPWC and
+LNS for $\beta = 100$ computed on a domain from $s=0.32$ to $s=3.18$.  The
+agreement of the perturbation theory with LNS is much better for this higher
+spanwise wavenumber.  There is no indication of a local maxima and both the
+neutral point and the maximum growth-rate are well predicted.  Figure
+\ref{f:Beta100NPterms} shows the contributions to the nonparallel growth-rate
+and comparing these results to figure \ref{f:NPterms} shows that both the
+meanflow and eigenfunction corrections are considerably more benign for the
+higher spanwise wavenumber.  For $\beta=100$ strong nonparallel effects occur
+considerably upstream of the first neutral point so that the perturbation
+approach is adequate in the unstable region.
+
+To determine the stability characteristics over the entire unstable region in
+$s$ with both curvature and nonparallel effects accounted for, a series of six
+LNS calculations, four runs for $\beta=35$ and two runs for
+$\beta=100$, have been performed.  The runs for each wavenumber consist of
+partially overlapping domains each with a locally optimized mesh to provide at
+least 20 nodes per crossflow wavelength in the chordwise direction.  Using
+this ``multidomain'' approach allows for an efficient account of the wide
+variance in the chordwise wavenumber over the full unstable region (recall
+figure \ref{f:NPwavenumber}) while limiting each individual domain to a
+reasonable size, $\le (1024 \times 63)$ node points.  On the inflow to each
+domain, the local eigenfunction from LST (with curvature) is forced which
+causes a mild inflow transient before the actual instability wave is
+established.  On the outflow boundary a sponge term is used which has been
+shown to damp stationary crossflow vortices with only minor upstream influence
+(see \S\ref{ss:CFspace}).  The use of overlapping domains allows us to
+evaluate the agreement in the growth-rate predictions to ensure accuracy.  An
+example of the typical level of agreement is shown in figure
+\ref{f:multidomain} for two overlapping domains with $\beta=100$.  In this
+figure, the complete inflow transient is shown for each domain, however, the
+outflow sponge regions have been partially truncated.  The agreement in the
+overlap region is excellent downstream of the second inflow transient and a
+similar level of agreement is achieved on all the overlap regions.  After
+truncating the inflow and outflow regions, the growth-rate and wavenumber
+results from each run are combined and shown in figure \ref{f:63} for the
+growth-rate, and figure \ref{f:62} for the wavenumber.  These figures include
+results for both spanwise wavenumbers along with the corresponding NPWC
+predictions.  For $\beta=100$, both the wavenumber and growth-rate from NPWC
+are in good agreement with LNS.  The only noticeable discrepancy occurs in the
+growth-rate for $s>2$ where the NPWC prediction begins to deviate slightly
+from the LNS result.  As noted above, both the NPWC growth-rate and wavenumber
+for $\beta=35$ are in poor agreement with LNS near the leading-edge ($s<3$)
+due to a breakdown of the perturbation approach used to compute the NPWC
+results.  For $s>3$, the wavenumber and growth-rate from NPWC are in good
+agreement with LNS; although, similar to the $\beta=100$ case, the NPWC
+growth-rate deviates slightly from the LNS for large $s$.  Thus, for both
+spanwise wavenumbers considered, the error in the NPWC growth-rate increases
+near the second neutral point, and this error takes the form of a slight
+under-prediction of the growth-rate.
+
+The $N$-factor is extracted from the LNS solutions and is given in figure
+\ref{f:N-factor} which shows results for both spanwise wavenumbers.  Recall
+that the $N$-factor is defined as $N = \ln({A(s)/A_0})$ where $A$ is the
+amplitude at a given station $s$, and $A_0$ is the amplitude at a reference
+location, $s_0$.  As is typically done, the reference location used for figure
+\ref{f:N-factor} is the first neutral point so that $N$ is defined to be zero
+there.  As expected, the higher growth-rate for the $\beta=100$ case leads to
+a quicker initial rise in $N$-factor; however, the very long region of
+unstable flow for $\beta=35$ makes this wavenumber considerably more dangerous,
+with $N > 10$ beyond $s = 10$.
+
+The $N$-factors computed from the LNS solutions are compared to those computed
+from the NPWC predictions in figure \ref{f:N-35-factor} for $\beta=35$ and
+figure \ref{f:N-100-factor} for $\beta=100$.  The error in the NPWC
+growth-rate near the leading-edge for $\beta=35$ leads to significant errors
+($\approx 6\%$) in the $N$-factor predicted downstream.  For $\beta=100$, the
+$N$-factor from NPWC is in much better agreement with the LNS value.  However,
+the slight errors in the NPWC growth-rate lead to an accumulation of error in
+the $N$-factor.  At the second neutral point, the error in the NPWC $N$-factor
+is $2.5\%$ for $\beta=100$.  In the following section the $N$-factor is used
+to extrapolate the measured amplitude from receptivity calculations back to
+the source location.  Given the error in the NPWC stability results, we use
+the ``exact'' LNS $N$-factors to perform this extrapolation.
+
+Before concluding this section, we point out that the linear stability results
+presented here can be used to develop an approximate criteria for the failure
+of the nonparallel linear stability theory.  Toward this goal, we introduce
+the quantity
+%
+\begin{equation}
+  \delta_g = \frac{\lambda_s}{\delta_1} \left(\frac{\partial\delta_1} 
+                                                   {\partial s}\right)
+\end{equation}
+%
+which can be interpreted as the relative growth of the boundary layer over one
+wavelength of the instability wave.  This quantity is plotted as a function of
+arclength along the parabolic cylinder in figure \ref{f:NPmeasure}.  From
+figure \ref{f:63}a for $\beta=35$, the NPWC growth-rate is seen to depart
+significantly from the LNS growth-rate for $s < 3$.  With reference to figure
+\ref{f:NPmeasure}, we see that at $s=3$ the relative boundary layer growth is
+$\delta_g = 0.22 \%$ for $\beta=35$.  In comparison, $\delta_g$ for
+$\beta=100$ reaches a maximum of approximately $0.15 \%$ which is well below
+$0.22 \%$.  Based on this result, we suggest the value of $\delta_g > 0.22 \%$
+as an approximate criterion for the failure of the nonparallel linear
+stability theory for this flow.  For some value of $35 < \beta_{crit} < 100$,
+the maximum value of $\delta_g$ will be exactly $0.22 \%$.  For any $\beta <
+\beta_{crit}$ the nonparallel linear stability results are likely to be
+inaccurate.  Care must, of course, be used in generalizing this result, since
+the critical value of $\delta_g$ depends (to some degree) on $\Re$, $\M$, the
+geometry, and the particular instability mode under consideration.
+
+In summary, the results presented above indicate that both curvature and
+nonparallelism have a significant quantitative effect on the growth of
+stationary crossflow vortices in the three-dimensional boundary layer on a
+swept parabolic-cylinder.  Comparison of LST growth-rate predictions with LNS
+calculations are generally in good agreement when both curvature and
+nonparallel effects are accounted for in the theory.  Unlike previous
+investigations, we have considered longer wavelength disturbances which, for
+this geometry, are unstable over an extended chordwise region.  In this sense,
+the current results are similar to the experiments of Saric \etal\
+\cite{ReSaCaCh:96} and Bippes \etal\ \cite{DeBi:96} where there is a long
+region of crossflow vortex growth.  For this long wavelength mode, nonparallel
+effects are enhanced to such a degree that the nonparallel perturbation
+approach is inadequate near the leading-edge.
+
+\section{Receptivity to Surface Roughness \label{s:pcyl3d}}
+
+Receptivity to surface roughness is investigated by modeling an array of
+roughness elements near the leading edge.  The roughness elements are assumed
+to be periodic in the $z$-direction with wavenumber $\beta$.  In the chordwise
+direction a Gaussian distribution is used in the arc-length,
+%
+\begin{equation} \label{e:PHYbump}
+  h_w(s) = \exp\left[ \frac{-( s - s_w)^2}{2 \sigma_w^2} \right] \comma
+\end{equation}
+%
+where the roughness is centered about $s_w$ and $\sigma_w$ is the standard
+deviation (\ie\ width) of the Gaussian distribution.  The roughness is modeled
+as a small perturbation of the wall and, under the linear assumption, the wall
+boundary conditions on the perturbed wall are converted to an inhomogeneous
+set of boundary conditions enforced at the unperturbed wall location.  The
+detailed derivation of such linearized boundary conditions is presented in
+Appendix \ref{a:bumpbc} for both isothermal and constant heat-flux
+wall-temperature boundary-conditions.  In computing the theoretical
+receptivity predictions, the Fourier transform of the bump is required in the
+chordwise direction.  For a Gaussian distribution, the Fourier transform is
+also Gaussian and is given by
+%
+\begin{equation} \label{e:FTbump}
+  \hat h_w(\alpha) = \sigma_w \exp\left[ \frac{-\alpha^2\sigma_w^2}{2} \right] 
+  \period
+\end{equation}
+
+The primary objective in this section is to evaluate the accuracy and range of
+validity of the recently developed Finite Reynolds Number Theory for the
+prediction of receptivity.  This theory is summarized in Appendix \ref{a:FRNT}
+in the context of surface roughness on an infinite swept wing.
+%
+%.... Open issues
+%
+%	1. What is the effect of mach number
+%	2. What is the influence of sweep angle
+%	3. How about variable coefficients
+%	4. Nonlinearity
+%
+
+\subsection{Parallel Boundary-Layer Without Curvature \label{ss:pblfp} }
+
+To evaluate the Finite Reynolds Number Theory (FRNT) for the prediction of
+crossflow vortex receptivity, it is instructive to first investigate the
+receptivity of stationary crossflow vortices for a parallel meanflow with no
+curvature.  In this way, all the assumptions of the theory are satisfied and
+the amplitudes from LNS and FRNT should agree to a high degree of precision.
+For this purpose, consider the boundary-layer profile from the swept
+parabolic-cylinder at the point of maximum crossflow velocity, $s=0.802$, as
+given in figure \ref{f:profile}.  In order to make this comparison easily
+reproducible, a compressible Falkner--Skan--Cooke (FSC) boundary-layer is fit
+to the profile taken from the Navier--Stokes solution.  The methods used to
+compute and fit the profile are given in Appendix \ref{a:FSC} and a comparison
+of the NS and FSC velocity profiles is shown in figure \ref{f:upro}.  The FSC
+profile is placed on a LNS mesh using the parallel flow assumption and, to
+simplify the comparison with the parabolic cylinder results, the global
+nondimensionalization is retained.  The information required to convert to a
+local nondimensionalization is provided in Appendix \ref{a:FSC}.
+
+The domain for the receptivity calculation extends from $x = 0$ to $x = 5$ in
+the chordwise direction and from $y=0$ to $y=0.3$ in the wall-normal direction
+which places the top boundary $78 \delta_1$ above the wall.  (Since the wall
+is flat for this geometry, $s$ and $x$ are equivalent.)  The solutions are
+obtained using the techniques introduced in \S\ref{ss:CFspace}.  The grid is
+uniform in $x$ with 512 nodes and the standard mapping, equation
+(\ref{e:map}), is used in $y$ with 63 nodes.  An outflow sponge is employed
+over the last $20\%$ of the domain to damp the crossflow vortices and a zero
+disturbance condition is imposed on the top boundary.  A Gaussian bump is
+placed at $x_w = 0.7$ with a standard deviation of $\sigma_w=0.05$ and a
+spanwise wavenumber of $\beta=35$.  For this spanwise wavenumber, LST predicts
+a chordwise wavenumber of $\alpha = -37.39$ and a growth-rate of $\sigma =
+0.3043$.  Figure \ref{f:FSC-35} shows the evolution of the square-root of the
+integrated disturbance kinetic energy from the LNS solution.  Near the
+roughness site, ${E'_k}^{1/2}$ has roughly the shape of the imposed Gaussian
+bump.  Downstream, there is a mild transient as the spatially damped modes
+excited by the bump quickly decay.  By $x=1.2$ the response is dominated by
+the most unstable crossflow vortex and this continues to $x=4$ where the
+outflow sponge begins to damp the crossflow mode.  Also included in figure
+\ref{f:FSC-35} is the FRNT prediction where the LST growth-rate has been used
+to extrapolate the amplitude upstream and downstream of the center of the
+bump.  The FRNT prediction is computed using the methods presented in Appendix
+\ref{a:FRNT}.  Downstream of the transient, the extrapolated FRNT and LNS
+solution are in excellent agreement.
+
+%
+%  \beta = 35   \hat h_w = 8.7079E-03,   
+%                alpha   = -3.7392922887292E+001  -3.0432293432786E-001
+%
+%  \beta = 30 	\hat h_w = 1.4698E-02
+%		\alpha   = -3.1295756047131E+001   -3.7807393274490E-001
+%
+
+To better observe the transient behavior downstream of the bump, results have
+also been obtained at $\beta = 30$ which is predicted by LST to have a
+chordwise wavenumber of $\alpha = -31.30$ and a stable growth-rate of $\sigma
+= 0.3781$.  Figure \ref{f:FSC-30} shows the evolution of ${E'_k}^{1/2}$ for
+this case including the extrapolated FRNT prediction.  Again the agreement
+between FRNT and LNS is excellent.  In this case, the transient is more
+clearly observed since the solution decays for large $x$.  The transient
+results in a local maximum in ${E'_k}^{1/2}$ at $x=1.2$ before the asymptotic
+decay begins.  The overall transient growth (measured at the local maximum) is
+small, about a factor of $1.5$ when measured by ${E'_k}^{1/2}$.  This modest
+amount of transient growth is not surprising given the nature of the surface
+roughness disturbance.  By examining the linearized roughness boundary
+conditions in Appendix \ref{a:bumpbc}, it is seen that (linearized) roughness
+leads to a direct perturbation of the wall tangent velocities $u'$ and $w'$
+which are proportional to the wall-normal gradients of the mean velocities.
+However, for a parallel boundary layer (and, to a good approximation, all
+boundary layers) the perturbation of the wall-normal velocity is zero at the
+wall.  This is because the wall-normal gradient of the mean normal-velocity is
+zero (approximately zero for nonparallel flow).  Thus, the wall-normal
+velocity is perturbed only in an indirect manner through the equations of
+motion.  Research on temporal instabilities in an incompressible FSC boundary
+layer \cite{BrKu:93} has shown that transient growth is most pronounced for
+initial disturbances composed primarily of wall-normal velocity.  Compared
+with surface roughness, one would therefore expect greater transient growth
+associated with wall suction/blowing since this boundary condition directly
+perturbs the normal velocity.
+
+Figure \ref{f:59} shows the growth-rate based on $E'_k$ extracted from the LNS
+solutions for both $\beta=35$ and $\beta=30$ compared to the LST predictions.
+The growth-rate is a very sensitive indicator of both errors in the solution
+and transient behavior.  As seen in the figure, the transient behavior
+downstream of the bump is complete by $x=2$ for both wavenumbers, with the
+growth-rate from the LNS solutions in excellent agreement with LST.  The
+slight oscillations in the growth-rate downstream of $x=2$ (more noticeable
+for $\beta=30$) are caused by the presence of damped modes which are generated
+by the bump.  These modes have sufficiently small amplitudes that they are not
+visible on the amplitude plots shown in figures \ref{f:FSC-35} and
+\ref{f:FSC-30}.  When extracting receptivity results for the parabolic
+cylinder, growth-rate results similar to those presented here are used to
+ensure that the crossflow amplitude is measured downstream of the transient
+(see \S\ref{ss:LNSpcyl}).
+
+In summary, the amplitude predictions from FRNT are in excellent agreement
+with LNS calculations for a parallel boundary layer with no curvature.  Since
+the conditions of the LNS calculation have been constructed to satisfy all the
+assumptions in the FRNT, the agreement is not surprising.  However, the
+consistency of the results does suggest that both the LNS and FRNT
+implementations are free of errors.  Furthermore, the transient associated
+with local surface roughness is observed to be small even for an
+asymptotically stable mode.  This fact greatly simplifies the receptivity
+calculations presented in \S\ref{ss:LNSpcyl} for the parabolic cylinder since
+a relatively short domain size can be used.
+
+\subsection[Finite Reynolds Number Receptivity Theory for the \protect\\
+Parabolic Cylinder]{Finite Reynolds Number Receptivity Theory for the 
+Parabolic Cylinder\label{ss:FRNTpcyl} }
+
+Having established agreement between LNS and FRNT for an idealized, parallel
+boundary-layer with no curvature, we now consider the FRNT predictions for the
+meanflow about the parabolic cylinder.  Since the FRNT is based on
+quasi-parallel flow, nonparallel effects are obviously not included.  However,
+curvature can be accounted for by forming the FRNT equations in body-fitted
+curvilinear coordinates.  Therefore, in presenting the FRNT predictions,
+results are given both with and without curvature to determine its influence.
+In addition, FRNT results are given for both of the spanwise wavenumbers used
+in the stability analysis of \S\ref{s:LSTpcyl}.
+
+Applying FRNT to the mean boundary-layer profiles on the parabolic cylinder
+yields the complex valued efficiency factor, $\Lambda$, as discussed in
+Appendix \ref{a:FRNT}.  The expression for the initial amplitude and phase of
+the crossflow vortex is given by equation (\ref{e:ampcf}) which is repeated
+here as
+%
+\begin{equation} \label{e:ampCF}
+  A_{cf} = \ew \: \hat h_w(\acf) \: \Lambda(\beta,\Re,\Pr,\M)
+\end{equation}
+%
+where $\ew = \ew^* / L^*$ is the normalized roughness height and $\acf$ is the
+chordwise wavenumber of the local crossflow eigenmode with spanwise
+wavenumber, $\beta$.  Notice that the Fourier transform of the roughness
+distribution is required at the chordwise wavenumber resonant with the
+crossflow mode and this is obtained for the Gaussian bump using equation
+(\ref{e:FTbump}).
+
+Figures \ref{f:Lambda35} and \ref{f:Lambda100} show the magnitude of $\Lambda$
+for $\beta=35$ and $\beta=100$ as a function of arc-length along the
+parabolic-cylinder.  An interesting, and previously undocumented, result that
+is immediately obvious is that convex curvature increases the efficiency of
+the receptivity process for this flow.  This result holds true over the full
+range of unstable spanwise wavenumbers as seen in figure \ref{f:LambdaBeta}
+which shows the variation of $|\Lambda|$ with $\beta$ at the point of maximum
+crossflow velocity, $s=0.802$, both with and without curvature.  The increase
+in receptivity efficiency due to curvature is most pronounced near the first
+neutral-point ($\beta \approx 40$) where there is a local maxima in the
+receptivity efficiency.  A similar local maxima has been observed by Crouch
+\cite{Crouch:93} for an incompressible FSC boundary layer on a flat-plate.
+With the exception of the region immediately surrounding the lower neutral
+point, curvature causes a relatively uniform increase of $10\%$ in the
+receptivity efficiency factor at this station.  In interpreting the results in
+figures \ref{f:Lambda35} and \ref{f:Lambda100}, it is important to realize
+that $|\Lambda|$ is the response for a Dirac delta function bump in $s$ (\ie\
+it is the Green's function response).  This explains why $|\Lambda|$ increases
+without bound as $s$ is decreased since the delta function has a unit spectrum
+for all $\alpha$.  The actual amplitude, as given by equation (\ref{e:ampCF}),
+is modulated by the Fourier spectrum in $s$ of the bump shape, $h_w$, which
+limits the amplitude for a fixed bump width as $s$ is decreased.
+
+The increase in receptivity efficiency due to convex curvature is particularly
+interesting given the fact that convex curvature has a stabilizing effect on
+the growth of crossflow vortices.  The stabilizing effect of convex curvature
+follows from Rayleigh's centrifugal stability criterion \cite{DrRe:81} which
+states that for axisymmetric, inviscid flows with curved streamlines, the flow
+is stabilized if the square of the angular momentum about the center of
+curvature increases with the radius.  This is the case for the
+three-dimensional boundary layer on a convex surface in which the instability
+mechanism is the inviscid crossflow instability.  In fact, the correspondence
+between the crossflow and G\"ortler instabilities has been recently examined
+by Bossom \& Hall \cite{BaHa:91} who show that G\"ortler vortices smoothly
+transition to crossflow vortices as the mean three-dimensionality is
+increased.  However, the effect of curvature on crossflow vortex receptivity
+has not been previously reported.  The reduced growth-rate with convex
+curvature is offset, to some degree, by a greater initial amplitude.  Of
+course, the net impact of curvature depends on the particular conditions.  In
+the following section, the combined effects of nonparallel flow and curvature
+on receptivity are examined using LNS calculations.
+
+\subsection{Linearized Navier--Stokes Receptivity Predictions 
+\label{ss:LNSpcyl} }
+
+For comparison with the FRNT predictions presented in the previous section, a
+series of LNS calculations have been performed.  The methods used to do so
+have already been discussed in \S\ref{ss:CFspace} and \S\ref{ss:pblfp}.  We
+first consider the short spanwise wavelength, $\beta=100$, since nonparallel
+effects are expected to be less severe for this case.  Similar to the LNS
+stability calculations performed above, a multidomain approach is employed
+with two domains used to cover the unstable region.  The first domain includes
+the region from $s=0.32$ to $1.80$ while the second domain covers $s=1.80$ to
+$5.12$.  In each of these domains, a series of calculations are performed
+using different bump locations, $s_w$, but all using that same bump width,
+$\sigma_w = 0.01$.  The bump locations and associated receptivity results are
+presented in table \ref{t:beta100}.  Figure \ref{f:45} shows the evolution of
+${E'_k}^{1/2}$ for case 3 of table \ref{t:beta100}.  For this case, the bump
+is placed at $s_w=0.5$ and the resulting transient and subsequent exponential
+growth are qualitatively similar to that obtained for the parallel FSC profile
+in \S\ref{ss:pblfp}.  The growth-rate computed from this solution is shown in
+figure \ref{f:46} compared to the LNS stability result from \S\ref{s:LSTpcyl}.
+Downstream of $s=1.2$, and until the start of the sponge at $s=1.5$, the two
+growth-rates are in excellent agreement.  As a general procedure for
+extracting the amplitude of the dominant crossflow mode, we compare the
+growth-rate from the receptivity calculation with the LNS stability result.
+Since the growth-rate is a very sensitive indication of transient behavior,
+this comparison allows us to determine a location, $s_l$, where the transient
+is negligible.  For case 3 we selected $s_l = 1.4$ and measured the amplitude
+of the response at this location, $A_l$, based on ${E'_k}^{1/2}(s_l)$.  These
+results are shown for each bump location in table \ref{t:beta100}.
+
+To compare the results to FRNT, the crossflow amplitudes must be extrapolated
+to the location of the bump, $s_w$, since this is the value given by the
+theory.  For this purpose, we use the $N$-factors based on the LNS
+calculations discussed in \S\ref{s:LSTpcyl}.  The amplitude at $s_w$ is then
+given by
+%
+\begin{equation}
+  A_w = A_l e^{(N_w - N_l)}
+\end{equation}
+%
+where $N_w$ is the $N$-factor at the bump location, and $N_l$ is the
+$N$-factor at the measurement station.  Another useful measure of receptivity
+is the effective amplitude at the upstream neutral point.  This amplitude is
+simply given by
+%
+\begin{equation}
+  A_{np} = A_l e^{-N_l}
+\end{equation}
+%
+since the $N$-factor is defined relative to the neutral point.  Both $A_w$ and
+$A_{np}$ are also reported in table \ref{t:beta100}.
+
+The amplitude at the bump location is compared to the FRNT predictions, both
+with and without curvature, in figure \ref{f:47}.  The FRNT predictions are
+computed using equation (\ref{e:ampCF}) with the receptivity efficiency
+factors found in figure \ref{f:Lambda100}.  The amplitude, $A_w$, generally
+follows the same trend as the efficiency factor for large $s$, with $A_w$
+increasing as $s$ is reduced.  At about $s=0.65$, there is a maximum in $A_w$
+which is associated with the Fourier spectrum of the roughness distribution
+with $\sigma_w=0.01$.  When comparing the LNS results to the FRNT predictions,
+the first observation is that FRNT over-predicts the amplitude, by as much as
+$29\%$ with curvature and $21\%$ without curvature.  Based on these results,
+it is obvious that nonparallel effects tend to reduce the amplitude of
+crossflow vortices generated by roughness.  Similar to curvature, this result
+is opposite to that observed for stability characteristics, where nonparallel
+flow, generally speaking, destabilizes crossflow vortices.  Downstream of the
+maximum, the FRNT predictions approach the LNS solution with the no-curvature
+prediction in slightly better agreement than the prediction with curvature.
+The fact that the FRNT prediction without curvature is in better agreement
+with the LNS solution is similar to the stability results where the
+growth-rate with curvature is a worse approximation to the actual growth-rate
+compared with the local flat-plate prediction.  Since nonparallel and
+curvature effects are competing, including only one of the effects results in
+a prediction which is in greater error than the original parallel, flat-plate
+value.
+
+Similar results have been obtained for $\beta=35$ using a bump with a standard
+deviation of $\sigma_w=0.05$.  The results from these calculations are
+summarized in table \ref{t:beta35}.  Figure \ref{f:48} shows the effective
+amplitude of the crossflow vortex at the bump location for LNS and FRNT.
+Similar to the $\beta=100$ case, both FRNT results significantly over-predict
+the crossflow amplitude near $s=1$.  The greater nonparallel effects for this
+long spanwise wavelength are evident in the maximum error which is $77\%$ with
+curvature and $45\%$ without.  Beyond approximately $s=5$, the FRNT amplitudes
+are in reasonably good agreement with LNS.  However, upstream of the neutral
+point, $s=0.40$, the FRNT amplitudes are slightly lower than the LNS values.
+This is more clear in figure \ref{f:49} which also shows $A_w$, but plotted on
+a log-log scale.  A similar plot (figure \ref{f:50}) for $\beta=100$ indicates
+that LNS and FRNT amplitudes will likely cross over upstream of the neutral
+point ($s = 0.465$).
+
+The effect of the width of the Gaussian bump, as predicted by FRNT with
+no-curvature, is shown in figures \ref{f:60} and \ref{f:61} for $\beta=100$
+and 35 respectively.  With reference to equation (\ref{e:ampCF}) we see that
+the influence of the bump width on $|\Lambda|$ is through the amplitude of the
+Fourier coefficient of the Gaussian at the chordwise wavenumber which is
+locally resonant with the crossflow mode.  For a fixed value of $\sigma_w$
+(and $\beta$), there is a variation of $|\hat h_w|$ in the chordwise direction
+since the local wavenumber of the dominant crossflow mode changes (see figure
+\ref{f:62}).  Thus, as $\sigma_w$ is increased the Fourier magnitude of the
+Gaussian bump is reduced for the high wavenumbers near the leading-edge
+resulting, eventually, in a drop-off of the amplitude that moves downstream.
+From this result, it is clear that the drop-off in the response for both
+$\beta=35$ and $\beta=100$ cases above, is due to the choice of $\sigma_w$.
+We note in passing that the $\sigma_w$ used in the LNS calculations were
+selected to ease the resolution requirements near the bump.  The actual value
+of $\sigma_w$ is not expected to alter the qualitative comparison to FRNT.
+This is demonstrated in figure \ref{f:58} which shows the effect of $\sigma_w$
+on the initial crossflow amplitude with the bump placed at $s=0.6$ and with
+$\beta=100$.  As expected, the FRNT prediction overestimates the amplitude for
+all $\sigma_w$.  However, the functional dependence of $A_w$ on $\sigma_w$ is
+correctly predicted by FRNT.  This is demonstrated by setting $\alpha =
+-141.5$, which is the value based on $|\hat\vs|_{max}$ from the LNS stability
+calculation (see figure \ref{f:62}), and adjusting $|\Lambda|$ in equation
+$\ref{e:ampCF}$ to generate a curve that fits the LNS data.  Excellent
+agreement is achieved for $|\Lambda|=193$ and this curve is also shown in
+figure \ref{f:58}.  We point out, that estimating $|\Lambda|$ in this manner
+is only an approximation, since the value of $\alpha$ used to evaluate $|\hat
+h_w|$ is not necessarily the ``correct'' value.  A better fit could be
+obtained by optimizing both $\alpha$ and $|\Lambda|$, however the improvement
+is slight.
+
+Given the success of the current method, we have used the same procedure to
+estimate the value of $|\Lambda|$ from the LNS solutions at other chordwise
+stations.  Using $\alpha$, based on $|\hat\vs|_{max}$ from the LNS stability
+calculation, equation (\ref{e:FTbump}) is used to compute the local value of
+$|\hat h_w|$ and equation (\ref{e:ampCF}) is then solved for $|\Lambda|$.  The
+results, for both values of $\beta$, are shown in figure \ref{f:66} along with
+the FRNT predictions.  For both spanwise wavenumbers, the receptivity
+efficiencies from LNS and FRNT approach one another for large $s$.  This is
+consistent with the reduction in nonparallel effects with increasing $s$
+observed in the stability analysis.  Near the leading-edge (\ie\ upstream of
+$s=1$), nonparallel effects increase causing FRNT to over-predict the
+receptivity efficiency.  The influence of nonparallel effects is more
+pronounced for $\beta=35$ which is also consistent with the linear stability
+results.  At the upstream neutral point, $s=0.395$ for $\beta=35$, the FRNT
+result with curvature has an error of 264\% while the prediction without
+curvature has a $182\%$ error.  For $\beta=100$ the errors in the FRNT are
+reduced considerably to $32.2\%$ for FRNT with curvature, and $24.5\%$ without
+curvature.  For both spanwise wavenumbers, nonparallel effects decrease the
+receptivity efficiency over the entire unstable region.  Based on these
+results, we conclude that the crossover in $A_w$ observed for small $s$ in
+figures \ref{f:49} is primarily due to errors in the LST prediction of
+$\alpha$ used in the FRNT to compute $|\hat h_w|$.  In general, the
+receptivity efficiency is consistently reduced by nonparallel effects for this
+flow as shown in figure \ref{f:66}.
+%
+%.... Receptivity Efficiencies at the neutral point
+%
+%  Beta = 35
+%
+%  s_np = 0.395066	Lambda_nc  = 450.32	Error = 182 %	Fact = 2.82
+%			Lambda_wc  = 581.48	Error = 264 %	Fact = 3.64
+%			Lambda_lns = 159.62
+%
+%  Beta = 100
+%
+%  s_np = 0.4657214	Lambda_nc  = 308.96	Error = 24.5 %	Fact = 1.25
+%			Lambda_wc  = 328.08 	Error = 32.2 %	Fact = 1.32
+%			Lambda_lns = 248.14
+%
+
+\section{Discussion of Results \label{s:discussion} }
+
+The results presented in the previous sections have identified curvature and
+nonparallel effects as having a significant quantitative impact on the initial
+amplitude of stationary crossflow vortices downstream of a localized roughness
+element.  Given the previously documented \cite{MaMa:94,MaBa:93} effect of
+both curvature and nonparallelism on the growth characteristics of crossflow
+vortices, their impact on receptivity is not surprising.  What is interesting,
+however, is that curvature, known to stabilize crossflow vortices, actually
+enhances receptivity; while nonparallel effects, which typically destabilize
+crossflow modes, are found to attenuate the initial crossflow amplitude.  For
+the limited range of parameters investigated here, the attenuation due to
+nonparallel effects is greater than the enhancement due to convex surface
+curvature.  Progressing downstream on the parabolic-cylinder, curvature and
+nonparallel effects are naturally reduced so that the FRNT predictions
+approach the LNS solution for large $s$.  However, the effect of
+nonparallelism is still evident at the furthest downstream stations
+investigated and the amplitudes predicted by FRNT are consistently greater
+than the NS solution.  For both wavenumbers investigated, the error in the
+theory for the farthest downstream location is still approximately $5\%$.  The
+fact that nonparallel effects are so significant for this flow stems from the
+fact that the first neutral point for crossflow vortices typically lies very
+close to the leading-edge.  Choudhari \cite{Choudhari:94}, when presenting
+FRNT results for FSC profiles, cautions that since the neutral point for
+crossflow vortices occurs near the leading-edge for realistic geometries,
+nonparallel effects may be important.  This hypothesis is clearly
+substantiated by the current results where the error in the predicted
+amplitude (with curvature) is as high as $77\%$ shortly downstream of the
+neutral point.
+
+The current results are in contrast to the recent study by Crouch \& Spalart
+\cite{CrSp:95} who investigated the influence of nonparallel effects on the
+receptivity of a two-dimensional boundary layer with localized suction
+subjected to a freestream acoustic wave.  Comparing numerical simulations with
+FRNT predictions, they found that the theory is in very good agreement with
+simulations downstream of the first neutral point for the prediction of
+Tollmien--Schlichting wave amplitudes.  At the neutral point, the theory
+under-predicts the amplitude by $4\%$ and this difference increases further
+upstream to a value between $6.5\%$ and $11.2\%$.  Based on these results,
+they conclude that neglecting the weak boundary-layer growth in the
+receptivity theory is an acceptable approximation for this flow.
+
+Based on the current results, the conclusion of Crouch \& Spalart obviously
+does not apply for crossflow vortices.  It is particularly interesting to note
+that they found nonparallel effects to slightly increase the receptivity
+amplitude for TS waves, while we find that initial crossflow vortex amplitudes
+are generally attenuated by nonparallel effects.  This is in contrast with the
+influence of nonparallel flow on stability characteristics.  Fasel \&
+Konzelmann \cite{FaKo:90}, in comparisons of Navier--Stokes solutions and
+stability analysis, show that for TS waves in a Blasius boundary layer
+nonparallel effects lead to an increase in the growth-rate.  Similarly, we
+have shown that nonparallel flow also destabilizes crossflow vortices.  Thus,
+there is no apparent trend linking stability and receptivity results
+concerning nonparallel effects.  However, we note that the receptivity and
+stability processes under consideration are quite different, and this
+statement must be considered in this light.
+
+%==============================================================================
+%
+%  Tables and Figures
+%
+%==============================================================================
+
+\input chp5fig
+

@@ -1,0 +1,310 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Chapter 2:  Governing Equations
+%
+%  S. Scott Collis
+%
+%  Written: 9-5-95
+%
+%  Revised: 9-6-96
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Governing Equations \label{c:eqn}}
+
+This chapter presents the compressible Navier--Stokes equations in a form
+amiable to the numerical simulation of receptivity phenomena.  The equations
+are first discussed in dimensional form followed by a conversion to
+nondimensional variables and an introduction of the relevant nondimensional
+parameters.  In the final section, the equations are linearized about a steady
+base flow, and these linearized Navier--Stokes equations form the basis for our
+receptivity study.
+
+\section{Compressible Navier--Stokes Equations \label{s:deqn}}
+
+The compressible Navier--Stokes (NS) equations in primitive form using
+Cartesian tensor notation and dimensional variables can be written as
+%
+  \begin{equation} \label{e:dcon}
+    \rho^*_{,t^*} + \left(\rho^* u^*_i \right)_{,i} = 0 ,
+  \end{equation}
+  \begin{equation} \label{e:dmom}
+    \rho^* u^*_{i,t^*} + \rho^* u^*_{j} u^*_{i,j} =  -p^*_{,i} + \tau^*_{ij} ,
+  \end{equation}
+  \begin{equation} \label{e:deng}
+    \rho^* h^*_{,t^*} + \rho^* u^*_{j} h^*_{,j} =
+    \left( p^*_{,t^*} + u^*_{j} p^*_{,j} \right) + 
+    q^*_{j,j} + \tau^*_{ij} u^*_{i,j} ,
+  \end{equation}
+%
+where $\rho^*$ is the density, $u^*_i$ is the velocity vector, $p^*$ is the
+thermodynamic pressure, $\tau^*_{ij}$ is the viscous stress tensor, $q^*_{j}$
+is the heat flux vector, and $h^*$ is the fluid enthalpy defined by
+%
+  \begin{equation} \label{e:denthalpy}
+    h^* = e^* + p^* / \rho^* , 
+  \end{equation} 
+%
+where $e^*$ is the internal energy per unit mass.  In the above equations,
+subscripts following a comma denote partial differentiation with respect to
+the subscript, and the Einstein summation convention is followed.
+
+We assume a Newtonian fluid such that the viscous stress tensor and the heat
+flux vector are given by
+%
+  \begin{equation} \label{e:dtau}
+    \tau^*_{ij} = \lambda^* u^*_{k,k} \delta_{ij} + 2 \mu^* S^*_{ij},
+  \end{equation}
+%
+  \begin{equation} \label{e:dheat}
+    q^*_{j} = - \kappa^* T^*_{,j},
+  \end{equation}
+%
+where $\mu^*$ is the first coefficient of viscosity, $\lambda^*$ is the second
+coefficient of viscosity, $\kappa^*$ is the thermal conductivity,
+$S^*_{ij}=\frac{1}{2}(u^*_{i,j}+u^*_{j,i})$ is the rate-of-strain tensor,
+$T^*$ is the absolute temperature, and $\delta_{ij}$ is the Kronecker delta.
+  
+The system of equations (\ref{e:dcon})--(\ref{e:deng}) is closed with an
+equation-of-state, relating the thermodynamic variables, and additional
+equations which relate the fluid properties to the thermodynamic variables.
+We use an ideal, calorically perfect gas with constant specific heats such
+that
+%
+  \begin{equation} \label{e:dideal}
+    p^* = \rho^* \Rgas^* T^* ,
+  \end{equation}
+%
+where $\Rgas^* = \cp^* - \cv^*$ is the gas constant, $\cp^*$ is the specific
+heat at constant pressure, and $\cv^*$ is the specific heat at constant
+volume.  Both $\cp^*$ and $\cv^*$ are constant as is the ratio, $\gamma =
+{\cp^*} / {\cv^*}$.  Under these conditions, the internal energy and enthalpy
+are related to the absolute temperature by
+%
+  \begin{equation} \label{e:eoft}
+    e^* = \cv^* T^* ,
+  \end{equation}
+%
+  \begin{equation}  \label{e:hoft}
+    h^* = \cp^* T^* .
+  \end{equation}
+%
+For a calorically perfect gas, the fluid properties (viscosity coefficients
+and conductivity) are functions of temperature only.  For low-speed flows with
+small temperature variations, the fluid properties can be assumed constant
+with little loss of accuracy and this assumption is used for many of the
+low-speed results presented here.  However, for high-speed flows the
+temperature dependence of the fluid properties becomes important.  Before
+describing the relations used to determine the fluid properties, we will first
+convert the governing equations to nondimensional variables.
+
+\section{Nondimensional Navier--Stokes Equations \label{s:eqn}}
+
+In equations (\ref{e:dcon})--(\ref{e:hoft}), the superscript ``$*$''
+indicates that the quantities are dimensional. In nondimensionalizing these
+equations the following relations have been used,
+%
+\begin{equation} \label{e:nondimen}
+  \begin{array}{lll}
+    \rho    = \frac{\rho^*}{\rho^*_r} , & 
+    u_i     = \frac{{u^*_i}}{u^*_r} , &
+    T       = \frac{{T^*}}{T^*_r} , \\[0.1in]
+    p       = \frac{{p^*}}{\rho^*_r {u^*_r}^2} , &
+    \mu     = \frac{\mu^*}{\mu^*_r} , &
+    \lambda = \frac{\lambda^*}{\mu^*_r} , \\[0.1in]
+    \kappa  = \frac{\kappa^*}{\kappa^*_r} , &
+    x_i     = \frac{{x^*_i}}{L^*} \ , &
+    t       = \frac{{t^*}}{L^* / u^*_r} , \nonumber
+  \end{array}
+\end{equation}
+%
+where $L^*$ is some convenient reference length and quantities denoted with a
+subscript ``$r$'' are reference values typically taken to be far-field
+ambient conditions.  The particular values of $L^*$, $\rho^*_r$,
+$u^*_r$, \etc\ are defined for each problem considered.
+
+Using equations (\ref{e:nondimen}) in equations (\ref{e:dcon}) through
+(\ref{e:dideal}) yields the following non-dimensional equations
+%
+  \begin{equation} \label{e:con}
+    \rho_{,t} + \left(\rho u_i \right)_{,i} = 0 ,
+  \end{equation}
+  \begin{equation} \label{e:mom}
+    \rho u_{i,t} + \rho u_{j} u_{i,j} =  -p_{,i} + 
+    {1\over{\Re}}\Big[(\lambda u_{j,j})_{,i} + (2 \mu S_{ij})_{,j}\Big] ,
+  \end{equation}
+  \begin{eqnarray} \label{e:eng}
+    \rho T_{,t} + \rho u_{j} T_{,j} + (\gamma - 1) \rho T u_{j,j} =  
+    \frac{\gamma}{\Pr\Re} \Big[ \kappa T_{,i} \Big]_{,i} + \nonumber \\
+    {{\gamma (\gamma-1) \M^2}\over{\Re}} 
+    \Big[ \lambda S_{ii} S_{jj} + 2 \mu S_{ij} S_{ij} \Big] ,
+  \end{eqnarray}
+  \begin{equation} \label{e:ideal}
+    p = \frac{\rho T}{\gamma \M^2} ,
+  \end{equation}
+%
+where 
+%
+\begin{equation}
+  \M =  \frac{u^*_r}{c^*_r} , \qquad 
+  \Re = \frac{\rho^*_r u^*_r L^*}{\mu^*_r} , \qquad
+  \Pr = \frac{\mu^*_r \cp^*}{\kappa^*_r} , 
+\end{equation}
+%
+are the Mach number, Reynolds number, and Prandtl number respectively.  In
+deriving the non-dimensional energy equation (\ref{e:eng}) from
+(\ref{e:deng}), use is made of equation (\ref{e:hoft}) to convert enthalpy to
+temperature and the continuity equation (\ref{e:dcon}) along with the
+equation-of-state (\ref{e:dideal}) are used to remove the explicit pressure
+dependence.
+
+For low-speed conditions where the dependence of fluid properties on
+temperature is negligible, $\mu=1$.  For cases where the temperature
+dependence of the fluid properties is important, $\mu$ is related to the
+temperature through Sutherland's law
+%
+  \begin{equation} \label{e:mu}
+    \mu = T^{\frac{3}{2}} \frac{1 + S}{T + S} ,
+  \end{equation}
+%
+where $S = S_0^* / {T^*_r}$ and $S_0^* = 111 K$ for air
+\cite{White:91}. The second coefficient of viscosity is computed using Stokes
+hypothesis, $\lambda= -\frac{2}{3} \mu$ (giving zero bulk viscosity), and the
+thermal conductivity is determined assuming constant Prandtl number,
+$\kappa=\mu$.  Unless otherwise specified, the fluid is assumed to be air with
+a Prandtl number of 1.0 and a ratio of specific heats, $\gamma$ = 1.4.
+
+\section{Linearized Navier--Stokes Equations \label{s:linNS}}
+
+In determining receptivity or stability characteristics it is often convenient
+(where appropriate) to treat disturbances as linear perturbations about a
+steady base-flow.  Thus, flow variables are written as
+%
+\begin{equation}
+  \begin{array}{ll}
+    \rho    = \bar \rho(x_i)    + \rho'(x_i,t) ,    &
+    u_j     = \bar u_j(x_i)     + u_j'(x_i,t) ,     \\
+    T       = \bar T(x_i)       + T'(x_i,t) ,       &
+    \mu     = \bar \mu(x_i)     + \mu'(x_i,t) ,     \\
+    \lambda = \bar \lambda(x_i) + \lambda'(x_i,t) , &
+    \kappa  = \bar \kappa(x_i)  + \kappa'(x_i,t) ,  \\
+    p       = \bar p(x_i)       + p'(x_i,t) ,       &
+    ~
+  \end{array}
+\end{equation}
+%
+where a bar denotes base-flow variables and primes denote (linear)
+perturbations about that base flow.
+
+Substituting these expressions into equations (\ref{e:con})--(\ref{e:ideal})
+and dropping terms that are nonlinear in the perturbations leads to two sets
+of equations: one for the base flow and one for the perturbation flow.  The
+base-flow equations are just the steady versions of equations
+(\ref{e:con})--(\ref{e:ideal}).
+%
+  \begin{equation} \label{e:bcon}
+    \left(\bar\rho \bar u_i \right)_{,i} = 0 ,
+  \end{equation}
+  \begin{equation} \label{e:bmom}
+    \bar\rho \bar u_{j} \bar u_{i,j} =  -\bar p_{,i} + 
+    {1\over{\Re}}\Big[(\bar\lambda \bar u_{j,j})_{,i} + 
+    (2 \bar\mu \bar S_{ij})_{,j}\Big] ,
+  \end{equation}
+  \begin{eqnarray} \label{e:beng}
+    \bar\rho \bar u_{j} \bar T_{,j} + 
+    (\gamma - 1) \bar\rho \bar T \bar u_{j,j} =  
+    \frac{\gamma}{\Pr\Re} \Big[ \bar\kappa \bar T_{,i} \Big]_{,i} + 
+    \nonumber \\
+    {{\gamma (\gamma-1) \M^2}\over{\Re}} 
+    \Big[ \bar \lambda \bar S_{ii} \bar S_{jj} + 
+    2 \bar \mu \bar S_{ij} \bar S_{ij} \Big] ,
+  \end{eqnarray}
+  \begin{equation} \label{e:bideal}
+    \bar p = \frac{\bar\rho \bar T}{\gamma \M^2} ,
+  \end{equation}
+%
+while the perturbation equations are given by
+%
+  \begin{equation} \label{e:pcon}
+    \rho'_{,t} + \left(\bar\rho u'_i \right)_{,i} + 
+    \left(\rho' \bar u_i \right)_{,i}= 0	,
+  \end{equation}
+  \begin{eqnarray} \label{e:pmom}
+    \bar\rho u'_{i,t} + \bar\rho \bar u_{j} u'_{i,j} + 
+    \bar\rho u'_{j} \bar u_{i,j} + \rho' \bar u_{j} \bar u_{i,j} =
+    -p'_{,i} + \nonumber \\
+    \frac{1}{\Re}\Big[(\bar\lambda u'_{j,j})_{,i} +
+                      (\lambda' \bar u_{j,j})_{,i} + 
+                      (2 \bar\mu S'_{ij})_{,j} + 
+		      (2 \mu' \bar S_{ij})_{,j} \Big]	,
+  \end{eqnarray}
+%
+% Steady continuity is used to derive the energy equation 
+% ( the term -\bar\rho_{,j} \bar u_j T' = \bar\rho \bar u_{j,j} T' )
+%
+% Corrected the minus sign on 5-16-97
+%
+  \begin{eqnarray} \label{e:peng}
+    \bar\rho T'_{,t} + \bar\rho \bar u_{j} T'_{,j} + 
+              \bar\rho u'_{j} \bar T_{,j} + 
+              \rho' \bar u_{j} \bar T_{,j} =
+    \nonumber \\
+    (1 - \gamma) \Big[ \rho' \bar T \bar u_{j,j} - 
+                     \bar \rho_{,j} \bar u_j T' +
+                     \bar \rho \bar T u'_{j,j} \Big] +
+    \frac{\gamma}{\Pr\Re} \Big[ \bar\kappa T'_{,i} + 
+                          \kappa' \bar T_{,i} \Big]_{,i} +
+    \nonumber \\
+    {{\gamma(\gamma-1) \M^2}\over{\Re}}
+    \Big[ 2 \bar \lambda \bar S_{ii} S'_{jj} + 
+          \lambda' \bar S_{ii} \bar S_{jj} +
+          4 \bar \mu \bar S_{ij} S'_{ij} +
+          2 \mu' \bar S_{ij} \bar S_{ij} \Big] ,
+  \end{eqnarray}
+  \begin{equation} \label{e:pideal}
+    p' = (\rhom T' + \Tm \rho') / (\gamma \M^2) .
+  \end{equation}
+%
+Since the coefficients $\mu$, $\lambda$, and $\kappa$ are functions only of
+$T$, the linear perturbations of these coefficients and their derivatives are
+defined solely in terms of $\bar T$, $T'$, and their derivatives.  For
+example,
+%
+\begin{equation}
+  \mu' = \left(\frac{d\mu}{dT}\right)_{\bar T} T' ,
+\end{equation}
+%
+and
+%
+\begin{equation}
+  \mu'_{,j} = \left(\frac{d^2\mu}{{dT}^2}\right)_{\bar T} \bar T_{,j} T' + 
+              \left(\frac{d\mu}{dT}\right)_{\bar T} T'_{,j} ,
+\end{equation}
+%
+where the derivatives of $\mu$ are zero for constant properties flow or are
+determined from Sutherland's law, equation (\ref{e:mu}).  Similar expressions
+for $\lambda'$ and $\kappa'$ follow directly.
+
+With these expressions for the fluid properties and by dividing through by
+$\bar\rho$, equations (\ref{e:pcon})--(\ref{e:peng}) can be rewritten using
+the more compact notation
+%
+  \begin{eqnarray} \label{e:pNS}
+    \bU'_{,t} + \bA \bU'_{,1} + \bB \bU'_{,2} + \bC \bU'_{,3} + \bD \bU' =
+    \bVxx \bU'_{,11} + \bVxy \bU'_{,12} + \nonumber \\
+    \bVxz \bU'_{,13} + \bVyy \bU'_{,22} + \bVyz \bU'_{,23} + \bVzz \bU'_{,33}
+  \end{eqnarray}
+%
+where
+%
+  \begin{equation}
+    \bU' = \left\{\matrix{\rho'\cr u'_1\cr u'_2\cr u'_3\cr T'\cr}\right\}
+  \end{equation}
+%
+and the matrices $(\bA,\bB,\bC,\bD,{\bf V}_{ij})$, defined in
+Appendix~\ref{s:linmat}, depend only on the mean flow variables and their
+gradients.
+
+The form of the linearized, compressible Navier--Stokes equations given in
+equation (\ref{e:pNS}) is a suitable starting point for numerical simulation
+of receptivity (\S\ref{s:dist}), linear-stability analysis (Appendix
+\ref{a:LST}), and parabolized stability analysis \cite{ChMaErHu:93}.

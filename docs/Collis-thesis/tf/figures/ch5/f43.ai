@@ -1,0 +1,3573 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Adobe Illustrator(TM) 3.0.1.
+%%For: () ()
+%%Title: (/u/collis/posse/thesis/figures/ch6/f43.ai)
+%%CreationDate: (10/24/96) (16:52)
+%%BoundingBox: 103 74 500 721
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentFonts: Times-Roman
+%%+ Times-Roman
+%%+ Times-Roman
+%%DocumentFiles:/u/collis/posse/thesis/figures/ch6/f42.eps
+%%+/u/collis/posse/thesis/figures/ch6/f41.eps
+%%+/u/collis/posse/thesis/figures/ch6/f40.eps
+%%DocumentSuppliedResources: procset Adobe_packedarray 2.0 0
+%%+ procset Adobe_cmykcolor 1.1 0
+%%+ procset Adobe_cshow 1.1 0
+%%+ procset Adobe_customcolor 1.0 0
+%%+ procset Adobe_IllustratorA_AI3 1.0 1
+%AI3_ColorUsage: Color
+%AI3_IncludePlacedImages
+%AI3_TemplateBox: 306 396 306 396
+%AI3_TileBox: 30 31 582 761
+%AI3_DocumentPreview: Header
+%%Template:
+%%PageOrigin:30 31
+%%AI3_PaperRect:0 792 612 0
+%%AI3_Margin:30 31 30 31
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Adobe_packedarray 2.0 0
+%%Title: (Packed Array Operators)
+%%Version: 2.0 
+%%CreationDate: (8/2/90) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+userdict /Adobe_packedarray 5 dict dup begin put
+/initialize			% - initialize -
+{
+/packedarray where
+	{
+	pop
+	}
+	{
+	Adobe_packedarray begin
+	Adobe_packedarray
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/packedarray		% arguments count packedarray array
+{
+array astore readonly
+} def
+/setpacking			% boolean setpacking -
+{
+pop
+} def
+/currentpacking		% - setpacking boolean
+{
+false
+} def
+currentdict readonly pop end
+%%EndResource
+Adobe_packedarray /initialize get exec
+
+%%BeginResource: procset Adobe_cmykcolor 1.1 0
+%%Title: (CMYK Color Operators)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cmykcolor 4 dict dup begin put
+/initialize			% - initialize -
+{
+/setcmykcolor where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cmykcolor_vars 2 dict dup begin put
+	/_setrgbcolor
+		/setrgbcolor load def
+	/_currentrgbcolor
+		/currentrgbcolor load def
+	Adobe_cmykcolor begin
+	Adobe_cmykcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	end
+	Adobe_cmykcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_cmykcolor eq
+	{
+	end
+	} if
+} def
+/setcmykcolor		% cyan magenta yellow black setcmykcolor -
+{
+1 sub 4 1 roll
+3
+	{
+	3 index add neg dup 0 lt
+		{
+		pop 0
+		} if
+	3 1 roll
+	} repeat
+Adobe_cmykcolor_vars /_setrgbcolor get exec
+pop
+} def 
+/currentcmykcolor	% - currentcmykcolor cyan magenta yellow black
+{
+Adobe_cmykcolor_vars /_currentrgbcolor get exec
+3
+	{
+	1 sub neg 3 1 roll
+	} repeat
+0
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_cshow 1.1 0
+%%Title: (cshow Operator)
+%%Version: 1.1 
+%%CreationDate: (1/23/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_cshow 3 dict dup begin put
+/initialize			% - initialize -
+{
+/cshow where
+	{
+	pop
+	}
+	{
+	userdict /Adobe_cshow_vars 1 dict dup begin put
+	/_cshow		% - _cshow proc
+		{} def
+	Adobe_cshow begin
+	Adobe_cshow
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		userdict 3 1 roll put
+		} forall
+	end
+	end
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+} def
+/cshow				% proc string cshow -
+{
+exch
+Adobe_cshow_vars
+	exch /_cshow
+	exch put
+	{
+	0 0 Adobe_cshow_vars /_cshow get exec
+	} forall
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_customcolor 1.0 0
+%%Title: (Custom Color Operators)
+%%Version: 1.0 
+%%CreationDate: (5/9/88) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_customcolor 5 dict dup begin put
+/initialize			% - initialize -
+{
+/setcustomcolor where
+	{
+	pop
+	}
+	{
+	Adobe_customcolor begin
+	Adobe_customcolor
+		{
+		dup xcheck
+			{
+			bind
+			} if
+		pop pop
+		} forall
+	end
+	Adobe_customcolor begin
+	} ifelse
+} def
+/terminate			% - terminate -
+{
+currentdict Adobe_customcolor eq
+	{
+	end
+	} if
+} def
+/findcmykcustomcolor	% cyan magenta yellow black name findcmykcustomcolor object
+{
+5 packedarray
+}  def
+/setcustomcolor		% object tint setcustomcolor -
+{
+exch
+aload pop pop
+4
+	{
+	4 index mul 4 1 roll
+	} repeat
+5 -1 roll pop
+setcmykcolor
+} def
+/setoverprint		% boolean setoverprint -
+{
+pop
+} def
+currentdict readonly pop end
+setpacking
+
+%%EndResource
+%%BeginResource: procset Adobe_IllustratorA_AI3 1.0 1
+%%Title: (Adobe Illustrator (R) Version 3.0 Abbreviated Prolog)
+%%Version: 1.0 
+%%CreationDate: (7/22/89) ()
+%%Copyright: ((C) 1987-1990 Adobe Systems Incorporated All Rights Reserved)
+
+currentpacking true setpacking
+userdict /Adobe_IllustratorA_AI3 61 dict dup begin put
+% initialization
+/initialize				% - initialize -
+{
+% 47 vars, but leave slack of 10 entries for custom Postscript fragments
+userdict /Adobe_IllustratorA_AI3_vars 57 dict dup begin put
+
+% paint operands
+/_lp /none def
+/_pf {} def
+/_ps {} def
+/_psf {} def
+/_pss {} def
+/_pjsf {} def
+/_pjss {} def
+/_pola 0 def
+/_doClip 0 def
+
+% paint operators
+/cf	currentflat def	% - cf flatness
+
+% typography operands
+/_tm matrix def
+/_renderStart [/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0] def 
+/_renderEnd [null null null null /i1 /i1 /i1 /i1] def
+/_render -1 def
+/_rise 0 def
+/_ax 0 def			% x character spacing	(_ax, _ay, _cx, _cy follows awidthshow naming convention)
+/_ay 0 def			% y character spacing
+/_cx 0 def			% x word spacing
+/_cy 0 def			% y word spacing
+/_leading [0 0] def
+/_ctm matrix def
+/_mtx matrix def
+/_sp 16#020 def
+/_hyphen (-) def
+/_fScl 0 def
+/_cnt 0 def
+/_hs 1 def
+/_nativeEncoding 0 def
+/_useNativeEncoding 0 def
+/_tempEncode 0 def
+/_pntr 0 def
+/_tDict 2 dict def
+
+% typography operators
+/Tx {} def
+/Tj {} def
+
+% compound path operators
+/CRender {} def
+
+% printing
+/_AI3_savepage {} def
+
+% color operands
+/_gf null def
+/_cf 4 array def
+/_if null def
+/_of false def
+/_fc {} def
+/_gs null def
+/_cs 4 array def
+/_is null def
+/_os false def
+/_sc {} def
+/_i null def
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3
+	{
+	dup xcheck
+		{
+		bind
+		} if
+	pop pop
+	} forall
+end
+end
+Adobe_IllustratorA_AI3 begin
+Adobe_IllustratorA_AI3_vars begin
+newpath
+} def
+/terminate				% - terminate -
+{
+end
+end
+} def
+% definition operators
+/_					% - _ null
+null def
+/ddef				% key value ddef -
+{
+Adobe_IllustratorA_AI3_vars 3 1 roll put
+} def
+/xput				% key value literal xput -
+{
+dup load dup length exch maxlength eq
+	{
+	dup dup load dup
+	length 2 mul dict copy def
+	} if
+load begin def end
+} def
+/npop				% integer npop -
+{
+	{
+	pop
+	} repeat
+} def
+% marking operators
+/sw					% ax ay string sw x y 
+{
+dup length exch stringwidth
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add
+} def
+/swj				% cx cy fillchar ax ay string swj x y
+{
+dup 4 1 roll
+dup length exch stringwidth 
+exch 5 -1 roll 3 index 1 sub mul add
+4 1 roll 3 1 roll 1 sub mul add 
+6 2 roll /_cnt 0 ddef
+{1 index eq {/_cnt _cnt 1 add ddef} if} forall pop
+exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop
+} def
+/ss					% ax ay string matrix ss -
+{
+4 1 roll
+	{				% matrix ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put pop
+	gsave
+	false charpath currentpoint
+	4 index setmatrix
+	stroke
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+3 npop
+} def
+/jss				% cx cy fillchar ax ay string matrix jss -
+{
+4 1 roll
+	{				% cx cy fillchar matrix ax ay char 0 0 {proc} -   
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	gsave
+	_sp eq 
+		{
+		exch 6 index 6 index 6 index 5 -1 roll widthshow  
+		currentpoint
+		}
+		{
+		false charpath currentpoint
+		4 index setmatrix stroke
+		}ifelse
+	grestore
+	moveto
+	2 copy rmoveto
+	} exch cshow
+6 npop
+} def
+
+% path operators
+/sp					% ax ay string sp -
+{
+	{
+	2 npop (0) exch
+	2 copy 0 exch put pop
+	false charpath
+	2 copy rmoveto
+	} exch cshow
+2 npop
+} def
+/jsp					% cx cy fillchar ax ay string jsp -
+{
+	{					% cx cy fillchar ax ay char 0 0 {proc} -
+	2 npop 
+	(0) exch 2 copy 0 exch put 
+	_sp eq 
+		{
+		exch 5 index 5 index 5 index 5 -1 roll widthshow  
+		}
+		{
+		false charpath
+		}ifelse
+	2 copy rmoveto
+	} exch cshow
+5 npop
+} def
+
+% path construction operators
+/pl				% x y pl x y
+{
+transform
+0.25 sub round 0.25 add exch
+0.25 sub round 0.25 add exch
+itransform
+} def
+/setstrokeadjust where
+	{
+	pop true setstrokeadjust
+	/c				% x1 y1 x2 y2 x3 y3 c -
+	{
+	curveto
+	} def
+	/C
+	/c load def
+	/v				% x2 y2 x3 y3 v -
+	{
+	currentpoint 6 2 roll curveto
+	} def
+	/V
+	/v load def
+	/y				% x1 y1 x2 y2 y -
+	{
+	2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l				% x y l -
+	{
+	lineto
+	} def
+	/L
+	/l load def
+	/m				% x y m -
+	{
+	moveto
+	} def
+	}
+	{%else
+	/c
+	{
+	pl curveto
+	} def
+	/C
+	/c load def
+	/v
+	{
+	currentpoint 6 2 roll pl curveto
+	} def
+	/V
+	/v load def
+	/y
+	{
+	pl 2 copy curveto
+	} def
+	/Y
+	/y load def
+	/l
+	{
+	pl lineto
+	} def
+	/L
+	/l load def
+	/m
+	{
+	pl moveto
+	} def
+	}ifelse
+
+% graphic state operators
+/d					% array phase d -
+{
+setdash
+} def
+/cf	{} def			% - cf flatness
+/i					% flatness i -
+{
+dup 0 eq
+	{
+	pop cf
+	} if
+setflat
+} def
+/j					% linejoin j -
+{
+setlinejoin
+} def
+/J					% linecap J -
+{
+setlinecap
+} def
+/M					% miterlimit M -
+{
+setmiterlimit
+} def
+/w					% linewidth w -
+{
+setlinewidth
+} def
+
+% path painting operators
+/H					% - H -
+{} def
+/h					% - h -
+{
+closepath
+} def
+/N					% - N -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq {clip /_doClip 0 ddef} if 
+	newpath
+	} 
+	{
+	/CRender {N} ddef
+	}ifelse
+} def
+/n					% - n -
+{N} def
+/F					% - F -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _pf grestore clip newpath /_lp /none ddef _fc 
+		/_doClip 0 ddef
+		}
+		{
+		_pf
+		}ifelse
+	} 
+	{
+	/CRender {F} ddef
+	}ifelse
+} def
+/f					% - f -
+{
+closepath
+F
+} def
+/S					% - S -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 
+		{
+		gsave _ps grestore clip newpath /_lp /none ddef _sc 
+		/_doClip 0 ddef
+		}
+		{
+		_ps
+		}ifelse
+	} 
+	{
+	/CRender {S} ddef
+	}ifelse
+} def
+/s					% - s -
+{
+closepath
+S
+} def
+/B					% - B -
+{
+_pola 0 eq 
+	{
+	_doClip 1 eq 	% F clears _doClip
+	gsave F grestore 
+		{
+		gsave S grestore clip newpath /_lp /none ddef _sc
+		/_doClip 0 ddef
+		} 
+		{
+		S
+		}ifelse
+	}
+	{
+	/CRender {B} ddef
+	}ifelse
+} def
+/b					% - b -
+{
+closepath
+B
+} def
+/W					% - W -
+{
+/_doClip 1 ddef
+} def
+/*					% - [string] * -
+{
+count 0 ne 
+	{
+	dup type (stringtype) eq {pop} if
+	} if 
+_pola 0 eq {newpath} if
+} def
+
+% group operators
+/u					% - u -
+{} def
+/U					% - U -
+{} def
+/q					% - q -
+{
+_pola 0 eq {gsave} if
+} def
+/Q					% - Q -
+{
+_pola 0 eq {grestore} if
+} def
+/*u					% - *u -
+{
+_pola 1 add /_pola exch ddef
+} def
+/*U					% - *U -
+{
+_pola 1 sub /_pola exch ddef 
+_pola 0 eq {CRender} if
+} def
+/D					% polarized D -
+{pop} def
+/*w					% - *w -
+{} def
+/*W					% - *W -
+{} def
+
+% place operators
+/`					% matrix llx lly urx ury string ` -
+{
+/_i save ddef
+6 1 roll 4 npop
+concat
+userdict begin
+/showpage {} def
+false setoverprint
+pop
+} def
+/~					% - ~ -
+{
+end
+_i restore
+} def
+
+% color operators
+/O					% flag O -
+{
+0 ne
+/_of exch ddef
+/_lp /none ddef
+} def
+/R					% flag R -
+{
+0 ne
+/_os exch ddef
+/_lp /none ddef
+} def
+/g					% gray g -
+{
+/_gf exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_gf setgray
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/G					% gray G -
+{
+/_gs exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_gs setgray
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/k					% cyan magenta yellow black k -
+{
+_cf astore pop
+/_fc
+{
+_lp /fill ne
+	{
+	_of setoverprint
+	_cf aload pop setcmykcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/K					% cyan magenta yellow black K -
+{
+_cs astore pop
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_cs aload pop setcmykcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+/x					% cyan magenta yellow black name gray x -
+{
+/_gf exch ddef
+findcmykcustomcolor
+/_if exch ddef
+/_fc
+{ 
+_lp /fill ne
+	{
+	_of setoverprint
+	_if _gf 1 exch sub setcustomcolor
+	/_lp /fill ddef
+	} if
+} ddef
+/_pf
+{
+_fc
+fill
+} ddef
+/_psf
+{
+_fc
+ashow
+} ddef
+/_pjsf
+{
+_fc
+awidthshow
+} ddef
+/_lp /none ddef
+} def
+/X					% cyan magenta yellow black name gray X -
+{
+/_gs exch ddef
+findcmykcustomcolor
+/_is exch ddef
+/_sc
+{
+_lp /stroke ne
+	{
+	_os setoverprint
+	_is _gs 1 exch sub setcustomcolor
+	/_lp /stroke ddef
+	} if
+} ddef
+/_ps
+{
+_sc
+stroke
+} ddef
+/_pss
+{
+_sc
+ss
+} ddef
+/_pjss
+{
+_sc
+jss
+} ddef
+/_lp /none ddef
+} def
+
+% locked object operator
+/A					% value A -
+{
+pop
+} def
+
+currentdict readonly pop end
+setpacking
+
+% annotate page operator
+/annotatepage
+{
+} def
+%%EndResource
+%AI3-Grid.0 18 18 3 0 0 0 3
+%%EndProlog
+%%BeginSetup
+%%IncludeFont: Times-Roman
+%%IncludeFont: Times-Roman
+%%IncludeFont: Times-Roman
+Adobe_cmykcolor /initialize get exec
+
+Adobe_cshow /initialize get exec
+
+Adobe_customcolor /initialize get exec
+
+Adobe_IllustratorA_AI3 /initialize get exec
+
+%%EndSetup
+0 A
+[0.625 0 0 0.625 103.9375 489.2518] 0 0 631 372
+(/u/collis/posse/thesis/figures/ch6/f40.eps)`
+%%BeginDocument: /u/collis/posse/thesis/figures/ch6/f40.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: fort.10  -  /u/collis/mesh
+%%Creator: nxyplot
+%%CreationDate: Thu Oct 24 15:52:27 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 -1
+%%BoundingBox: 0 0 631 372
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -4 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 631 372 rectclip
+0 0 631 372 rectclip
+1 setgray
+0 0 631 372 rectfill
+0.4 setlinewidth
+0 setgray
+/Times-Roman findfont 20 scalefont
+119
+exch
+defineuserobject
+119 execuserobject setfont
+294 8 moveto
+() show
+119 execuserobject setfont
+26 182.834 moveto
+gsave
+90 rotate
+() show
+grestore
+119 execuserobject setfont
+209 348 moveto
+() show
+gsave
+100 50 translate
+0 0 translate
+1 setlinewidth
+newpath
+0 0 moveto
+477.899994 0 lineto
+477.899994 289.799988 lineto
+0 289.799988 lineto
+closepath
+stroke
+0.4 setlinewidth
+119 execuserobject setfont
+newpath
+1 setlinewidth
+0 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+0 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+-5 -25 moveto
+(0) show
+11.9475 3 moveto
+0 -3 rlineto
+stroke
+11.9475 289.799988 moveto
+0 -3 rlineto
+stroke
+23.895 3 moveto
+0 -3 rlineto
+stroke
+23.895 289.799988 moveto
+0 -3 rlineto
+stroke
+35.842499 3 moveto
+0 -3 rlineto
+stroke
+35.842499 289.799988 moveto
+0 -3 rlineto
+stroke
+47.790001 3 moveto
+0 -3 rlineto
+stroke
+47.790001 289.799988 moveto
+0 -3 rlineto
+stroke
+59.737499 3 moveto
+0 -3 rlineto
+stroke
+59.737499 289.799988 moveto
+0 -3 rlineto
+stroke
+71.684998 3 moveto
+0 -3 rlineto
+stroke
+71.684998 289.799988 moveto
+0 -3 rlineto
+stroke
+83.6325 3 moveto
+0 -3 rlineto
+stroke
+83.6325 289.799988 moveto
+0 -3 rlineto
+stroke
+95.580002 3 moveto
+0 -3 rlineto
+stroke
+95.580002 289.799988 moveto
+0 -3 rlineto
+stroke
+107.527496 3 moveto
+0 -3 rlineto
+stroke
+107.527496 289.799988 moveto
+0 -3 rlineto
+stroke
+119.474998 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+119.474998 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+101.974998 -25 moveto
+(0.25) show
+131.422501 3 moveto
+0 -3 rlineto
+stroke
+131.422501 289.799988 moveto
+0 -3 rlineto
+stroke
+143.369995 3 moveto
+0 -3 rlineto
+stroke
+143.369995 289.799988 moveto
+0 -3 rlineto
+stroke
+155.317505 3 moveto
+0 -3 rlineto
+stroke
+155.317505 289.799988 moveto
+0 -3 rlineto
+stroke
+167.264999 3 moveto
+0 -3 rlineto
+stroke
+167.264999 289.799988 moveto
+0 -3 rlineto
+stroke
+179.212494 3 moveto
+0 -3 rlineto
+stroke
+179.212494 289.799988 moveto
+0 -3 rlineto
+stroke
+191.160004 3 moveto
+0 -3 rlineto
+stroke
+191.160004 289.799988 moveto
+0 -3 rlineto
+stroke
+203.107498 3 moveto
+0 -3 rlineto
+stroke
+203.107498 289.799988 moveto
+0 -3 rlineto
+stroke
+215.054993 3 moveto
+0 -3 rlineto
+stroke
+215.054993 289.799988 moveto
+0 -3 rlineto
+stroke
+227.002502 3 moveto
+0 -3 rlineto
+stroke
+227.002502 289.799988 moveto
+0 -3 rlineto
+stroke
+238.949997 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+238.949997 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+221.449997 -25 moveto
+(0.50) show
+250.897491 3 moveto
+0 -3 rlineto
+stroke
+250.897491 289.799988 moveto
+0 -3 rlineto
+stroke
+262.845001 3 moveto
+0 -3 rlineto
+stroke
+262.845001 289.799988 moveto
+0 -3 rlineto
+stroke
+274.792511 3 moveto
+0 -3 rlineto
+stroke
+274.792511 289.799988 moveto
+0 -3 rlineto
+stroke
+286.73999 3 moveto
+0 -3 rlineto
+stroke
+286.73999 289.799988 moveto
+0 -3 rlineto
+stroke
+298.6875 3 moveto
+0 -3 rlineto
+stroke
+298.6875 289.799988 moveto
+0 -3 rlineto
+stroke
+310.63501 3 moveto
+0 -3 rlineto
+stroke
+310.63501 289.799988 moveto
+0 -3 rlineto
+stroke
+322.582489 3 moveto
+0 -3 rlineto
+stroke
+322.582489 289.799988 moveto
+0 -3 rlineto
+stroke
+334.529999 3 moveto
+0 -3 rlineto
+stroke
+334.529999 289.799988 moveto
+0 -3 rlineto
+stroke
+346.477509 3 moveto
+0 -3 rlineto
+stroke
+346.477509 289.799988 moveto
+0 -3 rlineto
+stroke
+358.424988 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+358.424988 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+340.924988 -25 moveto
+(0.75) show
+370.372498 3 moveto
+0 -3 rlineto
+stroke
+370.372498 289.799988 moveto
+0 -3 rlineto
+stroke
+382.319977 3 moveto
+0 -3 rlineto
+stroke
+382.319977 289.799988 moveto
+0 -3 rlineto
+stroke
+394.267487 3 moveto
+0 -3 rlineto
+stroke
+394.267487 289.799988 moveto
+0 -3 rlineto
+stroke
+406.214996 3 moveto
+0 -3 rlineto
+stroke
+406.214996 289.799988 moveto
+0 -3 rlineto
+stroke
+418.162476 3 moveto
+0 -3 rlineto
+stroke
+418.162476 289.799988 moveto
+0 -3 rlineto
+stroke
+430.109985 3 moveto
+0 -3 rlineto
+stroke
+430.109985 289.799988 moveto
+0 -3 rlineto
+stroke
+442.057495 3 moveto
+0 -3 rlineto
+stroke
+442.057495 289.799988 moveto
+0 -3 rlineto
+stroke
+454.004974 3 moveto
+0 -3 rlineto
+stroke
+454.004974 289.799988 moveto
+0 -3 rlineto
+stroke
+465.952484 3 moveto
+0 -3 rlineto
+stroke
+465.952484 289.799988 moveto
+0 -3 rlineto
+stroke
+477.899994 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+460.399994 -25 moveto
+(1.00) show
+6 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-20 -8 moveto
+(0) show
+3 7.245 moveto
+-3 0 rlineto
+stroke
+477.899994 7.245 moveto
+-3 0 rlineto
+stroke
+3 14.49 moveto
+-3 0 rlineto
+stroke
+477.899994 14.49 moveto
+-3 0 rlineto
+stroke
+3 21.734999 moveto
+-3 0 rlineto
+stroke
+477.899994 21.734999 moveto
+-3 0 rlineto
+stroke
+3 28.98 moveto
+-3 0 rlineto
+stroke
+477.899994 28.98 moveto
+-3 0 rlineto
+stroke
+3 36.224998 moveto
+-3 0 rlineto
+stroke
+477.899994 36.224998 moveto
+-3 0 rlineto
+stroke
+3 43.469997 moveto
+-3 0 rlineto
+stroke
+477.899994 43.469997 moveto
+-3 0 rlineto
+stroke
+3 50.714996 moveto
+-3 0 rlineto
+stroke
+477.899994 50.714996 moveto
+-3 0 rlineto
+stroke
+3 57.959999 moveto
+-3 0 rlineto
+stroke
+477.899994 57.959999 moveto
+-3 0 rlineto
+stroke
+3 65.204994 moveto
+-3 0 rlineto
+stroke
+477.899994 65.204994 moveto
+-3 0 rlineto
+stroke
+6 72.449997 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 72.449997 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-45 64.449997 moveto
+(0.25) show
+3 79.695 moveto
+-3 0 rlineto
+stroke
+477.899994 79.695 moveto
+-3 0 rlineto
+stroke
+3 86.939995 moveto
+-3 0 rlineto
+stroke
+477.899994 86.939995 moveto
+-3 0 rlineto
+stroke
+3 94.184998 moveto
+-3 0 rlineto
+stroke
+477.899994 94.184998 moveto
+-3 0 rlineto
+stroke
+3 101.429993 moveto
+-3 0 rlineto
+stroke
+477.899994 101.429993 moveto
+-3 0 rlineto
+stroke
+3 108.674995 moveto
+-3 0 rlineto
+stroke
+477.899994 108.674995 moveto
+-3 0 rlineto
+stroke
+3 115.919998 moveto
+-3 0 rlineto
+stroke
+477.899994 115.919998 moveto
+-3 0 rlineto
+stroke
+3 123.164993 moveto
+-3 0 rlineto
+stroke
+477.899994 123.164993 moveto
+-3 0 rlineto
+stroke
+3 130.409988 moveto
+-3 0 rlineto
+stroke
+477.899994 130.409988 moveto
+-3 0 rlineto
+stroke
+3 137.654999 moveto
+-3 0 rlineto
+stroke
+477.899994 137.654999 moveto
+-3 0 rlineto
+stroke
+6 144.899994 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 144.899994 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-45 136.899994 moveto
+(0.50) show
+3 152.144989 moveto
+-3 0 rlineto
+stroke
+477.899994 152.144989 moveto
+-3 0 rlineto
+stroke
+3 159.389999 moveto
+-3 0 rlineto
+stroke
+477.899994 159.389999 moveto
+-3 0 rlineto
+stroke
+3 166.634995 moveto
+-3 0 rlineto
+stroke
+477.899994 166.634995 moveto
+-3 0 rlineto
+stroke
+3 173.87999 moveto
+-3 0 rlineto
+stroke
+477.899994 173.87999 moveto
+-3 0 rlineto
+stroke
+3 181.125 moveto
+-3 0 rlineto
+stroke
+477.899994 181.125 moveto
+-3 0 rlineto
+stroke
+3 188.369995 moveto
+-3 0 rlineto
+stroke
+477.899994 188.369995 moveto
+-3 0 rlineto
+stroke
+3 195.61499 moveto
+-3 0 rlineto
+stroke
+477.899994 195.61499 moveto
+-3 0 rlineto
+stroke
+3 202.859985 moveto
+-3 0 rlineto
+stroke
+477.899994 202.859985 moveto
+-3 0 rlineto
+stroke
+3 210.104996 moveto
+-3 0 rlineto
+stroke
+477.899994 210.104996 moveto
+-3 0 rlineto
+stroke
+6 217.349991 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 217.349991 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-45 209.349991 moveto
+(0.75) show
+3 224.594986 moveto
+-3 0 rlineto
+stroke
+477.899994 224.594986 moveto
+-3 0 rlineto
+stroke
+3 231.839996 moveto
+-3 0 rlineto
+stroke
+477.899994 231.839996 moveto
+-3 0 rlineto
+stroke
+3 239.084991 moveto
+-3 0 rlineto
+stroke
+477.899994 239.084991 moveto
+-3 0 rlineto
+stroke
+3 246.329987 moveto
+-3 0 rlineto
+stroke
+477.899994 246.329987 moveto
+-3 0 rlineto
+stroke
+3 253.574982 moveto
+-3 0 rlineto
+stroke
+477.899994 253.574982 moveto
+-3 0 rlineto
+stroke
+3 260.819977 moveto
+-3 0 rlineto
+stroke
+477.899994 260.819977 moveto
+-3 0 rlineto
+stroke
+3 268.065002 moveto
+-3 0 rlineto
+stroke
+477.899994 268.065002 moveto
+-3 0 rlineto
+stroke
+3 275.309998 moveto
+-3 0 rlineto
+stroke
+477.899994 275.309998 moveto
+-3 0 rlineto
+stroke
+3 282.554993 moveto
+-3 0 rlineto
+stroke
+477.899994 282.554993 moveto
+-3 0 rlineto
+stroke
+6 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-45 281.799988 moveto
+(1.00) show
+0 0 477.899994 289.799988 rectclip
+newpath
+0.4 setlinewidth
+0 setgray
+[] 0 setdash
+0 0 moveto
+3.762992 0.028985 lineto
+7.525984 0.057978 lineto
+11.288976 0.086984 lineto
+15.051969 0.115999 lineto
+18.81496 0.145054 lineto
+22.577951 0.174122 lineto
+26.340944 0.203253 lineto
+30.103937 0.232403 lineto
+33.866928 0.261621 lineto
+37.629921 0.290834 lineto
+41.392914 0.320187 lineto
+45.155903 0.349617 lineto
+48.918896 0.379144 lineto
+52.681889 0.408797 lineto
+56.444881 0.438556 lineto
+60.207874 0.468441 lineto
+63.970863 0.498499 lineto
+67.733856 0.528693 lineto
+71.496849 0.559148 lineto
+75.259842 0.589767 lineto
+79.022835 0.620638 lineto
+82.785828 0.651721 lineto
+86.54882 0.683171 lineto
+90.311806 0.714969 lineto
+94.074799 0.747135 lineto
+97.837791 0.779726 lineto
+101.600784 0.812819 lineto
+105.363777 0.846435 lineto
+109.12677 0.880611 lineto
+112.889763 0.915482 lineto
+116.652756 0.951089 lineto
+120.415749 0.987488 lineto
+124.178734 1.024834 lineto
+127.941727 1.063224 lineto
+131.704712 1.102754 lineto
+135.467712 1.143541 lineto
+139.230713 1.185797 lineto
+142.993698 1.229638 lineto
+146.756699 1.275296 lineto
+150.519684 1.322888 lineto
+154.282669 1.372721 lineto
+158.04567 1.425029 lineto
+161.808655 1.480082 lineto
+165.571655 1.538227 lineto
+169.334656 1.599891 lineto
+173.097641 1.665304 lineto
+176.860626 1.735087 lineto
+180.623611 1.809586 lineto
+184.386612 1.889458 lineto
+188.149597 1.975246 lineto
+191.912582 2.067761 lineto
+195.675583 2.167544 lineto
+199.438583 2.275716 lineto
+203.201569 2.392935 lineto
+206.964569 2.520476 lineto
+210.727554 2.659345 lineto
+214.49054 2.810933 lineto
+218.25354 2.976633 lineto
+222.016525 3.158105 lineto
+225.779526 3.357014 lineto
+229.542526 3.575408 lineto
+233.305511 3.815335 lineto
+237.068497 4.079309 lineto
+240.831497 4.369843 lineto
+244.594482 4.69003 lineto
+248.357468 5.042885 lineto
+252.120468 5.43212 lineto
+255.883453 5.861407 lineto
+259.646454 6.335154 lineto
+263.409424 6.857845 lineto
+267.172424 7.434661 lineto
+270.935425 8.070937 lineto
+274.698425 8.772858 lineto
+278.461426 9.546534 lineto
+282.224426 10.399154 lineto
+285.987396 11.337987 lineto
+289.750397 12.370997 lineto
+293.513397 13.506614 lineto
+297.276367 14.753572 lineto
+301.039368 16.121305 lineto
+304.802368 17.619326 lineto
+308.565338 19.257837 lineto
+312.328339 21.046972 lineto
+316.091339 22.997089 lineto
+319.854309 25.118782 lineto
+323.61731 27.422178 lineto
+327.38031 29.917643 lineto
+331.143311 32.614525 lineto
+334.906311 35.522266 lineto
+338.669312 38.649136 lineto
+342.432281 42.002781 lineto
+346.195282 45.589558 lineto
+349.958282 49.414787 lineto
+353.721252 53.482498 lineto
+357.484253 57.795238 lineto
+361.247223 62.354099 lineto
+365.010223 67.158752 lineto
+368.773224 72.207207 lineto
+372.536194 77.496437 lineto
+376.299194 83.021576 lineto
+380.062195 88.776825 lineto
+383.825165 94.755058 lineto
+387.588165 100.948486 lineto
+391.351166 107.348053 lineto
+395.114166 113.944473 lineto
+398.877167 120.727936 lineto
+402.640167 127.687836 lineto
+406.403137 134.814148 lineto
+410.166138 142.096252 lineto
+413.929138 149.52388 lineto
+417.692108 157.086746 lineto
+421.455109 164.775253 lineto
+425.218109 172.579727 lineto
+428.981079 180.491074 lineto
+432.74408 188.500854 lineto
+436.50708 196.60054 lineto
+440.27005 204.78299 lineto
+444.033051 213.040649 lineto
+447.796051 221.366974 lineto
+451.559052 229.755707 lineto
+455.322052 238.201263 lineto
+459.085052 246.698318 lineto
+462.848022 255.241913 lineto
+466.611023 263.827728 lineto
+470.374023 272.451813 lineto
+474.136993 281.110413 lineto
+477.899994 289.799988 lineto
+stroke
+0 setgray
+0 setgray
+[] 0 setdash
+gsave
+newpath
+0.4 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+grestore
+gsave
+grestore
+grestore
+grestore
+%%Trailer
+%%DocumentFonts: Times-Roman
+%%EndDocument
+~
+[0.6239 0 0 0.6239 104.9387 281] 0 0 631 372
+(/u/collis/posse/thesis/figures/ch6/f41.eps)`
+%%BeginDocument: /u/collis/posse/thesis/figures/ch6/f41.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: fort.10  -  /u/collis/mesh
+%%Creator: nxyplot
+%%CreationDate: Thu Oct 24 16:14:44 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 -1
+%%BoundingBox: 0 0 631 372
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -4 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 631 372 rectclip
+0 0 631 372 rectclip
+1 setgray
+0 0 631 372 rectfill
+0.4 setlinewidth
+0 setgray
+/Times-Roman findfont 20 scalefont
+119
+exch
+defineuserobject
+119 execuserobject setfont
+294 8 moveto
+() show
+119 execuserobject setfont
+26 182.834 moveto
+gsave
+90 rotate
+() show
+grestore
+119 execuserobject setfont
+209 348 moveto
+() show
+gsave
+100 50 translate
+0 0 translate
+1 setlinewidth
+newpath
+0 0 moveto
+477.899994 0 lineto
+477.899994 289.799988 lineto
+0 289.799988 lineto
+closepath
+stroke
+0.4 setlinewidth
+119 execuserobject setfont
+newpath
+1 setlinewidth
+0 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+0 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+-5 -25 moveto
+(0) show
+11.9475 3 moveto
+0 -3 rlineto
+stroke
+11.9475 289.799988 moveto
+0 -3 rlineto
+stroke
+23.895 3 moveto
+0 -3 rlineto
+stroke
+23.895 289.799988 moveto
+0 -3 rlineto
+stroke
+35.842499 3 moveto
+0 -3 rlineto
+stroke
+35.842499 289.799988 moveto
+0 -3 rlineto
+stroke
+47.790001 3 moveto
+0 -3 rlineto
+stroke
+47.790001 289.799988 moveto
+0 -3 rlineto
+stroke
+59.737499 3 moveto
+0 -3 rlineto
+stroke
+59.737499 289.799988 moveto
+0 -3 rlineto
+stroke
+71.684998 3 moveto
+0 -3 rlineto
+stroke
+71.684998 289.799988 moveto
+0 -3 rlineto
+stroke
+83.6325 3 moveto
+0 -3 rlineto
+stroke
+83.6325 289.799988 moveto
+0 -3 rlineto
+stroke
+95.580002 3 moveto
+0 -3 rlineto
+stroke
+95.580002 289.799988 moveto
+0 -3 rlineto
+stroke
+107.527496 3 moveto
+0 -3 rlineto
+stroke
+107.527496 289.799988 moveto
+0 -3 rlineto
+stroke
+119.474998 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+119.474998 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+101.974998 -25 moveto
+(0.25) show
+131.422501 3 moveto
+0 -3 rlineto
+stroke
+131.422501 289.799988 moveto
+0 -3 rlineto
+stroke
+143.369995 3 moveto
+0 -3 rlineto
+stroke
+143.369995 289.799988 moveto
+0 -3 rlineto
+stroke
+155.317505 3 moveto
+0 -3 rlineto
+stroke
+155.317505 289.799988 moveto
+0 -3 rlineto
+stroke
+167.264999 3 moveto
+0 -3 rlineto
+stroke
+167.264999 289.799988 moveto
+0 -3 rlineto
+stroke
+179.212494 3 moveto
+0 -3 rlineto
+stroke
+179.212494 289.799988 moveto
+0 -3 rlineto
+stroke
+191.160004 3 moveto
+0 -3 rlineto
+stroke
+191.160004 289.799988 moveto
+0 -3 rlineto
+stroke
+203.107498 3 moveto
+0 -3 rlineto
+stroke
+203.107498 289.799988 moveto
+0 -3 rlineto
+stroke
+215.054993 3 moveto
+0 -3 rlineto
+stroke
+215.054993 289.799988 moveto
+0 -3 rlineto
+stroke
+227.002502 3 moveto
+0 -3 rlineto
+stroke
+227.002502 289.799988 moveto
+0 -3 rlineto
+stroke
+238.949997 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+238.949997 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+221.449997 -25 moveto
+(0.50) show
+250.897491 3 moveto
+0 -3 rlineto
+stroke
+250.897491 289.799988 moveto
+0 -3 rlineto
+stroke
+262.845001 3 moveto
+0 -3 rlineto
+stroke
+262.845001 289.799988 moveto
+0 -3 rlineto
+stroke
+274.792511 3 moveto
+0 -3 rlineto
+stroke
+274.792511 289.799988 moveto
+0 -3 rlineto
+stroke
+286.73999 3 moveto
+0 -3 rlineto
+stroke
+286.73999 289.799988 moveto
+0 -3 rlineto
+stroke
+298.6875 3 moveto
+0 -3 rlineto
+stroke
+298.6875 289.799988 moveto
+0 -3 rlineto
+stroke
+310.63501 3 moveto
+0 -3 rlineto
+stroke
+310.63501 289.799988 moveto
+0 -3 rlineto
+stroke
+322.582489 3 moveto
+0 -3 rlineto
+stroke
+322.582489 289.799988 moveto
+0 -3 rlineto
+stroke
+334.529999 3 moveto
+0 -3 rlineto
+stroke
+334.529999 289.799988 moveto
+0 -3 rlineto
+stroke
+346.477509 3 moveto
+0 -3 rlineto
+stroke
+346.477509 289.799988 moveto
+0 -3 rlineto
+stroke
+358.424988 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+358.424988 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+340.924988 -25 moveto
+(0.75) show
+370.372498 3 moveto
+0 -3 rlineto
+stroke
+370.372498 289.799988 moveto
+0 -3 rlineto
+stroke
+382.319977 3 moveto
+0 -3 rlineto
+stroke
+382.319977 289.799988 moveto
+0 -3 rlineto
+stroke
+394.267487 3 moveto
+0 -3 rlineto
+stroke
+394.267487 289.799988 moveto
+0 -3 rlineto
+stroke
+406.214996 3 moveto
+0 -3 rlineto
+stroke
+406.214996 289.799988 moveto
+0 -3 rlineto
+stroke
+418.162476 3 moveto
+0 -3 rlineto
+stroke
+418.162476 289.799988 moveto
+0 -3 rlineto
+stroke
+430.109985 3 moveto
+0 -3 rlineto
+stroke
+430.109985 289.799988 moveto
+0 -3 rlineto
+stroke
+442.057495 3 moveto
+0 -3 rlineto
+stroke
+442.057495 289.799988 moveto
+0 -3 rlineto
+stroke
+454.004974 3 moveto
+0 -3 rlineto
+stroke
+454.004974 289.799988 moveto
+0 -3 rlineto
+stroke
+465.952484 3 moveto
+0 -3 rlineto
+stroke
+465.952484 289.799988 moveto
+0 -3 rlineto
+stroke
+477.899994 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+460.399994 -25 moveto
+(1.00) show
+6 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-20 -8 moveto
+(0) show
+3 7.245 moveto
+-3 0 rlineto
+stroke
+477.899994 7.245 moveto
+-3 0 rlineto
+stroke
+3 14.49 moveto
+-3 0 rlineto
+stroke
+477.899994 14.49 moveto
+-3 0 rlineto
+stroke
+3 21.734999 moveto
+-3 0 rlineto
+stroke
+477.899994 21.734999 moveto
+-3 0 rlineto
+stroke
+3 28.98 moveto
+-3 0 rlineto
+stroke
+477.899994 28.98 moveto
+-3 0 rlineto
+stroke
+3 36.224998 moveto
+-3 0 rlineto
+stroke
+477.899994 36.224998 moveto
+-3 0 rlineto
+stroke
+3 43.469997 moveto
+-3 0 rlineto
+stroke
+477.899994 43.469997 moveto
+-3 0 rlineto
+stroke
+3 50.714996 moveto
+-3 0 rlineto
+stroke
+477.899994 50.714996 moveto
+-3 0 rlineto
+stroke
+3 57.959999 moveto
+-3 0 rlineto
+stroke
+477.899994 57.959999 moveto
+-3 0 rlineto
+stroke
+3 65.204994 moveto
+-3 0 rlineto
+stroke
+477.899994 65.204994 moveto
+-3 0 rlineto
+stroke
+6 72.449997 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 72.449997 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-20 64.449997 moveto
+(1) show
+3 79.695 moveto
+-3 0 rlineto
+stroke
+477.899994 79.695 moveto
+-3 0 rlineto
+stroke
+3 86.939995 moveto
+-3 0 rlineto
+stroke
+477.899994 86.939995 moveto
+-3 0 rlineto
+stroke
+3 94.184998 moveto
+-3 0 rlineto
+stroke
+477.899994 94.184998 moveto
+-3 0 rlineto
+stroke
+3 101.429993 moveto
+-3 0 rlineto
+stroke
+477.899994 101.429993 moveto
+-3 0 rlineto
+stroke
+3 108.674995 moveto
+-3 0 rlineto
+stroke
+477.899994 108.674995 moveto
+-3 0 rlineto
+stroke
+3 115.919998 moveto
+-3 0 rlineto
+stroke
+477.899994 115.919998 moveto
+-3 0 rlineto
+stroke
+3 123.164993 moveto
+-3 0 rlineto
+stroke
+477.899994 123.164993 moveto
+-3 0 rlineto
+stroke
+3 130.409988 moveto
+-3 0 rlineto
+stroke
+477.899994 130.409988 moveto
+-3 0 rlineto
+stroke
+3 137.654999 moveto
+-3 0 rlineto
+stroke
+477.899994 137.654999 moveto
+-3 0 rlineto
+stroke
+6 144.899994 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 144.899994 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-20 136.899994 moveto
+(2) show
+3 152.144989 moveto
+-3 0 rlineto
+stroke
+477.899994 152.144989 moveto
+-3 0 rlineto
+stroke
+3 159.389999 moveto
+-3 0 rlineto
+stroke
+477.899994 159.389999 moveto
+-3 0 rlineto
+stroke
+3 166.634995 moveto
+-3 0 rlineto
+stroke
+477.899994 166.634995 moveto
+-3 0 rlineto
+stroke
+3 173.87999 moveto
+-3 0 rlineto
+stroke
+477.899994 173.87999 moveto
+-3 0 rlineto
+stroke
+3 181.125 moveto
+-3 0 rlineto
+stroke
+477.899994 181.125 moveto
+-3 0 rlineto
+stroke
+3 188.369995 moveto
+-3 0 rlineto
+stroke
+477.899994 188.369995 moveto
+-3 0 rlineto
+stroke
+3 195.61499 moveto
+-3 0 rlineto
+stroke
+477.899994 195.61499 moveto
+-3 0 rlineto
+stroke
+3 202.859985 moveto
+-3 0 rlineto
+stroke
+477.899994 202.859985 moveto
+-3 0 rlineto
+stroke
+3 210.104996 moveto
+-3 0 rlineto
+stroke
+477.899994 210.104996 moveto
+-3 0 rlineto
+stroke
+6 217.349991 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 217.349991 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-20 209.349991 moveto
+(3) show
+3 224.594986 moveto
+-3 0 rlineto
+stroke
+477.899994 224.594986 moveto
+-3 0 rlineto
+stroke
+3 231.839996 moveto
+-3 0 rlineto
+stroke
+477.899994 231.839996 moveto
+-3 0 rlineto
+stroke
+3 239.084991 moveto
+-3 0 rlineto
+stroke
+477.899994 239.084991 moveto
+-3 0 rlineto
+stroke
+3 246.329987 moveto
+-3 0 rlineto
+stroke
+477.899994 246.329987 moveto
+-3 0 rlineto
+stroke
+3 253.574982 moveto
+-3 0 rlineto
+stroke
+477.899994 253.574982 moveto
+-3 0 rlineto
+stroke
+3 260.819977 moveto
+-3 0 rlineto
+stroke
+477.899994 260.819977 moveto
+-3 0 rlineto
+stroke
+3 268.065002 moveto
+-3 0 rlineto
+stroke
+477.899994 268.065002 moveto
+-3 0 rlineto
+stroke
+3 275.309998 moveto
+-3 0 rlineto
+stroke
+477.899994 275.309998 moveto
+-3 0 rlineto
+stroke
+3 282.554993 moveto
+-3 0 rlineto
+stroke
+477.899994 282.554993 moveto
+-3 0 rlineto
+stroke
+6 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-20 281.799988 moveto
+(4) show
+0 0 477.899994 289.799988 rectclip
+newpath
+0.4 setlinewidth
+0 setgray
+0 setgray
+[] 0 setdash
+0 0.920102 moveto
+3.762992 0.920199 lineto
+7.525984 0.920508 lineto
+11.288976 0.921011 lineto
+15.051969 0.921707 lineto
+18.81496 0.922538 lineto
+22.577951 0.923698 lineto
+26.340944 0.924993 lineto
+30.103937 0.926597 lineto
+33.866928 0.928511 lineto
+37.629921 0.930618 lineto
+41.392914 0.933092 lineto
+45.155903 0.935934 lineto
+48.918896 0.939104 lineto
+52.681889 0.942719 lineto
+56.444881 0.946817 lineto
+60.207874 0.951417 lineto
+63.970863 0.956637 lineto
+67.733856 0.962378 lineto
+71.496849 0.968892 lineto
+75.259842 0.976199 lineto
+79.022835 0.984376 lineto
+82.785828 0.993519 lineto
+86.54882 1.003725 lineto
+90.311806 1.015111 lineto
+94.074799 1.027888 lineto
+97.837791 1.042192 lineto
+101.600784 1.058082 lineto
+105.363777 1.075885 lineto
+109.12677 1.095776 lineto
+112.889763 1.117967 lineto
+116.652756 1.142749 lineto
+120.415749 1.170468 lineto
+124.178734 1.201358 lineto
+127.941727 1.235901 lineto
+131.704712 1.274427 lineto
+135.467712 1.317398 lineto
+139.230713 1.365492 lineto
+142.993698 1.419056 lineto
+146.756699 1.478864 lineto
+150.519684 1.545611 lineto
+154.282669 1.620149 lineto
+158.04567 1.703288 lineto
+161.808655 1.796093 lineto
+165.571655 1.899819 lineto
+169.334656 2.015202 lineto
+173.097641 2.144212 lineto
+176.860626 2.287778 lineto
+180.623611 2.448239 lineto
+184.386612 2.62687 lineto
+188.149597 2.826339 lineto
+191.912582 3.048502 lineto
+195.675583 3.296394 lineto
+199.438583 3.572276 lineto
+203.201569 3.880033 lineto
+206.964569 4.222586 lineto
+210.727554 4.604417 lineto
+214.49054 5.029181 lineto
+218.25354 5.502192 lineto
+222.016525 6.028228 lineto
+225.779526 6.613375 lineto
+229.542526 7.263665 lineto
+233.305511 7.986405 lineto
+237.068497 8.788671 lineto
+240.831497 9.679236 lineto
+244.594482 10.666569 lineto
+248.357468 11.760838 lineto
+252.120468 12.972112 lineto
+255.883453 14.312222 lineto
+259.646454 15.792672 lineto
+263.409424 17.426855 lineto
+267.172424 19.227936 lineto
+270.935425 21.21068 lineto
+274.698425 23.389435 lineto
+278.461426 25.780321 lineto
+282.224426 28.398397 lineto
+285.987396 31.259995 lineto
+289.750397 34.380211 lineto
+293.513397 37.774746 lineto
+297.276367 41.457516 lineto
+301.039368 45.442009 lineto
+304.802368 49.739132 lineto
+308.565338 54.358452 lineto
+312.328339 59.305866 lineto
+316.091339 64.584846 lineto
+319.854309 70.194016 lineto
+323.61731 76.12867 lineto
+327.38031 82.378227 lineto
+331.143311 88.928291 lineto
+334.906311 95.757645 lineto
+338.669312 102.84111 lineto
+342.432281 110.147476 lineto
+346.195282 117.641525 lineto
+349.958282 125.283089 lineto
+353.721252 133.029388 lineto
+357.484253 140.834412 lineto
+361.247223 148.651459 lineto
+365.010223 156.432892 lineto
+368.773224 164.132446 lineto
+372.536194 171.705399 lineto
+376.299194 179.110397 lineto
+380.062195 186.309418 lineto
+383.825165 193.269424 lineto
+387.588165 199.961884 lineto
+391.351166 206.363892 lineto
+395.114166 212.457611 lineto
+398.877167 218.230438 lineto
+402.640167 223.674896 lineto
+406.403137 228.787949 lineto
+410.166138 233.570709 lineto
+413.929138 238.027924 lineto
+417.692108 242.16745 lineto
+421.455109 245.999573 lineto
+425.218109 249.536469 lineto
+428.981079 252.791992 lineto
+432.74408 255.78096 lineto
+436.50708 258.518829 lineto
+440.27005 261.021301 lineto
+444.033051 263.304199 lineto
+447.796051 265.383148 lineto
+451.559052 267.273254 lineto
+455.322052 268.989136 lineto
+459.085052 270.5448 lineto
+462.848022 271.953491 lineto
+466.611023 273.227722 lineto
+470.374023 274.37915 lineto
+474.136993 275.418701 lineto
+477.899994 276.356445 lineto
+stroke
+0 setgray
+[] 0 setdash
+gsave
+newpath
+0.4 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+grestore
+gsave
+grestore
+grestore
+grestore
+%%Trailer
+%%DocumentFonts: Times-Roman
+%%EndDocument
+~
+[0.625 0 0 0.625 105.0625 74] 0 0 631 372
+(/u/collis/posse/thesis/figures/ch6/f42.eps)`
+%%BeginDocument: /u/collis/posse/thesis/figures/ch6/f42.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: fort.10  -  /u/collis/mesh
+%%Creator: nxyplot
+%%CreationDate: Thu Oct 24 15:55:46 1996
+%%For: collis
+%%DocumentFonts: (atend)
+%%Pages: 0 -1
+%%BoundingBox: 0 0 631 372
+%%EndComments
+
+%%BeginDocument: /usr/lib/NextStep/printPackage.ps
+%!PS-Adobe-2.0
+%%Title: Printing Package
+%%EndComments
+%Version: 2.0
+%Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+	exch dup 1 add dup UserObjects length gt{
+		array dup 0 UserObjects putinterval
+		/UserObjects exch def
+	}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+	1 index type /arraytype eq{
+		exch 0 4 2 index length 1 sub{
+			dup 3 add 1 exch{1 index exch get exch}for
+			5 1 roll 5 index exec
+		}for pop pop
+	}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+	gsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+		{gsave __NXRectPath null concat stroke grestore}
+		dup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+	}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/xyshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index 2 mul 1 add get add exch
+		3 index	3 index 2 mul get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/xshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		exch 3 index 3 index get add exch moveto pop
+	}for pop pop
+}__NXbdef
+/yshow{
+	0 1 3 index length 1 sub{
+		currentpoint 4 index 3 index 1 getinterval show
+		3 index 3 index get add moveto pop
+	}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+	gsave newpath dup length 6 eq
+	{exch uappend concat}{uappend}ifelse
+	stroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+	newpath dup length 6 eq{
+		exch uappend __NXustrokepathMatrix currentmatrix exch concat
+		strokepath setmatrix
+	}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+	[exch {/ucache cvx}if pathbbox /setbbox cvx
+	 {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+	counttomark dup 2 add index dup length 3 -1 roll {
+		2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+	}repeat pop pop pop
+}__NXbdef
+/setcmykcolor{
+	1.0 exch sub dup dup 6 -1 roll
+	sub dup 0 lt{pop 0}if 5 1 roll
+	4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll
+	exch sub dup 0 lt{pop 0}if setrgbcolor
+}__NXbdef
+/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def   
+/_NXfstr 128 string dup 0 (_NX) putinterval def   
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {//findfont exec}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {//findfont exec dup /Encoding get StandardEncoding eq
+   {	dup length dict exch
+	{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+	 dup /Encoding NextStepEncoding put definefont
+	}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXProcArray 5 array __NXdef
+/_NXChannels 0 __NXdef
+/_NXTotalBytes 0 __NXdef
+/_NXDoImageOp{
+	1 index{dup}{1}ifelse /_NXChannels exch store
+	_NXChannels 2 add 2 roll _NXProcArray 0 _NXChannels getinterval astore pop
+	5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 add}ifelse
+	4 index mul /_NXTotalBytes exch store pop exch pop
+	gsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+	{	0 1 _NXChannels 1 sub{
+			_NXProcArray exch get exec
+			length _NXTotalBytes exch sub /_NXTotalBytes exch store}for
+		_NXTotalBytes 0 le{exit}if
+	}loop /_NXProcArray 5 array def
+}__NXbdef
+/colorimage{_NXDoImageOp}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+%%EndDocument
+
+gsave
+-1 -4 translate
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+gsave
+0 0 631 372 rectclip
+0 0 631 372 rectclip
+1 setgray
+0 0 631 372 rectfill
+0.4 setlinewidth
+0 setgray
+/Times-Roman findfont 20 scalefont
+119
+exch
+defineuserobject
+119 execuserobject setfont
+294 8 moveto
+() show
+119 execuserobject setfont
+26 182.834 moveto
+gsave
+90 rotate
+() show
+grestore
+119 execuserobject setfont
+209 348 moveto
+() show
+gsave
+100 50 translate
+0 0 translate
+1 setlinewidth
+newpath
+0 0 moveto
+477.899994 0 lineto
+477.899994 289.799988 lineto
+0 289.799988 lineto
+closepath
+stroke
+0.4 setlinewidth
+119 execuserobject setfont
+newpath
+1 setlinewidth
+0 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+0 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+-5 -25 moveto
+(0) show
+11.9475 3 moveto
+0 -3 rlineto
+stroke
+11.9475 289.799988 moveto
+0 -3 rlineto
+stroke
+23.895 3 moveto
+0 -3 rlineto
+stroke
+23.895 289.799988 moveto
+0 -3 rlineto
+stroke
+35.842499 3 moveto
+0 -3 rlineto
+stroke
+35.842499 289.799988 moveto
+0 -3 rlineto
+stroke
+47.790001 3 moveto
+0 -3 rlineto
+stroke
+47.790001 289.799988 moveto
+0 -3 rlineto
+stroke
+59.737499 3 moveto
+0 -3 rlineto
+stroke
+59.737499 289.799988 moveto
+0 -3 rlineto
+stroke
+71.684998 3 moveto
+0 -3 rlineto
+stroke
+71.684998 289.799988 moveto
+0 -3 rlineto
+stroke
+83.6325 3 moveto
+0 -3 rlineto
+stroke
+83.6325 289.799988 moveto
+0 -3 rlineto
+stroke
+95.580002 3 moveto
+0 -3 rlineto
+stroke
+95.580002 289.799988 moveto
+0 -3 rlineto
+stroke
+107.527496 3 moveto
+0 -3 rlineto
+stroke
+107.527496 289.799988 moveto
+0 -3 rlineto
+stroke
+119.474998 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+119.474998 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+101.974998 -25 moveto
+(0.25) show
+131.422501 3 moveto
+0 -3 rlineto
+stroke
+131.422501 289.799988 moveto
+0 -3 rlineto
+stroke
+143.369995 3 moveto
+0 -3 rlineto
+stroke
+143.369995 289.799988 moveto
+0 -3 rlineto
+stroke
+155.317505 3 moveto
+0 -3 rlineto
+stroke
+155.317505 289.799988 moveto
+0 -3 rlineto
+stroke
+167.264999 3 moveto
+0 -3 rlineto
+stroke
+167.264999 289.799988 moveto
+0 -3 rlineto
+stroke
+179.212494 3 moveto
+0 -3 rlineto
+stroke
+179.212494 289.799988 moveto
+0 -3 rlineto
+stroke
+191.160004 3 moveto
+0 -3 rlineto
+stroke
+191.160004 289.799988 moveto
+0 -3 rlineto
+stroke
+203.107498 3 moveto
+0 -3 rlineto
+stroke
+203.107498 289.799988 moveto
+0 -3 rlineto
+stroke
+215.054993 3 moveto
+0 -3 rlineto
+stroke
+215.054993 289.799988 moveto
+0 -3 rlineto
+stroke
+227.002502 3 moveto
+0 -3 rlineto
+stroke
+227.002502 289.799988 moveto
+0 -3 rlineto
+stroke
+238.949997 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+238.949997 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+221.449997 -25 moveto
+(0.50) show
+250.897491 3 moveto
+0 -3 rlineto
+stroke
+250.897491 289.799988 moveto
+0 -3 rlineto
+stroke
+262.845001 3 moveto
+0 -3 rlineto
+stroke
+262.845001 289.799988 moveto
+0 -3 rlineto
+stroke
+274.792511 3 moveto
+0 -3 rlineto
+stroke
+274.792511 289.799988 moveto
+0 -3 rlineto
+stroke
+286.73999 3 moveto
+0 -3 rlineto
+stroke
+286.73999 289.799988 moveto
+0 -3 rlineto
+stroke
+298.6875 3 moveto
+0 -3 rlineto
+stroke
+298.6875 289.799988 moveto
+0 -3 rlineto
+stroke
+310.63501 3 moveto
+0 -3 rlineto
+stroke
+310.63501 289.799988 moveto
+0 -3 rlineto
+stroke
+322.582489 3 moveto
+0 -3 rlineto
+stroke
+322.582489 289.799988 moveto
+0 -3 rlineto
+stroke
+334.529999 3 moveto
+0 -3 rlineto
+stroke
+334.529999 289.799988 moveto
+0 -3 rlineto
+stroke
+346.477509 3 moveto
+0 -3 rlineto
+stroke
+346.477509 289.799988 moveto
+0 -3 rlineto
+stroke
+358.424988 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+358.424988 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+340.924988 -25 moveto
+(0.75) show
+370.372498 3 moveto
+0 -3 rlineto
+stroke
+370.372498 289.799988 moveto
+0 -3 rlineto
+stroke
+382.319977 3 moveto
+0 -3 rlineto
+stroke
+382.319977 289.799988 moveto
+0 -3 rlineto
+stroke
+394.267487 3 moveto
+0 -3 rlineto
+stroke
+394.267487 289.799988 moveto
+0 -3 rlineto
+stroke
+406.214996 3 moveto
+0 -3 rlineto
+stroke
+406.214996 289.799988 moveto
+0 -3 rlineto
+stroke
+418.162476 3 moveto
+0 -3 rlineto
+stroke
+418.162476 289.799988 moveto
+0 -3 rlineto
+stroke
+430.109985 3 moveto
+0 -3 rlineto
+stroke
+430.109985 289.799988 moveto
+0 -3 rlineto
+stroke
+442.057495 3 moveto
+0 -3 rlineto
+stroke
+442.057495 289.799988 moveto
+0 -3 rlineto
+stroke
+454.004974 3 moveto
+0 -3 rlineto
+stroke
+454.004974 289.799988 moveto
+0 -3 rlineto
+stroke
+465.952484 3 moveto
+0 -3 rlineto
+stroke
+465.952484 289.799988 moveto
+0 -3 rlineto
+stroke
+477.899994 6 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+0 -6 rlineto
+stroke
+460.399994 -25 moveto
+(1.00) show
+6 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 0 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-20 -8 moveto
+(0) show
+3 9.66 moveto
+-3 0 rlineto
+stroke
+477.899994 9.66 moveto
+-3 0 rlineto
+stroke
+3 19.32 moveto
+-3 0 rlineto
+stroke
+477.899994 19.32 moveto
+-3 0 rlineto
+stroke
+3 28.98 moveto
+-3 0 rlineto
+stroke
+477.899994 28.98 moveto
+-3 0 rlineto
+stroke
+3 38.639999 moveto
+-3 0 rlineto
+stroke
+477.899994 38.639999 moveto
+-3 0 rlineto
+stroke
+3 48.299999 moveto
+-3 0 rlineto
+stroke
+477.899994 48.299999 moveto
+-3 0 rlineto
+stroke
+3 57.959999 moveto
+-3 0 rlineto
+stroke
+477.899994 57.959999 moveto
+-3 0 rlineto
+stroke
+3 67.619995 moveto
+-3 0 rlineto
+stroke
+477.899994 67.619995 moveto
+-3 0 rlineto
+stroke
+3 77.279999 moveto
+-3 0 rlineto
+stroke
+477.899994 77.279999 moveto
+-3 0 rlineto
+stroke
+3 86.940002 moveto
+-3 0 rlineto
+stroke
+477.899994 86.940002 moveto
+-3 0 rlineto
+stroke
+6 96.599998 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 96.599998 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-25 88.599998 moveto
+( 5) show
+3 106.259995 moveto
+-3 0 rlineto
+stroke
+477.899994 106.259995 moveto
+-3 0 rlineto
+stroke
+3 115.919998 moveto
+-3 0 rlineto
+stroke
+477.899994 115.919998 moveto
+-3 0 rlineto
+stroke
+3 125.580002 moveto
+-3 0 rlineto
+stroke
+477.899994 125.580002 moveto
+-3 0 rlineto
+stroke
+3 135.23999 moveto
+-3 0 rlineto
+stroke
+477.899994 135.23999 moveto
+-3 0 rlineto
+stroke
+3 144.899994 moveto
+-3 0 rlineto
+stroke
+477.899994 144.899994 moveto
+-3 0 rlineto
+stroke
+3 154.559998 moveto
+-3 0 rlineto
+stroke
+477.899994 154.559998 moveto
+-3 0 rlineto
+stroke
+3 164.220001 moveto
+-3 0 rlineto
+stroke
+477.899994 164.220001 moveto
+-3 0 rlineto
+stroke
+3 173.880005 moveto
+-3 0 rlineto
+stroke
+477.899994 173.880005 moveto
+-3 0 rlineto
+stroke
+3 183.539993 moveto
+-3 0 rlineto
+stroke
+477.899994 183.539993 moveto
+-3 0 rlineto
+stroke
+6 193.199997 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 193.199997 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-30 185.199997 moveto
+(10) show
+3 202.860001 moveto
+-3 0 rlineto
+stroke
+477.899994 202.860001 moveto
+-3 0 rlineto
+stroke
+3 212.519989 moveto
+-3 0 rlineto
+stroke
+477.899994 212.519989 moveto
+-3 0 rlineto
+stroke
+3 222.179993 moveto
+-3 0 rlineto
+stroke
+477.899994 222.179993 moveto
+-3 0 rlineto
+stroke
+3 231.839996 moveto
+-3 0 rlineto
+stroke
+477.899994 231.839996 moveto
+-3 0 rlineto
+stroke
+3 241.5 moveto
+-3 0 rlineto
+stroke
+477.899994 241.5 moveto
+-3 0 rlineto
+stroke
+3 251.160004 moveto
+-3 0 rlineto
+stroke
+477.899994 251.160004 moveto
+-3 0 rlineto
+stroke
+3 260.820007 moveto
+-3 0 rlineto
+stroke
+477.899994 260.820007 moveto
+-3 0 rlineto
+stroke
+3 270.47998 moveto
+-3 0 rlineto
+stroke
+477.899994 270.47998 moveto
+-3 0 rlineto
+stroke
+3 280.139984 moveto
+-3 0 rlineto
+stroke
+477.899994 280.139984 moveto
+-3 0 rlineto
+stroke
+6 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+477.899994 289.799988 moveto
+[] 0 setdash
+-6 0 rlineto
+stroke
+-30 281.799988 moveto
+(15) show
+0 0 477.899994 289.799988 rectclip
+newpath
+0.4 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+[] 0 setdash
+0 0 moveto
+3.762992 0.006433 lineto
+7.525984 0.012969 lineto
+11.288976 0.019629 lineto
+15.051969 0.026578 lineto
+18.81496 0.033815 lineto
+22.577951 0.041465 lineto
+26.340944 0.04963 lineto
+30.103937 0.058393 lineto
+33.866928 0.067857 lineto
+37.629921 0.078146 lineto
+41.392914 0.089363 lineto
+45.155903 0.101713 lineto
+48.918896 0.115281 lineto
+52.681889 0.130271 lineto
+56.444881 0.146807 lineto
+60.207874 0.165158 lineto
+63.970863 0.185509 lineto
+67.733856 0.208087 lineto
+71.496849 0.233201 lineto
+75.259842 0.261181 lineto
+79.022835 0.292315 lineto
+82.785828 0.326996 lineto
+86.54882 0.365636 lineto
+90.311806 0.408709 lineto
+94.074799 0.456793 lineto
+97.837791 0.51034 lineto
+101.600784 0.570135 lineto
+105.363777 0.636858 lineto
+109.12677 0.711272 lineto
+112.889763 0.794284 lineto
+116.652756 0.886966 lineto
+120.415749 0.990329 lineto
+124.178734 1.105693 lineto
+127.941727 1.234417 lineto
+131.704712 1.37809 lineto
+135.467712 1.538361 lineto
+139.230713 1.717148 lineto
+142.993698 1.916657 lineto
+146.756699 2.139198 lineto
+150.519684 2.387492 lineto
+154.282669 2.664425 lineto
+158.04567 2.973236 lineto
+161.808655 3.317634 lineto
+165.571655 3.701642 lineto
+169.334656 4.129692 lineto
+173.097641 4.606815 lineto
+176.860626 5.138537 lineto
+180.623611 5.730879 lineto
+184.386612 6.390728 lineto
+188.149597 7.125423 lineto
+191.912582 7.943316 lineto
+195.675583 8.853457 lineto
+199.438583 9.86587 lineto
+203.201569 10.991625 lineto
+206.964569 12.242681 lineto
+210.727554 13.632277 lineto
+214.49054 15.174905 lineto
+218.25354 16.886156 lineto
+222.016525 18.783123 lineto
+225.779526 20.884155 lineto
+229.542526 23.209068 lineto
+233.305511 25.779079 lineto
+237.068497 28.616703 lineto
+240.831497 31.745838 lineto
+244.594482 35.191456 lineto
+248.357468 38.979572 lineto
+252.120468 43.13681 lineto
+255.883453 47.69014 lineto
+259.646454 52.666508 lineto
+263.409424 58.091774 lineto
+267.172424 63.990513 lineto
+270.935425 70.384766 lineto
+274.698425 77.293037 lineto
+278.461426 84.728836 lineto
+282.224426 92.699509 lineto
+285.987396 101.20443 lineto
+289.750397 110.233353 lineto
+293.513397 119.764374 lineto
+297.276367 129.762375 lineto
+301.039368 140.176971 lineto
+304.802368 150.941162 lineto
+308.565338 161.970016 lineto
+312.328339 173.160034 lineto
+316.091339 184.389191 lineto
+319.854309 195.517746 lineto
+323.61731 206.390244 lineto
+327.38031 216.838409 lineto
+331.143311 226.685349 lineto
+334.906311 235.750549 lineto
+338.669312 243.856232 lineto
+342.432281 250.834 lineto
+346.195282 256.531647 lineto
+349.958282 260.819916 lineto
+353.721252 263.598602 lineto
+357.484253 264.801605 lineto
+361.247223 264.39978 lineto
+365.010223 262.402924 lineto
+368.773224 258.858917 lineto
+372.536194 253.851532 lineto
+376.299194 247.496109 lineto
+380.062195 239.934174 lineto
+383.825165 231.32692 lineto
+387.588165 221.848328 lineto
+391.351166 211.678345 lineto
+395.114166 200.996277 lineto
+398.877167 189.975418 lineto
+402.640167 178.778061 lineto
+406.403137 167.552078 lineto
+410.166138 156.428543 lineto
+413.929138 145.520233 lineto
+417.692108 134.921371 lineto
+421.455109 124.707794 lineto
+425.218109 114.937958 lineto
+428.981079 105.654472 lineto
+432.74408 96.885597 lineto
+436.50708 88.647141 lineto
+440.27005 80.944359 lineto
+444.033051 73.773697 lineto
+447.796051 67.124496 lineto
+451.559052 60.980515 lineto
+455.322052 55.32143 lineto
+459.085052 50.123821 lineto
+462.848022 45.362343 lineto
+466.611023 41.010399 lineto
+470.374023 37.04108 lineto
+474.136993 33.427544 lineto
+477.899994 30.143353 lineto
+stroke
+[] 0 setdash
+gsave
+newpath
+0.4 setlinewidth
+0 setgray
+0 setgray
+0 setgray
+grestore
+gsave
+grestore
+grestore
+grestore
+%%Trailer
+%%DocumentFonts: Times-Roman
+%%EndDocument
+~
+%%PageTrailer
+%%Trailer
+Adobe_IllustratorA_AI3 /terminate get exec
+
+Adobe_customcolor /terminate get exec
+
+Adobe_cshow /terminate get exec
+
+Adobe_cmykcolor /terminate get exec
+
+Adobe_packedarray /terminate get exec
+
+%%EOF
