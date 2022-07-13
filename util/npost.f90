@@ -793,8 +793,8 @@
           write(*,"(10(1pe13.6,1x))") x(i,1), s(i), edge, rhoe, ue, ve, we, te
                                       umag, alp*180.0/pi
 #endif
-          write(39,"(10(1pe13.6,1x))") x(i,1), s(i), edge, rhoe, ue, ve, we, te, &
-                                       umag, alp*180.0/pi
+          write(39,"(10(1pe13.6,1x))") x(i,1), s(i), edge, rhoe, ue, ve, &
+                                       we, te, umag, alp*180.0/pi
           open(10,file=fname)
           open(12,file=fname1)
           open(13,file=fname2)
@@ -1218,6 +1218,7 @@
 
 !.... Skip the attachment line (SSC)
 
+#define NPOST_SKIP_AL=1
 #ifdef NPOST_SKIP_AL
         do i = 2, nx
 #else
