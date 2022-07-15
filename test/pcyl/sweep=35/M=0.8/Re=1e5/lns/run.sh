@@ -40,7 +40,7 @@ $STAB_DIR/stab < stab.inp
 #
 $STAB_DIR/getevec <<EOF
 evec.dat
-506
+507
 0
 EOF
 \cp space.1 evec.pro 
