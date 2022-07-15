@@ -16,14 +16,14 @@
 
 !.... metrics
 
-      real, allocatable :: m1(:,:),  m2(:,:),  n1(:,:),  n2(:,:),       &
-                           m11(:,:), m12(:,:), m22(:,:),                &
+      real, allocatable :: m1(:,:),  m2(:,:),  n1(:,:),  n2(:,:), &
+                           m11(:,:), m12(:,:), m22(:,:),          &
                            n11(:,:), n12(:,:), n22(:,:)
 
       real, allocatable :: bn1(:), bn2(:)
 
       complex :: alpha, amp
-      real    :: tmp, Lmap, eta, th, alphar, alphai, ampr, ampi, x0, r
+      real    :: tmp, Lmap, eta, th, alphar, alphai, ampr, ampi, s0, r
       real    :: Ma, Re, Pr, gamma=1.4, cv=716.5
       integer :: i, j, k, m, idof
       integer :: nx, ny, nz, n, ndof=5
@@ -119,7 +119,8 @@
           !th = float(j-1)*acos(-1.0)/float(n-1)
           !eta = cos(th)
           !eta = (yc(j) - 1.0) / (1.0 + yc(j))
-          eta = -1.0 * (yc(j) - 1.0) / (1.0 + yc(j))
+          !eta = -1.0 * (yc(j) - 1.0) / (1.0 + yc(j))
+          eta = -1.0 * (yc(j) - 0.1) / (0.1 + yc(j))
           th = acos(eta)
           do m = 0, n-1
             q2(j,idof) = q2(j,idof) + q(m+1,idof) * COS(float(m)*th)
@@ -159,7 +160,7 @@
 
 !.... if no body file is found, assume that its a parabolic cylinder
 
-      write(*,*) 'WARNING:  assumming a parabolic cylinder'
+      write(*,*) 'WARNING:  assumming a parabolic cylinder'
       s(:) = Sqrt(x(1,:) + two*x(1,:)**2)/Sqrt(two) + &
              Log(one + four*x(1,:) + two**(onept5)*Sqrt(x(1,:) + &
              two*x(1,:)**2)) / four
@@ -258,7 +259,7 @@
       amp = cmplx(ampr,ampi)
 
       write(*,"('Enter s0 ==> ',$)")
-      read(*,*) x0
+      read(*,*) s0
 
       allocate( v(ny,nx,ndof) )
 
@@ -286,7 +287,7 @@
           q2(j,2) = u1
           q2(j,3) = u2
           do idof = 1, ndof
-            v(j,i,idof) = amp * q2(j,idof) * exp( im * alpha * (s(i) - x0) )
+            v(j,i,idof) = amp * q2(j,idof) * exp(im*alpha*(s(i)-s0))
           end do
           if (j.ne.ny) r = r + sqrt((x(j+1,i)-x(j,i))**2+(y(j+1,i)-y(j,i))**2)
         end do

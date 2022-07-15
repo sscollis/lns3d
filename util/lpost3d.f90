@@ -96,7 +96,7 @@ end module lpost3d
 
         logical :: threed=.false., debug=.false., rotate=.false.
         logical :: sub=.false., growth=.false., lfilter=.false.
-        logical :: add=.false., ltime=.false., switch_ij=.false.
+        logical :: add=.false., ltime=.false., switch_ij=.true.
         logical :: calcp=.false.
         integer, parameter :: mfile = 5
         integer :: body=0, emax=0
