@@ -3,5 +3,5 @@
 \rm -f body.dat comp.xyz cp.dat lns.dat.q metric.dat restart.dat wall.dat.*
 \rm -f bl3d.dat delta.dat delta2.dat echo.dat edge.dat mean.q.0 pot.q stat.dat
 \rm -f betah.dat fort.* omega-d.dat coord.dat field.mean filter.dat loc.dat mean.R.0
-\rm -f pedge.dat top.dat profile.* first.* second.* eig.pro
+\rm -f pedge.dat top.dat profile.* first.* second.* eig.pro *.dat
 exit 0
