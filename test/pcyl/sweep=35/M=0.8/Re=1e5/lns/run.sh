@@ -29,6 +29,7 @@ $LNS3D_DIR/mesh/interpc -x3 -y3 -o -p -ij <<EOF
 
 EOF
 \mv output.R.0 mean.R.0
+\cp mean.R.0 mean.dat
 $LNS3D_DIR/util/npost -p -t -Wc mean.R.0 <<EOF
 1 384 32 
 EOF
@@ -40,8 +41,13 @@ $STAB_DIR/stab < stab.inp
 #
 $STAB_DIR/getevec <<EOF
 evec.dat
-507
+506
 0
 EOF
-\cp space.1 evec.pro 
+tail -n +5 space.1 > eig.pro 
+#
+# make disturbance IC
+#
+$LNS3D_DIR/util/mkeig3d < mkeig3d.inp
+$LNS3D_DIR/util/lpost3d output.R.0
 exit 0
