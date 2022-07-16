@@ -32,6 +32,7 @@
       logical :: switch_ij = .true.
 
 !=============================================================================!
+      write(*,"('=================== MkEig3d ==================')")
       write(*,"('Interpolates an eigenfunction from a Chebyshev grid')")
       write(*,"('  to an arbitrary grid in file grid.dat')")
 
@@ -48,7 +49,7 @@
  20   continue
       close (10)
       n = i - 1
-      write(*,*) "Read n = ", n, " points in ", efun
+      write(*,*) "Read Ny = ", n, " points from ", efun
 
 !.... read the eigenfunction for real
 
@@ -202,7 +203,7 @@
 
 !.... write out the Chebyshev interpolant onto the new mesh
 
-      write (*,"('Enter Yi ==> ',$)")
+      write (*,"('Enter Yi (for semi-inifinte algebraic mapping) ==> ',$)")
       read (*,*) Lmap                   ! called Lmap herein
 
 !.... Compute inverse mapping

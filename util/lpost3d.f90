@@ -4,7 +4,7 @@ module lpost3d
       integer :: nbs, kord=5
       real, allocatable :: knot(:)
       real, allocatable :: bs(:)
-      
+
       real, external :: BSDER
 
 contains
@@ -13,14 +13,14 @@ contains
         real :: x, fun
         fun = BSDER( 0, x, kord, knot, nbs, bs )
       end function fun
-      
+
 end module lpost3d
 
 !=============================================================================!
         program main
-!  
+!
 !  lpost3d:  Post processor for three-dimensional linear calculations
-!  
+!
 !=============================================================================!
         use const
         use lpost3d
@@ -37,7 +37,7 @@ end module lpost3d
         real, allocatable :: vm(:,:,:), umb(:), vmb(:), wmb(:)
         integer :: nxm, nym, nzm, ndofm, lstepm
         real :: timem, Rem, Mam, Prm, gammam, cvm
-        
+
 !.... mesh
 
         real, allocatable :: x(:,:), y(:,:), xi(:), eta(:), z(:), s(:)
@@ -63,7 +63,7 @@ end module lpost3d
 
         character(80) file, temp
         integer :: iloc, iend
-#ifndef __GFORTRAN__    
+#ifndef __GFORTRAN__
         integer, external :: iargc
 #endif
         integer :: nx2, ny2, nz2
@@ -71,22 +71,22 @@ end module lpost3d
         integer :: itmp
         real :: tmp, arc, amp
         complex :: p
-        
+
         real :: b, beta, Lz, kz
 
-        logical :: xper=.false., yper=.false. 
+        logical :: xper=.false., yper=.false.
 
         integer :: npi
         real, allocatable :: rlog(:), ilog(:)
-        
+
         complex :: scale = (0.0,0.0)
         real :: smin, smax, savg
-        
+
         real :: dke, dke1, dke2, dke3
         real, allocatable :: dkeint(:), dkei1(:), dkei2(:), dkei3(:), fint(:)
         complex :: ke, te, mf1
         complex,allocatable :: teint(:)
-        
+
         real, allocatable :: umax(:), vmax(:), wmax(:), pro(:)
         real :: urmax, uimax
         complex, allocatable :: ucmax(:)
@@ -142,8 +142,8 @@ end module lpost3d
               body = 1
             case ('-c ')                ! assume it's a circular cylinder
               body = 2
-            case ('-ij')
-              switch_ij = .true.
+            case ('-ji')
+              switch_ij = .false.
             case('-cp')
               calcp = .true.
             case ('-h ')
@@ -164,7 +164,7 @@ end module lpost3d
               write(*,"('    -p:  assume a parabolic cylinder')")
               write(*,"('    -c:  assume a circular cylinder')")
               write(*,"('   -cp:  calculate pressure in 4th slot')")
-              write(*,"('   -ij:  read metric and restart in ij format')")
+              write(*,"('   -ji:  read metric and restart in ij format')")
               write(*,"('-----------------------------------------------')")
               call exit(0)
             case default
@@ -192,7 +192,7 @@ end module lpost3d
         if (temp(1:1) .ne. ' ') file = temp
         goto 10
  30     continue
-        
+
         read(10) lstep, time, nx, ny, nz, ndof, Re, Ma, Pr, gamma, cv
         if (nz .ne. 1) then
           write(*,"(' Error:  nz <> 1 ')")
@@ -239,7 +239,7 @@ end module lpost3d
                  (((y(j,i), i = 1, nx), j = 1, ny), k = 1, nz), &
                  (((   tmp, i = 1, nx), j = 1, ny), k = 1, nz)
         close(10)
- 
+
 !.... allocate storage for metrics
 
         allocate (m1(ny,nx),  m2(ny,nx),  n1(ny,nx),  n2(ny,nx), &
@@ -259,7 +259,7 @@ end module lpost3d
                    ((m22(j,i), i=1,nx),j=1,ny), &
                    ((n11(j,i), i=1,nx),j=1,ny), &
                    ((n12(j,i), i=1,nx),j=1,ny), &
-                   ((n22(j,i), i=1,nx),j=1,ny)          
+                   ((n22(j,i), i=1,nx),j=1,ny)
         else
           read(10) m1, m2, n1, n2, m11, m12, m22, n11, n12, n22
         end if
@@ -308,7 +308,7 @@ end module lpost3d
  101    continue
 
 !.... make the xi grid
-        
+
         dxi = one / float(nx-1)
         do i = 1, nx
           xi(i) = zero + (i-1) * dxi
@@ -434,18 +434,18 @@ end module lpost3d
         close(10)
         deallocate( u )
 
-!.... write out the magnitude into a separate (real) LNS file 
+!.... write out the magnitude into a separate (real) LNS file
 !.... for interpolation to another mesh
 
         open (10,file='mag.dat',form='unformatted',status='unknown')
         write(10) lstep, time, nx, ny, nz, ndof, Re, Ma, Pr, gamma, cv
         write(10) abs( q(:,:,:) )
         close(10)
-        
+
 !.... form the 3D field
 
         if (.true. .and. threed) then
-                
+
 !.... make the z grid
 
         write(*,"('Enter Nz ==> ',$)")
@@ -465,7 +465,7 @@ end module lpost3d
         end do
 
         allocate( u(nx,ny,nz,ndof) )
-        
+
         if (add) then
           write(*,"('Enter amp ==> ',$)")
           read(*,*) amp
@@ -518,16 +518,16 @@ end module lpost3d
         deallocate( xyz )
 
         end if
-        
+
         if (debug) then
-        
+
 !.... Magnitude at a fixed j off the wall
 
         write(*,"('Enter j ==> ',$)")
         read(*,*) j
         do i = 1, nx
           write(10,"(6(1pe21.12E4,1x))") s(i),   &
-                                        abs(q(j,i,1)), & 
+                                        abs(q(j,i,1)), &
                                         abs(q(j,i,2)), &
                                         abs(q(j,i,3)), &
                                         abs(q(j,i,4)), &
@@ -536,7 +536,7 @@ end module lpost3d
         close(10)
         do i = 1, nx
           write(11,"(6(1pe21.12E4,1x))") s(i),   &
-                                        real(q(j,i,1)), & 
+                                        real(q(j,i,1)), &
                                         real(q(j,i,2)), &
                                         real(q(j,i,3)), &
                                         real(q(j,i,4)), &
@@ -545,7 +545,7 @@ end module lpost3d
         close(11)
         do i = 1, nx
           write(12,"(6(1pe21.12E4,1x))") s(i),   &
-                                        aimag(q(j,i,1)), & 
+                                        aimag(q(j,i,1)), &
                                         aimag(q(j,i,2)), &
                                         aimag(q(j,i,3)), &
                                         aimag(q(j,i,4)), &
@@ -558,7 +558,7 @@ end module lpost3d
         i = 1
         do j = 1, ny
           write(13,"(6(1pe21.12E4,1x))") x(j,i),   &
-                                        real(q(j,i,1)), & 
+                                        real(q(j,i,1)), &
                                         real(q(j,i,2)), &
                                         real(q(j,i,3)), &
                                         real(q(j,i,4)), &
@@ -567,7 +567,7 @@ end module lpost3d
         close(13)
         do j = 1, ny
           write(14,"(6(1pe21.12E4,1x))") x(j,i),   &
-                                        aimag(q(j,i,1)), & 
+                                        aimag(q(j,i,1)), &
                                         aimag(q(j,i,2)), &
                                         aimag(q(j,i,3)), &
                                         aimag(q(j,i,4)), &
@@ -596,7 +596,7 @@ end module lpost3d
           evec(j,3) = wn1 * q(j,i,2) + wn2 * q(j,i,3)
           evec(j,4) = q(j,i,4)
           evec(j,5) = q(j,i,5)
-          
+
           umb(j) = wn2 * vm(j,i,2) - wn1 * vm(j,i,3)
           vmb(j) = wn1 * vm(j,i,2) + wn2 * vm(j,i,3)
           wmb(j) = vm(j,i,4)
@@ -604,7 +604,7 @@ end module lpost3d
 
         do j = 1, ny
           write(15,"(6(1pe21.12E4,1x))") ynn(j),   &
-                                        abs(q(j,i,1)), & 
+                                        abs(q(j,i,1)), &
                                         abs(q(j,i,2)), &
                                         abs(q(j,i,3)), &
                                         abs(q(j,i,4)), &
@@ -614,7 +614,7 @@ end module lpost3d
 
         do j = 1, ny
           write(16,"(6(1pe21.12E4,1x))") ynn(j),   &
-                                        real(q(j,i,1)), & 
+                                        real(q(j,i,1)), &
                                         real(q(j,i,2)), &
                                         real(q(j,i,3)), &
                                         real(q(j,i,4)), &
@@ -624,7 +624,7 @@ end module lpost3d
 
         do j = 1, ny
           write(32,"(6(1pe21.12E4,1x))") ynn(j),   &
-                                        aimag(q(j,i,1)), & 
+                                        aimag(q(j,i,1)), &
                                         aimag(q(j,i,2)), &
                                         aimag(q(j,i,3)), &
                                         aimag(q(j,i,4)), &
@@ -684,11 +684,11 @@ end module lpost3d
                      real( evec(j,5) ), aimag( evec(j,5) )
         end do
         close(17)
-        
+
         deallocate( evec, ynn, umb, vmb, wmb )
-        
+
         end if                  ! debug
-        
+
 !==============================================================================
 !.... Compute the growth-rates
 !==============================================================================
@@ -696,7 +696,7 @@ end module lpost3d
         smin = -one
         smax = -one
         if (growth) then
-          write(*,"('Enter smin, smax ==> ',$)") 
+          write(*,"('Enter smin, smax ==> ',$)")
           read(*,*) smin, smax
         end if
 
@@ -706,12 +706,13 @@ end module lpost3d
 !.... compute the local max of (u,v,w) in body-normal coordinates
 
         if (emax.eq.1) then
-        
+
+        open(unit=50,file='emax.dat',status='unknown',form='formatted')
         umax  = one
         vmax  = one
         wmax  = one
         ucmax = one
-        
+
         do i = 1, nx
           if ( s(i) .ge. smin .and. s(i) .le. smax ) then
             wn1 = n1(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
@@ -758,7 +759,8 @@ end module lpost3d
 
 !.... now compute the growth rates
 
-        do i = 1, nx
+        open(unit=51,file='emax-grw.dat',status='unknown',form='formatted')
+        do i = 2, nx
           if ( s(i) .ge. smin .and. s(i) .le. smax ) then
             savg = (s(i)+s(i-1))*pt5
             write(51,"(8(1pe21.12E4,1x))") (s(i)+s(i-1))*pt5,       &
@@ -769,6 +771,7 @@ end module lpost3d
         end do
         close(51)
 
+        open(unit=52,file='ucmax-grw.dat',status='unknown',form='formatted')
         npi = 0
         allocate( rlog(nx), ilog(nx) )
         do i = 2, nx
@@ -781,7 +784,7 @@ end module lpost3d
             ilog(i) = aimag(log(ucmax(i))) - npi * pi
             write(52,"(6(1pe21.12E4,1x))") (s(i)+s(i-1))*pt5,   &
                     (ilog(i)-ilog(i-1))/(s(i)-s(i-1)), &
-                    -(rlog(i)-rlog(i-1))/(s(i)-s(i-1)), &
+                   -(rlog(i)-rlog(i-1))/(s(i)-s(i-1)), &
                     (rlog(i)+rlog(i-1))*pt5, &
                     (ilog(i)+ilog(i-1))*pt5
           end if
@@ -800,7 +803,7 @@ end module lpost3d
         dkei1  = zero
         dkei2  = zero
         dkei3  = zero
-        
+
         nbs = ny
         allocate( knot(nbs+kord), bs(nbs), fint(nbs) )
 
@@ -838,14 +841,15 @@ end module lpost3d
           fint(:) = abs(evec(:,3))**2
           call BSINT( nbs, ynn, fint, kord, knot, bs )
           call QDAG( fun, zero, ynn(ny), 1.0e-8, 1.0e-8, 2, dkei2(i), errest )
-          
+
           fint(:) = abs(evec(:,4))**2
           call BSINT( nbs, ynn, fint, kord, knot, bs )
           call QDAG( fun, zero, ynn(ny), 1.0e-8, 1.0e-8, 2, dkei3(i), errest )
           end if
-          
+
 !.... integral in physical space using trapezoid
 
+          open(unit=20,file='dke.dat',status='unknown',form='formatted')
           if (.true.) then
             do j = 1, ny-1
               dke1 = abs(evec(j,2))**2
@@ -876,6 +880,7 @@ end module lpost3d
         deallocate( knot, bs, fint )
 
         if (growth) then
+          open(unit=21,file='dke-grw.dat',status='unknown',form='formatted')
           do i = 2, nx
             savg = (s(i)+s(i-1))*pt5
             if ( savg .gt. smin .and. savg .lt. smax ) then
@@ -892,6 +897,7 @@ end module lpost3d
 !.... compute the total energy integral
 
         allocate( teint(nx) )
+        open(unit=22,file='te.dat',status='unknown',form='formatted')
         do i = 1, nx
           j = 1
           ke  = ( vm(j,i,2) * q(j,i,2) + vm(j,i,3) * q(j,i,3) + &
@@ -916,6 +922,7 @@ end module lpost3d
         close(22)
 
         if (growth) then
+          open(unit=23,file='te-grw.dat',status='unknown',form='formatted')
           npi = 0
           allocate( rlog(nx), ilog(nx) )
           do i = 2, nx
@@ -939,6 +946,7 @@ end module lpost3d
 
 !.... compute the kinetic energy integral
 
+        open(unit=24,file='ke.dat',status='unknown',form='formatted')
         do i = 1, nx
           j = 1
           ke  = ( vm(j,i,2) * q(j,i,2) + vm(j,i,3) * q(j,i,3) + &
@@ -963,6 +971,7 @@ end module lpost3d
         close(24)
 
         if (growth) then
+          open(unit=25,file='ke-grw.dat',status='unknown',form='formatted')
           npi = 0
           allocate( rlog(nx), ilog(nx) )
           do i = 2, nx
@@ -986,6 +995,7 @@ end module lpost3d
 
 !.... compute the u energy integral
 
+        open(unit=26,file='ue.dat',status='unknown',form='formatted')
         do i = 1, nx
           j = 1
           ke  = ( vm(j,i,2) * q(j,i,2) )
@@ -1000,13 +1010,13 @@ end module lpost3d
           ke  = ( vm(j,i,2) * q(j,i,2) )
           te  = ke
           teint(i) = teint(i) + pt5 * deta * te
-
           write(26,"(6(1pe21.12E4,1x))") s(i), abs(teint(i)), &
                                          real(teint(i)), aimag(teint(i))
         end do
         close(26)
 
         if (growth) then
+          open(unit=27,file='ue-grw.dat',status='unknown',form='formatted')
           npi = 0
           allocate( rlog(nx), ilog(nx) )
           do i = 2, nx
@@ -1030,8 +1040,9 @@ end module lpost3d
 
 !.... compute the v energy integral
 
-        if (.false.) then
-        
+#ifdef ADDITIONAL_VELOCITY_INTEGRALS
+
+        open(unit=28,file='ve.dat',status='unknown',form='formatted')
         do i = 1, nx
           j = 1
           ke  = ( vm(j,i,3) * q(j,i,3) )
@@ -1053,6 +1064,7 @@ end module lpost3d
         close(28)
 
         if (growth) then
+          open(unit=29,file='ve-grw.dat',status='unknown',form='formatted')
           npi = 0
           allocate( rlog(nx), ilog(nx) )
           do i = 2, nx
@@ -1076,6 +1088,7 @@ end module lpost3d
 
 !.... compute the w energy integral
 
+        open(unit=30,file='we.dat',status='unknown',form='formatted')
         do i = 1, nx
           j = 1
           ke  = ( vm(j,i,4) * q(j,i,4) )
@@ -1097,6 +1110,7 @@ end module lpost3d
         close(30)
 
         if (growth) then
+          open(unit=31,file='we-grw.dat',status='unknown',form='formatted')
           npi = 0
           allocate( rlog(nx), ilog(nx) )
           do i = 2, nx
@@ -1118,7 +1132,7 @@ end module lpost3d
           deallocate( rlog, ilog )
         end if
 
-        end if
+#endif 
 
-        call exit(0)    
+        call exit(0)
         end

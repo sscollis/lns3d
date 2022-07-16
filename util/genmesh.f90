@@ -32,10 +32,11 @@
 
         real :: ds1, ds2, dd, xi
 !-----------------------------------------------------------------------------
-        write(*,*) 'WARNING:  Indices are I,J'
+        write(*,*) 'GenMesh:  simple 2d mesh generator.'
+        write(*,*) 'NOTE:  Indices are I,J'
         write(*,"('Enter nx, ny ==> ',$)")
         read(*,*) nx, ny
-        write(*,"('Enter Yi (Yi = 0 makes a uniform mesh) ==> ',$)")
+        write(*,"('Enter Yi (Yi=0 uniform, Yi>0 algebraic, Yi<0 Tanh) ==> ',$)")
         read(*,*) yi
         write(*,"('Enter xmin, xmax ==> ',$)")
         read(*,*) xmin, xmax
