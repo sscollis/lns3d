@@ -164,7 +164,7 @@ end module lpost3d
               write(*,"('    -p:  assume a parabolic cylinder')")
               write(*,"('    -c:  assume a circular cylinder')")
               write(*,"('   -cp:  calculate pressure in 4th slot')")
-              write(*,"('   -ji:  read metric and restart in ij format')")
+              write(*,"('   -ji:  read metric and restart in ji format')")
               write(*,"('-----------------------------------------------')")
               call exit(0)
             case default

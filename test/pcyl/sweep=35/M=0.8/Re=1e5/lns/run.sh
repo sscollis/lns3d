@@ -41,7 +41,7 @@ $STAB_DIR/stab < stab.inp
 #
 $STAB_DIR/getevec <<EOF
 evec.dat
-506
+507
 0
 EOF
 tail -n +5 space.1 > eig.pro 
@@ -50,4 +50,11 @@ tail -n +5 space.1 > eig.pro
 #
 $LNS3D_DIR/util/mkeig3d < mkeig3d.inp
 $LNS3D_DIR/util/lpost3d output.R.0
+#
+# run lns3d
+#
+$LNS3D_DIR/src/lns3d < lns3d.inp
+#
+#
+#
 exit 0
