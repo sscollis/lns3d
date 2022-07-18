@@ -225,6 +225,9 @@
             q2(j,idof) = q2(j,idof) + q(m+1,idof) * COS(float(m)*th)
           end do
         end do
+
+!.... Make sure that eigenfunctions must be in (x,y) global dimensions
+
         u1 =  bn2(i) * q2(j,2) + bn1(i) * q2(j,3)
         u2 = -bn1(i) * q2(j,2) + bn2(i) * q2(j,3)
         q2(j,2) = u1
@@ -283,6 +286,9 @@
               q2(j,idof) = q2(j,idof) + q(m+1,idof) * COS(float(m)*th)
             end do
           end do
+
+!.... Make sure that eigenfunctions are in x,y global dimensions
+
           u1 =  bn2(i) * q2(j,2) + bn1(i) * q2(j,3)
           u2 = -bn1(i) * q2(j,2) + bn2(i) * q2(j,3)
           q2(j,2) = u1

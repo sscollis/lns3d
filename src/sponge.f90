@@ -170,7 +170,41 @@
               write(9,"(4(1pe13.6,1x))") x(i,j), y(i,j), eta(j), spg2(i,j)
             end do
             close(9)
+          end if
 
+!.... sponge on top boundary 
+
+          if (ispg.eq.5) then
+            if (compSpg2) then
+              !$omp parallel do private(i,j)
+              do j = 1, ny
+                do i = 1, nx
+                  if ( eta(j) .ge. xs2 .and. eta(j) .le. xt2 ) then
+                    spg2(i,j) = As2 * ((eta(j)-xs2)/(xt2-xs2))**Ns2
+                  else
+                    spg2(i,j) = zero
+                  end if
+                end do
+              end do
+            else
+              !$omp parallel do private(i,j)
+              do i = 1, nx
+                do j = 1, ny
+                  rr = sqrt( x(i,j)**2 + y(i,j)**2 )
+                  if ( rr .ge. xs2 .and. rr .le. xt2 ) then
+                    spg2(i,j) = As2 * ((rr-xs2)/(xt2-xs2))**Ns2
+                  else
+                    spg2(i,j) = zero
+                  end if
+                end do
+              end do
+            endif
+            i = 1
+            open(9,file='sponge2.dat')
+            do j = 1, ny
+              write(9,"(4(1pe13.6,1x))") x(i,j), y(i,j), eta(j), spg2(i,j)
+            end do
+            close(9)
           end if
 
         end if

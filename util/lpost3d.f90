@@ -714,43 +714,43 @@ end module lpost3d
         ucmax = one
 
         do i = 1, nx
+          wn1 = n1(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
+          wn2 = n2(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
+          arc = zero
+          do j = 1, ny
+            ynn(j) = arc
+            if (j.ne.ny) arc = arc + sqrt( (x(j+1,i)-x(j,i))**2 + &
+                                           (y(j+1,i)-y(j,i))**2 )
+            evec(j,1) = q(j,i,1)
+            evec(j,2) = wn2 * q(j,i,2) - wn1 * q(j,i,3)
+            evec(j,3) = wn1 * q(j,i,2) + wn2 * q(j,i,3)
+            evec(j,4) = q(j,i,4)
+            evec(j,5) = q(j,i,5)
+          end do
+
+!         pro = abs( vm(:,i,1) * evec(:,2) )
+          pro = abs( evec(:,2) )
+          umax(i) = findmax( ny, ynn, pro, yumax )
+
+          pro = real( evec(:,2) )
+          urmax = getval( ny, ynn, pro, yumax )
+          pro = aimag( evec(:,2) )
+          uimax = getval( ny, ynn, pro, yumax )
+          ucmax(i) = cmplx(urmax,uimax)
+
+!         pro = abs( vm(:,i,1) * evec(:,3) )
+          pro = abs( evec(:,3) )
+!         vmax(i) = findmax( ny, ynn, pro, yvmax )
+          yvmax = yumax
+          vmax(i) = getval( ny, ynn, pro, yvmax )
+
+!         pro = abs( vm(:,i,1) * evec(:,4) )
+          pro = abs( evec(:,4) )
+!         wmax(i) = findmax( ny, ynn, pro, ywmax )
+          ywmax = yumax
+          wmax(i) = getval( ny, ynn, pro, ywmax )
+
           if ( s(i) .ge. smin .and. s(i) .le. smax ) then
-            wn1 = n1(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
-            wn2 = n2(1,i) / sqrt( n1(1,i)**2 + n2(1,i)**2 )
-            arc = zero
-            do j = 1, ny
-              ynn(j) = arc
-              if (j.ne.ny) arc = arc + sqrt( (x(j+1,i)-x(j,i))**2 + &
-                                             (y(j+1,i)-y(j,i))**2 )
-              evec(j,1) = q(j,i,1)
-              evec(j,2) = wn2 * q(j,i,2) - wn1 * q(j,i,3)
-              evec(j,3) = wn1 * q(j,i,2) + wn2 * q(j,i,3)
-              evec(j,4) = q(j,i,4)
-              evec(j,5) = q(j,i,5)
-            end do
-
-!           pro = abs( vm(:,i,1) * evec(:,2) )
-            pro = abs( evec(:,2) )
-            umax(i) = findmax( ny, ynn, pro, yumax )
-
-            pro = real( evec(:,2) )
-            urmax = getval( ny, ynn, pro, yumax )
-            pro = aimag( evec(:,2) )
-            uimax = getval( ny, ynn, pro, yumax )
-            ucmax(i) = cmplx(urmax,uimax)
-
-!           pro = abs( vm(:,i,1) * evec(:,3) )
-            pro = abs( evec(:,3) )
-!           vmax(i) = findmax( ny, ynn, pro, yvmax )
-            yvmax = yumax
-            vmax(i) = getval( ny, ynn, pro, yvmax )
-
-!           pro = abs( vm(:,i,1) * evec(:,4) )
-            pro = abs( evec(:,4) )
-!           wmax(i) = findmax( ny, ynn, pro, ywmax )
-            ywmax = yumax
-            wmax(i) = getval( ny, ynn, pro, ywmax )
-
             write(50,"(8(1pe21.12E4,1x))") s(i), umax(i), vmax(i), wmax(i), &
                                            yumax, yvmax, ywmax
           end if
@@ -776,12 +776,12 @@ end module lpost3d
         allocate( rlog(nx), ilog(nx) )
         do i = 2, nx
           savg = (s(i)+s(i-1))*pt5
+          if (aimag(log(ucmax(i))) .gt. aimag(log(ucmax(i-1))) ) then
+            npi = npi + 2
+          end if
+          rlog(i) = real(log(ucmax(i)))
+          ilog(i) = aimag(log(ucmax(i))) - npi * pi
           if ( savg .gt. smin .and. savg .lt. smax ) then
-            if (aimag(log(ucmax(i))) .gt. aimag(log(ucmax(i-1))) ) then
-              npi = npi + 2
-            end if
-            rlog(i) = real(log(ucmax(i)))
-            ilog(i) = aimag(log(ucmax(i))) - npi * pi
             write(52,"(6(1pe21.12E4,1x))") (s(i)+s(i-1))*pt5,   &
                     (ilog(i)-ilog(i-1))/(s(i)-s(i-1)), &
                    -(rlog(i)-rlog(i-1))/(s(i)-s(i-1)), &

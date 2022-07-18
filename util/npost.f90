@@ -713,7 +713,8 @@
                    unn(ny) )
         open(11,file='loc.dat')
         write(11,"('# ',a)") "i, s(i), x(i,1)"
-        write(39,"('# ',a)") "x(i,1), s(i), edge, rhoe, ue, ve, we, te, umag, alp"
+        write(39,"('# ',a)") &
+          "x(i,1), s(i), edge, rhoe, ue, ve, we, te, umag, alp"
         do i = imin, imax, inc
           if (i.gt.0 .and. i.le.nx) then
           call makename(base,i,fname)
@@ -795,10 +796,11 @@
 #endif
           write(39,"(10(1pe13.6,1x))") x(i,1), s(i), edge, rhoe, ue, ve, &
                                        we, te, umag, alp*180.0/pi
-          open(10,file=fname)
-          open(12,file=fname1)
-          open(13,file=fname2)
-          write(10,"('# ',a)") 'n, rho, us, un, w, t, p, \tilde us/Ue, \tilde ws/Ue'
+          open(10,file=fname)   ! profile
+          open(12,file=fname1)  ! first
+          open(13,file=fname2)  ! second
+          write(10,"('# ',a)") &
+            'n, rho, us, un, w, t, p, \tilde us/Ue, \tilde ws/Ue'
           do j = 1, ny
             write(10,"(9(1pe17.9e3,1x))") ynn(j), v(1,i,j), uss(j), &
                unn(j), v(4,i,j), v(5,i,j), p(i,j), &
