@@ -31,7 +31,7 @@ EOF
 \mv output.R.0 mean.R.0
 \cp mean.R.0 mean.dat
 $LNS3D_DIR/util/npost -p -t -Wc mean.R.0 <<EOF
-1 384 32 
+1 1024 128 
 EOF
 #
 # Run stability analysis (sweep in beta)
