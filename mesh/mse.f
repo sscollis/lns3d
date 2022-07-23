@@ -1020,12 +1020,10 @@ c=============================================================================c
         function xloc(x,ds)
 c=============================================================================c
 c       implicit double precision (a-h,o-z)
-        parameter (zero=0.0d0, pt5=0.5d0, one=1.0d0, two=2.0d0)
-
-        external rtsec, rtflsp, func, zbrent
-
         common /stuff/ AR, rm, rn, xmin, xmax
         common /distance/ darc, x1
+        external rtsec, rtflsp, func, zbrent
+        parameter (zero=0.0d0, pt5=0.5d0, one=1.0d0, two=2.0d0)
 c=============================================================================c
         darc = ds
         x1   = x
@@ -1040,11 +1038,9 @@ c=============================================================================c
         function func(x)
 c=============================================================================c
 c       implicit double precision (a-h,o-z)
-        parameter (zero=0.0d0, pt5=0.5d0, one=1.0d0, two=2.0d0)
-
-        external arc
-
         common /distance/ darc, x1
+        external arc
+        parameter (zero=0.0d0, pt5=0.5d0, one=1.0d0, two=2.0d0)
 c=============================================================================c
         func = darc - arc(x1,x)
 
@@ -1054,14 +1050,11 @@ c=============================================================================c
         function arc(x1,x2)
 c=============================================================================c
 c       implicit double precision (a-h,o-z)
+        common /stuff/ AR, rm, rn, xmin, xmax
+        external derivs1, derivs2, RKQCR
         parameter (zero=0.0d0, pt5=0.5d0, one=1.0d0, two=2.0d0)
-
         parameter EPS = 1.0e-10
         parameter HMIN = 1.0e-8
-
-        external derivs1, derivs2, RKQCR
-
-        common /stuff/ AR, rm, rn, xmin, xmax
 c=============================================================================c
         s = zero
         xtmp = AR * pt5

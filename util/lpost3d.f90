@@ -927,12 +927,12 @@ end module lpost3d
           allocate( rlog(nx), ilog(nx) )
           do i = 2, nx
             savg = (s(i)+s(i-1))*pt5
+            if (aimag(log(teint(i))) .gt. aimag(log(teint(i-1))) ) then
+              npi = npi + 2
+            end if
+            rlog(i) = real(log(teint(i)))
+            ilog(i) = aimag(log(teint(i))) - npi * pi
             if ( savg .gt. smin .and. savg .lt. smax ) then
-              if (aimag(log(teint(i))) .gt. aimag(log(teint(i-1))) ) then
-                npi = npi + 2
-              end if
-              rlog(i) = real(log(teint(i)))
-              ilog(i) = aimag(log(teint(i))) - npi * pi
               write(23,"(6(1pe21.12E4,1x))") (s(i)+s(i-1))*pt5,   &
                       (ilog(i)-ilog(i-1))/(s(i)-s(i-1)), &
                      -(rlog(i)-rlog(i-1))/(s(i)-s(i-1)), &
@@ -976,12 +976,12 @@ end module lpost3d
           allocate( rlog(nx), ilog(nx) )
           do i = 2, nx
             savg = (s(i)+s(i-1))*pt5
+            if (aimag(log(teint(i))) .gt. aimag(log(teint(i-1))) ) then
+              npi = npi + 2
+            end if
+            rlog(i) = real(log(teint(i)))
+            ilog(i) = aimag(log(teint(i))) - npi * pi
             if ( savg .gt. smin .and. savg .lt. smax ) then
-              if (aimag(log(teint(i))) .gt. aimag(log(teint(i-1))) ) then
-                npi = npi + 2
-              end if
-              rlog(i) = real(log(teint(i)))
-              ilog(i) = aimag(log(teint(i))) - npi * pi
               write(25,"(6(1pe21.12E4,1x))") (s(i)+s(i-1))*pt5,   &
                       (ilog(i)-ilog(i-1))/(s(i)-s(i-1)), &
                      -(rlog(i)-rlog(i-1))/(s(i)-s(i-1)), &
@@ -1021,12 +1021,12 @@ end module lpost3d
           allocate( rlog(nx), ilog(nx) )
           do i = 2, nx
             savg = (s(i)+s(i-1))*pt5
+            if (aimag(log(teint(i))) .gt. aimag(log(teint(i-1))) ) then
+              npi = npi + 2
+            end if
+            rlog(i) = real(log(teint(i)))
+            ilog(i) = aimag(log(teint(i))) - npi * pi
             if ( savg .gt. smin .and. savg .lt. smax ) then
-              if (aimag(log(teint(i))) .gt. aimag(log(teint(i-1))) ) then
-                npi = npi + 2
-              end if
-              rlog(i) = real(log(teint(i)))
-              ilog(i) = aimag(log(teint(i))) - npi * pi
               write(27,"(6(1pe21.12E4,1x))") (s(i)+s(i-1))*pt5,   &
                       (ilog(i)-ilog(i-1))/(s(i)-s(i-1)), &
                      -(rlog(i)-rlog(i-1))/(s(i)-s(i-1)), &
@@ -1057,7 +1057,6 @@ end module lpost3d
           ke  = ( vm(j,i,3) * q(j,i,3) )
           te  = ke
           teint(i) = teint(i) + pt5 * deta * te
-
           write(28,"(6(1pe21.12E4,1x))") s(i), abs(teint(i)), &
                                          real(teint(i)), aimag(teint(i))
         end do
@@ -1069,12 +1068,12 @@ end module lpost3d
           allocate( rlog(nx), ilog(nx) )
           do i = 2, nx
             savg = (s(i)+s(i-1))*pt5
+            if (aimag(log(teint(i))) .gt. aimag(log(teint(i-1))) ) then
+              npi = npi + 2
+            end if
+            rlog(i) = real(log(teint(i)))
+            ilog(i) = aimag(log(teint(i))) - npi * pi
             if ( savg .gt. smin .and. savg .lt. smax ) then
-              if (aimag(log(teint(i))) .gt. aimag(log(teint(i-1))) ) then
-                npi = npi + 2
-              end if
-              rlog(i) = real(log(teint(i)))
-              ilog(i) = aimag(log(teint(i))) - npi * pi
               write(29,"(6(1pe21.12E4,1x))") (s(i)+s(i-1))*pt5,   &
                       (ilog(i)-ilog(i-1))/(s(i)-s(i-1)), &
                      -(rlog(i)-rlog(i-1))/(s(i)-s(i-1)), &
@@ -1103,7 +1102,6 @@ end module lpost3d
           ke  = ( vm(j,i,4) * q(j,i,4) )
           te  = ke
           teint(i) = teint(i) + pt5 * deta * te
-
           write(30,"(6(1pe21.12E4,1x))") s(i), abs(teint(i)), &
                                          real(teint(i)), aimag(teint(i))
         end do
@@ -1115,12 +1113,12 @@ end module lpost3d
           allocate( rlog(nx), ilog(nx) )
           do i = 2, nx
             savg = (s(i)+s(i-1))*pt5
+            if (aimag(log(teint(i))) .gt. aimag(log(teint(i-1))) ) then
+              npi = npi + 2
+            end if
+            rlog(i) = real(log(teint(i)))
+            ilog(i) = aimag(log(teint(i))) - npi * pi
             if ( savg .gt. smin .and. savg .lt. smax ) then
-              if (aimag(log(teint(i))) .gt. aimag(log(teint(i-1))) ) then
-                npi = npi + 2
-              end if
-              rlog(i) = real(log(teint(i)))
-              ilog(i) = aimag(log(teint(i))) - npi * pi
               write(31,"(6(1pe21.12E4,1x))") (s(i)+s(i-1))*pt5,   &
                       (ilog(i)-ilog(i-1))/(s(i)-s(i-1)), &
                      -(rlog(i)-rlog(i-1))/(s(i)-s(i-1)), &
@@ -1131,8 +1129,6 @@ end module lpost3d
           close(31)
           deallocate( rlog, ilog )
         end if
-
 #endif 
-
         call exit(0)
         end
