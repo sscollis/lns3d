@@ -19,10 +19,20 @@ F77FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -ffixed-line-length-120 \
 -std=legacy $(DEFINES) -c $(DEBUG)
 F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEFINES) -c $(DEBUG)
 OFLAGS   = $(DEBUG) -o $(NAME)
-LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas -L/usr/local/lib -larpack
-COMP_F90 = gfortran
-COMP_F77 = gfortran
-COMP_CC  = gcc-11
+LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas 
+FC  = gfortran
+F77 = gfortran
+CC  = gcc-11
+#
+#  Optionally use ARpack
+#
+ifdef USE_ARPACK
+  DEFINES += -DUSE_ARPACK
+  ifeq ($(ARPACK_DIR),)
+    ARPACK_DIR = /usr/local/lib
+  endif
+  LIB += -L$(ARPACK_DIR) -larpack
+endif
 #
 #  Define Fortran 90 suffix
 #
@@ -50,13 +60,17 @@ rhsbc3d.o cpenta1p.o cpenta2p.o cpenta1bc.o cpenta2bc.o init.o		\
 lhs1f3d.o lhsbt1f3d.o lhsbt2f3d.o lhsbc1f3d.o lhsbc2f3d.o lhsbs1f3d.o	\
 expdrv3d.o rk3d.o rkbc3d.o lhs2f3d.o fstat3d.o potential.o genbump.o	\
 smoother3d.o misc.o rhs_l.o rpenta1p.o rpenta2p.o rpenta1bc.o rpenta2bc.o \
-ZnaupdClass.o ZneupdClass.o si_eigdrv3d_new.o eigbc3d.o lwallbc.o wallbc.o \
-gena_n.o genb_n.o gena_l.o genb_l.o
+lwallbc.o wallbc.o gena_n.o genb_n.o gena_l.o genb_l.o
+
+ifdef USE_ARPACK
+  OBJS += ZnaupdClass.o ZneupdClass.o si_eigdrv3d_new.o eigbc3d.o
+endif
+
 #adi.o
 #la_eigdrv3d.o
 
 $(NAME): $(MODS) $(OBJS)
-	$(COMP_F90) $(OFLAGS) $(MODS) $(OBJS) $(LIB)
+	$(FC) $(OFLAGS) $(MODS) $(OBJS) $(LIB)
 
 help:
 	@echo $(MODULES)
@@ -118,16 +132,16 @@ eigbc3d.o: global.o stencil.o bump.o
 adi.o: global.o local2d.o
 
 .f90.mod:
-	$(COMP_F90) $(F()FLABS) $*.f90
+	$(FC) $(F90FLAGS) $*.f90
 
 clean:
 	$(RM) *.o *.mod
 
 .f90.o:
-	$(COMP_F90) $(F90FLAGS) $*.f90 
+	$(FC) $(F90FLAGS) $*.f90 
 
 .f.o:
-	$(COMP_F77) $(F77FLAGS) $*.f
+	$(F77) $(F77FLAGS) $*.f
 
 .c.o:
-	$(COMP_CC) -O -c $*.c
+	$(CC) -O -c $*.c
