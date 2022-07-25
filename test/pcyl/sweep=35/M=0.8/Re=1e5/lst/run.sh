@@ -43,10 +43,10 @@ $STAB_DIR/getab -v < getab.inp
 #
 # Output eigenvector at max instability
 #
-$STAB_DIR/getevec <<EOF
+$STAB_DIR/getevec -v <<EOF
 eig.14
-506
-0
+-1.0420882789557E+002  -3.9004081609224E+000
+0 0
 EOF
 \mv space.1 space-beta.14
 exit 0
