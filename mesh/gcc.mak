@@ -51,13 +51,13 @@ ogrid: ogrid.o
 	$(FC) $(OFLAGS) -o ogrid ogrid.o
 
 mse: mse.o
-	$(FC) $(OFLAGS) $(LIB) -o mse mse.o
+	$(FC) mse.o $(OFLAGS) $(LIB) -o mse
 
 msecurve: msecurve.o
-	$(FC) $(OFLAGS) $(LIB) -o msecurve msecurve.o
+	$(FC) msecurve.o $(OFLAGS) $(LIB) -o msecurve
 
 confpc: wgrid.o  wdata.o  confpc.o
-	$(FC) $(OFLAGS) $(LIB) -o confpc wgrid.o wdata.o confpc.o 
+	$(FC) $(OFLAGS) -o confpc wgrid.o wdata.o confpc.o $(LIB) 
 
 interpc: interpc.o calcd.o grad.o $(BSLIB)
 	$(FC) $(OFLAGS) -o interpc interpc.o calcd.o grad.o $(BSLIB) $(LIB)
@@ -69,10 +69,10 @@ pc: pc.o wdata.o wgrid.o
 	$(FC) $(OFLAGS) -o pc pc.o wdata.o wgrid.o $(LIB)
 
 testpc: testpc.o
-	$(FC) $(OFLAGS) $(LIB) -o testpc testpc.o
+	$(FC) $(OFLAGS) -o testpc testpc.o $(LIB)
 
 pcurve: pcurve.o
-	$(FC) $(OFLAGS) $(LIB) -o pcurve pcurve.o
+	$(FC) $(OFLAGS) -o pcurve pcurve.o $(LIB)
 
 level: level.o splcrv.o crvdist.o wgrid.o wdata.o elliptic.o conformal.o $(BSLIB)
 	$(FC) $(OFLAGS) -o level level.o splcrv.o crvdist.o wgrid.o wdata.o \
