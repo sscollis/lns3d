@@ -38,14 +38,14 @@ $STAB_DIR/stab < stab.inp
 #
 # Extract most unstable mode
 #
-$STAB_DIR/getab < getab.inp
+$STAB_DIR/getab -v < getab.inp
 \mv stab.out stab-beta.out
 #
 # Output eigenvector at max instability
 #
 $STAB_DIR/getevec <<EOF
 eig.14
-505
+506
 0
 EOF
 \mv space.1 space-beta.14
