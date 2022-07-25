@@ -37,15 +37,19 @@ ifdef USE_NR
     LIBNR_DIR = $(HOME)/git/NR-utilities
   endif
   LIB += -L$(LIBNR_DIR) -lnr 
-  DEFINES += "-DUSE_NR"
+  DEFINES += -DUSE_NR
 endif
 
 MATHLIB = zeroin.o d1mach.o
 
 ALL = conv-sgi lpost subwave csubwave mkamp mkini mkdist mkdist3d mkmean \
-genmesh initial nconvert getevec mkvortex ij2ji ji2ij mkmean_ji mkdist3d_ji \
+genmesh initial nconvert mkvortex ij2ji ji2ij mkmean_ji mkdist3d_ji \
 mkdist_ji r4tor8 dirp3d p3dlns3d unipot npost spost lpost3d lpost3d_ji stat \
 mkvortex_v1 mkvortex_v2 mkeig3d inter
+
+ifdef USE_ARPACK
+  ALL += getevec.o
+endif
 
 all: $(ALL) 
 
