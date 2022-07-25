@@ -41,7 +41,7 @@ $STAB_DIR/stab < stab.inp
 #
 $STAB_DIR/getevec <<EOF
 evec.dat
-507
+506
 0
 EOF
 tail -n +5 space.1 > eig.pro 
