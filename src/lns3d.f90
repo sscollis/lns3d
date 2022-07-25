@@ -156,8 +156,10 @@
               call expdrv3d
             else if (impl.eq.1 .or. impl.eq.2 .or. impl.eq.3) then
               call impdrv3d
+#ifdef USE_ARPACK
             else if (impl.eq.4) then ! eigenvalue analysis
               call eigdrv3d
+#endif
             else
               call error(code,'Invalid value for impl$')
             end if
