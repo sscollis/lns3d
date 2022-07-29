@@ -1,11 +1,10 @@
-0  
-0.8 1e5 1
-128 1 1
-1
-0
-0 0 0 1
-8
-0 0 1
-35 35 1
-1 384 2
-0
+0          ! mattype
+0.8 1e5 1  ! Ma, Re, Pr
+500 0.2   ! Ny, Ymax
+1          ! ievec (0/1)
+35 0       ! beta
+0 0        ! omega
+1          ! curve (0/1)
+T          ! useParallel (T/F)
+0          ! npcalc
+T          ! eigfunctions
