@@ -1,0 +1,11 @@
+0          ! mattype
+0.8 1e5 1  ! Ma, Re, Pr
+128 1 0    ! ny, Yi, ymax (0 for chebychev)
+1          ! Compute eigenfunctions (0/1)
+0          ! Use internal derivatives (0/1)
+0 0 0 1    ! top, wall, wallt, curve
+8          ! Analysis type (1-9)
+0 0 1      ! Omega:  min, max, inc
+35 35 1    ! Beta:   min, max, inc
+1 384 2    ! Index:  min, max, inc
+0          ! dtype (0=Cheby, 1=FD)
