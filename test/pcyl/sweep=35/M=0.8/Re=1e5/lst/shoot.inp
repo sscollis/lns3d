@@ -1,6 +1,6 @@
 0          ! mattyp
 0.8 1e5 1  ! Me, Re, Pr
-2000 0.4   ! ny, ymax
+1000 0.4   ! ny, ymax
 1          ! ievec (0/1)
 35 0       ! beta
 0 0        ! omega
