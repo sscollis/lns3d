@@ -8,4 +8,7 @@ make clean && make USE_NR=1
 cd ../mesh
 \ln -fs gcc.mak Makefile
 make clean && make USE_NR=1
+cd ../pre/src
+\ln -fs gcc.mak Makefile
+make clean && make
 exit 0
