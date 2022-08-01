@@ -29,7 +29,7 @@
 # Executables
 #*.1
 *.exe
-*.out
+#*.out
 *.app
 lns3d
 pre.exe
@@ -55,4 +55,3 @@ comp.xyz
 lns.q.1
 space-beta.*
 wall.dat.1
-
