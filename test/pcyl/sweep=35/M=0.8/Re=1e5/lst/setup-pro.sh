@@ -31,22 +31,4 @@ EOF
 $LNS3D_DIR/util/npost -p -t -Wc output.R.0 <<EOF
 1 384 1
 EOF
-#
-# Run stability analysis (sweep in beta)
-#
-$STAB_DIR/stab < stab.inp
-#
-# Extract most unstable mode
-#
-$STAB_DIR/getab -v < getab.inp
-\mv stab.out stab-beta.out
-#
-# Output eigenvector at max instability
-#
-$STAB_DIR/getevec -v <<EOF
-eig.14
--1.0420882789557E+002  -3.9004081609224E+000
-0 0
-EOF
-\mv space.1 space-beta.14
-exit $? 
+exit 0
