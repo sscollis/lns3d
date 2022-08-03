@@ -7,7 +7,7 @@
 #  Revised: 12-19-00
 #
 #=============================================================================
-NAME     = lns3d 
+NAME     = lns3d
 DEBUG    = -O2 -fopenmp -g
 #
 # Activates unstead inflow BC's and sponge for linearied 3d runs
@@ -19,7 +19,7 @@ F77FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -ffixed-line-length-120 \
 -std=legacy $(DEFINES) -c $(DEBUG)
 F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEFINES) -c $(DEBUG)
 OFLAGS   = $(DEBUG) -o $(NAME)
-LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas 
+LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 FC  = gfortran
 F77 = gfortran
 CC  = gcc-11
@@ -71,6 +71,7 @@ endif
 
 $(NAME): $(MODS) $(OBJS)
 	$(FC) $(OFLAGS) $(MODS) $(OBJS) $(LIB)
+	\cp $(NAME) $(NAME).exe
 
 help:
 	@echo $(MODULES)
