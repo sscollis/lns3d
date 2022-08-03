@@ -16,7 +16,7 @@ eigenfunction to force on the inflow for frequency $\omega=0$ and spanwise
 wavenumber $\beta=35$.
 
 The streamwise wavenumber from LST for these conditions on the infow is
-$$\alpha = -24.927746836647 - 0.82432019175349 i$$
+$$\alpha_{LST} = -24.927746836647 - 0.82432019175349 i$$
 
 Note that the inflow conditions are now specified fully with the namelist 
 input file `inflow.nm`.
