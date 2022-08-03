@@ -7,11 +7,11 @@ STAB_DIR=${STAB_DIR:=$HOME/git/stab}
 #
 # Run stability analysis (sweep in beta)
 #
-$STAB_DIR/stab < stab.inp
+$STAB_DIR/stab < stab-beta.inp
 #
 # Extract most unstable mode
 #
-$STAB_DIR/getab -v < getab.inp
+$STAB_DIR/getab -v < getab-beta.inp
 \mv stab.out stab-beta.out
 #
 # Output eigenvector at max instability
