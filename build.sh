@@ -26,10 +26,10 @@ cd ../mesh && \
 \ln -fs gcc.mak Makefile && \
 make clean && make USE_NR=1 $@ && \
 #
-# LNS3d pre-processors
+# LNS3d pre-processor
 #
 cd ../pre/src && \
-\ln -fs gcc.mak Makefile $@ && \
-make clean && make
+\ln -fs gcc.mak Makefile && \
+make clean && make $@
 #
 exit $? 
