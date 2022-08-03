@@ -3,8 +3,9 @@
 This directory runs a LNS calculation using LNS3D that inherently includes
 both surface curvature and nonparallel growth.
 
-This run uses a pre-computed reference mean solution at $\mathsf{Ma}=0.8\, 
-\mathsf{Pr}=1\, \theta = 35^\circ$ that is stored in the repository.
+This run uses a pre-computed reference mean solution at 
+$\mathsf{Ma}=0.8\, \mathsf{Pr}=1\, \theta = 35^\circ$ 
+that is stored in the repository.
 
 The pre-computed mean solution was computed on a conformal-mesh and then is
 interpolated onto a body-fitted mesh here for the LNS calculation as for 
@@ -15,7 +16,7 @@ eigenfunction to force on the inflow for frequency $\omega=0$ and spanwise
 wavenumber $\beta=35$.
 
 The streamwise wavenumber from LST for these conditions on the infow is
-$$\alpha = -2.4927746836647E+001 - 8.2432019175349E-001 \iota$$
+$$\alpha = -24.927746836647 - i 0.82432019175349$$
 
 Note that the inflow conditions are now specified fully with the namelist 
 input file `inflow.nm`.
