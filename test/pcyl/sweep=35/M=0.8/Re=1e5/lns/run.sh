@@ -39,10 +39,10 @@ EOF
 $STAB_DIR/stab < stab.inp
 # Output eigenvector at inflow 
 #
-$STAB_DIR/getevec <<EOF
+$STAB_DIR/getevec -v <<EOF
 evec.dat
-506
-0
+-2.4927746836647E+001  -8.2432019175349E-001
+0 0
 EOF
 tail -n +5 space.1 > eig.pro 
 #
