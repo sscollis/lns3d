@@ -34,7 +34,7 @@ EOF
 #
 # Run stability analysis (sweep in beta)
 #
-$STAB_DIR/stab < stab.inp
+$STAB_DIR/stab < stab-beta.inp
 #
 # Extract most unstable mode
 #
