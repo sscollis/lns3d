@@ -9,9 +9,9 @@ set title 'Boundary Layer shape factor for $\mathsf{M}=0.8$, $\mathsf{Re}=10^5$,
 #set nokey
 #set key notitle invert under reverse 
 #Left left spacing 2 samplen 0.7
-plot "delta.dat" u 1:4 w l lw 2 title '$H(s)$'
 set terminal pict2e color texarrows font "cmr,10" size 5in,3.5in; 
-set output "H.tex"; replot
-set term qt; replot
+set output "H.tex"
+plot "delta.dat" u 1:4 w l lw 2 title '$H(s)$'
+#set term qt; replot
 clear
 exit
