@@ -33,7 +33,7 @@ There are two `setup` scripts provided.
      new body-fitted mesh thereby generating a new `output.R.0` file.  Finally,
      `npost` is used to process `output.R.0` making the thickness statistics
      and generating a series of 384 velocity profiles used for LST.
-  2. `setup-pro.sh` basically does a similar workflow but instead of
+  2. `setup-lst.sh` basically does a similar workflow but instead of
      generating profiles and thickness parameters, `npost` is run using the 
      `-l` option to generate `lstx.dat` and `lstq.dat` files and then `pre` 
      is run on `lstx.dat` to generated the required metrics stored in 
@@ -46,6 +46,17 @@ script.  This script actually performed all the operations of `setup-pro.sh`
 so it can be run without first executing that script.  
 
 ## Curvature and Nonparallel Effects
+
+There are three separate scripts for running various versions of LST to
+assess curvature and nonparallel effects.
+  1. The base quasi-parallel theory without curvature is run using `qpnc.sh`.
+  2. Quasi-parallel theory with curvature is run using `qpwc.sh`.
+  3. Nonparallel corrections with curvature are obtained running `npwc.sh`.
+The quasi-parallel results use `stab` while the nonparallel correction are
+based upon the results of the `qpwc.sh` eigenvalues and then polished with
+nonparallel effects using `shoot`.  Note that `shoot` reads the `parm.nml` 
+which specifies the parm.dat file to get the initial eigenvalue at each 
+station. 
 
 S. Scott Collis\
 flow.physics.simulation@gmail.com
