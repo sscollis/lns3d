@@ -12,9 +12,9 @@ set ylabel offset -1 '$w_{max}(s)$'
 set title 'Maximum crossflow velocity for $\mathsf{M}=0.8$, \
 $\mathsf{Re}=10^5$,$\mathsf{Pr}=1$, $\theta=35$'
 set nokey
-plot "delta.dat" u 1:5 w l lw 2 title 'Max crossflow velocity'
 set terminal pict2e color texarrows font "cmr,10" size 5in,3.5in; 
-set output "wmax.tex"; replot
-set term qt; replot
+set output "wmax.tex"
+plot "delta.dat" u 1:5 w l lw 2 title 'Max crossflow velocity'
+#set term qt; replot
 clear
 exit
