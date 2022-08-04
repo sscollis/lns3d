@@ -8,7 +8,7 @@ set mytics 5
 set xtics 0,5,30
 set ytics -0.125,0.025
 set xlabel '$s$'
-set ylabel '$w_{max}(s)$'
+set ylabel offset -1 '$w_{max}(s)$'
 set title 'Maximum crossflow velocity for $\mathsf{M}=0.8$, \
 $\mathsf{Re}=10^5$,$\mathsf{Pr}=1$, $\theta=35$'
 set nokey

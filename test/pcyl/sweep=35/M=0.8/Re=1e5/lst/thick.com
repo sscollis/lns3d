@@ -4,7 +4,7 @@
 set xrange [0.0:30.0]
 set yrange [0:0.05]
 set xlabel '$s$'
-set ylabel '$\delta_1(s), \delta_2(s)$'
+set ylabel offset -1 '$\delta_1(s), \delta_2(s)$'
 set title 'Boundary Layer Thickness for $\mathsf{M}=0.8$, $\mathsf{Re}=10^5$, $\mathsf{Pr}=1$, $\theta=35^\circ$'
 #set nokey
 #set key notitle invert under reverse 
