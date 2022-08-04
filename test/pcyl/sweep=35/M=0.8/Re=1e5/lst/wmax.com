@@ -9,4 +9,3 @@ set mytics 5
 set xtics 0,5,30
 set ytics -0.125,0.025
 replot
-
