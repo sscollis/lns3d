@@ -14,3 +14,5 @@ plot "betah.dat" u 1:2 w l lw 2 title '$\beta_h$'
 set terminal pict2e color texarrows font "cmr,10" size 5in,3.5in; 
 set output "betah.tex"; replot
 set term qt; replot
+clear
+exit

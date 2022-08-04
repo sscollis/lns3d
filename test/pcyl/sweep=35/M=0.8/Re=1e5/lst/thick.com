@@ -14,3 +14,5 @@ replot "delta.dat" u 1:3 w l lw 2 title '$\delta_2$'
 set terminal pict2e color texarrows font "cmr,10" size 5in,3.5in; 
 set output "thick.tex"; replot
 set term qt; replot
+clear
+exit

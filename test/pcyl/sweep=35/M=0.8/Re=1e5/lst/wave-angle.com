@@ -17,3 +17,5 @@ set nokey
 set terminal pict2e color texarrows font "cmr,10" size 5in,3.5in; 
 set output "wave-angle.tex"; replot
 set term qt; replot
+clear
+exit

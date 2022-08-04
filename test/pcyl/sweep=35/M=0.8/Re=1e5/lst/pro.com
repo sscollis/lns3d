@@ -22,3 +22,5 @@ plot 'profile.'.ARG1 u 1:2 w l lw 3 t '$\rho$', \
 set terminal pict2e color texarrows font "cmr,10" size 5in,3.5in;
 set output "pro.tex"; replot
 set term qt; replot
+clear
+exit

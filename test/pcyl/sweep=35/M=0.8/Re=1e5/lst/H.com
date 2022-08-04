@@ -13,3 +13,5 @@ plot "delta.dat" u 1:4 w l lw 2 title '$H(s)$'
 set terminal pict2e color texarrows font "cmr,10" size 5in,3.5in; 
 set output "H.tex"; replot
 set term qt; replot
+clear
+exit

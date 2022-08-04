@@ -16,3 +16,5 @@ plot "edge.dat" u 1:9 w l lw 2 t "Local sweep angle"
 set terminal pict2e color texarrows font "cmr,10" size 5in,3.5in; 
 set output "sweep.tex"; replot
 set term qt; replot
+clear
+exit

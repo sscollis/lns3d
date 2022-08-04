@@ -18,3 +18,5 @@ plot "ref/stab-qpnc.out" u 2:(-$4) w l lw 3 title 'QPNC', \
 set terminal pict2e color texarrows font "cmr,10" size 5in,3.5in; 
 set output "sigma-qpwc.tex"; replot
 set term qt; replot
+clear
+exit
