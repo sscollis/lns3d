@@ -58,5 +58,30 @@ nonparallel effects using `shoot`.  Note that `shoot` reads the `parm.nml`
 which specifies the parm.dat file to get the initial eigenvalue at each 
 station. 
 
+## Plotting the results
+
+Once the execution scripts have been run (and/or using the reference outputs 
+located in `ref` directory), the results can be plotted using 
+```bash
+./make-plots.sh
+```
+and then viewing the `pcyl-plots.pdf` file where all plots are conveniently
+included.
+
+You can also use the individual `gnuplot` scripts referenced in `make-plots.sh`
+to view specific plots, for example
+```bash
+gnuplot
+load "betah.com"
+set term qt; replot
+```
+Note that `pro.com` uses an argument to determine which profile to plot so 
+that it is executed slightly differently
+```bash
+gnuplot
+call "pro.com" 11
+```
+to plot `profile.11`.  
+
 S. Scott Collis\
 flow.physics.simulation@gmail.com
