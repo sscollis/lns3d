@@ -49,4 +49,4 @@ eig.14
 0 0
 EOF
 \mv space.1 space-beta.14
-exit $? 
+exit $?
