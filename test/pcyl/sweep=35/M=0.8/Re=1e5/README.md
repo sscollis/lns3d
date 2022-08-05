@@ -60,7 +60,7 @@ Use the bash scripts in the `lst` directory, possibly changing where
 the mean flow solution comes from to run various linear stability calculations. See the `README.md` therein for details. 
 
 ### Notes
-  1. The thickness results can be compared to those from the reference mean
+  1. The thickness results can be compared to those from the reference mean 
      solution so see the impact of using a conformal versus body-fitted mesh
      (which is small for most quantities)
   2. There is a slight difference in these results relative to those in 
@@ -73,7 +73,17 @@ the mean flow solution comes from to run various linear stability calculations. 
           computers available today (my laptop is 5x faster than the Cray used
           for the PhD.
        3. There could be a difference in the wall-temperature BC -- I corrected
-          what looked like a discrepency in enforcing this BC. 
+          what looked like a discrepency in enforcing this BC.
+          
+## Linearized Navier-Stokes
+
+### Short 
+
+The `short` directory contains an LNS run over 10 crossflow wavelengths forced using a LST eigenfunction near $s=0.8$ with $\beta=35$.  See the `run.sh` script therein. 
+
+### LNS
+
+The `lns` directory contains a long LNS calculation from $s=5$ to $s=25$ at $\beta=35$ containing over almost 80 crossflow streamwise wavelengths forced using a LST eigenfunction. Because of this, there is a very large range in solution values from the inflow to outflow due to the exponential growth of the crossflow instability. See the `run.sh` script and `README.md` for further details.
 
 ## Point of Contact
 
