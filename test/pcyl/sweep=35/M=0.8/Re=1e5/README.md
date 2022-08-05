@@ -48,7 +48,7 @@ fitted mesh are available in the `lst` directory
 
 ## Linear Stability Theory
 
-This directory takes the reference mean solution (change `run.sh` if you 
+The `lst` directory takes the reference mean solution (change `run-pro.sh` if you 
 wish to use a different solution) and interpolates it to a body fitted mesh
 suitable for extracting profiles and thickness statistics.   This is done
 using `npost` and the resulting data can be plotted using the collestion of 
@@ -56,8 +56,8 @@ using `npost` and the resulting data can be plotted using the collestion of
 
 ### Running
 
-Use the `run.sh` script in the `lst` directory, possibly changing where
-the mean flow solution comes from.
+Use the bash scripts in the `lst` directory, possibly changing where
+the mean flow solution comes from to run various linear stability calculations. See the `README.md` therein for details. 
 
 ### Notes
   1. The thickness results can be compared to those from the reference mean
@@ -67,7 +67,7 @@ the mean flow solution comes from.
      Collis' PhD thesis, Ch. 5.  I have not isolated these differences yet
      but they could be due to:
        1. A better mean-flow solution -- I fixed a minor error improving the
-          far-field boundary conditions that removed the large dependence on
+          far-field boundary conditions that removed the dependence on
           far-field boundary condition location.
        2. These have iterated to a lower residual due to the much faster
           computers available today (my laptop is 5x faster than the Cray used
