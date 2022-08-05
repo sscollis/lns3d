@@ -31,4 +31,4 @@ EOF
 $LNS3D_DIR/util/npost -p -t -Wc output.R.0 <<EOF
 1 384 1
 EOF
-exit @?
+exit $?
