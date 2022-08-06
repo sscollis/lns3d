@@ -15,7 +15,7 @@ $(DEFINES) $(DEBUG)
 OFLAGS = $(DEBUG)
 FC     = gfortran 
 F77    = gfortran
-CC     = gcc-11
+CC     = gcc-12
 LIB    = 
 #
 #  Define Fortran 90 suffix

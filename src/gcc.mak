@@ -22,7 +22,7 @@ OFLAGS   = $(DEBUG) -o $(NAME)
 LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 FC  = gfortran
 F77 = gfortran
-CC  = gcc-11
+CC  = gcc-12
 #
 #  Optionally use ARpack
 #
