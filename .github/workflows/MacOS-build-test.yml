@@ -1,4 +1,4 @@
-name: Makefile CI
+name: Makefile CI MacOS
 
 on:
   push:
@@ -17,11 +17,8 @@ jobs:
     - name: setup
       run: ls /usr/local
       
-    - name: install csh
+    - name: install tcsh
       run: brew install tcsh
-      
-    - name: check tcsh
-      run: ls /home/linuxbrew/.linuxbrew/bin
       
     - name: verlist
       run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
@@ -44,8 +41,8 @@ jobs:
     - name: set path
       run: export PATH=$PATH:`pwd`/util && echo $PATH
       
-    - name: Run test
+    - name: Run wave test
       run: cd test/wave && env PATH=/home/runner/work/lns3d/lns3d/util:$PATH ./run.sh
       
-    - name: Run 2d
+    - name: Run 2d test
       run: cd test/2d && env PATH=/home/runner/work/lns3d/lns3d/util:$PATH ./run.sh
