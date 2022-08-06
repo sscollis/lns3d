@@ -17,7 +17,7 @@ cyl            |  Acoustic scatting from a circular cylinder (Collis PhD thesis,
 TSwave         |  Tollmein-Schlichting wave (temporal and spatial) from Collis PhD, Section 4.1)
 CFwave         |  Crossflow vortex (temporal and spatial) from Collis PhD, Sec. 4.2)
 mse-recep      |  Acoustic receptivity case from Collis PhD thesis, Sec. 4.4)
-pcyl           !  Swept Parabolic Cylinder mean, stability, and receptivity from Collis' PhD, Chapter 5.
+pcyl           |  Swept Parabolic Cylinder mean, stability, and receptivity from Collis' PhD, Chapter 5.
 
 S. Scott Collis\
 flow.physics.simulation@gmail.com
