@@ -60,7 +60,7 @@ jobs:
       run: cd test/wave && env PATH=/home/runner/work/lns3d/lns3d/util:$PATH ./run.sh
       
     - name: Run 2d
-      run: cd test/2d && ./run.sh
+      run: cd test/2d && env PATH=/home/runner/work/lns3d/lns3d/util:$PATH ./run.sh
       
     #- name: Run distcheck
       #run: make distcheck

@@ -10,7 +10,7 @@ echo "  Using input file $INP"
 echo $PATH
 ./cleanup.sh
 \cp -r ic.dat output.R.0
-env GFORTRAN_CONVERT_UNIT='swap' $LNS3D_DIR/src/lns3d < lns3d.inp
+env GFORTRAN_CONVERT_UNIT='swap' $LNS3D_DIR/src/lns3d < $INP | tee lns3d.log
 \ln -sf grid.dat grid.xyz
 env GFORTRAN_CONVERT_UNIT='swap' $LNS3D_DIR/util/npost output.R.0
 env GFORTRAN_CONVERT_UNIT='swap' $LNS3D_DIR/util/npost output.R.1
