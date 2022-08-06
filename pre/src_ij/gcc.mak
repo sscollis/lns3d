@@ -16,7 +16,7 @@ OFLAGS   = -fdefault-real-8 $(DEBUG) -o $(NAME)
 LIB      = 
 COMP     = gfortran
 F77      = gfortran
-CC       = gcc-11
+CC       = gcc
 #
 #  Define Fortran90 suffix
 #
