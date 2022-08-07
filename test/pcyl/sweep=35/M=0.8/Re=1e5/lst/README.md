@@ -83,5 +83,15 @@ call "pro.com" 11
 ```
 to plot `profile.11`.  
 
+## Example
+
+The following figure is an example plot of the linear-stability growth rate 
+for quasi-parallel flow with no curvature effects (i.e. baseline LST).  This
+is to be compared with Figure 5.26 from Collis' PhD thesis, p.144.
+
+<p align=center>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lst/sigma-qpncpng>
+<br>Quasi-parallel growth-rate without curvature for parabolic cylinder..</p>
+
 S. Scott Collis\
 flow.physics.simulation@gmail.com
