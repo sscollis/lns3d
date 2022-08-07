@@ -44,8 +44,19 @@ jobs:
     - name: Add util to path
       run: echo "$GITHUB_WORKSPACE/util" >> $GITHUB_PATH
       
-    - name: build slatec
+    - name: cache slatec
+      id: cache-slatec
+      uses: actions/cache@v3
+      with:
+        path: slatec
+        key: ${{ runner.os }}-slatec
+        
+    - name: generate slatec
+      if: steps.cache-slatec.outputs.cache-hit != 'true'
       run: cd slatec/src && make && make install
+      
+    #  - name: build slatec
+    #  run: cd slatec/src && make && make install
       
     - name: build util
       run: cd util && ln -s gcc.mak Makefile && make
