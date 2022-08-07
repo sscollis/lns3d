@@ -47,6 +47,9 @@ jobs:
     - name: set path
       run: export PATH=$PATH:`pwd`/util && echo $PATH
       
+    - name: echo path
+      run:  echo "$HOME/lns3d/util" >> $GITHUB_PATH
+      
     - name: Run wave test
       run: cd test/wave && env PATH=/home/runner/work/lns3d/lns3d/util:$PATH ./run.sh
       
