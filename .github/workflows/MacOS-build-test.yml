@@ -17,6 +17,9 @@ jobs:
     - name: setup
       run: ls /usr/local
       
+    - name: check gfortran
+      run: ls /usr/local/bin
+      
     - name: install tcsh
       run: brew install tcsh
       
@@ -24,19 +27,19 @@ jobs:
     #  run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
       
     - name: install
-      run: brew install openblas arpack
+      run: brew install gcc openblas arpack
       
     - name: build slatec
-      run: cd slatec/src && make && make install
+      run: cd slatec/src && make FC=gfortran-11 && make FC=gfortran-11 CC=gcc-11 install
       
     - name: build util
-      run: cd util && ln -s gcc.mak Makefile && make
+      run: cd util && ln -s gcc.mak Makefile && make FC=gfortran-11 CC=gcc-11 F77=gfortran-11
       
     - name: configure LNS3d
       run: cd src && ln -s gcc.mak Makefile
       
     - name: build LNS3d
-      run: cd src && make CC=gcc
+      run: cd src && make CC=gcc FC=gfortran-11 CC=gcc-11 F77=gfortran-11
       
     - name: set path
       run: export PATH=$PATH:`pwd`/util && echo $PATH
