@@ -16,6 +16,8 @@ jobs:
     
     - name: setup
       run: ls /usr/local
+      
+    - name: check gfortran
       run: ls /usr/local/bin
       
     - name: install tcsh
