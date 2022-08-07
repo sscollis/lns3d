@@ -23,8 +23,8 @@ jobs:
     - name: install tcsh
       run: brew install tcsh
       
-    - name: check tcsh
-      run: ls /usr/bin/tcsh
+   # - name: check tcsh
+   #   run: ls /usr/bin/tcsh
       
     - name: check brew tcsh
       run: ls /usr/local/bin/tcsh
