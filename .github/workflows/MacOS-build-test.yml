@@ -30,16 +30,16 @@ jobs:
       run: brew install gcc openblas arpack
       
     - name: build slatec
-      run: cd slatec/src && make && make install
+      run: cd slatec/src && make FC=gfortran-11 && make FC=gfortran-11 install
       
     - name: build util
-      run: cd util && ln -s gcc.mak Makefile && make
+      run: cd util && ln -s gcc.mak Makefile && make FC=gfortran-11
       
     - name: configure LNS3d
       run: cd src && ln -s gcc.mak Makefile
       
     - name: build LNS3d
-      run: cd src && make CC=gcc
+      run: cd src && make CC=gcc FC=gfortran-11
       
     - name: set path
       run: export PATH=$PATH:`pwd`/util && echo $PATH
