@@ -26,8 +26,8 @@ jobs:
     - name: check tcsh
       run: ls /usr/local/bin
       
-    - name: check env
-      env:
+    - name: print all Github environment
+      run: env
       
     - name: check
       run: echo "{path}" >> $GITHUB_PATH
