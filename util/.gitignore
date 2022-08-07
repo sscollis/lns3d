@@ -33,3 +33,4 @@ mkeig3d
 *.swp
 inter
 nr*.f
+rtsafe.f
