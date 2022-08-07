@@ -26,8 +26,11 @@ jobs:
     - name: check tcsh
       run: ls /usr/local/bin
       
-    #- name: verlist
-    #  run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
+    - name: echo path
+      run: echo $HOME && echo $GITHUB_PATH && echo $PATH
+      
+    - name: verlist
+      run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
       
     - name: install
       run: brew install gcc openblas arpack
