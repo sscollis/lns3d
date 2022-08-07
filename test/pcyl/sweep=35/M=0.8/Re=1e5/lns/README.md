@@ -30,7 +30,7 @@ load 'eig.com'
 and the inflow disturbance, as projected by `mkeig3d` to the global LNS 
 $(x,y,z)$ coordinates using `inflow.com`.
 
-## Running
+## Initial Run
 
 To fully setup and begin the LNS3d calculation, execute the script:
 ```bash
@@ -38,6 +38,17 @@ To fully setup and begin the LNS3d calculation, execute the script:
 ```
 As always, you may need to check and adjust some paths for your 
 environment.
+
+### Visualization
+
+The initial transient can be visualized using `Paraview` by making
+local `Plot3D` files
+```bash
+./lpost3d.sh output.R.*
+```
+Then load the `grid.xyz` and `output.q.*` files into `Paraview`.
+
+## Complete the run
 
 To complete the run, you will need to do:
 ```bash
@@ -47,6 +58,23 @@ which will continue the run toward convergence.  Note that this is a
 steady-state solution and that there are sponges on the outflow and top
 boundaries.  Also, the `rerun.inp` input file (used by `rerun.sh`) turns 
 on the fourth-order smoother to remove some minor node-to-node oscillations.
+
+From this solution, you will likely want to extract growth-rate informaton
+to compare to LST.   To do so, you will run the `$LNS_DIR/util/lpost3d` utility
+directly with options
+```bash
+$LNS3D_DIR/util/lpost3d -g -m output.R.#
+```
+where the particular output file that you use is converged to the steady-state
+solution.   I believe that executing `rerun.sh` once is likely close enough, 
+but you may want to experiment.
+
+The following figure shows a super-position of the LNS run on top of the mean-flow
+for these conditions.
+
+<p align=center>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lns/mean-cf.png>
+<br>Meanflow with long crossflow computation superimposed.  Contours of streamwise velocity.</p>
 
 S. Scott Collis\
 flow.physics.simulation@gmail.com
