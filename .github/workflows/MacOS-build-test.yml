@@ -23,6 +23,12 @@ jobs:
     - name: install tcsh
       run: brew install tcsh
       
+    - name: check tcsh
+      run: ls /usr/bin/tcsh
+      
+    - name: check brew tcsh
+      run: ls /usr/local/bin/tcsh
+      
     #- name: check tcsh
     #  run: ls /usr/local/bin
       
@@ -34,6 +40,9 @@ jobs:
       
     - name: Add util to path
       run: echo "$GITHUB_WORKSPACE/util" >> $GITHUB_PATH
+      
+    - name: Add tcsh to path
+      run: echo "/usr/local/bin" >> $GITHUB_PATH
       
     - name: echo paths
       run: echo $HOME && echo $GITHUB_WORKSPACE && echo $PATH
