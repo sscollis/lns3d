@@ -1,3 +1,5 @@
+#!/usr/bin/env tcsh -f
+#!/bin/tcsh -f
 #!/usr/local/bin/tcsh -f 
 ##!/home/linuxbrew/.linuxbrew/bin/tcsh -f
 ##!/bin/csh -f 
