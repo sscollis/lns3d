@@ -41,6 +41,9 @@ jobs:
     #- name: install
     #  run: brew install openblas arpack
       
+    - name: Add util to path
+      run: echo "$GITHUB_WORKSPACE/util" >> $GITHUB_PATH
+      
     - name: build slatec
       run: cd slatec/src && make && make install
       
@@ -57,10 +60,10 @@ jobs:
     #  run: export PATH=$PATH:`pwd`/util && echo $PATH
       
     - name: Run test
-      run: cd test/wave && env PATH=/home/runner/work/lns3d/lns3d/util:$PATH ./run.sh
+      run: cd test/wave && ./run.sh
       
     - name: Run 2d
-      run: cd test/2d && env PATH=/home/runner/work/lns3d/lns3d/util:$PATH ./run.sh
+      run: cd test/2d && env ./run.sh
       
     #- name: Run distcheck
     #  run: make distcheck
