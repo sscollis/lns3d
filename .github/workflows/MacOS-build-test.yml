@@ -24,7 +24,7 @@ jobs:
     #  run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
       
     - name: install
-      run: brew install openblas arpack
+      run: brew install gcc openblas arpack
       
     - name: build slatec
       run: cd slatec/src && make && make install
