@@ -32,7 +32,7 @@ jobs:
     - name: check
       run: echo "{path}" >> $GITHUB_PATH
       
-    - name check2 
+    - name: check2 
       run: echo "$HOME/work/lns3d/lns3d/util" >> $GITHUB_PATH
       
     - name: echo path
