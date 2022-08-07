@@ -49,7 +49,6 @@ jobs:
       
     - name: verify verlist
       run: cd test/wave && $GITHUB_WORKSPACE/util/verlist output.R 0 0
-      shell: tcsh {0}
       
     #- name: install
     #  run: brew install gcc openblas arpack
