@@ -14,35 +14,35 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: setup
-      run: ls /usr/local
+    #- name: setup
+    #  run: ls /usr/local
       
-    - name: check gfortran
-      run: ls /usr/local/bin
+    #- name: check gfortran
+    #  run: ls /usr/local/bin
       
     - name: install tcsh
       run: brew install tcsh
       
-    - name: check tcsh
-      run: ls /usr/local/bin
+    #- name: check tcsh
+    #  run: ls /usr/local/bin
       
-    - name: print all Github environment
-      run: env
+    - name: print Github environment
+      run: env | sort
       
-    - name: check
-      run: echo "{path}" >> $GITHUB_PATH
+    #- name: check
+    #  run: echo "{path}" >> $GITHUB_PATH
       
-    - name: check2 
+    - name: Add util to path
       run: echo "$GITHUB_WORKSPACE/util" >> $GITHUB_PATH
       
-    - name: echo path
-      run: echo $HOME && echo $GITHUB_PATH && echo $PATH && echo $GITHUB_WORKSPACE
+    - name: echo paths
+      run: echo $HOME && echo $GITHUB_WORKSPACE && echo $PATH
       
-    - name: verlist
-      run: cd test/wave && ls $HOME && ls $HOME/work/lns3d && ls $HOME/work/lns3d/lns3d && $GITHUB_WORKSPACE/util/verlist output.R 0 0
+    - name: verify verlist
+      run: cd test/wave && $GITHUB_WORKSPACE/util/verlist output.R 0 0
       
-    - name: install
-      run: brew install gcc openblas arpack
+    #- name: install
+    #  run: brew install gcc openblas arpack
       
     - name: build slatec
       run: cd slatec/src && make FC=gfortran-11 && make FC=gfortran-11 CC=gcc-11 install
@@ -56,14 +56,14 @@ jobs:
     - name: build LNS3d
       run: cd src && make CC=gcc FC=gfortran-11 CC=gcc-11 F77=gfortran-11
       
-    - name: set path
-      run: export PATH=$PATH:`pwd`/util && echo $PATH
+    #- name: set path
+    #  run: export PATH=$PATH:`pwd`/util && echo $PATH
       
-    - name: echo path
-      run:  echo "$HOME/lns3d/util" >> $GITHUB_PATH
+    #- name: echo path
+    #  run:  echo "$HOME/lns3d/util" >> $GITHUB_PATH
       
     - name: Run wave test
-      run: cd test/wave && env PATH=/home/runner/work/lns3d/lns3d/util:$PATH ./run.sh
+      run: cd test/wave && ./run.sh
       
     - name: Run 2d test
-      run: cd test/2d && env PATH=/home/runner/work/lns3d/lns3d/util:$PATH ./run.sh
+      run: cd test/2d && ./run.sh
