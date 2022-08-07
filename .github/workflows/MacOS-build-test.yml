@@ -20,8 +20,8 @@ jobs:
     - name: install tcsh
       run: brew install tcsh
       
-    - name: verlist
-      run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
+    #- name: verlist
+    #  run: cd test/wave && /home/runner/work/lns3d/lns3d/util/verlist output.R 0 0
       
     - name: install
       run: brew install openblas arpack
