@@ -33,13 +33,13 @@ jobs:
       run: echo "{path}" >> $GITHUB_PATH
       
     - name: check2 
-      run: echo "$HOME/work/lns3d/lns3d/util" >> $GITHUB_PATH
+      run: echo "$GITHUB_WORKSPACE/util" >> $GITHUB_PATH
       
     - name: echo path
-      run: echo $HOME && echo $GITHUB_PATH && echo $PATH 
+      run: echo $HOME && echo $GITHUB_PATH && echo $PATH && echo $GITHUB_WORKSPACE
       
     - name: verlist
-      run: cd test/wave && ls $HOME && ls $HOME/work/lns3d && ls $HOME/work/lns3d/lns3d && $HOME/work/lns3d/lns3d/util/verlist output.R 0 0
+      run: cd test/wave && ls $HOME && ls $HOME/work/lns3d && ls $HOME/work/lns3d/lns3d && $GITHUB_WORKSPACE/util/verlist output.R 0 0
       
     - name: install
       run: brew install gcc openblas arpack
