@@ -12,7 +12,7 @@ DEBUG    = -O2 -fopenmp -g
 #
 # Activates unstead inflow BC's and sponge for linearied 3d runs
 #
-DEFINES = 
+DEFINES  = 
 DEFINES += -DUSE_TRANSIENT_EIGENFUNCTION
 DEFINES += $(ADDONS)
 F77FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -ffixed-line-length-120 \
@@ -21,9 +21,9 @@ F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEFINES) -c $(DEBUG)
 OFLAGS   = $(DEBUG) -o $(NAME)
 #LIB     = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 LIB      = -L/usr/local/opt/openblas/lib -lopenblas
-FC  = gfortran
-F77 = gfortran
-CC  = gcc
+FC       = gfortran
+F77      = gfortran
+CC       = gcc
 #
 #  Optionally use ARpack
 #
