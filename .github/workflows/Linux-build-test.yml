@@ -38,8 +38,8 @@ jobs:
     #- name: verlist
     #  run: cd test/wave && $GITHUB_WORKSPACE/util/verlist output.R 0 0
       
-    #- name: install
-    #  run: brew install openblas arpack
+    - name: install
+      run: brew install openblas # arpack
       
     - name: Add util to path
       run: echo "$GITHUB_WORKSPACE/util" >> $GITHUB_PATH
