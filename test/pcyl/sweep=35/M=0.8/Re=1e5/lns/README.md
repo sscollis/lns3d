@@ -73,8 +73,12 @@ The following figure shows a super-position of the LNS run on top of the mean-fl
 for these conditions.
 
 <p align=center>
-<img src=https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lns/mean-cf.png>
-<br>Meanflow with long crossflow computation superimposed.  Contours of streamwise velocity.</p>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lns/v-mean-cf.png>
+<br>Meanflow with long crossflow computation superimposed.  Contours of vertical velocity.</p>
+
+<p align=center>
+<img src=https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lns/v-cf.png>
+<br>Crossflow instability.  Contours of vertical velocity.</p>
 
 S. Scott Collis\
 flow.physics.simulation@gmail.com
