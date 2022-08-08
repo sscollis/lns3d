@@ -69,18 +69,18 @@ where the particular output file that you use is converged to the steady-state
 solution.   I believe that executing `rerun.sh` once is likely close enough, 
 but you may want to experiment.
 
-*Figure 1* shows a super-position of the LNS run on top of the mean-flow
+**Figure 1** shows a super-position of the LNS run on top of the mean-flow
 for these conditions to give a sense of the two domains and different computations. 
 
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lns/v-mean-cf.png>
-<br><b>Figure 1:</b>Meanflow with long crossflow computation superimposed.  Contours of vertical velocity.</p>
+<br><b>Figure 1:</b> Meanflow with long crossflow computation superimposed.  Contours of vertical velocity.</p>
 
-*Figure 2* shows a closeup of the crossflow instability growing in the domain.  Note that due to exponential growth, there is a high dynamic range in these results and the contours are saturated. 
+**Figure 2** shows a closeup of the crossflow instability growing in the domain.  Note that due to exponential growth, there is a high dynamic range in these results and the contours are saturated. 
 
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lns/v-cf.png>
-<br><b>Figure 2:</b>Closeup of the crossflow instability for the LNS calculation on a body-fitted mesh.  Contours of vertical velocity.</p>
+<br><b>Figure 2:</b> Closeup of the crossflow instability for the LNS calculation on a body-fitted mesh.  Contours of vertical velocity.</p>
 
 S. Scott Collis\
 flow.physics.simulation@gmail.com
