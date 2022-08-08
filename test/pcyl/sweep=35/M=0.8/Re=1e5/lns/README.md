@@ -70,15 +70,17 @@ solution.   I believe that executing `rerun.sh` once is likely close enough,
 but you may want to experiment.
 
 The following figure shows a super-position of the LNS run on top of the mean-flow
-for these conditions.
+for these conditions to give a sense of the two domains and different computations. 
 
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lns/v-mean-cf.png>
 <br>Meanflow with long crossflow computation superimposed.  Contours of vertical velocity.</p>
 
+The next image shows a closeup of the crossflow instability growing in the domain.  Note that due to exponential growth, there is a high dynamic range in these results and the contours are saturated. 
+
 <p align=center>
 <img src=https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lns/v-cf.png>
-<br>Crossflow instability.  Contours of vertical velocity.</p>
+<br>Closeup of the crossflow instability for the LNS calculation on a body-fitted mesh.  Contours of vertical velocity.</p>
 
 S. Scott Collis\
 flow.physics.simulation@gmail.com
