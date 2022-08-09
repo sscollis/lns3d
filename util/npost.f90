@@ -1226,7 +1226,9 @@
 #else
         do i = 1, nx
 #endif
+#ifdef VERBOSE
           write(*,*) "i = ", i
+#endif
           delta = zero
           theta = zero
 

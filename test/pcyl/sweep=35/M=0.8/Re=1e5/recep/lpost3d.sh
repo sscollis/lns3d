@@ -5,7 +5,7 @@ echo $list
 for file in $list 
 do
   echo Processing "$file"
-  $LNS3D_DIR/util/lpost3d << EOF
+  $LNS3D_DIR/util/lpost3d << EOF >> lpost3d.log
 $file
  
 EOF

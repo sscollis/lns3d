@@ -6,6 +6,12 @@
 !  1. Changed to IJ ordering
 !
 !  Revised: 8/8/22
+!
+!  Notes:
+!    1. btype = 0 is bump relative to a flat plate
+!    2. btype = 1 is bump relative to a parabolic cylinder
+!    3. Bumps are all currently Gausian with center bmu and standard 
+!       deviation of bsigma
 !=============================================================================!
         use global
         use bump
@@ -20,7 +26,7 @@
         
         real    :: bmu=0.7, bsigma=0.05
         integer :: btype=0
-        logical :: bexist=.false., becho=.false.
+        logical :: bexist=.false., becho=.false., boutput=.true.
         character(80) :: bfile="bump.nml"
 
         namelist /bumpInput/ bmu, bsigma, btype, bfile, becho
@@ -46,8 +52,10 @@
 !.... specify the bump type
 
         if (btype .eq. 0) then
+          write(*,*) "Bump is relative to flat plate..."
           s = x(:,1)
         else if (btype .eq. 1) then
+          write(*,*) "Bump is relative to parabolic cylinder..."
           s = Sqrt(x(:,1) + two*x(:,1)**2)/Sqrt(two) + &
               Log(one + four*x(:,1) + two**(onept5)*Sqrt(x(:,1) + &
               two*x(:,1)**2)) / four
@@ -79,13 +87,16 @@
         twp = -tpp * hw
 
 !.... save the bump profile 
-
-        open(30,file='bump.dat')
-        do i = 1, nx
-          write(30,10) s(i), hw(i), real(u1w(i)), real(u2w(i)), &
-                       real(u3w(i)), real(tw(i)), real(twp(i))
-        end do
-        close(30)
+        
+        if (boutput) then
+          write(*,*) 'Saving bump geometry to file bump.dat...'
+          open(30,file='bump.dat')
+          do i = 1, nx
+            write(30,10) s(i), hw(i), real(u1w(i)), real(u2w(i)), &
+                         real(u3w(i)), real(tw(i)), real(twp(i))
+          end do
+          close(30)
+        endif
         
         return
   10    format( 8(1pe16.7e4,1x) )

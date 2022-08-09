@@ -4,7 +4,10 @@
 #=============================================================================
 # Author:     S. Scott Collis
 # Copyright:  S. Scott Collis(c)
-# Date:       08/08/2022
+# Date:       08/09/2022
+#
+# Purpose:    Run a bump receptivity calculation similar to case in Collis'
+#             PhD thesis, case 3 of Table 5.2
 #=============================================================================
 #
 # setup paths (your might need to change these)
@@ -52,4 +55,13 @@ EOF
 #
 $LNS3D_DIR/util/npost -t -Wc mean.R.0
 #
-exit 0
+\rm output.[Rhq].*
+$LNS3D_DIR/util/mkdist3d << EOF
+Z
+EOF
+#
+# visualize the disturbance initial condition
+#
+$LNS3D_DIR/util/lpost3d output.R.0
+#
+exit $?

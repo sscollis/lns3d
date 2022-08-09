@@ -92,7 +92,12 @@
           end do
           call calcp( vl, g2v, m1, m2, n1, n2, gpr )
         end if
-        
+       
+#if 1 
+        if (linear.eq.1 .and. wall.eq.3) &
+          call genbump( g1v, g2v, g11v, g12v, g22v )
+#endif
+
 !$omp parallel do private &
 !$omp (i,idof,rho,u1,u2,u3,t,rhoinv,p,g1divu,g2divu,s1jj,s2jj,&
 !$omp s3jj,Lapt,divu,mu,lm,con,dmu,d2mu,dlm,d2lm,dcon,d2con,g1mu,g2mu,g1dmu,&
@@ -267,9 +272,11 @@ loop_i: do i = 1, nx
           gp(1) = damp(i,j) * gp(1) + (one-damp(i,j)) * gpr(1,i,j)
           gp(2) = damp(i,j) * gp(2) + (one-damp(i,j)) * gpr(2,i,j)
         end if
-        
+
+#if 0        
         if (linear.eq.1 .and. wall.eq.3) &
           call genbump( g1v, g2v, g11v, g12v, g22v )
+#endif
 
 !==========================================================================!
 !                       N O N L I N E A R   R H S

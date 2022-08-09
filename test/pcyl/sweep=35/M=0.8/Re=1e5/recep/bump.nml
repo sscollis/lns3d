@@ -1,6 +1,7 @@
 &bumpInput
-btype  = 1       ! relative to parabolic cylinder 
-bmu    = 0.5
-bsigma = 0.01 
-becho  = .true.
+btype   = 1       ! relative to parabolic cylinder 
+bmu     = 0.5     ! location
+bsigma  = 0.01    ! standard deviation
+becho   = .true.  ! echo the namelist input
+boutput = .true.  ! output bump.dat
 /

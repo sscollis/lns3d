@@ -30,14 +30,14 @@
           
           real    :: theta, beta, omega, eps_e, x0
           integer :: ires, linear, impl, loctime, iLHS
-          logical :: updateLHS = .false.
-          logical :: useCalcd = .false.
+          logical :: updateLHS=.false.
+          logical :: useCalcd=.false.
 
-          logical :: tflag = .false.    ! time traces
-          logical :: fflag = .false.    ! temporal statistics
-          logical :: sflag = .false.    ! spatial statistics
+          logical :: tflag=.false.    ! time traces
+          logical :: fflag=.false.    ! temporal statistics
+          logical :: sflag=.false.    ! spatial statistics
 
-          logical :: complex_analysis = .false.  ! complex analysis flag
+          logical :: complex_analysis=.false.  ! complex analysis flag
 
 !.... boundary conditions
         
@@ -47,7 +47,6 @@
           logical :: xper=.false., yper=.false.
           logical :: Navier=.true.
           real, allocatable :: bnl(:,:), bnr(:,:), bnb(:,:), bnt(:,:)
-
           integer :: is, ie, js, je
 
 !.... Poinsot & Lele BC parameter
@@ -92,16 +91,16 @@
           
 !.... differencing parameters
 
-          integer :: optx = 0
-          integer :: opty = 0
-          logical :: carp = .false.
-          logical :: general = .true.
+          integer :: optx=0
+          integer :: opty=0
+          logical :: carp=.false.
+          logical :: general=.true.
 
 !.... time grid
 
-          real :: Delt = zero, time = zero, alfa
+          real :: Delt=zero, time=zero, alfa
           real :: dtmax, cflmax, cfl
-          integer :: istep, nstep = 1, iter, niter = 1, lstep = 0
+          integer :: istep, nstep=1, iter, niter=1, lstep=0
 
 !.... mean flow
 
@@ -131,13 +130,13 @@
 !.... sponge variables
 
           integer :: ispg       
-          logical :: compSpg = .true., compSpg2 = .true.
+          logical :: compSpg=.true., compSpg2=.true.
           real, allocatable :: spg(:,:)
           real, allocatable :: spg2(:,:)
 
 !.... the boundary forcing amplitude (should be complex)
 
-          logical :: useAmp = .false.
+          logical :: useAmp=.false.
           character(40) :: amp_file="amp.dat"
           real, allocatable :: wamp(:)
           
@@ -154,7 +153,7 @@
 
           character(80) :: base, filen
           integer, parameter :: lfile=80
-          integer :: iver = 0, itout, ntout
+          integer :: iver=0, itout, ntout
           
         end module global 
 
