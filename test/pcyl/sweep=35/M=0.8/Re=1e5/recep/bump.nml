@@ -1,0 +1,6 @@
+&bumpInput
+btype  = 1       ! relative to parabolic cylinder 
+bmu    = 0.5
+bsigma = 0.01 
+becho  = .true.
+/
