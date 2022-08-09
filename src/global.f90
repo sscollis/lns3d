@@ -39,7 +39,7 @@
 
           logical :: complex_analysis = .false.  ! complex analysis flag
 
-!.... boundary conditions stuff
+!.... boundary conditions
         
           integer :: top=-1, wall=-1, left=-1, right=-1, wallt=-1
           integer :: extrap=-1
@@ -135,7 +135,7 @@
           real, allocatable :: spg(:,:)
           real, allocatable :: spg2(:,:)
 
-!.... the boundary forcing amplitude (should be complex stupid)
+!.... the boundary forcing amplitude (should be complex)
 
           logical :: useAmp = .false.
           character(40) :: amp_file="amp.dat"

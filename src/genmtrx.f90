@@ -268,7 +268,7 @@ loop_i: do i = 1, nx
           gp(2) = damp(i,j) * gp(2) + (one-damp(i,j)) * gpr(2,i,j)
         end if
         
-        if (linear.eq.1 .and. wall.eq.10) &
+        if (linear.eq.1 .and. wall.eq.3) &
           call genbump( g1v, g2v, g11v, g12v, g22v )
 
 !==========================================================================!

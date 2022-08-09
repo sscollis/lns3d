@@ -59,9 +59,9 @@
 
         if (wall.eq.1) then
           vl(1,is:ie,1) = -( gc2 * vl(1,is:ie,2)  + &
-                         gc3 * vl(1,is:ie,3)  + &
-                         gc4 * vl(1,is:ie,4)  + &
-                         gc5 * vl(1,is:ie,5)  ) / gc1
+                             gc3 * vl(1,is:ie,3)  + &
+                             gc4 * vl(1,is:ie,4)  + &
+                             gc5 * vl(1,is:ie,5)  ) / gc1
         end if
 
 !.... linear extrapolation of rho at the wall
@@ -75,7 +75,7 @@
 
         if (wall.eq.3) then
           vl(1,is:ie,1) = 4.0*vl(1,is:ie,2) - 6.0*vl(1,is:ie,3) + &
-                      4.0*vl(1,is:ie,4) - vl(1,is:ie,5)
+                          4.0*vl(1,is:ie,4) - vl(1,is:ie,5)
         end if
 
 !.... isothermal wall
@@ -94,28 +94,28 @@
 !         if (wall.eq.3) then   ! bump
 !           if (carp) then      ! Carpenter's stencil
 !             vl(ndof,is:ie,1) = ( twp - ( gg2 * vl(ndof,is:ie,2)  + &
-!                               gg3 * vl(ndof,is:ie,3)  + &
-!                               gg4 * vl(ndof,is:ie,4)  + &
-!                               gg5 * vl(ndof,is:ie,5)  + &
-!                               gg6 * vl(ndof,is:ie,6)  ) ) / gg1
+!                                          gg3 * vl(ndof,is:ie,3)  + &
+!                                          gg4 * vl(ndof,is:ie,4)  + &
+!                                          gg5 * vl(ndof,is:ie,5)  + &
+!                                          gg6 * vl(ndof,is:ie,6)  ) ) / gg1
 !           else
 !             vl(ndof,is:ie,1) = ( twp - ( gc2 * vl(ndof,is:ie,2)  + &
-!                               gc3 * vl(ndof,is:ie,3)  + &
-!                               gc4 * vl(ndof,is:ie,4)  + &
-!                               gc5 * vl(ndof,is:ie,5)  ) ) / gc1
+!                                          gc3 * vl(ndof,is:ie,3)  + &
+!                                          gc4 * vl(ndof,is:ie,4)  + &
+!                                          gc5 * vl(ndof,is:ie,5)  ) ) / gc1
 !           end if        
 !         else                  ! no bump
             if (carp) then      ! Carpenter's stencil
               vl(ndof,is:ie,1) = -( gg2 * vl(ndof,is:ie,2)  + &
-                                gg3 * vl(ndof,is:ie,3)  + &
-                                gg4 * vl(ndof,is:ie,4)  + &
-                                gg5 * vl(ndof,is:ie,5)  + &
-                                gg6 * vl(ndof,is:ie,6)  ) / gg1
+                                    gg3 * vl(ndof,is:ie,3)  + &
+                                    gg4 * vl(ndof,is:ie,4)  + &
+                                    gg5 * vl(ndof,is:ie,5)  + &
+                                    gg6 * vl(ndof,is:ie,6)  ) / gg1
             else
               vl(ndof,is:ie,1) = -( gc2 * vl(ndof,is:ie,2)  + &
-                                gc3 * vl(ndof,is:ie,3)  + &
-                                gc4 * vl(ndof,is:ie,4)  + &
-                                gc5 * vl(ndof,is:ie,5)  ) / gc1
+                                    gc3 * vl(ndof,is:ie,3)  + &
+                                    gc4 * vl(ndof,is:ie,4)  + &
+                                    gc5 * vl(ndof,is:ie,5)  ) / gc1
             end if
 !         end if
         end if

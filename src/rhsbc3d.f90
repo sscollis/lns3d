@@ -58,8 +58,8 @@
 
           if (wall.eq.1) then
             rl(1,is:ie,1) = gc1 * vl(1,is:ie,1) + gc2 * vl(1,is:ie,2) + &
-                        gc3 * vl(1,is:ie,3) + gc4 * vl(1,is:ie,4) + &
-                        gc5 * vl(1,is:ie,5)
+                            gc3 * vl(1,is:ie,3) + gc4 * vl(1,is:ie,4) + &
+                            gc5 * vl(1,is:ie,5)
           end if
           
 !.... linear extrapolation of rho at the wall
@@ -72,8 +72,9 @@
 !.... (in computational space)
 
           if (wall.eq.3) then
-            rl(1,is:ie,1) = vl(1,is:ie,1) - (4.0*vl(1,is:ie,2) - 6.0*vl(1,is:ie,3) + &
-                                     4.0*vl(1,is:ie,4) -     vl(1,is:ie,5) )
+            rl(1,is:ie,1) = vl(1,is:ie,1) - &
+                            (4.0*vl(1,is:ie,2) - 6.0*vl(1,is:ie,3) + &
+                             4.0*vl(1,is:ie,4) -     vl(1,is:ie,5) )
           end if
 
 !.... isothermal wall
@@ -90,13 +91,17 @@
 
           if (wallt.eq.1) then
 !           if (wall.eq.3) then
-!             rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + gc2 * vl(ndof,is:ie,2) + &
-!                            gc3 * vl(ndof,is:ie,3) + gc4 * vl(ndof,is:ie,4) + &
-!                            gc5 * vl(ndof,is:ie,5) - twp
+!             rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + &
+!                                gc2 * vl(ndof,is:ie,2) + &
+!                                gc3 * vl(ndof,is:ie,3) + &
+!                                gc4 * vl(ndof,is:ie,4) + &
+!                                gc5 * vl(ndof,is:ie,5) - twp
 !           else
-              rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + gc2 * vl(ndof,is:ie,2) + &
-                             gc3 * vl(ndof,is:ie,3) + gc4 * vl(ndof,is:ie,4) + &
-                             gc5 * vl(ndof,is:ie,5)
+              rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + &
+                                 gc2 * vl(ndof,is:ie,2) + &
+                                 gc3 * vl(ndof,is:ie,3) + &
+                                 gc4 * vl(ndof,is:ie,4) + &
+                                 gc5 * vl(ndof,is:ie,5)
 !           end if
           end if
 
@@ -105,8 +110,10 @@
 !....     rl(2,is:ie,1) = wall tangent momentum
 !....     rl(3,is:ie,1) = wall normal velocity
         
-          rl(2,is:ie,1) =  ( bnb(is:ie,2) * rl(2,is:ie,1) - bnb(is:ie,1) * rl(3,is:ie,1) )        
-          rl(3,is:ie,1) = -( bnb(is:ie,1) * vl(2,is:ie,1) + bnb(is:ie,2) * vl(3,is:ie,1) )
+          rl(2,is:ie,1) =  ( bnb(is:ie,2) * rl(2,is:ie,1) - &
+                             bnb(is:ie,1) * rl(3,is:ie,1) )        
+          rl(3,is:ie,1) = -( bnb(is:ie,1) * vl(2,is:ie,1) + &
+                             bnb(is:ie,2) * vl(3,is:ie,1) )
 
         end if   ! Navier
 !=============================================================================!
@@ -138,7 +145,8 @@
             ! c3(i) = exp( im * kk * x(i,ny) )
             ! c3(i) = exp( -a * (x(i,ny) - x0) ) * exp( im * kk * x(i,ny) )
             ! c3(i) = wamp(i) * exp( im * kk * x(ny,i) )
-            c3(i) = wamp(i) * exp( -a * (x(i,ny) - x0) ) * exp( im * kk * x(i,ny) )
+            c3(i) = wamp(i) * exp( -a * (x(i,ny) - x0) ) * &
+                              exp( im * kk * x(i,ny) )
           end do
 
           rl(1,:,ny) = -(vl(1,:,ny) - pt5 * c3 / cm**2)
@@ -260,7 +268,7 @@
 
           deallocate( rhom, tm, cm, um, c3 )
 
-        else if (left.eq.7) then           ! symmetry boundary
+        else if (left.eq.7) then          ! symmetry boundary
 
         end if
 

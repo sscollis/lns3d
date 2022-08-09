@@ -331,7 +331,8 @@
 !.... Add density extrapolation
 
           if (wall.eq.3) then
-
+            write(*,*) "Should density extrapolation be here..."
+            call exit(1)
           end if
 
         end if  ! Navier
