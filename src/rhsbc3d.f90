@@ -44,15 +44,15 @@
         
 !.... no-slip boundary condition
 
-!!$       if (wall.eq.3) then
-!!$         rl(2,is:ie,1) = -(vl(2,is:ie,1) - u1w)
-!!$         rl(3,is:ie,1) = -(vl(3,is:ie,1) - u2w)
-!!$         rl(4,is:ie,1) = -(vl(4,is:ie,1) - u3w)
-!!$       else
+          if (wall.eq.3) then
+            rl(2,is:ie,1) = -(vl(2,is:ie,1) - u1w)
+            rl(3,is:ie,1) = -(vl(3,is:ie,1) - u2w)
+            rl(4,is:ie,1) = -(vl(4,is:ie,1) - u3w)
+          else
             rl(2,is:ie,1) = -(vl(2,is:ie,1) - zero)
             rl(3,is:ie,1) = -(vl(3,is:ie,1) - zero)
             rl(4,is:ie,1) = -(vl(4,is:ie,1) - zero)
-!!$       end if
+          end if
 
 !.... density boundary condition
 
@@ -80,29 +80,29 @@
 !.... isothermal wall
 
           if (wallt.eq.0) then
-!           if (wall.eq.3) then
-!             rl(ndof,is:ie,1) = -(vl(ndof,is:ie,1) - tw)
-!           else
+            if (wall.eq.3) then
+              rl(ndof,is:ie,1) = -(vl(ndof,is:ie,1) - tw)
+            else
               rl(ndof,is:ie,1) = zero
-!           end if
+            end if
           end if
 
 !.... adiabatic boundary condition
 
           if (wallt.eq.1) then
-!           if (wall.eq.3) then
-!             rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + &
-!                                gc2 * vl(ndof,is:ie,2) + &
-!                                gc3 * vl(ndof,is:ie,3) + &
-!                                gc4 * vl(ndof,is:ie,4) + &
-!                                gc5 * vl(ndof,is:ie,5) - twp
-!           else
+            if (wall.eq.3) then
+              rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + &
+                                 gc2 * vl(ndof,is:ie,2) + &
+                                 gc3 * vl(ndof,is:ie,3) + &
+                                 gc4 * vl(ndof,is:ie,4) + &
+                                 gc5 * vl(ndof,is:ie,5) - twp
+            else
               rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + &
                                  gc2 * vl(ndof,is:ie,2) + &
                                  gc3 * vl(ndof,is:ie,3) + &
                                  gc4 * vl(ndof,is:ie,4) + &
                                  gc5 * vl(ndof,is:ie,5)
-!           end if
+            end if
           end if
 
         else     ! inviscid

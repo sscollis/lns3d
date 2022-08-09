@@ -45,15 +45,15 @@
 
 !.... no slip wall
 
-!!$     if (wall.eq.3) then   ! bump
-!!$       vl(2,:,1) = u1w
-!!$       vl(3,:,1) = u2w
-!!$       vl(4,:,1) = u3w
-!!$     else
+        if (wall.eq.3) then   ! bump
+          vl(2,:,1) = u1w
+          vl(3,:,1) = u2w
+          vl(4,:,1) = u3w
+        else
           vl(2,is:ie,1) = zero
           vl(3,is:ie,1) = zero
           vl(4,is:ie,1) = zero
-!!$     end if
+        end if
 
 !.... set drho/dy = 0 which implies dp/deta = 0
 
@@ -73,7 +73,7 @@
 !.... Third order extrapolation to the wall for density
 !.... (in computational space)
 
-        if (wall.eq.3) then
+        if (wall.eq.3) then     ! bump
           vl(1,is:ie,1) = 4.0*vl(1,is:ie,2) - 6.0*vl(1,is:ie,3) + &
                           4.0*vl(1,is:ie,4) - vl(1,is:ie,5)
         end if
@@ -81,30 +81,30 @@
 !.... isothermal wall
 
         if (wallt.eq.0) then
-!         if (wall.eq.3) then   ! bump
-!           vl(ndof,is:ie,1) = tw
-!         else
+          if (wall.eq.3) then   ! bump
+            vl(ndof,is:ie,1) = tw
+          else
             vl(ndof,is:ie,1) = zero
-!         end if
+          end if
         end if
 
 !.... adiabatic temperature ( dT/deta = 0 )
 
         if (wallt.eq.1) then
-!         if (wall.eq.3) then   ! bump
-!           if (carp) then      ! Carpenter's stencil
-!             vl(ndof,is:ie,1) = ( twp - ( gg2 * vl(ndof,is:ie,2)  + &
-!                                          gg3 * vl(ndof,is:ie,3)  + &
-!                                          gg4 * vl(ndof,is:ie,4)  + &
-!                                          gg5 * vl(ndof,is:ie,5)  + &
-!                                          gg6 * vl(ndof,is:ie,6)  ) ) / gg1
-!           else
-!             vl(ndof,is:ie,1) = ( twp - ( gc2 * vl(ndof,is:ie,2)  + &
-!                                          gc3 * vl(ndof,is:ie,3)  + &
-!                                          gc4 * vl(ndof,is:ie,4)  + &
-!                                          gc5 * vl(ndof,is:ie,5)  ) ) / gc1
-!           end if        
-!         else                  ! no bump
+          if (wall.eq.3) then   ! bump
+            if (carp) then      ! Carpenter's stencil
+              vl(ndof,is:ie,1) = ( twp - ( gg2 * vl(ndof,is:ie,2)  + &
+                                           gg3 * vl(ndof,is:ie,3)  + &
+                                           gg4 * vl(ndof,is:ie,4)  + &
+                                           gg5 * vl(ndof,is:ie,5)  + &
+                                           gg6 * vl(ndof,is:ie,6)  ) ) / gg1
+            else
+              vl(ndof,is:ie,1) = ( twp - ( gc2 * vl(ndof,is:ie,2)  + &
+                                           gc3 * vl(ndof,is:ie,3)  + &
+                                           gc4 * vl(ndof,is:ie,4)  + &
+                                           gc5 * vl(ndof,is:ie,5)  ) ) / gc1
+            end if        
+          else                  ! no bump
             if (carp) then      ! Carpenter's stencil
               vl(ndof,is:ie,1) = -( gg2 * vl(ndof,is:ie,2)  + &
                                     gg3 * vl(ndof,is:ie,3)  + &
@@ -117,7 +117,7 @@
                                     gc4 * vl(ndof,is:ie,4)  + &
                                     gc5 * vl(ndof,is:ie,5)  ) / gc1
             end if
-!         end if
+          end if
         end if
 
         else    ! inviscid:  zero the wall-normal velocity

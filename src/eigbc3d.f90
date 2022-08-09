@@ -58,10 +58,10 @@
 !.... no-slip boundary condition
 
           if (wall.eq.3) then
-!!$         rl(2,is:ie,1) = -(vl(2,is:ie,1) - u1w)
-!!$         rl(3,is:ie,1) = -(vl(3,is:ie,1) - u2w)
-!!$         rl(4,is:ie,1) = -(vl(4,is:ie,1) - u3w)
-!!$       else
+            rl(2,is:ie,1) = -(vl(2,is:ie,1) - u1w)
+            rl(3,is:ie,1) = -(vl(3,is:ie,1) - u2w)
+            rl(4,is:ie,1) = -(vl(4,is:ie,1) - u3w)
+          else
             rl(2,is:ie,1) = -(vl(2,is:ie,1) - zero)
             rl(3,is:ie,1) = -(vl(3,is:ie,1) - zero)
             rl(4,is:ie,1) = -(vl(4,is:ie,1) - zero)
@@ -81,13 +81,17 @@
 
           if (wallt.eq.1) then
             if (wall.eq.3) then
-              rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + gc2 * vl(ndof,is:ie,2) + &
-                             gc3 * vl(ndof,is:ie,3) + gc4 * vl(ndof,is:ie,4) + &
-                             gc5 * vl(ndof,is:ie,5) - twp
+              rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + &
+                                 gc2 * vl(ndof,is:ie,2) + &
+                                 gc3 * vl(ndof,is:ie,3) + &
+                                 gc4 * vl(ndof,is:ie,4) + &
+                                 gc5 * vl(ndof,is:ie,5) - twp
             else
-              rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + gc2 * vl(ndof,is:ie,2) + &
-                             gc3 * vl(ndof,is:ie,3) + gc4 * vl(ndof,is:ie,4) + &
-                             gc5 * vl(ndof,is:ie,5)
+              rl(ndof,is:ie,1) = gc1 * vl(ndof,is:ie,1) + &
+                                 gc2 * vl(ndof,is:ie,2) + &
+                                 gc3 * vl(ndof,is:ie,3) + &
+                                 gc4 * vl(ndof,is:ie,4) + &
+                                 gc5 * vl(ndof,is:ie,5)
             end if
           end if
 
@@ -96,8 +100,10 @@
 !....     rl(2,is:ie,1) = wall tangent momentum
 !....     rl(3,is:ie,1) = wall normal velocity
         
-          rl(2,is:ie,1) =  ( bnb(is:ie,2) * rl(2,is:ie,1) - bnb(is:ie,1) * rl(3,is:ie,1) )        
-          rl(3,is:ie,1) = -( bnb(is:ie,1) * vl(2,is:ie,1) + bnb(is:ie,2) * vl(3,is:ie,1) )
+          rl(2,is:ie,1) =  ( bnb(is:ie,2) * rl(2,is:ie,1) - &
+                             bnb(is:ie,1) * rl(3,is:ie,1) )        
+          rl(3,is:ie,1) = -( bnb(is:ie,1) * vl(2,is:ie,1) + &
+                             bnb(is:ie,2) * vl(3,is:ie,1) )
 
         end if   ! Navier
 !=============================================================================!
