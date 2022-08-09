@@ -29,7 +29,7 @@
         logical :: bexist=.false., becho=.false., boutput=.true.
         character(80) :: bfile="bump.nml"
 
-        namelist /bumpInput/ bmu, bsigma, btype, bfile, becho
+        namelist /bumpInput/ bmu, bsigma, btype, bfile, becho, boutput
 !=============================================================================!
             
 !.... read the mean and standard deviation from the bump.inp file
