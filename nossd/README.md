@@ -1,3 +1,5 @@
+# Original Reference Version of LNS3D
+
 8-28-96
 
 LNS3D: 3D unsteady compressible, linearized Navier--Stokes code 
