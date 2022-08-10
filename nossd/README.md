@@ -1,4 +1,4 @@
-# Original Reference Version of LNS3D
+# Original No-SSD Reference Version of LNS3D
 
 This version does not use the Cray SSD but otherwise can run on 
 current CPUs.
