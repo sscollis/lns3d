@@ -3,7 +3,7 @@
 1.0e5                           ! Re number
 0.0, 0.0                        ! Pref, Tref
 1.0                             ! Pr number
-0.005 20.0                      ! Delt, CFL
+0.005 10.0                      ! Delt, CFL
 4000                            ! nstep
 -1 -1                           ! optx, opty
 .false. .false.                 ! xper, yper
@@ -17,7 +17,7 @@
 0.0, 0.0                        ! omega, X0
 0                               ! idamp (0 = off)
 50.0, 3, 0.8, 1.0               ! As, Ns, xs, xt (Outflow sponge)
-10.0, 3, 0.2, 0.0               ! As, Ns, xs, xt (Inflow sponge)
+00.0, 3, 0.2, 0.0               ! As, Ns, xs, xt (Inflow sponge)
 -1                              ! extrap (-1 = off)
 35.0                            ! theta (sweep angle)
 .false. .false. .false.         ! tflag, fflag, sflag
