@@ -5,6 +5,9 @@ current CPUs.
 
 Do use with caution as it is not routinely tested.
 
+Note:  
+  1.  The input specification has changed for the current version in ‘src‘ so beware incompatibilities.
+
 S. Scott Collis\
 flow.physics.simulation@gmail.com
 
