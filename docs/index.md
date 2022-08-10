@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Linearized Navier-Stokes 3D (LNS3D) solver 
+# Linearized Navier-Stokes 3D (LNS3D)
 
 This is a collection of codes designed to work together to help analyize 
 and explore fluid mechanics for both incompresible and compressible flows.
