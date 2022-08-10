@@ -3,6 +3,7 @@
 # exit if any command fails
 #
 set -e
+#
 #=============================================================================
 #     L i n e a r i z e d   N a v i e r - S t o k e s   D r i v e r
 #=============================================================================
@@ -56,14 +57,14 @@ echo
 #
 # change names to prepare for LNS run
 #
-\mv output.R.0 mean.R.0
-\cp mean.R.0 mean.dat
+\mv -f output.R.0 mean.R.0
+\cp -f mean.R.0 mean.dat
 #
 # visualize the mean solution
 #
 $LNS3D_DIR/util/npost -t -Wc mean.R.0
 #
-\rm output.[Rhq].*
+\rm -f output.[Rhq].*
 $LNS3D_DIR/util/mkdist3d << EOF
 Z
 EOF
