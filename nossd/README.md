@@ -5,6 +5,9 @@ current CPUs.
 
 Do use with caution as it is not routinely tested.
 
+S. Scott Collis\
+flow.physics.simulation@gmail.com
+
 ---
 8-28-96
 
