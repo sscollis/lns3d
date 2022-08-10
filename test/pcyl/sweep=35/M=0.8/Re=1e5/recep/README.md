@@ -24,7 +24,7 @@ The interplated mean solution:
 
 The disturbance solution for the forced surface roughness:
 
-![Disturbance Spanwise Velocity](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/recep/u-.png)
+![Disturbance Spanwise Velocity](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/recep/v-bump.png)
 
 The disturbance kinetic energy to be compared with Fig. 5.50 of Collis PhD
 thesis on p.158 (see `docs` for a copy).
