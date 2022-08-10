@@ -13,3 +13,5 @@ LNS3D supports a range of linear analyses including 2d, 2d3c, and 3d (single mod
 
 In addition, there is support for nonlinear analysis for 2d steady and unsteady flows that is used to compute base flow solutions for subsequent linear analysis. 
 
+S. Scott Collis\
+flow.physics.simulation@gmail.com
