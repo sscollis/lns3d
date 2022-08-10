@@ -16,11 +16,13 @@ In addition, there is support for nonlinear analysis for 2d steady and
 unsteady flows that is used to compute base flow solutions for subsequent 
 linear analysis. 
 
-## Primary Example: Crossflow Instabilty and Receptivity
+## Example: Crossflow Instabilty and Receptivity
 
 The most thorough example of using LNS3D replicates a number of the 
-calculations in Chapter 5 of Collis' PhD thesis for a crossflow instabilty
-and receptivity for a swept parabolic cylinder
+calculations in Chapter 5 of Collis' PhD thesis for crossflow instabilty
+and receptivity on a swept parabolic cylinder.  This geometry mimics the
+leading-edge of a swept airfoil but providing an extended region of crossflow
+instability growth to explore both curvature and nonparallel effects.
   1. [Compressible potential flow](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/README.md) at $M=0.8$
   2. [Viscous mean flow](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/README.md) at $Re=10^5$, $Pr=1$ with sweep angle of $\theta=35^\circ$
   3. [Linear stability theory (LST)](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lst/README.md) at various spanwise wavenumbers with inclusion of both curvature and nonparallel effects 
