@@ -3,7 +3,6 @@
 !
 !  generate the wall bump
 !
-!  \todo The gradients must be in transformed to physical space 
 !=============================================================================!
         use stuff
         use bump
@@ -11,7 +10,7 @@
         
         real :: g1v(ny,nx,ndof), g2v(ny,nx,ndof)
         real :: g11v(ny,nx,ndof), g12v(ny,nx,ndof), g22v(ny,nx,ndof)
-        character*80 ::code='GenBump$'
+        character(80) ::code='GenBump$'
 
         integer :: i
         real :: s(nx)
@@ -19,9 +18,6 @@
         real :: bmu=0.7, bsigma=0.05
         integer :: btype
 !=============================================================================!
-        
-        call error('genbump$','Fix gradients before use$')
-        
         allocate( hw(nx) )
             
 !.... read the mean and standard deviation from the bump.dat file
