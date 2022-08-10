@@ -5,11 +5,11 @@
 !       compressible NS equations 
 !
 ! Input:
-!   vl:    The field for which the matrices are computed
-!   kzl:   The local spanwise wave number
+!       vl:    The field for which the matrices are computed
+!       kzl:   The local spanwise wave number
 !
 ! Output:
-!   matrices:  Stored on the SSD
+!       matrices:  Stored on the SSD
 !
 !       Revised: 5-10-95
 !
@@ -33,6 +33,10 @@
 !
 !       1) Switched indices
 !
+!       Revised: 8/9/22
+!
+!       1) Fixed bump
+!
 !=============================================================================!
         use global
         use local2d
@@ -41,7 +45,7 @@
         use material
         implicit none
         
-        real    :: vl(ndof,nx,ny), rl(ndof,nx,ny), kzl
+        real :: vl(ndof,nx,ny), rl(ndof,nx,ny), kzl
 !=============================================================================!
         integer ier, i, j, idof
         character(80) :: name, code='genmtrx$'
@@ -93,10 +97,8 @@
           call calcp( vl, g2v, m1, m2, n1, n2, gpr )
         end if
        
-#if 1 
         if (linear.eq.1 .and. wall.eq.3) &
           call genbump( g1v, g2v, g11v, g12v, g22v )
-#endif
 
 !$omp parallel do private &
 !$omp (i,idof,rho,u1,u2,u3,t,rhoinv,p,g1divu,g2divu,s1jj,s2jj,&
@@ -272,11 +274,6 @@ loop_i: do i = 1, nx
           gp(1) = damp(i,j) * gp(1) + (one-damp(i,j)) * gpr(1,i,j)
           gp(2) = damp(i,j) * gp(2) + (one-damp(i,j)) * gpr(2,i,j)
         end if
-
-#if 0        
-        if (linear.eq.1 .and. wall.eq.3) &
-          call genbump( g1v, g2v, g11v, g12v, g22v )
-#endif
 
 !==========================================================================!
 !                       N O N L I N E A R   R H S

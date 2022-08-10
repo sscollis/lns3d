@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# exit if any command fails
+#
+set -e
 #=============================================================================
 #     L i n e a r i z e d   N a v i e r - S t o k e s   D r i v e r
 #=============================================================================
@@ -37,7 +41,10 @@ EOF
 # now interpolate the pre-computed reference mean solution to the new
 # body-fitted mesh for the LNS calculation
 #
-$LNS3D_DIR/mesh/interpc -x3 -y3 -o -p -ij <<EOF
+echo '==============================================================='
+echo '      I n t e r p l o l a t i n g   M e a n   F l o w          '
+echo '==============================================================='
+time $LNS3D_DIR/mesh/interpc -x3 -y3 -o -p -ij <<EOF
 ../ref/grid.dat
 ../ref/mean.R.0
 
@@ -45,6 +52,7 @@ $LNS3D_DIR/mesh/interpc -x3 -y3 -o -p -ij <<EOF
 0.001 7 .75
 
 EOF
+echo
 #
 # change names to prepare for LNS run
 #
