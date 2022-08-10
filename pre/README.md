@@ -18,4 +18,4 @@ Directory  |   Description
 There is a symbolic link `src -> src_ij` as the version to use.
 
 S. Scott Collis\
-flow.phyaics.simulation@gmail.com
+flow.physics.simulation@gmail.com
