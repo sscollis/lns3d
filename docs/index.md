@@ -16,15 +16,21 @@ In addition, there is support for nonlinear analysis for 2d steady and
 unsteady flows that is used to compute base flow solutions for subsequent 
 linear analysis. 
 
-## Example
+## Primary Example: Crossflow Instabilty and Receptivity
 
 The most thorough example of using LNS3D replicates a number of the 
-calculations in Chapter 5 of Collis' PhD thesis for a Parabolic Cylinder
+calculations in Chapter 5 of Collis' PhD thesis for a crossflow instabilty
+and receptivity for a swept parabolic cylinder
   1. [Compressible potential flow](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/README.md) at $M=0.8$
   2. [Viscous mean flow](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/README.md) at $Re=10^5$, $Pr=1$ with sweep angle of $\theta=35^\circ$
   3. [Linear stability theory (LST)](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lst/README.md) at various spanwise wavenumbers with inclusion of both curvature and nonparallel effects 
-  5. Comparison of [Linearized Navier-Stokes](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lns/README.md) with LST.
-  6. Receptivity to a linearized Gaussian [surface roughness](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/recep/README.md)
+  5. Comparison of direct [Linearized Navier-Stokes](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/lns/README.md) computations with with LST where the crossflow instability eigenfunction is forced on the 
+inflow to an LNS calculation.
+  6. There is also a [small LNS calculation](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/short/README.md) that is helpful
+for quick experimentation, again for a forced eigenfunction on the inflow
+boundary..
+  7. Receptivity to a linearized Gaussian [surface roughness](https://github.com/sscollis/lns3d/blob/master/test/pcyl/sweep=35/M=0.8/Re=1e5/recep/README.md) 
+is the capstone example calculation.
 
 ## Other Test Cases
 
