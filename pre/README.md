@@ -13,7 +13,6 @@ Directory  |   Description
 -----------|----------------------------------------------------------------
 `src_org`  |  The original version working in `JIK` ordering with B-splines
 `src_ij`   |  Updated to use `KIJ` ordering but with no B-spline support
------------|----------------------------------------------------------------
 
 There is a symbolic link `src -> src_ij` as the version to use.
 
