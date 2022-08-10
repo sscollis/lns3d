@@ -4,8 +4,9 @@ layout: default
 
 # Linearized Navier-Stokes 3D (LNS3D)
 
-This is a collection of codes designed to work together to help analyize 
-and explore fluid mechanics for both incompresible and compressible flows.
+LNS3D is part of the [Flow Physics & Simularion (FPS)](https://flow-physics-simulation.github.io/flow-physics-simulation/) suite of codes designed to work together to help analyize and explore fluid mechanics for both incompresible and compressible flows.  Specifically, LNS3D solves the linear (and nonlinear) compressible Navier-Stokes equations in curvalinear coordinates.   In general, linear solutions are 2d3c (harmonic in $z$) and either harmonic in $t$ or fully transient in $t$.   Nonlinear solutions are 2d in $(x,y)$ and either steady or unsteady in $t$.
+
+LNS3D has a number of mesh generators and utilities that support the core calculations as well as the other codes in the FPS Suite.
 
 ## Types of analyses
 
