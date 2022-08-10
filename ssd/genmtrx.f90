@@ -37,7 +37,7 @@
         logical :: comp
 !=============================================================================!
         integer ier, i, j, idof, ji
-        character*80 name
+        character(80) :: name
         real :: fact
         logical :: carp
 

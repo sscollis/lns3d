@@ -10,7 +10,7 @@
         
         real :: g1v(ny,nx,ndof), g2v(ny,nx,ndof)
         real :: g11v(ny,nx,ndof), g12v(ny,nx,ndof), g22v(ny,nx,ndof)
-        character(80) ::code='GenBump$'
+        character(80) :: code='GenBump$'
 
         integer :: i
         real :: s(nx)
