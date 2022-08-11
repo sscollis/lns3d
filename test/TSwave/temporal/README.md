@@ -6,4 +6,4 @@
 of vertical velocity.</p>
 
 S. Scott Collis\
-sscollis@gmail.com 
+flow.physics.simulation@gmail.com 
