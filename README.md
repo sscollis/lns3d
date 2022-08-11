@@ -1,21 +1,25 @@
 # LNS3D compressible Navier-Stokes Solver
 
-<p align=center>
-<img src=https://github.com/sscollis/lns3d/blob/master/docs/vortex.gif>
-<br>Compressible vortex rebound from a solid wall</p>
+LNS3D is part of the [Flow Physics & Simulation](https://flow-physics-simulation.github.io/flow-physics-simulation) code suite of fluid mechanics
+analysis codes to explore linear and nonlinear phenomena, primarily for 
+compressible flows..
+
+The main [LNS3D web-site](https://sscollis.github.io/lns3d/) describes the 
+overall capability and there are numerous `README.md` files (including 
+this one) that describe specific capabilities, codes, and test cases.
 
 ## Background
 
-Solves the compressible Navier-Stokes equations with 3-components (u,v,w)
+LNS3D solves the compressible Navier-Stokes equations with 3-components (u,v,w)
 and 2.5 dimensions (x,y,z) were the solution must be a single Fourier mode.
 
 LNS3d uses a fourth-order finite-difference method and is generally designed 
 to resolve highly sensitive flow phenomena such as aero-acoustics, receptivity
 and linear instability.
 
-LNS3D can also solve both linear and nonlinear 2.5d-3c problems depending on the 
-problem setup but the code is specifically designed to solve for perturbations
-on a baseflow to increase the fidelity of the solution.
+LNS3D can also solve both linear and nonlinear 2.5d-3c problems depending on 
+the problem setup but the code is specifically designed to solve for 
+perturbations on a baseflow to increase the fidelity of the solution.
 
 ## Building
 
@@ -54,6 +58,12 @@ Finally, the `test` directory contines several examples demonstrating
 workflows and capabilities of `lns3d` that can both help assess that 
 your build are working correctly and show new users how to setup and
 run problems.
+
+## Example Calculation
+
+<p align=center>
+<img src=https://github.com/sscollis/lns3d/blob/master/docs/vortex.gif>
+<br>Compressible vortex rebound from a solid wall</p>
 
 ---
 
