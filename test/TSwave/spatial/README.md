@@ -34,4 +34,4 @@ The eigenfunction from `stab` is located in `efun.pro`
    to be correct for that case?
 
 S. Scott Collis\
-sscollis@gmail.com
+flow.physics.simulation@gmail.com
