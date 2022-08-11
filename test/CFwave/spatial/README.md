@@ -27,4 +27,4 @@ The wavelength in the streamwise direction is $\lambda_x = 21.792429906047406$
 and in the crossflow direction $\lambda_z = 17.95195802051310$
 
 S. Scott Collis\
-sscollis@gmail.com
+flow.physics.simulation@gmail.com
