@@ -1,11 +1,16 @@
-# Crossflow test case from Collis PhD thesis, Ch. 4
+# Crossflow test case from Collis' PhD thesis, Ch. 4
 
+Here we summarize the parameters for both temporal and spatial crossflow instabilty in a 
+mildly compressible $M=0.3$ Falkner-Skan-Cooke boundary layer swept at $\theta=45^\circ$.  
+Additional parameters are:
 ```bash
 M = 0.3, Re = 400, Pr = 1.0
 theta = 45
 beta_h = 1
 T_w = T_0 
 ```
+Temporal and Spatial parameters are summarized below.  Please see the individual `README.md` in each directory 
+for more details.
 
 ## Temporal case:
 ```bash
@@ -34,4 +39,4 @@ N_x = 201 N_y = 127
 ```
 
 S. Scott Collis\
-sscollis@gmail.com
+flow.physics.simulation@gmail.com
