@@ -5,4 +5,4 @@ $Re_{\delta_1}=1000$, $Pr = 1$ with a Blasius boundary layer computing
 using the compressible Falkner-Skan-Cooke equations and the code `fsc`.
 
 S. Scott Collis\
-sscollis@gmail.com
+flow.physics.simulation@gmail.com
