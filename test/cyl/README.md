@@ -29,4 +29,4 @@ To run, simply use the script (checking the paths to various executables).
    but it is possible that the instability could arise.
 
 S. Scott Collis\
-sscollis@gmail.com
+flow.physics.simulation@gmail.com
