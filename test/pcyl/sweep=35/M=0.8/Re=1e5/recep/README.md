@@ -37,6 +37,18 @@ env LNS3D_DIR=$HOME/git/lns3d ./run.sh
 to override the default value of `LNS3D_DIR` to whereever you have installed
 LNS3D.  You can return the setup to its original state using `cleanup.sh`.
 
+## Plotting
+
+There are a number of Gnuplot scripts, `*.com`, available but to compare to 
+Collis' thesis Fig. 5.50 you can do
+```bash
+gnuplot dke.com
+pdflatex plot
+open plot.pdf
+```
+Note that `open` launches the right application on MacOS (Preview) whereas 
+you my need to launch another app (Ghostscript or Acrobat) on other platforms.
+
 ## Results
 
 The interplated mean solution:
