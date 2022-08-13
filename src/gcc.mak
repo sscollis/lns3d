@@ -63,6 +63,10 @@ expdrv3d.o rk3d.o rkbc3d.o lhs2f3d.o fstat3d.o potential.o genbump.o	\
 smoother3d.o misc.o rhs_l.o rpenta1p.o rpenta2p.o rpenta1bc.o rpenta2bc.o \
 lwallbc.o wallbc.o gena_n.o genb_n.o gena_l.o genb_l.o
 
+ifdef USE_INTERNAL_SECOND
+  OBJS += second.o
+endif
+
 ifdef USE_ARPACK
   OBJS += ZnaupdClass.o ZneupdClass.o si_eigdrv3d_new.o eigbc3d.o
 endif
