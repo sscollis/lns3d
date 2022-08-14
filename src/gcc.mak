@@ -21,9 +21,15 @@ F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEFINES) -c $(DEBUG)
 OFLAGS   = $(DEBUG) -o $(NAME)
 #LIB     = -L$(HOME)/local/OpenBLAS/lib -lopenblas
 LIB      = -L/usr/local/opt/openblas/lib -lopenblas
-FC       = gfortran
+#LIB      = -L/opt/homebrew/opt/openblas/lib -lopenblas
+#LIB      = -L/home/linuxbrew/.linuxbrew/opt/openblas/lib -lopenblas
 F77      = gfortran
+FC       = gfortran
 CC       = gcc
+#
+# Turn on by default
+#
+USE_INTERNAL_SECOND=1
 #
 #  Optionally use ARpack
 #
