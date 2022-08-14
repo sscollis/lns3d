@@ -1220,7 +1220,7 @@
 
 !.... Skip the attachment line (SSC)
 
-!#define NPOST_SKIP_AL=1
+#define NPOST_SKIP_AL=1
 #ifdef NPOST_SKIP_AL
         do i = 2, nx
 #else
