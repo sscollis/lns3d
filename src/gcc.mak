@@ -19,10 +19,17 @@ F77FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -ffixed-line-length-120 \
 -std=legacy $(DEFINES) -c $(DEBUG)
 F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEFINES) -c $(DEBUG)
 OFLAGS   = $(DEBUG) -o $(NAME)
-#LIB     = -L$(HOME)/local/OpenBLAS/lib -lopenblas
+ifdef USE_LOCAL_OPENBLAS
+LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas
+else ifdef USE_HOMEBREW_OPENBLAS
 LIB      = -L/usr/local/opt/openblas/lib -lopenblas
-#LIB      = -L/opt/homebrew/opt/openblas/lib -lopenblas
-#LIB      = -L/home/linuxbrew/.linuxbrew/opt/openblas/lib -lopenblas
+else ifdef USE_APPLEBREW_OPENBLAS
+LIB      = -L/opt/homebrew/opt/openblas/lib -lopenblas
+else ifdef USE_LINUXBREW_OPENBLAS
+LIB      = -L/home/linuxbrew/.linuxbrew/opt/openblas/lib -lopenblas
+else
+LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas
+endif
 F77      = gfortran
 FC       = gfortran
 CC       = gcc
