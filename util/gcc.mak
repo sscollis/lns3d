@@ -7,11 +7,20 @@
 #==============================================================================
 DEBUG  = -O2 -fopenmp
 FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -std=legacy \
-         -ffixed-line-length-120 $(DEFINES) $(DEBUG)
+-ffixed-line-length-120 $(DEFINES) $(DEBUG)
 F90FLAGS = -cpp -fdefault-real-8 -fdefault-double-8 $(DEBUG) $(DEFINES)
 OFLAGS = $(DEBUG)
-#LIB    = -L$(HOME)/local/OpenBLAS/lib -lopenblas
-LIB    = -L/usr/local/opt/openblas/lib -lopenblas
+ifdef USE_LOCAL_OPENBLAS
+LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas
+else ifdef USE_HOMEBREW_OPENBLAS
+LIB      = -L/usr/local/opt/openblas/lib -lopenblas
+else ifdef USE_APPLEBREW_OPENBLAS
+LIB      = -L/opt/homebrew/opt/openblas/lib -lopenblas
+else ifdef USE_LINUXBREW_OPENBLAS
+LIB      = -L/home/linuxbrew/.linuxbrew/opt/openblas/lib -lopenblas
+else
+LIB      = -L$(HOME)/local/OpenBLAS/lib -lopenblas
+endif
 ARPACK = -L/usr/local/lib -larpack
 SLATEC = -L../slatec/lib -lslatec
 FC     = gfortran
