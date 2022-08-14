@@ -68,13 +68,13 @@ jobs:
     #  run: cd slatec/src && make FC=gfortran-11 && make FC=gfortran-11 CC=gcc-11 install
       
     - name: build util
-      run: cd util && ln -s gcc.mak Makefile && make FC=gfortran-11 CC=gcc-11 F77=gfortran-11
+      run: cd util && ln -s gcc.mak Makefile && make FC=gfortran-11 CC=gcc-11 F77=gfortran-11 USE_HOMEBREW_OPENBLAS=1
       
     - name: configure LNS3d
       run: cd src && ln -s gcc.mak Makefile
       
     - name: build LNS3d
-      run: cd src && make CC=gcc FC=gfortran-11 CC=gcc-11 F77=gfortran-11
+      run: cd src && make CC=gcc FC=gfortran-11 CC=gcc-11 F77=gfortran-11 USE_HOMEBREW_OPENBLAS=1
       
     #- name: set path
     #  run: export PATH=$PATH:`pwd`/util && echo $PATH
