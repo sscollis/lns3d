@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 #
 # Execute git commands in a list of directories
 #
