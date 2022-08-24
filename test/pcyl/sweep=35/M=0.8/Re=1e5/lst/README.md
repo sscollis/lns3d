@@ -42,8 +42,10 @@ There are two `setup` scripts provided.
 ## $\beta$ Sweep
 
 A sweep in $\beta \in [25,175]$ is performed by runing the `stab-beta.sh` 
-script.  This script actually performed all the operations of `setup-pro.sh` 
-so it can be run without first executing that script.  
+script.  This script actually performes all the operations of `setup-pro.sh` 
+so it can be run independently without first executing the setup script.  If
+you have already run `setup-pro.sh`, you can execute `beta.sh` to just do
+the sweep in beta.
 
 ## Curvature and Nonparallel Effects
 
