@@ -24,13 +24,15 @@ make clean && make $@ && \
 #
 cd ../util && \
 \ln -fs gcc.mak Makefile && \
-make clean && make USE_NR=1 $@ && \
+make clean && make $@ && \
+#make clean && make USE_NR=1 $@ && \
 #
 # LNS3d meshers
 #
 cd ../mesh && \
 \ln -fs gcc.mak Makefile && \
-make clean && make USE_NR=1 $@ && \
+make clean && make $@ && \
+#make clean && make USE_NR=1 $@ && \
 #
 # LNS3d pre-processor
 #
